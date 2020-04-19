@@ -1,6 +1,6 @@
 ## by meceware
 
-Simple website for [wapy.dev](https://www.wapy.dev/)
+Simple website for [wapy.dev](https://www.wapy.dev/) and [wapy.app](https://www.wapy.app/)
 
 Developed with [Gatsby](https://www.gatsbyjs.org/) and TailwindCSS.
 

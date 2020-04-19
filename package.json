@@ -42,6 +42,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby clean && gatsby build",
+    "build-app": "set WAPY=app&& gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby clean && gatsby build && gatsby serve",

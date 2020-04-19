@@ -15,7 +15,7 @@ export default ( { data } ) => {
         <Section>
           <div className = 'w-full h-full sm:p-0 md:p-10 xl:p-24'>
             <div className = 'w-full md:mx-auto md:w-2/3 lg:w-1/2'>
-              <h1 className = 'text-center text-gray-800 text-4xl md:text-6xl font-bold'>wapy.dev</h1>
+              <h1 className = 'text-center text-gray-800 text-4xl md:text-6xl font-bold'>{ data.site.siteMetadata.title }</h1>
               <div className = 'relative shadow-2xl'>
                 <Img className = 'rounded-lg' fluid = { data.file.childImageSharp.fluid } />
               </div>
@@ -42,6 +42,13 @@ export const query = graphql`
       fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid
       }
+    }
+  }
+  site {
+    siteMetadata {
+      title
+      description
+      author
     }
   }
 }

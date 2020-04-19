@@ -1,10 +1,17 @@
+const smd = process.env['WAPY'] === 'app' ? {
+  title: `wapy.app`,
+  description: `Kick off your next, great project with us.`,
+  author: `@meceware`,
+  siteUrl: 'https://www.wapy.app',
+} : {
+  title: `wapy.dev`,
+  description: `Kick off your next, great project with us.`,
+  author: `@meceware`,
+  siteUrl: 'https://www.wapy.dev',
+};
+
 module.exports = {
-  siteMetadata: {
-    title: `Wapy.dev`,
-    description: `Kick off your next, great project with us.`,
-    author: `@meceware`,
-    siteUrl: 'https://www.wapy.dev',
-  },
+  siteMetadata: smd,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -21,7 +28,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'wapy.dev',
+        name: smd.title,
         short_name: 'wapy',
         start_url: '/',
         background_color: '#f2f2f2',
@@ -34,7 +41,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://www.wapy.dev/',
+        siteUrl: smd.siteUrl,
       },
     },
     {

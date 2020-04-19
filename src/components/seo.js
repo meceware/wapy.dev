@@ -19,6 +19,8 @@ const SEO = ( { description, lang, meta, keywords, title } ) => {
   const metaDescription = description || site.siteMetadata.description;
   const metaTitle = title || site.siteMetadata.title;
 
+  keywords.push( site.siteMetadata.title );
+
   return (
     <Helmet
       htmlAttributes = { {
@@ -43,7 +45,7 @@ const SEO = ( { description, lang, meta, keywords, title } ) => {
         },
         {
           property: 'og:site_name',
-          content: 'wapy.dev',
+          content: site.siteMetadata.title,
         },
         {
           name: 'twitter:card',
@@ -78,7 +80,6 @@ SEO.defaultProps = {
   lang: 'en-US',
   keywords: [
     'wapy',
-    'wapy.dev',
     'meceware',
     'freelance',
     'freelancer',

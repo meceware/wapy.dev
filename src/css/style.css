@@ -12,7 +12,6 @@ body, html {
 #site {
   min-width: 320px;
   @apply min-h-screen;
-  min-height: -webkit-fill-available;
 }
 
 .opacity-01 {opacity: .1;}

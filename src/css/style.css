@@ -2,7 +2,7 @@
 @tailwind base;
 
 body, html {
-  @apply bg-indigo-100;
+  background: #ebf4ff;
 }
 
 @tailwind components;

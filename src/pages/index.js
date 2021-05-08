@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 /* SEO */
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Section from '../components/section';
 
-export default ( { data } ) => {
+const IndexPage = ( { data } ) => {
   return (
     <Fragment>
       <SEO />
@@ -15,10 +15,8 @@ export default ( { data } ) => {
         <Section>
           <div className = 'w-full h-full sm:p-0 md:p-10 xl:p-24'>
             <div className = 'w-full md:mx-auto md:w-2/3 lg:w-1/2'>
-              <h1 className = 'text-center text-gray-800 text-4xl md:text-6xl font-bold'>{ data.site.siteMetadata.title }</h1>
-              <div className = 'relative shadow-2xl'>
-                <Img className = 'rounded-lg' fluid = { data.file.childImageSharp.fluid } />
-              </div>
+              <h1 className = 'text-center text-gray-700 text-4xl md:text-6xl font-bold py-6'>{ data.site.siteMetadata.title }</h1>
+              <GatsbyImage className = 'rounded-lg shadow-2xl' image = { data.file.childImageSharp.gatsbyImageData } alt = 'wapy' />
             </div>
           </div>
         </Section>
@@ -39,9 +37,12 @@ export const query = graphql`
   file(relativePath: {eq: "newspaper.jpg"}) {
     id
     childImageSharp {
-      fluid(maxWidth: 768) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(
+        layout: CONSTRAINED
+        width: 768
+        placeholder: BLURRED
+        formats: [AUTO, WEBP]
+      )
     }
   }
   site {
@@ -53,3 +54,5 @@ export const query = graphql`
   }
 }
 `;
+
+export default IndexPage;

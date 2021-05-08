@@ -20,11 +20,11 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-plugin-sharp',
     'gatsby-plugin-eslint',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-no-sourcemaps',
+    'gatsby-plugin-image',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -44,33 +44,17 @@ module.exports = {
         siteUrl: smd.siteUrl,
       },
     },
-    {
-      resolve: 'gatsby-plugin-advanced-sitemap',
-      options: {
-        exclude: [
-          '/dev-404-page',
-          '/404',
-          '/404.html',
-          '/offline-plugin-app-shell-fallback',
-        ],
-      },
-    },
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-postcss',
       options: {
         postCssPlugins: [
-          require( 'tailwindcss' )( './tailwind.config.js' ),
+          require( 'tailwindcss' ),
           require( 'autoprefixer' ),
           require( 'cssnano' ),
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        tailwind: true,
-        purgeOnly: [ 'src/css/style.css' ],
-      },
-    },
+    'gatsby-transformer-sharp',
   ],
-}
+};

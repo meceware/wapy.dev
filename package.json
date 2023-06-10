@@ -29,7 +29,7 @@
     "last 2 iOS major versions"
   ],
   "dependencies": {
-    "gatsby": "^3.4.2",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-canonical-urls": "^3.4.0",
     "gatsby-plugin-image": "^1.4.1",
     "gatsby-plugin-manifest": "^3.4.0",

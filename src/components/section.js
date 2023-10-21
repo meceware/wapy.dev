@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from "react"
 
-export default ( props ) => {
+const Section = ( props ) => {
   return (
     <section className = 'relative w-full py-2'>
       <div className = 'container mx-auto'>
@@ -9,3 +9,5 @@ export default ( props ) => {
     </section>
   );
 };
+
+export default Section;

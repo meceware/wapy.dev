@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react';
+import * as React from "react";
 
 /* SEO */
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import Link from '../components/link';
 
 const NotFoundPage = () => {
   return (
-    <Fragment>
-      <SEO />
+    <>
       <Layout>
         <Section>
           <div className = 'p-1 sm:p-6 lg:p-48'>
@@ -33,8 +32,10 @@ const NotFoundPage = () => {
           </div>
         </Section>
       </Layout>
-    </Fragment>
+    </>
   );
 };
+
+export const Head = () => <Seo title="Not Found" />;
 
 export default NotFoundPage;

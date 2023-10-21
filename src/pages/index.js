@@ -1,16 +1,14 @@
-import React, { Fragment } from 'react';
+import * as React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
 
-/* SEO */
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Layout from '../components/layout';
 import Section from '../components/section';
 
 const IndexPage = ( { data } ) => {
   return (
-    <Fragment>
-      <SEO />
+    <>
       <Layout>
         <Section>
           <div className = 'w-full h-full sm:p-0 md:p-10 xl:p-24'>
@@ -28,7 +26,7 @@ const IndexPage = ( { data } ) => {
           </svg>
         </a>
       </div>
-    </Fragment>
+    </>
   );
 };
 
@@ -54,5 +52,7 @@ export const query = graphql`
   }
 }
 `;
+
+export const Head = () => <Seo title="Home" />;
 
 export default IndexPage;

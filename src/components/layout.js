@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from "react"
 
-export default ( props ) => {
+const Layout = ( props ) => {
   return (
     <div id = 'site' className = 'flex flex-col relative px-4'>
       <main className = 'relative flex flex-auto content-center flex-wrap -mx-4 p-4' >
@@ -9,3 +9,5 @@ export default ( props ) => {
     </div>
   );
 };
+
+export default Layout;

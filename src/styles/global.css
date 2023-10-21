@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
+  background: #ebf4ff;
+}
+
+@tailwind components;
+/*! purgecss end ignore */
+@tailwind utilities;
+
+#site {
+  min-width: 320px;
+  @apply min-h-screen;
+}
+
+.opacity-01 {opacity: .1;}
+
+/* Additional vertical padding used by kbd tag. */
+.py-05 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}

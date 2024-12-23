@@ -1,12 +1,7 @@
-<p align="center">
-  <a href="https://www.wapy.dev" target="_blank">
-  </a>
-</p>
-
 <div align="center">
   <img src="./public/icon.png" alt="Logo" width="96"/>
   <h1><strong><a href="https://www.wapy.dev" target="_blank">Wapy.dev</a></strong></h1>
-  <h2 style="border-bottom: none;"><strong>Your ultimate subscription management tool</strong></h2>
+  <h2><strong>Your ultimate subscription management tool</strong></h2>
   <img src="./public/images/banner.png" alt="Banner" width="768px" />
 </div>
 

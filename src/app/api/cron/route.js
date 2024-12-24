@@ -6,7 +6,7 @@ import jsonwebtoken from 'jsonwebtoken';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { Resend } from 'resend';
 import { prisma } from '@/lib/prisma';
-import { SubscriptionGetNextFuturePaymentDate, SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
+import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
 import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
 

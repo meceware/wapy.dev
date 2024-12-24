@@ -7,7 +7,6 @@ import { prisma } from '@/lib/prisma';
 const authConfig = {
   adapter: PrismaAdapter(prisma),
   theme: { logo: '/icon.png' },
-  trustHost: true,
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,

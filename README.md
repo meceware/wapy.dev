@@ -48,10 +48,11 @@ environment variables automatically. To automatically generate the `.env` file, 
     ```bash
     # On Linux
     chmod +x ./scripts/setup.sh && ./scripts/setup.sh
+    # or
+    docker run --rm -v $(pwd):/app -w /app node:23.5-alpine sh -c "apk add --no-cache openssl su-exec && su-exec $(id -u):$(id -g) ./scripts/setup.sh"
 
     # On Windows
-    docker run --rm -v ${PWD}:/app -w /app node:lts-alpine sh -c "apk add
-    --no-cache bash openssl && bash ./scripts/setup.sh"
+    docker run --rm -v ${PWD}:/app -w /app node:23.5-alpine sh -c "apk add --no-cache openssl && ./scripts/setup.sh"
     ```
 
     - You will need to set Github, Google and Resend API keys in the `.env` file.

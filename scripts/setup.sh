@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Function to safely update env variable if it's empty
 update_env_var() {
@@ -33,9 +33,10 @@ update_env_var "SUBSCRIPTION_JWT_SECRET" "$(openssl rand -base64 32)" ".env"
 # Generate VAPID keys if either key is empty
 if ! grep -q "^NEXT_PUBLIC_VAPID_PUBLIC_KEY=.\+" ".env" || ! grep -q "^VAPID_PRIVATE_KEY=.\+" ".env"; then
     echo "Generating VAPID keys..."
-    VAPID_KEYS=$(node generate-vapid-keys.js)
-    PUBLIC_KEY=$(echo "$VAPID_KEYS" | grep "NEXT_PUBLIC_VAPID_PUBLIC_KEY=" | cut -d' ' -f2)
-    PRIVATE_KEY=$(echo "$VAPID_KEYS" | grep "VAPID_PRIVATE_KEY=" | cut -d' ' -f2)
+    VAPID_KEYS=$(npx --yes web-push generate-vapid-keys --json)
+    # echo "VAPID_KEYS: $VAPID_KEYS"
+    PUBLIC_KEY=$(echo $VAPID_KEYS | sed -n 's/.*"publicKey":"\([^"]*\)".*/\1/p')
+    PRIVATE_KEY=$(echo $VAPID_KEYS | sed -n 's/.*"privateKey":"\([^"]*\)".*/\1/p')
 
     update_env_var "NEXT_PUBLIC_VAPID_PUBLIC_KEY" "$PUBLIC_KEY" ".env"
     update_env_var "VAPID_PRIVATE_KEY" "$PRIVATE_KEY" ".env"

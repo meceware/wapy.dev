@@ -5,7 +5,6 @@ import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { auth } from '@/lib/auth';
 import { SchemaSubscriptionId, SchemaSubscriptionEdit } from '@/components/subscriptions/schema';
-import { fromZonedTime } from 'date-fns-tz';
 import { SubscriptionGetNextNotificationDate, SubscriptionGetNextPaymentDate } from '@/components/subscriptions/lib';
 
 export const SubscriptionGet = async (subscriptionId, userId) => {
@@ -133,8 +132,8 @@ export async function SubscriptionActionEdit(data) {
     enabled: parsedData.data.enabled,
     price: parseFloat(parsedData.data.price),
     currency: parsedData.data.currency,
-    paymentDate: fromZonedTime(parsedData.data.paymentDate, parsedData.data.timezone),
-    untilDate: parsedData.data.untilDate ? fromZonedTime(parsedData.data.untilDate, parsedData.data.timezone) : null,
+    paymentDate: parsedData.data.paymentDate,
+    untilDate: parsedData.data.untilDate,
     timezone: parsedData.data.timezone,
     cycle: parsedData.data.cycle,
     url: parsedData.data.url,

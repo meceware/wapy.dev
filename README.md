@@ -35,15 +35,13 @@ Wapy.dev is a subscription management platform that helps you track and manage y
 
 ## Getting Started
 
-### Quick Start
-
 1. Clone the repository
 
 1. On first run, you need to setup the environment variables. Please take a look
 at the `.env.example` file to see what variables you need to set.
 
     - The setup script will copy `.env.example` to `.env` and generate some of the
-environment variables automatically. To automatically generate the `.env` file, you can run the following script:
+environment variables automatically. To automatically generate the `.env` file, you can run the `setup.sh` script via following commands:
 
     ```bash
     # On Linux
@@ -57,10 +55,9 @@ environment variables automatically. To automatically generate the `.env` file, 
 
     - You will need to set Github, Google and Resend API keys in the `.env` file.
 
-1. Run `docker-compose -p wapydev up -d` to start the database and server. Default environment is `production`, but you can change it to `development` if you want to via `NODE_ENV` variable in the `.env` file.
+1. Run `docker compose -p wapydev up -d` to start the database and server. Default environment is `production`, but you can change it to `development` if you want to via `NODE_ENV` variable in the `.env` file.
 
-1. Visit `http://localhost:3000` in your browser to use the app.
-
+1. Visit `http://localhost:3000` or your site URL.
 
 ## Contributing
 

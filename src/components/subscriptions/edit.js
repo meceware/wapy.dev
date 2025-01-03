@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -11,8 +12,21 @@ import {
   FormItem,
   FormLabel,
 } from '@/components/ui/form'
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from '@/components/ui/accordion';
 import { Switch } from '@/components/ui/switch';
+import {
+  ResponsiveDialog,
+  ResponsiveDialogContent,
+  ResponsiveDialogHeader,
+  ResponsiveDialogFooter,
+  ResponsiveDialogTitle,
+  ResponsiveDialogDescription,
+} from '@/components/ui/responsive-dialog';
 import { SchemaSubscriptionEdit } from '@/components/subscriptions/schema';
 import { SubscriptionActionEdit, SubscriptionActionDelete } from '@/components/subscriptions/actions';
 import { FormFieldName } from '@/components/subscriptions/form/field-name';
@@ -32,6 +46,7 @@ import { toZonedTime, fromZonedTime } from 'date-fns-tz';
 import { Icons } from '@/components/icons';
 
 export const SubscriptionEdit = ({ user, subscription = undefined, categories = [] }) =>  {
+  const [dialogOpen, setDialogOpen] = useState(false);
   const form = useForm({
     resolver: zodResolver(SchemaSubscriptionEdit),
     defaultValues: {
@@ -227,7 +242,7 @@ export const SubscriptionEdit = ({ user, subscription = undefined, categories = 
               type='button'
               className='w-full sm:w-auto'
               variant='destructive'
-              onClick={onDelete}
+              onClick={() => setDialogOpen(true)}
             >
               <Icons.trash />
               Delete Subscription
@@ -235,6 +250,30 @@ export const SubscriptionEdit = ({ user, subscription = undefined, categories = 
           )}
         </div>
       </form>
+      <ResponsiveDialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <ResponsiveDialogContent>
+          <ResponsiveDialogHeader>
+            <ResponsiveDialogTitle>Delete Subscription</ResponsiveDialogTitle>
+            <ResponsiveDialogDescription className='text-left'>
+              Are you sure you want to delete this subscription? This action cannot be undone.
+            </ResponsiveDialogDescription>
+          </ResponsiveDialogHeader>
+          <ResponsiveDialogFooter>
+            <Button
+              variant='outline'
+              onClick={() => setDialogOpen(false)}
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={() => {setDialogOpen(false); onDelete();}}
+              variant='destructive'
+            >
+              Delete
+            </Button>
+          </ResponsiveDialogFooter>
+        </ResponsiveDialogContent>
+      </ResponsiveDialog>
     </Form>
   )
 }

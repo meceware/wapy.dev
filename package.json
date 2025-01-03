@@ -1,7 +1,7 @@
 {
   "name": "wapy.dev",
   "description": "Track, manage, and optimize your recurring expenses in one powerful and human readable dashboard. Never miss a payment again.",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

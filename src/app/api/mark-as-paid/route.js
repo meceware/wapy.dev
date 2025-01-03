@@ -6,7 +6,7 @@ import jsonwebtoken from 'jsonwebtoken';
 import { SubscriptionActionMarkAsPaid } from '@/components/subscriptions/actions';
 import { siteConfig } from '@/components/config';
 
-export async function GET(request) {
+const MarkAsPaidRoute = async (request) => {
   try {
     const token = request.nextUrl.searchParams.get('token');
     if (!token) {
@@ -41,4 +41,12 @@ export async function GET(request) {
     console.error('Error marking subscription as paid:', error);
     return NextResponse.json({error: 'Internal server error'}, { status: 500 });
   }
+}
+
+export async function GET(request) {
+  return MarkAsPaidRoute(request);
+}
+
+export async function POST(request) {
+  return MarkAsPaidRoute(request);
 }

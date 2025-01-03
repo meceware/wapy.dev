@@ -127,7 +127,7 @@ export const PushNotificationToggle = () => {
       }
 
       // Check if service worker is ready
-      if (!navigator.serviceWorker.ready) {
+      if (!navigator?.serviceWorker?.ready) {
         localStorageSet();
         return;
       }

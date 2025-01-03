@@ -1,0 +1,44 @@
+services:
+  db:
+    container_name: wapydev-db
+    image: postgres:17.2
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-wapydev}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB:-wapydev}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
+  app:
+    container_name: wapydev-app
+    image: node:23.5-alpine
+    restart: unless-stopped
+    environment:
+      - NEXT_TELEMETRY_DISABLED=1
+      - HOSTNAME=0.0.0.0
+      - PORT=3000
+    ports:
+      - '3000:3000'
+      - '5555:5555'
+    volumes:
+      - .:/app
+    working_dir: /app
+    entrypoint: >
+      /bin/sh -c 'chmod +x ./scripts/entrypoint.sh && ./scripts/entrypoint.sh'
+    depends_on:
+      - db
+
+  cron:
+    container_name: wapydev-cron
+    image: alpine:3.21
+    restart: unless-stopped
+    command: >
+      sh -c 'while true; do
+        /usr/bin/flock -n /tmp/wapy.lockfile wget -qO- app:3000/api/cron/;
+        sleep 60;
+      done'
+    depends_on:
+      - app

@@ -58,7 +58,6 @@ export function SignInForm() {
 
   const form = useForm({
     resolver: zodResolver(signInSchema),
-    // disabled: !!loginMethod,
     defaultValues: {
       email: '',
     },
@@ -137,6 +136,13 @@ export function SignInForm() {
             : <Icons.github className='mr-2 size-4' />
           }
           Login with Github
+        </Button>
+        <Button variant='outline' className='w-full' onClick={signInGoogle} disabled={!!loginMethod}>
+          {loginMethod === 'google2'
+            ? <Icons.spinner className='mr-2 size-4 animate-spin' />
+            : <Icons.google className='mr-2 size-4' />
+          }
+          Login with Google
         </Button>
       </CardContent>
     </Card>

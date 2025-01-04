@@ -10,7 +10,7 @@ export default function NotFound() {
         Oops! The page you&apos;re looking for doesn&apos;t exist.
       </p>
       <Link href='/'>
-        <Button variant='default'>
+        <Button variant='default' title='Back to Home'>
           <HomeIcon className='w-4 h-4 mr-2' />
           Back to Home
         </Button>

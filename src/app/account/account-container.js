@@ -134,6 +134,7 @@ const NotificationManager  = ({user}) => {
         onClick={handleSave}
         className='w-full sm:w-auto'
         disabled={loading}
+        title='Save notification preferences'
       >
         <Icons.save />
         Save Changes
@@ -193,6 +194,7 @@ const UserProfile = ({ user }) => {
                     size='sm'
                     className='w-full sm:w-auto'
                     disabled={loading}
+                    title='Save'
                   >
                     {loading ? (
                       <Icons.spinner className='animate-spin' />
@@ -207,6 +209,7 @@ const UserProfile = ({ user }) => {
                     size='sm'
                     className='w-full sm:w-auto'
                     disabled={loading}
+                    title='Cancel'
                   >
                     <Icons.x />
                     Cancel
@@ -222,6 +225,7 @@ const UserProfile = ({ user }) => {
                   variant='ghost'
                   size='sm'
                   onClick={() => setIsEditing(true)}
+                  title='Edit'
                 >
                   <Icons.edit />
                 </Button>
@@ -269,7 +273,7 @@ const CategoryItemEdit = ({ name, color, onCancel, onSave, onDelete }) => {
       <div className='flex items-center gap-2 w-full'>
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant='ghost' className='p-2' >
+            <Button variant='ghost' className='p-2' title='Select color'>
               <div
                 className='size-6 rounded-full'
                 style={{ backgroundColor: editedColor }}
@@ -304,6 +308,7 @@ const CategoryItemEdit = ({ name, color, onCancel, onSave, onDelete }) => {
           variant='outline'
           size='icon'
           className='flex-1 sm:flex-none'
+          title='Cancel'
         >
           <Icons.x className='size-4' />
         </Button>
@@ -311,6 +316,7 @@ const CategoryItemEdit = ({ name, color, onCancel, onSave, onDelete }) => {
           onClick={() => onSave(editedName, editedColor)}
           size='icon'
           className='flex-1 sm:flex-none'
+          title='Save'
         >
           <Icons.save className='size-4' />
         </Button>
@@ -319,6 +325,7 @@ const CategoryItemEdit = ({ name, color, onCancel, onSave, onDelete }) => {
           variant='destructive'
           size='icon'
           className='flex-1 sm:flex-none'
+          title='Delete'
         >
           <Icons.trash className='size-4' />
         </Button>
@@ -335,12 +342,14 @@ const CategoryItemEdit = ({ name, color, onCancel, onSave, onDelete }) => {
             <Button
               variant='outline'
               onClick={() => setDialogOpen(false)}
+              title='Cancel'
             >
               Cancel
             </Button>
             <Button
               onClick={() => {setDialogOpen(false); onDelete();}}
               variant='destructive'
+              title='Delete'
             >
               Delete
             </Button>
@@ -421,6 +430,7 @@ const CategoryItem = ({ category, onSave, onDelete, edit = false }) => {
             variant='ghost'
             size='icon'
             onClick={handleDoubleClick}
+            title='Edit category'
           >
             <Icons.edit />
             <span className='sr-only'>Edit category</span>

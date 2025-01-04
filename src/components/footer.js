@@ -19,17 +19,19 @@ export default function Footer( { author, github } ) {
             </p>
           </div>
           <div className='flex items-center gap-2'>
-            <Link href='/privacy' className='text-sm font-medium underline-offset-4 focus:outline-none'>
+            <Link href='/privacy' className='inline-flex items-center gap-1 text-sm font-medium focus:outline-none'>
+              <Icons.shieldCheck className='hidden sm:inline size-5' />
               Privacy Policy
             </Link>
             <Separator orientation='vertical' className='h-4' />
-            <Link href='/contact' className='text-sm font-medium underline-offset-4 focus:outline-none'>
+            <Link href='/contact' className='inline-flex items-center gap-1 text-sm font-medium focus:outline-none'>
+              <Icons.send className='hidden sm:inline size-5' />
               Contact Us
             </Link>
-          </div>
-          <div className='flex items-center gap-2'>
-            <Link href={ github } className={ 'focus:outline-none' } target='_blank' rel='noreferrer noopener'>
-              <Icons.github className={ 'size-5' } />
+            <Separator orientation='vertical' className='h-4' />
+            <Link href={ github } target='_blank' className='inline-flex items-center gap-2 text-sm font-medium focus:outline-none' rel='noreferrer noopener'>
+              <Icons.github className='hidden sm:inline size-5' />
+              Github
             </Link>
           </div>
         </div>

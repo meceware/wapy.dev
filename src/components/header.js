@@ -3,24 +3,28 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEventListener, useDebounceCallback } from 'usehooks-ts';
+import { useEventListener } from 'usehooks-ts';
 import { cn } from '@/lib/utils';
 import { ModeToggle } from '@/components/mode-toggle';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
+import { useThrottle } from '@/lib/hooks';
 
 export default function Header({ mainNavigation = (<></>), iconNavigation = (<></>) }) {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
-  const debounced = useDebounceCallback(() => {
+  const throttle = useThrottle();
+  const onScroll = () => {
     const currentScrollPos = window.scrollY;
     const isScrollingDown = prevScrollPos < currentScrollPos;
 
     setVisible(!isScrollingDown || currentScrollPos < 80);
     setPrevScrollPos(currentScrollPos);
-  }, 100)
+  };
 
-  useEventListener('scroll', debounced);
+  useEventListener('scroll', () => {
+    throttle(onScroll, 250);
+  });
 
   return (
     <header className={ cn(

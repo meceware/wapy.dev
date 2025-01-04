@@ -27,7 +27,8 @@ Perfect for managing subscriptions in different currencies and time zones.
 
 Keep track of what’s been paid and review your spending habits over time.
 
-🔐 Easy Login Options
+🔐 **Easy Login Options**
+
 Sign in with Email, Github, or Google for a seamless experience.
 
 🎨 **Category Management with Custom Colors**

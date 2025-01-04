@@ -21,7 +21,7 @@ Wapy.dev is a subscription management platform that helps you track and manage y
 - View payment history and upcoming payments
 - OAuth authentication with various providers
 
-## ✨ Features
+## Screenshots
 
 Home screen that lists all your subscriptions and expenses, with the ability to filter by category or search for specific items.
 

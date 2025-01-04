@@ -89,7 +89,11 @@ environment variables automatically. To automatically generate the `.env` file, 
     docker run --rm -v ${PWD}:/app -w /app node:23.5-alpine sh -c "apk add --no-cache openssl && ./scripts/setup.sh"
     ```
 
-    - You will need to set Github, Google and Resend API keys in the `.env` file.
+    - Configure authentication keys (Github and Google) and Resend API key in the `.env` file.
+
+      - Github and Google OAuth keys (ID and Secret) are for enabling social login.
+
+      - Resend API key (`RESEND_API_KEY`) is for handling authentication emails and email notifications.
 
 1. Run `docker compose -p wapydev up -d` to start the database and server. Default environment is `production`, but you can change it to `development` if you want to, via `NODE_ENV` variable in the `.env` file.
 

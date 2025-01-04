@@ -9,19 +9,40 @@ Wapy.dev is a subscription management platform that helps you track and manage y
 
 ![License: MIT + Commons Clause](https://img.shields.io/badge/License-MIT%20%2B%20Commons%20Clause-blue.svg)
 
-## ✨ Features
+## ✨ Key Features
 
-- Track recurring subscriptions and expenses
-- Email and push notification reminders for upcoming payments
-- Customizable notification schedules
-- Multi-currency support
-- Timezone support
-- Category management with custom colors
-- Mark payments as paid
-- View payment history and upcoming payments
-- OAuth authentication with various providers
+✅ **Track Recurring Subscriptions & Expenses**
 
-## ✨ Features
+Easily log all your subscriptions and payments, so you’ll never miss a due date.
+
+🔔 **Email & Push Notifications**
+
+Get timely reminders when payments are due. Customize notification schedules to fit your needs.
+
+💱 **Multi-Currency & Timezone Support**
+
+Perfect for managing subscriptions in different currencies and time zones.
+
+📜 **Easily Mark Payments as Paid**
+
+Keep track of what’s been paid and review your spending habits over time.
+
+🔐 Easy Login Options
+Sign in with Email, Github, or Google for a seamless experience.
+
+🎨 **Category Management with Custom Colors**
+
+Organize your subscriptions by category and add a personal touch with custom colors.
+
+📱 **Add to Home Screen for Mobile App Experience**
+
+Use Wapy.dev like a mobile app by adding it to your home screen with just a few taps.
+
+🐳 **Production-Ready with Docker**
+
+Easily self-host Wapy.dev with Docker for a quick and hassle-free installation process.
+
+## Screenshots
 
 Home screen that lists all your subscriptions and expenses, with the ability to filter by category or search for specific items.
 
@@ -69,10 +90,10 @@ environment variables automatically. To automatically generate the `.env` file, 
 
     - You will need to set Github, Google and Resend API keys in the `.env` file.
 
-1. Run `docker compose -p wapydev up -d` to start the database and server. Default environment is `production`, but you can change it to `development` if you want to via `NODE_ENV` variable in the `.env` file.
+1. Run `docker compose -p wapydev up -d` to start the database and server. Default environment is `production`, but you can change it to `development` if you want to, via `NODE_ENV` variable in the `.env` file.
 
-1. Visit `http://localhost:3000` or your site URL.
+1. Visit `http://localhost:3000` or your domain URL.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a PR.
+Contributions are welcome! Please feel free to submit a PR or create an issue.

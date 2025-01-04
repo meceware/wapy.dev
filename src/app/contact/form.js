@@ -144,7 +144,7 @@ export function ContactForm() {
                   pointerEvents: 'none',
                 }}
               />
-              <Button type='submit' size='lg' className='w-full' disabled={isSubmitting}>
+              <Button type='submit' title='Send Message' size='lg' className='w-full' disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
                     <Icons.spinner className='mr-2 h-4 w-4 animate-spin' />

@@ -32,16 +32,9 @@ import {
 import { PushNotificationCheckEndpoint } from '@/components/notifications/actions';
 
 export const NotificationStatusManager = () => {
-  const [notificationsStatus, setNotificationsStatus] = useState(typeof Notification !== 'undefined' ? Notification?.permission : '');
+  const [notificationsStatus, setNotificationsStatus] = useState('');
   const [hasPushSubscription, setHasPushSubscription] = useState(true);
   const {showNotificationModal, setShowNotificationModal} = useNotifications();
-
-  useEffect(() => {
-    // Check browser permission
-    if ('Notification' in window) {
-      setNotificationsStatus(Notification.permission);
-    }
-  }, []);
 
   useEffect(() => {
     const checkPushSubscription = async () => {
@@ -65,8 +58,13 @@ export const NotificationStatusManager = () => {
       }
     };
 
+    // Check browser permission
+    if ('Notification' in window) {
+      setNotificationsStatus(Notification.permission);
+    }
+
     checkPushSubscription();
-  }, [showNotificationModal]);
+  }, []);
 
   return (
     <>

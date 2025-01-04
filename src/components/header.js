@@ -33,7 +33,7 @@ export default function Header({ mainNavigation = (<></>), iconNavigation = (<><
           {/* Right Side Icons */}
           <div className='flex items-center gap-1 md:gap-2'>
             <ModeToggle />
-            <Button variant='ghost' size='icon' title='Settings' asChild>
+            <Button variant='ghost' size='icon' title='Contact' asChild>
               <Link href='/contact'>
                 <Icons.send className='h-5 w-5' />
               </Link>

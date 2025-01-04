@@ -24,13 +24,13 @@ export function ModeToggle() {
     <>
       <div className='hidden md:block'>
         <div className='flex gap-1 rounded-xl bg-gray-600/5 p-1 ring-1 ring-gray-600/5 light:ring-inset dark:bg-black/30 dark:ring-white/5'>
-          <Button variant='ghost' className={ cn('p-0 size-5 [&_svg]:size-3 text-gray-400', {'[&_svg]:size-3.5 text-gray': realTheme === 'dark'})} onClick={ () => setTheme('dark') }>
+          <Button variant='ghost' title='Dark' className={ cn('p-0 size-5 [&_svg]:size-3 text-gray-400', {'[&_svg]:size-3.5 text-gray': realTheme === 'dark'})} onClick={ () => setTheme('dark') }>
             <Moon />
           </Button>
-          <Button variant='ghost' className={ cn('p-0 size-5 [&_svg]:size-3 text-gray-400', {'[&_svg]:size-3.5 text-gray': realTheme === 'light'})} onClick={ () => setTheme('light') }>
+          <Button variant='ghost' title='Light' className={ cn('p-0 size-5 [&_svg]:size-3 text-gray-400', {'[&_svg]:size-3.5 text-gray': realTheme === 'light'})} onClick={ () => setTheme('light') }>
             <Sun />
           </Button>
-          <Button variant='ghost' className={ cn('p-0 size-5 [&_svg]:size-3 text-gray-400', {'[&_svg]:size-3.5 text-gray': realTheme === 'system'})} onClick={ () => setTheme('system') }>
+          <Button variant='ghost' title='System' className={ cn('p-0 size-5 [&_svg]:size-3 text-gray-400', {'[&_svg]:size-3.5 text-gray': realTheme === 'system'})} onClick={ () => setTheme('system') }>
             <Monitor />
           </Button>
         </div>

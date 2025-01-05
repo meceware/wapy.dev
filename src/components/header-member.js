@@ -48,26 +48,26 @@ export const HeaderMemberIconNavigation = (
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='w-40 space-y-1'>
-        <DropdownMenuItem>
-          <Link href='/' className='flex items-center gap-2'>
+        <DropdownMenuItem asChild>
+          <Link href='/' className='flex items-center gap-2 cursor-pointer'>
             <Icons.logo className='size-5' />
             Subscriptions
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href='/reports' className='flex items-center gap-2'>
+        <DropdownMenuItem asChild>
+          <Link href='/reports' className='flex items-center gap-2 cursor-pointer'>
             <Icons.chart className='size-5' />
             Reports
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href='/account' className='flex items-center gap-2'>
+          <Link href='/account' className='flex items-center gap-2 cursor-pointer'>
             <Icons.settings className='size-5' />
             Account
           </Link>
         </DropdownMenuItem>
         <Separator />
-        <DropdownMenuItem onClick={() => signOut({ callbackUrl: '/' })} className='flex items-center gap-2'>
+        <DropdownMenuItem onClick={() => signOut({ callbackUrl: '/' })} className='flex items-center gap-2 cursor-pointer'>
           <Icons.signOut className='size-5' />
           Sign Out
         </DropdownMenuItem>

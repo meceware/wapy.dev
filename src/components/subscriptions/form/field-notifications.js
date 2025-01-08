@@ -250,7 +250,7 @@ export const NotificationsFieldManager = ({ field, isLoading = false, children }
                       value='PUSH'
                       aria-label='Toggle push'
                       title='Push Notifications'
-                      className={cn('data-[state=on]:bg-primary data-[state=on]:text-primary-foreground border', (typeof Notification !== 'undefined' && Notification?.permission === 'denied') && 'opacity-50')}
+                      className='data-[state=on]:bg-primary data-[state=on]:text-primary-foreground border'
                     >
                       <Icons.bellRing/>
                     </ToggleGroupItem>

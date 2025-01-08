@@ -54,7 +54,7 @@ Message: ${message}
       status: 200,
     };
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.warn('Error sending email:', error);
     return {
       error: 'Error sending email',
       status: 500,

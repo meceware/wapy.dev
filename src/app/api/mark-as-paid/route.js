@@ -38,7 +38,7 @@ const MarkAsPaidRoute = async (request) => {
 
     return NextResponse.redirect(new URL('/', siteConfig.url));
   } catch (error) {
-    console.error('Error marking subscription as paid:', error);
+    console.warn('Error marking subscription as paid:', error);
     return NextResponse.json({error: 'Internal server error'}, { status: 500 });
   }
 }

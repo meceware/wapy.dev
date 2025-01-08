@@ -111,7 +111,7 @@ export const PushNotificationToggle = () => {
         });
       }
     } catch (error) {
-      console.error('Error enabling notifications:', error);
+      console.warn('Error enabling notifications:', error);
     } finally {
       setIsEnabling(false);
       setShowModal(false);

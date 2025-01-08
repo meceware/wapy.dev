@@ -28,7 +28,6 @@ export const SubscriptionGet = async (subscriptionId, userId) => {
   });
 
   if (!subscription) {
-    console.error('Unauthorized subscription update attempt');
     return null;
   }
 
@@ -62,7 +61,7 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
   });
 
   if (!newSubscription) {
-    console.error('Error updating subscription payment date');
+    console.warn('Error updating subscription payment date');
     return false;
   }
   return true;
@@ -104,7 +103,7 @@ export async function SubscriptionActionEdit(data) {
     });
 
     if (!existingSubscription) {
-      console.error('Unauthorized subscription update attempt');
+      console.warn('Unauthorized subscription update attempt');
       return null;
     }
   }
@@ -145,7 +144,7 @@ export async function SubscriptionActionEdit(data) {
 
   // Validate that all required fields have values
   if (!baseSubscriptionData.name || !baseSubscriptionData.price || !baseSubscriptionData.paymentDate) {
-    console.error('Missing required fields');
+    console.warn('Missing required fields');
     return null;
   }
 

@@ -52,15 +52,15 @@ export function SubscriptionList({ subscriptions }) {
       : subscriptions;
 
     return results.filter(sub => {
-      // Handle uncategorized subscriptions
-      if (!sub.categories?.length) {
-        return selectedCategories['Uncategorized'];
-      }
-
-      return sub.categories.some(cat => selectedCategories[cat.name]) &&
-        (enabledFilter && disabledFilter ||
-         (enabledFilter && sub.enabled) ||
-         (disabledFilter && !sub.enabled));
+      return (
+          sub.categories?.length
+          ? sub.categories.some(cat => selectedCategories[cat.name])
+          : selectedCategories['Uncategorized']
+        ) && (
+          enabledFilter && disabledFilter ||
+          (enabledFilter && sub.enabled) ||
+          (disabledFilter && !sub.enabled)
+        );
     });
   }, [subscriptions, filter, fuse, selectedCategories, enabledFilter, disabledFilter]);
 

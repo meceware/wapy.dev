@@ -32,36 +32,25 @@ import {
 import { PushNotificationCheckEndpoint } from '@/components/notifications/actions';
 
 export const NotificationStatusManager = () => {
-  const [notificationsStatus, setNotificationsStatus] = useState('');
   const [hasPushSubscription, setHasPushSubscription] = useState(true);
-  const {showNotificationModal, setShowNotificationModal} = useNotifications();
+  const {
+    setShowNotificationModal,
+    notificationsStatus,
+    getPushSubscription,
+  } = useNotifications();
 
   useEffect(() => {
     const checkPushSubscription = async () => {
-      try {
-        // Check if service worker is registered and has push subscription
-        if ('serviceWorker' in navigator) {
-          const registration = await navigator.serviceWorker.ready;
-          const pushSubscription = await registration.pushManager.getSubscription();
-
-          if (pushSubscription && pushSubscription?.endpoint) {
-            // Query database for push subscription
-            const response = await PushNotificationCheckEndpoint(pushSubscription.endpoint);
-            setHasPushSubscription(response?.success);
-          } else {
-            setHasPushSubscription(false);
-          }
-        }
-      } catch (error) {
-        // console.error('Failed to check push subscription:', error);
+      // Check if service worker is registered and has push subscription
+      const pushSubscription = await getPushSubscription();
+      if (pushSubscription?.success && pushSubscription?.subscription?.endpoint) {
+        // Query database for push subscription
+        const response = await PushNotificationCheckEndpoint(pushSubscription.endpoint);
+        setHasPushSubscription(response?.success);
+      } else {
         setHasPushSubscription(false);
       }
     };
-
-    // Check browser permission
-    if ('Notification' in window) {
-      setNotificationsStatus(Notification.permission);
-    }
 
     checkPushSubscription();
   }, []);

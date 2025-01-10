@@ -25,7 +25,7 @@ export function NotificationBell() {
   const [open, setOpen] = useState(false);
 
   const fetchNotifications = async () => {
-    PastNotificationsGetUnread().then((data) => {
+    return PastNotificationsGetUnread().then((data) => {
       setNotifications(data.notifications);
       setUnreadCount(data.unreadCount);
     });
@@ -48,7 +48,9 @@ export function NotificationBell() {
   const handleMarkAsReadAll = async (id) => {
     const response = await PastNotificationsMarkAllAsRead(id);
     if (response.success) {
-      fetchNotifications();
+      fetchNotifications().then(() => {
+        setOpen(false);
+      });
     }
   };
 

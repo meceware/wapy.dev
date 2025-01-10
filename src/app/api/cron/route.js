@@ -9,6 +9,7 @@ import { prisma } from '@/lib/prisma';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
 import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
+import { addMinutes } from 'date-fns';
 
 webpush.setVapidDetails(
   'mailto:Wapy Subscription Reminder <no-reply@wapy.dev>',
@@ -101,7 +102,7 @@ export async function GET() {
       : `${price}${currency.symbol}`;
   };
 
-  const rightNow = new Date();
+  const rightNow = addMinutes(new Date(), 1);
   const subscriptions = await prisma.subscription.findMany({
     where: {
       enabled: true,

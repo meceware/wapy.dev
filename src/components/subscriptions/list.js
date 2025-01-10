@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Fuse from 'fuse.js';
+import { isThisMonth, addMonths, isBefore } from 'date-fns';
 import { SearchBar } from '@/components/search-bar';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
@@ -16,6 +17,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuCheckboxItem,
 } from '@/components/ui/dropdown-menu';
+import { SubscriptionGetNextFuturePaymentDate } from '@/components/subscriptions/lib';
 
 export function SubscriptionList({ subscriptions }) {
   const router = useRouter();
@@ -31,6 +33,8 @@ export function SubscriptionList({ subscriptions }) {
   const [selectedCategories, setSelectedCategories] = useState(allCategories);
   const [enabledFilter, setEnabledFilter] = useState(true);
   const [disabledFilter, setDisabledFilter] = useState(false);
+  const [thisMonthFilter, setThisMonthFilter] = useState(false);
+  const [next30DaysFilter, setNext30DaysFilter] = useState(false);
 
   // Initialize Fuse instance once
   const fuse = useMemo(() => new Fuse(subscriptions, {
@@ -52,6 +56,10 @@ export function SubscriptionList({ subscriptions }) {
       : subscriptions;
 
     return results.filter(sub => {
+      const nextPayment = SubscriptionGetNextFuturePaymentDate(sub);
+      const isThisMonthPayment = isThisMonth(nextPayment);
+      const isNext30DaysPayment = isBefore(nextPayment, addMonths(new Date(), 1));
+
       return (
           sub.categories?.length
           ? sub.categories.some(cat => selectedCategories[cat.name])
@@ -60,9 +68,13 @@ export function SubscriptionList({ subscriptions }) {
           enabledFilter && disabledFilter ||
           (enabledFilter && sub.enabled) ||
           (disabledFilter && !sub.enabled)
+        ) && (
+          (!thisMonthFilter && !next30DaysFilter) ||
+          (thisMonthFilter && isThisMonthPayment) ||
+          (next30DaysFilter && isNext30DaysPayment)
         );
     });
-  }, [subscriptions, filter, fuse, selectedCategories, enabledFilter, disabledFilter]);
+  }, [subscriptions, filter, fuse, selectedCategories, enabledFilter, disabledFilter, thisMonthFilter, next30DaysFilter]);
 
   const [filteredSubscriptions, setFilteredSubscriptions] = useState(getResults());
 
@@ -115,6 +127,30 @@ export function SubscriptionList({ subscriptions }) {
                 onSelect={(event) => event.preventDefault()}
               >
                 Inactive
+              </DropdownMenuCheckboxItem>
+
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel>Time Period</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuCheckboxItem
+                checked={thisMonthFilter}
+                onCheckedChange={() => {
+                  setThisMonthFilter(!thisMonthFilter);
+                  if (next30DaysFilter) setNext30DaysFilter(false);
+                }}
+                onSelect={(event) => event.preventDefault()}
+              >
+                This Month
+              </DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem
+                checked={next30DaysFilter}
+                onCheckedChange={() => {
+                  setNext30DaysFilter(!next30DaysFilter);
+                  if (thisMonthFilter) setThisMonthFilter(false);
+                }}
+                onSelect={(event) => event.preventDefault()}
+              >
+                Next 30 Days
               </DropdownMenuCheckboxItem>
 
               <DropdownMenuSeparator />

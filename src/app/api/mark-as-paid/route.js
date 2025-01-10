@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma';
 import jsonwebtoken from 'jsonwebtoken';
 import { SubscriptionActionMarkAsPaid } from '@/components/subscriptions/actions';
 import { siteConfig } from '@/components/config';
+import { isEqual } from 'date-fns';
 
 const MarkAsPaidRoute = async (request) => {
   try {
@@ -29,6 +30,11 @@ const MarkAsPaidRoute = async (request) => {
 
     if (!subscription) {
       return NextResponse.json({error: 'Invalid token!'}, { status: 404 });
+    }
+
+    if (!isEqual(new Date(decoded.paymentDate), new Date(subscription.paymentDate))) {
+      // Already paid
+      return NextResponse.redirect(new URL('/', siteConfig.url));
     }
 
     const result = await SubscriptionActionMarkAsPaid(subscription.id, subscription.userId);

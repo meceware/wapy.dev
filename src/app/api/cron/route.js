@@ -142,6 +142,7 @@ export async function GET() {
     const token = jsonwebtoken.sign({
       id: subscription.id,
       userId: subscription.userId,
+      paymentDate: subscription.paymentDate,
     }, process.env.SUBSCRIPTION_JWT_SECRET);
     const markAsPaidUrl = `${siteConfig.url}/api/mark-as-paid/?token=${token}`;
 

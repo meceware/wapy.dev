@@ -105,12 +105,14 @@ export function SubscriptionList({ subscriptions }) {
               <DropdownMenuCheckboxItem
                 checked={enabledFilter}
                 onCheckedChange={() => setEnabledFilter(!enabledFilter)}
+                onSelect={(event) => event.preventDefault()}
               >
                 Active
               </DropdownMenuCheckboxItem>
               <DropdownMenuCheckboxItem
                 checked={disabledFilter}
                 onCheckedChange={() => setDisabledFilter(!disabledFilter)}
+                onSelect={(event) => event.preventDefault()}
               >
                 Inactive
               </DropdownMenuCheckboxItem>
@@ -123,6 +125,7 @@ export function SubscriptionList({ subscriptions }) {
                   key={category}
                   checked={selectedCategories[category]}
                   onCheckedChange={() => toggleCategory(category)}
+                  onSelect={(event) => event.preventDefault()}
                 >
                   {category}
                 </DropdownMenuCheckboxItem>

@@ -99,6 +99,20 @@ environment variables automatically. To automatically generate the `.env` file, 
 
 1. Visit `http://localhost:3000` or your domain URL.
 
+### Database Backup and Restore
+
+You can backup the database by running the `backup.sh` script.
+
+```bash
+./scripts/backup.sh
+```
+
+You can restore the database by running the `restore.sh` script.
+
+```bash
+./scripts/restore.sh
+```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a PR or create an issue.

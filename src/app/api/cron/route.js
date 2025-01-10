@@ -18,7 +18,7 @@ webpush.setVapidDetails(
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const sendNotification = async (subscription, title, message, markAsPaidUrl) => {
+const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
   return subscription.user.push.map(async push => {
     return new Promise(async (resolve, reject) => {
       try {
@@ -33,20 +33,20 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl) => 
           JSON.stringify({
             title: title,
             body: message,
-            url: markAsPaidUrl,
+            url: siteConfig.url,
+            color: isPaymentDueNow ? '#f59e0b' : '#16a34a',
             icon: {
               main: '/icons/icon-192.png',
-              badge: '/icons/icon-96.png'
+              badge: isPaymentDueNow ? '/icons/icon-notification-now.png' : '/icons/icon-notification-upcoming.png',
             },
             markAsPaid: {
               title: 'Mark as Paid',
-              icon: '/icon-mark-as-paid.png',
+              icon: '/icons/icon-notification-mark-as-paid.png',
               url: markAsPaidUrl,
             },
-            home: {
-              title: 'Home',
-              icon: '/icon-home.png',
-              url: siteConfig.url,
+            dismiss: {
+              title: 'Dismiss',
+              icon: '/icons/icon-notification-dismiss.png',
             },
           })
         );
@@ -61,7 +61,7 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl) => 
           });
           resolve();
         } else {
-          console.error('Error sending notification:', error);
+          console.warn('Error sending notification:', error);
           reject(error);
         }
       }
@@ -87,7 +87,7 @@ const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
       });
       resolve();
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.warn('Error sending email:', error);
       reject(error);
     }
   });
@@ -147,7 +147,7 @@ export async function GET() {
 
     // Send push notification if enabled
     if (isPushEnabled) {
-      promises.push(sendNotification(subscription, title, message, markAsPaidUrl));
+      promises.push(sendNotification(subscription, title, message, markAsPaidUrl, isPaymentDueNow));
     }
 
     // Send email notification if enabled

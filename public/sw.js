@@ -6,6 +6,7 @@ self.addEventListener('push', function(event) {
       body: data.body,
       icon: data.icon.main,
       badge: data.icon.badge,
+      color: data.color,
       actions: [
         {
           action: 'markAsPaid',
@@ -13,16 +14,15 @@ self.addEventListener('push', function(event) {
           icon: data.markAsPaid.icon,
         },
         {
-          action: 'home',
-          title: data.home.title,
-          icon: data.home.icon,
+          action: 'dismiss',
+          title: data.dismiss.title,
+          icon: data.dismiss.icon,
         }
       ],
       data: {
         url: {
           main: data.url,
           markAsPaid: data.markAsPaid.url,
-          home: data.home.url,
         },
       },
     })
@@ -37,11 +37,9 @@ self.addEventListener('notificationclick', function(event) {
     fetch(event.notification.data.url.markAsPaid, {
       method: 'POST'
     });
-  } else if (event.action === 'home') {
-    // Open the home page
-    event.waitUntil(
-      clients.openWindow(event.notification.data.url.home)
-    );
+  } else if (event.action === 'dismiss') {
+    // Just close the notification
+    return;
   } else {
     // Default action (e.g., open the URL)
     event.waitUntil(

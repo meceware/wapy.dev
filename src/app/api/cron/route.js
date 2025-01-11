@@ -10,19 +10,11 @@ import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/
 import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
 
-webpush.setVapidDetails(
-  'mailto:Wapy Subscription Reminder <no-reply@wapy.dev>',
-  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
-  process.env.VAPID_PRIVATE_KEY
-);
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const sendNotification = async (subscription, title, message, markAsPaidUrl) => {
+const sendNotification = async (subscription, title, message, markAsPaidUrl, WebPush) => {
   return subscription.user.push.map(async push => {
     return new Promise(async (resolve, reject) => {
       try {
-        await webpush.sendNotification(
+        await WebPush.sendNotification(
           {
             endpoint: push.endpoint,
             keys: {
@@ -69,11 +61,11 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl) => 
   });
 }
 
-const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
+const sendEmail = async (subscription, title, message, markAsPaidUrl, resend) => {
   return new Promise(async (resolve, reject) => {
     try {
       await resend.emails.send({
-        from: 'Wapy Subscription Reminder <no-reply@wapy.dev>',
+        from: `mailto:Wapy Subscription Reminder <${process.env.RESEND_FROM}>`,
         to: subscription.user.email,
         subject: title,
         html: `
@@ -93,7 +85,26 @@ const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
   });
 };
 
+export async function getServerSideProps({ params }) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const WebPush = new webpush({
+    vapidDetails: {
+      subject: `mailto:Wapy Subscription Reminder <${process.env.RESEND_FROM}>`,
+      publicKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
+      privateKey: process.env.VAPID_PRIVATE_KEY
+    },
+  });
+  return {
+    props: {
+      WebPush,
+      resend
+    },
+  };
+}
+
 export async function GET() {
+  const { WebPush, resend } = getServerSideProps().props;
+
   const formatPrice = (price, curr) => {
     const currency = DefaultCurrencies[curr];
     return currency.position === 'before'
@@ -147,12 +158,12 @@ export async function GET() {
 
     // Send push notification if enabled
     if (isPushEnabled) {
-      promises.push(sendNotification(subscription, title, message, markAsPaidUrl));
+      promises.push(sendNotification(subscription, title, message, markAsPaidUrl, WebPush));
     }
 
     // Send email notification if enabled
     if (isEmailEnabled) {
-      promises.push(sendEmail(subscription, title, message, markAsPaidUrl));
+      promises.push(sendEmail(subscription, title, message, markAsPaidUrl, resend));
     }
 
     // Update subscription

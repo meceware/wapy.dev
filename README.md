@@ -95,6 +95,79 @@ environment variables automatically. To automatically generate the `.env` file, 
 
 1. Visit `http://localhost:3000` or your domain URL.
 
+## Production App Settings
+
+### Docker image
+
+To build the production docker image use the following commannd:
+
+```
+docker build -t wapy.dev -f Dockerfile .
+```
+
+### Compose
+
+#### Replace production environment file with your settings
+
+1. Run the following command to get VAPID public and private keys:
+
+    ```
+    npx --yes web-push generate-vapid-keys --json
+    ```
+
+2. Replace them accordingly on the .env.production
+
+    ```
+    NEXT_PUBLIC_VAPID_PUBLIC_KEY=<publicKey_from_command_above>
+    VAPID_PRIVATE_KEY=<privateKey_from_command_above>
+    ```
+
+3. Choose/create the secret keys for the following environment variables
+
+    ```
+    POSTGRES_PASSWORD
+    AUTH_SECRET
+    SUBSCRIPTION_JWT_SECRET
+    ```
+
+4. Replace your RESEND_API_KEY
+
+    ```
+    RESEND_API_KEY=<your_resend_api_key>
+    ```
+
+5. Configure your domain on your RESEND account and adapt the following env vars
+
+    ```
+    RESEND_FROM=no-reply@<your-domain>
+    RESEND_CONTACT_EMAIL=contact@<your-domain>
+    ```
+
+6. Configure SITE_URL environment with your domain
+
+    ```
+    SITE_URL=https://<your-domain>
+    ```
+
+6. Optionally set the following env vars, for logging in with github and/or google.
+
+    ```
+    # Github
+    GITHUB_ID=
+    GITHUB_SECRET=
+
+    # Google
+    GOOGLE_ID=
+    GOOGLE_SECRET=
+    ```
+
+7. Execute the stack
+
+    ```
+    docker compose -f docker-compose.prod.yml up -d
+    ```
+
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a PR or create an issue.

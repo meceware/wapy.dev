@@ -168,6 +168,16 @@ docker compose -p wapydev-dev -f docker-compose-dev.yml up -d
 
 `SUBSCRIPTION_JWT_SECRET`: The secret key for the subscription signing. When you run the `setup.sh` script, it will generate a random secret for you.
 
+### Building Docker Image
+
+If you want to build the Docker image locally, you can run the following command:
+
+```
+docker build -t wapy.dev -f Dockerfile .
+```
+
+Don't forget to update the `docker-compose.yml` file to use the local image.
+
 ### Database Backup and Restore
 
 You can backup the database by running the `backup.sh` script.

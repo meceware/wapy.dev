@@ -3,6 +3,7 @@
   "description": "Track, manage, and optimize your recurring expenses in one powerful and human readable dashboard. Never miss a payment again.",
   "version": "1.0.0",
   "private": true,
+  "repository": "https://github.com/meceware/wapy.dev.git",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

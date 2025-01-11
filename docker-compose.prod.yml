@@ -12,7 +12,7 @@ services:
 
   wapydev-app:
     container_name: wapydev-app
-    image: wapy.dev
+    image: tiagorvmartins/wapy.dev
     restart: unless-stopped
     env_file:
       - .env.production

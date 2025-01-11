@@ -111,10 +111,10 @@ const authConfig = {
             html: html({ url, token: otp }),
             text: text({ url, token: otp }),
           }),
-        })
+        });
 
         if (!res.ok)
-          throw new Error('Resend error: ' + JSON.stringify(await res.json()))
+          throw new Error('Resend error: ' + JSON.stringify(await res.json()));
       },
     }),
   ],

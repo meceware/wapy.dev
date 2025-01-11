@@ -11,14 +11,6 @@ import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
 import { addMinutes } from 'date-fns';
 
-webpush.setVapidDetails(
-  `mailto:${siteConfig.subscriptionReminderFrom}`,
-  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
-  process.env.VAPID_PRIVATE_KEY
-);
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
   return subscription.user.push.map(async push => {
     return new Promise(async (resolve, reject) => {
@@ -49,7 +41,14 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl, isP
               title: 'Dismiss',
               icon: '/icons/icon-notification-dismiss.png',
             },
-          })
+          }),
+          {
+            vapidDetails: {
+              subject: `mailto:${siteConfig.subscriptionReminderFrom}`,
+              publicKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
+              privateKey: process.env.VAPID_PRIVATE_KEY
+            },
+          }
         );
         resolve();
       } catch (error) {
@@ -70,7 +69,7 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl, isP
   });
 }
 
-const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
+const sendEmail = async (subscription, title, message, markAsPaidUrl, resend) => {
   return new Promise(async (resolve, reject) => {
     try {
       await resend.emails.send({
@@ -95,6 +94,8 @@ const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
 };
 
 export async function GET() {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   const formatPrice = (price, curr) => {
     const currency = DefaultCurrencies[curr];
     return currency.position === 'before'
@@ -154,7 +155,7 @@ export async function GET() {
 
     // Send email notification if enabled
     if (isEmailEnabled) {
-      promises.push(sendEmail(subscription, title, message, markAsPaidUrl));
+      promises.push(sendEmail(subscription, title, message, markAsPaidUrl, resend));
     }
 
     // Update subscription

@@ -58,7 +58,11 @@ const NotificationPermissionModal = ({ open, onOpenChange, onEnable, onMaybeLate
 );
 
 export const PushNotificationToggle = () => {
-  const { showNotificationModal: showModal, setShowNotificationModal: setShowModal } = useNotifications();
+  const {
+    showNotificationModal,
+    setShowNotificationModal,
+    getPushSubscription,
+  } = useNotifications();
   const [ isEnabling, setIsEnabling ] = useState(false);
 
   const localStorageSet = () => {
@@ -111,10 +115,10 @@ export const PushNotificationToggle = () => {
         });
       }
     } catch (error) {
-      console.error('Error enabling notifications:', error);
+      console.warn('Error enabling notifications:', error);
     } finally {
       setIsEnabling(false);
-      setShowModal(false);
+      setShowNotificationModal(false);
     }
   };
 
@@ -127,33 +131,26 @@ export const PushNotificationToggle = () => {
       }
 
       // Check if service worker is ready
-      if (!navigator?.serviceWorker?.ready) {
-        localStorageSet();
-        return;
-      }
-
-      const reg = await navigator.serviceWorker.ready;
-      if (!reg?.pushManager) {
+      const pushSubscription = await getPushSubscription();
+      if (!pushSubscription.success) {
         localStorageSet();
         return;
       }
 
       // Check existing subscription
-      const existingSub = await reg.pushManager.getSubscription();
-      if (existingSub) {
+      if (pushSubscription.subscription) {
         return; // Already subscribed
       }
 
       // Check permission status
       const permission = Notification.permission;
-
       if (permission === 'granted') {
         // Permission already granted, subscribe
         localStorageRemove();
         await subscribeUser();
       } else if (permission === 'default') {
         // Show modal first
-        setShowModal(true);
+        setShowNotificationModal(true);
       }
     };
 
@@ -170,16 +167,16 @@ export const PushNotificationToggle = () => {
     if (daysSincePrompt >= DELAY_DAYS) {
       checkAndEnableNotifications();
     }
-  });
+  }, []);
 
   return (
     <NotificationPermissionModal
-      open={showModal}
-      onOpenChange={setShowModal}
+      open={showNotificationModal}
+      onOpenChange={setShowNotificationModal}
       onEnable={handleModalEnable}
       onMaybeLater={() => {
         localStorageSet();
-        setShowModal(false);
+        setShowNotificationModal(false);
       }}
       isEnabling={isEnabling}
     />

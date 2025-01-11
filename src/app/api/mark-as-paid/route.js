@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma';
 import jsonwebtoken from 'jsonwebtoken';
 import { SubscriptionActionMarkAsPaid } from '@/components/subscriptions/actions';
 import { siteConfig } from '@/components/config';
+import { isEqual } from 'date-fns';
 
 const MarkAsPaidRoute = async (request) => {
   try {
@@ -31,6 +32,11 @@ const MarkAsPaidRoute = async (request) => {
       return NextResponse.json({error: 'Invalid token!'}, { status: 404 });
     }
 
+    if (!isEqual(new Date(decoded.paymentDate), new Date(subscription.paymentDate))) {
+      // Already paid
+      return NextResponse.redirect(new URL('/', siteConfig.url));
+    }
+
     const result = await SubscriptionActionMarkAsPaid(subscription.id, subscription.userId);
     if (!result) {
       return NextResponse.json({error: 'Failed to mark as paid!'}, { status: 500 });
@@ -38,7 +44,7 @@ const MarkAsPaidRoute = async (request) => {
 
     return NextResponse.redirect(new URL('/', siteConfig.url));
   } catch (error) {
-    console.error('Error marking subscription as paid:', error);
+    console.warn('Error marking subscription as paid:', error);
     return NextResponse.json({error: 'Internal server error'}, { status: 500 });
   }
 }

@@ -74,12 +74,21 @@ theme: {
 				to: {
 					height: '0'
 				}
-			}
+			},
+			progress: {
+				'0%': { transform: ' translateX(0) scaleX(0)' },
+				'40%': { transform: 'translateX(0) scaleX(0.4)' },
+				'100%': { transform: 'translateX(100%) scaleX(0.4)' },
+			},
 		},
 		animation: {
 			'accordion-down': 'accordion-down 0.2s ease-out',
-			'accordion-up': 'accordion-up 0.2s ease-out'
-		}
+			'accordion-up': 'accordion-up 0.2s ease-out',
+			progress: 'progress 1s infinite linear',
+		},
+		transformOrigin: {
+			'left-right': '0% 50%',
+		},
 	}
 },
 plugins: [require('tailwindcss-animate')],

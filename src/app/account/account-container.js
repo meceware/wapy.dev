@@ -175,7 +175,7 @@ const UserProfile = ({ user }) => {
         <CardTitle className='flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 text-2xl font-bold tracking-tight'>
           <Avatar className='size-20 border-2 border-primary'>
             <AvatarImage src={user.image} alt={name} />
-            <AvatarFallback className='bg-primary/10 text-xl'>{name?.[0]}</AvatarFallback>
+            <AvatarFallback className='bg-primary/10 text-2xl'>{name?.[0]?.toUpperCase()}</AvatarFallback>
           </Avatar>
           <div className='flex flex-col items-center sm:items-start w-full'>
             {isEditing ? (

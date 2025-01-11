@@ -26,13 +26,13 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 
-const SubscriptionDate = ({date, timezone}) => {
+const SubscriptionDate = ({ date, timezone, text}) => {
   return (
     <div className='inline-flex items-center gap-1'>
       <Popover>
         <PopoverTrigger asChild>
           <span className='inline-flex items-center cursor-pointer'>
-            {DateFNS.formatDistanceToNowStrict(date, {addSuffix: true})}
+            {text ? text : DateFNS.formatDistanceToNowStrict(date, {addSuffix: true})}
           </span>
         </PopoverTrigger>
         <PopoverContent className='bg-foreground text-background text-sm w-auto max-w-screen-sm break-words px-4 py-1'>
@@ -100,7 +100,7 @@ const SubscriptionIsNotified = ({ subscription }) => {
       <div>
         <span className='text-sm text-muted-foreground'>You will be notified </span>
         {' '}
-        <SubscriptionDate date={subscription.nextNotificationTime} timezone={subscription.timezone} />
+        <SubscriptionDate date={subscription.nextNotificationTime} timezone={subscription.timezone} text={DateFNS.isPast(subscription.nextNotificationTime) ? 'soon' : undefined} />
         {subscription.nextNotificationDetails?.type?.map((type, index) => (
           <div key={type} className='inline'>
             {index === 0 && <span className='text-muted-foreground'> via </span>}

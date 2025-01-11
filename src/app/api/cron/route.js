@@ -9,16 +9,9 @@ import { prisma } from '@/lib/prisma';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
 import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
+import { addMinutes } from 'date-fns';
 
-webpush.setVapidDetails(
-  'mailto:Wapy Subscription Reminder <no-reply@wapy.dev>',
-  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
-  process.env.VAPID_PRIVATE_KEY
-);
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const sendNotification = async (subscription, title, message, markAsPaidUrl) => {
+const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
   return subscription.user.push.map(async push => {
     return new Promise(async (resolve, reject) => {
       try {
@@ -33,22 +26,29 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl) => 
           JSON.stringify({
             title: title,
             body: message,
-            url: markAsPaidUrl,
+            url: siteConfig.url,
+            color: isPaymentDueNow ? '#f59e0b' : '#16a34a',
             icon: {
               main: '/icons/icon-192.png',
-              badge: '/icons/icon-96.png'
+              badge: isPaymentDueNow ? '/icons/icon-notification-now.png' : '/icons/icon-notification-upcoming.png',
             },
             markAsPaid: {
               title: 'Mark as Paid',
-              icon: '/icon-mark-as-paid.png',
+              icon: '/icons/icon-notification-mark-as-paid.png',
               url: markAsPaidUrl,
             },
-            home: {
-              title: 'Home',
-              icon: '/icon-home.png',
-              url: siteConfig.url,
+            dismiss: {
+              title: 'Dismiss',
+              icon: '/icons/icon-notification-dismiss.png',
             },
-          })
+          }),
+          {
+            vapidDetails: {
+              subject: `mailto:${siteConfig.subscriptionReminderFrom}`,
+              publicKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
+              privateKey: process.env.VAPID_PRIVATE_KEY
+            },
+          }
         );
         resolve();
       } catch (error) {
@@ -61,7 +61,7 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl) => 
           });
           resolve();
         } else {
-          console.error('Error sending notification:', error);
+          console.warn('Error sending notification:', error);
           reject(error);
         }
       }
@@ -69,16 +69,16 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl) => 
   });
 }
 
-const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
+const sendEmail = async (subscription, title, message, markAsPaidUrl, resend) => {
   return new Promise(async (resolve, reject) => {
     try {
       await resend.emails.send({
-        from: 'Wapy Subscription Reminder <no-reply@wapy.dev>',
+        from: siteConfig.subscriptionReminderFrom,
         to: subscription.user.email,
         subject: title,
         html: `
           <p>${message}</p>
-          <p>This is a friendly reminder email from wapy.dev.</p>
+          <p>This is a friendly reminder email from ${siteConfig.name}.</p>
           <p>
             <a href="${siteConfig.url}/">View Details</a> |
             <a href="${markAsPaidUrl}">Mark as Paid</a>
@@ -87,13 +87,15 @@ const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
       });
       resolve();
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.warn('Error sending email:', error);
       reject(error);
     }
   });
 };
 
 export async function GET() {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   const formatPrice = (price, curr) => {
     const currency = DefaultCurrencies[curr];
     return currency.position === 'before'
@@ -101,7 +103,7 @@ export async function GET() {
       : `${price}${currency.symbol}`;
   };
 
-  const rightNow = new Date();
+  const rightNow = addMinutes(new Date(), 1);
   const subscriptions = await prisma.subscription.findMany({
     where: {
       enabled: true,
@@ -142,17 +144,18 @@ export async function GET() {
     const token = jsonwebtoken.sign({
       id: subscription.id,
       userId: subscription.userId,
+      paymentDate: subscription.paymentDate,
     }, process.env.SUBSCRIPTION_JWT_SECRET);
     const markAsPaidUrl = `${siteConfig.url}/api/mark-as-paid/?token=${token}`;
 
     // Send push notification if enabled
     if (isPushEnabled) {
-      promises.push(sendNotification(subscription, title, message, markAsPaidUrl));
+      promises.push(sendNotification(subscription, title, message, markAsPaidUrl, isPaymentDueNow));
     }
 
     // Send email notification if enabled
     if (isEmailEnabled) {
-      promises.push(sendEmail(subscription, title, message, markAsPaidUrl));
+      promises.push(sendEmail(subscription, title, message, markAsPaidUrl, resend));
     }
 
     // Update subscription

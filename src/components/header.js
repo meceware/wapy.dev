@@ -1,14 +1,36 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEventListener } from 'usehooks-ts';
+import { cn } from '@/lib/utils';
 import { ModeToggle } from '@/components/mode-toggle';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
+import { useThrottle } from '@/lib/hooks';
 
 export default function Header({ mainNavigation = (<></>), iconNavigation = (<></>) }) {
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const throttle = useThrottle();
+  const onScroll = () => {
+    const currentScrollPos = window.scrollY;
+    const isScrollingDown = prevScrollPos < currentScrollPos;
+
+    setVisible(!isScrollingDown || currentScrollPos < 80);
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEventListener('scroll', () => {
+    throttle(onScroll, 250);
+  });
+
   return (
-    <header className='border-b w-full'>
+    <header className={ cn(
+      'sticky top-0 w-full shadow border-b bg-background transition-transform duration-300 z-50',
+      { 'transform': visible, '-translate-y-full': !visible }
+    ) }>
       <div className='container mx-auto px-4'>
         <div className='h-16 flex items-center justify-between'>
           {/* Logo and Brand */}

@@ -30,6 +30,7 @@ import {
   SquarePlus,
   ArrowDown,
   EllipsisVertical,
+  ShieldCheck,
 } from 'lucide-react';
 
 export const Icons = {
@@ -64,6 +65,7 @@ export const Icons = {
   squarePlus: SquarePlus,
   arrowDown: ArrowDown,
   ellipsisVertical: EllipsisVertical,
+  shieldCheck: ShieldCheck,
   github: (props) => (
     <svg viewBox='0 0 438.549 438.549' {...props}>
       <path

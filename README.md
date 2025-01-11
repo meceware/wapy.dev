@@ -71,30 +71,132 @@ Account page where you can manage your profile, notifications and categories.
 
 ## Getting Started
 
-1. Clone the repository
+Requirements:
+  - Resend API key: for handling authentication emails and email notifications
 
-1. On first run, you need to setup the environment variables. Please take a look
-at the `.env.example` file to see what variables you need to set.
+  - Github OAuth keys (ID and Secret): for enabling Github login.
 
-    - The setup script will copy `.env.example` to `.env` and generate some of the
-environment variables automatically. To automatically generate the `.env` file, you can run the `setup.sh` script via following commands:
+  - Google OAuth keys (ID and Secret): for enabling Google login.
 
-    ```bash
-    # On Linux
-    chmod +x ./scripts/setup.sh && ./scripts/setup.sh
-    # or
-    docker run --rm -v $(pwd):/app -w /app node:23.5-alpine sh -c "apk add --no-cache openssl su-exec && su-exec $(id -u):$(id -g) ./scripts/setup.sh"
+Before everything, you will need to setup the environment variables. Please take a look at the `.env.example` file to see what variables you need to set.
 
-    # On Windows
-    docker run --rm -v ${PWD}:/app -w /app node:23.5-alpine sh -c "apk add --no-cache openssl && ./scripts/setup.sh"
-    ```
+The setup script will help you by copying `.env.example` to `.env` and generating some of the environment variables automatically. To automatically generate the `.env` file, you can run the `setup.sh` script via following commands:
 
-    - You will need to set Github, Google and Resend API keys in the `.env` file.
+```bash
+# On Linux
+chmod +x ./scripts/setup.sh && ./scripts/setup.sh
+# or
+docker run --rm -v $(pwd):/app -w /app node:23.6-alpine sh -c "apk add --no-cache openssl su-exec && su-exec $(id -u):$(id -g) ./scripts/setup.sh"
 
-1. Run `docker compose -p wapydev up -d` to start the database and server. Default environment is `production`, but you can change it to `development` if you want to, via `NODE_ENV` variable in the `.env` file.
+# On Windows
+docker run --rm -v ${PWD}:/app -w /app node:23.6-alpine sh -c "apk add --no-cache openssl && ./scripts/setup.sh"
+```
 
-1. Visit `http://localhost:3000` or your domain URL.
+### Production Setup
+
+Run docker compose to start the server.
+
+```bash
+docker compose -p wapydev up -d
+```
+
+The docker compose file includes the database and server. After successful deployment, you can visit your domain URL to see the application.
+
+### Development Setup
+
+Run docker compose to start the server.
+
+```bash
+docker compose -p wapydev-dev -f docker-compose-dev.yml up -d
+```
+
+### Environment Variables
+
+**Site configuration**
+
+`SITE_URL`: Your site URL. The default is `http://localhost:3000` but you can set it to a domain URL without the trailing slash (ex: `https://www.yourdomain.com`).
+
+**Database configuration**
+
+`POSTGRES_DB`: The name of the database. The default is `wapydev`.
+
+`POSTGRES_USER`: The name of the database. The default is `wapydev`.
+
+`POSTGRES_PASSWORD`: The password for the database. When you run the `setup.sh` script, it will generate a random password for you.
+
+`DATABASE_URL`: The database URL. With the default docker setup, you don't need to change this.
+
+**Authentication configuration**
+
+`AUTH_SECRET`: The secret key for the authentication. When you run the `setup.sh` script, it will generate a random secret for you.
+
+`AUTH_TRUST_HOST`: Whether to trust the host header in the authentication process. The default is `true`.
+
+**Email configuration**
+
+`RESEND_API_KEY`: The API key for the Resend email service.
+
+`RESEND_FROM`: The email address for the Resend email service. An example is `no-reply@yourdomain.com`.
+
+`RESEND_CONTACT_EMAIL`: The contact email for the contact form.
+
+**Github configuration**
+
+[Optional] The variables are only needed if you want to enable Github login.
+
+`GITHUB_CLIENT_ID`: The client ID for the Github OAuth application.
+
+`GITHUB_CLIENT_SECRET`: The client secret for the Github OAuth application.
+
+**Google configuration**
+
+[Optional] The variables are only needed if you want to enable Google login.
+
+`GOOGLE_CLIENT_ID`: The client ID for the Google OAuth application.
+
+`GOOGLE_CLIENT_SECRET`: The client secret for the Google OAuth application.
+
+**Push Notifications**
+
+[Optional] The variables are only needed if you want to enable push notifications.
+
+`NEXT_PUBLIC_VAPID_PUBLIC_KEY`: The public key for the Web Push API. When you run the `setup.sh` script, it will generate a random key for you.
+
+`VAPID_PRIVATE_KEY`: The private key for the Web Push API. When you run the `setup.sh` script, it will generate a random key for you.
+
+**Subscription Secret**
+
+`SUBSCRIPTION_JWT_SECRET`: The secret key for the subscription signing. When you run the `setup.sh` script, it will generate a random secret for you.
+
+### Database Backup and Restore
+
+You can backup the database by running the `backup.sh` script.
+
+```bash
+./scripts/backup.sh
+```
+
+You can restore the database by running the `restore.sh` script.
+
+```bash
+./scripts/restore.sh
+```
 
 ## Contributing
+
+Thanks go to these wonderful people for their time and contributions ✨.
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/tiagorvmartins" target="_blank" rel="noopener noreferrer"><img src="https://github.com/tiagorvmartins.png" width="100%" alt="Tiago Martins"/><br /><sub>Tiago Martins</sub></a></td>
+      <td align="center" valign="top" width="20%"></td>
+      <td align="center" valign="top" width="20%"></td>
+      <td align="center" valign="top" width="20%"></td>
+      <td align="center" valign="top" width="20%"></td>
+    </tr>
+  </tbody>
+</table>
+
 
 Contributions are welcome! Please feel free to submit a PR or create an issue.

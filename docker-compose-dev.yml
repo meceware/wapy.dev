@@ -14,12 +14,21 @@ services:
 
   app:
     container_name: wapydev-app
-    image: ghcr.io/meceware/wapy.dev:latest
+    image: node:23.6-alpine
     restart: unless-stopped
-    env_file:
-      - .env
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+      - HOSTNAME=0.0.0.0
+      - PORT=3000
     ports:
       - '3000:3000'
+      - '5555:5555'
+    volumes:
+      - .:/app
+    working_dir: /app
+    entrypoint: >
+      /bin/sh -c 'chmod +x ./scripts/entrypoint-dev.sh && ./scripts/entrypoint-dev.sh'
     depends_on:
       - db
 
@@ -29,7 +38,7 @@ services:
     restart: unless-stopped
     command: >
       sh -c 'while true; do
-        /usr/bin/flock -n /tmp/wapy.lockfile wget -qO- wapydev-app:3000/api/cron/;
+        /usr/bin/flock -n /tmp/wapy.lockfile wget -qO- app:3000/api/cron/;
         sleep 60;
       done'
     depends_on:

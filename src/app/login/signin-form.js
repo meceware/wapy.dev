@@ -109,7 +109,7 @@ const SignInSendAgain = ({ email, onClick }) => {
           </div>
           <CardTitle className='text-2xl'>Check your inbox</CardTitle>
           <CardDescription className='text-base'>
-            We've sent a link to your email to sign in.
+            We&apos;ve sent a link to your email to sign in.
           </CardDescription>
         </div>
       </CardHeader>
@@ -121,7 +121,7 @@ const SignInSendAgain = ({ email, onClick }) => {
         </div>
       </CardContent>
       <CardFooter className='flex flex-col sm:flex-row justify-center gap-0 sm:gap-1'>
-        <span className='text-sm text-muted-foreground'>Didn't receive the email?</span>
+        <span className='text-sm text-muted-foreground'>Didn&apos;t receive the email?</span>
         <Button
           onClick={handleClick}
           variant='link'

@@ -7,7 +7,7 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/lib/prisma';
 import { siteConfig } from '@/components/config';
 
-const authURL = new URL(process.env.AUTH_URL);
+const authURL = new URL(`${process.env.SITE_URL}/api/auth`);
 const cookiePrefix = authURL.protocol === 'https:' ? '__Secure-' : '';
 const authDomain = authURL.hostname === 'localhost' ? authURL.hostname : `.${authURL.hostname.split('.').slice(-2).join('.')}`;
 
@@ -21,7 +21,7 @@ const html = ({ url, token }) => {
               <tr>
                 <td style="padding-top: 40px;">
                   <div style="text-align: center;">
-                    <img src="${siteConfig.url}/icon.png" alt="${process.env.RESEND_NAME}" style="width: 96px; padding-bottom: 20px;">
+                    <img src="${siteConfig.url}/icon.png" alt="${siteConfig.from}" style="width: 96px; padding-bottom: 20px;">
                   </div>
                   <div style="padding: 20px; background-color: #ffffff;">
                     <h1 style="margin: 1rem 0 0 0; color: #000000; text-align: center;">Sign in to</h1>
@@ -42,7 +42,7 @@ const html = ({ url, token }) => {
                       </div>
                     </div>
                     <p style="padding-bottom: 16px;">If you didn't ask to sign in, you can ignore this email.</p>
-                    <p style="padding-bottom: 16px;">Thanks,<br>${process.env.RESEND_NAME}</p>
+                    <p style="padding-bottom: 16px;">Thanks,<br>${siteConfig.from}</p>
                   </div>
                   <div style="padding-top: 20px; color: #999999; text-align: center;">
                     <p style="padding-bottom: 16px;">Made with ♥ by <a href="${siteConfig.url}" target="_blank">${siteConfig.name}</a></p>
@@ -58,7 +58,7 @@ const html = ({ url, token }) => {
 };
 
 const text = ({ url, token }) => {
-  return `Sign in to ${process.env.RESEND_NAME}\n\nCopy and paste this link into your browser:\n${url}\n\nOr use this code to sign in: ${token}\n\nIf you didn't ask to sign in, you can ignore this email.\n\nThanks,\n${process.env.RESEND_NAME}`;
+  return `Sign in to ${siteConfig.from}\n\nCopy and paste this link into your browser:\n${url}\n\nOr use this code to sign in: ${token}\n\nIf you didn't ask to sign in, you can ignore this email.\n\nThanks,\n${siteConfig.from}`;
 };
 
 const generateOTP = async (to, token, expires) => {
@@ -91,8 +91,8 @@ const authConfig = {
     }),
     Resend({
       apiKey: process.env.RESEND_API_KEY,
-      from: `${process.env.RESEND_NAME} <${process.env.RESEND_FROM}>`,
-      name: process.env.RESEND_NAME,
+      from: `${siteConfig.from} <${process.env.RESEND_FROM}>`,
+      name: siteConfig.from,
       maxAge: 60 * 60 * 4, // 4 hours
       sendVerificationRequest: async (params) => {
         const { identifier: to, provider, url, token, expires } = params;

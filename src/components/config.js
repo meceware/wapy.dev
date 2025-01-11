@@ -10,4 +10,5 @@ export const siteConfig = {
     name: 'meceware',
     url: 'https://www.meceware.com/',
   },
+  subscriptionReminderFrom: `Wapy.dev Subscription Reminder <${process.env.RESEND_FROM}>`,
 };

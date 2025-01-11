@@ -12,7 +12,7 @@ import { siteConfig } from '@/components/config';
 import { addMinutes } from 'date-fns';
 
 webpush.setVapidDetails(
-  'mailto:Wapy Subscription Reminder <no-reply@wapy.dev>',
+  `mailto:${siteConfig.subscriptionReminderFrom}`,
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
   process.env.VAPID_PRIVATE_KEY
 );
@@ -74,12 +74,12 @@ const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
   return new Promise(async (resolve, reject) => {
     try {
       await resend.emails.send({
-        from: 'Wapy Subscription Reminder <no-reply@wapy.dev>',
+        from: siteConfig.subscriptionReminderFrom,
         to: subscription.user.email,
         subject: title,
         html: `
           <p>${message}</p>
-          <p>This is a friendly reminder email from wapy.dev.</p>
+          <p>This is a friendly reminder email from ${siteConfig.name}.</p>
           <p>
             <a href="${siteConfig.url}/">View Details</a> |
             <a href="${markAsPaidUrl}">Mark as Paid</a>

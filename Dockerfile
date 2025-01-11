@@ -28,21 +28,16 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
 # Copy necessary files from builder
 COPY --from=builder /app/public ./public/
 COPY --from=builder /app/prisma ./prisma/
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/scripts/entrypoint.sh ./
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/scripts/entrypoint.sh ./
 COPY --from=builder /app/LICENSE ./
 
 RUN chmod +x ./entrypoint.sh
 RUN npm i -g prisma
-
-USER nextjs
 
 # Expose port
 EXPOSE 3000 5555

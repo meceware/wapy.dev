@@ -47,8 +47,7 @@ const SignInOTP = ({email}) => {
     if (parsedCode?.success && parsedEmail?.success) {
       const url = await generateOTPLink(parsedCode.data.code, parsedEmail.data.email);
       if (url) {
-        const result = await router.push(url);
-        console.log('router push result', result);
+        router.push(url);
       } else {
         toast.error('This is not a valid code! Please try again.');
       }

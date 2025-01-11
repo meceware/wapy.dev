@@ -149,7 +149,7 @@ docker build -t wapy.dev -f Dockerfile .
     SITE_URL=https://<your-domain>
     ```
 
-6. Optionally set the following env vars, for logging in with github and/or google.
+7. Optionally set the following env vars, for logging in with github and/or google.
 
     ```
     # Github
@@ -161,7 +161,7 @@ docker build -t wapy.dev -f Dockerfile .
     GOOGLE_SECRET=
     ```
 
-7. Execute the stack
+8. Execute the stack
 
     ```
     docker compose -f docker-compose.prod.yml up -d

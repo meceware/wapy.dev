@@ -6,11 +6,6 @@ FROM base AS builder
 WORKDIR /app
 ENV NODE_ENV=production
 
-# Add metadata about your image
-LABEL org.opencontainers.image.source="https://github.com/meceware/wapy.dev"
-LABEL org.opencontainers.image.description="Wapy.dev - Track, manage, and optimize your recurring expenses in one powerful dashboard"
-LABEL org.opencontainers.image.licenses="MIT + Commons Clause"
-
 # Copy source code
 COPY . .
 
@@ -21,6 +16,11 @@ RUN npm run build
 
 FROM base AS runner
 WORKDIR /app
+
+# Add metadata about your image
+LABEL org.opencontainers.image.source="https://github.com/meceware/wapy.dev"
+LABEL org.opencontainers.image.description="Wapy.dev - Track, manage, and optimize your recurring expenses in one powerful dashboard"
+LABEL org.opencontainers.image.licenses="MIT + Commons Clause"
 
 # Disable telemetry
 ENV NODE_ENV=production

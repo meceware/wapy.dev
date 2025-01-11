@@ -5,7 +5,7 @@ import { SignInForm } from './signin-form';
 
 const PageLogin = async () => {
   return (
-    <div className='flex flex-col grow justify-center items-center'>
+    <div className='flex flex-col grow justify-center items-center w-full'>
       <SignInForm />
     </div>
   );

@@ -87,6 +87,17 @@ model VerificationToken {
   @@id([identifier, token])
 }
 
+model VerificationOTPToken {
+  id          String      @id @default(cuid())
+  identifier  String
+  code        String
+  token       String
+  expires     DateTime
+
+  @@index([identifier, code])
+  @@index([expires])
+}
+
 // Optional for WebAuthn support
 model Authenticator {
   credentialID         String     @unique @map("credential_id")

@@ -7,9 +7,9 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/lib/prisma';
 import { siteConfig } from '@/components/config';
 
-const authURL = new URL(`${process.env.SITE_URL}/api/auth`);
-const cookiePrefix = authURL.protocol === 'https:' ? '__Secure-' : '';
-const authDomain = authURL.hostname === 'localhost' ? authURL.hostname : `.${authURL.hostname.split('.').slice(-2).join('.')}`;
+const authURL = new URL(`${siteConfig.url}/api/auth`);
+const cookiePrefix = authURL?.protocol === 'https:' ? '__Secure-' : '';
+const authDomain = authURL?.hostname ? (authURL.hostname === 'localhost' ? authURL.hostname : `.${authURL.hostname.split('.').slice(-2).join('.')}`) : '';
 
 const html = ({ url, token }) => {
   return `

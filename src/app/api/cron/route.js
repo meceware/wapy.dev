@@ -9,7 +9,6 @@ import { prisma } from '@/lib/prisma';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
 import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
-import { addMinutes } from 'date-fns';
 
 const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
   return subscription.user.push.map(async push => {
@@ -182,7 +181,7 @@ export async function GET() {
     }));
   }
 
-  await Promise.all(promises);
+  await Promise.allSettled(promises);
   const endTime = performance.now();
   if ((endTime - startTime) > 1000) {
     console.log(`Notifications sent in ${endTime - startTime}ms`);

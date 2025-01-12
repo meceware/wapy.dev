@@ -103,7 +103,7 @@ export async function GET() {
       : `${price}${currency.symbol}`;
   };
 
-  const rightNow = addMinutes(new Date(), 1);
+  const rightNow = new Date();
   const subscriptions = await prisma.subscription.findMany({
     where: {
       enabled: true,

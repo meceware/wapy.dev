@@ -120,7 +120,7 @@ export default async function RootLayout({ children }) {
                 </main>
                 <Footer name={siteConfig.name} author={ siteConfig.author } github={ siteConfig.links.github } />
               </div>
-              { session && <PushNotificationToggle /> }
+              { session && <PushNotificationToggle vapidPublicKey={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ''} /> }
               { session && <AddToHomeScreen /> }
             </PushNotificationProvider>
             <Toaster richColors closeButton />

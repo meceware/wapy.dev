@@ -57,7 +57,7 @@ const NotificationPermissionModal = ({ open, onOpenChange, onEnable, onMaybeLate
   </ResponsiveDialog>
 );
 
-export const PushNotificationToggle = () => {
+export const PushNotificationToggle = ({vapidPublicKey}) => {
   const {
     showNotificationModal,
     setShowNotificationModal,
@@ -80,7 +80,7 @@ export const PushNotificationToggle = () => {
       const reg = await navigator.serviceWorker.ready;
       const sub = await reg.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
+        applicationServerKey: vapidPublicKey,
       });
 
       const result = await PushNotificationSubscribe({

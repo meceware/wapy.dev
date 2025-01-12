@@ -78,9 +78,11 @@ Requirements:
 
   - Google OAuth keys (ID and Secret): for enabling Google login.
 
+Download or copy `docker-compose.yml` and `.env.example` files from the repository.
+
 Before everything, you will need to setup the environment variables. Please take a look at the `.env.example` file to see what variables you need to set.
 
-The setup script will help you by copying `.env.example` to `.env` and generating some of the environment variables automatically. To automatically generate the `.env` file, you can run the `setup.sh` script via following commands:
+The setup script `setup.sh` will help you by copying `.env.example` to `.env` and generating some of the environment variables automatically. To automatically generate the `.env` file, you can download/copy the file `scripts/setup.sh` and run the script via following commands:
 
 ```bash
 # On Linux

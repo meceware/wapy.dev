@@ -123,8 +123,7 @@ const authConfig = {
     signIn: '/login',
     signOut: '/',
   },
-  session:
-  {
+  session: {
     strategy: 'database',
     maxAge: 60 * 60 * 24 * 60, // 60 days
   },
@@ -142,7 +141,7 @@ const authConfig = {
       name: `${cookiePrefix}authjs.pkce.code_verifier`,
       options: {
         httpOnly: true,
-        sameSite: 'none',
+        sameSite: 'lax',
         path: '/',
         secure: true,
         maxAge: 900,
@@ -157,8 +156,8 @@ const authConfig = {
         sameSite: 'lax',
         secure: true,
         domain: authDomain,
-      }
-    }
+      },
+    },
   },
 };
 

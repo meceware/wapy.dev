@@ -3,7 +3,7 @@
 import { NextResponse } from 'next/server';
 import webpush from 'web-push';
 import jsonwebtoken from 'jsonwebtoken';
-import { formatDistanceToNowStrict } from 'date-fns';
+import { formatDistanceToNowStrict, isEqual } from 'date-fns';
 import { Resend } from 'resend';
 import { prisma } from '@/lib/prisma';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
@@ -130,7 +130,7 @@ export async function GET() {
     const isEmailEnabled = notificationTypes.includes('EMAIL');
 
     const paymentDate = subscription.nextNotificationDetails?.paymentDate;
-    const isPaymentDueNow = paymentDate === subscription.nextNotificationTime;
+    const isPaymentDueNow = isEqual(paymentDate, subscription.nextNotificationTime);
     const dueText = isPaymentDueNow
       ? 'due now'
       : `${formatDistanceToNowStrict(paymentDate, {addSuffix: true})}`;

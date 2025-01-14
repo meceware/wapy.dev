@@ -1,5 +1,6 @@
 const nextConfig = {
   output: "standalone",
+  poweredByHeader: false,
   async headers() {
     return [
       {

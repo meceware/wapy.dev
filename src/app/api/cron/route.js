@@ -3,13 +3,12 @@
 import { NextResponse } from 'next/server';
 import webpush from 'web-push';
 import jsonwebtoken from 'jsonwebtoken';
-import { formatDistanceToNowStrict } from 'date-fns';
+import { formatDistanceToNowStrict, isEqual } from 'date-fns';
 import { Resend } from 'resend';
 import { prisma } from '@/lib/prisma';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
 import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
-import { addMinutes } from 'date-fns';
 
 const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
   return subscription.user.push.map(async push => {
@@ -131,7 +130,7 @@ export async function GET() {
     const isEmailEnabled = notificationTypes.includes('EMAIL');
 
     const paymentDate = subscription.nextNotificationDetails?.paymentDate;
-    const isPaymentDueNow = paymentDate === subscription.nextNotificationTime;
+    const isPaymentDueNow = isEqual(paymentDate, subscription.nextNotificationTime);
     const dueText = isPaymentDueNow
       ? 'due now'
       : `${formatDistanceToNowStrict(paymentDate, {addSuffix: true})}`;
@@ -182,7 +181,7 @@ export async function GET() {
     }));
   }
 
-  await Promise.all(promises);
+  await Promise.allSettled(promises);
   const endTime = performance.now();
   if ((endTime - startTime) > 1000) {
     console.log(`Notifications sent in ${endTime - startTime}ms`);

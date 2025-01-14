@@ -28,7 +28,7 @@ export const metadata = {
     canonical: '/',
   },
   title: {
-    default: siteConfig.name,
+    default: siteConfig.title,
     template: `%s | ${ siteConfig.name }`,
   },
   description: siteConfig.description,
@@ -54,14 +54,14 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: siteConfig.name,
+    title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [ `/og.png` ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.name,
+    title: siteConfig.title,
     description: siteConfig.description,
     images: [ `/og.png` ],
   },
@@ -118,7 +118,7 @@ export default async function RootLayout({ children }) {
                     { children }
                   </div>
                 </main>
-                <Footer name={siteConfig.name} author={ siteConfig.author } github={ siteConfig.links.github } />
+                <Footer author={ siteConfig.author } github={ siteConfig.links.github } />
               </div>
               { session && <PushNotificationToggle vapidPublicKey={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ''} /> }
               { session && <AddToHomeScreen /> }

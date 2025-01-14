@@ -2,6 +2,8 @@
 
 import Image from 'next/image'
 import { Icons } from '@/components/icons';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const HomeVisitor = () => {
   return (
@@ -14,9 +16,18 @@ export const HomeVisitor = () => {
         <h1 className='text-5xl md:text-6xl font-bold tracking-tight'>
           Take Control of Your Subscriptions
         </h1>
-        <p className='text-xl text-muted-foreground max-w-2xl'>
-          Track, manage, and optimize your recurring expenses in one powerful and human readable dashboard.Never miss a payment again.
-        </p>
+        <h2 className='text-xl text-muted-foreground-light max-w-4xl'>
+          Track, manage, and optimize your subscriptions and recurring expenses in one powerful and human readable dashboard.
+        </h2>
+        <h3 className='text-xl text-muted-foreground-light font-semibold max-w-4xl'>
+          Get notified and never miss a payment again.
+        </h3>
+        <Button size='lg' asChild className='text-lg'>
+          <Link href='/login'>
+            Get Started
+            <Icons.arrowRight className='ml-2 h-4 w-4' />
+          </Link>
+        </Button>
         <Image src='/images/banner.png' alt='Hero' width={960} height={600} />
       </div>
 

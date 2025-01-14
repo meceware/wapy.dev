@@ -28,7 +28,7 @@ export default function Header({ mainNavigation = (<></>), iconNavigation = (<><
 
   return (
     <header className={ cn(
-      'sticky top-0 w-full shadow border-b bg-background transition-transform duration-300 z-50',
+      'sticky top-0 w-full shadow border-b bg-background transition-transform duration-300 z-10',
       { 'transform': visible, '-translate-y-full': !visible }
     ) }>
       <div className='container mx-auto px-4'>

@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: 'Wapy.dev',
-  description: 'Subscription and Expense Tracker',
+  title: 'Wapy.dev - Subscription Manager',
+  description: 'Track, manage, and optimize your subscriptions and recurring expenses in one powerful and human readable dashboard. Get notified and never miss a payment again.',
   keywords: 'subscription, expense, tracker, wapy, meceware',
   url: process.env.SITE_URL || 'http://localhost:3000',
   links: {

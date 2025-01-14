@@ -22,7 +22,7 @@ export const HomeVisitor = () => {
         <h3 className='text-xl text-muted-foreground-light font-semibold max-w-4xl'>
           Get notified and never miss a payment again.
         </h3>
-        <Button size='lg' asChild className='text-lg'>
+        <Button size='lg' asChild className='text-base'>
           <Link href='/login'>
             Get Started
             <Icons.arrowRight className='ml-2 h-4 w-4' />

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { signIn } from 'next-auth/react';
@@ -36,18 +36,19 @@ import { signInAction, generateOTPLink } from './action';
 const SignInOTP = ({email}) => {
   const [otp, setOtp] = useState('');
   const [disabled, setDisabled] = useState(false);
+  const [url, setUrl] = useState(null);
   const router = useRouter();
 
-  const onSubmit = async (data) => {
+  const onSubmit = useCallback(async (code, email) => {
     setDisabled(true);
 
-    const parsedCode = signInOTPSchema.safeParse({ code: data });
+    const parsedCode = signInOTPSchema.safeParse({ code: code });
     const parsedEmail = signInSchema.safeParse({ email: email });
 
     if (parsedCode?.success && parsedEmail?.success) {
       const url = await generateOTPLink(parsedCode.data.code, parsedEmail.data.email);
       if (url) {
-        router.push(url);
+        setUrl(url);
       } else {
         toast.error('This is not a valid code! Please try again.');
       }
@@ -56,14 +57,21 @@ const SignInOTP = ({email}) => {
     }
 
     setDisabled(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (url) {
+      setUrl(null);
+      router.push(url);
+    }
+  }, [url]);
 
   return (
     <InputOTP
       maxLength={6}
       value={otp}
       onChange={setOtp}
-      onComplete={onSubmit}
+      onComplete={(data) => onSubmit(data, email)}
       disabled={disabled}
       containerClassName='flex-col sm:flex-row justify-center'
     >
@@ -116,7 +124,7 @@ const SignInSendAgain = ({ email, onClick }) => {
       <CardContent className='flex flex-col gap-4'>
         <Divider text='or' />
         <div className='space-y-2 text-center'>
-          <p className='text-sm text-muted-foreground'>Enter the 8-digit code sent to your email</p>
+          <p className='text-sm text-muted-foreground'>Enter the 6-digit code sent to your email</p>
           <SignInOTP email={email} />
         </div>
       </CardContent>

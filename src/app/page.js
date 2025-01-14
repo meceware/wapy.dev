@@ -14,9 +14,3 @@ export default async function PageHome() {
 
   return <HomeMember userId={ session.user.id }/>;
 }
-
-export async function generateMetadata() {
-  return {
-    title: 'Subscription Manager',
-  };
-};

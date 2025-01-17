@@ -25,7 +25,9 @@ import {
   SwatchBook,
   Pen,
   PieChart,
+  ReceiptText,
   Repeat,
+  Scroll,
   Share,
   ShieldCheck,
   SquarePlus,
@@ -68,6 +70,8 @@ export const Icons = {
   tag: Tag,
   trash: Trash,
   x: X,
+  scroll: Scroll,
+  receipt: ReceiptText,
   github: (props) => (
     <svg viewBox='0 0 438.549 438.549' {...props}>
       <path

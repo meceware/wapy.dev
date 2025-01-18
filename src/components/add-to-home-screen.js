@@ -141,7 +141,7 @@ const AddToUnknown = () => {
 
 const STORAGE_KEY = 'add-to-home-screen';
 const DELAY_DAYS = 400;
-const MIN_VISITS = 10;
+const MIN_VISITS = 5;
 
 export function AddToHomeScreen() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);

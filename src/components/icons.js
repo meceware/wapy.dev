@@ -34,6 +34,7 @@ import {
   Tag,
   Trash,
   X,
+  Wallet,
 } from 'lucide-react';
 
 export const Icons = {
@@ -72,6 +73,7 @@ export const Icons = {
   x: X,
   scroll: Scroll,
   receipt: ReceiptText,
+  wallet: Wallet,
   github: (props) => (
     <svg viewBox='0 0 438.549 438.549' {...props}>
       <path

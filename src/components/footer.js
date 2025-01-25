@@ -41,10 +41,22 @@ export default function Footer( { author, github } ) {
               <DropdownMenuTrigger asChild>
                 <button className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-none'>
                   <Icons.menu className='size-4' />
-                  Policies
+                  Menu
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align='end' className='w-56 space-y-2 px-1 py-2'>
+                <DropdownMenuItem asChild>
+                  <Link href='/pricing' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
+                    <Icons.wallet className='size-4' />
+                    Pricing
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href='/refund-policy' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
+                    <Icons.receipt className='size-4' />
+                    Refund Policy
+                  </Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href='/privacy' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
                     <Icons.shieldCheck className='size-4' />
@@ -55,12 +67,6 @@ export default function Footer( { author, github } ) {
                   <Link href='/terms-of-service' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
                     <Icons.scroll className='size-4' />
                     Terms of Service
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href='/refund-policy' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
-                    <Icons.receipt className='size-4' />
-                    Refund Policy
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>

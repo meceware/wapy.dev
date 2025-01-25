@@ -22,14 +22,14 @@ export const RefundPolicy = () => {
           </section>
 
           <section className='space-y-4'>
-            <h2 className='text-2xl font-semibold'>Examples of full refunds</h2>
+            <h2 className='text-xl font-semibold'>Examples of full refunds</h2>
             <ul className='list-disc pl-8'>
               <li>If you were just charged for your next month of service but you meant to cancel, we&apos;re happy to refund that extra charge</li>
             </ul>
           </section>
 
           <section className='space-y-4'>
-            <h2 className='text-2xl font-semibold'>Examples of partial refunds</h2>
+            <h2 className='text-xl font-semibold'>Examples of partial refunds</h2>
             <ul className='list-disc pl-8'>
               <li>If you were charged for a month of service but you only used it for a week, we&apos;ll refund the difference</li>
               <li>If you were charged for a year of service but you only used it for a month, we&apos;ll refund the difference</li>

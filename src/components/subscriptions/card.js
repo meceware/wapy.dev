@@ -26,7 +26,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 
-const SubscriptionDate = ({ date, timezone, text}) => {
+const SubscriptionDate = ({date, timezone, text}) => {
   return (
     <div className='inline-flex items-center gap-1'>
       <Popover>
@@ -305,7 +305,6 @@ export const SubscriptionCard = ({ subscription }) => {
             )}
           </div>
           <div className='flex items-center'>
-
             <Button variant='outline' size='sm' className='text-muted-foreground' asChild>
               <Link href={`/${subscription.id}`} title='Edit Subscription'>
                 <Icons.edit /> Edit

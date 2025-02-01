@@ -3,12 +3,14 @@
 import { NextResponse } from 'next/server';
 import webpush from 'web-push';
 import jsonwebtoken from 'jsonwebtoken';
-import { formatDistanceToNowStrict, isEqual } from 'date-fns';
+import { formatDistanceToNowStrict, isEqual, addDays, addMonths, isAfter, isPast } from 'date-fns';
 import { Resend } from 'resend';
 import { prisma } from '@/lib/prisma';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
 import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
+import { paddleGetStatus } from '@/lib/paddle/status';
+import { PADDLE_STATUS_MAP, TRIAL_DURATION_MONTHS, paddleIsValid } from '@/lib/paddle/enum';
 
 const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
   return subscription.user.push.map(async push => {
@@ -112,6 +114,142 @@ const sendEmail = async (subscription, title, message, markAsPaidUrl, resend) =>
   });
 };
 
+const UserSubscriptionNotifications = async (resend, rightNow) => {
+  if (!process.env.PADDLE_API_KEY) {
+    return;
+  }
+
+  const users = await prisma.user.findMany({
+    where: {
+      isBlocked: false,
+      fullAccess: false,
+      subNextNotification: {
+        not: null,
+        lte: rightNow,
+      },
+    },
+    include: {
+      push: true,
+      paddleUserDetails: true,
+    },
+  });
+
+  const startTime = performance.now();
+  const promises = [];
+  for (const user of users) {
+    const paddleStatus = await paddleGetStatus(user);
+    if (paddleStatus.status === PADDLE_STATUS_MAP.none) {
+      continue;
+    }
+
+    const nextNotificationDate = user.subNextNotification;
+    const pastNotificationData = {
+      userId: user.id,
+      title: '',
+      message: '',
+      type: 'PAYMENT_DUE',
+      subscriptionId: null,
+    }
+
+    if (paddleStatus.status === PADDLE_STATUS_MAP.trialActive) {
+      const paymentDate = addMonths(user.trialStartedAt, TRIAL_DURATION_MONTHS);
+
+      pastNotificationData.title = 'Wapy.dev Trial Reminder';
+      pastNotificationData.message = `Your Wapy.dev trial period is ending soon. Subscribe now to keep enjoying all features.`;
+
+      // Send push notification for trial active
+      promises.push(sendNotification(
+        {user: user},
+        pastNotificationData.title,
+        pastNotificationData.message,
+        `${siteConfig.url}/account`,
+        false
+      ));
+
+      // Set next notification date to current + 1 day
+      const nextDate = addDays(nextNotificationDate, 1);
+      promises.push(
+        prisma.user.update({
+          where: {
+            id: user.id,
+          },
+          data: {
+            subNextNotification: isPast(paymentDate) && isPast(nextDate) ? null :
+              isPast(paymentDate) ? nextDate :
+              isPast(nextDate) ? paymentDate :
+              isAfter(paymentDate, nextDate) ? paymentDate : nextDate,
+          }
+        })
+      );
+    } else if (paddleStatus.status === PADDLE_STATUS_MAP.trialExpired) {
+      pastNotificationData.title = 'Wapy.dev Trial Expired';
+      pastNotificationData.message = `Your Wapy.dev trial period is expired. Subscribe now to keep enjoying all features.`;
+
+      // Send push notification for expired trial
+      promises.push(sendNotification(
+        {user: user},
+        pastNotificationData.title,
+        pastNotificationData.message,
+        `${siteConfig.url}/account`,
+        false
+      ));
+
+      // Send email notification
+      promises.push(sendEmail(
+        {user: user},
+        pastNotificationData.title,
+        pastNotificationData.message,
+        `${siteConfig.url}/account`,
+        resend
+      ));
+
+      // Set next notification to null
+      promises.push(
+        prisma.user.update({
+          where: { id: user.id },
+          data: { subNextNotification: null }
+        })
+      );
+    } else {
+      pastNotificationData.title = 'Wapy.dev Payment Reminder';
+      pastNotificationData.message = `Just a reminder that your Wapy.dev subscription is ending soon.`;
+
+      promises.push(sendNotification(
+        {user: user},
+        pastNotificationData.title,
+        pastNotificationData.message,
+        `${siteConfig.url}/account`,
+        false
+      ));
+
+      promises.push(sendEmail(
+        {user: user},
+        pastNotificationData.title,
+        pastNotificationData.message,
+        `${siteConfig.url}/account`,
+        resend
+      ));
+
+      promises.push(
+        prisma.user.update({
+          where: { id: user.id },
+          data: { subNextNotification: null }
+        })
+      );
+    }
+
+    promises.push(prisma.pastNotification.create({
+      data: pastNotificationData,
+    }));
+  }
+
+  await Promise.allSettled(promises);
+  const endTime = performance.now();
+  if ((endTime - startTime) > 1000) {
+    console.log(`User subscription notifications sent in ${endTime - startTime}ms`);
+  }
+}
+
 export async function GET() {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -123,6 +261,9 @@ export async function GET() {
   };
 
   const rightNow = new Date();
+
+  await UserSubscriptionNotifications(resend, rightNow);
+
   const subscriptions = await prisma.subscription.findMany({
     where: {
       enabled: true,
@@ -130,11 +271,15 @@ export async function GET() {
         not: null,
         lte: rightNow,
       },
+      user: {
+        isBlocked: false,
+      }
     },
     include: {
       user: {
         include: {
-          push: true
+          push: true,
+          paddleUserDetails: true,
         }
       }
     }
@@ -143,6 +288,11 @@ export async function GET() {
   const startTime = performance.now();
   const promises = [];
   for (const subscription of subscriptions) {
+    const paddleStatus = await paddleGetStatus(subscription.user);
+    if (paddleStatus?.enabled && !paddleIsValid(paddleStatus?.status)) {
+      continue;
+    }
+
     const notificationTypes = subscription?.nextNotificationDetails?.type && Array.isArray(subscription?.nextNotificationDetails?.type)
       ? subscription.nextNotificationDetails.type
       : [];

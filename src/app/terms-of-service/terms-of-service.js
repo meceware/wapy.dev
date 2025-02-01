@@ -58,7 +58,7 @@ export const TermsOfService = () => {
               If you purchase a subscription to the Site, you agree to pay the applicable fees as indicated during the checkout process.
             </p>
             <p>
-              Site may use a third-party payment processor to process your payment, and your payment information will be subject to the processor&apos;s privacy policy.
+              We use <a href='https://www.paddle.com' className='underline underline-offset-4 focus:outline-none' target='_blank' rel='noopener noreferrer'>Paddle.com</a> as our payment service provider. By making a purchase, you also agree to Paddle&apos;s <a href='https://www.paddle.com/legal/terms' className='underline underline-offset-4 focus:outline-none' target='_blank' rel='noopener noreferrer'>Terms of Service</a>. Paddle processes all payments and handles the related customer service inquiries.
             </p>
             <p>
               Site process refunds according to our <Link href='/refund-policy' className='font-medium underline underline-offset-4 focus:outline-none'>refund policy</Link>.

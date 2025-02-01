@@ -1,15 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { toast } from 'sonner';
-import { format } from 'date-fns';
+import { format, formatDistanceToNowStrict } from 'date-fns';
+import { useScrollLock } from 'usehooks-ts';
+import { useTheme } from 'next-themes';
+import { initializePaddle } from '@paddle/paddle-js';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { DefaultCategories } from '@/config/categories';
 import {
   Popover,
   PopoverContent,
@@ -25,7 +34,6 @@ import {
 } from '@/components/ui/responsive-dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 import {
-  UserGetCategories,
   UserLoadDefaultCategories,
   UserRemoveCategory,
   UserSaveCategory,
@@ -35,9 +43,13 @@ import {
   UserUpdateName,
 } from './actions';
 import { SchemaCategory, SchemaUserNotifications } from './schema';
+import { DefaultCategories } from '@/config/categories';
 import { CurrencyFieldManager } from '@/components/subscriptions/form/field-currency';
 import { TimezoneFieldManager } from '@/components/subscriptions/form/field-timezone';
 import { NotificationsFieldManager } from '@/components/subscriptions/form/field-notifications';
+import { cn } from '@/lib/utils';
+import { PADDLE_STATUS_MAP } from '@/lib/paddle/enum';
+import { paddleCheckSubscriptionCheckout, paddleCancelSubscription, paddleResumeSubscription } from '@/lib/paddle/actions';
 
 const TimezoneManager = ({ user }) => {
   const [selectedTimezone, setSelectedTimezone] = useState(user?.timezone);
@@ -441,25 +453,9 @@ const CategoryItem = ({ category, onSave, onDelete, edit = false }) => {
   );
 };
 
-const CategoryManager = () => {
-  const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    const loadCategories = async () => {
-      try {
-        await UserGetCategories().then((categories) => {
-          setCategories(categories);
-          setLoading(false);
-        });
-      } catch (error) {
-        toast.error('Failed to load categories!');
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadCategories();
-  }, []);
+const CategoryManager = ({ user }) => {
+  const [loading, setLoading] = useState(false);
+  const [categories, setCategories] = useState(user.categories ? [...user.categories] : []);
 
   const loadDefaultCategories = async () => {
     try {
@@ -549,13 +545,462 @@ const CategoryManager = () => {
   );
 };
 
-export const AccountSettings = ({ user }) => {
+const PaymentStatusDate = ({date}) => {
+  return (
+    <div className='inline-flex items-center gap-1'>
+      <Popover>
+        <PopoverTrigger asChild>
+          <span className='inline-flex items-center cursor-pointer'>
+            {formatDistanceToNowStrict(date, {addSuffix: true})}
+          </span>
+        </PopoverTrigger>
+        <PopoverContent className='bg-foreground text-background text-sm w-auto max-w-screen-sm break-words px-4 py-1'>
+          {format(date, 'dd MMMM yyyy, HH:mm')}
+        </PopoverContent>
+      </Popover>
+    </div>
+  );
+};
+
+const PaymentStatusCard = ({ loading = false, status, children }) => {
+  return (
+    <Card>
+      <CardHeader>
+        <div className='flex items-start justify-between gap-2'>
+          <div className='flex flex-col gap-1 text-left grow overflow-hidden'>
+            <CardTitle>Subscription Status</CardTitle>
+            <CardDescription>
+              Your subscription status
+            </CardDescription>
+          </div>
+          {loading && (
+            <Skeleton className='size-10 rounded-full' />
+          )}
+          {!loading && (
+            <div className={cn(
+              'shrink-0 size-10 rounded-full flex items-center justify-center',
+            {
+              'bg-green-500/90': status === 'green',
+              'bg-orange-500/90': status === 'orange',
+              'bg-red-500/90': status === 'red',
+            },
+          )}>
+            {status === 'green' && (
+              <Icons.check className='size-5 text-white' />
+            )}
+            {status === 'orange' && (
+              <Icons.triangleAlert className='size-5 text-white' />
+            )}
+            {status === 'red' && (
+              <Icons.x className='size-5 text-white' />
+              )}
+            </div>
+          )}
+        </div>
+      </CardHeader>
+      { loading ? (
+        <CardContent className='flex flex-col gap-2'>
+          <Skeleton className='h-4 w-36' />
+          <Skeleton className='h-4 w-48' />
+        </CardContent>
+      ) : children }
+    </Card>
+  );
+};
+
+const PaymentStatusTrial = ({ user, paddleStatus }) => {
+  const { resolvedTheme } = useTheme();
+  const { lock, unlock } = useScrollLock({
+    autoLock: false,
+  });
+  const [paddle, setPaddle] = useState(null);
+  const [disabled, setDisabled] = useState(false);
+
+  const subscribeUser = useCallback(() => {
+    const paddleCheckout = (paddle) => {
+      lock();
+      setDisabled(true);
+      paddle?.Checkout.open({
+        settings: {
+          displayMode: 'overlay',
+          theme: resolvedTheme === 'dark' ? 'dark' : 'light',
+          allowLogout: !user.email,
+          // variant: 'one-page',
+        },
+        items: [{
+          priceId: paddleStatus.priceId,
+          quantity: 1
+        }],
+        customer: {
+          email: user.email, // TODO: set customer if there is any
+        },
+      });
+    };
+
+    if (!paddle?.Initialized) {
+      initializePaddle({
+        token: paddleStatus.clientToken,
+        environment: paddleStatus.environment,
+        eventCallback: (event) => {
+          if (event.data && event.name) {
+            if (event.name === 'checkout.closed') {
+              if (event.data.status === 'completed') {
+                paddleCheckSubscriptionCheckout(event.data.customer.id).then(() => {
+                  setDisabled(false);
+                  unlock();
+                });
+              } else {
+                setDisabled(false);
+                unlock();
+              }
+            }
+          }
+        },
+      }).then(async paddle => {
+        if (paddle) {
+          setPaddle(paddle);
+          paddleCheckout(paddle);
+        }
+      });
+    } else {
+      paddleCheckout(paddle);
+    }
+  }, [paddleStatus, paddle, setPaddle, lock, unlock, user?.email, resolvedTheme, disabled, setDisabled]);
+
+  const isTrialEnding = paddleStatus.remainingDays <= 7;
+  const isActive = paddleStatus.status === PADDLE_STATUS_MAP.trialActive;
+  const status = isActive
+    ? isTrialEnding ? 'orange' : 'green'
+    : 'red';
+
+  return (
+    <PaymentStatusCard status={status}>
+      <CardContent className='flex flex-col gap-1'>
+        {isActive ? (
+          <>
+            <div className={cn(
+              'text-base font-medium',
+              {
+                'text-green-600 dark:text-green-500': status === 'green',
+                'text-orange-500': status === 'orange',
+                'text-red-500': status === 'red',
+              },
+            )}>
+              <span className='text-sm text-muted-foreground'>Your trial period ends</span >
+              {' '}
+              <PaymentStatusDate date={paddleStatus.nextPaymentAt} />
+              <span className='text-sm text-muted-foreground'>.</span >
+            </div>
+            <div className='text-sm text-muted-foreground'>
+              We will notify you
+              {' '}
+              {paddleStatus.remainingDays > 1 ? (
+                <>
+                  <span className='text-foreground'>1 day before</span>
+                  {' '}
+                  your trial ends.
+                </>
+              ) : (
+                <>
+                  <span className='text-foreground'>when</span>
+                  {' '}
+                  your trial ends.
+                </>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className='text-base font-medium text-red-500'>
+            Your trial period has ended!
+          </div>
+        )}
+      </CardContent>
+      <CardFooter className='flex flex-col items-start gap-2'>
+        <Button size='lg' onClick={subscribeUser} disabled={disabled}>
+          {disabled ? (
+            <Icons.spinner className='animate-spin' />
+          ) : (
+            <Icons.sparkles />
+          )}
+          Ready to continue with us?
+        </Button>
+      </CardFooter>
+    </PaymentStatusCard>
+  );
+};
+
+const PaymentStatusSubscription = ({ user, paddleStatus }) => {
+  const { resolvedTheme } = useTheme();
+  const { lock, unlock } = useScrollLock({
+    autoLock: false,
+  });
+  const [paddle, setPaddle] = useState(null);
+  const [disabled, setDisabled] = useState(false);
+  const [showCancelDialog, setShowCancelDialog] = useState(false);
+
+  const cancelSubscription = useCallback(async () => {
+    setDisabled(true);
+    paddleCancelSubscription(user.paddleUserDetails?.subId).then(() => {
+      setDisabled(false);
+      setShowCancelDialog(false);
+    });
+  }, [user.paddleUserDetails?.subId, setDisabled, setShowCancelDialog]);
+
+  const resumeSubscription = useCallback(async () => {
+    setDisabled(true);
+    paddleResumeSubscription(user.paddleUserDetails?.subId).then(() => {
+      setDisabled(false);
+    });
+  }, [user.paddleUserDetails?.subId, setDisabled, setShowCancelDialog]);
+
+  const subscribeUser = useCallback(() => {
+    const paddleCheckout = (paddle) => {
+      lock();
+      setDisabled(true);
+      paddle?.Checkout.open({
+        settings: {
+          displayMode: 'overlay',
+          theme: resolvedTheme === 'dark' ? 'dark' : 'light',
+          allowLogout: !user.email,
+          // variant: 'one-page',
+        },
+        items: [{
+          priceId: paddleStatus.priceId,
+          quantity: 1
+        }],
+        customer: {
+          email: user.email,
+        },
+      });
+    };
+
+    if (!paddle?.Initialized) {
+      initializePaddle({
+        token: paddleStatus.clientToken,
+        environment: paddleStatus.environment,
+        eventCallback: (event) => {
+          if (event.data && event.name) {
+            if (event.name === 'checkout.closed') {
+              if (event.data.status === 'completed') {
+                paddleCheckSubscriptionCheckout(event.data.customer.id).then(() => {
+                  setDisabled(false);
+                  unlock();
+                });
+              } else {
+                setDisabled(false);
+                unlock();
+              }
+            }
+          }
+        },
+      }).then(async paddle => {
+        if (paddle) {
+          setPaddle(paddle);
+          paddleCheckout(paddle);
+        }
+      });
+    } else {
+      paddleCheckout(paddle);
+    }
+  }, [paddleStatus, paddle, setPaddle, lock, unlock, user?.email, resolvedTheme, disabled, setDisabled]);
+
+  if (paddleStatus.status === PADDLE_STATUS_MAP.active) {
+    if (paddleStatus.scheduledChange?.action === 'pause' || paddleStatus.scheduledChange?.action === 'cancel') {
+      return (
+        <>
+          <PaymentStatusCard status='orange'>
+            <CardContent className='flex flex-col gap-1'>
+              <div className='text-base font-medium text-orange-500'>
+                <span className='text-sm text-muted-foreground'>Your subscription is </span>
+                {paddleStatus.scheduledChange?.action === 'pause' ? 'paused' : 'cancelled'}
+                <span className='text-sm text-muted-foreground'> and will stop </span>
+                {' '}
+                <PaymentStatusDate date={paddleStatus.scheduledChange?.effectiveAt ? paddleStatus.scheduledChange?.effectiveAt : paddleStatus.nextPaymentAt} />
+                <span className='text-sm text-muted-foreground'>.</span>
+              </div>
+              <div className='text-sm text-muted-foreground'>
+                We will notify you before your subscription ends.
+              </div>
+            </CardContent>
+          </PaymentStatusCard>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <PaymentStatusCard status='green'>
+          <CardContent className='flex flex-col gap-1'>
+            <div className='text-base font-medium text-green-600 dark:text-green-500'>
+              <span className='text-sm text-muted-foreground'>Your next payment is</span>
+              {' '}
+              <PaymentStatusDate date={paddleStatus.nextPaymentAt} />
+              <span className='text-sm text-muted-foreground'>.</span>
+            </div>
+            <div className='text-sm text-muted-foreground'>
+              We will notify you before your subscription ends.
+            </div>
+          </CardContent>
+          {!paddleStatus.scheduledChange?.action && (
+            <CardFooter className='flex flex-col items-start gap-2'>
+              <Button variant='destructive' size='lg' onClick={() => setShowCancelDialog(true)} disabled={disabled}>
+                {disabled ? (
+                  <Icons.spinner className='animate-spin' />
+                ) : (
+                  <Icons.x />
+                )}
+                Cancel Subscription
+              </Button>
+            </CardFooter>
+          )}
+        </PaymentStatusCard>
+
+        <ResponsiveDialog open={showCancelDialog} onOpenChange={setShowCancelDialog}>
+          <ResponsiveDialogContent>
+            <ResponsiveDialogHeader>
+              <ResponsiveDialogTitle>Are you sure you want to cancel?</ResponsiveDialogTitle>
+              <ResponsiveDialogDescription className='text-left text-foreground'>
+                This action will cancel your subscription at the end of the current billing period. You will continue to have access until then.
+              </ResponsiveDialogDescription>
+            </ResponsiveDialogHeader>
+            <ResponsiveDialogFooter>
+              <Button
+                variant='outline'
+                onClick={() => setShowCancelDialog(false)}
+                title='Cancel'
+                disabled={disabled}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={cancelSubscription}
+                variant='destructive'
+                title='Confirm Cancellation'
+                disabled={disabled}
+              >
+                {disabled && (
+                  <Icons.spinner className='mr-2 h-4 w-4 animate-spin' />
+                )}
+                Confirm Cancellation
+              </Button>
+            </ResponsiveDialogFooter>
+          </ResponsiveDialogContent>
+        </ResponsiveDialog>
+      </>
+    );
+  }
+
+  if (paddleStatus.status === PADDLE_STATUS_MAP.paused) {
+    return (
+      <PaymentStatusCard status='red'>
+        <CardContent className='flex flex-col gap-1'>
+          <div className='text-sm font-medium text-red-500'>
+            Your subscription is currently paused.
+          </div>
+        </CardContent>
+        <CardFooter className='flex flex-col items-start gap-2'>
+          <Button size='lg' onClick={resumeSubscription} disabled={disabled}>
+            {disabled ? (
+              <Icons.spinner className='animate-spin' />
+            ) : (
+              <Icons.arrowRight />
+            )}
+            Resume Subscription
+          </Button>
+        </CardFooter>
+      </PaymentStatusCard>
+    );
+  }
+
+  return (
+    <PaymentStatusCard status='red'>
+      <CardContent className='flex flex-col gap-1'>
+        {paddleStatus.status === PADDLE_STATUS_MAP.cancelled && (
+          <div className='text-sm font-medium text-red-500'>
+            Your subscription has been cancelled.
+          </div>
+        )}
+        {paddleStatus.status === PADDLE_STATUS_MAP.past_due && (
+          <div className='text-sm font-medium text-red-500'>
+            Your payment is past due. Please update your payment method.
+          </div>
+        )}
+      </CardContent>
+      <CardFooter className='flex flex-col items-start gap-2'>
+        <Button size='lg' onClick={subscribeUser} disabled={disabled}>
+          {disabled ? (
+            <Icons.spinner className='animate-spin' />
+          ) : (
+            <Icons.sparkles />
+          )}
+          Reactivate Subscription
+        </Button>
+      </CardFooter>
+    </PaymentStatusCard>
+  );
+};
+
+const PaymentStatusFullAccess = () => {
+  return (
+    <PaymentStatusCard status='green'>
+      <CardContent className='flex flex-col gap-1'>
+          <p className='text-sm text-muted-foreground'>Congratulations! You have full access to all features.</p>
+      </CardContent>
+    </PaymentStatusCard>
+  );
+};
+
+const PaymentStatusBlocked = () => {
+  return (
+    <PaymentStatusCard status='red'>
+      <CardContent className='flex flex-col gap-1'>
+        <p className='text-sm font-medium text-red-500'>Weird! You are blocked from using our service.</p>
+      </CardContent>
+    </PaymentStatusCard>
+  );
+};
+
+const PaymentStatusWrapper = ({ user, paddleStatus }) => {
+  // If Paddle is not configured, don't show anything
+  if (!paddleStatus.enabled) {
+    return null;
+  }
+
+  // If user has full access, show full access status
+  if (paddleStatus.status === PADDLE_STATUS_MAP.full) {
+    return (
+      <PaymentStatusFullAccess />
+    );
+  }
+
+  if (paddleStatus.status === PADDLE_STATUS_MAP.blocked) {
+    return (
+      <PaymentStatusBlocked />
+    );
+  }
+
+  if (paddleStatus.status === PADDLE_STATUS_MAP.trialActive || paddleStatus.status === PADDLE_STATUS_MAP.trialExpired) {
+    return (
+      <PaymentStatusTrial user={user} paddleStatus={paddleStatus} />
+    );
+  }
+
+  // Otherwise show subscription status
+  return (
+    <PaymentStatusSubscription user={user} paddleStatus={paddleStatus} />
+  );
+
+
+};
+
+export const AccountSettings = ({ user, paddleStatus }) => {
   return (
     <div className='w-full max-w-4xl space-y-6 text-left'>
       <UserProfile user={user} />
+      <PaymentStatusWrapper user={user} paddleStatus={paddleStatus} />
       <DefaultSettings user={user} />
       <NotificationManager user={user} />
-      <CategoryManager />
+      <CategoryManager user={user} />
     </div>
   );
 };

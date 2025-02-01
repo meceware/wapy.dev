@@ -114,7 +114,7 @@ export default async function RootLayout({ children }) {
                   iconNavigation={session ? HeaderMemberIconNavigation : iconNavigation}
                 />
                 <main className='flex flex-col h-full grow items-center p-8 md:p-12'>
-                  <div className='container flex flex-col items-center gap-6 text-center grow'>
+                  <div className='container flex flex-col items-center gap-6 text-center grow relative'>
                     { children }
                   </div>
                 </main>

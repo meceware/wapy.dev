@@ -1,19 +1,19 @@
 'use server';
 
-import { auth } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
 import { SubscriptionEdit } from '@/components/subscriptions/edit';
-import { UserGetCategories } from '@/app/account/actions';
+import { paddleGetSession } from '@/lib/paddle/status';
+import { SubscriptionGuard } from '@/components/subscription-guard';
 
 const PageNewSubscription = async () => {
-  const session = await auth();
-  const { id: _, ...userWithoutId } = session.user;
-  const categories = await UserGetCategories();
+  const { userWithoutId, paddleStatus } = await paddleGetSession();
 
   return (
-    <div className='container flex flex-col items-center justify-center gap-6 text-center'>
-      <SubscriptionEdit user={userWithoutId} categories={categories} />
-    </div>
+    <SubscriptionGuard paddleStatus={paddleStatus}>
+      <div className='container flex flex-col items-center justify-center gap-6 text-center'>
+        <SubscriptionEdit user={userWithoutId} />
+      </div>
+    </SubscriptionGuard>
   )
 }
 

@@ -13,12 +13,19 @@ export function withAuth(WrappedComponent, isProtected = true, isRedirected = tr
       return null;
     }
 
-    if (!isProtected && isAuth) {
-      if (isRedirected) {
-        redirect('/');
+    if (isAuth) {
+      if (session?.user?.isBlocked) {
+        redirect('/signout');
       }
-      return null;
+
+      if (!isProtected) {
+        if (isRedirected) {
+          redirect('/');
+        }
+        return null;
+      }
     }
+
 
     return <WrappedComponent {...props} />;
   };

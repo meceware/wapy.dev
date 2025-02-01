@@ -129,6 +129,12 @@ const authConfig = {
         id: user?.id,
       },
     }),
+    signIn: async ({ user }) => {
+      if (user.isBlocked) {
+        return false;
+      }
+      return true;
+    },
   },
   cookies: {
     pkceCodeVerifier: {

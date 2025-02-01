@@ -51,6 +51,13 @@ export const PrivacyPolicy = () => {
           </section>
 
           <section className='space-y-4'>
+            <h2 className='text-2xl font-semibold'>Payment Processing</h2>
+            <p>
+              We use <a href='https://www.paddle.com' className='underline underline-offset-4 focus:outline-none' target='_blank' rel='noopener noreferrer'>Paddle.com</a> as our payment processing system. When you make a payment, your payment information is collected and processed directly by Paddle. We do not store your payment details on our servers. For information about how Paddle processes your data, please refer to <a href='https://www.paddle.com/legal/privacy' className='underline underline-offset-4 focus:outline-none' target='_blank' rel='noopener noreferrer'>Paddle&apos;s Privacy Policy</a>.
+            </p>
+          </section>
+
+          <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Data Protection</h2>
             <p>
               We implement robust security measures to protect your personal information.

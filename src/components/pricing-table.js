@@ -24,7 +24,7 @@ export const PricingTable = () => {
             </CardDescription>
             <div>
               <span className='text-4xl font-bold'>€1.5</span>
-              <span className='text-sm text-muted-foreground'>/month</span>
+              <span className='text-sm text-muted-foreground'> +tax/month</span>
             </div>
           </CardHeader>
           <CardContent className='flex flex-col gap-2 text-left flex-grow'>

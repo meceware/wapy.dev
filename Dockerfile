@@ -1,5 +1,5 @@
 # Base
-FROM node:23.6-alpine AS base
+FROM node:23.7-alpine AS base
 WORKDIR /app
 
 FROM base AS builder

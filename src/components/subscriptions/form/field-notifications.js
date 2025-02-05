@@ -328,7 +328,7 @@ export const NotificationsFieldManager = ({ field, isLoading = false, children }
             type='button'
           >
             <Icons.add className='mr-2 size-4' />
-            Add Notification Template
+            Add Notification
           </Button>
           {children}
         </CardFooter>

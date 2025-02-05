@@ -17,39 +17,33 @@ const html = ({ url, token }) => {
       <table role="presentation" style="width: 100%; border-collapse: collapse; border: 0;">
         <tr>
           <td align="center" style="padding: 1rem 2rem;">
-            <table role="presentation" style="max-width: 600px; border-collapse: collapse; border: 0; text-align: left;">
-              <tr>
-                <td style="padding-top: 40px;">
-                  <div style="text-align: center;">
-                    <img src="${siteConfig.url}/icon.png" alt="${siteConfig.from}" style="width: 96px; padding-bottom: 20px;">
-                  </div>
-                  <div style="padding: 20px; background-color: #ffffff;">
-                    <h1 style="margin: 1rem 0 0 0; color: #000000; text-align: center;">Sign in to</h1>
-                    <h2 style="margin: 0 0 1rem 0; color: #000000; text-align: center;">${siteConfig.name}</h2>
-                    <div style="margin: 24px 0; text-align: center;">
-                      <p>Click the link below to sign in.</p>
-                      <p>
-                        <a href="${url}" target="_blank" style="padding: 12px 24px; border-radius: 4px; color: #FFF; background: #16A34A; display: inline-block; margin: 0.5rem 0; text-decoration: none;">
-                          Sign in to your account
-                        </a>
-                      </p>
-                    </div>
-                    <p style="text-align: center;">- OR -</p>
-                    <div style="margin: 24px 0; text-align: center;">
-                      <p>Use this code to sign in:</p>
-                      <div style="font-size: 24px; font-weight: bold; letter-spacing: 8px; padding: 16px; background: #f3f4f6; border-radius: 8px;">
-                        ${token}
-                      </div>
-                    </div>
-                    <p style="padding-bottom: 16px;">If you didn't ask to sign in, you can ignore this email.</p>
-                    <p style="padding-bottom: 16px;">Thanks,<br>${siteConfig.from}</p>
-                  </div>
-                  <div style="padding-top: 20px; color: #999999; text-align: center;">
-                    <p style="padding-bottom: 16px;">Made with ♥ by <a href="${siteConfig.url}" target="_blank">${siteConfig.name}</a></p>
-                  </div>
-                </td>
-              </tr>
-            </table>
+            <div style="padding: 1rem; background-color: #ffffff; text-align: center;">
+              <h1 style="margin: 1rem 0 0 0; color: #000000;">Sign in to</h1>
+              <h2 style="margin: 0 0 1rem 0; color: #000000;">${siteConfig.name}</h2>
+              <div style="margin: 1rem 0;">
+                <p>Click the link below to sign in.</p>
+                <p>
+                  <a href="${url}" target="_blank" style="padding: 0.75rem 1.25rem; border-radius: 0.25rem; color: #FFF; background: #16A34A; display: inline-block; margin: 0.5rem 0; text-decoration: none;">
+                    Sign in to your account
+                  </a>
+                </p>
+              </div>
+              <p>- OR -</p>
+              <div style="margin: 1rem 0;">
+                <p>Use this code to sign in:</p>
+                <div style="font-size: 1.5rem; font-weight: bold; letter-spacing: 0.5rem; padding: 1rem; background: #f3f4f6; border-radius: 0.5rem;">
+                  ${token}
+                </div>
+              </div>
+              <p>If you didn't ask to sign in, please ignore this email.</p>
+              <p>Thanks,<br>${siteConfig.from}</p>
+            </div>
+            <div style="max-width: 400px; color: #999999; text-align: center;">
+              <p style="padding-bottom: 0.5rem;">Made with ♥ by <a href="${siteConfig.url}" target="_blank">${siteConfig.name}</a></p>
+              <div style="text-align: center;">
+                <img src="${siteConfig.url}/icon.png" alt="${siteConfig.from}" style="width: 96px;">
+              </div>
+            </div>
           </td>
         </tr>
       </table>
@@ -135,6 +129,12 @@ const authConfig = {
         id: user?.id,
       },
     }),
+    signIn: async ({ user }) => {
+      if (user.isBlocked) {
+        return false;
+      }
+      return true;
+    },
   },
   cookies: {
     pkceCodeVerifier: {

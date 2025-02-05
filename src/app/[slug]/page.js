@@ -4,16 +4,15 @@ import { notFound } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
 import { SubscriptionGet } from '@/components/subscriptions/actions';
-import { UserGetCategories } from '@/app/account/actions';
 import { SubscriptionEdit } from '@/components/subscriptions/edit';
+import { paddleGetSession } from '@/lib/paddle/status';
+import { SubscriptionGuard } from '@/components/subscription-guard';
 
 const PageSubscriptionEdit = async ({ params }) => {
-  const session = await auth();
+  const { user, userWithoutId, paddleStatus } = await paddleGetSession();
   const slug = (await params).slug;
 
-  const { id: _, ...userWithoutId } = session.user;
-  const subscription = await SubscriptionGet(slug, session.user.id);
-
+  const subscription = await SubscriptionGet(slug, user.id);
   if (!subscription) {
     return notFound();
   }
@@ -22,12 +21,12 @@ const PageSubscriptionEdit = async ({ params }) => {
     delete subscription.userId;
   }
 
-  const allCategories = await UserGetCategories();
-
   return (
-    <div className='container flex flex-col items-center justify-center gap-6 text-center'>
-      <SubscriptionEdit user={userWithoutId} subscription={ subscription } categories={ allCategories } />
-    </div>
+    <SubscriptionGuard paddleStatus={paddleStatus}>
+      <div className='container flex flex-col items-center justify-center gap-6 text-center'>
+        <SubscriptionEdit user={userWithoutId} subscription={ subscription } />
+      </div>
+    </SubscriptionGuard>
   )
 }
 

@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import { Icons } from '@/components/icons';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { PricingTable } from '@/components/pricing-table';
 
 export const HomeVisitor = () => {
   return (
@@ -22,12 +21,9 @@ export const HomeVisitor = () => {
         <h3 className='text-xl text-muted-foreground-light font-semibold max-w-4xl'>
           Get notified and never miss a payment again.
         </h3>
-        <Button size='lg' asChild className='text-base'>
-          <Link href='/login'>
-            Get Started
-            <Icons.arrowRight className='ml-2 h-4 w-4' />
-          </Link>
-        </Button>
+        <div className='w-full max-w-4xl'>
+          <PricingTable />
+        </div>
         <Image src='/images/banner.png' alt='Hero' width={960} height={600} />
       </div>
 
@@ -62,7 +58,7 @@ export const HomeVisitor = () => {
           <div className='p-6 rounded-lg border bg-card shadow-lg'>
             <div className='flex flex-col items-center gap-4 mb-4'>
               <Icons.pieChart className='size-5 text-primary' />
-              <h3 className='font-semibold text-xl'>Analytics Dashboard</h3>
+              <h3 className='font-semibold text-xl'>Reports & Insights</h3>
             </div>
             <p className='text-muted-foreground'>
               Track your spending with detailed reports and insights

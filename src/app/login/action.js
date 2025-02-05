@@ -16,7 +16,12 @@ export const signInAction = async (data) => {
     return null;
   }
 
-  return await signIn('resend', { email: parsedData.data.email, redirect: false, redirectTo : '/' });
+  try {
+    return await signIn('resend', { email: parsedData.data.email, redirect: false, redirectTo : '/' });
+  } catch (error) {
+    console.warn('Error in signInAction', error);
+    return null;
+  }
 }
 
 export const generateOTPLink = async (code, email) => {

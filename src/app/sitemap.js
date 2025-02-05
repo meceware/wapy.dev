@@ -24,7 +24,25 @@ export default function sitemap() {
       url: `${siteConfig.url}/privacy`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'monthly',
-      priority: 0.8
+      priority: 0.6
+    },
+    {
+      url: `${siteConfig.url}/refund-policy`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly',
+      priority: 0.6
+    },
+    {
+      url: `${siteConfig.url}/pricing`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly',
+      priority: 0.6
+    },
+    {
+      url: `${siteConfig.url}/terms-of-service`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly',
+      priority: 0.6
     }
   ];
 }

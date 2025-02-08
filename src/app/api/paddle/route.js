@@ -5,7 +5,6 @@ import { EventName } from '@paddle/paddle-node-sdk';
 import { subHours } from 'date-fns';
 import { prisma } from '@/lib/prisma';
 import { paddleGetInstance, paddleGetLatestSubscription } from '@/lib/paddle/actions';
-import { M_PLUS_1 } from 'next/font/google';
 
 const paddleUpdateSubscriptionData = async (eventData) => {
   if (!eventData?.eventId) {

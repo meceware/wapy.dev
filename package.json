@@ -60,7 +60,7 @@
     "resend": "^4.1.2",
     "simple-icons": "^14.5.0",
     "sonner": "^1.7.4",
-    "tailwind-merge": "^2.6.0",
+    "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.1.1",
     "vaul": "^1.1.2",
@@ -68,11 +68,11 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.4",
     "eslint": "^9.20.0",
     "eslint-config-next": "15.1.6",
     "postcss": "^8.5.1",
     "prisma": "^6.3.1",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.4"
   }
 }

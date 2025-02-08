@@ -248,7 +248,7 @@ export const SubscriptionCard = ({ subscription }) => {
             </div>
           )}
           {subscription.notes && (
-            <div className='text-sm text-muted-foreground'>
+            <div className='text-sm text-muted-foreground whitespace-pre-wrap'>
               {subscription.notes}
             </div>
           )}

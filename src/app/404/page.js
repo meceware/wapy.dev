@@ -1,9 +1,7 @@
 import { NotFound } from '@/components/not-found';
 
-export default function PageNotFound() {
-  return (
-    <NotFound />
-  );
+export default function Page404() {
+  return <NotFound />;
 }
 
 export const metadata = {

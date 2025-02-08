@@ -9,8 +9,8 @@ import { paddleGetSession } from '@/lib/paddle/status';
 import { SubscriptionGuard } from '@/components/subscription-guard';
 
 const PageSubscriptionEdit = async ({ params }) => {
-  const { user, userWithoutId, paddleStatus } = await paddleGetSession();
   const slug = (await params).slug;
+  const { user, userWithoutId, paddleStatus } = await paddleGetSession();
 
   const subscription = await SubscriptionGet(slug, user.id);
   if (!subscription) {
@@ -43,6 +43,6 @@ export async function generateMetadata({ params }) {
   const subscriptionId = (await params).slug;
   const subscription = await SubscriptionGet(subscriptionId, session?.user?.id);
   return {
-      title: subscription?.name || 'Subscription',
+      title: subscription?.name || 'Not Found',
   };
 }

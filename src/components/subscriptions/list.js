@@ -98,7 +98,7 @@ export function SubscriptionList({ subscriptions }) {
     <>
       <div className='flex flex-col-reverse sm:flex-row items-center w-full gap-4'>
         <Button asChild className='w-full sm:w-auto'>
-          <Link href='/new' className='shrink-0'>
+          <Link href='/edit/new' className='shrink-0'>
             <Icons.add />
             New Subscription
           </Link>

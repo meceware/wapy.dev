@@ -20,7 +20,7 @@ export const SubscriptionGuard = async ({ children, paddleStatus }) => {
 
   return (
     <>
-      <div className='absolute z-10 -m-[0.25rem] inset-0 flex flex-col items-center grow backdrop-blur-sm bg-background/70'>
+      <div className='absolute z-10 -m-[0.25rem] inset-0 flex flex-col items-center grow backdrop-blur-xs bg-background/70'>
         <Card className='w-full max-w-md sticky top-20 mt-4'>
           <CardHeader>
             <CardTitle>Subscription Required</CardTitle>

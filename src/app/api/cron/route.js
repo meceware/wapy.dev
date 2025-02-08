@@ -304,9 +304,7 @@ export async function GET() {
     const dueText = isPaymentDueNow
       ? 'due now'
       : `${formatDistanceToNowStrict(paymentDate, {addSuffix: true})}`;
-    const title = isPaymentDueNow
-      ? 'Payment Due'
-      : 'Upcoming Payment'
+    const title = (isPaymentDueNow ? 'Payment Due' : 'Upcoming Payment')
       + ` for '${subscription.name}'`;
     const message = `Your '${subscription.name}' subscription payment (${formatPrice(subscription.price, subscription.currency)}) is ${dueText}!`;
 

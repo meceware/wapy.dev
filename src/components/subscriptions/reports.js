@@ -40,7 +40,7 @@ const OverviewRow = ({ title, description, costs = {total: {}}, categories }) =>
       <CollapsibleTrigger className={cn('flex items-center gap-2 w-full p-2', {
         'hover:bg-muted/50 rounded-lg transition-colors': Object.entries(costs?.categories || {}).length > 0
       })}>
-        <div className='flex flex-col gap-1 flex-grow text-left'>
+        <div className='flex flex-col gap-1 grow text-left'>
           <span className='text-sm font-medium'>{title}</span>
           <span className='text-xs text-muted-foreground'>{description}</span>
         </div>

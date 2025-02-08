@@ -43,6 +43,6 @@ export async function generateMetadata({ params }) {
   const subscriptionId = (await params).slug;
   const subscription = await SubscriptionGet(subscriptionId, session?.user?.id);
   return {
-      title: subscription?.name || 'Subscription',
+      title: subscription?.name || 'Not Found',
   };
 }

@@ -1,7 +1,9 @@
-'use client';
-
-import { notFound } from 'next/navigation';
+import { NotFound } from '@/components/not-found';
 
 export default function Page404() {
-  return notFound();
+  return <NotFound />;
 }
+
+export const metadata = {
+  title: 'Page Not Found',
+};

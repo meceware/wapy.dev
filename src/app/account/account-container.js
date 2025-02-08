@@ -554,7 +554,7 @@ const PaymentStatusDate = ({date}) => {
             {formatDistanceToNowStrict(date, {addSuffix: true})}
           </span>
         </PopoverTrigger>
-        <PopoverContent className='bg-foreground text-background text-sm w-auto max-w-screen-sm break-words px-4 py-1'>
+        <PopoverContent className='bg-foreground text-background text-sm w-auto max-w-xl break-words px-4 py-1'>
           {format(date, 'dd MMMM yyyy, HH:mm')}
         </PopoverContent>
       </Popover>

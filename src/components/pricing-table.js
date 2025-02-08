@@ -27,7 +27,7 @@ export const PricingTable = () => {
               <span className='text-sm text-muted-foreground'> +tax/month</span>
             </div>
           </CardHeader>
-          <CardContent className='flex flex-col gap-2 text-left flex-grow'>
+          <CardContent className='flex flex-col gap-2 text-left grow'>
             <div className='grid md:grid-cols-2 gap-2'>
               {[
                 'Unlimited Subscriptions',
@@ -65,7 +65,7 @@ export const PricingTable = () => {
               <span className='text-sm text-muted-foreground'> forever</span>
             </div>
           </CardHeader>
-          <CardContent className='flex flex-col gap-2 text-left flex-grow'>
+          <CardContent className='flex flex-col gap-2 text-left grow'>
             <>
               {[
                 'Your Infrastructure',

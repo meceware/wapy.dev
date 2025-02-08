@@ -19,19 +19,19 @@ export default function Footer( { author, github } ) {
           <div className='flex items-center shrink-0'>
             <p className='text-sm'>
               Made with ♥ by{' '}
-              <Link href={ author.url } className={ 'font-medium underline underline-offset-4 focus:outline-none' } target='_blank' rel='noreferrer noopener'>
+              <Link href={ author.url } className={ 'font-medium underline underline-offset-4 focus:outline-hidden' } target='_blank' rel='noreferrer noopener'>
                 { author.name }
               </Link>
               { '.' }
             </p>
           </div>
           <div className='flex items-center justify-center gap-2'>
-            <Link href='/contact' className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-none'>
+            <Link href='/contact' className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-hidden'>
               <Icons.send className='size-4' />
               Contact Us
             </Link>
             <Separator orientation='vertical' className='h-4' />
-            <Link href={ github } target='_blank' className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-none' rel='noreferrer noopener'>
+            <Link href={ github } target='_blank' className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-hidden' rel='noreferrer noopener'>
               <Icons.github className='size-4' />
               Github
             </Link>
@@ -39,32 +39,32 @@ export default function Footer( { author, github } ) {
             <Separator orientation='vertical' className='h-4' />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-none'>
+                <button className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-hidden'>
                   <Icons.menu className='size-4' />
                   Menu
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align='end' className='w-56 space-y-2 px-1 py-2'>
                 <DropdownMenuItem asChild>
-                  <Link href='/pricing' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
+                  <Link href='/pricing' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-hidden'>
                     <Icons.wallet className='size-4' />
                     Pricing
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href='/refund-policy' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
+                  <Link href='/refund-policy' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-hidden'>
                     <Icons.receipt className='size-4' />
                     Refund Policy
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href='/privacy' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
+                  <Link href='/privacy' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-hidden'>
                     <Icons.shieldCheck className='size-4' />
                     Privacy Policy
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href='/terms-of-service' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-none'>
+                  <Link href='/terms-of-service' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-hidden'>
                     <Icons.scroll className='size-4' />
                     Terms of Service
                   </Link>

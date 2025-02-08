@@ -58,17 +58,17 @@ export const TermsOfService = () => {
               If you purchase a subscription to the Site, you agree to pay the applicable fees as indicated during the checkout process.
             </p>
             <p>
-              We use <a href='https://www.paddle.com' className='underline underline-offset-4 focus:outline-none' target='_blank' rel='noopener noreferrer'>Paddle.com</a> as our payment service provider. By making a purchase, you also agree to Paddle&apos;s <a href='https://www.paddle.com/legal/terms' className='underline underline-offset-4 focus:outline-none' target='_blank' rel='noopener noreferrer'>Terms of Service</a>. Paddle processes all payments and handles the related customer service inquiries.
+              We use <a href='https://www.paddle.com' className='underline underline-offset-4 focus:outline-hidden' target='_blank' rel='noopener noreferrer'>Paddle.com</a> as our payment service provider. By making a purchase, you also agree to Paddle&apos;s <a href='https://www.paddle.com/legal/terms' className='underline underline-offset-4 focus:outline-hidden' target='_blank' rel='noopener noreferrer'>Terms of Service</a>. Paddle processes all payments and handles the related customer service inquiries.
             </p>
             <p>
-              Site process refunds according to our <Link href='/refund-policy' className='font-medium underline underline-offset-4 focus:outline-none'>refund policy</Link>.
+              Site process refunds according to our <Link href='/refund-policy' className='font-medium underline underline-offset-4 focus:outline-hidden'>refund policy</Link>.
             </p>
           </section>
 
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Use of Cookies</h2>
             <p>
-              Site uses cookies and similar technologies (such as local storage) to track your usage of the Site and for marketing purposes. By using the Site, you consent to the use of cookies in accordance with our <Link href='/privacy' className='font-medium underline underline-offset-4 focus:outline-none'>Privacy Policy</Link>.
+              Site uses cookies and similar technologies (such as local storage) to track your usage of the Site and for marketing purposes. By using the Site, you consent to the use of cookies in accordance with our <Link href='/privacy' className='font-medium underline underline-offset-4 focus:outline-hidden'>Privacy Policy</Link>.
             </p>
           </section>
 
@@ -148,7 +148,7 @@ export const TermsOfService = () => {
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Contact Us</h2>
             <p>
-              If you have any questions or concerns about these Terms of Service, please contact us using the <Link href='/contact' className='font-medium underline underline-offset-4 focus:outline-none'>contact form</Link> on the Site.
+              If you have any questions or concerns about these Terms of Service, please contact us using the <Link href='/contact' className='font-medium underline underline-offset-4 focus:outline-hidden'>contact form</Link> on the Site.
             </p>
           </section>
         </CardContent>

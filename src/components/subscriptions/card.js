@@ -35,7 +35,7 @@ const SubscriptionDate = ({date, timezone, text}) => {
             {text ? text : DateFNS.formatDistanceToNowStrict(date, {addSuffix: true})}
           </span>
         </PopoverTrigger>
-        <PopoverContent className='bg-foreground text-background text-sm w-auto max-w-screen-sm break-words px-4 py-1'>
+        <PopoverContent className='bg-foreground text-background text-sm w-auto max-w-xl break-words px-4 py-1'>
           {DateFNS.format(date, 'dd MMMM yyyy, HH:mm')}
           {!DateFNS.isEqual(toZonedTime(date, timezone), date) &&
             <span className='text-xs'>
@@ -175,7 +175,7 @@ const SubscriptionPaymentCount = ({ subscription }) => {
             <span className='text-muted-foreground'>.</span>
           </div>
         </PopoverTrigger>
-        <PopoverContent className='bg-foreground text-background text-xs w-auto max-w-screen-sm break-words px-2 py-1'>
+        <PopoverContent className='bg-foreground text-background text-xs w-auto max-w-xl break-words px-2 py-1'>
           Until
           {' '}
           {DateFNS.format(toZonedTime(subscription.untilDate, subscription.timezone), 'dd MMMM yyyy, HH:mm')}

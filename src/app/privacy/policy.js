@@ -53,7 +53,7 @@ export const PrivacyPolicy = () => {
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Payment Processing</h2>
             <p>
-              We use <a href='https://www.paddle.com' className='underline underline-offset-4 focus:outline-none' target='_blank' rel='noopener noreferrer'>Paddle.com</a> as our payment processing system. When you make a payment, your payment information is collected and processed directly by Paddle. We do not store your payment details on our servers. For information about how Paddle processes your data, please refer to <a href='https://www.paddle.com/legal/privacy' className='underline underline-offset-4 focus:outline-none' target='_blank' rel='noopener noreferrer'>Paddle&apos;s Privacy Policy</a>.
+              We use <a href='https://www.paddle.com' className='underline underline-offset-4 focus:outline-hidden' target='_blank' rel='noopener noreferrer'>Paddle.com</a> as our payment processing system. When you make a payment, your payment information is collected and processed directly by Paddle. We do not store your payment details on our servers. For information about how Paddle processes your data, please refer to <a href='https://www.paddle.com/legal/privacy' className='underline underline-offset-4 focus:outline-hidden' target='_blank' rel='noopener noreferrer'>Paddle&apos;s Privacy Policy</a>.
             </p>
           </section>
 
@@ -90,7 +90,7 @@ export const PrivacyPolicy = () => {
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Contact Us</h2>
             <p>
-              If you have any questions about our Privacy Policy or how we handle your data, please contact us using the <Link href='/contact' className='font-medium underline underline-offset-4 focus:outline-none'>contact form</Link>.
+              If you have any questions about our Privacy Policy or how we handle your data, please contact us using the <Link href='/contact' className='font-medium underline underline-offset-4 focus:outline-hidden'>contact form</Link>.
             </p>
           </section>
 

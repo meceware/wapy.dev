@@ -73,7 +73,7 @@ export function ContactForm() {
         </p>
       </div>
       {isSubmitted ? (
-        <div className='rounded-lg border bg-card p-6 shadow-sm text-center space-y-4'>
+        <div className='rounded-lg border bg-card p-6 shadow-xs text-center space-y-4'>
           <Icons.check className='mx-auto h-12 w-12 text-green-500' />
           <h2 className='text-2xl font-semibold'>Thank You!</h2>
           <p className='text-muted-foreground'>
@@ -83,7 +83,7 @@ export function ContactForm() {
           </p>
         </div>
       ) : (
-        <div className='rounded-lg border bg-card p-6 shadow-sm'>
+        <div className='rounded-lg border bg-card p-6 shadow-xs'>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
               <div className='grid gap-6 sm:grid-cols-2'>

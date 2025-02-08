@@ -17,7 +17,7 @@ export const RefundPolicy = () => {
 
           <section className='space-y-4'>
             <p>
-              Bad refund policies are infuriating. You feel like the company is just trying to rip you off. We never want our customers to feel that way, so our refund policy is simple: If you&apos;re ever unhappy for any reason, just <Link href='/contact' className='font-medium underline underline-offset-4 focus:outline-none'>contact us</Link> and tell us what&apos;s up, and we&apos;ll work with you to make sure you&apos;re happy.
+              Bad refund policies are infuriating. You feel like the company is just trying to rip you off. We never want our customers to feel that way, so our refund policy is simple: If you&apos;re ever unhappy for any reason, just <Link href='/contact' className='font-medium underline underline-offset-4 focus:outline-hidden'>contact us</Link> and tell us what&apos;s up, and we&apos;ll work with you to make sure you&apos;re happy.
             </p>
           </section>
 

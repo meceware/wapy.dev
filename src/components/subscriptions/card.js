@@ -306,7 +306,7 @@ export const SubscriptionCard = ({ subscription }) => {
           </div>
           <div className='flex items-center'>
             <Button variant='outline' size='sm' className='text-muted-foreground' asChild>
-              <Link href={`/${subscription.id}`} title='Edit Subscription'>
+              <Link href={`/edit/${subscription.id}`} title='Edit Subscription'>
                 <Icons.edit /> Edit
                 <span className='sr-only'>Edit Subscription {subscription.name}</span>
               </Link>

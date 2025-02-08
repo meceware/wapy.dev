@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { HomeIcon } from 'lucide-react';
@@ -9,12 +11,12 @@ export default function NotFound() {
       <p className='text-xl text-muted-foreground text-center'>
         Oops! The page you&apos;re looking for doesn&apos;t exist.
       </p>
-      <Link href='/'>
-        <Button variant='default' title='Back to Home'>
+      <Button variant='default' title='Back to Home' asChild>
+        <Link href='/'>
           <HomeIcon className='w-4 h-4 mr-2' />
           Back to Home
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     </div>
   );
 }

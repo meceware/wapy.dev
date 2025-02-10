@@ -46,9 +46,9 @@ const SignInOTP = ({email}) => {
     const parsedEmail = signInSchema.safeParse({ email: email });
 
     if (parsedCode?.success && parsedEmail?.success) {
-      const url = await generateOTPLink(parsedCode.data.code, parsedEmail.data.email);
-      if (url) {
-        setUrl(url);
+      const link = await generateOTPLink(parsedCode.data.code, parsedEmail.data.email);
+      if (link) {
+        setUrl(link);
       } else {
         toast.error('This is not a valid code! Please try again.');
       }
@@ -57,12 +57,14 @@ const SignInOTP = ({email}) => {
     }
 
     setDisabled(false);
-  }, []);
+  }, [setUrl]);
 
   useEffect(() => {
     if (url) {
+      const link = url;
       setUrl(null);
-      router.push(url);
+      router.push(link);
+      router.refresh();
     }
   }, [url]);
 

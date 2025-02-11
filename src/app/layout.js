@@ -80,8 +80,8 @@ export const metadata = {
 // Viewport
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '0 0% 100%' }, // TODO: does this work?
-    { media: '(prefers-color-scheme: dark)', color: '240 10% 3.9%' },
+    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' }, // TODO: does this work?
+    { media: '(prefers-color-scheme: dark)', color: '#09090B' },
   ],
   width: 'device-width',
   initialScale: 1,

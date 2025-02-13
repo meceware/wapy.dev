@@ -6,8 +6,6 @@ import Image from 'next/image';
 import { useEventListener } from 'usehooks-ts';
 import { cn } from '@/lib/utils';
 import { ModeToggle } from '@/components/mode-toggle';
-import { Button } from '@/components/ui/button';
-import { Icons } from '@/components/icons';
 import { useThrottle } from '@/lib/hooks';
 
 export default function Header({ mainNavigation = (<></>), iconNavigation = (<></>) }) {
@@ -55,11 +53,6 @@ export default function Header({ mainNavigation = (<></>), iconNavigation = (<><
           {/* Right Side Icons */}
           <div className='flex items-center gap-1 md:gap-2'>
             <ModeToggle />
-            <Button variant='ghost' size='icon' title='Contact' asChild>
-              <Link href='/contact'>
-                <Icons.send className='h-5 w-5' />
-              </Link>
-            </Button>
             { iconNavigation }
           </div>
         </div>

@@ -75,7 +75,7 @@ export const HeaderMemberIconNavigation = (
         <DropdownMenuItem asChild>
           <Link href='/' className='flex items-center gap-2 cursor-pointer focus:outline-hidden'>
             <Icons.send className='size-5' />
-            Contact
+            Contact Us
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut({ callbackUrl: '/' })} className='flex items-center gap-2 cursor-pointer'>

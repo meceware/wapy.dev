@@ -9,6 +9,7 @@ import {
   ChevronDown,
   CreditCard,
   Currency,
+  Download,
   EllipsisVertical,
   Filter,
   FilterX,
@@ -80,6 +81,7 @@ export const Icons = {
   wallet: Wallet,
   sparkles: Sparkles,
   triangleAlert: TriangleAlert,
+  download: Download,
   github: (props) => (
     <svg viewBox='0 0 438.549 438.549' {...props}>
       <path

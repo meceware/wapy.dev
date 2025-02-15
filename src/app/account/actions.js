@@ -214,3 +214,61 @@ export const UserUpdateName = async (name) => {
     }
   });
 };
+
+export const UserExportData = async () => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized');
+  }
+
+  const user = await prisma.user.findUnique({
+    where: {
+      id: session.user.id,
+    },
+    select: {
+      name: true,
+      timezone: true,
+      currency: true,
+      notifications: true,
+      categories: {
+        select: {
+          name: true,
+          color: true
+        }
+      },
+      subscriptions: {
+        select: {
+          name: true,
+          logo: true,
+          enabled: true,
+          price: true,
+          currency: true,
+          paymentDate: true,
+          untilDate: true,
+          timezone: true,
+          cycle: true,
+          url: true,
+          notes: true,
+          categories: {
+            select: {
+              name: true,
+              color: true
+            }
+          },
+          notifications: true,
+        }
+      }
+    }
+  });
+
+  return {
+    user: {
+      timezone: user.timezone,
+      currency: user.currency,
+      notifications: user.notifications,
+      name: user?.name || '',
+    },
+    categories: user.categories,
+    subscriptions: user.subscriptions,
+  };
+};

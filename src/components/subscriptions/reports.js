@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, Fragment } from 'react';
 import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import {
@@ -18,6 +18,7 @@ import { Separator } from '@/components/ui/separator';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
 import { LogoIcon } from '@/components/ui/icon-picker';
+import { Divider } from '@/components/ui/divider';
 
 const formatPrice = (price, currency) => {
   return currency.position === 'before'
@@ -25,16 +26,16 @@ const formatPrice = (price, currency) => {
     : `${price.toFixed(2)}${currency.symbol}`;
 };
 
-const OverviewRow = ({ title, description, costs = {total: {}}, categories }) => {
-  const PricePrinter = ({ cost, isPlus }) => {
-    return (
-      <>
-        <span>{cost}</span>
-        {isPlus && <span className='text-xs text-muted-foreground text-center'> + </span>}
-      </>
-    );
-  };
+const PricePrinter = ({ cost, isPlus }) => {
+  return (
+    <>
+      <span className='tabular-nums'>{cost}</span>
+      {isPlus && <span className='text-xs text-muted-foreground'> + </span>}
+    </>
+  );
+};
 
+const OverviewRow = ({ title, description, costs = {total: {}}, categories }) => {
   return (
     <Collapsible className='flex flex-col gap-2' disabled={Object.entries(costs?.categories || {}).length === 0}>
       <CollapsibleTrigger className={cn('flex items-center gap-2 w-full p-2', {
@@ -45,7 +46,7 @@ const OverviewRow = ({ title, description, costs = {total: {}}, categories }) =>
           <span className='text-xs text-muted-foreground'>{description}</span>
         </div>
         <div className='shrink-0'>
-          <div className='flex flex-col gap-0 font-semibold'>
+          <div className='flex flex-col gap-0 font-semibold text-right'>
             {Object.entries(costs?.total || {}).length === 0 ? (
               <span>-</span>
             ) : (
@@ -61,21 +62,35 @@ const OverviewRow = ({ title, description, costs = {total: {}}, categories }) =>
         </div>
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div className='flex flex-col gap-1 ml-4 mb-2'>
-          {Object.entries(costs?.categories || {}).map(([category, currencies]) => (
-            <div key={category} className='flex justify-between items-center text-xs border rounded-lg text-muted-foreground border-muted-foreground'
-              style={{
-                color: categories[category]?.color,
-                borderColor: categories[category]?.color,
-              }}
+        <div className='flex flex-col divide-y divide-border'>
+          {Object.entries(costs?.categories || {}).sort().map(([category, currencies]) => (
+            <div
+              key={category}
+              className='flex flex-row items-start sm:items-center gap-2 p-2 text-xs hover:bg-muted/50'
             >
-              <div className='grow px-4 py-2'>
-                {category}
-              </div>
-              <div className='shrink-0 bg-muted px-4 py-2 text-foreground rounded-r-lg max-w-[50%]'>
-                {Object.entries(currencies).map(([curr, amt], idx) => (
-                  `${formatPrice(amt, DefaultCurrencies[curr])}${idx < Object.entries(currencies).length - 1 ? ' + ' : ''}`
-                )).join('')}
+              <div
+                className='size-3 rounded-full shrink-0 mt-1 sm:mt-0'
+                style={{ backgroundColor: categories[category]?.color }}
+                aria-hidden='true'
+              />
+
+              <div className='flex grow sm:flex-row sm:items-center sm:justify-between flex-col gap-1 overflow-hidden'>
+                <div className='text-sm overflow-hidden text-ellipsis'>
+                  {category}
+                </div>
+
+                <div className='text-sm text-muted-foreground sm:text-foreground text-left sm:text-right'>
+                  {Object.entries(currencies).map(([curr, amt], idx, arr) => (
+                    <Fragment key={curr}>
+                      <span className='tabular-nums'>
+                        {formatPrice(amt, DefaultCurrencies[curr])}
+                      </span>
+                      {idx < arr.length - 1 && (
+                        <span className='text-muted-foreground'> + </span>
+                      )}
+                    </Fragment>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
@@ -89,28 +104,28 @@ const MostExpensiveSubscription = ({ title, mostExpensive }) => {
   return (
     <div className='flex flex-col gap-2 p-2'>
       <div className='text-sm font-medium'>{title}</div>
-      <div className='flex flex-col gap-4'>
-        {Object.values(mostExpensive || {}).length === 0
-          ? (
-            <div className='text-sm text-muted-foreground'>
-              No subscriptions.
+      <div className='flex flex-col gap-2'>
+        {Object.values(mostExpensive || {}).length === 0 ? (
+          <div className='text-sm text-muted-foreground'>
+            No subscriptions.
+          </div>
+        ) : Object.entries(mostExpensive || {}).map(([currency, data]) => (
+          <div
+            key={`expensive-${currency}-${data.name}-${data.amount}`}
+            className='flex flex-row items-start sm:items-center gap-2 p-2 text-xs transition-colors hover:bg-muted/50 hover:rounded-lg'
+          >
+            <div className='flex items-center justify-center shrink-0 size-11 rounded-full bg-gray-200 dark:bg-gray-800'>
+              <LogoIcon icon={data.logo} className='size-6'>
+                <span className='text-base font-medium'>{data.name[0].toUpperCase()}</span>
+              </LogoIcon>
             </div>
-          ) : Object.entries(mostExpensive || {}).map(([currency, data]) => (
-            <div key={`${currency}-monthly`} className='flex items-center justify-between text-sm'>
-              <div className='flex items-center gap-2'>
-              <div className='relative shrink-0 size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-800'>
-                <LogoIcon icon={data.logo} className='size-6'>
-                  <span className='text-base font-medium'>{data.name[0].toUpperCase()}</span>
-                </LogoIcon>
+            <div className='flex grow sm:flex-row sm:items-center sm:justify-between flex-col gap-1 overflow-hidden'>
+              <div className='text-sm font-medium overflow-hidden text-ellipsis'>
+                {data.name}
               </div>
-              <div className='flex flex-col gap-1 grow'>
-                <div className='flex items-center justify-between'>
-                  <span className='font-medium line-clamp-1'>{data.name}</span>
-                </div>
+              <div className='text-sm text-muted-foreground sm:text-foreground font-medium shrink-0 overflow-hidden text-ellipsis tabular-nums'>
+                {formatPrice(data.amount, DefaultCurrencies[currency])}
               </div>
-            </div>
-            <div className='font-semibold shrink-0'>
-              {formatPrice(data.amount, DefaultCurrencies[currency])}
             </div>
           </div>
         ))}
@@ -120,7 +135,10 @@ const MostExpensiveSubscription = ({ title, mostExpensive }) => {
 };
 
 const UpcomingPayments = ({ upcoming }) => {
-  if (Object.values(upcoming || {}).length === 0) {
+  const hasThisMonth = upcoming?.thisMonth && Object.values(upcoming.thisMonth).length > 0;
+  const hasNextMonth = upcoming?.nextMonth && Object.values(upcoming.nextMonth).length > 0;
+
+  if (!hasThisMonth && !hasNextMonth) {
     return (
       <div className='text-sm text-muted-foreground'>
         No upcoming payments in one month.
@@ -128,33 +146,47 @@ const UpcomingPayments = ({ upcoming }) => {
     );
   }
 
-  return (
-    <div className='flex flex-col gap-6'>
-      {Object.values(upcoming).map((upcomingPayments, indexUP) =>
-        Object.entries(upcomingPayments).map(([currency, payments], indexC) =>
-          payments.map((payment, indexP) => (
-            <div key={`${payment.name}-${indexUP}-${indexC}-${indexP}`} className='flex items-center gap-4 justify-center'>
-              <div className='relative shrink-0 size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-800'>
-                <LogoIcon icon={payment.logo} className='size-6'>
-                  <span className='text-base font-medium'>{payment.name[0].toUpperCase()}</span>
-                </LogoIcon>
-              </div>
-              <div className='flex flex-col gap-1 grow'>
-                <div className='flex items-center justify-between'>
-                  <span className='font-medium line-clamp-1'>{payment.name}</span>
+  const renderPayments = (payments) => {
+    return Object.values(payments).map((upcomingPayments) =>
+      Object.entries(upcomingPayments).map(([currency, payments]) =>
+        payments.map((payment) => (
+          <div
+            key={`upcoming-${payment.name}-${payment.amount}-${payment.date.getTime()}`}
+            className='flex flex-row items-start sm:items-center gap-2 p-2 transition-colors hover:bg-muted/50 hover:rounded-lg'
+          >
+            <div className='flex items-center justify-center shrink-0 size-11 rounded-full bg-gray-200 dark:bg-gray-800'>
+              <LogoIcon icon={payment.logo} className='size-6'>
+                <span className='text-base font-medium'>{payment.name[0].toUpperCase()}</span>
+              </LogoIcon>
+            </div>
+            <div className='flex grow sm:flex-row sm:items-center sm:justify-between flex-col gap-1 overflow-hidden'>
+              <div className='flex flex-col gap-0.5 overflow-hidden'>
+                <div className='text-sm font-medium break-words overflow-hidden text-ellipsis'>
+                  {payment.name}
                 </div>
-                <div className='flex items-center gap-2 text-xs text-muted-foreground'>
+                <div className='block sm:hidden text-sm font-medium shrink-0 tabular-nums overflow-hidden text-ellipsis tabular-nums'>
+                  {formatPrice(payment.amount, DefaultCurrencies[currency])}
+                </div>
+                <div className='flex items-center gap-1 text-xs text-muted-foreground'>
                   <Icons.calendar className='size-3.5 hidden sm:inline' />
-                  <span className='line-clamp-1'>{format(payment.date, 'dd MMMM yyyy, HH:mm')}</span>
+                  <span className='overflow-hidden text-ellipsis'>{format(payment.date, 'dd MMMM yyyy, HH:mm')}</span>
                 </div>
               </div>
-              <div className='font-semibold shrink-0'>
+              <div className='hidden sm:block text-sm font-medium shrink-0 tabular-nums overflow-hidden text-ellipsis tabular-nums'>
                 {formatPrice(payment.amount, DefaultCurrencies[currency])}
               </div>
             </div>
-          ))
-        )
-      )}
+          </div>
+        ))
+      )
+    );
+  };
+
+  return (
+    <div className='flex flex-col gap-2'>
+      {hasThisMonth && renderPayments(upcoming.thisMonth)}
+      {hasThisMonth && hasNextMonth && <Divider text='Next Month' />}
+      {hasNextMonth && renderPayments(upcoming.nextMonth)}
     </div>
   );
 };
@@ -212,7 +244,10 @@ export function SubscriptionReports({ subscriptions }) {
       }
 
       if (!acc.inOneMonth.payments) {
-        acc.inOneMonth.payments = {};
+        acc.inOneMonth.payments = {
+          thisMonth: {},
+          nextMonth: {}
+        };
       }
 
       // Filter payments for different periods
@@ -231,18 +266,21 @@ export function SubscriptionReports({ subscriptions }) {
         periodAmounts[period] = payments.reduce((sum, p) => sum + p.price, 0);
       });
 
-      // Track payments for one month
+      // Track payments for this month and next month
       upcomingPayments
         .filter(p => p.date >= now && p.date <= nextMonth)
         .forEach(payment => {
           const dateStr = payment.date.toISOString().split('T')[0];
-          if (!acc.inOneMonth.payments[dateStr]) {
-            acc.inOneMonth.payments[dateStr] = {};
+          const isThisMonth = payment.date < beginningOfNextMonth;
+          const monthKey = isThisMonth ? 'thisMonth' : 'nextMonth';
+
+          if (!acc.inOneMonth.payments[monthKey][dateStr]) {
+            acc.inOneMonth.payments[monthKey][dateStr] = {};
           }
-          if (!acc.inOneMonth.payments[dateStr][sub.currency]) {
-            acc.inOneMonth.payments[dateStr][sub.currency] = [];
+          if (!acc.inOneMonth.payments[monthKey][dateStr][sub.currency]) {
+            acc.inOneMonth.payments[monthKey][dateStr][sub.currency] = [];
           }
-          acc.inOneMonth.payments[dateStr][sub.currency].push({
+          acc.inOneMonth.payments[monthKey][dateStr][sub.currency].push({
             name: sub.name,
             amount: payment.price,
             date: toZonedTime(payment.date, sub.timezone),
@@ -318,7 +356,7 @@ export function SubscriptionReports({ subscriptions }) {
     <div className='flex flex-col gap-4 w-full items-center text-left'>
       <Card className='w-full'>
         <CardHeader>
-          <CardTitle>Subscription Overview</CardTitle>
+          <CardTitle>Overview</CardTitle>
         </CardHeader>
         <CardContent className='flex flex-col items-start gap-2'>
           <div className='flex flex-row gap-2 items-center'>
@@ -335,6 +373,38 @@ export function SubscriptionReports({ subscriptions }) {
             <div className='size-3 rounded-full bg-red-500'></div>
             <div className='text-lg font-semibold'>{stats.inactive}</div>
             <div className='text-sm font-medium'>inactive subscriptions</div>
+          </div>
+        </CardContent>
+      </Card>
+      <Card className='w-full'>
+        <CardHeader>
+          <CardTitle>Cost Averages</CardTitle>
+          <CardDescription>Monthly and yearly subscription cost averages</CardDescription>
+        </CardHeader>
+        <CardContent className='flex flex-col gap-4'>
+          <div className='flex flex-col justify-between gap-2 text-sm'>
+            <div className='whitespace-nowrap font-medium'>Monthly Average</div>
+            <div className='flex flex-wrap items-center gap-1'>
+              {Object.entries(stats.costs.inOneYear?.total || {}).map(([currency, cost], index) => (
+                <PricePrinter
+                  key={`monthly-avg-${currency}`}
+                  cost={formatPrice(cost / 12, DefaultCurrencies[currency])}
+                  isPlus={index < Object.entries(stats.costs.inOneYear.total).length - 1}
+                />
+              ))}
+            </div>
+          </div>
+          <div className='flex flex-col justify-between gap-2 text-sm'>
+            <div className='whitespace-nowrap font-medium'>Yearly Average</div>
+            <div className='flex flex-wrap items-center gap-1'>
+              {Object.entries(stats.costs.inOneYear?.total || {}).map(([currency, cost], index) => (
+                <PricePrinter
+                  key={`yearly-avg-${currency}`}
+                  cost={formatPrice(cost, DefaultCurrencies[currency])}
+                  isPlus={index < Object.entries(stats.costs.inOneYear.total).length - 1}
+                />
+              ))}
+            </div>
           </div>
         </CardContent>
       </Card>

@@ -4,37 +4,16 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Fuse from 'fuse.js';
-import { isThisMonth, addMonths, isBefore } from 'date-fns';
 import { SearchBar } from '@/components/search-bar';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
 import { SubscriptionCard } from '@/components/subscriptions/card';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuCheckboxItem,
-} from '@/components/ui/dropdown-menu';
-import { SubscriptionGetNextFuturePaymentDate } from '@/components/subscriptions/lib';
+import { FilterPanel } from '@/components/subscriptions/filter';
 
 export function SubscriptionList({ subscriptions }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [filter, setFilter] = useState(searchParams.get('s') || '');
-
-  const allCategories = {
-    ...subscriptions.flatMap(sub => sub.categories?.map(cat => cat.name) || [])
-      .reduce((acc, category) => ({...acc, [category]: true}), {}),
-    ...(subscriptions.some(sub => !sub.categories?.length) ? {'Uncategorized': true} : {})
-  };
-
-  const [selectedCategories, setSelectedCategories] = useState(allCategories);
-  const [enabledFilter, setEnabledFilter] = useState(true);
-  const [disabledFilter, setDisabledFilter] = useState(false);
-  const [thisMonthFilter, setThisMonthFilter] = useState(false);
-  const [next30DaysFilter, setNext30DaysFilter] = useState(false);
+  const [searchFilter, setSearchFilter] = useState(searchParams.get('s') || '');
 
   // Initialize Fuse instance once
   const fuse = useMemo(() => new Fuse(subscriptions, {
@@ -50,49 +29,23 @@ export function SubscriptionList({ subscriptions }) {
     }
   }), [subscriptions]);
 
-  const getResults = useCallback(() => {
-    const results = filter
-      ? fuse.search(filter).map(result => result.item)
+  const filterBySearch = useCallback(() => {
+    return searchFilter
+      ? fuse.search(searchFilter).map(result => result.item)
       : subscriptions;
+  }, [subscriptions, searchFilter, fuse]);
 
-    return results.filter(sub => {
-      const nextPayment = SubscriptionGetNextFuturePaymentDate(sub);
-      const isThisMonthPayment = isThisMonth(nextPayment);
-      const isNext30DaysPayment = isBefore(nextPayment, addMonths(new Date(), 1));
-
-      return (
-          sub.categories?.length
-          ? sub.categories.some(cat => selectedCategories[cat.name])
-          : selectedCategories['Uncategorized']
-        ) && (
-          enabledFilter && disabledFilter ||
-          (enabledFilter && sub.enabled) ||
-          (disabledFilter && !sub.enabled)
-        ) && (
-          (!thisMonthFilter && !next30DaysFilter) ||
-          (thisMonthFilter && isThisMonthPayment) ||
-          (next30DaysFilter && isNext30DaysPayment)
-        );
-    });
-  }, [subscriptions, filter, fuse, selectedCategories, enabledFilter, disabledFilter, thisMonthFilter, next30DaysFilter]);
-
-  const [filteredSubscriptions, setFilteredSubscriptions] = useState(getResults());
-
-  const toggleCategory = (category) => {
-    setSelectedCategories(prev => ({
-      ...prev,
-      [category]: !prev[category]
-    }));
-  };
+  const [searchFilteredSubscriptions, setSearchFilteredSubscriptions] = useState(filterBySearch());
+  const [filteredSubscriptions, setFilteredSubscriptions] = useState(filterBySearch());
 
   useEffect(() => {
-    const newUrl = filter ? `/?s=${encodeURIComponent(filter)}` : '/';
+    const newUrl = searchFilter ? `/?s=${encodeURIComponent(searchFilter)}` : '/';
     router.push(newUrl, { scroll: false });
-  }, [filter, router]);
+  }, [searchFilter, router]);
 
   useEffect(() => {
-    setFilteredSubscriptions(getResults());
-  }, [getResults]);
+    setSearchFilteredSubscriptions(filterBySearch());
+  }, [filterBySearch]);
 
   return (
     <>
@@ -104,70 +57,17 @@ export function SubscriptionList({ subscriptions }) {
           </Link>
         </Button>
         <div className='flex flex-row gap-2 grow w-full sm:w-auto'>
-          <SearchBar value={filter} onChange={setFilter} />
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant='outline' size='lg' className='px-4'>
-                <Icons.filter />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className='w-56'>
-              <DropdownMenuLabel>Status</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem
-                checked={enabledFilter}
-                onCheckedChange={() => setEnabledFilter(!enabledFilter)}
-                onSelect={(event) => event.preventDefault()}
-              >
-                Active
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
-                checked={disabledFilter}
-                onCheckedChange={() => setDisabledFilter(!disabledFilter)}
-                onSelect={(event) => event.preventDefault()}
-              >
-                Inactive
-              </DropdownMenuCheckboxItem>
-
-              <DropdownMenuSeparator />
-              <DropdownMenuLabel>Time Period</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem
-                checked={thisMonthFilter}
-                onCheckedChange={() => {
-                  setThisMonthFilter(!thisMonthFilter);
-                  if (next30DaysFilter) setNext30DaysFilter(false);
-                }}
-                onSelect={(event) => event.preventDefault()}
-              >
-                This Month
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
-                checked={next30DaysFilter}
-                onCheckedChange={() => {
-                  setNext30DaysFilter(!next30DaysFilter);
-                  if (thisMonthFilter) setThisMonthFilter(false);
-                }}
-                onSelect={(event) => event.preventDefault()}
-              >
-                Next 30 Days
-              </DropdownMenuCheckboxItem>
-
-              <DropdownMenuSeparator />
-              <DropdownMenuLabel>Categories</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {Object.keys(selectedCategories).map((category) => (
-                <DropdownMenuCheckboxItem
-                  key={category}
-                  checked={selectedCategories[category]}
-                  onCheckedChange={() => toggleCategory(category)}
-                  onSelect={(event) => event.preventDefault()}
-                >
-                  {category}
-                </DropdownMenuCheckboxItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <SearchBar value={searchFilter} onChange={setSearchFilter} />
+          <FilterPanel
+            categories={{
+              ...subscriptions.flatMap(sub => sub.categories?.map(cat => ({name: cat.name, color: cat.color})) || [])
+                .reduce((acc, category) => ({...acc, [category.name]: {status: true, color: category.color}}), {}),
+              ...(subscriptions.some(sub => !sub.categories?.length) ? {'Uncategorized': {status: true}} : {})
+            }}
+            currencies={Array.from(new Set(subscriptions.map(sub => sub.currency)))}
+            filteredSubscriptions={searchFilteredSubscriptions}
+            setFilteredSubscriptions={setFilteredSubscriptions}
+          />
         </div>
       </div>
 

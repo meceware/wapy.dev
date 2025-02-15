@@ -41,6 +41,7 @@ import {
   UserUpdateCurrency,
   UserUpdateNotifications,
   UserUpdateName,
+  UserExportData,
 } from './actions';
 import { SchemaCategory, SchemaUserNotifications } from './schema';
 import { DefaultCategories } from '@/config/categories';
@@ -993,6 +994,59 @@ const PaymentStatusWrapper = ({ user, paddleStatus }) => {
 
 };
 
+const ExportActions = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleExport = useCallback(async () => {
+    setLoading(true);
+    try {
+      const data = await UserExportData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `wapy-dev-export-${format(new Date(), 'yyyy-MM-dd')}.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+
+      toast.success('Data exported successfully!');
+    } catch (error) {
+      toast.error('Failed to export data');
+    } finally {
+      setLoading(false);
+    }
+  }, [UserExportData, setLoading]);
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Data Export</CardTitle>
+        <CardDescription>
+          Download a copy of your subscriptions, categories and settings
+        </CardDescription>
+      </CardHeader>
+      <CardContent className='space-y-4'>
+        <Button
+          onClick={handleExport}
+          variant='outline'
+          disabled={loading}
+          className='w-full sm:w-auto'
+          title='Export your data'
+        >
+          {loading ? (
+            <Icons.spinner className='mr-2 size-4 animate-spin' />
+          ) : (
+            <Icons.download className='mr-2 size-4' />
+          )}
+          Export Data
+        </Button>
+      </CardContent>
+    </Card>
+  );
+};
+
 export const AccountSettings = ({ user, paddleStatus }) => {
   return (
     <div className='w-full max-w-4xl space-y-6 text-left'>
@@ -1001,6 +1055,7 @@ export const AccountSettings = ({ user, paddleStatus }) => {
       <DefaultSettings user={user} />
       <NotificationManager user={user} />
       <CategoryManager user={user} />
+      <ExportActions />
     </div>
   );
 };

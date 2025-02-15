@@ -44,7 +44,7 @@ export default function Footer( { author, github } ) {
                   Menu
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align='end' className='w-56 space-y-2 px-1 py-2'>
+              <DropdownMenuContent align='end' className='w-52 space-y-2 px-1 py-2'>
                 <DropdownMenuItem asChild>
                   <Link href='/pricing' className='inline-flex items-center gap-1 w-full cursor-pointer text-sm font-medium focus:outline-hidden'>
                     <Icons.wallet className='size-4' />

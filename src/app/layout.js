@@ -3,18 +3,16 @@ import './globals.css';
 
 // Imports
 import { Inter } from 'next/font/google';
-import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { ThemeProvider, SessionProvider } from '@/components/providers';
 import Footer from '@/components/footer';
 import { siteConfig } from '@/components/config';
 import { Toaster } from '@/components/ui/sonner';
-import { Button } from '@/components/ui/button';
 import { CookieConsent } from '@/components/cookie-consent';
 import Header from '@/components/header';
-import { Icons } from '@/components/icons';
 import { PushNotificationProvider } from '@/components/providers';
 import { HeaderMemberMainNavigation, HeaderMemberIconNavigation } from '@/components/header-member';
+import { HeaderVisitorIconNavigation } from '@/components/header-visitor';
 import { PushNotificationToggle } from '@/components/notifications/notification-toggle';
 import { AddToHomeScreen } from '@/components/add-to-home-screen';
 
@@ -80,8 +78,8 @@ export const metadata = {
 // Viewport
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '0 0% 100%' }, // TODO: does this work?
-    { media: '(prefers-color-scheme: dark)', color: '240 10% 3.9%' },
+    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' }, // TODO: does this work?
+    { media: '(prefers-color-scheme: dark)', color: '#09090B' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -92,16 +90,6 @@ export const viewport = {
 export default async function RootLayout({ children }) {
   const session = await auth();
 
-  const iconNavigation = (
-    <>
-      <Button variant='ghost' size='icon' title='Sign in' asChild>
-        <Link href='/login'>
-          <Icons.signIn className='h-5 w-5' />
-        </Link>
-      </Button>
-    </>
-  );
-
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
@@ -111,7 +99,7 @@ export default async function RootLayout({ children }) {
               <div className='flex min-h-screen flex-col'>
                 <Header
                   mainNavigation={session ? HeaderMemberMainNavigation : undefined}
-                  iconNavigation={session ? HeaderMemberIconNavigation : iconNavigation}
+                  iconNavigation={session ? HeaderMemberIconNavigation : HeaderVisitorIconNavigation}
                 />
                 <main className='flex flex-col h-full grow items-center p-8 md:p-12'>
                   <div className='container flex flex-col items-center gap-6 text-center grow relative'>

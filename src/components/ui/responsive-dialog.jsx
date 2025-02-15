@@ -63,11 +63,11 @@ import {
 
 const desktop = "(min-width: 768px)"
 
-const ResponsiveDialog = ({ children, ...props }) => {
+const ResponsiveDialog = ({ className, children, ...props }) => {
   const isDesktop = useMediaQuery(desktop)
   const ResponsiveDialog = isDesktop ? Dialog : Drawer
 
-  return <ResponsiveDialog {...props}>{children}</ResponsiveDialog>
+  return <ResponsiveDialog className={className} {...props}>{children}</ResponsiveDialog>
 }
 
 const ResponsiveDialogTrigger = ({ className, children, ...props }) => {

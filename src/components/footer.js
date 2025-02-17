@@ -9,7 +9,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
 
 export default function Footer( { author, github } ) {
   return (
@@ -39,7 +38,7 @@ export default function Footer( { author, github } ) {
             <Separator orientation='vertical' className='h-4' />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-hidden'>
+                <button className='inline-flex items-center gap-1 text-sm text-center font-medium focus:outline-hidden cursor-pointer'>
                   <Icons.menu className='size-4' />
                   Menu
                 </button>

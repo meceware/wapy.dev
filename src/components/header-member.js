@@ -41,7 +41,7 @@ export const HeaderMemberIconNavigation = (
         <Icons.settings className='size-5' />
       </Link>
     </Button>
-    <Button variant='ghost' size='icon' title='Sign out' onClick={() => signOut({ callbackUrl: '/' })} className='hidden md:flex'>
+    <Button variant='ghost' size='icon' title='Sign out' onClick={() => signOut({ callbackUrl: '/' })} className='hidden md:flex cursor-pointer'>
       <Icons.signOut className='size-5' />
     </Button>
 

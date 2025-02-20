@@ -21,28 +21,31 @@ const inter = Inter({ subsets: ['latin'] });
 
 // Metadata
 export const metadata = {
-  metadataBase: new URL( siteConfig.url ),
+  metadataBase: new URL(siteConfig.url),
   alternates: {
-    canonical: '/',
+    canonical: './',
   },
   title: {
     default: siteConfig.title,
-    template: `%s | ${ siteConfig.name }`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  authors: [ siteConfig.author ],
+  authors: [siteConfig.author],
   creator: siteConfig.author.name,
   publisher: siteConfig.author.name,
   referrer: 'origin-when-cross-origin',
   robots: {
     index: true,
     follow: true,
-    nocache: true,
+    nocache: false,
+    noimageindex: false,
+    'max-video-preview': -1,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
     googleBot: {
       index: true,
       follow: true,
-      noimageindex: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -55,35 +58,36 @@ export const metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [ `/og.png` ],
+    images: ['/images/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [ `/og.png` ],
+    images: ['/images/x.png'],
   },
   icons: {
     icon: [
+      { url: '/icons/icon-32.png', sizes: '32x32', type: 'image/png' },
       { url: '/icons/icon-96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-256.png', sizes: '256x256', type: 'image/png' },
+      { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.webmanifest',
-  category: 'technology',
 };
 
 // Viewport
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' }, // TODO: does this work?
+    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' },
     { media: '(prefers-color-scheme: dark)', color: '#09090B' },
   ],
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
 };
 
 // Root Layout
@@ -93,7 +97,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        <SessionProvider session={ session }>
+        <SessionProvider session={session}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
             <PushNotificationProvider>
               <div className='flex min-h-screen flex-col'>
@@ -103,13 +107,13 @@ export default async function RootLayout({ children }) {
                 />
                 <main className='flex flex-col h-full grow items-center p-8 md:p-12'>
                   <div className='container flex flex-col items-center gap-6 text-center grow relative'>
-                    { children }
+                    {children}
                   </div>
                 </main>
-                <Footer author={ siteConfig.author } github={ siteConfig.links.github } />
+                <Footer author={siteConfig.author} github={siteConfig.links.github} />
               </div>
-              { session && <PushNotificationToggle vapidPublicKey={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ''} /> }
-              { session && <AddToHomeScreen /> }
+              {session && <PushNotificationToggle vapidPublicKey={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ''} />}
+              {session && <AddToHomeScreen />}
             </PushNotificationProvider>
             <Toaster richColors closeButton />
             <CookieConsent />

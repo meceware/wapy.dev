@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: 'Wapy.dev',
   title: 'Wapy.dev - Subscription Manager',
-  description: 'Track, manage, and optimize your subscriptions and recurring expenses in one powerful and human readable dashboard. Get notified and never miss a payment again.',
-  keywords: 'subscription, expense, tracker, wapy, meceware',
+  description: 'Effortlessly track and manage all your subscriptions and recurring expenses in a powerful, easy-to-read dashboard. Know exactly what you\'re spending and get timely notifications to ensure you never miss a payment.',
+  keywords: 'subscription tracker, subscription management, recurring payments, expense tracker, manage subscriptions, budgeting tools, personal finance tracker, track my subscriptions, expense management, subscription monitoring, money-saving tools, wapy, meceware',
   url: process.env.SITE_URL || 'http://localhost:3000',
   links: {
     github: 'https://github.com/meceware/wapy.dev',

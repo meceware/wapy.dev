@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
+import { siteConfig } from '@/components/config';
 
 export const TermsOfService = () => {
   return (
@@ -17,14 +18,14 @@ export const TermsOfService = () => {
 
           <section className='space-y-4'>
             <p>
-              Welcome to the Wapy.dev website (the "Site"). By accessing or using the Site, you agree to comply with and be bound by the following terms and conditions ("Terms of Service").
+              Welcome to the {siteConfig.name} website (the "Site"). By accessing or using the Site, you agree to comply with and be bound by the following terms and conditions ("Terms of Service").
             </p>
           </section>
 
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Overview</h2>
             <p>
-              Wapy.dev offers this Site, including all information, tools, and services available from this Site to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
+              {siteConfig.name} offers this Site, including all information, tools, and services available from this Site to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
             </p>
             <p>
               Please read these Terms of Service carefully before accessing or using the Site. By accessing or using any part of the Site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the Site or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.
@@ -89,7 +90,7 @@ export const TermsOfService = () => {
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Limitation of Liability</h2>
             <p>
-              Wapy.dev shall not be held responsible for any indirect, incidental, special, or consequential damages that may occur from your use of the Site, regardless of whether such damages arise from contract, tort, negligence, strict liability, or any other legal theory. The maximum amount Site may be liable for in any claim related to the Site is limited to the total subscription fees you have paid in the last 12 months.
+              {siteConfig.name} shall not be held responsible for any indirect, incidental, special, or consequential damages that may occur from your use of the Site, regardless of whether such damages arise from contract, tort, negligence, strict liability, or any other legal theory. The maximum amount Site may be liable for in any claim related to the Site is limited to the total subscription fees you have paid in the last 12 months.
             </p>
           </section>
 
@@ -103,7 +104,7 @@ export const TermsOfService = () => {
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Indemnification</h2>
             <p>
-              You agree to indemnify and hold harmless Wapy.dev, its affiliates, officers, directors, employees, agents, and licensors from and against any claims, liabilities, damages, losses, and expenses, including without limitation reasonable attorney&apos;s fees, arising out of or in connection with your use of the Site, your violation of these Terms of Service, or your violation of any rights of another party.
+              You agree to indemnify and hold harmless {siteConfig.name}, its affiliates, officers, directors, employees, agents, and licensors from and against any claims, liabilities, damages, losses, and expenses, including without limitation reasonable attorney&apos;s fees, arising out of or in connection with your use of the Site, your violation of these Terms of Service, or your violation of any rights of another party.
             </p>
           </section>
 
@@ -120,14 +121,14 @@ export const TermsOfService = () => {
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Governing Law and Jurisdiction</h2>
             <p>
-              These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction where Wapy.dev is headquartered without giving effect to any principles of conflicts of law. You agree to submit to the exclusive jurisdiction of the courts in that jurisdiction for any disputes arising out of or in connection with these Terms of Service or your use of the Site.
+              These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction where {siteConfig.name} is headquartered without giving effect to any principles of conflicts of law. You agree to submit to the exclusive jurisdiction of the courts in that jurisdiction for any disputes arising out of or in connection with these Terms of Service or your use of the Site.
             </p>
           </section>
 
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Entire Agreement</h2>
             <p>
-              These Terms of Service constitute the entire agreement between you and Wapy.dev regarding your use of the Site and supersede all prior and contemporaneous agreements and understandings, whether oral or written, relating to the same subject matter.
+              These Terms of Service constitute the entire agreement between you and {siteConfig.name} regarding your use of the Site and supersede all prior and contemporaneous agreements and understandings, whether oral or written, relating to the same subject matter.
             </p>
           </section>
 
@@ -141,7 +142,7 @@ export const TermsOfService = () => {
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Waiver</h2>
             <p>
-              The failure of Wapy.dev to enforce any right or provision of these Terms of Service shall not constitute a waiver of that right or provision.
+              The failure of {siteConfig.name} to enforce any right or provision of these Terms of Service shall not constitute a waiver of that right or provision.
             </p>
           </section>
 

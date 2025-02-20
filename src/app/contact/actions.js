@@ -2,6 +2,7 @@
 
 import { Resend } from 'resend';
 import { z } from 'zod';
+import { siteConfig } from '@/components/config';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -41,11 +42,42 @@ export async function sendContactForm(formData) {
     await resend.emails.send({
       from: `Contact Form <${process.env.RESEND_FROM}>`,
       to: process.env.RESEND_CONTACT_EMAIL,
-      subject: `Contact Form Submission from ${name}`,
-      text: `
+      replyTo: `${name} <${email_address}>`,
+      subject: `Contact form submission from ${name}`,
+      text: `New Contact Form Submission
+
 Name: ${name}
 Email: ${email_address}
-Message: ${message}
+
+Message:
+${message}
+
+This is an automated message from ${siteConfig.name}.`,
+      html: `
+          <body style="margin: 0; padding: 0; background-color: #efefef;">
+            <table role="presentation" style="width: 100%; border-collapse: collapse; border: 0;">
+              <tr>
+                <td align="center" style="padding: 1rem 2rem;">
+                  <div style="max-width: 400px; background-color: #ffffff; padding: 1rem; text-align: left;">
+                    <h2 style="margin: 1rem 0; color: #000000;">Contact Form Submission</h2>
+                    <p>This is an automated message from ${siteConfig.name}.</p>
+                    <div style="margin: 1rem 0;">
+                      <strong>Name:</strong> ${name}<br>
+                      <strong>Email:</strong> ${email_address}<br><br>
+                      <strong>Message:</strong><br>
+                      ${message}
+                    </div>
+                  </div>
+                  <div style="max-width: 400px; color: #999999; text-align: center;">
+                    <p style="padding-bottom: 0.5rem;">Made with ♥ by <a href="${siteConfig.url}" target="_blank">${siteConfig.name}</a></p>
+                    <div style="text-align: center;">
+                      <img src="${siteConfig.url}/icon.png" alt="${siteConfig.from}" style="width: 96px;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </body>
       `,
     });
 

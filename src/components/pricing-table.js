@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { siteConfig } from '@/components/config';
 
 export const PricingTable = () => {
   return (
@@ -81,7 +82,7 @@ export const PricingTable = () => {
           </CardContent>
           <CardFooter className='flex justify-center items-end'>
             <Button variant='outline' size='lg' className='w-full' asChild>
-              <Link href='https://github.com/meceware/wapy.dev' target='_blank' rel='noopener noreferrer'>
+              <Link href={siteConfig.links.github} target='_blank' rel='noopener noreferrer'>
                 <Icons.github className='mr-2 h-4 w-4' />
                 View on GitHub
               </Link>

@@ -39,6 +39,7 @@ export default function Header({ mainNavigation = (<></>), iconNavigation = (<><
                 alt='Description of the image'
                 width={32}
                 height={32}
+                priority
               />
               <div className='inline-flex gap-0 justify-center items-end'>
                 <span className='font-semibold text-xl'>Wapy</span>

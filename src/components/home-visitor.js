@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Icons } from '@/components/icons';
 import { PricingTable } from '@/components/pricing-table';
+import { siteConfig } from '@/components/config';
 
 export const HomeVisitor = () => {
   return (
@@ -12,11 +13,13 @@ export const HomeVisitor = () => {
         <div className='inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4'>
           ✨ Manage your subscriptions smarter
         </div>
-        <h1 className='text-5xl md:text-6xl font-bold tracking-tight'>
-          Take Control of Your Subscriptions
+        <h1 className='text-3xl md:text-6xl font-bold tracking-tight'>
+          Take Control with
+          <br />
+          Best Subscription Tracker
         </h1>
         <h2 className='text-xl text-muted-foreground-light max-w-4xl'>
-          Track, manage, and optimize your subscriptions and recurring expenses in one powerful and human readable dashboard.
+          {siteConfig.name} helps you track subscriptions, monitor recurring expenses, and get payment reminders in one powerful and human readable dashboard.
         </h2>
         <h3 className='text-xl text-muted-foreground-light font-semibold max-w-4xl'>
           Get notified and never miss a payment again.

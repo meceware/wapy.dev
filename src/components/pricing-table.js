@@ -17,10 +17,10 @@ export const PricingTable = () => {
   return (
     <div className='container mx-auto'>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-        <Card className='relative overflow-hidden border-2 border-primary bg-primary/5 sm:col-span-1 md:col-span-2 flex flex-col'>
+        <Card className='relative overflow-hidden border-2 border-primary bg-gray-100 dark:bg-gray-900/50 sm:col-span-1 md:col-span-2 flex flex-col'>
           <CardHeader>
             <CardTitle className='text-2xl font-bold'>Enjoy</CardTitle>
-            <CardDescription className='text-sm'>
+            <CardDescription className='text-sm text-foreground'>
               Perfect for a hassle-free experience
             </CardDescription>
             <div>

@@ -90,12 +90,80 @@ export const viewport = {
   initialScale: 1,
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': `${siteConfig.url}/#software`,
+  'name': siteConfig.name,
+  'description': siteConfig.description,
+  'applicationCategory': 'FinanceApplication',
+  'operatingSystem': 'Web',
+  'url': siteConfig.url,
+  'offers': [
+    {
+      '@type': 'Offer',
+      'name': 'Premium Plan',
+      'category': 'SubscriptionPlan',
+      'price': '1.50',
+      'priceCurrency': 'EUR',
+      'availability': 'https://schema.org/InStock',
+      'priceValidUntil': `${(new Date()).getFullYear()}-12-31`,
+      'seller': {
+        '@type': 'Organization',
+        'name': siteConfig.author.name,
+        'url': siteConfig.author.url
+      }
+    },
+    {
+      '@type': 'Offer',
+      'name': 'Self-Hosted Edition',
+      'price': '0',
+      'priceCurrency': 'EUR',
+      'availability': 'https://schema.org/InStock',
+      'seller': {
+        '@type': 'Organization',
+        'name': siteConfig.author.name,
+        'url': siteConfig.author.url
+      }
+    }
+  ],
+  'featureList': [
+    'Subscription tracking',
+    'Payment reminders',
+    'Multi-currency support',
+    'Expense analytics',
+    'Timezone support',
+    'Push notifications',
+    'Email notifications',
+  ],
+  'screenshot': `${siteConfig.url}/images/og.png`,
+  'softwareVersion': '1.0',
+  'datePublished': '2025-02-25',
+  'keywords': siteConfig.keywords,
+  'author': {
+    '@type': 'Organization',
+    'name': siteConfig.author.name,
+    'url': siteConfig.author.url
+  },
+  'provider': {
+    '@type': 'Organization',
+    'name': siteConfig.author.name,
+    'url': siteConfig.author.url
+  }
+};
+
 // Root Layout
 export default async function RootLayout({ children }) {
   const session = await auth();
 
   return (
     <html lang='en' suppressHydrationWarning>
+      <head>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <SessionProvider session={session}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>

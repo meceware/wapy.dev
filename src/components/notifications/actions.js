@@ -78,6 +78,10 @@ export async function PastNotificationsGetUnread() {
         createdAt: 'desc',
       },
       take: 10,
+      omit: {
+        userId: true,
+        subscriptionId: true,
+      },
     }),
     prisma.pastNotification.count({
       where: {

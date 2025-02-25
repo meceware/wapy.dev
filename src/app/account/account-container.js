@@ -60,8 +60,12 @@ const TimezoneManager = ({ user }) => {
     try {
       setLoading(true);
       setSelectedTimezone(value);
-      await UserUpdateTimezone(value);
-      toast.success('Timezone updated successfully');
+      const { success } = await UserUpdateTimezone(value);
+      if (success) {
+        toast.success('Timezone updated successfully');
+      } else {
+        toast.error('Failed to update timezone');
+      }
     } catch (error) {
       toast.error('Failed to update timezone');
     } finally {
@@ -85,8 +89,12 @@ const CurrencyManager = ({ user }) => {
     try {
       setLoading(true);
       setSelectedCurrency(currency);
-      await UserUpdateCurrency(currency);
-      toast.success('Currency updated successfully');
+      const { success } = await UserUpdateCurrency(currency);
+      if (success) {
+        toast.success('Currency updated successfully');
+      } else {
+        toast.error('Failed to update currency');
+      }
     } catch (error) {
       toast.error('Failed to update currency');
     } finally {
@@ -128,8 +136,12 @@ const NotificationManager  = ({user}) => {
       setLoading(true);
       const validated = SchemaUserNotifications.parse(notifications);
       if (!validated) throw new Error('Invalid notifications data');
-      await UserUpdateNotifications(notifications);
-      toast.success('Notification preferences saved');
+      const { success } = await UserUpdateNotifications(notifications);
+      if (success) {
+        toast.success('Notification preferences saved');
+      } else {
+        toast.error('Failed to save notification preferences');
+      }
     } catch (error) {
       toast.error('Failed to save notification preferences');
     } finally {
@@ -165,9 +177,13 @@ const UserProfile = ({ user }) => {
     if (loading) return;
     try {
       setLoading(true);
-      await UserUpdateName(name);
-      setIsEditing(false);
-      toast.success('Your name has been updated successfully.');
+      const { success } = await UserUpdateName(name);
+      if (success) {
+        setIsEditing(false);
+        toast.success('Your name has been updated successfully.');
+      } else {
+        toast.error('Failed to update your name!');
+      }
     } catch (error) {
       toast.error('Failed to update your name!');
     } finally {

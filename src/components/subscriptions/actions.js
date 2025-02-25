@@ -24,7 +24,10 @@ export const SubscriptionGet = async (subscriptionId, userId) => {
     },
     include: {
       categories: true,
-    }
+    },
+    omit: {
+      userId: true,
+    },
   });
 
   if (!subscription) {
@@ -55,7 +58,7 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
   const newSubscription = await prisma.subscription.update({
     where: {
       id: subscription.id,
-      userId: subscription.userId,
+      userId: userId,
     },
     data: updateData,
   });

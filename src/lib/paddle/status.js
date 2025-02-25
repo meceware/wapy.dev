@@ -84,7 +84,6 @@ export const paddleGetSession = async () => {
     return {
       session: session,
       user: null,
-      userWithoutId: null,
       paddleStatus: null,
     };
   }
@@ -92,6 +91,9 @@ export const paddleGetSession = async () => {
   const user = await prisma.user.findUnique({
     where: {
       id: session.user.id,
+    },
+    omit: {
+      id: true,
     },
     include: {
       categories: {
@@ -117,14 +119,11 @@ export const paddleGetSession = async () => {
     },
   });
 
-  const { id: _, ...userWithoutId } = user;
-
   const paddleStatus = await paddleGetStatus(user);
 
   return {
     session,
     user,
-    userWithoutId,
     paddleStatus,
   };
 };

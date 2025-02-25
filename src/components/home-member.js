@@ -17,6 +17,9 @@ export const HomeMember = async ({ userId }) => {
         }
       }
     },
+    omit: {
+      userId: true,
+    },
     orderBy: [
       {
         enabled: 'desc'
@@ -29,7 +32,7 @@ export const HomeMember = async ({ userId }) => {
 
   return (
     <div className='flex flex-col items-center w-full max-w-3xl gap-4'>
-      <SubscriptionList subscriptions={ subscriptions?.map(({ userId, ...rest }) => rest) } />
+      <SubscriptionList subscriptions={subscriptions} />
     </div>
   );
 }

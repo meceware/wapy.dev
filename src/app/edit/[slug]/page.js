@@ -10,9 +10,9 @@ import { SubscriptionGuard } from '@/components/subscription-guard';
 
 const PageSubscriptionEdit = async ({ params }) => {
   const slug = (await params).slug;
-  const { user, userWithoutId, paddleStatus } = await paddleGetSession();
+  const { session, user, paddleStatus } = await paddleGetSession();
 
-  const subscription = await SubscriptionGet(slug, user.id);
+  const subscription = await SubscriptionGet(slug, session?.user?.id);
   if (!subscription) {
     return notFound();
   }
@@ -24,7 +24,7 @@ const PageSubscriptionEdit = async ({ params }) => {
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
       <div className='container flex flex-col items-center justify-center gap-6 text-center'>
-        <SubscriptionEdit user={userWithoutId} subscription={ subscription } />
+        <SubscriptionEdit user={user} subscription={ subscription } />
       </div>
     </SubscriptionGuard>
   )

@@ -134,7 +134,7 @@ export const UserUpdateTimezone = async (timezone) => {
     throw new Error('Invalid timezone data');
   }
 
-  return await prisma.user.update({
+  const updated = await prisma.user.update({
     where: {
       id: session.user.id,
     },
@@ -142,6 +142,12 @@ export const UserUpdateTimezone = async (timezone) => {
       timezone: validatedData,
     }
   });
+
+  if (!updated) {
+    return { success: false, timezone: validatedData };
+  }
+
+  return { success: true, timezone: updated.timezone };
 };
 
 export const UserUpdateCurrency = async (currency) => {
@@ -155,7 +161,7 @@ export const UserUpdateCurrency = async (currency) => {
     throw new Error('Invalid currency data');
   }
 
-  return await prisma.user.update({
+  const updated = await prisma.user.update({
     where: {
       id: session.user.id,
     },
@@ -163,6 +169,12 @@ export const UserUpdateCurrency = async (currency) => {
       currency: validatedData,
     }
   });
+
+  if (!updated) {
+    return { success: false, currency: validatedData };
+  }
+
+  return { success: true, currency: updated.currency };
 };
 
 export const UserUpdateNotifications = async (notifications) => {
@@ -176,7 +188,7 @@ export const UserUpdateNotifications = async (notifications) => {
     throw new Error('Invalid notifications data');
   }
 
-  return await prisma.user.update({
+  const updated = await prisma.user.update({
     where: {
       id: session.user.id,
     },
@@ -192,6 +204,12 @@ export const UserUpdateNotifications = async (notifications) => {
       }),
     }
   });
+
+  if (!updated) {
+    return { success: false, notifications: validatedData };
+  }
+
+  return { success: true, notifications: updated.notifications };
 };
 
 export const UserUpdateName = async (name) => {
@@ -205,7 +223,7 @@ export const UserUpdateName = async (name) => {
     throw new Error('Invalid name data');
   }
 
-  return await prisma.user.update({
+  const updated = await prisma.user.update({
     where: {
       id: session.user.id,
     },
@@ -213,6 +231,12 @@ export const UserUpdateName = async (name) => {
       name: validatedData,
     }
   });
+
+  if (!updated) {
+    return { success: false, name: validatedData };
+  }
+
+  return { success: true, name: updated.name };
 };
 
 export const UserExportData = async () => {

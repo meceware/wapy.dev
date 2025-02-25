@@ -7,20 +7,27 @@ import { paddleGetSession } from '@/lib/paddle/status';
 import { SubscriptionGuard } from '@/components/subscription-guard';
 
 const PageReports = async () => {
-  const { user, paddleStatus } = await paddleGetSession();
+  const { session, paddleStatus } = await paddleGetSession();
 
   const subscriptions = await prisma.subscription.findMany({
     where: {
-      userId: user.id,
+      userId: session?.user?.id,
     },
     include: {
       categories: {
         select: {
-          id: true,
           name: true,
           color: true
         }
       }
+    },
+    omit: {
+      userId: true,
+      createdAt: true,
+      updatedAt: true,
+      nextNotificationTime: true,
+      nextNotificationDetails: true,
+      notes: true,
     },
     orderBy: {
       paymentDate: 'asc'
@@ -30,7 +37,7 @@ const PageReports = async () => {
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
       <div className='flex flex-col items-center w-full max-w-3xl gap-4'>
-        <SubscriptionReports subscriptions={ subscriptions?.map(({ userId, ...rest }) => rest) } />
+        <SubscriptionReports subscriptions={subscriptions} />
       </div>
     </SubscriptionGuard>
   )

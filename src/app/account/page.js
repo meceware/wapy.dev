@@ -8,7 +8,7 @@ import { paddleGetStatus } from '@/lib/paddle/status';
 import { paddleGetSession } from '@/lib/paddle/status';
 
 const PageAccount = async () => {
-  const { userWithoutId, paddleStatus } = await paddleGetSession();
+  const { user, paddleStatus } = await paddleGetSession();
 
   // const paddleCustomer = await paddleGetCustomer(user.id);
   // console.log('paddleCustomer', paddleCustomer);
@@ -20,7 +20,7 @@ const PageAccount = async () => {
   return (
     <div className='container flex flex-col items-center justify-center gap-6 text-center'>
       <AccountSettings
-        user={userWithoutId}
+        user={user}
         paddleStatus={paddleStatus}
      />
     </div>

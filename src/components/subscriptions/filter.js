@@ -279,7 +279,7 @@ export const FilterPanel = ({
                         className='text-xs gap-2 px-2 py-1 h-auto'
                         title={`Filter by ${category}`}
                       >
-                        <span className="size-2 rounded-full" style={{
+                        <span className='size-2 rounded-full' style={{
                           backgroundColor: selectedCategories[category].color,
                         }} />
                         {category}

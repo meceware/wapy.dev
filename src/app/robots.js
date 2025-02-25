@@ -7,12 +7,8 @@ export default function robots() {
       allow: '/',
       disallow: [
         '/account',
-        '/api',
         '/api/*',
-        '/edit',
-        '/edit/new',
         '/edit/*',
-        '/login',
         '/reports',
         '/signout',
       ],

@@ -38,27 +38,25 @@ const PricePrinter = ({ cost, isPlus }) => {
 const OverviewRow = ({ title, description, costs = {total: {}}, categories }) => {
   return (
     <Collapsible className='flex flex-col gap-2' disabled={Object.entries(costs?.categories || {}).length === 0}>
-      <CollapsibleTrigger className={cn('flex items-center gap-2 w-full p-2', {
+      <CollapsibleTrigger className={cn('flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full p-2', {
         'hover:bg-muted/50 rounded-lg transition-colors': Object.entries(costs?.categories || {}).length > 0
       })}>
-        <div className='flex flex-col gap-1 grow text-left'>
+        <div className='flex flex-col gap-1 shrink-0 text-left'>
           <span className='text-sm font-medium'>{title}</span>
           <span className='text-xs text-muted-foreground'>{description}</span>
         </div>
-        <div className='shrink-0'>
-          <div className='flex flex-col gap-0 font-semibold text-right'>
-            {Object.entries(costs?.total || {}).length === 0 ? (
-              <span>-</span>
-            ) : (
-              Object.entries(costs.total).map(([currency, cost], index) => (
-                <PricePrinter
-                  key={`${title}-${currency}`}
-                  cost={formatPrice(cost, DefaultCurrencies[currency])}
-                  isPlus={index < Object.entries(costs.total).length - 1}
-                />
-              ))
-            )}
-          </div>
+        <div className='flex flex-row flex-wrap sm:flex-col grow gap-1 sm:gap-0 items-center sm:items-end font-semibold break-all text-left sm:text-right'>
+          {Object.entries(costs?.total || {}).length === 0 ? (
+            <span>-</span>
+          ) : (
+            Object.entries(costs.total).map(([currency, cost], index) => (
+              <PricePrinter
+                key={`${title}-${currency}`}
+                cost={formatPrice(cost, DefaultCurrencies[currency])}
+                isPlus={index < Object.entries(costs.total).length - 1}
+              />
+            ))
+          )}
         </div>
       </CollapsibleTrigger>
       <CollapsibleContent>
@@ -384,7 +382,7 @@ export function SubscriptionReports({ subscriptions }) {
         <CardContent className='flex flex-col gap-4'>
           <div className='flex flex-col justify-between gap-2 text-sm'>
             <div className='whitespace-nowrap font-medium'>Monthly Average</div>
-            <div className='flex flex-wrap items-center gap-1'>
+            <div className='flex flex-wrap items-center gap-1 font-semibold text-base'>
               {Object.entries(stats.costs.inOneYear?.total || {}).map(([currency, cost], index) => (
                 <PricePrinter
                   key={`monthly-avg-${currency}`}
@@ -396,7 +394,7 @@ export function SubscriptionReports({ subscriptions }) {
           </div>
           <div className='flex flex-col justify-between gap-2 text-sm'>
             <div className='whitespace-nowrap font-medium'>Yearly Average</div>
-            <div className='flex flex-wrap items-center gap-1'>
+            <div className='flex flex-wrap items-center gap-1 font-semibold text-base'>
               {Object.entries(stats.costs.inOneYear?.total || {}).map(([currency, cost], index) => (
                 <PricePrinter
                   key={`yearly-avg-${currency}`}

@@ -75,6 +75,7 @@ export function CookieConsent() {
           <Checkbox
             checked={preferences.essential}
             disabled={true}
+            title='Essential Cookies'
           />
           <div className='grid gap-1.5 leading-none'>
             <label className='font-medium'>
@@ -94,6 +95,7 @@ export function CookieConsent() {
             onCheckedChange={(checked) =>
               setPreferences(prev => ({ ...prev, functional: checked === true }))
             }
+            title='Functional Cookies'
           />
           <div className='grid gap-1.5 leading-none'>
             <label className='font-medium'>
@@ -113,6 +115,7 @@ export function CookieConsent() {
             onCheckedChange={(checked) =>
               setPreferences(prev => ({ ...prev, analytics: checked === true }))
             }
+            title='Analytics Cookies'
           />
           <div className='grid gap-1.5 leading-none'>
             <label className='font-medium'>

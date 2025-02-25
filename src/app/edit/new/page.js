@@ -6,12 +6,12 @@ import { paddleGetSession } from '@/lib/paddle/status';
 import { SubscriptionGuard } from '@/components/subscription-guard';
 
 const PageNewSubscription = async () => {
-  const { userWithoutId, paddleStatus } = await paddleGetSession();
+  const { user, paddleStatus } = await paddleGetSession();
 
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
       <div className='container flex flex-col items-center justify-center gap-6 text-center'>
-        <SubscriptionEdit user={userWithoutId} />
+        <SubscriptionEdit user={user} />
       </div>
     </SubscriptionGuard>
   )

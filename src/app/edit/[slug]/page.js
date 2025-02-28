@@ -17,18 +17,14 @@ const PageSubscriptionEdit = async ({ params }) => {
     return notFound();
   }
 
-  if (subscription?.userId) {
-    delete subscription.userId;
-  }
-
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
-      <div className='container flex flex-col items-center justify-center gap-6 text-center'>
+      <div className='container flex flex-col items-center justify-center gap-6'>
         <SubscriptionEdit user={user} subscription={ subscription } />
       </div>
     </SubscriptionGuard>
-  )
-}
+  );
+};
 
 export default withAuth(PageSubscriptionEdit);
 
@@ -37,12 +33,12 @@ export async function generateMetadata({ params }) {
   if (!session?.user?.id) {
     return {
       title: 'Unauthorized',
-    }
+    };
   }
 
   const subscriptionId = (await params).slug;
   const subscription = await SubscriptionGet(subscriptionId, session?.user?.id);
   return {
-      title: subscription?.name || 'Not Found',
+      title: subscription?.name ? `Edit ${subscription.name}` : 'Not Found',
   };
 }

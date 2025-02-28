@@ -45,7 +45,7 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl, isP
           }),
           {
             vapidDetails: {
-              subject: `mailto:${siteConfig.subscriptionReminderFrom}`,
+              subject: `mailto:Wapy.dev Subscription Reminder <${process.env.RESEND_FROM}>`,
               publicKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
               privateKey: process.env.VAPID_PRIVATE_KEY
             },
@@ -74,7 +74,7 @@ const sendEmail = async (subscription, title, message, markAsPaidUrl, resend) =>
   return new Promise(async (resolve, reject) => {
     try {
       await resend.emails.send({
-        from: siteConfig.subscriptionReminderFrom,
+        from: `Wapy.dev Subscription Reminder <${process.env.RESEND_FROM}>`,
         to: subscription.user.email,
         subject: title,
         html: `

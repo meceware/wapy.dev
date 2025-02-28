@@ -23,7 +23,13 @@ export const SubscriptionGet = async (subscriptionId, userId) => {
       userId: userId,
     },
     include: {
-      categories: true,
+      categories: {
+        select: {
+          id: true,
+          name: true,
+          color: true,
+        },
+      },
     },
     omit: {
       userId: true,

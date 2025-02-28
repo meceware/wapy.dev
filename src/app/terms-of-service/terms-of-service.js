@@ -18,7 +18,7 @@ export const TermsOfService = () => {
 
           <section className='space-y-4'>
             <p>
-              Welcome to the {siteConfig.name} website (the "Site"). By accessing or using the Site, you agree to comply with and be bound by the following terms and conditions ("Terms of Service").
+              Welcome to the {siteConfig.name} website (the &quot;Site&quot;). By accessing or using the Site, you agree to comply with and be bound by the following terms and conditions (&quot;Terms of Service&quot;).
             </p>
           </section>
 

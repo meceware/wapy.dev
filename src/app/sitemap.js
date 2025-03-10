@@ -5,7 +5,7 @@ export default function sitemap() {
     {
       url: `${siteConfig.url}`,
       lastModified: new Date().toISOString(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 1
     },
     {

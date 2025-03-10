@@ -57,16 +57,22 @@ const SignInOTP = ({email}) => {
     }
 
     setDisabled(false);
-  }, [setUrl]);
+  }, []);
 
   useEffect(() => {
-    if (url) {
-      const link = url;
+    let isMounted = true;
+
+    if (url && isMounted) {
+      const redirectUrl = url;
       setUrl(null);
-      router.push(link);
-      router.refresh();
+
+      router.replace(redirectUrl);
     }
-  }, [url]);
+
+    return () => {
+      isMounted = false;
+    };
+  }, [url, router]);
 
   return (
     <InputOTP

@@ -7,10 +7,10 @@ import { formatDistanceToNowStrict, isEqual, addDays, addMonths, isAfter, isPast
 import { Resend } from 'resend';
 import { prisma } from '@/lib/prisma';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
-import { DefaultCurrencies } from '@/config/currencies';
 import { siteConfig } from '@/components/config';
 import { paddleGetStatus } from '@/lib/paddle/status';
 import { PADDLE_STATUS_MAP, TRIAL_DURATION_MONTHS, paddleIsValid } from '@/lib/paddle/enum';
+import { formatPrice } from '@/components/subscriptions/utils';
 
 const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
   return subscription.user.push.map(async push => {
@@ -252,14 +252,6 @@ const UserSubscriptionNotifications = async (resend, rightNow) => {
 
 export async function GET() {
   const resend = new Resend(process.env.RESEND_API_KEY);
-
-  const formatPrice = (price, curr) => {
-    const currency = DefaultCurrencies[curr];
-    return currency.position === 'before'
-      ? `${currency.symbol}${price}`
-      : `${price}${currency.symbol}`;
-  };
-
   const rightNow = new Date();
 
   await UserSubscriptionNotifications(resend, rightNow);

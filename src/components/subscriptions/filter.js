@@ -99,14 +99,14 @@ export const FilterPanel = ({
             <Icons.filter />
           </Button>
         </ResponsiveDialogTrigger>
-        <ResponsiveDialogContent className='max-w-2xl gap-0'>
-          <ResponsiveDialogHeader className='text-left px-4 py-2'>
+        <ResponsiveDialogContent className='max-w-2xl gap-0 p-4 sm:p-6'>
+          <ResponsiveDialogHeader className='text-left p-0 py-4 sm:py-4'>
             <div className='flex items-start justify-between'>
               <div>
                 <ResponsiveDialogTitle className='text-lg'>Subscription Filters</ResponsiveDialogTitle>
                 <ResponsiveDialogDescription className='text-sm'>Apply filters and find the subscriptions you need</ResponsiveDialogDescription>
               </div>
-              <Button variant='outline' size='icon' title='Reset filters' onClick={() => {
+              <Button variant='outline' size='icon' title='Reset filters' className='shrink-0 cursor-pointer' onClick={() => {
                   setEnabledFilter(true);
                   setDisabledFilter(false);
                   setThisMonthFilter(false);
@@ -120,7 +120,7 @@ export const FilterPanel = ({
           </ResponsiveDialogHeader>
 
           <ScrollArea viewportClassName='max-h-[60vh]'>
-            <div className='flex flex-col gap-4 p-4'>
+            <div className='flex flex-col gap-4'>
               {/* Status Filter Section */}
               <div className='flex flex-col gap-2'>
                 <h3 className='text-sm font-medium'>Status</h3>
@@ -129,7 +129,7 @@ export const FilterPanel = ({
                     pressed={enabledFilter}
                     onPressedChange={() => setEnabledFilter(!enabledFilter)}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
                     title='Filter by active subscriptions'
                   >
                     <div className='size-3 rounded-full bg-green-500' />
@@ -139,7 +139,7 @@ export const FilterPanel = ({
                     pressed={disabledFilter}
                     onPressedChange={() => setDisabledFilter(!disabledFilter)}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
                     title='Filter by inactive subscriptions'
                   >
                     <div className='size-3 rounded-full bg-red-500' />
@@ -160,7 +160,7 @@ export const FilterPanel = ({
                       setNext30DaysFilter(false);
                     }}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
                     title='Disable all payment date filters'
                   >
                     All
@@ -172,7 +172,7 @@ export const FilterPanel = ({
                       setNext30DaysFilter(false);
                     }}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
                     title='Filter by this month'
                   >
                     This Month
@@ -184,7 +184,7 @@ export const FilterPanel = ({
                       setThisMonthFilter(false);
                     }}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
                     title='Filter by next 30 days'
                   >
                     Next 30 Days
@@ -204,7 +204,7 @@ export const FilterPanel = ({
                           variant='ghost'
                           size='sm'
                           onClick={() => toggleAllCurrencies(true)}
-                          className='h-8 px-3 text-xs'
+                          className='h-8 px-3 text-xs cursor-pointer'
                           title='Select all currencies'
                         >
                           Select All
@@ -213,7 +213,7 @@ export const FilterPanel = ({
                           variant='ghost'
                           size='sm'
                           onClick={() => toggleAllCurrencies(false)}
-                          className='h-8 px-3 text-xs'
+                          className='h-8 px-3 text-xs cursor-pointer'
                           title='Clear all currencies'
                         >
                           Select None
@@ -227,7 +227,7 @@ export const FilterPanel = ({
                           pressed={selectedCurrencies[currency]}
                           onPressedChange={() => toggleCurrency(currency)}
                           variant='outline'
-                          className='text-xs gap-2 px-2 py-1 h-auto'
+                          className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
                           title={`Filter by ${DefaultCurrencies[currency].name}`}
                         >
                           <span>
@@ -251,7 +251,7 @@ export const FilterPanel = ({
                       variant='ghost'
                       size='sm'
                       onClick={() => toggleAllCategories(true)}
-                      className='h-8 px-3 text-xs'
+                      className='h-8 px-3 text-xs cursor-pointer'
                       title='Select all categories'
                     >
                       Select All
@@ -260,7 +260,7 @@ export const FilterPanel = ({
                       variant='ghost'
                       size='sm'
                       onClick={() => toggleAllCategories(false)}
-                      className='h-8 px-3 text-xs'
+                      className='h-8 px-3 text-xs cursor-pointer'
                       title='Clear all categories'
                     >
                       Select None
@@ -276,7 +276,7 @@ export const FilterPanel = ({
                         pressed={selectedCategories[category].status}
                         onPressedChange={() => toggleCategory(category)}
                         variant='outline'
-                        className='text-xs gap-2 px-2 py-1 h-auto'
+                        className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
                         title={`Filter by ${category}`}
                       >
                         <span className='size-2 rounded-full' style={{

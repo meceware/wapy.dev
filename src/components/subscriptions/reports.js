@@ -39,12 +39,12 @@ const PricePrinter = ({ cost, isPlus }) => {
   );
 };
 
-const SubscriptionCard = ({subscription, currency, withDate = true, withPaymentsCount = false}) => {
+const SubscriptionCard = ({ subscription, currency, withDate = true, withPaymentsCount = false }) => {
   return (
-    <div className='p-2 transition-colors hover:bg-muted/50 hover:rounded-lg'>
+    <div className='group p-3 transition-colors hover:bg-muted/50 hover:rounded-lg'>
       <div className='flex flex-row items-start sm:items-center gap-2'>
-        <div className='flex items-center justify-center shrink-0 size-11 rounded-full bg-gray-200 dark:bg-gray-800'>
-          <LogoIcon icon={subscription.logo} className='size-6'>
+        <div className='flex items-center justify-center shrink-0 size-10 rounded-full bg-gray-200 dark:bg-gray-800 group-hover:ring-2 ring-primary/20 transition-all'>
+          <LogoIcon icon={subscription.logo} className='size-5'>
             <span className='text-base font-medium'>{subscription.name[0].toUpperCase()}</span>
           </LogoIcon>
         </div>
@@ -95,7 +95,7 @@ const OverviewRow = ({ title, description, costs = {total: {}}, categories }) =>
     <>
       <Collapsible className='flex flex-col gap-2' disabled={Object.entries(costs?.categories || {}).length === 0}>
         <CollapsibleTrigger className={cn('flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full p-2 cursor-pointer', {
-          'hover:bg-muted/50 rounded-lg transition-colors': Object.entries(costs?.categories || {}).length > 0
+          'rounded-lg transition-all hover:bg-muted/40 hover:ring-1 ring-primary/20': Object.entries(costs?.categories || {}).length > 0
         })}>
           <div className='flex flex-col gap-1 shrink-0 text-left'>
             <span className='text-sm font-medium'>{title}</span>
@@ -120,11 +120,11 @@ const OverviewRow = ({ title, description, costs = {total: {}}, categories }) =>
             {Object.entries(costs?.categories || {}).sort().map(([category, currencies]) => (
               <div
                 key={category}
-                className='flex flex-row items-start sm:items-center gap-2 p-2 text-xs hover:bg-muted/50 cursor-pointer'
+                className='flex flex-row items-start sm:items-center gap-2 p-2 text-xs group transition-colors hover:bg-muted/50 cursor-pointer'
                 onClick={() => handleCategoryClick(category, costs?.subscriptions?.[category])}
               >
                 <div
-                  className='size-3 rounded-full shrink-0 mt-1 sm:mt-0'
+                  className='size-3 rounded-full shrink-0 mt-1 sm:mt-0 group-hover:ring-1 ring-primary/20 transition-all'
                   style={{ backgroundColor: categories[category]?.color }}
                   aria-hidden='true'
                 />

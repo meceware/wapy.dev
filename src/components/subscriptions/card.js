@@ -13,7 +13,6 @@ import {
   CardFooter,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { DefaultCurrencies } from '@/config/currencies';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -164,7 +163,6 @@ const SubscriptionPaymentCount = ({ subscription }) => {
 
 export const SubscriptionCard = ({ subscription }) => {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
-  const currency = DefaultCurrencies[subscription.currency];
   const categories = subscription.categories || [];
   const isPushEnabled = subscription.enabled && subscription.notifications.some(notification => notification.type.includes('PUSH'));
   const isEmailEnabled = subscription.enabled && subscription.notifications.some(notification => notification.type.includes('EMAIL'));

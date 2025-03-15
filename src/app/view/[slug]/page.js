@@ -20,7 +20,7 @@ const PageSubscriptionView = async ({ params }) => {
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
       <div className='container flex flex-col items-center justify-center gap-6'>
-        <SubscriptionView user={user} subscription={subscription} />
+        <SubscriptionView subscription={subscription} />
       </div>
     </SubscriptionGuard>
   );

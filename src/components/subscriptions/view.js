@@ -20,12 +20,26 @@ import { SubscriptionGetUpcomingPayments, SubscriptionGetNextFuturePaymentDate }
 import { getCycleLabel, getPaymentCount, formatPrice } from '@/components/subscriptions/utils';
 import { cn } from '@/lib/utils';
 
-export function SubscriptionView({ user, subscription }) {
+export function SubscriptionView({ subscription }) {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
   const maxUpcomingPayments = 16;
 
   // Calculate statistics
   const stats = useMemo(() => {
+    if (!subscription || !subscription.enabled) {
+      return {
+        payments: [],
+        nextPaymentDate: null,
+        pastPayments: { count: 0, total: 0 },
+        totalCost: 0,
+        daysUntilNextPayment: null,
+        monthlyCost: 0,
+        quarterlyCost: 0,
+        yearlyCost: 0,
+        remainingPayments: null,
+      };
+    }
+
     const now = new Date();
     const endDate = subscription.untilDate && isBefore(subscription.untilDate, addYears(now, 1))
       ? subscription.untilDate
@@ -138,156 +152,168 @@ export function SubscriptionView({ user, subscription }) {
           <CardDescription>Key metrics for this subscription</CardDescription>
         </CardHeader>
         <CardContent className='flex flex-col gap-3'>
-          <div className={cn('flex items-center gap-2 p-4 rounded-lg border-l-4', {
-            'border-l-red-500 bg-red-500/10': stats.pastPayments.count,
-            'border-l-green-500 bg-green-500/10': !stats.pastPayments.count
-          })}>
-            <p className='text-sm'>
-              {stats.pastPayments.count ? (
-                <>
-                  Oh no! You have <span className='font-semibold'>{stats.pastPayments.count}</span> past payment{stats.pastPayments.count > 1 ? 's' : ''} for this subscription totaling <span className='font-semibold tabular-nums'>{formatPrice(stats.pastPayments.total, subscription.currency)}</span>.
-                </>
-              ) : (
-                'Good job! This subscription is fully paid up to date.'
-              )}
-            </p>
-          </div>
-
-          <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
-            <p className='text-sm'>
-              {stats.nextPaymentDate ? (
-                <>
-                  Your next payment of{' '}
-                  <span className='font-semibold tabular-nums'>
-                    {formatPrice(subscription.price, subscription.currency)}
-                  </span>
-                  {' '}
-                  is due on
-                  {' '}
-                  <span className='font-semibold'>
-                    {format(stats.nextPaymentDate, 'dd MMMM yyyy, HH:mm')}
-                  </span>
-                  {' which is '}
-                  <span className='font-semibold'>
-                    {formatDistanceToNowStrict(stats.nextPaymentDate, {addSuffix: true})}
-                  </span>
-                  {'.'}
-                </>
-              ) : (
-                'Congrats! There are no future payments scheduled for this subscription.'
-              )}
-            </p>
-          </div>
-
-          <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
-            <p className='text-sm'>
-              {subscription?.untilDate ? (
-                <>
-                  This subscription will end on{' '}
-                  <span className='font-semibold'>
-                    {format(subscription.untilDate, 'dd MMMM yyyy')}
-                  </span>
-                  .
-                </>
-              ) : (
-                'This is an ongoing subscription with no specified end date.'
-              )}
-            </p>
-          </div>
-
-          <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
-            <p className='text-sm'>
-              {subscription?.untilDate ? (
-                <>
-                  This subscription will require{' '}
-                  <span className='font-semibold'>
-                    {stats.remainingPayments} payment{stats.remainingPayments !== 1 ? 's' : ''}
-                  </span>
-                  {' totaling '}
-                  <span className='font-semibold tabular-nums'>
-                    {formatPrice(stats.remainingPayments * subscription.price, subscription.currency)}
-                  </span>
-                  {'.'}
-                </>
-              ) : (
-                <>
-                  This subscription will require{' '}
-                  <span className='font-semibold'>
-                    {stats.payments.length} payment{stats.payments.length !== 1 ? 's' : ''}
-                  </span>
-                  {' this year, totaling '}
-                  <span className='font-semibold tabular-nums'>
-                    {formatPrice(stats.totalCost, subscription.currency)}
-                  </span>
-                  {'.'}
-                </>
-              )}
-            </p>
-          </div>
-
-          <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
-            {subscription?.notifications?.length > 0 ? (
-              <div className='text-sm flex flex-col gap-1'>
-                You will receive notifications:
-                {subscription.notifications.sort((a, b) => {
-                  const timeOrder = { 'INSTANT': 0, 'MINUTES': 1, 'HOURS': 2, 'DAYS': 3, 'WEEKS': 4 };
-                  return timeOrder[b.time] - timeOrder[a.time];
-                }).map((notification, index) => {
-                  const notifyVia = notification.type.map(t => t === 'EMAIL' ? 'email' : 'push notification').join(' and ');
-                  const timing = notification.due === 0
-                    ? 'At the payment date'
-                    : notification.time === 'MINUTES'
-                      ? `${notification.due} minute${notification.due > 1 ? 's' : ''} before payment`
-                    : notification.time === 'HOURS'
-                      ? `${notification.due} hour${notification.due > 1 ? 's' : ''} before payment`
-                    : notification.time === 'DAYS'
-                      ? `${notification.due} day${notification.due > 1 ? 's' : ''} before payment`
-                    : `${notification.due} week${notification.due > 1 ? 's' : ''} before payment`;
-
-                  return (
-                    <p key={`${notification.time}-${notification.due}`}>
-                      {'• '}
-                      <span className='font-semibold'>{timing}</span>
-                      {' via '}
-                      <span className='font-semibold'>{notifyVia}</span>
-                      {'.'}
-                    </p>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className='text-sm'>
-                No notifications are set up for this subscription.
-              </div>
-            )}
-          </div>
-
-          {subscription?.nextNotificationTime && (
-            <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+          {!subscription.enabled && (
+            <div className='flex items-center gap-2 p-4 rounded-lg border-l-4 border-l-red-500 bg-red-500/10'>
               <p className='text-sm'>
-                  <>
-                    Next notification will be on
-                    {' '}
-                    <span className='font-semibold'>
-                      {format(subscription.nextNotificationTime, 'dd MMMM yyyy')}
-                    </span>
-                    {' which is '}
-                    <span className='font-semibold'>
-                      {isPast(subscription.nextNotificationTime) ? 'soon' : formatDistanceToNowStrict(subscription.nextNotificationTime, {addSuffix: true})}
-                    </span>
-                    {' via '}
-                    {subscription.nextNotificationDetails.type.map((type, index) => (
-                      <span key={type}>
-                        {index > 0 && ' and '}
-                        <span className='font-semibold'>
-                          {type === 'EMAIL' ? 'email' : 'push notification'}
-                        </span>
-                      </span>
-                    ))}
-                    {'.'}
-                  </>
+                This subscription is currently disabled. You can enable it again at any time.
               </p>
             </div>
+          )}
+
+          {subscription.enabled && (
+            <>
+              <div className={cn('flex items-center gap-2 p-4 rounded-lg border-l-4', {
+                'border-l-red-500 bg-red-500/10': stats.pastPayments.count,
+                'border-l-green-500 bg-green-500/10': !stats.pastPayments.count
+              })}>
+                <p className='text-sm'>
+                  {stats.pastPayments.count ? (
+                    <>
+                      Oh no! You have <span className='font-semibold'>{stats.pastPayments.count}</span> past payment{stats.pastPayments.count > 1 ? 's' : ''} for this subscription totaling <span className='font-semibold tabular-nums'>{formatPrice(stats.pastPayments.total, subscription.currency)}</span>.
+                    </>
+                  ) : (
+                    'Good job! This subscription is fully paid up to date.'
+                  )}
+                </p>
+              </div>
+
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                <p className='text-sm'>
+                  {stats.nextPaymentDate ? (
+                    <>
+                      Your next payment of{' '}
+                      <span className='font-semibold tabular-nums'>
+                        {formatPrice(subscription.price, subscription.currency)}
+                      </span>
+                      {' '}
+                      is due on
+                      {' '}
+                      <span className='font-semibold'>
+                        {format(stats.nextPaymentDate, 'dd MMMM yyyy, HH:mm')}
+                      </span>
+                      {' which is '}
+                      <span className='font-semibold'>
+                        {formatDistanceToNowStrict(stats.nextPaymentDate, {addSuffix: true})}
+                      </span>
+                      {'.'}
+                    </>
+                  ) : (
+                    'Congrats! There are no future payments scheduled for this subscription.'
+                  )}
+                </p>
+              </div>
+
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                <p className='text-sm'>
+                  {subscription?.untilDate ? (
+                    <>
+                      This subscription will end on{' '}
+                      <span className='font-semibold'>
+                        {format(subscription.untilDate, 'dd MMMM yyyy')}
+                      </span>
+                      .
+                    </>
+                  ) : (
+                    'This is an ongoing subscription with no specified end date.'
+                  )}
+                </p>
+              </div>
+
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                <p className='text-sm'>
+                  {subscription?.untilDate ? (
+                    <>
+                      This subscription will require{' '}
+                      <span className='font-semibold'>
+                        {stats.remainingPayments} payment{stats.remainingPayments !== 1 ? 's' : ''}
+                      </span>
+                      {' totaling '}
+                      <span className='font-semibold tabular-nums'>
+                        {formatPrice(stats.remainingPayments * subscription.price, subscription.currency)}
+                      </span>
+                      {'.'}
+                    </>
+                  ) : (
+                    <>
+                      This subscription will require{' '}
+                      <span className='font-semibold'>
+                        {stats.payments.length} payment{stats.payments.length !== 1 ? 's' : ''}
+                      </span>
+                      {' this year, totaling '}
+                      <span className='font-semibold tabular-nums'>
+                        {formatPrice(stats.totalCost, subscription.currency)}
+                      </span>
+                      {'.'}
+                    </>
+                  )}
+                </p>
+              </div>
+
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                {subscription?.notifications?.length > 0 ? (
+                  <div className='text-sm flex flex-col gap-1'>
+                    You will receive notifications:
+                    {subscription.notifications.sort((a, b) => {
+                      const timeOrder = { 'INSTANT': 0, 'MINUTES': 1, 'HOURS': 2, 'DAYS': 3, 'WEEKS': 4 };
+                      return timeOrder[b.time] - timeOrder[a.time];
+                    }).map((notification, index) => {
+                      const notifyVia = notification.type.map(t => t === 'EMAIL' ? 'email' : 'push notification').join(' and ');
+                      const timing = notification.due === 0
+                        ? 'At the payment date'
+                        : notification.time === 'MINUTES'
+                          ? `${notification.due} minute${notification.due > 1 ? 's' : ''} before payment`
+                        : notification.time === 'HOURS'
+                          ? `${notification.due} hour${notification.due > 1 ? 's' : ''} before payment`
+                        : notification.time === 'DAYS'
+                          ? `${notification.due} day${notification.due > 1 ? 's' : ''} before payment`
+                        : `${notification.due} week${notification.due > 1 ? 's' : ''} before payment`;
+
+                      return (
+                        <p key={`${notification.time}-${notification.due}`}>
+                          {'• '}
+                          <span className='font-semibold'>{timing}</span>
+                          {' via '}
+                          <span className='font-semibold'>{notifyVia}</span>
+                          {'.'}
+                        </p>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className='text-sm'>
+                    No notifications are set up for this subscription.
+                  </div>
+                )}
+              </div>
+
+              {subscription?.nextNotificationTime && (
+                <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                  <p className='text-sm'>
+                      <>
+                        Next notification will be on
+                        {' '}
+                        <span className='font-semibold'>
+                          {format(subscription.nextNotificationTime, 'dd MMMM yyyy')}
+                        </span>
+                        {' which is '}
+                        <span className='font-semibold'>
+                          {isPast(subscription.nextNotificationTime) ? 'soon' : formatDistanceToNowStrict(subscription.nextNotificationTime, {addSuffix: true})}
+                        </span>
+                        {' via '}
+                        {subscription.nextNotificationDetails.type.map((type, index) => (
+                          <span key={type}>
+                            {index > 0 && ' and '}
+                            <span className='font-semibold'>
+                              {type === 'EMAIL' ? 'email' : 'push notification'}
+                            </span>
+                          </span>
+                        ))}
+                        {'.'}
+                      </>
+                  </p>
+                </div>
+              )}
+            </>
           )}
         </CardContent>
       </Card>

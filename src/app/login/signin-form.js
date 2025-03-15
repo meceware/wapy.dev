@@ -67,6 +67,7 @@ const SignInOTP = ({email}) => {
       setUrl(null);
 
       router.replace(redirectUrl);
+      router.refresh();
     }
 
     return () => {

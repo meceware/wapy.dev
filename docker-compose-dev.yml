@@ -1,7 +1,7 @@
 services:
   db:
     container_name: wapydev-db
-    image: postgres:17.2
+    image: postgres:17.4
     restart: unless-stopped
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-wapydev}
@@ -14,7 +14,7 @@ services:
 
   app:
     container_name: wapydev-app
-    image: node:23.7-alpine
+    image: node:23.10-alpine
     restart: unless-stopped
     environment:
       - NODE_ENV=development

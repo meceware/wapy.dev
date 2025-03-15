@@ -88,10 +88,10 @@ The setup script `setup.sh` will help you by copying `.env.example` to `.env` an
 # On Linux
 chmod +x ./scripts/setup.sh && ./scripts/setup.sh
 # or
-docker run --rm -v $(pwd):/app -w /app node:23.7-alpine sh -c "apk add --no-cache openssl su-exec && su-exec $(id -u):$(id -g) ./scripts/setup.sh"
+docker run --rm -v $(pwd):/app -w /app node:23.10-alpine sh -c "apk add --no-cache openssl su-exec && su-exec $(id -u):$(id -g) ./scripts/setup.sh"
 
 # On Windows
-docker run --rm -v ${PWD}:/app -w /app node:23.7-alpine sh -c "apk add --no-cache openssl && ./scripts/setup.sh"
+docker run --rm -v ${PWD}:/app -w /app node:23.10-alpine sh -c "apk add --no-cache openssl && ./scripts/setup.sh"
 ```
 
 ### Production Setup

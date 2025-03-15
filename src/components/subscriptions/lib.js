@@ -87,7 +87,7 @@ export const SubscriptionGetUpcomingPayments = (subscription, endDate) => {
   let every = subscription.cycle.every;
 
   // Add all future payments until end of next year
-  while (currentDate && isBefore(currentDate, endDate)) {
+  while (currentDate && !isAfter(currentDate, endDate)) {
     payments.push({
       price: subscription.price,
       currency: subscription.currency,

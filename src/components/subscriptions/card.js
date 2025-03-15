@@ -175,7 +175,7 @@ export const SubscriptionCard = ({ subscription }) => {
         <div className='flex items-start justify-between gap-2'>
           <div className='flex flex-col gap-1 text-left grow overflow-hidden'>
             <div className='inline-flex items-center gap-2'>
-              <CardTitle className='text-2xl truncate'>{subscription.name}</CardTitle>
+              <CardTitle className='text-2xl truncate'><Link href={`/view/${subscription.id}`}>{subscription.name}</Link></CardTitle>
             </div>
             <div className='w-full text-sm text-muted-foreground truncate'>
               <span className='font-medium text-lg text-foreground'>{formatPrice(subscription.price, subscription.currency)}</span>

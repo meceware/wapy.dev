@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, Fragment, useState } from 'react';
+import Link from 'next/link';
 import { format, compareAsc } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import {
@@ -51,7 +52,7 @@ const SubscriptionCard = ({ subscription, currency, withDate = true, withPayment
         <div className='flex grow sm:flex-row sm:items-center sm:justify-between flex-col gap-1 overflow-hidden'>
           <div className='flex flex-col gap-1 overflow-hidden'>
             <div className='text-sm font-medium break-words overflow-hidden text-ellipsis'>
-              {subscription.name}
+              <Link href={`/view/${subscription.id}`}>{subscription.name}</Link>
             </div>
             <div className='block sm:hidden text-sm font-medium shrink-0 tabular-nums overflow-hidden text-ellipsis tabular-nums'>
               {formatPrice(subscription.amount, currency)}

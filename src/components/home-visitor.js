@@ -11,12 +11,10 @@ export const HomeVisitor = () => {
       {/* Hero Section */}
       <div className='flex flex-col items-center text-center gap-6'>
         <div className='inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4'>
-          ✨ Manage your subscriptions smarter
+          ✨ Want to control your recurring expenses?
         </div>
         <h1 className='text-3xl md:text-6xl font-bold tracking-tight'>
-          Take Control with
-          <br />
-          Best Subscription Tracker
+          Smart Subscription Management Made Easy
         </h1>
         <h2 className='text-xl text-muted-foreground-light max-w-4xl'>
           {siteConfig.name} helps you track subscriptions, monitor recurring expenses, and get payment reminders in one powerful and human readable dashboard.

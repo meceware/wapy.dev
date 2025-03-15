@@ -8,8 +8,22 @@ import { prisma } from '@/lib/prisma';
 import { siteConfig } from '@/components/config';
 
 const authURL = new URL(`${siteConfig.url}/api/auth`);
-const cookiePrefix = authURL?.protocol === 'https:' ? '__Secure-' : '';
-const authDomain = authURL?.hostname ? (authURL.hostname === 'localhost' ? authURL.hostname : `.${authURL.hostname.split('.').slice(-2).join('.')}`) : '';
+const authIsSecure = authURL?.protocol === 'https:';
+const authCookiePrefix = authIsSecure ? '__Secure-' : '';
+
+// Simple domain handling that works for all scenarios
+const authDomain = (() => {
+  if (!authURL?.hostname) return '';
+  if (authURL.hostname === 'localhost') return authURL.hostname;
+
+  // For IP addresses or non-standard domains, don't set a domain
+  if (/^(\d{1,3}\.){3}\d{1,3}$/.test(authURL.hostname) || authURL.hostname.includes(':')) {
+    return '';
+  }
+
+  // For standard domains, use the top-level domain approach
+  return `.${authURL.hostname.split('.').slice(-2).join('.')}`;
+})();
 
 const html = ({ url, token }) => {
   return `
@@ -138,24 +152,24 @@ const authConfig = {
   },
   cookies: {
     pkceCodeVerifier: {
-      name: `${cookiePrefix}authjs.pkce.code_verifier`,
+      name: `${authCookiePrefix}authjs.pkce.code_verifier`,
       options: {
         httpOnly: true,
         sameSite: 'lax',
         path: '/',
-        secure: true,
+        secure: authURL?.protocol === 'https:',
         maxAge: 900,
-        domain: authDomain,
+        ...(authDomain ? { domain: authDomain } : {}),
       },
     },
     sessionToken: {
-      name: `${cookiePrefix}authjs.session-token`,
+      name: `${authCookiePrefix}authjs.session-token`,
       options: {
         path: '/',
         httpOnly: true,
         sameSite: 'lax',
-        secure: true,
-        domain: authDomain,
+        secure: authURL?.protocol === 'https:',
+        ...(authDomain ? { domain: authDomain } : {}),
       },
     },
   },

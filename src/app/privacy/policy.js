@@ -90,7 +90,7 @@ export const PrivacyPolicy = () => {
           <section className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Contact Us</h2>
             <p>
-              If you have any questions about our Privacy Policy or how we handle your data, please contact us using the <Link href='/contact' className='font-medium underline underline-offset-4 focus:outline-hidden'>contact form</Link>.
+              If you have any questions about our Privacy Policy or how we handle your data, please contact us using the <Link href='/contact' className='font-medium underline underline-offset-4 focus:outline-hidden' title='Contact form'>contact form</Link>.
             </p>
           </section>
 

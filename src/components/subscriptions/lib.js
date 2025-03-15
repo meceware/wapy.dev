@@ -1,4 +1,4 @@
-import { addDays, addWeeks, addMonths, addYears, subMinutes, subHours, subDays, subWeeks, isPast } from 'date-fns';
+import { addDays, addWeeks, addMonths, addYears, subMinutes, subHours, subDays, subWeeks, isPast, isBefore, isAfter } from 'date-fns';
 
 // This function assumes subscription is enabled
 export const GetNextPaymentDate = (currentPaymentDate, untilDate, time, every) => {
@@ -67,13 +67,38 @@ export const SubscriptionGetNextFuturePaymentDate = (subscription) => {
     return null;
   }
 
-  let nextPaymentDate = subscription.paymentDate;
+  let every = subscription.cycle.every;
+  let nextPaymentDate = (subscription.untilDate && isAfter(subscription.paymentDate, subscription.untilDate)) ? null : subscription.paymentDate;
   while (nextPaymentDate && isPast(nextPaymentDate)) {
-    nextPaymentDate = GetNextPaymentDate(nextPaymentDate, subscription.untilDate, subscription.cycle.time, subscription.cycle.every);
+    nextPaymentDate = GetNextPaymentDate(subscription.paymentDate, subscription.untilDate, subscription.cycle.time, every);
+    every += subscription.cycle.every;
   }
 
   return nextPaymentDate;
 };
+
+export const SubscriptionGetUpcomingPayments = (subscription, endDate) => {
+  if (!subscription.enabled) {
+    return null;
+  }
+
+  const payments = [];
+  let currentDate = (subscription.untilDate && isAfter(subscription.paymentDate, subscription.untilDate)) ? null : subscription.paymentDate;
+  let every = subscription.cycle.every;
+
+  // Add all future payments until end of next year
+  while (currentDate && !isAfter(currentDate, endDate)) {
+    payments.push({
+      price: subscription.price,
+      currency: subscription.currency,
+      date: currentDate,
+    });
+    currentDate = GetNextPaymentDate(subscription.paymentDate, subscription.untilDate, subscription.cycle.time, every);
+    every += subscription.cycle.every;
+  }
+
+  return payments;
+}
 
 export const SubscriptionGetNextNotificationDate = (subscription) => {
   if (!subscription.enabled) {

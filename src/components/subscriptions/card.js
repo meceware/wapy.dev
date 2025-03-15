@@ -25,6 +25,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { getCycleLabel, getPaymentCount, formatPrice } from '@/components/subscriptions/utils';
 
 const SubscriptionDate = ({date, timezone, text}) => {
   return (
@@ -87,7 +88,7 @@ const SubscriptionMarkAsPaid = ({ subscription }) => {
     <div>
       <span className='text-sm text-muted-foreground'>Did you pay this?</span>
         {' '}
-        <Button variant='link' className='underline p-0 h-auto' onClick={markAsPaid}>
+        <Button variant='link' className='underline p-0 h-auto cursor-pointer' onClick={markAsPaid}>
           Mark as paid
         </Button>
     </div>
@@ -126,35 +127,11 @@ const SubscriptionPaymentCount = ({ subscription }) => {
     return null;
   }
 
-  const getPaymentCount = () => {
-    const startDate = toZonedTime(subscription.paymentDate, subscription.timezone);
-    const endDate = toZonedTime(subscription.untilDate, subscription.timezone);
-    const cycle = subscription.cycle;
-
-    if (endDate < startDate) {
-      return 0;
-    }
-
-    if (cycle.time === 'DAYS') {
-      return Math.floor(DateFNS.differenceInDays(endDate, startDate) / cycle.every) + 1;
-    }
-
-    if (cycle.time === 'WEEKS') {
-      return Math.floor(DateFNS.differenceInWeeks(endDate, startDate) / cycle.every) + 1;
-    }
-
-    if (cycle.time === 'MONTHS') {
-      return Math.floor(DateFNS.differenceInMonths(endDate, startDate) / cycle.every) + 1;
-    }
-
-    if (cycle.time === 'YEARS') {
-      return Math.floor(DateFNS.differenceInYears(endDate, startDate) / cycle.every) + 1;
-    }
-
-    return 0;
-  };
-
-  const paymentCount = getPaymentCount();
+  const paymentCount = getPaymentCount(
+    toZonedTime(subscription.paymentDate, subscription.timezone),
+    toZonedTime(subscription.untilDate, subscription.timezone),
+    subscription.cycle
+  );
 
   if (paymentCount === 0) {
     return (
@@ -189,25 +166,8 @@ export const SubscriptionCard = ({ subscription }) => {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
   const currency = DefaultCurrencies[subscription.currency];
   const categories = subscription.categories || [];
-  const cycle = subscription.cycle;
   const isPushEnabled = subscription.enabled && subscription.notifications.some(notification => notification.type.includes('PUSH'));
   const isEmailEnabled = subscription.enabled && subscription.notifications.some(notification => notification.type.includes('EMAIL'));
-
-  const formatPrice = (price) => {
-    return currency.position === 'before'
-      ? `${currency.symbol}${price}`
-      : `${price}${currency.symbol}`;
-  };
-
-  const getCycleLabel = () => {
-    if (cycle.every === 1) {
-      if (cycle.time === 'DAYS') return 'Daily';
-      if (cycle.time === 'WEEKS') return 'Weekly';
-      if (cycle.time === 'MONTHS') return 'Monthly';
-      if (cycle.time === 'YEARS') return 'Annually';
-    }
-    return `Every ${cycle.every} ${cycle.time.toLowerCase()}`;
-  };
 
   return (
     <Card className='w-full hover:shadow-lg transition-shadow duration-200 flex flex-col'>
@@ -215,17 +175,17 @@ export const SubscriptionCard = ({ subscription }) => {
         <div className='flex items-start justify-between gap-2'>
           <div className='flex flex-col gap-1 text-left grow overflow-hidden'>
             <div className='inline-flex items-center gap-2'>
-              <CardTitle className='text-2xl truncate'>{subscription.name}</CardTitle>
+              <CardTitle className='text-2xl truncate'><Link href={`/view/${subscription.id}`}>{subscription.name}</Link></CardTitle>
             </div>
             <div className='w-full text-sm text-muted-foreground truncate'>
-              <span className='font-medium text-lg text-foreground'>{formatPrice(subscription.price)}</span>
+              <span className='font-medium text-lg text-foreground'>{formatPrice(subscription.price, subscription.currency)}</span>
               <span className='ml-1'>
-                / {getCycleLabel()}
+                / {getCycleLabel(subscription.cycle)}
               </span>
             </div>
           </div>
           <div className='relative shrink-0 size-16 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-800'>
-            <div className={cn('size-4 rounded-full absolute top-0 right-0', {'bg-green-600': subscription.enabled}, {'bg-red-600': !subscription.enabled})}>
+            <div className={cn('size-4 rounded-full absolute top-0 right-0 ring-2 ring-background', {'bg-green-600': subscription.enabled}, {'bg-red-600': !subscription.enabled})}>
             </div>
             <LogoIcon icon={parsedIcon}>
               <span className='text-2xl'>{subscription.name[0].toUpperCase()}</span>
@@ -265,7 +225,6 @@ export const SubscriptionCard = ({ subscription }) => {
                 style={{
                   color: category.color,
                   borderColor: category.color,
-                  fontSize: '0.75rem'
                 }}
               >
                 {category.name}

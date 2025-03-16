@@ -11,7 +11,7 @@ export const HomeVisitor = () => {
       {/* Hero Section */}
       <div className='flex flex-col items-center text-center gap-6'>
         <div className='inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4'>
-          ✨ Want to control your recurring expenses?
+          ✨ Want to take control of your expenses?
         </div>
         <h1 className='text-3xl md:text-6xl font-bold tracking-tight'>
           Smart Subscription Management Made Easy

@@ -29,6 +29,13 @@ export function SubscriptionList({ subscriptions }) {
     }
   }), [subscriptions]);
 
+  useEffect(() => {
+    const currentSearchParam = searchParams.get('s') || '';
+    if (currentSearchParam !== searchFilter) {
+      setSearchFilter(currentSearchParam);
+    }
+  }, [searchParams]);
+
   const filterBySearch = useCallback(() => {
     return searchFilter
       ? fuse.search(searchFilter).map(result => result.item)

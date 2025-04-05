@@ -57,8 +57,8 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
   const updateData = {
     paymentDate: nextPaymentDate ? nextPaymentDate : subscription.paymentDate,
     enabled: nextPaymentDate ? true : false,
-    nextNotificationTime: nextPaymentDate ? nextNotificationDate.date : null,
-    nextNotificationDetails: nextPaymentDate ? nextNotificationDate.details : {},
+    nextNotificationTime: nextPaymentDate ? nextNotificationDate?.date : null,
+    nextNotificationDetails: nextPaymentDate ? nextNotificationDate?.details : {},
   };
 
   const newSubscription = await prisma.subscription.update({

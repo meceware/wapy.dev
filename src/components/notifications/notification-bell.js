@@ -81,7 +81,7 @@ export function NotificationBell() {
               <Button
                 variant='ghost'
                 size='icon'
-                className='size-4 rounded-full bg-red-500 hover:bg-red-600'
+                className='size-4 rounded-full cursor-pointer bg-red-500 hover:bg-red-600'
                 onClick={() => handleMarkAsReadAll()}
                 title='Clear all'
               />
@@ -108,7 +108,7 @@ export function NotificationBell() {
                     <Button
                       variant='ghost'
                       size='icon'
-                      className='size-3 rounded-full bg-red-500 hover:bg-red-600 shrink-0'
+                      className='size-3 rounded-full cursor-pointer bg-red-500 hover:bg-red-600 shrink-0'
                       onClick={() => handleMarkAsRead(notification.id)}
                       title='Remove notification'
                     />

@@ -151,10 +151,16 @@ const SubscriptionPaymentCount = ({ subscription }) => {
             <span className='text-muted-foreground'>.</span>
           </div>
         </PopoverTrigger>
-        <PopoverContent className='bg-foreground text-background text-xs w-auto max-w-xl break-words px-2 py-1'>
+        <PopoverContent className='bg-foreground text-background text-sm w-auto max-w-xl break-words px-4 py-1'>
           Until
           {' '}
-          {DateFNS.format(toZonedTime(subscription.untilDate, subscription.timezone), 'dd MMMM yyyy, HH:mm')}
+          {DateFNS.format(subscription.untilDate, 'dd MMMM yyyy, HH:mm')}
+          {!DateFNS.isEqual(toZonedTime(subscription.untilDate, subscription.timezone), subscription.untilDate) &&
+            <span className='text-xs'>
+              <br/>
+              {subscription.timezone} Timezone: {DateFNS.format(toZonedTime(subscription.untilDate, subscription.timezone), 'dd MMMM yyyy, HH:mm')}
+            </span>
+          }
         </PopoverContent>
       </Popover>
     </div>

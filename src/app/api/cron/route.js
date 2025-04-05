@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 import webpush from 'web-push';
 import jsonwebtoken from 'jsonwebtoken';
 import { formatDistanceToNowStrict, isEqual, addDays, addMonths, isAfter, isPast } from 'date-fns';
-import { Resend } from 'resend';
+import { mailFrom, mailSend } from '@/lib/mail';
 import { prisma } from '@/lib/prisma';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
 import { siteConfig } from '@/components/config';
@@ -45,7 +45,7 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl, isP
           }),
           {
             vapidDetails: {
-              subject: `mailto:Wapy.dev Subscription Reminder <${process.env.RESEND_FROM}>`,
+              subject: `mailto:Wapy.dev Subscription Reminder <${mailFrom}>`,
               publicKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
               privateKey: process.env.VAPID_PRIVATE_KEY
             },
@@ -70,11 +70,11 @@ const sendNotification = async (subscription, title, message, markAsPaidUrl, isP
   });
 }
 
-const sendEmail = async (subscription, title, message, markAsPaidUrl, resend) => {
+const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
   return new Promise(async (resolve, reject) => {
     try {
-      await resend.emails.send({
-        from: `Wapy.dev Subscription Reminder <${process.env.RESEND_FROM}>`,
+      await mailSend({
+        from: `Wapy.dev Subscription Reminder <${mailFrom}>`,
         to: subscription.user.email,
         subject: title,
         html: `
@@ -114,7 +114,7 @@ const sendEmail = async (subscription, title, message, markAsPaidUrl, resend) =>
   });
 };
 
-const UserSubscriptionNotifications = async (resend, rightNow) => {
+const UserSubscriptionNotifications = async (rightNow) => {
   if (!process.env.PADDLE_API_KEY) {
     return;
   }
@@ -199,8 +199,7 @@ const UserSubscriptionNotifications = async (resend, rightNow) => {
         {user: user},
         pastNotificationData.title,
         pastNotificationData.message,
-        `${siteConfig.url}/account`,
-        resend
+        `${siteConfig.url}/account`
       ));
 
       // Set next notification to null
@@ -226,8 +225,7 @@ const UserSubscriptionNotifications = async (resend, rightNow) => {
         {user: user},
         pastNotificationData.title,
         pastNotificationData.message,
-        `${siteConfig.url}/account`,
-        resend
+        `${siteConfig.url}/account`
       ));
 
       promises.push(
@@ -251,10 +249,9 @@ const UserSubscriptionNotifications = async (resend, rightNow) => {
 }
 
 export async function GET() {
-  const resend = new Resend(process.env.RESEND_API_KEY);
   const rightNow = new Date();
 
-  await UserSubscriptionNotifications(resend, rightNow);
+  await UserSubscriptionNotifications(rightNow);
 
   const subscriptions = await prisma.subscription.findMany({
     where: {
@@ -314,7 +311,7 @@ export async function GET() {
 
     // Send email notification if enabled
     if (isEmailEnabled) {
-      promises.push(sendEmail(subscription, title, message, markAsPaidUrl, resend));
+      promises.push(sendEmail(subscription, title, message, markAsPaidUrl));
     }
 
     // Update subscription

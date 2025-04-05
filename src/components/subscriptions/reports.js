@@ -330,6 +330,7 @@ export function SubscriptionReports({ subscriptions }) {
             acc.inOneMonth.payments[monthKey][dateStr][sub.currency] = [];
           }
           acc.inOneMonth.payments[monthKey][dateStr][sub.currency].push({
+            id: sub.id,
             name: sub.name,
             amount: payment.price,
             date: toZonedTime(payment.date, sub.timezone),
@@ -342,6 +343,7 @@ export function SubscriptionReports({ subscriptions }) {
         if (!acc.mostExpensive.monthly[sub.currency] ||
             periodAmounts.inOneMonth > acc.mostExpensive.monthly[sub.currency].amount) {
           acc.mostExpensive.monthly[sub.currency] = {
+            id: sub.id,
             name: sub.name,
             amount: periodAmounts.inOneMonth,
             logo: logo
@@ -353,6 +355,7 @@ export function SubscriptionReports({ subscriptions }) {
         if (!acc.mostExpensive.yearly[sub.currency] ||
             periodAmounts.inOneYear > acc.mostExpensive.yearly[sub.currency].amount) {
           acc.mostExpensive.yearly[sub.currency] = {
+            id: sub.id,
             name: sub.name,
             amount: periodAmounts.inOneYear,
             logo: logo

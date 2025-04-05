@@ -1,7 +1,8 @@
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
-import Resend from 'next-auth/providers/resend';
+import Nodemailer from 'next-auth/providers/nodemailer';
+import { mailServerConfiguration, mailFrom, mailSend } from '@/lib/mail';
 import { createHmac } from 'crypto';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/lib/prisma';
@@ -97,32 +98,24 @@ const authConfig = {
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    Resend({
-      apiKey: process.env.RESEND_API_KEY,
-      from: `${siteConfig.from} <${process.env.RESEND_FROM}>`,
+    Nodemailer({
+      id: "wapy.dev.mailer",
+      name: "Wapy.dev Mailer",
+      server: { ...mailServerConfiguration },
+      from: `${siteConfig.from} <${mailFrom}>`,
       name: siteConfig.from,
-      maxAge: 60 * 60 * 4, // 4 hours
+      maxAge: 60 * 60 * 2, // 2 hours
       sendVerificationRequest: async (params) => {
         const { identifier: to, provider, url, token, expires } = params;
 
         const otp = await generateOTP(to, token, expires);
-        const res = await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${provider.apiKey}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            from: provider.from,
-            to,
-            subject: `Sign in to ${siteConfig.name}`,
-            html: html({ url, token: otp }),
-            text: text({ url, token: otp }),
-          }),
+        await mailSend({
+          from: provider.from,
+          to: to,
+          subject: `Sign in to ${siteConfig.name}`,
+          html: html({ url, token: otp }),
+          text: text({ url, token: otp }),
         });
-
-        if (!res.ok)
-          throw new Error('Resend error: ' + JSON.stringify(await res.json()));
       },
     }),
   ],

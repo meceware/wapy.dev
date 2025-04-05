@@ -1,10 +1,8 @@
 'use server';
 
-import { Resend } from 'resend';
+import { mailFrom, mailContact, mailSend } from '@/lib/mail';
 import { z } from 'zod';
 import { siteConfig } from '@/components/config';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 const schema = z.object({
   name: z.string().min(2),
@@ -39,12 +37,12 @@ export async function sendContactForm(formData) {
       };
     }
 
-    await resend.emails.send({
-      from: `Contact Form <${process.env.RESEND_FROM}>`,
-      to: process.env.RESEND_CONTACT_EMAIL,
+    await mailSend({
+      from: `Wapy.dev Contact Form <${mailFrom}>`,
+      to: mailContact,
       replyTo: `${name} <${email_address}>`,
       subject: `Contact form submission from ${name}`,
-      text: `New Contact Form Submission
+      text: `Contact Form Submission
 
 Name: ${name}
 Email: ${email_address}
@@ -60,13 +58,13 @@ This is an automated message from ${siteConfig.name}.`,
                 <td align="center" style="padding: 1rem 2rem;">
                   <div style="max-width: 400px; background-color: #ffffff; padding: 1rem; text-align: left;">
                     <h2 style="margin: 1rem 0; color: #000000;">Contact Form Submission</h2>
-                    <p>This is an automated message from ${siteConfig.name}.</p>
                     <div style="margin: 1rem 0;">
-                      <strong>Name:</strong> ${name}<br>
-                      <strong>Email:</strong> ${email_address}<br><br>
-                      <strong>Message:</strong><br>
-                      ${message}
+                      <p><strong>Name:</strong> ${name}</p>
+                      <p><strong>Email:</strong> ${email_address}</p>
+                      <p><strong>Message:</strong></p>
+                      <pre style="white-space:pre-wrap;word-break:break-word;padding:1rem;background:#f3f4f6;border-radius:0.5rem;">${message}</pre>
                     </div>
+                    <p>This is an automated message from ${siteConfig.name}.</p>
                   </div>
                   <div style="max-width: 400px; color: #999999; text-align: center;">
                     <p style="padding-bottom: 0.5rem;">Made with ♥ by <a href="${siteConfig.url}" target="_blank">${siteConfig.name}</a></p>

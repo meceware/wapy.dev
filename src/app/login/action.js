@@ -17,7 +17,7 @@ export const signInAction = async (data) => {
   }
 
   try {
-    return await signIn('resend', { email: parsedData.data.email, redirect: false, redirectTo : '/' });
+    return await signIn('wapy.dev.mailer', { email: parsedData.data.email, redirect: false, redirectTo : '/' });
   } catch (error) {
     console.warn('Error in signInAction', error);
     return null;
@@ -69,5 +69,5 @@ export const generateOTPLink = async (code, email) => {
     token: tokenEntry.token,
     email: parsedEmail.data.email,
   };
-  return `/api/auth/callback/resend?${new URLSearchParams(params).toString()}`;
+  return `/api/auth/callback/wapy.dev.mailer?${new URLSearchParams(params).toString()}`;
 }

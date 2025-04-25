@@ -95,7 +95,7 @@ export const FilterPanel = ({
     <>
       <ResponsiveDialog close>
         <ResponsiveDialogTrigger asChild>
-          <Button variant='outline' size='lg' className='px-4' title='Filter subscriptions'>
+          <Button variant='outline' size='lg' className='px-4 cursor-pointer' title='Filter subscriptions'>
             <Icons.filter />
           </Button>
         </ResponsiveDialogTrigger>

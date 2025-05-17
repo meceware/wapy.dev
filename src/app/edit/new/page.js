@@ -9,7 +9,7 @@ const PageNewSubscription = async () => {
   const { user, paddleStatus } = await paddleGetSession();
 
   const settings = {
-    webhook: session?.user?.webhook,
+    webhook: user?.webhook,
   };
 
   return (

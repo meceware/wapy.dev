@@ -29,7 +29,7 @@ services:
     restart: unless-stopped
     command: >
       sh -c 'while true; do
-        /usr/bin/flock -n /tmp/wapy.lockfile wget -qO- wapydev-app:3000/api/cron/;
+        /usr/bin/flock -n /tmp/wapy.lockfile wget -qO- app:3000/api/cron/;
         sleep 60;
       done'
     depends_on:

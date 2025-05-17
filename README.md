@@ -15,7 +15,7 @@ Wapy.dev is a subscription management platform that helps you track subscription
 
 Easily log all your subscriptions and payments, so you’ll never miss a due date.
 
-🔔 **Email & Push Notifications**
+🔔 **Email & Push & WebHook Notifications**
 
 Get timely reminders when payments are due. Customize notification schedules to fit your needs.
 
@@ -84,7 +84,7 @@ The `.env` file is used to configure the application. Please see [Environment Va
 - [Tailwind](https://tailwindcss.com/) for styling
 - [shadcn/ui](https://ui.shadcn.com/) components ([Radix UI](https://www.radix-ui.com/) under the hood)
 - Authentication with [Auth.js](https://authjs.dev/)
-- [Web Push API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Push_API) for notifications
+- [Web Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API) for notifications
 - [Lucide](https://lucide.dev/) and [Simple Icons](https://simpleicons.org/) for icons
 
 ## Contributing

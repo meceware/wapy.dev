@@ -10,7 +10,7 @@ import { Icons } from '@/components/icons';
 import { SubscriptionCard } from '@/components/subscriptions/card';
 import { FilterPanel } from '@/components/subscriptions/filter';
 
-export function SubscriptionList({ subscriptions }) {
+export function SubscriptionList({ subscriptions, settings }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [searchFilter, setSearchFilter] = useState(searchParams.get('s') || '');
@@ -85,7 +85,7 @@ export function SubscriptionList({ subscriptions }) {
           </div>
         ) : (
           filteredSubscriptions.map((subscription) => (
-            <SubscriptionCard key={subscription.id} subscription={subscription} />
+            <SubscriptionCard key={subscription.id} subscription={subscription} settings={settings} />
           ))
         )}
       </div>

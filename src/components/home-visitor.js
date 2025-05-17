@@ -121,7 +121,7 @@ export const HomeVisitor = () => {
             </div>
             <h3 className='font-semibold text-xl'>Set Up Notifications</h3>
             <p className='text-muted-foreground'>
-              Customize alerts for upcoming payments and trial end dates via email and push notifications
+              Customize alerts for upcoming payments and trial end dates via email, push and webhook notifications
             </p>
           </div>
           <div className='text-center space-y-4'>

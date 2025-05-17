@@ -12,9 +12,13 @@ export default async function PageHome() {
     return <HomeVisitor />;
   }
 
+  const settings = {
+    webhook: session.user.webhook,
+  };
+
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
-      <HomeMember userId={ session.user.id }/>
+      <HomeMember userId={ session.user.id } settings={settings}/>
     </SubscriptionGuard>
   );
 }

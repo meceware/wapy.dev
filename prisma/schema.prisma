@@ -35,8 +35,10 @@ model User {
   currency          String          @default("EUR")
   // Default notifications
   // time can be INSTANT, MINUTES, HOURS, DAYS, WEEKS
-  // type is an array of PUSH + EMAIL
+  // type is an array of PUSH + EMAIL + WEBHOOK
   notifications     Json            @default("[{\"type\": [\"PUSH\"], \"time\": \"INSTANT\", \"due\": 0}]")
+  // WebHook URL
+  webhook           String          @default("")
 
   // Payments details
   trialStartedAt    DateTime?       @default(now()) @map("trial_started_at")

@@ -168,7 +168,11 @@ export function SignInForm() {
     try {
       const result = await signInAction(data);
       if (!result || result?.error) {
-        toast.error('Weird! Can you make sure your email is correct?');
+        if (result?.error === 'Access Denied') {
+          toast.error('Sorry but you are not allowed to sign in!');
+        } else {
+          toast.error('Weird! Can you make sure your email is correct?');
+        }
       } else {
         setSuccess(true);
       }

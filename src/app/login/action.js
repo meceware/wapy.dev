@@ -19,7 +19,9 @@ export const signInAction = async (data) => {
   try {
     return await signIn('wapy.dev.mailer', { email: parsedData.data.email, redirect: false, redirectTo : '/' });
   } catch (error) {
-    console.warn('Error in signInAction', error);
+    if (error.type === 'AccessDenied') {
+      return { error: 'Access Denied' };
+    }
     return null;
   }
 }

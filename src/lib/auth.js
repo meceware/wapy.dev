@@ -140,6 +140,13 @@ const authConfig = {
       if (user.isBlocked) {
         return false;
       }
+
+      if (process?.env?.DISABLE_USER_REGISTRATION === 'true') {
+        if ( !user?.createdAt || !user?.emailVerified ) {
+          return false;
+        }
+      }
+
       return true;
     },
   },

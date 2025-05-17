@@ -31,6 +31,59 @@ import {
 } from '@/components/ui/form';
 import { PushNotificationCheckEndpoint } from '@/components/notifications/actions';
 
+const WebhookManager = ( { field, loading } ) => {
+  const [show, setShow] = useState(field?.value ? true : false);
+  const [url, setUrl] = useState(field?.value || '');
+
+  return (
+    <>
+      {!show && (
+        <p className='text-sm text-muted-foreground'>
+          Want to receive automatic updates?{' '}
+          <Button
+            variant='link'
+            className='p-0 h-auto text-sm align-baseline cursor-pointer'
+            onClick={() => setShow(true)}
+            type='button'
+          >
+            Configure webhook
+          </Button>
+        </p>
+      )}
+
+      {show && (
+        <div className='flex flex-col gap-4 p-4 border rounded-md'>
+          <div className='flex flex-col gap-1'>
+            <p className='text-sm font-medium leading-none'>Webhook Settings</p>
+            <p className='text-sm text-muted-foreground'>
+              Enter the URL where event notifications should be sent. Leave empty to disable.
+            </p>
+          </div>
+          <div className='flex flex-col sm:flex-row sm:items-center gap-2'>
+            <Input
+              placeholder='Webhook URL'
+              value={url}
+              disabled={loading}
+              onChange={(e) => setUrl(e.target.value)}
+              className='flex-1'
+            />
+            <Button
+              variant='default'
+              disabled={loading}
+              onClick={() => {
+                field?.onChange(url);
+              }}
+              type='button'
+            >
+              Save
+            </Button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
 export const NotificationStatusManager = () => {
   const [hasPushSubscription, setHasPushSubscription] = useState(true);
   const {
@@ -78,7 +131,7 @@ export const NotificationStatusManager = () => {
   );
 };
 
-export const NotificationsFieldManager = ({ field, isLoading = false, children }) => {
+export const NotificationsFieldManager = ({ field, webhook, isLoading = false, children }) => {
   const convertTime = (time, due) => {
     if (time === 'INSTANT') return 'INSTANT';
     if (time === 'MINUTES' && due === 15) return '15_MINUTES';
@@ -224,6 +277,9 @@ export const NotificationsFieldManager = ({ field, isLoading = false, children }
           </CardDescription>
         </CardHeader>
         <CardContent className='space-y-4'>
+          {webhook?.onChange && (
+            <WebhookManager field={webhook} loading={isLoading} />
+          )}
           {notifications.map((notification, index) => (
             <div key={index} className='flex flex-col gap-4 p-4 border rounded-md'>
               <div className='flex items-start gap-4'>
@@ -251,6 +307,16 @@ export const NotificationsFieldManager = ({ field, isLoading = false, children }
                     >
                       <Icons.mail/>
                     </ToggleGroupItem>
+                    { webhook?.value && (
+                      <ToggleGroupItem
+                        value='WEBHOOK'
+                        aria-label='Toggle webhook'
+                        title='Webhook Notifications'
+                        className='data-[state=on]:bg-primary data-[state=on]:text-primary-foreground border'
+                      >
+                        <Icons.webhook/>
+                      </ToggleGroupItem>
+                    )}
                   </ToggleGroup>
                 </div>
                 <Button
@@ -259,6 +325,7 @@ export const NotificationsFieldManager = ({ field, isLoading = false, children }
                   onClick={() => {setDeleteDialogIndex(index); setDeleteDialogOpen(true);}}
                   className='flex-none'
                   type='button'
+                  disabled={isLoading}
                 >
                   <Icons.trash className='size-4' />
                 </Button>
@@ -365,11 +432,13 @@ export const NotificationsFieldManager = ({ field, isLoading = false, children }
   );
 }
 
-export const FormFieldNotifications = ({ field }) => {
+export const FormFieldNotifications = ({ field, settings }) => {
+  const webhookField = { value: settings?.webhook };
+
   return (
     <FormItem className='flex-1 truncate space-y-2'>
       <FormControl>
-        <NotificationsFieldManager field={field} />
+        <NotificationsFieldManager field={field} webhook={webhookField} />
       </FormControl>
       <FormMessage />
     </FormItem>

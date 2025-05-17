@@ -3,7 +3,7 @@
 import { prisma } from '@/lib/prisma';
 import { SubscriptionList } from '@/components/subscriptions/list';
 
-export const HomeMember = async ({ userId }) => {
+export const HomeMember = async ({ userId, settings }) => {
   const subscriptions = await prisma.subscription.findMany({
     where: {
       userId: userId,
@@ -32,7 +32,7 @@ export const HomeMember = async ({ userId }) => {
 
   return (
     <div className='flex flex-col items-center w-full max-w-3xl gap-4'>
-      <SubscriptionList subscriptions={subscriptions} />
+      <SubscriptionList subscriptions={subscriptions} settings={settings} />
     </div>
   );
 }

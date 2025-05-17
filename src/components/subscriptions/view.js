@@ -20,7 +20,7 @@ import { SubscriptionGetUpcomingPayments, SubscriptionGetNextFuturePaymentDate }
 import { getCycleLabel, getPaymentCount, formatPrice } from '@/components/subscriptions/utils';
 import { cn } from '@/lib/utils';
 
-export function SubscriptionView({ subscription }) {
+export function SubscriptionView({ subscription, settings }) {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
   const maxUpcomingPayments = 16;
 
@@ -254,30 +254,55 @@ export function SubscriptionView({ subscription }) {
                   <div className='text-sm flex flex-col gap-1'>
                     You will receive notifications:
                     {subscription.notifications.sort((a, b) => {
-                      const timeOrder = { 'INSTANT': 0, 'MINUTES': 1, 'HOURS': 2, 'DAYS': 3, 'WEEKS': 4 };
-                      return timeOrder[b.time] - timeOrder[a.time];
-                    }).map((notification, index) => {
-                      const notifyVia = notification.type.map(t => t === 'EMAIL' ? 'email' : 'push notification').join(' and ');
-                      const timing = notification.due === 0
-                        ? 'At the payment date'
-                        : notification.time === 'MINUTES'
-                          ? `${notification.due} minute${notification.due > 1 ? 's' : ''} before payment`
-                        : notification.time === 'HOURS'
-                          ? `${notification.due} hour${notification.due > 1 ? 's' : ''} before payment`
-                        : notification.time === 'DAYS'
-                          ? `${notification.due} day${notification.due > 1 ? 's' : ''} before payment`
-                        : `${notification.due} week${notification.due > 1 ? 's' : ''} before payment`;
+                        const timeOrder = { 'INSTANT': 0, 'MINUTES': 1, 'HOURS': 2, 'DAYS': 3, 'WEEKS': 4 };
+                        return timeOrder[b.time] - timeOrder[a.time];
+                      }).map((notification) => {
+                        // Build list of notification methods
+                        const notifyViaList = [
+                          notification.type.includes('EMAIL') && 'email',
+                          notification.type.includes('PUSH') && 'push notification',
+                          notification.type.includes('WEBHOOK') && settings?.webhook && 'webhook'
+                        ].filter(Boolean);
 
-                      return (
-                        <p key={`${notification.time}-${notification.due}`}>
-                          {'• '}
-                          <span className='font-semibold'>{timing}</span>
-                          {' via '}
-                          <span className='font-semibold'>{notifyVia}</span>
-                          {'.'}
-                        </p>
-                      );
-                    })}
+                        // Format "email, push notification and webhook"
+                        const notifyVia = notifyViaList.length === 0
+                          ? ''
+                          : notifyViaList.length === 1
+                            ? notifyViaList[0]
+                            : notifyViaList.length === 2
+                              ? notifyViaList.join(' and ')
+                              : notifyViaList.slice(0, -1).join(', ') + ' and ' + notifyViaList.slice(-1);
+
+                        // Format timing text
+                        const timing = notification.due === 0
+                            ? 'At the payment date'
+                            : notification.time === 'MINUTES'
+                              ? `${notification.due} minute${notification.due > 1 ? 's' : ''} before payment`
+                            : notification.time === 'HOURS'
+                              ? `${notification.due} hour${notification.due > 1 ? 's' : ''} before payment`
+                            : notification.time === 'DAYS'
+                              ? `${notification.due} day${notification.due > 1 ? 's' : ''} before payment`
+                            : `${notification.due} week${notification.due > 1 ? 's' : ''} before payment`;
+
+                        return (
+                          <p key={`${notification.time}-${notification.due}`}>
+                      {'• '}
+                            <span className='font-semibold'>{timing}</span>
+                            {notifyVia ? (
+                              <>
+                                {' via '}
+                                <span className='font-semibold'>{notifyVia}</span>
+                              </>
+                            ) : (
+                              <>
+                                { ' but ' }
+                                <span className='text-red-500'>no notification type is set</span>
+                              </>
+                            )}
+                            {'.'}
+                          </p>
+                        );
+                      })}
                   </div>
                 ) : (
                   <div className='text-sm'>
@@ -300,13 +325,19 @@ export function SubscriptionView({ subscription }) {
                           {isPast(subscription.nextNotificationTime) ? 'soon' : formatDistanceToNowStrict(subscription.nextNotificationTime, {addSuffix: true})}
                         </span>
                         {' via '}
-                        {subscription.nextNotificationDetails.type.map((type, index) => (
-                          <span key={type}>
-                            {index > 0 && ' and '}
-                            <span className='font-semibold'>
-                              {type === 'EMAIL' ? 'email' : 'push notification'}
+                        {subscription.nextNotificationDetails.type
+                          .filter(type => type !== 'WEBHOOK' || settings.webhook)
+                          .map((type, index) => (
+                            <span key={type}>
+                              {index > 0 && ' and '}
+                              <span className='font-semibold'>
+                                {type === 'EMAIL'
+                                  ? 'email'
+                                  : type === 'WEBHOOK'
+                                  ? 'webhook'
+                                  : 'push notification'}
+                              </span>
                             </span>
-                          </span>
                         ))}
                         {'.'}
                       </>

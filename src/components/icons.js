@@ -39,6 +39,7 @@ import {
   TriangleAlert,
   X,
   Wallet,
+  Webhook,
 } from 'lucide-react';
 
 export const Icons = {
@@ -82,6 +83,7 @@ export const Icons = {
   sparkles: Sparkles,
   triangleAlert: TriangleAlert,
   download: Download,
+  webhook: Webhook,
   github: (props) => (
     <svg viewBox='0 0 438.549 438.549' {...props}>
       <path

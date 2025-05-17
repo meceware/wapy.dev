@@ -94,24 +94,43 @@ const SubscriptionMarkAsPaid = ({ subscription }) => {
   );
 }
 
-const SubscriptionIsNotified = ({ subscription }) => {
+const SubscriptionIsNotified = ({ subscription, settings }) => {
   if (subscription.enabled && subscription.nextNotificationTime) {
-    return (
-      <div>
-        <span className='text-sm text-muted-foreground'>You will be notified </span>
-        {' '}
-        <SubscriptionDate date={subscription.nextNotificationTime} timezone={subscription.timezone} text={DateFNS.isPast(subscription.nextNotificationTime) ? 'soon' : undefined} />
-        {subscription.nextNotificationDetails?.type?.map((type, index) => (
-          <div key={type} className='inline'>
-            {index === 0 && <span className='text-muted-foreground'> via </span>}
-            {index > 0 && <span className='text-muted-foreground'> and </span>}
-            {type.toLowerCase().includes('push') && <span>notification</span>}
-            {type.toLowerCase().includes('email') && <span>email</span>}
-          </div>
-        ))}
-        <span className='text-muted-foreground'>.</span>
-      </div>
-    );
+    const nextNotificationDetails = subscription.nextNotificationDetails?.type?.filter(
+      type => type !== 'WEBHOOK' || settings?.webhook
+    ) ?? [];
+
+    if (nextNotificationDetails.length !== 0) {
+      return (
+        <div>
+          <span className='text-sm text-muted-foreground'>You will be notified </span>
+          {' '}
+          <SubscriptionDate date={subscription.nextNotificationTime} timezone={subscription.timezone} text={DateFNS.isPast(subscription.nextNotificationTime) ? 'soon' : undefined} />
+          {nextNotificationDetails.map((type, index) => {
+            const isLast = index === nextNotificationDetails.length - 1;
+            const separator =
+              index === 0
+                ? ' via '
+                : isLast
+                ? ' and '
+                : ', ';
+
+            let label = '';
+            if (type.toLowerCase().includes('push')) label = 'notification';
+            if (type.toLowerCase().includes('email')) label = 'email';
+            if (type.toLowerCase().includes('webhook')) label = 'webhook';
+
+            return (
+              <div key={type} className='inline'>
+                <span className='text-muted-foreground'>{separator}</span>
+                <span>{label}</span>
+              </div>
+            );
+          })}
+          <span className='text-muted-foreground'>.</span>
+        </div>
+      );
+    }
   }
 
   return (
@@ -167,11 +186,12 @@ const SubscriptionPaymentCount = ({ subscription }) => {
   );
 };
 
-export const SubscriptionCard = ({ subscription }) => {
+export const SubscriptionCard = ({ subscription, settings }) => {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
   const categories = subscription.categories || [];
   const isPushEnabled = subscription.enabled && subscription.notifications.some(notification => notification.type.includes('PUSH'));
   const isEmailEnabled = subscription.enabled && subscription.notifications.some(notification => notification.type.includes('EMAIL'));
+  const isWebHookEnabled = subscription.enabled && settings?.webhook && subscription.notifications.some(notification => notification.type.includes('WEBHOOK'));
 
   return (
     <Card className='w-full hover:shadow-lg transition-shadow duration-200 flex flex-col'>
@@ -204,7 +224,7 @@ export const SubscriptionCard = ({ subscription }) => {
               <SubscriptionPaymentDate subscription={subscription} />
               <SubscriptionMarkAsPaid subscription={subscription} />
               <SubscriptionPaymentCount subscription={subscription} />
-              <SubscriptionIsNotified subscription={subscription} />
+              <SubscriptionIsNotified subscription={subscription} settings={settings} />
             </>
           ) : (
             <div className='text-sm text-muted-foreground'>
@@ -257,6 +277,17 @@ export const SubscriptionCard = ({ subscription }) => {
                 )
               }/>
             </div>
+            {settings?.webhook && (
+              <div title={`Webhook notifications are ${isWebHookEnabled ? 'enabled' : 'disabled'}`}>
+                <Icons.webhook className={
+                  cn(
+                    'size-5',
+                    {'text-green-500': isWebHookEnabled},
+                    {'text-red-500 opacity-50': !isWebHookEnabled}
+                  )
+                }/>
+              </div>
+            )}
             { subscription.url && (
               <>
                 <Separator orientation='vertical' className='h-5' />

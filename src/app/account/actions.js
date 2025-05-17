@@ -11,7 +11,9 @@ import {
   SchemaCurrency,
   SchemaUserNotifications,
   SchemaUserName,
+  SchemaWebhook,
 } from './schema';
+import { sendWebhook } from '@/components/subscriptions/webhook';
 
 export const UserGetCategories = async () => {
   const session = await auth();
@@ -210,6 +212,44 @@ export const UserUpdateNotifications = async (notifications) => {
   }
 
   return { success: true, notifications: updated.notifications };
+};
+
+export const UserUpdateWebhook = async (webhook) => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized');
+  }
+
+  const result = SchemaWebhook.safeParse(webhook);
+  if (!result.success) {
+    return { success: false, webhook: webhook };
+  }
+  const validatedData = result.data;
+
+  // Check if the webhook URL is valid
+  if (validatedData && validatedData !== '') {
+    const isSuccess = await sendWebhook(validatedData, {
+      event: 'verify',
+    });
+    if (!isSuccess) {
+      return { success: false, webhook: validatedData };
+    }
+  }
+
+  const updated = await prisma.user.update({
+    where: {
+      id: session.user.id,
+    },
+    data: {
+      webhook: validatedData,
+    }
+  });
+
+  if (!updated) {
+    return { success: false, webhook: validatedData };
+  }
+
+  return { success: true, webhook: updated.webhook };
 };
 
 export const UserUpdateName = async (name) => {

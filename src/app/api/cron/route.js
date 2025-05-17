@@ -11,6 +11,7 @@ import { siteConfig } from '@/components/config';
 import { paddleGetStatus } from '@/lib/paddle/status';
 import { PADDLE_STATUS_MAP, TRIAL_DURATION_MONTHS, paddleIsValid } from '@/lib/paddle/enum';
 import { formatPrice } from '@/components/subscriptions/utils';
+import { sendWebhook } from '@/components/subscriptions/webhook';
 
 const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
   return subscription.user.push.map(async push => {
@@ -269,6 +270,7 @@ export async function GET() {
         include: {
           push: true,
           paddleUserDetails: true,
+          // webhook: true,
         }
       }
     }
@@ -287,6 +289,7 @@ export async function GET() {
       : [];
     const isPushEnabled = notificationTypes.includes('PUSH');
     const isEmailEnabled = notificationTypes.includes('EMAIL');
+    const isWebhookEnabled = subscription.user?.webhook && notificationTypes.includes('WEBHOOK');
 
     const paymentDate = subscription.nextNotificationDetails?.paymentDate;
     const isPaymentDueNow = isEqual(paymentDate, subscription.nextNotificationTime);
@@ -312,6 +315,24 @@ export async function GET() {
     // Send email notification if enabled
     if (isEmailEnabled) {
       promises.push(sendEmail(subscription, title, message, markAsPaidUrl));
+    }
+
+    // Send webhook notification if enabled
+    if (isWebhookEnabled) {
+      promises.push(sendWebhook(subscription.user?.webhook, {
+        event: isPaymentDueNow ? 'payment_due_now' : 'payment_due_upcoming',
+        price: subscription.price,
+        currency: subscription.currency,
+        paymentDate: subscription.paymentDate,
+        untilDate: subscription.untilDate,
+        timezone: subscription.timezone,
+        url: subscription.url,
+        notes: subscription.notes,
+        title: title,
+        message: message,
+        markAsPaidUrl: markAsPaidUrl,
+        url: siteConfig.url,
+      }));
     }
 
     // Update subscription

@@ -15,7 +15,7 @@ Wapy.dev is a subscription management platform that helps you track subscription
 
 Easily log all your subscriptions and payments, so you’ll never miss a due date.
 
-🔔 **Email & Push Notifications**
+🔔 **Email & Push & WebHook Notifications**
 
 Get timely reminders when payments are due. Customize notification schedules to fit your needs.
 

@@ -16,3 +16,8 @@ export const SchemaCurrency = z.string().length(3);
 export const SchemaUserNotifications = SchemaNotifications;
 
 export const SchemaUserName = z.string().min(1);
+
+export const SchemaWebhook = z.union([
+  z.string().min(9).url(),
+  z.literal(''),
+]);

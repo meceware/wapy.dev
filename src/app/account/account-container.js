@@ -40,10 +40,11 @@ import {
   UserUpdateTimezone,
   UserUpdateCurrency,
   UserUpdateNotifications,
+  UserUpdateWebhook,
   UserUpdateName,
   UserExportData,
 } from './actions';
-import { SchemaCategory, SchemaUserNotifications } from './schema';
+import { SchemaCategory, SchemaWebhook, SchemaUserNotifications } from './schema';
 import { DefaultCategories } from '@/config/categories';
 import { CurrencyFieldManager } from '@/components/subscriptions/form/field-currency';
 import { TimezoneFieldManager } from '@/components/subscriptions/form/field-timezone';
@@ -130,6 +131,7 @@ const DefaultSettings = ({ user }) => {
 const NotificationManager  = ({user}) => {
   const [loading, setLoading] = useState(false);
   const [notifications, setNotifications] = useState(user?.notifications);
+  const [webhook, setWebhook] = useState(user?.webhook);
 
   const handleSave = async () => {
     try {
@@ -153,8 +155,32 @@ const NotificationManager  = ({user}) => {
     setNotifications(notifications);
   } };
 
+  const webhookField = { value: webhook, onChange: async (webhook) => {
+    try {
+      setLoading(true);
+      const result = SchemaWebhook.safeParse(webhook);
+      if (!result.success) {
+        throw new Error('Invalid webhook URL');
+      }
+
+      const { success } = await UserUpdateWebhook(webhook);
+      if (success) {
+        setWebhook(webhook);
+        toast.success('Webhook URL is saved');
+      } else {
+        setWebhook('');
+        toast.error('Failed to save webhook URL!');
+      }
+    } catch (error) {
+      setWebhook('');
+      toast.error('Failed to save webhook URL!');
+    } finally {
+      setLoading(false);
+    }
+  } };
+
   return (
-    <NotificationsFieldManager field={field} isLoading={loading} >
+    <NotificationsFieldManager field={field} webhook={webhookField} isLoading={loading} >
       <Button
         onClick={handleSave}
         className='w-full sm:w-auto'

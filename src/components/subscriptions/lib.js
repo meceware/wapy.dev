@@ -17,6 +17,10 @@ export const GetNextPaymentDate = (currentPaymentDate, untilDate, time, every) =
 
 const GetNotificationDates = (paymentDate, notifications) => {
   return notifications.map(notification => {
+    if ( notification.type.length === 0 ) {
+      return null;
+    }
+
     let date;
     switch(notification.time) {
       case 'INSTANT':

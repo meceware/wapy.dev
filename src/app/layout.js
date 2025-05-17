@@ -135,6 +135,7 @@ const jsonLd = {
     'Timezone support',
     'Push notifications',
     'Email notifications',
+    'Webhook notifications',
   ],
   'screenshot': `${siteConfig.url}/images/og.png`,
   'softwareVersion': '1.0',

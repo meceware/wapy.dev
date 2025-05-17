@@ -6,7 +6,7 @@ export const SchemaSubscriptionId = z.object({
 });
 
 export const SchemaNotifications = z.array(z.object({
-  type: z.array(z.enum(['EMAIL', 'PUSH'])),
+  type: z.array(z.enum(['EMAIL', 'PUSH', 'WEBHOOK'])),
   time: z.enum(['INSTANT', 'MINUTES', 'HOURS', 'DAYS', 'WEEKS']),
   due: z.number().int().min(0),
 }));

@@ -1,7 +1,7 @@
 services:
   db:
     container_name: wapydev-db
-    image: postgres:17.4
+    image: postgres:17.5
     restart: unless-stopped
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-wapydev}
@@ -14,7 +14,7 @@ services:
 
   app:
     container_name: wapydev-app
-    image: node:23.11-alpine
+    image: node:24-alpine
     restart: unless-stopped
     environment:
       - NODE_ENV=development
@@ -34,7 +34,7 @@ services:
 
   cron:
     container_name: wapydev-cron
-    image: alpine:3.21
+    image: alpine:3.22
     restart: unless-stopped
     command: >
       sh -c 'while true; do

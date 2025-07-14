@@ -186,6 +186,24 @@ const SubscriptionPaymentCount = ({ subscription }) => {
   );
 };
 
+const SubscriptionPastPaymentCount = ({ subscription }) => {
+  const paymentCount = subscription?._count?.pastPayments || 0;
+
+  if (paymentCount === 0) {
+    return false;
+  }
+
+  return (
+    <div>
+      <span className='text-sm text-muted-foreground'>You have made</span>
+      {' '}
+      {paymentCount} {paymentCount === 1 ? 'payment' : 'payments'}
+      {' '}
+      <span className='text-sm text-muted-foreground'>so far.</span>
+    </div>
+  );
+};
+
 export const SubscriptionCard = ({ subscription, settings }) => {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
   const categories = subscription.categories || [];
@@ -224,12 +242,16 @@ export const SubscriptionCard = ({ subscription, settings }) => {
               <SubscriptionPaymentDate subscription={subscription} />
               <SubscriptionMarkAsPaid subscription={subscription} />
               <SubscriptionPaymentCount subscription={subscription} />
+              <SubscriptionPastPaymentCount subscription={subscription} />
               <SubscriptionIsNotified subscription={subscription} settings={settings} />
             </>
           ) : (
-            <div className='text-sm text-muted-foreground'>
-              This subscription is inactive.
-            </div>
+            <>
+              <div className='text-sm text-muted-foreground'>
+                This subscription is inactive.
+              </div>
+              <SubscriptionPastPaymentCount subscription={subscription} />
+            </>
           )}
           {subscription.notes && (
             <div className='text-sm text-muted-foreground whitespace-pre-wrap'>

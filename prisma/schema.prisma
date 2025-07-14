@@ -54,6 +54,8 @@ model User {
   push              PushSubscription[]
   // Past notifications
   pastNotifications PastNotification[]
+  // Past Payments
+  pastPayments      PastPayment[]
   // Paddle subscriptions
   paddleUserDetails PaddleUserDetails?
 }
@@ -162,6 +164,8 @@ model Subscription {
   nextNotificationDetails  Json     @map("next_notification_details") @default("{}")
   // Past notifications
   pastNotifications PastNotification[]
+  // Past payments
+  pastPayments      PastPayment[]
 
   createdAt    DateTime   @default(now())  @map("created_at")
   updatedAt    DateTime   @updatedAt       @map("updated_at")
@@ -210,6 +214,23 @@ model PastNotification {
   updatedAt         DateTime        @updatedAt      @map("updated_at")
 
   @@index([userId])
+}
+
+model PastPayment {
+  id             String        @id @default(cuid())
+  userId         String        @map("user_id")
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subscriptionId String        @map("subscription_id")
+  subscription   Subscription  @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+  price          Float         @db.DoublePrecision
+  currency       String        @default("EUR")
+  paymentDate    DateTime      @map("payment_date")
+  paidAt         DateTime      @default(now()) @map("paid_at")
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt      @map("updated_at")
+
+  @@index([userId])
+  @@index([subscriptionId])
 }
 
 model PaddleUserDetails {

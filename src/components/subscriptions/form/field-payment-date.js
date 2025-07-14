@@ -16,7 +16,7 @@ export const FormFieldPaymentDate = ({ field }) => {
       <FormControl>
         <DateTimePicker
           min={new Date()}
-          max={addYears(new Date(), 2)}
+          max={addYears(new Date(), 15)}
           timePicker={{ hour: true, minute: true, second: false, increment: 30 }}
           value={field.value}
           onChange={field.onChange}

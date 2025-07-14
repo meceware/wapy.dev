@@ -15,6 +15,11 @@ export const HomeMember = async ({ userId, settings }) => {
           name: true,
           color: true
         }
+      },
+      _count: {
+        select: {
+          pastPayments: true
+        }
       }
     },
     omit: {

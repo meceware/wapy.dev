@@ -3,7 +3,7 @@
 import { notFound } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
-import { SubscriptionGet } from '@/components/subscriptions/actions';
+import { SubscriptionGet, SubscriptionGetPastPaymentsStats } from '@/components/subscriptions/actions';
 import { SubscriptionView } from '@/components/subscriptions/view';
 import { paddleGetSession } from '@/lib/paddle/status';
 import { SubscriptionGuard } from '@/components/subscription-guard';
@@ -16,6 +16,7 @@ const PageSubscriptionView = async ({ params }) => {
   if (!subscription) {
     return notFound();
   }
+  subscription.pastPayments = await SubscriptionGetPastPaymentsStats(subscription.id, session?.user?.id);
 
   const settings = {
     webhook: session?.user?.webhook,

@@ -6,6 +6,7 @@ import { prisma } from '@/lib/prisma';
 import { auth } from '@/lib/auth';
 import { SchemaSubscriptionId, SchemaSubscriptionEdit } from '@/components/subscriptions/schema';
 import { SubscriptionGetNextNotificationDate, SubscriptionGetNextPaymentDate } from '@/components/subscriptions/lib';
+import { subYears } from 'date-fns';
 
 export const SubscriptionGet = async (subscriptionId, userId) => {
   if (!subscriptionId) {
@@ -43,6 +44,86 @@ export const SubscriptionGet = async (subscriptionId, userId) => {
   return subscription;
 }
 
+export const SubscriptionGetPastPaymentsStats = async (subscriptionId, userId) => {
+  if (!subscriptionId) {
+    return null;
+  }
+
+  const parsedData = SchemaSubscriptionId.safeParse({id: subscriptionId, userId: userId});
+  if (!parsedData?.success || !parsedData?.data || parsedData?.data?.id !== subscriptionId || parsedData?.data?.userId !== userId) {
+    return null;
+  }
+
+  const rightNow = new Date();
+  const [total, thisYear, lastPayments] = (await Promise.allSettled([
+    prisma.pastPayment.groupBy({
+      by: [
+        'currency'
+      ],
+      where: {
+        subscriptionId: subscriptionId,
+        userId: userId,
+      },
+      _count: {
+        _all: true,
+      },
+      _sum: {
+        price: true,
+      },
+    }),
+    prisma.pastPayment.groupBy({
+      by: [
+        'currency'
+      ],
+      where: {
+        subscriptionId: subscriptionId,
+        paidAt: {
+          gte: subYears(rightNow, 1),
+          lt: rightNow,
+        },
+      },
+      _count: {
+        _all: true,
+      },
+      _sum: {
+        price: true,
+      },
+    }),
+    prisma.pastPayment.findMany({
+      where: {
+        subscriptionId: subscriptionId,
+        userId: userId,
+      },
+      orderBy: {
+        paidAt: 'desc'
+      },
+      take: 20,
+      select: {
+        price: true,
+        currency: true,
+        paymentDate: true,
+        paidAt: true,
+      },
+    }),
+  ])).map(r => r?.value);
+
+  return {
+    totalCount: total.reduce((sum, item) => sum + (item?._count?._all || 0), 0),
+    total: total.map( item => ({
+      currency: item.currency,
+      count: item?._count?._all || 0,
+      sum: item?._sum?.price || 0,
+    }) ),
+    yearCount: thisYear.reduce((sum, item) => sum + (item?._count?._all || 0), 0),
+    year: thisYear.map( item => ({
+      currency: item.currency,
+      count: item?._count?._all || 0,
+      sum: item?._sum?.price || 0,
+    }) ),
+    lastPayments: lastPayments,
+  };
+};
+
 export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
   const subscription = await SubscriptionGet(subscriptionId, userId);
   if (!subscription) {
@@ -61,15 +142,26 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
     nextNotificationDetails: nextPaymentDate ? nextNotificationDate?.details : {},
   };
 
-  const newSubscription = await prisma.subscription.update({
-    where: {
-      id: subscription.id,
-      userId: userId,
-    },
-    data: updateData,
-  });
+  const [newSubscription, _pastPayment] = await Promise.allSettled([
+    prisma.subscription.update({
+      where: {
+        id: subscription.id,
+        userId: userId,
+      },
+      data: updateData,
+    }),
+    prisma.pastPayment.create({
+      data: {
+        userId: userId,
+        subscriptionId: subscription.id,
+        price: subscription.price,
+        currency: subscription.currency,
+        paymentDate: subscription.paymentDate,
+      },
+    }),
+  ]);
 
-  if (!newSubscription) {
+  if ( !newSubscription?.value ) {
     console.warn('Error updating subscription payment date');
     return false;
   }

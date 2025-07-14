@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 import Link from 'next/link';
-import { format, addMonths, differenceInDays, addYears, isBefore, isPast, formatDistanceToNowStrict, isEqual } from 'date-fns';
+import { format, addMonths, differenceInDays, addYears, isBefore, isPast, formatDistanceToNowStrict, isEqual, formatDistanceStrict, differenceInMinutes } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import {
   Card,
@@ -19,10 +19,15 @@ import { LogoIcon } from '@/components/ui/icon-picker';
 import { SubscriptionGetUpcomingPayments, SubscriptionGetNextFuturePaymentDate } from '@/components/subscriptions/lib';
 import { getCycleLabel, getPaymentCount, formatPrice } from '@/components/subscriptions/utils';
 import { cn } from '@/lib/utils';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 
 export function SubscriptionView({ subscription, settings }) {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
-  const maxUpcomingPayments = 16;
+  const maxUpcomingPayments = 20;
 
   // Calculate statistics
   const stats = useMemo(() => {
@@ -30,7 +35,7 @@ export function SubscriptionView({ subscription, settings }) {
       return {
         payments: [],
         nextPaymentDate: null,
-        pastPayments: { count: 0, total: 0 },
+        unpaidPayments: { count: 0, total: 0 },
         totalCost: 0,
         daysUntilNextPayment: null,
         monthlyCost: 0,
@@ -65,7 +70,7 @@ export function SubscriptionView({ subscription, settings }) {
 
     return {
       nextPaymentDate: nextPaymentDate,
-      pastPayments: payments.reduce(
+      unpaidPayments: payments.reduce(
         (result, p) => {
           if (isPast(p.date)) {
             return {
@@ -163,13 +168,13 @@ export function SubscriptionView({ subscription, settings }) {
           {subscription.enabled && (
             <>
               <div className={cn('flex items-center gap-2 p-4 rounded-lg border-l-4', {
-                'border-l-red-500 bg-red-500/10': stats.pastPayments.count,
-                'border-l-green-500 bg-green-500/10': !stats.pastPayments.count
+                'border-l-red-500 bg-red-500/10': stats.unpaidPayments.count,
+                'border-l-green-500 bg-green-500/10': !stats.unpaidPayments.count
               })}>
                 <p className='text-sm'>
-                  {stats.pastPayments.count ? (
+                  {stats.unpaidPayments.count ? (
                     <>
-                      Oh no! You have <span className='font-semibold'>{stats.pastPayments.count}</span> past payment{stats.pastPayments.count > 1 ? 's' : ''} for this subscription totaling <span className='font-semibold tabular-nums'>{formatPrice(stats.pastPayments.total, subscription.currency)}</span>.
+                      Oh no! You have <span className='font-semibold'>{stats.unpaidPayments.count} unpaid payment{stats.unpaidPayments.count > 1 ? 's' : ''}</span> for this subscription totaling <span className='font-semibold tabular-nums'>{formatPrice(stats.unpaidPayments.total, subscription.currency)}</span>.
                     </>
                   ) : (
                     'Good job! This subscription is fully paid up to date.'
@@ -245,6 +250,44 @@ export function SubscriptionView({ subscription, settings }) {
                       </span>
                       {'.'}
                     </>
+                  )}
+                </p>
+              </div>
+
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                <p className='text-sm'>
+                  {(subscription?.pastPayments?.totalCount || 0) > 0 ? (
+                    <>
+                      You have made
+                      {' '}
+                      <span className='font-semibold'>
+                        {subscription.pastPayments.totalCount} payment{subscription.pastPayments.totalCount !== 1 ? 's' : ''}
+                      </span>
+                      {' '}
+                      for this subscription so far, totaling
+                      {' '}
+                      <span className='font-semibold tabular-nums'>
+                        {subscription.pastPayments.total.map(c => `${formatPrice(c.sum, c.currency)}`).join(' + ')}
+                      </span>
+                      {'.'}
+                      {(subscription.pastPayments.yearCount || 0) > 0 && (
+                        <>
+                          {' '}
+                          In the past year, you made
+                          {' '}
+                          <span className='font-semibold'>
+                            {subscription.pastPayments.yearCount} payment{subscription.pastPayments.yearCount !== 1 ? 's' : ''}
+                          </span>
+                          , totaling{' '}
+                          <span className='font-semibold tabular-nums'>
+                            {subscription.pastPayments.year.map(c => `${formatPrice(c.sum, c.currency)}`).join(' + ')}
+                          </span>
+                          {'.'}
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    'This is a subscription with no payment history yet.'
                   )}
                 </p>
               </div>
@@ -435,6 +478,107 @@ export function SubscriptionView({ subscription, settings }) {
           <div className='flex items-center gap-1 text-base font-medium'>
             <span className='text-sm text-muted-foreground'>Total:</span>
             <span className='tabular-nums'>{formatPrice(stats.totalCost, subscription.currency)}</span>
+          </div>
+        </CardFooter>
+      </Card>
+
+      <Card className='text-left'>
+        <CardHeader>
+          <CardTitle>Latest Payments</CardTitle>
+          <CardDescription>Most recent payments for this subscription</CardDescription>
+        </CardHeader>
+        <CardContent className='flex flex-col gap-2'>
+          <div className='divide-y divide-border'>
+            {(!subscription?.pastPayments?.lastPayments || subscription.pastPayments.lastPayments.length === 0) ? (
+              <p className='text-muted-foreground'>No past payments recorded for this subscription yet.</p>
+            ) : (
+              subscription.pastPayments.lastPayments.map((payment, index) => {
+                const getStatus = (paidAt, paymentDate) => {
+                  const onTime = {
+                    status: 0,
+                    label: 'on time',
+                  };
+                  const acceptableMinutes = 15;
+
+                  if (!paidAt || !paymentDate) {
+                    return onTime;
+                  }
+
+                  // gives the difference of paidAt - paymentDate
+                  const diff = differenceInMinutes(paidAt, paymentDate);
+
+                  if (Math.abs(diff) <= acceptableMinutes) {
+                    return onTime;
+                  }
+
+                  if (diff > 0) {
+                    return {
+                      status: 1,
+                      label: formatDistanceStrict(paidAt, paymentDate) + ' late',
+                    };
+                  }
+
+                  return {
+                    status: -1,
+                    label: formatDistanceStrict(paidAt, paymentDate) + ' early',
+                  };
+                };
+
+                const paidAtZoned = toZonedTime(payment.paidAt, subscription.timezone);
+                const paymentDateZoned = payment.paymentDate ? toZonedTime(payment.paymentDate, subscription.timezone) : null;
+                const status = getStatus(payment.paidAt, payment.paymentDate);
+                return (
+                  <div key={index} className='flex flex-row items-start sm:items-center sm:justify-between gap-2 p-2 text-sm transition-colors hover:bg-muted/50 hover:rounded-lg'>
+                    <div className={cn(
+                      'size-2 rounded-full shrink-0 mt-1.5 sm:mt-0',
+                      status.status === 1 ? 'bg-orange-400 dark:bg-orange-500' : 'bg-green-500'
+                    )}></div>
+                    <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between w-full'>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <span className='truncate cursor-pointer'>
+                            {format(paidAtZoned, 'dd MMMM yyyy')}
+                          </span>
+                        </PopoverTrigger>
+                        <PopoverContent className='bg-foreground text-background text-sm w-auto max-w-xl break-words px-4 py-2 leading-6'>
+                          <div>
+                            This subscription is paid <span className='font-semibold'>{status.label}</span>.
+                          </div>
+                          <div>
+                            <span className='font-semibold'>Scheduled:</span><br/>
+                            {format(paymentDateZoned, 'dd MMMM yyyy, HH:mm')}
+                          </div>
+                          <div>
+                            <span className='font-semibold'>Actual:</span><br/>
+                            {format(payment.paidAt, 'dd MMMM yyyy, HH:mm')}
+                          </div>
+                        </PopoverContent>
+                      </Popover>
+                      <span className='font-medium tabular-nums break-all'>
+                        {formatPrice(payment.price, payment.currency)}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </div>
+          {subscription?.pastPayments?.totalCount > subscription?.pastPayments?.lastPayments?.length && (
+            <div className='text-center text-sm text-muted-foreground'>
+              + {subscription?.pastPayments?.totalCount - subscription?.pastPayments?.lastPayments?.length} more
+            </div>
+          )}
+        </CardContent>
+        <CardFooter className='flex flex-col sm:flex-row items-start sm:items-center justify-between border-t pt-4 text-left'>
+          <div className='flex items-center gap-1 text-base font-medium'>
+            <span className='text-sm text-muted-foreground'>Total payments:</span>
+            <span>{subscription?.pastPayments?.totalCount || 0}</span>
+          </div>
+          <div className='flex items-center gap-1 text-base font-medium'>
+            <span className='text-sm text-muted-foreground'>Total:</span>
+            <span className='tabular-nums'>
+              {subscription.pastPayments.total.map(c => `${formatPrice(c.sum, c.currency)}`).join(' + ')}
+            </span>
           </div>
         </CardFooter>
       </Card>

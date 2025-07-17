@@ -2,6 +2,8 @@ import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import Nodemailer from 'next-auth/providers/nodemailer';
+import KeycloakProvider from 'next-auth/providers/keycloak';
+import AuthentikProvider from 'next-auth/providers/authentik';
 import { mailServerConfiguration, mailFrom, mailSend } from '@/lib/mail';
 import { createHmac } from 'crypto';
 import { PrismaAdapter } from '@auth/prisma-adapter';
@@ -90,14 +92,6 @@ const authConfig = {
   adapter: PrismaAdapter(prisma),
   theme: { logo: `${siteConfig.url}/icon.png` },
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-    }),
     Nodemailer({
       id: "wapy.dev.mailer",
       name: "Wapy.dev Mailer",
@@ -118,6 +112,32 @@ const authConfig = {
         });
       },
     }),
+    ...(process.env.GITHUB_ID && process.env.GITHUB_SECRET
+      ? [GithubProvider({
+        clientId: process.env.GITHUB_ID,
+        clientSecret: process.env.GITHUB_SECRET,
+      })]
+      : []),
+    ...(process.env.GOOGLE_ID && process.env.GOOGLE_SECRET
+      ? [GoogleProvider({
+        clientId: process.env.GOOGLE_ID,
+        clientSecret: process.env.GOOGLE_SECRET,
+      })]
+      : []),
+    ...(process.env.KEYCLOAK_ID && process.env.KEYCLOAK_SECRET && process.env.KEYCLOAK_ISSUER
+      ? [KeycloakProvider({
+          clientId: process.env.KEYCLOAK_ID,
+          clientSecret: process.env.KEYCLOAK_SECRET,
+          issuer: process.env.KEYCLOAK_ISSUER,
+        })]
+      : []),
+    ...(process.env.AUTHENTIK_ID && process.env.AUTHENTIK_SECRET && process.env.AUTHENTIK_ISSUER
+      ? [AuthentikProvider({
+          clientId: process.env.AUTHENTIK_ID,
+          clientSecret: process.env.AUTHENTIK_SECRET,
+          issuer: process.env.AUTHENTIK_ISSUER,
+        })]
+      : []),
   ],
   pages: {
     error: '/login',

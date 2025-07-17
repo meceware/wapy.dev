@@ -152,7 +152,7 @@ const SignInSendAgain = ({ email, onClick }) => {
   );
 };
 
-export function SignInForm() {
+export function SignInForm({isGoogle = false, isGithub = false, isKeycloak = false, isAuthentik = false}) {
   const [loginMethod, setLoginMethod] = useState(null);
   const [success, setSuccess] = useState(false);
 
@@ -181,16 +181,38 @@ export function SignInForm() {
     }
   };
 
-  const signInGithub = () => {
+  const signInGithub = async () => {
+    if (!isGithub) return;
+
     setLoginMethod('github');
-    signIn('github', { redirect: false, redirectTo: '/' }).finally(() => {
+    signIn('github', {redirectTo: '/'}).finally(() => {
       setLoginMethod(null);
     });
   };
 
   const signInGoogle = () => {
+    if (!isGoogle) return;
+
     setLoginMethod('google');
-    signIn('google', { redirect: false, redirectTo: '/' }).finally(() => {
+    signIn('google', {redirectTo: '/'}).finally(() => {
+      setLoginMethod(null);
+    });
+  };
+
+  const signInKeycloak = () => {
+    if (!isKeycloak) return;
+
+    setLoginMethod('keycloak');
+    signIn('keycloak', {redirectTo: '/'}).finally(() => {
+      setLoginMethod(null);
+    });
+  };
+
+  const signInAuthentik = () => {
+    if (!isAuthentik) return;
+
+    setLoginMethod('authentik');
+    signIn('authentik', {redirectTo: '/'}).finally(() => {
       setLoginMethod(null);
     });
   };
@@ -233,21 +255,45 @@ export function SignInForm() {
             </Button>
           </form>
         </Form>
-        <Divider text='or' />
-        <Button variant='outline' className='w-full' onClick={signInGithub} disabled={!!loginMethod}>
-          {loginMethod === 'github'
-            ? <Icons.spinner className='mr-2 size-4 animate-spin' />
-            : <Icons.github className='mr-2 size-4' />
-          }
-          Login with Github
-        </Button>
-        <Button variant='outline' className='w-full' onClick={signInGoogle} disabled={!!loginMethod}>
-          {loginMethod === 'google2'
-            ? <Icons.spinner className='mr-2 size-4 animate-spin' />
-            : <Icons.google className='mr-2 size-4' />
-          }
-          Login with Google
-        </Button>
+        { (isGoogle || isGithub || isKeycloak || isAuthentik) && (
+          <Divider text='or' />
+        ) }
+        { (isGithub) && (
+          <Button variant='outline' className='w-full' onClick={signInGithub} disabled={!!loginMethod}>
+            {loginMethod === 'github'
+              ? <Icons.spinner className='mr-2 size-4 animate-spin' />
+              : <Icons.github className='mr-2 size-4' />
+            }
+            Login with Github
+          </Button>
+        ) }
+        { (isGoogle) && (
+          <Button variant='outline' className='w-full' onClick={signInGoogle} disabled={!!loginMethod}>
+            {loginMethod === 'google'
+              ? <Icons.spinner className='mr-2 size-4 animate-spin' />
+              : <Icons.google className='mr-2 size-4' />
+            }
+            Login with Google
+          </Button>
+        ) }
+        { (isKeycloak) && (
+          <Button variant='outline' className='w-full' onClick={signInKeycloak} disabled={!!loginMethod}>
+            {loginMethod === 'keycloak'
+              ? <Icons.spinner className='mr-2 size-4 animate-spin' />
+              : <Icons.keycloak className='mr-2 size-4' />
+            }
+            Login with Keycloak
+          </Button>
+        ) }
+        { (isAuthentik) && (
+          <Button variant='outline' className='w-full' onClick={signInAuthentik} disabled={!!loginMethod}>
+            {loginMethod === 'authentik'
+              ? <Icons.spinner className='mr-2 size-4 animate-spin' />
+              : <Icons.authentik className='mr-2 size-4' />
+            }
+            Login with Authentik
+          </Button>
+        ) }
       </CardContent>
     </Card>
   );

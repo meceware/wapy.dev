@@ -43,3 +43,17 @@ services:
       done'
     depends_on:
       - app
+
+  # keycloak:
+  #   container_name: wapydev-keycloak
+  #   image: quay.io/keycloak/keycloak:26.3
+  #   restart: unless-stopped
+  #   user: "${USER_ID}:${GROUP_ID}"
+  #   environment:
+  #     - KEYCLOAK_ADMIN=admin
+  #     - KEYCLOAK_ADMIN_PASSWORD=admin
+  #   ports:
+  #     - "38080:8080"
+  #   volumes:
+  #     - ./keycloak:/opt/keycloak/data
+  #   command: start-dev

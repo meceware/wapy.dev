@@ -40,5 +40,7 @@ yarn-error.log*
 next-env.d.ts
 
 # db
-db
-.backup
+/db/
+/.backup/
+/keycloak/
+/authentik/

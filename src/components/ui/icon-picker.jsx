@@ -14,9 +14,23 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Icons } from '@/components/icons';
 import { cn } from '@/lib/utils';
 
+const toNormalCase = str => str.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
 const useIconsPackage = () => {
+  const [dashboardIconsMetadata, setDashboardIconsMetadata] = useState({});
+
+  useEffect(() => {
+    fetch('/icons/dashboard/metadata.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('No metadata file found');
+        return res.json();
+      })
+      .then(setDashboardIconsMetadata)
+      .catch(() => setDashboardIconsMetadata({}));
+  }, []);
+
   return useMemo(() => {
-    // Handle Lucide icons
+    // Lucide icons
     const lucideIconsObj = Object.entries(LucideIcons).reduce((acc, [name, Icon]) => {
       if (name === 'default' || !Icon?.displayName) return acc;
       // Skip duplicates that have 'Lucide' prefix or 'Icon' suffix
@@ -33,7 +47,7 @@ const useIconsPackage = () => {
       ];
     }, []);
 
-    // Handle Simple icons
+    // SimpleIcons
     const simpleIconsObj = Object.entries(SimpleIconsLicenseFiltered).reduce((acc, [name, icon]) => {
       return [
         ...acc,
@@ -56,12 +70,42 @@ const useIconsPackage = () => {
       ];
     }, []);
 
+    // Dashboard icons
+    const dashboardIconsObj = Object.entries(dashboardIconsMetadata || {}).reduce((acc, [name, icon]) => {
+      return [
+        ...acc,
+        {
+          name: name,
+          title: toNormalCase(name),
+          slug: `di-${name}`,
+          library: 'DashboardIcons',
+          aliases: icon.aliases || [],
+          colors: icon.colors || {},
+          render: () => (
+            <>
+              <img
+                src={`/icons/dashboard/${icon?.colors?.dark ? icon.colors.dark : name}.svg`}
+                alt={toNormalCase(name)}
+                className={'size-8 object-contain hidden dark:block'}
+              />
+              <img
+                src={`/icons/dashboard/${icon?.colors?.light ? icon.colors.light : name}.svg`}
+                alt={toNormalCase(name)}
+                className={'size-8 object-contain block dark:hidden'}
+              />
+            </>
+          )
+        }
+      ];
+    }, []);
+
     const mergedIcons = [
+      ...dashboardIconsObj,
       ...simpleIconsObj,
       ...lucideIconsObj,
     ];
 
-    const defaultIcons = simpleIconsObj
+    const defaultIcons = dashboardIconsObj
       .filter(icon =>
         defaultCompanies.some(company =>
           company.toLowerCase() === icon.title.toLowerCase()
@@ -82,21 +126,28 @@ const useIconsPackage = () => {
           return defaultIcons;
         }
 
+        const dashboardResults = dashboardIconsObj.filter(icon =>
+          icon.title.toLowerCase().includes(term) ||
+          icon.name.toLowerCase().includes(term)  ||
+          icon.aliases.some(alias => alias.toLowerCase().includes(term))
+        ).slice(0, 30);
+
+        const simpleResults = simpleIconsObj.filter(icon =>
+          icon.title.toLowerCase().includes(term)
+        ).slice(0, 20);
+
+        const lucideResults = lucideIconsObj.filter(icon =>
+          icon.title.toLowerCase().includes(term)
+        ).slice(0, 20);
+
         return [
-          ...mergedIcons.filter(icon =>
-            icon.library === 'SimpleIcons' &&
-            icon.title.toLowerCase().includes(term)
-          ).slice(0, 30),
-          ...mergedIcons
-          .filter(icon =>
-            icon.library === 'Lucide' &&
-            icon.title.toLowerCase().includes(term)
-          )
-          .slice(0, 30)
+          ...dashboardResults,
+          ...simpleResults,
+          ...lucideResults
         ];
       }
     };
-  }, []);
+  }, [dashboardIconsMetadata]);
 };
 
 export const LogoIcon = ({ icon, className, children }) => {
@@ -129,6 +180,21 @@ export const LogoIcon = ({ icon, className, children }) => {
         >
           <path d={simpleIcon.path} />
         </svg>
+      );
+    } else if (icon.library === 'DashboardIcons') {
+      return (
+        <>
+          <img
+            src={`/icons/dashboard/${icon?.colors?.dark ? icon.colors.dark : icon.icon}.svg`}
+            alt={toNormalCase(icon.icon)}
+            className={'size-8 object-contain hidden dark:block'}
+          />
+          <img
+            src={`/icons/dashboard/${icon?.colors?.light ? icon.colors.light : icon.icon}.svg`}
+            alt={toNormalCase(icon.icon)}
+            className={'size-8 object-contain block dark:hidden'}
+          />
+        </>
       );
     }
   }
@@ -181,7 +247,8 @@ export const IconPicker = ({ icon, onChange }) => {
   const handleSelect = (icon) => {
     const newIcon = {
       library: icon.library,
-      icon: icon.name
+      icon: icon.name,
+      colors: icon?.colors,
     };
     onChange(JSON.stringify(newIcon));
     setParsedIcon(newIcon);
@@ -251,7 +318,7 @@ export const IconPicker = ({ icon, onChange }) => {
           </div>
           {isIconSelectorOpen && (
             <Card className='border-dashed rounded-sm'>
-              <ScrollArea className='h-44'>
+              <ScrollArea className='h-45 py-2'>
                 <CardContent className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1 p-0 place-items-center'>
                   {filteredIcons.map(icon => (
                     <Button

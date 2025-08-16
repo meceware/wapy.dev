@@ -29,6 +29,12 @@ import {
   ResponsiveDialogDescription,
   ResponsiveDialogBody,
 } from '@/components/ui/responsive-dialog';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 
 const PricePrinter = ({ cost, isPlus }) => {
@@ -200,6 +206,119 @@ const OverviewRow = ({ title, description, costs = {total: {}}, categories }) =>
   );
 };
 
+const OverviewRowPaymentMethod = ({ title, description, costs = {total: {}}, paymentMethods }) => {
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handlePaymentMethodClick = (paymentMethod, subscriptions) => {
+    setSelectedPaymentMethod({
+      name: paymentMethod,
+      icon: paymentMethods[paymentMethod]?.icon,
+      subscriptions: subscriptions || []
+    });
+    setIsModalOpen(true);
+  };
+
+  return (
+    <>
+      <Collapsible className='flex flex-col gap-2' disabled={Object.entries(costs?.paymentMethods || {}).length === 0}>
+        <CollapsibleTrigger className={cn('flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full p-2 cursor-pointer', {
+          'rounded-lg transition-all hover:bg-muted/40 hover:ring-1 ring-primary/20': Object.entries(costs?.paymentMethods || {}).length > 0
+        })}>
+          <div className='flex flex-col gap-1 shrink-0 text-left'>
+            <span className='text-sm font-medium'>{title}</span>
+            <span className='text-xs text-muted-foreground'>{description}</span>
+          </div>
+          <div className='flex flex-row flex-wrap sm:flex-col grow gap-1 sm:gap-0 items-center sm:items-end font-semibold break-all text-left sm:text-right'>
+            {Object.entries(costs?.total || {}).length === 0 ? (
+              <span>-</span>
+            ) : (
+              Object.entries(costs.total).map(([currency, cost], index) => (
+                <PricePrinter
+                  key={`${title}-${currency}`}
+                  cost={formatPrice(cost, currency)}
+                  isPlus={index < Object.entries(costs.total).length - 1}
+                />
+              ))
+            )}
+          </div>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <div className='flex flex-col divide-y divide-border'>
+            {Object.entries(costs?.paymentMethods || {}).sort().map(([paymentMethod, currencies]) => (
+              <div
+                key={paymentMethod}
+                className='flex flex-row items-start sm:items-center gap-2 p-2 text-xs group transition-colors hover:bg-muted/50 cursor-pointer'
+                onClick={() => handlePaymentMethodClick(paymentMethod, costs?.subscriptions?.[paymentMethod])}
+              >
+                <LogoIcon icon={paymentMethods[paymentMethod]?.icon ? JSON.parse(paymentMethods[paymentMethod]?.icon) : false} placeholder className='size-4' />
+
+                <div className='flex grow sm:flex-row sm:items-center sm:justify-between flex-col gap-1 overflow-hidden'>
+                  <div className='text-sm overflow-hidden text-ellipsis'>
+                    {paymentMethod}
+                  </div>
+
+                  <div className='text-sm text-muted-foreground sm:text-foreground text-left sm:text-right'>
+                    {Object.entries(currencies).map(([curr, amt], idx, arr) => (
+                      <Fragment key={curr}>
+                        <span className='tabular-nums'>
+                          {formatPrice(amt, curr)}
+                        </span>
+                        {idx < arr.length - 1 && (
+                          <span className='text-muted-foreground'> + </span>
+                        )}
+                      </Fragment>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+
+      <ResponsiveDialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <ResponsiveDialogContent className='gap-0 p-4 sm:p-6'>
+          <ResponsiveDialogHeader className='text-left p-0 py-4 sm:py-4'>
+            <div className='flex items-center gap-2 break-words overflow-hidden'>
+              <LogoIcon icon={selectedPaymentMethod?.icon ? JSON.parse(selectedPaymentMethod?.icon) : false} placeholder className='size-6' />
+              <ResponsiveDialogTitle className='overflow-hidden text-ellipsis'>
+                {selectedPaymentMethod?.name}
+              </ResponsiveDialogTitle>
+            </div>
+            <ResponsiveDialogDescription>
+              {title} payments via this payment method
+            </ResponsiveDialogDescription>
+          </ResponsiveDialogHeader>
+          <ResponsiveDialogBody className='max-h-[60vh] overflow-y-auto px-0'>
+            {selectedPaymentMethod?.subscriptions?.length > 0 ? (
+              <div className='flex flex-col divide-y divide-border'>
+                {selectedPaymentMethod.subscriptions.map((subscription) => (
+                  <SubscriptionCard
+                    key={subscription.id}
+                    subscription={subscription}
+                    currency={subscription.currency}
+                    withPaymentsCount={true}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className='p-4 text-center text-muted-foreground'>
+                No subscriptions found via this payment method
+              </div>
+            )}
+          </ResponsiveDialogBody>
+          <ResponsiveDialogFooter className='p-0 pt-4 sm:pt-4'>
+            <Button variant='outline' onClick={() => setIsModalOpen(false)}>
+              Close
+            </Button>
+          </ResponsiveDialogFooter>
+        </ResponsiveDialogContent>
+      </ResponsiveDialog>
+    </>
+  );
+};
+
 const MostExpensiveSubscription = ({ title, mostExpensive }) => {
   return (
     <div className='flex flex-col gap-2 p-2'>
@@ -284,7 +403,7 @@ export function SubscriptionReports({ subscriptions }) {
       // Initialize period objects if they don't exist
       ['thisMonth', 'inOneMonth', 'nextMonth', 'thisYear', 'inOneYear', 'nextYear'].forEach(period => {
         if (!acc[period]) {
-          acc[period] = { total: {}, categories: {}, subscriptions: {}, paymentsList: [] };
+          acc[period] = { total: {}, categories: {}, paymentMethods: {}, subscriptions: {}, paymentsList: [] };
         }
       });
 
@@ -397,6 +516,32 @@ export function SubscriptionReports({ subscriptions }) {
             paymentsCount: acc[period].paymentsList.length
           });
         });
+
+        const paymentMethods = sub.paymentMethods.length > 0 ? sub.paymentMethods : [{ name: 'Unspecified' }];
+        paymentMethods.forEach(paymentMethod => {
+          if (!acc[period].paymentMethods[paymentMethod.name]) {
+            acc[period].paymentMethods[paymentMethod.name] = {};
+          }
+          acc[period].paymentMethods[paymentMethod.name][sub.currency] =
+            (acc[period].paymentMethods[paymentMethod.name][sub.currency] || 0) + amount;
+
+          // Store subscription data for each paymentMethod
+          if (!acc[period].subscriptions[paymentMethod.name]) {
+            acc[period].subscriptions[paymentMethod.name] = [];
+          }
+
+          // Only add the subscription once per paymentMethod
+          acc[period].subscriptions[paymentMethod.name].push({
+            id: sub.id,
+            name: sub.name,
+            amount: periodAmounts[period],
+            currency: sub.currency,
+            logo: logo,
+            date: acc[period].paymentsList.length > 0 ? acc[period].paymentsList[0].date : null,
+            price: sub.price,
+            paymentsCount: acc[period].paymentsList.length
+          });
+        });
       });
 
       return acc;
@@ -412,12 +557,23 @@ export function SubscriptionReports({ subscriptions }) {
       return acc;
     }, {});
 
+    const paymentMethods = activeSubscriptions.reduce((acc, sub) => {
+      const paymentMethodsToAdd = sub.paymentMethods.length > 0 ? sub.paymentMethods : [{ name: 'Unspecified' }];
+      paymentMethodsToAdd.forEach(paymentMethod => {
+        if (!acc[paymentMethod.name]) {
+          acc[paymentMethod.name] = paymentMethod;
+        }
+      });
+      return acc;
+    }, {});
+
     return {
       total: subscriptions.length,
       active: activeSubscriptions.length,
       inactive: inactiveSubscriptions.length,
       costs,
-      categories
+      categories,
+      paymentMethods
     };
   }, [subscriptions]);
 
@@ -483,11 +639,32 @@ export function SubscriptionReports({ subscriptions }) {
           <CardDescription>Track your monthly subscription costs</CardDescription>
         </CardHeader>
         <CardContent className='flex flex-col gap-2'>
-          <OverviewRow title='This Month' description='Until end of month' costs={stats.costs.thisMonth} categories={stats.categories} />
-          <Separator />
-          <OverviewRow title='Next Month' description='Upcoming month only' costs={stats.costs.nextMonth} categories={stats.categories} />
-          <Separator />
-          <OverviewRow title='Next 30 Days' description='Rolling period' costs={stats.costs.inOneMonth} categories={stats.categories} />
+          <Tabs defaultValue='categories' orientation='vertical'>
+            <TabsList>
+              <TabsTrigger value='categories' title='By Categories'>
+                <Icons.categories className='size-4' />
+                <span className='hidden sm:inline'>By Categories</span>
+              </TabsTrigger>
+              <TabsTrigger value='payment-methods' title='By Payment Methods'>
+                <Icons.paymentMethods className='size-4' />
+                <span className='hidden sm:inline'>By Payment Methods</span>
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value='categories'>
+              <OverviewRow title='This Month' description='Until end of month' costs={stats.costs.thisMonth} categories={stats.categories} />
+              <Separator />
+              <OverviewRow title='Next Month' description='Upcoming month only' costs={stats.costs.nextMonth} categories={stats.categories} />
+              <Separator />
+              <OverviewRow title='Next 30 Days' description='Rolling period' costs={stats.costs.inOneMonth} categories={stats.categories} />
+            </TabsContent>
+            <TabsContent value='payment-methods'>
+              <OverviewRowPaymentMethod title='This Month' description='Until end of month' costs={stats.costs.thisMonth} paymentMethods={stats.paymentMethods} />
+              <Separator />
+              <OverviewRowPaymentMethod title='Next Month' description='Upcoming month only' costs={stats.costs.nextMonth} paymentMethods={stats.paymentMethods} />
+              <Separator />
+              <OverviewRowPaymentMethod title='Next 30 Days' description='Rolling period' costs={stats.costs.inOneMonth} paymentMethods={stats.paymentMethods} />
+            </TabsContent>
+          </Tabs>
           <Separator />
           <MostExpensiveSubscription title='Most Expensive Monthly Subscription' mostExpensive={stats.costs.mostExpensive?.monthly} />
         </CardContent>
@@ -498,11 +675,32 @@ export function SubscriptionReports({ subscriptions }) {
           <CardDescription>Track your yearly subscription costs</CardDescription>
         </CardHeader>
         <CardContent className='flex flex-col gap-2'>
-          <OverviewRow title='This Year' description='Until end of year' costs={stats.costs.thisYear} categories={stats.categories} />
-          <Separator />
-          <OverviewRow title='Next Year' description='Next calendar year' costs={stats.costs.nextYear} categories={stats.categories} />
-          <Separator />
-          <OverviewRow title='Next 365 Days' description='Rolling period' costs={stats.costs.inOneYear} categories={stats.categories} />
+          <Tabs defaultValue='categories' orientation='vertical'>
+            <TabsList>
+              <TabsTrigger value='categories' title='By Categories'>
+                <Icons.categories className='size-4' />
+                <span className='hidden sm:inline'>By Categories</span>
+              </TabsTrigger>
+              <TabsTrigger value='payment-methods' title='By Payment Methods'>
+                <Icons.paymentMethods className='size-4' />
+                <span className='hidden sm:inline'>By Payment Methods</span>
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value='categories'>
+              <OverviewRow title='This Year' description='Until end of year' costs={stats.costs.thisYear} categories={stats.categories} />
+              <Separator />
+              <OverviewRow title='Next Year' description='Next calendar year' costs={stats.costs.nextYear} categories={stats.categories} />
+              <Separator />
+              <OverviewRow title='Next 365 Days' description='Rolling period' costs={stats.costs.inOneYear} categories={stats.categories} />
+            </TabsContent>
+            <TabsContent value='payment-methods'>
+              <OverviewRowPaymentMethod title='This Year' description='Until end of year' costs={stats.costs.thisYear} paymentMethods={stats.paymentMethods} />
+              <Separator />
+              <OverviewRowPaymentMethod title='Next Year' description='Next calendar year' costs={stats.costs.nextYear} paymentMethods={stats.paymentMethods} />
+              <Separator />
+              <OverviewRowPaymentMethod title='Next 365 Days' description='Rolling period' costs={stats.costs.inOneYear} paymentMethods={stats.paymentMethods} />
+            </TabsContent>
+          </Tabs>
           <Separator />
           <MostExpensiveSubscription title='Most Expensive Yearly Subscription' mostExpensive={stats.costs.mostExpensive?.yearly} />
         </CardContent>

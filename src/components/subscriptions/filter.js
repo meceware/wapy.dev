@@ -17,14 +17,17 @@ import {
   ResponsiveDialogTrigger,
 } from '@/components/ui/responsive-dialog';
 import { DefaultCurrencies } from '@/config/currencies';
+import { LogoIcon } from '../ui/icon-picker';
 
 export const FilterPanel = ({
   categories,
+  paymentMethods,
   currencies,
   filteredSubscriptions,
   setFilteredSubscriptions,
 }) => {
   const [selectedCategories, setSelectedCategories] = useState(categories);
+  const [selectedPaymentMethods, setSelectedPaymentMethods] = useState(paymentMethods);
   const [enabledFilter, setEnabledFilter] = useState(true);
   const [disabledFilter, setDisabledFilter] = useState(false);
   const [thisMonthFilter, setThisMonthFilter] = useState(false);
@@ -45,6 +48,22 @@ export const FilterPanel = ({
       Object.keys(selectedCategories).reduce((acc, category) => ({
       ...acc,
       [category]: {status: value, color: selectedCategories[category].color}
+      }), {})
+    );
+  };
+
+  const togglePaymentMethod = (paymentMethod) => {
+    setSelectedPaymentMethods(prev => ({
+      ...prev,
+      [paymentMethod]: {status: !prev[paymentMethod].status, icon: prev[paymentMethod].icon}
+    }));
+  };
+
+  const toggleAllPaymentMethods = (value) => {
+    setSelectedPaymentMethods(
+      Object.keys(selectedPaymentMethods).reduce((acc, paymentMethod) => ({
+      ...acc,
+      [paymentMethod]: {status: value, icon: selectedPaymentMethods[paymentMethod].icon}
       }), {})
     );
   };
@@ -76,6 +95,10 @@ export const FilterPanel = ({
           ? sub.categories.some(cat => selectedCategories[cat.name].status)
           : selectedCategories['Uncategorized'].status
         ) && (
+          sub.paymentMethods?.length
+          ? sub.paymentMethods.some(pm => selectedPaymentMethods[pm.name].status)
+          : selectedPaymentMethods['Unspecified'].status
+        ) && (
           enabledFilter && disabledFilter ||
           (enabledFilter && sub.enabled) ||
           (disabledFilter && !sub.enabled)
@@ -89,7 +112,7 @@ export const FilterPanel = ({
     });
 
     setFilteredSubscriptions(result);
-  }, [filteredSubscriptions, selectedCategories, enabledFilter, disabledFilter, thisMonthFilter, next30DaysFilter, selectedCurrencies]);
+  }, [filteredSubscriptions, selectedCategories, selectedPaymentMethods, enabledFilter, disabledFilter, thisMonthFilter, next30DaysFilter, selectedCurrencies]);
 
   return (
     <>
@@ -112,6 +135,7 @@ export const FilterPanel = ({
                   setThisMonthFilter(false);
                   setNext30DaysFilter(false);
                   setSelectedCategories(categories);
+                  setSelectedPaymentMethods(paymentMethods);
                   setSelectedCurrencies(currencies.reduce((acc, currency) => ({...acc, [currency]: true}), {}));
                 }}>
                 <Icons.filterX />
@@ -283,6 +307,49 @@ export const FilterPanel = ({
                           backgroundColor: selectedCategories[category].color,
                         }} />
                         {category}
+                      </Toggle>
+                    ))}
+                </div>
+              </div>
+
+              <div className='flex flex-col gap-2'>
+                <div className='flex justify-between items-center'>
+                  <h3 className='text-sm font-medium'>Payment Methods</h3>
+                  <div className='flex gap-2'>
+                    <Button
+                      variant='ghost'
+                      size='sm'
+                      onClick={() => toggleAllPaymentMethods(true)}
+                      className='h-8 px-3 text-xs cursor-pointer'
+                      title='Select all payment methods'
+                    >
+                      Select All
+                    </Button>
+                    <Button
+                      variant='ghost'
+                      size='sm'
+                      onClick={() => toggleAllPaymentMethods(false)}
+                      className='h-8 px-3 text-xs cursor-pointer'
+                      title='Clear all payment methods'
+                    >
+                      Select None
+                    </Button>
+                  </div>
+                </div>
+                <div className='flex flex-wrap gap-2'>
+                  {Object.keys(selectedPaymentMethods)
+                    .sort()
+                    .map((paymentMethod) => (
+                      <Toggle
+                        key={paymentMethod}
+                        pressed={selectedPaymentMethods[paymentMethod].status}
+                        onPressedChange={() => togglePaymentMethod(paymentMethod)}
+                        variant='outline'
+                        className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                        title={`Filter by ${paymentMethod}`}
+                      >
+                        <LogoIcon icon={selectedPaymentMethods[paymentMethod].icon ? JSON.parse(selectedPaymentMethods[paymentMethod].icon) : false} placeholder className='size-4' />
+                        {paymentMethod}
                       </Toggle>
                     ))}
                 </div>

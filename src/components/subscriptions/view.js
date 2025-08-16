@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, Fragment } from 'react';
 import Link from 'next/link';
 import { format, addMonths, differenceInDays, addYears, isBefore, isPast, formatDistanceToNowStrict, isEqual, formatDistanceStrict, differenceInMinutes } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
@@ -253,6 +253,34 @@ export function SubscriptionView({ subscription, settings }) {
                   )}
                 </p>
               </div>
+
+              {(subscription?.paymentMethods?.length || 0) > 0 && (
+                <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                  <div className='block text-sm'>
+                    This subscription will be paid{' '}
+                    {subscription?.paymentMethods.map((paymentMethod, index) => {
+                        const isLast = index === subscription?.paymentMethods.length - 1;
+                        const separator =
+                          index === 0
+                            ? ' via '
+                            : isLast
+                            ? ' and '
+                            : ', ';
+
+                        return (
+                          <Fragment key={`pm-${index}`}>
+                            {separator}
+                            <div key={paymentMethod.name} className='inline-flex gap-1 align-bottom items-center'>
+                              <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} className='size-4' />
+                              <span className='font-semibold'>{paymentMethod.name}</span>
+                            </div>
+                          </Fragment>
+                        );
+                      })}
+                    {'.'}
+                  </div>
+                </div>
+              )}
 
               <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
                 <p className='text-sm'>

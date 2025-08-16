@@ -1,0 +1,16 @@
+export const DefaultPaymentMethods = {
+  'Credit Card': '{"library":"SimpleIcons","icon":"siVisa"}',
+  'Bank Transfer': '{"library":"Lucide","icon":"Banknote"}',
+  'Cash': '{"library":"Lucide","icon":"Wallet"}',
+  'PayPal': '{"library":"DashboardIcons","icon":"paypal"}',
+  'Google Pay': '{"library":"DashboardIcons","icon":"google-pay","colors":{}}',
+  'Apple Pay': '{"library":"SimpleIcons","icon":"siApplepay"}',
+  'Amazon Pay': '{"library":"DashboardIcons","icon":"amazon","colors":{"dark":"amazon-light","light":"amazon"}}',
+  'Samsung Pay': '{"library":"SimpleIcons","icon":"siSamsungpay"}',
+  'Crypto': '{"library":"DashboardIcons","icon":"bitcoin","colors":{}}',
+  'Klarna': '{"library":"SimpleIcons","icon":"siKlarna"}',
+  'Qiwi': '{"library":"SimpleIcons","icon":"siQiwi"}',
+  'Venmo': '{"library":"SimpleIcons","icon":"siVenmo"}',
+  'WebMoney': '{"library":"SimpleIcons","icon":"siWebmoney"}',
+  'SEPA': '{"library":"SimpleIcons","icon":"siSepa"}',
+};

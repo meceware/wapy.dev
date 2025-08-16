@@ -1,5 +1,6 @@
 'use client';
 
+import { Fragment } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import * as DateFNS from 'date-fns';
@@ -186,6 +187,45 @@ const SubscriptionPaymentCount = ({ subscription }) => {
   );
 };
 
+const SubscriptionPaymentMethods = ({ subscription }) => {
+  if (!subscription.enabled) {
+    return null;
+  }
+
+  const paymentMethods = subscription.paymentMethods || [];
+
+  if (paymentMethods?.length === 0) {
+    return null;
+  }
+
+  return (
+    <div>
+      <span className='text-sm text-muted-foreground'>This will be paid</span>
+      {' '}
+      {paymentMethods.map((paymentMethod, index) => {
+        const isLast = index === paymentMethods.length - 1;
+        const separator =
+          index === 0
+            ? ' via '
+            : isLast
+            ? ' and '
+            : ', ';
+
+        return (
+          <Fragment key={`pm-${index}`}>
+            <span className='text-sm text-muted-foreground'>{separator}</span>
+            <div key={paymentMethod.name} className='inline-flex gap-1 align-bottom items-center'>
+              <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} className='size-4' />
+              <span>{paymentMethod.name}</span>
+            </div>
+          </Fragment>
+        );
+      })}
+      <span className='text-muted-foreground'>.</span>
+    </div>
+  );
+};
+
 const SubscriptionPastPaymentCount = ({ subscription }) => {
   const paymentCount = subscription?._count?.pastPayments || 0;
 
@@ -242,6 +282,7 @@ export const SubscriptionCard = ({ subscription, settings }) => {
               <SubscriptionPaymentDate subscription={subscription} />
               <SubscriptionMarkAsPaid subscription={subscription} />
               <SubscriptionPaymentCount subscription={subscription} />
+              <SubscriptionPaymentMethods subscription={subscription} />
               <SubscriptionPastPaymentCount subscription={subscription} />
               <SubscriptionIsNotified subscription={subscription} settings={settings} />
             </>

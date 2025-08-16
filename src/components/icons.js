@@ -39,6 +39,7 @@ import {
   TriangleAlert,
   X,
   Wallet,
+  WalletCards,
   Webhook,
 } from 'lucide-react';
 
@@ -50,6 +51,7 @@ export const Icons = {
   bellRing: BellRing,
   calendar: Calendar,
   categories: SwatchBook,
+  paymentMethods: WalletCards,
   chart: ChartColumn,
   check: Check,
   currency: Currency,

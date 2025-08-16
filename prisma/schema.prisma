@@ -50,6 +50,8 @@ model User {
   subscriptions     Subscription[]
   // Categories
   categories        Category[]
+  // Payment methods
+  paymentMethods    PaymentMethod[]
   // Push subscriptions
   push              PushSubscription[]
   // Past notifications
@@ -156,6 +158,8 @@ model Subscription {
   notes             String?         @db.Text
   // Categories
   categories        Category[]
+  // Payment Methods
+  paymentMethods    PaymentMethod[]
   // Notifications
   notifications     Json            @default("[]")
 
@@ -184,6 +188,20 @@ model Category {
   updatedAt         DateTime       @updatedAt      @map("updated_at")
 
   @@unique([name, userId])    // Prevent duplicate categories per user
+  @@index([userId])
+}
+
+model PaymentMethod {
+  id                String         @id @default(cuid())
+  userId            String         @map("user_id")
+  user              User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name              String
+  icon              String?        @default("")
+  subscriptions     Subscription[]
+  createdAt         DateTime       @default(now()) @map("created_at")
+  updatedAt         DateTime       @updatedAt      @map("updated_at")
+
+  @@unique([name, userId])    // Prevent duplicate payment methods per user
   @@index([userId])
 }
 

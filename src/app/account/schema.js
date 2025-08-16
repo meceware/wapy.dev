@@ -7,7 +7,16 @@ export const SchemaCategoryId = z.object({
 
 export const SchemaCategory = z.object({
   name: z.string().min(1),
-  color: z.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, 'Invalid hex color')
+  color: z.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, 'Invalid hex color'),
+});
+
+export const SchemaPaymentMethodId = z.object({
+  id: z.string().cuid()
+});
+
+export const SchemaPaymentMethod = z.object({
+  name: z.string().min(1),
+  icon: z.string().optional(),
 });
 
 export const SchemaTimezone = z.string().min(1);

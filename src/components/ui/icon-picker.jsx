@@ -150,7 +150,7 @@ const useIconsPackage = () => {
   }, [dashboardIconsMetadata]);
 };
 
-export const LogoIcon = ({ icon, className, children }) => {
+export const LogoIcon = ({ icon, className, placeholder = false, children }) => {
   if (icon) {
     if (icon.library === 'url') {
       return (
@@ -187,19 +187,24 @@ export const LogoIcon = ({ icon, className, children }) => {
           <img
             src={`/icons/dashboard/${icon?.colors?.dark ? icon.colors.dark : icon.icon}.svg`}
             alt={toNormalCase(icon.icon)}
-            className={'size-8 object-contain hidden dark:block'}
+            className={cn('size-8 object-contain hidden dark:block', className)}
           />
           <img
             src={`/icons/dashboard/${icon?.colors?.light ? icon.colors.light : icon.icon}.svg`}
             alt={toNormalCase(icon.icon)}
-            className={'size-8 object-contain block dark:hidden'}
+            className={cn('size-8 object-contain block dark:hidden', className)}
           />
         </>
       );
     }
   }
 
-  return <>{children}</>;
+  return placeholder
+    ? (
+      <div className={cn('rounded-full size-8 bg-gray-200 dark:bg-gray-800', className)}>{children}</div>
+    )
+    : (<>{children}</>)
+  ;
 };
 
 // icon parameter is an object as follows:

@@ -31,6 +31,13 @@ export const SubscriptionGet = async (subscriptionId, userId) => {
           color: true,
         },
       },
+      paymentMethods: {
+        select: {
+          id: true,
+          name: true,
+          icon: true,
+        },
+      },
     },
     omit: {
       userId: true,
@@ -223,6 +230,20 @@ export async function SubscriptionActionEdit(data) {
   const existingCategories = parsedData.data.categories.filter(c => c.id);
   const allCategories = [...existingCategories, ...createdCategories];
 
+  // Create new payment methods first
+  const createdPaymentMethods = await prisma.paymentMethod.createManyAndReturn({
+    data: parsedData.data.paymentMethods.filter(c => !c.id).map(paymentMethod => ({
+      name: paymentMethod.name,
+      icon: paymentMethod.icon,
+      userId: session.user.id
+    })),
+    skipDuplicates: true,
+  });
+
+  // Merge existing and created payment methods
+  const existingPaymentMethods = parsedData.data.paymentMethods.filter(c => c.id);
+  const allPaymentMethods = [...existingPaymentMethods, ...createdPaymentMethods];
+
   // Prepare base subscription data
   const nextNotificationDate = SubscriptionGetNextNotificationDate(parsedData.data);
   const baseSubscriptionData = {
@@ -259,13 +280,20 @@ export async function SubscriptionActionEdit(data) {
       categories: {
         set: [], // First disconnect all categories
         connect: allCategories.map(c => ({ id: c.id }))
-      }
+      },
+      paymentMethods: {
+        set: [], // First disconnect all payment methods
+        connect: allPaymentMethods.map(c => ({ id: c.id }))
+      },
     },
     create: {
       ...baseSubscriptionData,
       categories: {
         connect: allCategories.map(c => ({ id: c.id }))
-      }
+      },
+      paymentMethods: {
+        connect: allPaymentMethods.map(c => ({ id: c.id }))
+      },
     }
   });
 

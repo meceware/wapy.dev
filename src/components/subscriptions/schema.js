@@ -41,5 +41,12 @@ export const SchemaSubscriptionEdit = z.object({
       color: z.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, 'Invalid hex color')
     })
   ).optional(),
+  paymentMethods: z.array(
+    z.object({
+      id: z.string().cuid().optional().or(z.literal('')),
+      name: z.string().min(1),
+      icon: z.string().optional()
+    })
+  ).optional(),
   notifications: SchemaNotifications.optional(),
 });

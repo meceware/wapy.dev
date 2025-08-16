@@ -39,6 +39,10 @@ Sign in with Email, Github, or Google for a seamless experience.
 
 Organize your subscriptions by category and add a personal touch with custom colors.
 
+💳 **Payment Method Flexibility**
+
+Easily assign payment methods to your subscriptions and display them clearly with recognizable icons.
+
 📱 **Add to Home Screen for Mobile App Experience**
 
 Use Wapy.dev like a mobile app by adding it to your home screen with just a few taps.

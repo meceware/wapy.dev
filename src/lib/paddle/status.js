@@ -106,6 +106,16 @@ export const paddleGetSession = async () => {
           name: 'asc'
         },
       },
+      paymentMethods: {
+        select: {
+          id: true,
+          name: true,
+          icon: true,
+        },
+        orderBy: {
+          name: 'asc'
+        },
+      },
       paddleUserDetails: {
         select: {
           customerStatus: true,

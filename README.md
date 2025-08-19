@@ -89,7 +89,7 @@ The `.env` file is used to configure the application. Please see [Environment Va
 - [shadcn/ui](https://ui.shadcn.com/) components ([Radix UI](https://www.radix-ui.com/) under the hood)
 - Authentication with [Auth.js](https://authjs.dev/)
 - [Web Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API) for notifications
-- [Lucide](https://lucide.dev/) and [Simple Icons](https://simpleicons.org/) for icons
+- [Lucide](https://lucide.dev/), [Dashboard Icons](https://dashboardicons.com/) and [Simple Icons](https://simpleicons.org/) for icons
 
 ## Contributing
 

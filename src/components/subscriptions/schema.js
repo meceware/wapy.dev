@@ -11,6 +11,10 @@ export const SchemaNotifications = z.array(z.object({
   due: z.number().int().min(0),
 }));
 
+export const SchemaSubscriptionPrice = z.object({
+  price: z.coerce.number().positive().multipleOf(0.01).min(0.01),
+});
+
 export const SchemaSubscriptionEdit = z.object({
   id: z.string().cuid().optional(),
   name: z.string().min(2, {

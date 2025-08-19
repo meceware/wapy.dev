@@ -4,7 +4,11 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { auth } from '@/lib/auth';
-import { SchemaSubscriptionId, SchemaSubscriptionEdit } from '@/components/subscriptions/schema';
+import {
+  SchemaSubscriptionId,
+  SchemaSubscriptionPrice,
+  SchemaSubscriptionEdit,
+} from '@/components/subscriptions/schema';
 import { SubscriptionGetNextNotificationDate, SubscriptionGetNextPaymentDate } from '@/components/subscriptions/lib';
 import { subYears } from 'date-fns';
 
@@ -131,7 +135,7 @@ export const SubscriptionGetPastPaymentsStats = async (subscriptionId, userId) =
   };
 };
 
-export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
+export async function SubscriptionActionMarkAsPaid(subscriptionId, userId, price = true) {
   const subscription = await SubscriptionGet(subscriptionId, userId);
   if (!subscription) {
     return false;
@@ -143,13 +147,13 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
     paymentDate: nextPaymentDate,
   });
   const updateData = {
-    paymentDate: nextPaymentDate ? nextPaymentDate : subscription.paymentDate,
-    enabled: nextPaymentDate ? true : false,
+    paymentDate: nextPaymentDate ?? subscription.paymentDate,
+    enabled: !!nextPaymentDate,
     nextNotificationTime: nextPaymentDate ? nextNotificationDate?.date : null,
     nextNotificationDetails: nextPaymentDate ? nextNotificationDate?.details : {},
   };
 
-  const [newSubscription, _pastPayment] = await Promise.allSettled([
+  const operations = [
     prisma.subscription.update({
       where: {
         id: subscription.id,
@@ -157,18 +161,25 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
       },
       data: updateData,
     }),
-    prisma.pastPayment.create({
-      data: {
-        userId: userId,
-        subscriptionId: subscription.id,
-        price: subscription.price,
-        currency: subscription.currency,
-        paymentDate: subscription.paymentDate,
-      },
-    }),
-  ]);
+  ];
 
-  if ( !newSubscription?.value ) {
+  if (price) {
+    operations.push(
+      prisma.pastPayment.create({
+        data: {
+          userId: userId,
+          subscriptionId: subscription.id,
+          price: (typeof price === 'number') ? price : subscription.price,
+          currency: subscription.currency,
+          paymentDate: subscription.paymentDate,
+        },
+      })
+    );
+  }
+
+  const [newSubscription, _pastPayment] = await Promise.allSettled(operations);
+
+  if ( newSubscription?.status !== 'fulfilled' || !newSubscription?.value ) {
     console.warn('Error updating subscription payment date');
     return false;
   }
@@ -181,6 +192,29 @@ export const SubscriptionActionMarkAsPaidSession = async (subscriptionId) => {
     return false;
   }
   return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id);
+}
+
+export const SubscriptionActionMarkAsPaidSessionWithPrice = async (subscriptionId, price) => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return false;
+  }
+
+  const parsedData = SchemaSubscriptionPrice.safeParse({price: price});
+  if (!parsedData?.success || !parsedData?.data) {
+    return false;
+  }
+
+  return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id, parsedData.data.price);
+}
+
+export const SubscriptionActionMarkAsPaidSessionNoPrice = async (subscriptionId) => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return false;
+  }
+
+  return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id, false);
 }
 
 export async function SubscriptionActionEdit(data) {

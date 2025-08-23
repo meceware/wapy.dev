@@ -5,11 +5,27 @@ export const SchemaSubscriptionId = z.object({
   userId: z.string().cuid().optional(),
 });
 
-export const SchemaNotifications = z.array(z.object({
-  type: z.array(z.enum(['EMAIL', 'PUSH', 'WEBHOOK'])),
-  time: z.enum(['INSTANT', 'MINUTES', 'HOURS', 'DAYS', 'WEEKS']),
-  due: z.number().int().min(0),
-}));
+export const SchemaNotifications = z.array(
+  z.object({
+    type: z.array(z.enum(['EMAIL', 'PUSH', 'WEBHOOK'])),
+    time: z.enum(['INSTANT', 'MINUTES', 'HOURS', 'DAYS', 'WEEKS']),
+    due: z.number().int().min(0),
+  })
+).transform((notifications) => {
+  const notificationMap = new Map();
+  notifications.forEach(notification => {
+    const key = `${notification.due}-${notification.time}`;
+    if (notificationMap.has(key)) {
+      // Merge 'type' arrays and remove duplicates
+      const existingNotification = notificationMap.get(key);
+      existingNotification.type = [...new Set([...existingNotification.type, ...notification.type])];
+    } else {
+      notificationMap.set(key, { ...notification });
+    }
+  });
+
+  return Array.from(notificationMap.values());
+});
 
 export const SchemaSubscriptionPrice = z.object({
   price: z.coerce.number().positive().multipleOf(0.01).min(0.01),

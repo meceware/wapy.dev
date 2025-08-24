@@ -16,6 +16,13 @@ export const HomeMember = async ({ userId, settings }) => {
           color: true
         }
       },
+      paymentMethods: {
+        select: {
+          id: true,
+          name: true,
+          icon: true
+        }
+      },
       _count: {
         select: {
           pastPayments: true

@@ -37,6 +37,9 @@ import {
   UserLoadDefaultCategories,
   UserRemoveCategory,
   UserSaveCategory,
+  UserLoadDefaultPaymentMethods,
+  UserRemovePaymentMethod,
+  UserSavePaymentMethod,
   UserUpdateTimezone,
   UserUpdateCurrency,
   UserUpdateNotifications,
@@ -44,7 +47,12 @@ import {
   UserUpdateName,
   UserExportData,
 } from './actions';
-import { SchemaCategory, SchemaWebhook, SchemaUserNotifications } from './schema';
+import {
+  SchemaCategory,
+  SchemaPaymentMethod,
+  SchemaWebhook,
+  SchemaUserNotifications,
+} from './schema';
 import { DefaultCategories } from '@/config/categories';
 import { CurrencyFieldManager } from '@/components/subscriptions/form/field-currency';
 import { TimezoneFieldManager } from '@/components/subscriptions/form/field-timezone';
@@ -52,6 +60,7 @@ import { NotificationsFieldManager } from '@/components/subscriptions/form/field
 import { cn } from '@/lib/utils';
 import { PADDLE_STATUS_MAP } from '@/lib/paddle/enum';
 import { paddleCheckSubscriptionCheckout, paddleCancelSubscription, paddleResumeSubscription } from '@/lib/paddle/actions';
+import { LogoIcon, IconPicker } from '@/components/ui/icon-picker';
 
 const TimezoneManager = ({ user }) => {
   const [selectedTimezone, setSelectedTimezone] = useState(user?.timezone);
@@ -588,6 +597,273 @@ const CategoryManager = ({ user }) => {
   );
 };
 
+const PaymentMethodSkeleton = () => (
+  <div className='flex items-center justify-start gap-2 px-4 py-2 border rounded-md'>
+    <Skeleton className='size-4 rounded-full' />
+    <Skeleton className='w-64 h-5 my-0.5' />
+  </div>
+);
+
+const PaymentMethodSkeletons = () => (
+  <>
+    {Array.from({ length: 5 }).map((_, index) => (
+      <PaymentMethodSkeleton key={index} />
+    ))}
+  </>
+);
+
+const PaymentMethodItemEdit = ({ name, icon, onCancel, onSave, onDelete }) => {
+  const [editedIcon, setEditedIcon] = useState(icon);
+  const [editedName, setEditedName] = useState(name);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  return (
+    <div className='flex flex-col items-start w-full gap-2'>
+      <div className='w-full'>
+        <IconPicker
+          icon={icon}
+          onChange={(c) => setEditedIcon(c)}
+        />
+      </div>
+
+      <div className='flex flex-col sm:flex-row items-start justify-between gap-2 w-full'>
+        <div className='flex items-center gap-2 w-full'>
+          <Input
+            value={editedName}
+            onChange={(e) => setEditedName(e.target.value)}
+            className='flex-1'
+            placeholder='Payment method name'
+          />
+        </div>
+        <div className='flex items-center gap-2 w-full sm:w-auto'>
+          <Button
+            onClick={onCancel}
+            variant='outline'
+            size='icon'
+            className='flex-1 sm:flex-none'
+            title='Cancel'
+          >
+            <Icons.x className='size-4' />
+          </Button>
+          <Button
+            onClick={() => onSave(editedName, editedIcon)}
+            size='icon'
+            className='flex-1 sm:flex-none'
+            title='Save'
+          >
+            <Icons.save className='size-4' />
+          </Button>
+          <Button
+            onClick={() => setDialogOpen(true)}
+            variant='destructive'
+            size='icon'
+            className='flex-1 sm:flex-none'
+            title='Delete'
+          >
+            <Icons.trash className='size-4' />
+          </Button>
+        </div>
+        <ResponsiveDialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <ResponsiveDialogContent>
+            <ResponsiveDialogHeader>
+              <ResponsiveDialogTitle>Delete Payment Method</ResponsiveDialogTitle>
+              <ResponsiveDialogDescription className='text-left'>
+                Are you sure you want to delete this payment method? This action cannot be undone.
+              </ResponsiveDialogDescription>
+            </ResponsiveDialogHeader>
+            <ResponsiveDialogFooter>
+              <Button
+                variant='outline'
+                onClick={() => setDialogOpen(false)}
+                title='Cancel'
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={() => {setDialogOpen(false); onDelete();}}
+                variant='destructive'
+                title='Delete'
+              >
+                Delete
+              </Button>
+            </ResponsiveDialogFooter>
+          </ResponsiveDialogContent>
+        </ResponsiveDialog>
+      </div>
+    </div>
+  );
+};
+
+const PaymentMethodItem = ({ paymentMethod, onSave, onDelete, edit = false }) => {
+  const [editingName, setEditingName] = useState(paymentMethod.name);
+  const [editingIcon, setEditingIcon] = useState(paymentMethod.icon);
+  const [isEditing, setIsEditing] = useState(edit);
+  const [isSkeleton, setIsSkeleton] = useState(false);
+
+  const handleDoubleClick = () => {
+    setEditingName(paymentMethod.name);
+    setEditingIcon(paymentMethod.icon);
+    setIsEditing(true);
+  };
+
+  const handleSave = async (name, icon) => {
+    const validatedData = SchemaPaymentMethod.parse({ name: name, icon: icon });
+    if (!validatedData) {
+      toast.error('Invalid payment method data');
+      return;
+    }
+
+    setIsSkeleton(true);
+    setEditingName(name);
+    setEditingIcon(icon);
+    const updated = await onSave({ ...paymentMethod, ...validatedData });
+    if (updated) {
+      setIsEditing(false);
+    }
+    setIsSkeleton(false);
+  };
+
+  const handleDelete = () => {
+    setIsEditing(false);
+    setIsSkeleton(true);
+    onDelete(paymentMethod, paymentMethod?.temporaryId ? false : true);
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+    setIsSkeleton(false);
+    if (paymentMethod?.temporaryId) {
+      onDelete(paymentMethod, false);
+    }
+  };
+
+  if (isSkeleton) {
+    return <PaymentMethodSkeleton />;
+  }
+
+  return (
+    <div className='group relative flex items-center justify-between rounded-lg border px-3 py-2 hover:bg-accent/50 transition-colors'>
+      {isEditing ? (
+        <PaymentMethodItemEdit
+          icon={editingIcon}
+          name={editingName}
+          onSave={handleSave}
+          onCancel={handleCancel}
+          onDelete={handleDelete}
+        />
+      ) : (
+        <>
+          <div className='flex items-center gap-3 text-sm'>
+            <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} placeholder className='size-8' />
+            <span className='line-clamp-2 break-all'>{paymentMethod.name}</span>
+          </div>
+          <Button
+            variant='ghost'
+            size='icon'
+            onClick={handleDoubleClick}
+            title='Edit payment method'
+          >
+            <Icons.edit />
+            <span className='sr-only'>Edit payment method</span>
+          </Button>
+        </>
+      )}
+    </div>
+  );
+};
+
+const PaymentMethodManager = ({ user }) => {
+  const [loading, setLoading] = useState(false);
+  const [paymentMethods, setPaymentMethods] = useState(user.paymentMethods ? [...user.paymentMethods] : []);
+
+  const loadDefaultPaymentMethods = async () => {
+    try {
+      setLoading(true);
+      await UserLoadDefaultPaymentMethods().then((defaultPaymentMethods) => {
+        setPaymentMethods([...paymentMethods, ...defaultPaymentMethods]);
+        setLoading(false);
+        toast.success('Default payment methods loaded successfully!');
+      });
+    } catch (error) {
+      toast.error('Failed to create default payment methods!');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (paymentMethod, isToast = true) => {
+    try {
+      if (paymentMethod?.temporaryId) {
+        setPaymentMethods(paymentMethods.filter((c) => c.temporaryId !== paymentMethod.temporaryId));
+      } else {
+        await UserRemovePaymentMethod(paymentMethod.id).then((deletedPaymentMethod) => {
+          setPaymentMethods(paymentMethods.filter((c) => c.id !== deletedPaymentMethod.id));
+        });
+      }
+      if (isToast) {
+        toast.success('Payment method deleted successfully!');
+      }
+    } catch (error) {
+      toast.error('Failed to delete payment method!');
+    }
+  };
+
+  const handleSave = async (paymentMethod) => {
+    try {
+      await UserSavePaymentMethod(paymentMethod).then((updatedPaymentMethod) => {
+        setPaymentMethods(paymentMethods.map((c) => {
+          if (c?.temporaryId && c?.temporaryId === paymentMethod?.temporaryId) {
+            return updatedPaymentMethod;
+          }
+          return c.id === updatedPaymentMethod.id ? updatedPaymentMethod : c;
+        }));
+      });
+      toast.success('Payment method saved successfully!');
+      return true;
+    } catch (error) {
+      toast.error('Failed to save payment method!');
+    }
+
+    return false;
+  };
+
+  const handleAdd = async () => {
+    setPaymentMethods([...paymentMethods, {
+      id: null,
+      temporaryId: Math.random().toString(16) + '0'.repeat(16) + Date.now().toString(16),
+      name: '',
+      color: '#9E9E9E'
+    }]);
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Payment Methods</CardTitle>
+        <CardDescription>
+          Manage your payment methods
+        </CardDescription>
+      </CardHeader>
+      <CardContent className='flex flex-col gap-2'>
+        {loading && <PaymentMethodSkeletons />}
+        {!loading && paymentMethods.map((paymentMethod) => (
+          <PaymentMethodItem key={paymentMethod.id ? paymentMethod.id : paymentMethod.temporaryId} paymentMethod={paymentMethod} onSave={handleSave} onDelete={handleDelete} edit={paymentMethod?.temporaryId} />
+        ))}
+      </CardContent>
+      <CardFooter className='gap-2 flex-col sm:flex-row justify-start items-start sm:items-center'>
+        <Button disabled={loading} onClick={handleAdd} title='Add new payment method' className='w-full sm:w-auto'>
+          <Icons.add />
+          Add
+        </Button>
+        <Button disabled={loading} onClick={loadDefaultPaymentMethods} variant='outline' title='Load default payment methods' className='w-full sm:w-auto whitespace-normal h-auto min-h-9'>
+          <Icons.paymentMethods />
+          Load Default Payment Methods
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+};
+
 const PaymentStatusDate = ({date}) => {
   return (
     <div className='inline-flex items-center gap-1'>
@@ -1066,7 +1342,7 @@ const ExportActions = () => {
       <CardHeader>
         <CardTitle>Data Export</CardTitle>
         <CardDescription>
-          Download a copy of your subscriptions, categories and settings
+          Download a copy of your subscriptions, categories, payment methods and settings
         </CardDescription>
       </CardHeader>
       <CardContent className='space-y-4'>
@@ -1097,6 +1373,7 @@ export const AccountSettings = ({ user, paddleStatus }) => {
       <DefaultSettings user={user} />
       <NotificationManager user={user} />
       <CategoryManager user={user} />
+      <PaymentMethodManager user={user} />
       <ExportActions />
     </div>
   );

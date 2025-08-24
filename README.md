@@ -39,6 +39,10 @@ Sign in with Email, Github, or Google for a seamless experience.
 
 Organize your subscriptions by category and add a personal touch with custom colors.
 
+💳 **Payment Method Flexibility**
+
+Easily assign payment methods to your subscriptions and display them clearly with recognizable icons.
+
 📱 **Add to Home Screen for Mobile App Experience**
 
 Use Wapy.dev like a mobile app by adding it to your home screen with just a few taps.
@@ -85,7 +89,7 @@ The `.env` file is used to configure the application. Please see [Environment Va
 - [shadcn/ui](https://ui.shadcn.com/) components ([Radix UI](https://www.radix-ui.com/) under the hood)
 - Authentication with [Auth.js](https://authjs.dev/)
 - [Web Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API) for notifications
-- [Lucide](https://lucide.dev/) and [Simple Icons](https://simpleicons.org/) for icons
+- [Lucide](https://lucide.dev/), [Dashboard Icons](https://dashboardicons.com/) and [Simple Icons](https://simpleicons.org/) for icons
 
 ## Contributing
 

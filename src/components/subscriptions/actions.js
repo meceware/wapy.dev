@@ -4,7 +4,11 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { auth } from '@/lib/auth';
-import { SchemaSubscriptionId, SchemaSubscriptionEdit } from '@/components/subscriptions/schema';
+import {
+  SchemaSubscriptionId,
+  SchemaSubscriptionPrice,
+  SchemaSubscriptionEdit,
+} from '@/components/subscriptions/schema';
 import { SubscriptionGetNextNotificationDate, SubscriptionGetNextPaymentDate } from '@/components/subscriptions/lib';
 import { subYears } from 'date-fns';
 
@@ -29,6 +33,13 @@ export const SubscriptionGet = async (subscriptionId, userId) => {
           id: true,
           name: true,
           color: true,
+        },
+      },
+      paymentMethods: {
+        select: {
+          id: true,
+          name: true,
+          icon: true,
         },
       },
     },
@@ -124,7 +135,7 @@ export const SubscriptionGetPastPaymentsStats = async (subscriptionId, userId) =
   };
 };
 
-export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
+export async function SubscriptionActionMarkAsPaid(subscriptionId, userId, price = true) {
   const subscription = await SubscriptionGet(subscriptionId, userId);
   if (!subscription) {
     return false;
@@ -136,13 +147,13 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
     paymentDate: nextPaymentDate,
   });
   const updateData = {
-    paymentDate: nextPaymentDate ? nextPaymentDate : subscription.paymentDate,
-    enabled: nextPaymentDate ? true : false,
+    paymentDate: nextPaymentDate ?? subscription.paymentDate,
+    enabled: !!nextPaymentDate,
     nextNotificationTime: nextPaymentDate ? nextNotificationDate?.date : null,
     nextNotificationDetails: nextPaymentDate ? nextNotificationDate?.details : {},
   };
 
-  const [newSubscription, _pastPayment] = await Promise.allSettled([
+  const operations = [
     prisma.subscription.update({
       where: {
         id: subscription.id,
@@ -150,18 +161,25 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId) {
       },
       data: updateData,
     }),
-    prisma.pastPayment.create({
-      data: {
-        userId: userId,
-        subscriptionId: subscription.id,
-        price: subscription.price,
-        currency: subscription.currency,
-        paymentDate: subscription.paymentDate,
-      },
-    }),
-  ]);
+  ];
 
-  if ( !newSubscription?.value ) {
+  if (price) {
+    operations.push(
+      prisma.pastPayment.create({
+        data: {
+          userId: userId,
+          subscriptionId: subscription.id,
+          price: (typeof price === 'number') ? price : subscription.price,
+          currency: subscription.currency,
+          paymentDate: subscription.paymentDate,
+        },
+      })
+    );
+  }
+
+  const [newSubscription, _pastPayment] = await Promise.allSettled(operations);
+
+  if ( newSubscription?.status !== 'fulfilled' || !newSubscription?.value ) {
     console.warn('Error updating subscription payment date');
     return false;
   }
@@ -174,6 +192,29 @@ export const SubscriptionActionMarkAsPaidSession = async (subscriptionId) => {
     return false;
   }
   return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id);
+}
+
+export const SubscriptionActionMarkAsPaidSessionWithPrice = async (subscriptionId, price) => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return false;
+  }
+
+  const parsedData = SchemaSubscriptionPrice.safeParse({price: price});
+  if (!parsedData?.success || !parsedData?.data) {
+    return false;
+  }
+
+  return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id, parsedData.data.price);
+}
+
+export const SubscriptionActionMarkAsPaidSessionNoPrice = async (subscriptionId) => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return false;
+  }
+
+  return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id, false);
 }
 
 export async function SubscriptionActionEdit(data) {
@@ -223,6 +264,20 @@ export async function SubscriptionActionEdit(data) {
   const existingCategories = parsedData.data.categories.filter(c => c.id);
   const allCategories = [...existingCategories, ...createdCategories];
 
+  // Create new payment methods first
+  const createdPaymentMethods = await prisma.paymentMethod.createManyAndReturn({
+    data: parsedData.data.paymentMethods.filter(c => !c.id).map(paymentMethod => ({
+      name: paymentMethod.name,
+      icon: paymentMethod.icon,
+      userId: session.user.id
+    })),
+    skipDuplicates: true,
+  });
+
+  // Merge existing and created payment methods
+  const existingPaymentMethods = parsedData.data.paymentMethods.filter(c => c.id);
+  const allPaymentMethods = [...existingPaymentMethods, ...createdPaymentMethods];
+
   // Prepare base subscription data
   const nextNotificationDate = SubscriptionGetNextNotificationDate(parsedData.data);
   const baseSubscriptionData = {
@@ -259,13 +314,20 @@ export async function SubscriptionActionEdit(data) {
       categories: {
         set: [], // First disconnect all categories
         connect: allCategories.map(c => ({ id: c.id }))
-      }
+      },
+      paymentMethods: {
+        set: [], // First disconnect all payment methods
+        connect: allPaymentMethods.map(c => ({ id: c.id }))
+      },
     },
     create: {
       ...baseSubscriptionData,
       categories: {
         connect: allCategories.map(c => ({ id: c.id }))
-      }
+      },
+      paymentMethods: {
+        connect: allPaymentMethods.map(c => ({ id: c.id }))
+      },
     }
   });
 

@@ -19,7 +19,13 @@ const PageReports = async () => {
           name: true,
           color: true
         }
-      }
+      },
+      paymentMethods: {
+        select: {
+          name: true,
+          icon: true
+        }
+      },
     },
     omit: {
       userId: true,

@@ -157,8 +157,9 @@ export function AddToHomeScreen() {
 
   useEffect(() => {
     const getUserAgent = () => {
-      if (typeof window !== 'undefined') {
-        const userAgentString = window.navigator.userAgent;
+      if (typeof window !== 'undefined' && typeof window?.navigator !== 'undefined') {
+        const userAgentString = navigator.userAgent || '';
+        const platform = navigator?.userAgentData?.platform || navigator?.platform;
 
         // Determine browser type
         const browsers = {
@@ -173,25 +174,33 @@ export function AddToHomeScreen() {
           userAgentString.includes(key)
         )?.[1] || 'unknown';
 
-        // Check device type
-        const isIOS = /iPhone|iPad|iPod/i.test(userAgentString);
+        const isIOS = (() => {
+          if (platform === 'iOS' || platform === 'iPhone' || platform === 'iPad' || platform === 'iPod') {
+            return true;
+          }
+
+          // iPad on iOS 13+ pretends to be a Mac but has touch support
+          const maxTouchPoints = navigator.maxTouchPoints || 0;
+          const isLikelyIPad = userAgentString.includes('Macintosh') && (platform === 'MacIntel') && (maxTouchPoints > 1);
+          return /iPhone|iPad|iPod/i.test(userAgentString) || isLikelyIPad;
+        })();
+
         const isAndroid = /Android/i.test(userAgentString);
-        const isMobile = !!(isIOS || isAndroid);
 
         return {
-          isMobile,
-          userAgent,
-          isIOS,
+          isMobile : !!(isIOS || isAndroid),
+          isIOS: isIOS,
           isStandalone: window.matchMedia('(display-mode: standalone)').matches,
-          userAgentString
+          userAgent: userAgent,
+          userAgentString: userAgentString,
         };
       }
 
       return {
         isMobile: false,
-        userAgent: 'unknown',
         isIOS: false,
         isStandalone: false,
+        userAgent: 'unknown',
         userAgentString: 'unknown'
       };
     };

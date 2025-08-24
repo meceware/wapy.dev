@@ -78,9 +78,9 @@ export const CategoryFieldManager = ({ field, categories }) => {
 
   const onCategorySelect = (category) => {
     setSelectedCategories((currentCategories) =>
-      !currentCategories.includes(category)
-        ? [...currentCategories, category]
-        : currentCategories.filter((l) => l.name !== category.name),
+      currentCategories.some((c) => c.id === category.id && c.name === category.name)
+        ? currentCategories.filter((c) => c.id !== category.id)
+        : [...currentCategories, category]
     );
     inputRef?.current?.focus();
   };
@@ -108,14 +108,14 @@ export const CategoryFieldManager = ({ field, categories }) => {
             variant='outline'
             role='combobox'
             aria-expanded={open}
-            className='justify-between h-9 px-3 py-2 font-normal text-sm w-full hover:bg-transparent'
+            className='justify-between h-10 px-3 py-2 font-normal text-sm w-full hover:bg-transparent'
           >
             <span className='truncate'>
               {selectedCategories.length === 0 && 'Select categories'}
               {selectedCategories.length === 1 && `${selectedCategories.length} category selected`}
               {selectedCategories.length > 1 && `${selectedCategories.length} categories selected`}
             </span>
-            <Icons.down className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+            <Icons.down className='ml-2 size-4 shrink-0 opacity-50' />
           </Button>
         </PopoverTrigger>
         <PopoverContent className='p-0 w-[300px] sm:w-[512px]' align='start'>
@@ -129,7 +129,7 @@ export const CategoryFieldManager = ({ field, categories }) => {
             <CommandList>
               <CommandGroup>
                 {currentCategories.map((category) => {
-                  const isActive = selectedCategories.includes(category);
+                  const isActive = selectedCategories.some(c => c.id === category.id && c.name === category.name);
                   return (
                     <CommandItem
                       key={category.name}

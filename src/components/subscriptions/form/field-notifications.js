@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
+import { toast } from 'sonner';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Icons } from '@/components/icons';
@@ -30,6 +30,7 @@ import {
   FormMessage
 } from '@/components/ui/form';
 import { PushNotificationCheckEndpoint } from '@/components/notifications/actions';
+import { UserSubscriptionSendTestNotification } from '@/lib/notifications';
 
 const WebhookManager = ( { field, loading } ) => {
   const [show, setShow] = useState(field?.value ? true : false);
@@ -91,6 +92,7 @@ export const NotificationStatusManager = () => {
     notificationsStatus,
     getPushSubscription,
   } = useNotifications();
+  const [testing, setTesting] = useState(false);
 
   useEffect(() => {
     const checkPushSubscription = async () => {
@@ -98,7 +100,7 @@ export const NotificationStatusManager = () => {
       const pushSubscription = await getPushSubscription();
       if (pushSubscription?.success && pushSubscription?.subscription?.endpoint) {
         // Query database for push subscription
-        const response = await PushNotificationCheckEndpoint(pushSubscription.endpoint);
+        const response = await PushNotificationCheckEndpoint(pushSubscription?.subscription?.endpoint);
         setHasPushSubscription(response?.success);
       } else {
         setHasPushSubscription(false);
@@ -108,26 +110,50 @@ export const NotificationStatusManager = () => {
     checkPushSubscription();
   }, []);
 
+  const sendTestPushNotification = async () => {
+    try {
+      setTesting(true);
+      const { success } = await UserSubscriptionSendTestNotification();
+      if (success) {
+        toast.success('Push notification sent! Check your device(s).');
+      } else {
+        toast.error('Failed to send test push notification! Make sure notifications are enabled and configured correctly.');
+      }
+    } catch (error) {
+      toast.error('Failed to send test push notification!');
+    } finally {
+      setTesting(false);
+    }
+  };
+
   return (
-    <>
+    <p className='text-sm text-muted-foreground'>
       {notificationsStatus === 'denied' && (
-        <span className='text-sm text-destructive'>Push notifications are blocked on this device. Please enable them in your browser settings.</span>
+        <span className='text-destructive'>Push notifications are blocked on this device. Please enable them in your browser settings.</span>
       )}
       {notificationsStatus === 'default' && (
         <>
-          <span className='text-orange-400 text-sm'>Push notifications are not enabled on this device.</span>
+          <span className='text-orange-400'>Push notifications are not enabled on this device.</span>
           {' '}
           <Button variant='link' type='button' onClick={() => setShowNotificationModal(true)} className='text-orange-400 p-0 h-auto inline-flex'>Would you like to enable it?</Button>
         </>
       )}
       {notificationsStatus === 'granted' && !hasPushSubscription && (
         <>
-          <span className='text-orange-400 text-sm'>Push notification permission is granted but it is not properly configured.</span>
+          <span className='text-orange-400'>Push notification permission is granted but it is not properly configured.</span>
           {' '}
-          <Button variant='link' type='button' onClick={() => setShowNotificationModal(true)} className='text-orange-400 p-0 h-auto inline-flex underline'>Would you like to enable it?</Button>
+          <Button variant='link' type='button' onClick={() => setShowNotificationModal(true)} className='text-orange-400 p-0 h-auto inline-flex underline cursor-pointer'>Would you like to enable it?</Button>
         </>
       )}
-    </>
+      {notificationsStatus === 'granted' && hasPushSubscription && (
+        <>
+          <span>Push notifications are enabled for this device. Would you like to send a</span>
+          {' '}
+          <Button variant='link' disabled={testing} type='button' onClick={() => sendTestPushNotification()} className='p-0 h-auto inline-flex cursor-pointer'>test push notification{testing && (<Icons.spinner className='animate-spin' />)}</Button>
+          <span>?</span>
+        </>
+      )}
+    </p>
   );
 };
 
@@ -272,11 +298,9 @@ export const NotificationsFieldManager = ({ field, webhook, isLoading = false, c
           <CardDescription>
             Configure the default notifications for your subscriptions
           </CardDescription>
-          <CardDescription className='whitespace-normal'>
-            <NotificationStatusManager />
-          </CardDescription>
         </CardHeader>
         <CardContent className='space-y-4'>
+          <NotificationStatusManager />
           {webhook?.onChange && (
             <WebhookManager field={webhook} loading={isLoading} />
           )}

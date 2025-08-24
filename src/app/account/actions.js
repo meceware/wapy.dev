@@ -4,9 +4,12 @@ import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
 import { DefaultCategories } from '@/config/categories';
+import { DefaultPaymentMethods } from '@/config/payment-methods';
 import {
   SchemaCategoryId,
   SchemaCategory,
+  SchemaPaymentMethodId,
+  SchemaPaymentMethod,
   SchemaTimezone,
   SchemaCurrency,
   SchemaUserNotifications,
@@ -59,7 +62,7 @@ export const UserLoadDefaultCategories = async () => {
   return createdCategories.map((category) => ({
     id: category.id,
     name: category.name,
-    color: category.color
+    color: category.color,
   })).sort((a, b) => a.name.localeCompare(b.name));
 };
 
@@ -122,6 +125,116 @@ export const UserSaveCategory = async (category) => {
     id: updatedCategory.id,
     name: updatedCategory.name,
     color: updatedCategory.color
+  };
+};
+
+export const UserGetPaymentMethods = async () => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized');
+  }
+
+  const paymentMethods = await prisma.paymentMethod.findMany({
+    where: {
+      userId: session.user.id
+    },
+    orderBy: {
+      name: 'asc'
+    },
+  });
+
+  return paymentMethods.map((paymentMethod) => ({
+    id: paymentMethod.id,
+    name: paymentMethod.name,
+    icon: paymentMethod.icon,
+  }));
+};
+
+export const UserLoadDefaultPaymentMethods = async () => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized');
+  }
+
+  const createdPaymentMethods = await prisma.paymentMethod.createManyAndReturn({
+    data: Object.entries(DefaultPaymentMethods).map(([name, icon]) => ({
+      userId: session.user.id,
+      name: name,
+      icon: icon
+    })),
+    skipDuplicates: true,
+  });
+
+  if (!createdPaymentMethods) {
+    throw new Error('Failed to create default payment methods');
+  }
+
+  return createdPaymentMethods.map((paymentMethod) => ({
+    id: paymentMethod.id,
+    name: paymentMethod.name,
+    icon: paymentMethod.icon,
+  })).sort((a, b) => a.name.localeCompare(b.name));
+};
+
+export const UserRemovePaymentMethod = async (id) => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized');
+  }
+
+  const validatedData = SchemaPaymentMethodId.parse({ id: id });
+  if (!validatedData) {
+    throw new Error('Invalid payment method id');
+  }
+
+  const deletedPaymentMethod = await prisma.paymentMethod.delete({
+    where: { id: validatedData.id, userId: session.user.id }
+  });
+
+  if (!deletedPaymentMethod) {
+    throw new Error('Failed to delete payment method');
+  }
+
+  return {
+    id: deletedPaymentMethod.id,
+  };
+};
+
+export const UserSavePaymentMethod = async (paymentMethod) => {
+  const session = await auth();
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized');
+  }
+
+  const schema = paymentMethod.id !== null ? z.intersection(
+    SchemaPaymentMethodId,
+    SchemaPaymentMethod,
+  ) : SchemaPaymentMethod;
+  const validatedData = schema.parse(paymentMethod);
+  if (!validatedData) {
+    throw new Error('Invalid payment method data');
+  }
+
+  const updatedPaymentMethod = validatedData.id ?
+    await prisma.paymentMethod.update({
+      where: { id: validatedData.id, userId: session.user.id },
+      data: validatedData
+    }) :
+    await prisma.paymentMethod.create({
+      data: {
+        ...validatedData,
+        userId: session.user.id
+      }
+    });
+
+  if (!updatedPaymentMethod) {
+    throw new Error('Failed to update payment method');
+  }
+
+  return {
+    id: updatedPaymentMethod.id,
+    name: updatedPaymentMethod.name,
+    icon: updatedPaymentMethod.icon
   };
 };
 
@@ -300,6 +413,12 @@ export const UserExportData = async () => {
           color: true
         }
       },
+      paymentMethods: {
+        select: {
+          name: true,
+          icon: true
+        }
+      },
       subscriptions: {
         select: {
           name: true,
@@ -319,6 +438,12 @@ export const UserExportData = async () => {
               color: true
             }
           },
+          paymentMethods: {
+            select: {
+              name: true,
+              icon: true
+            }
+          },
           notifications: true,
         }
       }
@@ -333,6 +458,7 @@ export const UserExportData = async () => {
       name: user?.name || '',
     },
     categories: user.categories,
+    paymentMethods: user.paymentMethods,
     subscriptions: user.subscriptions,
   };
 };

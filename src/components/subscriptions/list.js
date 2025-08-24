@@ -71,6 +71,11 @@ export function SubscriptionList({ subscriptions, settings }) {
                 .reduce((acc, category) => ({...acc, [category.name]: {status: true, color: category.color}}), {}),
               ...(subscriptions.some(sub => !sub.categories?.length) ? {'Uncategorized': {status: true}} : {})
             }}
+            paymentMethods={{
+              ...subscriptions.flatMap(sub => sub.paymentMethods?.map(cat => ({name: cat.name, icon: cat.icon})) || [])
+                .reduce((acc, paymentMethod) => ({...acc, [paymentMethod.name]: {status: true, icon: paymentMethod.icon}}), {}),
+              ...(subscriptions.some(sub => !sub.paymentMethods?.length) ? {'Unspecified': {status: true}} : {})
+            }}
             currencies={Array.from(new Set(subscriptions.map(sub => sub.currency)))}
             filteredSubscriptions={searchFilteredSubscriptions}
             setFilteredSubscriptions={setFilteredSubscriptions}

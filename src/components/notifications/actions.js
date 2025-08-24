@@ -48,6 +48,10 @@ export async function PushNotificationUnsubscribe(endpoint) {
 }
 
 export async function PushNotificationCheckEndpoint(endpoint) {
+  if (!endpoint) {
+    return { success: false };
+  }
+
   const session = await auth()
   if (!session) {
     throw new Error('Unauthorized');

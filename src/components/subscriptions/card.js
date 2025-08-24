@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useRef, Fragment } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import * as DateFNS from 'date-fns';
@@ -16,7 +17,11 @@ import { Badge } from '@/components/ui/badge';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { SubscriptionActionMarkAsPaidSession } from '@/components/subscriptions/actions';
+import {
+  SubscriptionActionMarkAsPaidSession,
+  SubscriptionActionMarkAsPaidSessionWithPrice,
+  SubscriptionActionMarkAsPaidSessionNoPrice,
+} from '@/components/subscriptions/actions';
 import { LogoIcon } from '@/components/ui/icon-picker';
 import { toZonedTime } from 'date-fns-tz';
 import {
@@ -24,6 +29,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { Input } from '@/components/ui/input';
 import { getCycleLabel, getPaymentCount, formatPrice } from '@/components/subscriptions/utils';
 
 const SubscriptionDate = ({date, timezone, text}) => {
@@ -67,12 +73,24 @@ const SubscriptionPaymentDate = ({ subscription }) => {
 
 const SubscriptionMarkAsPaid = ({ subscription }) => {
   const router = useRouter();
+  const [altOptExpanded, setAltOptExpanded] = useState(false);
+  const [altOptStep, setAltOptStep] = useState('initial');
+  const [altOptPrice, setAltOptPrice] = useState(subscription.price || '');
+  const [loading, setLoading] = useState(false);
+  const customPriceInputRef = useRef();
 
   if (!subscription.enabled) {
     return null;
   }
 
+  const altOptReset = () => {
+    setAltOptExpanded(false);
+    setAltOptStep('initial');
+    setAltOptPrice(subscription.price || '');
+  };
+
   const markAsPaid = async () => {
+    altOptReset();
     const result = await SubscriptionActionMarkAsPaidSession(subscription.id);
     if (result) {
       // Force a revalidation of this component
@@ -83,16 +101,160 @@ const SubscriptionMarkAsPaid = ({ subscription }) => {
     }
   };
 
+  const markAsPaidWithCustomPrice = async () => {
+    if (!altOptPrice || isNaN(parseFloat(altOptPrice))) return;
+
+    try {
+      setLoading(true);
+      const result = await SubscriptionActionMarkAsPaidSessionWithPrice(subscription.id, altOptPrice);
+      if (result) {
+        altOptReset();
+        toast.success('Subscription marked as paid with custom price!');
+        router.refresh();
+      } else {
+        toast.error('Error marking subscription as paid with custom price');
+      }
+    } catch (error) {
+      toast.error('Failed to update!');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const markAsPaidWithNoPrice = async () => {
+    try {
+      setLoading(true);
+      const result = await SubscriptionActionMarkAsPaidSessionNoPrice(subscription.id, altOptPrice);
+      if (result) {
+        altOptReset();
+        toast.success('Subscription marked as paid without payment!');
+        router.refresh();
+      } else {
+        toast.error('Error marking subscription as paid without payment');
+      }
+    } catch (error) {
+      toast.error('Failed to update!');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (altOptStep === 'customPrice' && customPriceInputRef.current) {
+      customPriceInputRef.current.focus();
+    }
+  }, [altOptStep]);
+
   return (
-    <div>
-      <span className='text-sm text-muted-foreground'>Did you pay this?</span>
+    <>
+      <div>
+        <span className='text-sm text-muted-foreground'>Did you pay this?</span>
         {' '}
-        <Button variant='link' className='underline p-0 h-auto cursor-pointer' onClick={markAsPaid}>
+        <Button variant='link' className='underline p-0 h-auto cursor-pointer' title='Mark As Paid' onClick={markAsPaid}>
           Mark as paid
         </Button>
-    </div>
+        {' '}
+        <span className='text-sm text-muted-foreground'>or see</span>
+        {' '}
+        <Button variant='link' className='underline p-0 h-auto cursor-pointer' title='Mark As Paid' onClick={() => altOptExpanded ? altOptReset() : setAltOptExpanded(true)}>
+          other options
+        </Button>
+        {'.'}
+      </div>
+      {altOptExpanded && (
+        <div>
+          <div className='flex flex-col gap-4 px-4 py-2 rounded-lg border-l-4 border-l-muted-background'>
+            {altOptStep === 'initial' && (
+              <>
+                <div>
+                  <div>
+                    <Button
+                      variant='link'
+                      className='p-0 h-auto cursor-pointer'
+                      onClick={() => setAltOptStep('customPrice')}
+                    >
+                      Paid a different amount?
+                    </Button>
+                    <p className='text-xs text-muted-foreground'>
+                      Use this if you paid more or less than usual
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <Button
+                    variant='link'
+                    className='p-0 h-auto cursor-pointer'
+                    onClick={() => setAltOptStep('noPrice')}
+                  >
+                    Just mark as paid!
+                  </Button>
+                  <p className='text-xs text-muted-foreground'>
+                    Use this to skip this payment without recording an amount
+                  </p>
+                </div>
+              </>
+            )}
+            {altOptStep === 'customPrice' && (
+              <div className='space-y-2'>
+                <p className='text-sm font-medium text-foreground'>Enter the amount you paid:</p>
+                <Input
+                  ref={customPriceInputRef}
+                  type='number'
+                  step='0.01'
+                  min='0'
+                  placeholder={subscription.price}
+                  className='text-sm'
+                  value={altOptPrice}
+                  onChange={(e) => setAltOptPrice(e.target.value)}
+                />
+                <div className='flex justify-end gap-2'>
+                  <Button variant='outline' size='sm' onClick={altOptReset}>
+                    Cancel
+                  </Button>
+                  <Button
+                    size='sm'
+                    disabled={!altOptPrice || isNaN(parseFloat(altOptPrice)) || loading}
+                    onClick={() => markAsPaidWithCustomPrice()}
+                  >
+                    {loading ? (
+                      <Icons.spinner className='animate-spin' />
+                    ) : (
+                      'Confirm'
+                    )}
+                  </Button>
+                </div>
+              </div>
+            )}
+            {altOptStep === 'noPrice' && (
+              <div className='space-y-2'>
+                <p className='text-sm font-medium text-foreground'>Mark as paid without tracking the amount?</p>
+                <p className='text-xs text-muted-foreground'>
+                  This will not record a payment amount.
+                </p>
+                <div className='flex justify-end gap-2'>
+                  <Button variant='outline' size='sm' onClick={altOptReset}>
+                    Cancel
+                  </Button>
+                  <Button
+                    size='sm'
+                    disabled={loading}
+                    onClick={() => markAsPaidWithNoPrice()}
+                  >
+                    {loading ? (
+                      <Icons.spinner className='animate-spin' />
+                    ) : (
+                      'Confirm'
+                    )}
+                  </Button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
-}
+};
 
 const SubscriptionIsNotified = ({ subscription, settings }) => {
   if (subscription.enabled && subscription.nextNotificationTime) {
@@ -186,6 +348,45 @@ const SubscriptionPaymentCount = ({ subscription }) => {
   );
 };
 
+const SubscriptionPaymentMethods = ({ subscription }) => {
+  if (!subscription.enabled) {
+    return null;
+  }
+
+  const paymentMethods = subscription.paymentMethods || [];
+
+  if (paymentMethods?.length === 0) {
+    return null;
+  }
+
+  return (
+    <div>
+      <span className='text-sm text-muted-foreground'>This will be paid</span>
+      {' '}
+      {paymentMethods.map((paymentMethod, index) => {
+        const isLast = index === paymentMethods.length - 1;
+        const separator =
+          index === 0
+            ? ' via '
+            : isLast
+            ? ' and '
+            : ', ';
+
+        return (
+          <Fragment key={`pm-${index}`}>
+            <span className='text-sm text-muted-foreground'>{separator}</span>
+            <div key={paymentMethod.name} className='inline-flex gap-1 align-bottom items-center'>
+              <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} className='size-4' />
+              <span>{paymentMethod.name}</span>
+            </div>
+          </Fragment>
+        );
+      })}
+      <span className='text-muted-foreground'>.</span>
+    </div>
+  );
+};
+
 const SubscriptionPastPaymentCount = ({ subscription }) => {
   const paymentCount = subscription?._count?.pastPayments || 0;
 
@@ -242,6 +443,7 @@ export const SubscriptionCard = ({ subscription, settings }) => {
               <SubscriptionPaymentDate subscription={subscription} />
               <SubscriptionMarkAsPaid subscription={subscription} />
               <SubscriptionPaymentCount subscription={subscription} />
+              <SubscriptionPaymentMethods subscription={subscription} />
               <SubscriptionPastPaymentCount subscription={subscription} />
               <SubscriptionIsNotified subscription={subscription} settings={settings} />
             </>

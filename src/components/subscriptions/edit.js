@@ -40,6 +40,7 @@ import { FormFieldNotes } from '@/components/subscriptions/form/field-notes';
 import { FormFieldUntilDate } from '@/components/subscriptions/form/field-until-date';
 import { FormFieldTimezone } from '@/components/subscriptions/form/field-timezone';
 import { FormFieldCategory } from '@/components/subscriptions/form/field-category';
+import { FormFieldPaymentMethod } from '@/components/subscriptions/form/field-payment-method';
 import { FormFieldNotifications } from '@/components/subscriptions/form/field-notifications';
 import { addDays } from 'date-fns';
 import { toZonedTime, fromZonedTime } from 'date-fns-tz';
@@ -63,6 +64,7 @@ export const SubscriptionEdit = ({ user, subscription = undefined, settings }) =
       url: subscription?.url || '',
       notes: subscription?.notes || '',
       categories: subscription?.categories || [],
+      paymentMethods: subscription?.paymentMethods || [],
       notifications: subscription?.notifications || user.notifications,
     }
   });
@@ -184,6 +186,15 @@ export const SubscriptionEdit = ({ user, subscription = undefined, settings }) =
           name='notes'
           render={({ field }) => (
             <FormFieldNotes field={field} />
+          )}
+        />
+
+        {/* Payment Methods */}
+        <FormField
+          control={form.control}
+          name='paymentMethods'
+          render={({ field }) => (
+            <FormFieldPaymentMethod field={field} paymentMethods={user.paymentMethods ? user.paymentMethods : []} />
           )}
         />
 

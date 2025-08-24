@@ -1,119 +1,16 @@
 'use server';
 
 import { NextResponse } from 'next/server';
-import webpush from 'web-push';
 import jsonwebtoken from 'jsonwebtoken';
 import { formatDistanceToNowStrict, isEqual, addDays, addMonths, isAfter, isPast } from 'date-fns';
-import { mailFrom, mailSend } from '@/lib/mail';
 import { prisma } from '@/lib/prisma';
+import { UserSubscriptionSendNotification, UserSubscriptionSendEmail } from '@/lib/notifications';
 import { SubscriptionGetNextNotificationDate } from '@/components/subscriptions/lib';
 import { siteConfig } from '@/components/config';
 import { paddleGetStatus } from '@/lib/paddle/status';
 import { PADDLE_STATUS_MAP, TRIAL_DURATION_MONTHS, paddleIsValid } from '@/lib/paddle/enum';
 import { formatPrice } from '@/components/subscriptions/utils';
 import { sendWebhook } from '@/components/subscriptions/webhook';
-
-const sendNotification = async (subscription, title, message, markAsPaidUrl, isPaymentDueNow) => {
-  return subscription.user.push.map(async push => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        await webpush.sendNotification(
-          {
-            endpoint: push.endpoint,
-            keys: {
-              p256dh: push.p256dh,
-              auth: push.auth
-            }
-          },
-          JSON.stringify({
-            title: title,
-            body: message,
-            url: siteConfig.url,
-            color: isPaymentDueNow ? '#f59e0b' : '#16a34a',
-            icon: {
-              main: '/icons/icon-192.png',
-              badge: isPaymentDueNow ? '/icons/icon-notification-now.png' : '/icons/icon-notification-upcoming.png',
-            },
-            markAsPaid: {
-              title: 'Mark as Paid',
-              icon: '/icons/icon-notification-mark-as-paid.png',
-              url: markAsPaidUrl,
-            },
-            dismiss: {
-              title: 'Dismiss',
-              icon: '/icons/icon-notification-dismiss.png',
-            },
-          }),
-          {
-            vapidDetails: {
-              subject: `mailto:Wapy.dev Subscription Reminder <${mailFrom}>`,
-              publicKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
-              privateKey: process.env.VAPID_PRIVATE_KEY
-            },
-          }
-        );
-        resolve();
-      } catch (error) {
-        if (error.statusCode === 410) {
-          // Subscription has expired or is no longer valid
-          await prisma.pushSubscription.delete({
-            where: {
-              id: push.id,
-            }
-          });
-          resolve();
-        } else {
-          console.warn('Error sending notification:', error);
-          reject(error);
-        }
-      }
-    });
-  });
-}
-
-const sendEmail = async (subscription, title, message, markAsPaidUrl) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      await mailSend({
-        from: `Wapy.dev Subscription Reminder <${mailFrom}>`,
-        to: subscription.user.email,
-        subject: title,
-        html: `
-          <body style="margin: 0; padding: 0; background-color: #efefef;">
-            <table role="presentation" style="width: 100%; border-collapse: collapse; border: 0;">
-              <tr>
-                <td align="center" style="padding: 1rem 2rem;">
-                  <div style="max-width: 400px; background-color: #ffffff; padding: 1rem; text-align: left;">
-                    <h2 style="margin: 1rem 0; color: #000000;">Payment Reminder</h2>
-                    <p>${message}</p>
-                    <p>
-                      <a href="${markAsPaidUrl}">Mark as Paid!</a>
-                      <span style="margin: 0 0.1rem;">|</span>
-                      <a href="${siteConfig.url}/">View Details</a>
-                    </p>
-                    <p>This is a friendly reminder email from ${siteConfig.name}.</p>
-                    <p>Thanks,<br>${siteConfig.from}</p>
-                  </div>
-                  <div style="max-width: 400px; color: #999999; text-align: center;">
-                    <p style="padding-bottom: 0.5rem;">Made with ♥ by <a href="${siteConfig.url}" target="_blank">${siteConfig.name}</a></p>
-                    <div style="text-align: center;">
-                      <img src="${siteConfig.url}/icon.png" alt="${siteConfig.from}" style="width: 96px;">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </body>
-        `,
-        text: `${title}\n\n${message}\n\nThis is a friendly reminder email from ${siteConfig.name}.\n\nView details at: ${siteConfig.url}/\n\nThanks,\n${siteConfig.name}`,
-      });
-      resolve();
-    } catch (error) {
-      console.warn('Error sending email:', error);
-      reject(error);
-    }
-  });
-};
 
 const UserSubscriptionNotifications = async (rightNow) => {
   if (!process.env.PADDLE_API_KEY) {
@@ -159,7 +56,7 @@ const UserSubscriptionNotifications = async (rightNow) => {
       pastNotificationData.message = `Your Wapy.dev trial period is ending soon. Subscribe now to keep enjoying all features.`;
 
       // Send push notification for trial active
-      promises.push(sendNotification(
+      promises.push(UserSubscriptionSendNotification(
         {user: user},
         pastNotificationData.title,
         pastNotificationData.message,
@@ -187,7 +84,7 @@ const UserSubscriptionNotifications = async (rightNow) => {
       pastNotificationData.message = `Your Wapy.dev trial period is expired. Subscribe now to keep enjoying all features.`;
 
       // Send push notification for expired trial
-      promises.push(sendNotification(
+      promises.push(UserSubscriptionSendNotification(
         {user: user},
         pastNotificationData.title,
         pastNotificationData.message,
@@ -196,7 +93,7 @@ const UserSubscriptionNotifications = async (rightNow) => {
       ));
 
       // Send email notification
-      promises.push(sendEmail(
+      promises.push(UserSubscriptionSendEmail(
         {user: user},
         pastNotificationData.title,
         pastNotificationData.message,
@@ -214,7 +111,7 @@ const UserSubscriptionNotifications = async (rightNow) => {
       pastNotificationData.title = 'Wapy.dev Payment Reminder';
       pastNotificationData.message = `Just a reminder that your Wapy.dev subscription is ending soon.`;
 
-      promises.push(sendNotification(
+      promises.push(UserSubscriptionSendNotification(
         {user: user},
         pastNotificationData.title,
         pastNotificationData.message,
@@ -222,7 +119,7 @@ const UserSubscriptionNotifications = async (rightNow) => {
         false
       ));
 
-      promises.push(sendEmail(
+      promises.push(UserSubscriptionSendEmail(
         {user: user},
         pastNotificationData.title,
         pastNotificationData.message,
@@ -309,12 +206,12 @@ export async function GET() {
 
     // Send push notification if enabled
     if (isPushEnabled) {
-      promises.push(sendNotification(subscription, title, message, markAsPaidUrl, isPaymentDueNow));
+      promises.push(UserSubscriptionSendNotification(subscription, title, message, markAsPaidUrl, isPaymentDueNow));
     }
 
     // Send email notification if enabled
     if (isEmailEnabled) {
-      promises.push(sendEmail(subscription, title, message, markAsPaidUrl));
+      promises.push(UserSubscriptionSendEmail(subscription, title, message, markAsPaidUrl));
     }
 
     // Send webhook notification if enabled

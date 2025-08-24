@@ -169,7 +169,7 @@ export default async function RootLayout({ children }) {
         <SessionProvider session={session}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
             <PushNotificationProvider>
-              <div className='flex min-h-screen flex-col'>
+              <div className='flex min-h-dvh flex-col'>
                 <Header
                   mainNavigation={session ? HeaderMemberMainNavigation : undefined}
                   iconNavigation={session ? HeaderMemberIconNavigation : HeaderVisitorIconNavigation}

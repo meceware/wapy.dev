@@ -284,7 +284,7 @@ const SubscriptionIsNotified = ({ subscription, settings }) => {
 
             return (
               <div key={type} className='inline'>
-                <span className='text-muted-foreground'>{separator}</span>
+                <span className='text-sm text-muted-foreground'>{separator}</span>
                 <span>{label}</span>
               </div>
             );
@@ -376,7 +376,7 @@ const SubscriptionPaymentMethods = ({ subscription }) => {
           <Fragment key={`pm-${index}`}>
             <span className='text-sm text-muted-foreground'>{separator}</span>
             <div key={paymentMethod.name} className='inline-flex gap-1 align-bottom items-center'>
-              <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} className='size-4' />
+              <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} className='size-6' />
               <span>{paymentMethod.name}</span>
             </div>
           </Fragment>

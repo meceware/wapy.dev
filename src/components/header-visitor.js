@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { signOut } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
 import {
@@ -11,8 +10,6 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
-import { Separator } from '@/components/ui/separator';
-import { NotificationBell } from '@/components/notifications/notification-bell';
 
 export const HeaderVisitorIconNavigation = (
   <>
@@ -61,7 +58,7 @@ export const HeaderVisitorIconNavigation = (
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href='/' className='flex items-center gap-2 cursor-pointer focus:outline-hidden'>
+          <Link href='/contact' className='flex items-center gap-2 cursor-pointer focus:outline-hidden'>
             <Icons.send className='size-5' />
             Contact Us
           </Link>

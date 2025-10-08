@@ -73,7 +73,7 @@ export const HeaderMemberIconNavigation = (
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href='/' className='flex items-center gap-2 cursor-pointer focus:outline-hidden'>
+          <Link href='/contact' className='flex items-center gap-2 cursor-pointer focus:outline-hidden'>
             <Icons.send className='size-5' />
             Contact Us
           </Link>

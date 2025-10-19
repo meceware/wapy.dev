@@ -16,6 +16,9 @@ const authCookiePrefix = authIsSecure ? '__Secure-' : '';
 
 // Simple domain handling that works for all scenarios
 const authDomain = (() => {
+  // Allow explicit override from environment (e.g. '.example.com')
+  if (process.env.AUTH_COOKIE_DOMAIN) return process.env.AUTH_COOKIE_DOMAIN;
+
   if (!authURL?.hostname) return '';
   if (authURL.hostname === 'localhost') return authURL.hostname;
 
@@ -177,7 +180,7 @@ const authConfig = {
         httpOnly: true,
         sameSite: 'lax',
         path: '/',
-        secure: authURL?.protocol === 'https:',
+        secure: authIsSecure,
         maxAge: 900,
         ...(authDomain ? { domain: authDomain } : {}),
       },
@@ -188,7 +191,7 @@ const authConfig = {
         path: '/',
         httpOnly: true,
         sameSite: 'lax',
-        secure: authURL?.protocol === 'https:',
+        secure: authIsSecure,
         ...(authDomain ? { domain: authDomain } : {}),
       },
     },

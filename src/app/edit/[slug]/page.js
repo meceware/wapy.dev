@@ -1,7 +1,7 @@
 'use server';
 
 import { notFound } from 'next/navigation';
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import { withAuth } from '@/lib/with-auth';
 import { SubscriptionGet } from '@/components/subscriptions/actions';
 import { SubscriptionEdit } from '@/components/subscriptions/edit';
@@ -33,15 +33,17 @@ const PageSubscriptionEdit = async ({ params }) => {
 export default withAuth(PageSubscriptionEdit);
 
 export async function generateMetadata({ params }) {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const { getUserId } = await useAuthServer();
+  const userId = getUserId();
+
+  if (!userId) {
     return {
       title: 'Unauthorized',
     };
   }
 
   const subscriptionId = (await params).slug;
-  const subscription = await SubscriptionGet(subscriptionId, session?.user?.id);
+  const subscription = await SubscriptionGet(subscriptionId, userId);
   return {
       title: subscription?.name ? `Edit ${subscription.name}` : 'Not Found',
   };

@@ -1,7 +1,7 @@
 'use server';
 
 import { HomeVisitor } from '@/components/home-visitor';
-import { HomeMember } from '@/components/home-member';
+import HomeMember from '@/components/home-member';
 import { paddleGetSession } from '@/lib/paddle/status';
 import { SubscriptionGuard } from '@/components/subscription-guard';
 

@@ -33,4 +33,4 @@ const mailSend = async (params) => {
   }
 }
 
-export { mailServerConfiguration, mailFrom, mailContact, mailSend };
+export { mailFrom, mailContact, mailSend };

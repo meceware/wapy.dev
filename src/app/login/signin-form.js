@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
-import { signIn } from 'next-auth/react';
+import { useAuth } from "@/lib/auth-client";
 import {
   Card,
   CardHeader,
@@ -31,57 +31,58 @@ import {
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signInSchema, signInOTPSchema } from './schema';
-import { signInAction, generateOTPLink } from './action';
+import { signInAction, signInOTPAction } from './action';
 
-const SignInOTP = ({email}) => {
+const SignInOTP = ({ email }) => {
   const [otp, setOtp] = useState('');
-  const [disabled, setDisabled] = useState(false);
-  const [url, setUrl] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const {refetch} = useAuth();
   const router = useRouter();
 
-  const onSubmit = useCallback(async (code, email) => {
-    setDisabled(true);
+  const onSubmit = useCallback(async (code) => {
+    setIsSubmitting(true);
 
-    const parsedCode = signInOTPSchema.safeParse({ code: code });
-    const parsedEmail = signInSchema.safeParse({ email: email });
+    try {
+      const parsedCode = signInOTPSchema.safeParse({ code });
+      const parsedEmail = signInSchema.safeParse({ email });
 
-    if (parsedCode?.success && parsedEmail?.success) {
-      const link = await generateOTPLink(parsedCode.data.code, parsedEmail.data.email);
-      if (link) {
-        setUrl(link);
-      } else {
-        toast.error('This is not a valid code! Please try again.');
+      if (!parsedCode.success || !parsedEmail.success) {
+        toast.error('The code looks incorrect. Double-check the 6 digits and try again.');
+        return;
       }
-    } else {
-      toast.error('Invalid code! Please try again.');
+
+      const result = await signInOTPAction({
+        email: parsedEmail.data.email,
+        code: parsedCode.data.code,
+      });
+
+      if (result?.error === 'Access Denied') {
+        toast.error('Sorry, you do not have access to this workspace.');
+        return;
+      }
+
+      if (result?.error) {
+        toast.error(result.error);
+        return;
+      }
+
+      toast.success('Welcome! You have successfully signed in.');
+      refetch();
+      router.push('/');
+    } catch (error) {
+      toast.error('Something went wrong. Please request a new code and try again.');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setDisabled(false);
-  }, []);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    if (url && isMounted) {
-      const redirectUrl = url;
-      setUrl(null);
-
-      router.replace(redirectUrl);
-      router.refresh();
-    }
-
-    return () => {
-      isMounted = false;
-    };
-  }, [url, router]);
+  }, [email]);
 
   return (
     <InputOTP
       maxLength={6}
       value={otp}
       onChange={setOtp}
-      onComplete={(data) => onSubmit(data, email)}
-      disabled={disabled}
+      onComplete={onSubmit}
+      disabled={isSubmitting}
       containerClassName='flex-col sm:flex-row justify-center'
     >
       <InputOTPGroup>
@@ -152,9 +153,10 @@ const SignInSendAgain = ({ email, onClick }) => {
   );
 };
 
-export function SignInForm({isGoogle = false, isGithub = false, isKeycloak = false, isAuthentik = false}) {
+export function SignInForm({isGoogle = false, isGithub = false, genericAuthProvider = false}) {
   const [loginMethod, setLoginMethod] = useState(null);
   const [success, setSuccess] = useState(false);
+  const {signIn} = useAuth();
 
   const form = useForm({
     resolver: zodResolver(signInSchema),
@@ -171,7 +173,7 @@ export function SignInForm({isGoogle = false, isGithub = false, isKeycloak = fal
         if (result?.error === 'Access Denied') {
           toast.error('Sorry but you are not allowed to sign in!');
         } else {
-          toast.error('Weird! Can you make sure your email is correct?');
+          toast.error('Weird! We couldn\'t sign you in. It might be your email, or something went wrong on our end.');
         }
       } else {
         setSuccess(true);
@@ -185,34 +187,34 @@ export function SignInForm({isGoogle = false, isGithub = false, isKeycloak = fal
     if (!isGithub) return;
 
     setLoginMethod('github');
-    signIn('github', {redirectTo: '/'}).finally(() => {
+    await signIn.social({
+      provider: 'github',
+      redirectTo: '/'
+    }).finally(() => {
       setLoginMethod(null);
     });
   };
 
-  const signInGoogle = () => {
+  const signInGoogle = async () => {
     if (!isGoogle) return;
 
     setLoginMethod('google');
-    signIn('google', {redirectTo: '/'}).finally(() => {
+    await signIn.social({
+      provider: 'google',
+      redirectTo: '/'
+    }).finally(() => {
       setLoginMethod(null);
     });
   };
 
-  const signInKeycloak = () => {
-    if (!isKeycloak) return;
+  const signInGenericOAuth = () => {
+    if (!genericAuthProvider) return;
 
-    setLoginMethod('keycloak');
-    signIn('keycloak', {redirectTo: '/'}).finally(() => {
-      setLoginMethod(null);
-    });
-  };
-
-  const signInAuthentik = () => {
-    if (!isAuthentik) return;
-
-    setLoginMethod('authentik');
-    signIn('authentik', {redirectTo: '/'}).finally(() => {
+    setLoginMethod(genericAuthProvider);
+    signIn.oauth2({
+      providerId: genericAuthProvider,
+      callbackURL: '/',
+    }).finally(() => {
       setLoginMethod(null);
     });
   };
@@ -255,14 +257,14 @@ export function SignInForm({isGoogle = false, isGithub = false, isKeycloak = fal
             </Button>
           </form>
         </Form>
-        { (isGoogle || isGithub || isKeycloak || isAuthentik) && (
+        { (isGoogle || isGithub || genericAuthProvider) && (
           <Divider text='or' />
         ) }
         { (isGithub) && (
           <Button variant='outline' className='w-full' onClick={signInGithub} disabled={!!loginMethod}>
             {loginMethod === 'github'
-              ? <Icons.spinner className='mr-2 size-4 animate-spin' />
-              : <Icons.github className='mr-2 size-4' />
+              ? <Icons.spinner className='mr-2 animate-spin' />
+              : <Icons.github className='mr-2' />
             }
             Login with Github
           </Button>
@@ -270,28 +272,23 @@ export function SignInForm({isGoogle = false, isGithub = false, isKeycloak = fal
         { (isGoogle) && (
           <Button variant='outline' className='w-full' onClick={signInGoogle} disabled={!!loginMethod}>
             {loginMethod === 'google'
-              ? <Icons.spinner className='mr-2 size-4 animate-spin' />
-              : <Icons.google className='mr-2 size-4' />
+              ? <Icons.spinner className='mr-2 animate-spin' />
+              : <Icons.google className='mr-2' />
             }
             Login with Google
           </Button>
         ) }
-        { (isKeycloak) && (
-          <Button variant='outline' className='w-full' onClick={signInKeycloak} disabled={!!loginMethod}>
-            {loginMethod === 'keycloak'
-              ? <Icons.spinner className='mr-2 size-4 animate-spin' />
-              : <Icons.keycloak className='mr-2 size-4' />
+        { (genericAuthProvider) && (
+          <Button variant='outline' className='w-full' onClick={signInGenericOAuth} disabled={!!loginMethod}>
+            {loginMethod === genericAuthProvider
+              ? <Icons.spinner className='mr-2 animate-spin' />
+              : (
+                genericAuthProvider.toLowerCase() === 'keycloak' ? <Icons.keycloak className='mr-2' /> :
+                genericAuthProvider.toLowerCase() === 'authentik' ? <Icons.authentik className='mr-2' /> :
+                <Icons.KeyRound className='mr-2 text-green-600' />
+              )
             }
-            Login with Keycloak
-          </Button>
-        ) }
-        { (isAuthentik) && (
-          <Button variant='outline' className='w-full' onClick={signInAuthentik} disabled={!!loginMethod}>
-            {loginMethod === 'authentik'
-              ? <Icons.spinner className='mr-2 size-4 animate-spin' />
-              : <Icons.authentik className='mr-2 size-4' />
-            }
-            Login with Authentik
+            Login with {genericAuthProvider.replace(/\b\w/g, l => l.toUpperCase())}
           </Button>
         ) }
       </CardContent>

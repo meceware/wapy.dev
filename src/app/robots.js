@@ -10,7 +10,6 @@ export default function robots() {
         '/api/*',
         '/edit/*',
         '/reports',
-        '/signout',
       ],
     },
     sitemap: `${siteConfig.url}/sitemap.xml`,

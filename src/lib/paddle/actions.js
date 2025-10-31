@@ -1,7 +1,7 @@
 'use server';
 
 import { Environment, LogLevel, Paddle } from '@paddle/paddle-node-sdk';
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 
@@ -18,11 +18,11 @@ export const paddleGetInstance = async () => {
 
 const paddleGetCustomerId = async (userId) => {
   if (!userId) {
-    const session = await auth();
-    if (!session?.user?.id) {
+    const { isAuthenticated, getUserId } = await useAuthServer();
+    if (!isAuthenticated()) {
       return false;
     }
-    userId = session.user.id;
+    userId = getUserId();
   }
 
   const customer = await prisma.paddleUserDetails.findUnique({

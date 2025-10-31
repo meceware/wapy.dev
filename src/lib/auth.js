@@ -1,35 +1,11 @@
-import NextAuth from 'next-auth';
-import GithubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
-import Nodemailer from 'next-auth/providers/nodemailer';
-import KeycloakProvider from 'next-auth/providers/keycloak';
-import AuthentikProvider from 'next-auth/providers/authentik';
-import { mailServerConfiguration, mailFrom, mailSend } from '@/lib/mail';
-import { createHmac } from 'crypto';
-import { PrismaAdapter } from '@auth/prisma-adapter';
+import { headers } from 'next/headers';
+import { betterAuth } from 'better-auth';
+import { prismaAdapter } from 'better-auth/adapters/prisma';
+import { nextCookies } from 'better-auth/next-js';
+import { magicLink, emailOTP, genericOAuth } from 'better-auth/plugins';
 import { prisma } from '@/lib/prisma';
 import { siteConfig } from '@/components/config';
-
-const authURL = new URL(`${siteConfig.url}/api/auth`);
-const authIsSecure = authURL?.protocol === 'https:';
-const authCookiePrefix = authIsSecure ? '__Secure-' : '';
-
-// Simple domain handling that works for all scenarios
-const authDomain = (() => {
-  // Allow explicit override from environment (e.g. '.example.com')
-  if (process.env.AUTH_COOKIE_DOMAIN) return process.env.AUTH_COOKIE_DOMAIN;
-
-  if (!authURL?.hostname) return '';
-  if (authURL.hostname === 'localhost') return authURL.hostname;
-
-  // For IP addresses or non-standard domains, don't set a domain
-  if (/^(\d{1,3}\.){3}\d{1,3}$/.test(authURL.hostname) || authURL.hostname.includes(':')) {
-    return '';
-  }
-
-  // For standard domains, use the top-level domain approach
-  return `.${authURL.hostname.split('.').slice(-2).join('.')}`;
-})();
+import { mailFrom, mailSend } from '@/lib/mail';
 
 const html = ({ url, token }) => {
   return `
@@ -75,127 +51,103 @@ const text = ({ url, token }) => {
   return `Sign in to ${siteConfig.from}\n\nCopy and paste this link into your browser:\n${url}\n\nOr use this code to sign in: ${token}\n\nIf you didn't ask to sign in, you can ignore this email.\n\nThanks,\n${siteConfig.from}`;
 };
 
-const generateOTP = async (to, token, expires) => {
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  const hashedOTP = createHmac('sha256', process.env.AUTH_SECRET).update(`${to}-${otp}`).digest('hex');
+export const auth = betterAuth({
+  appName: siteConfig.name,
+  baseURL: siteConfig.url,
+  secret: process.env.AUTH_SECRET,
+  database: prismaAdapter(prisma, {
+    provider: 'postgresql',
+  }),
+  emailAndPassword: {
+    enabled: false,
+  },
+  socialProviders: {
+    ...(process.env.GITHUB_ID && process.env.GITHUB_SECRET
+      ? { github: {
+        clientId: process.env.GITHUB_ID,
+        clientSecret: process.env.GITHUB_SECRET,
+        disableSignUp: process?.env?.DISABLE_USER_REGISTRATION === 'true'
+      } }
+      : {}
+    ),
+    ...(process.env.GOOGLE_ID && process.env.GOOGLE_SECRET
+      ? { google: {
+        clientId: process.env.GOOGLE_ID,
+        clientSecret: process.env.GOOGLE_SECRET,
+        disableSignUp: process?.env?.DISABLE_USER_REGISTRATION === 'true'
+      } }
+      : {}
+    ),
+  },
+  user: {
+    additionalFields: {
+			isBlocked: {
+        type: "boolean",
+        required: false,
+      },
+			webhook: {
+        type: "string",
+        required: false,
+      },
+		},
+  },
+  account: {
+    encryptOAuthTokens: true,
+  },
+  session: {
+    // 14 days
+    expiresIn: 60 * 60 * 24 * 14,
+    // 1 day
+    updateAge: 60 * 60 * 24,
+  },
+  plugins: [
+    nextCookies(),
+    magicLink( {
+      disableSignUp: process?.env?.DISABLE_USER_REGISTRATION === 'true',
+      expiresIn: 2 * 60 * 60, // 2 hours
+      sendMagicLink: async ({ email, token, url }, request) => {
+        const otp = await auth.api.createVerificationOTP({
+          body: {
+            email: email,
+            type: 'sign-in',
+          },
+        });
 
-  await prisma.verificationOTPToken.create({
-    data: {
-      identifier: to,
-      code: hashedOTP,
-      token: token,
-      expires: expires,
-    },
-  });
-
-  return otp;
-};
-
-const authConfig = {
-  adapter: PrismaAdapter(prisma),
-  theme: { logo: `${siteConfig.url}/icon.png` },
-  providers: [
-    Nodemailer({
-      id: "wapy.dev.mailer",
-      name: "Wapy.dev Mailer",
-      server: { ...mailServerConfiguration },
-      from: `${siteConfig.from} <${mailFrom}>`,
-      name: siteConfig.from,
-      maxAge: 60 * 60 * 2, // 2 hours
-      sendVerificationRequest: async (params) => {
-        const { identifier: to, provider, url, token, expires } = params;
-
-        const otp = await generateOTP(to, token, expires);
         await mailSend({
-          from: provider.from,
-          to: to,
+          from: `${siteConfig.from} <${mailFrom}>`,
+          to: email,
           subject: `Sign in to ${siteConfig.name}`,
           html: html({ url, token: otp }),
           text: text({ url, token: otp }),
         });
+      }
+    } ),
+    emailOTP({
+      disableSignUp: process?.env?.DISABLE_USER_REGISTRATION === 'true',
+      expiresIn: 20 * 60, // 20 minutes
+      async sendVerificationOTP({ email, otp, type }) {
+        return;
       },
     }),
-    ...(process.env.GITHUB_ID && process.env.GITHUB_SECRET
-      ? [GithubProvider({
-        clientId: process.env.GITHUB_ID,
-        clientSecret: process.env.GITHUB_SECRET,
+    ...(process.env.GENERIC_AUTH_PROVIDER && process.env.GENERIC_AUTH_CLIENT_ID && process.env.GENERIC_AUTH_CLIENT_SECRET && process.env.GENERIC_AUTH_ISSUER
+      ? [genericOAuth({
+        config: [ {
+          providerId: process.env.GENERIC_AUTH_PROVIDER,
+          clientId: process.env.GENERIC_AUTH_CLIENT_ID,
+          clientSecret: process.env.GENERIC_AUTH_CLIENT_SECRET,
+          discoveryUrl: process.env.GENERIC_AUTH_ISSUER,
+      } ],
       })]
-      : []),
-    ...(process.env.GOOGLE_ID && process.env.GOOGLE_SECRET
-      ? [GoogleProvider({
-        clientId: process.env.GOOGLE_ID,
-        clientSecret: process.env.GOOGLE_SECRET,
-      })]
-      : []),
-    ...(process.env.KEYCLOAK_ID && process.env.KEYCLOAK_SECRET && process.env.KEYCLOAK_ISSUER
-      ? [KeycloakProvider({
-          clientId: process.env.KEYCLOAK_ID,
-          clientSecret: process.env.KEYCLOAK_SECRET,
-          issuer: process.env.KEYCLOAK_ISSUER,
-        })]
-      : []),
-    ...(process.env.AUTHENTIK_ID && process.env.AUTHENTIK_SECRET && process.env.AUTHENTIK_ISSUER
-      ? [AuthentikProvider({
-          clientId: process.env.AUTHENTIK_ID,
-          clientSecret: process.env.AUTHENTIK_SECRET,
-          issuer: process.env.AUTHENTIK_ISSUER,
-        })]
-      : []),
+      : []
+    ),
   ],
-  pages: {
-    error: '/login',
-    signIn: '/login',
-    signOut: '/',
-  },
-  session: {
-    strategy: 'database',
-    maxAge: 60 * 60 * 24 * 60, // 60 days
-  },
-  callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session?.user,
-        id: user?.id,
-      },
-    }),
-    signIn: async ({ user }) => {
-      if (user.isBlocked) {
-        return false;
-      }
-
-      if (process?.env?.DISABLE_USER_REGISTRATION === 'true') {
-        if ( !user?.createdAt || !user?.emailVerified ) {
-          return false;
-        }
-      }
-
-      return true;
+  advanced: {
+    cookiePrefix: 'wapy-dev',
+    database: {
+      generateId: false
     },
   },
-  cookies: {
-    pkceCodeVerifier: {
-      name: `${authCookiePrefix}authjs.pkce.code_verifier`,
-      options: {
-        httpOnly: true,
-        sameSite: 'lax',
-        path: '/',
-        secure: authIsSecure,
-        maxAge: 900,
-        ...(authDomain ? { domain: authDomain } : {}),
-      },
-    },
-    sessionToken: {
-      name: `${authCookiePrefix}authjs.session-token`,
-      options: {
-        path: '/',
-        httpOnly: true,
-        sameSite: 'lax',
-        secure: authIsSecure,
-        ...(authDomain ? { domain: authDomain } : {}),
-      },
-    },
+  logger: {
+    level: 'warn',
   },
-};
-
-export const { handlers, signIn, signOut, auth } = NextAuth(authConfig);
+});

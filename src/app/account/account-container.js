@@ -754,7 +754,7 @@ const PaymentMethodItem = ({ paymentMethod, onSave, onDelete, edit = false }) =>
       ) : (
         <>
           <div className='flex items-center gap-3 text-sm'>
-            <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} placeholder className='size-8' />
+            <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} placeholder className='size-6' />
             <span className='line-clamp-2 break-all'>{paymentMethod.name}</span>
           </div>
           <Button

@@ -1,10 +1,8 @@
 'use server';
 
-import { createHmac } from 'crypto';
-import { signIn } from '@/lib/auth';
-import { prisma } from '@/lib/prisma';
+import { headers } from 'next/headers';
+import { auth } from '@/lib/auth';
 import { signInSchema, signInOTPSchema } from './schema';
-import { siteConfig } from '@/components/config';
 
 export const signInAction = async (data) => {
   if (!data || !data?.email) {
@@ -17,7 +15,13 @@ export const signInAction = async (data) => {
   }
 
   try {
-    return await signIn('wapy.dev.mailer', { email: parsedData.data.email, redirect: false, redirectTo : '/' });
+    return await auth.api.signInMagicLink( {
+      body: {
+        email: parsedData.data.email,
+        callbackURL : '/',
+      },
+      headers: await headers(),
+    } );
   } catch (error) {
     if (error.type === 'AccessDenied') {
       return { error: 'Access Denied' };
@@ -26,50 +30,33 @@ export const signInAction = async (data) => {
   }
 }
 
-export const generateOTPLink = async (code, email) => {
-  const parsedCode = signInOTPSchema.safeParse({ code: code });
-  const parsedEmail = signInSchema.safeParse({ email: email });
-
-  if (!parsedCode?.success || !parsedEmail?.success) {
-    return null;
+export const signInOTPAction = async (data) => {
+  const parsedCode = signInOTPSchema.safeParse(data);
+  if (!parsedCode.success) {
+    return { error: 'Invalid code. Please re-check the 6 digits.' };
   }
 
-  const hashed = createHmac('sha256', process.env.AUTH_SECRET).update(`${email}-${code}`).digest('hex');
-
-  // Cleanup
-  await prisma.verificationOTPToken.deleteMany({
-    where: {
-      expires: {
-        lt: new Date(),
-      },
-    },
-  });
-
-  // Find token entry
-  const tokenEntry = await prisma.verificationOTPToken.findFirst({
-    where: {
-      identifier: parsedEmail.data.email,
-      code: hashed,
-      expires: {
-        gt: new Date(),
-      },
-    },
-  });
-
-  if (!tokenEntry?.id) {
-    return null;
+  const parsedEmail = signInSchema.safeParse(data);
+  if (!parsedEmail.success) {
+    return { error: 'Invalid email. Request a new code to continue.' };
   }
 
-  await prisma.verificationOTPToken.delete({
-    where: {
-      id: tokenEntry.id,
-    },
-  });
+  try {
+    const result = await auth.api.signInEmailOTP({
+      body: {
+        email: parsedEmail.data.email,
+        otp: parsedCode.data.code,
+      },
+    });
 
-  const params = {
-    callbackUrl: siteConfig.url,
-    token: tokenEntry.token,
-    email: parsedEmail.data.email,
-  };
-  return `/api/auth/callback/wapy.dev.mailer?${new URLSearchParams(params).toString()}`;
-}
+    if (result?.token) {
+      return { success: true };
+    }
+  } catch (error) {
+    if (error.type === 'AccessDenied') {
+      return { error: 'Access Denied' };
+    }
+  }
+
+  return { error: 'Unable to verify your code right now. Try again shortly.' };
+};

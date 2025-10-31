@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
 export const SchemaSubscriptionId = z.object({
-  id: z.string().cuid(),
-  userId: z.string().cuid().optional(),
+  id: z.cuid(),
+  userId: z.cuid().optional(),
 });
 
 export const SchemaNotifications = z.array(
@@ -32,7 +32,7 @@ export const SchemaSubscriptionPrice = z.object({
 });
 
 export const SchemaSubscriptionEdit = z.object({
-  id: z.string().cuid().optional(),
+  id: z.cuid().optional(),
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.'
   }),
@@ -56,14 +56,14 @@ export const SchemaSubscriptionEdit = z.object({
   notes: z.string().optional(),
   categories: z.array(
     z.object({
-      id: z.string().cuid().optional().or(z.literal('')),
+      id: z.cuid().optional().or(z.literal('')),
       name: z.string().min(1),
       color: z.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, 'Invalid hex color')
     })
   ).optional(),
   paymentMethods: z.array(
     z.object({
-      id: z.string().cuid().optional().or(z.literal('')),
+      id: z.cuid().optional().or(z.literal('')),
       name: z.string().min(1),
       icon: z.string().optional()
     })

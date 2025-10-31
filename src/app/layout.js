@@ -3,16 +3,14 @@ import './globals.css';
 
 // Imports
 import { Inter } from 'next/font/google';
-import { auth } from '@/lib/auth';
-import { ThemeProvider, SessionProvider } from '@/components/providers';
+import { AuthProviderServer } from '@/lib/auth-server';
+import { ThemeProvider } from '@/components/providers';
 import Footer from '@/components/footer';
 import { siteConfig } from '@/components/config';
 import { Toaster } from '@/components/ui/sonner';
 import { CookieConsent } from '@/components/cookie-consent';
-import Header from '@/components/header';
+import { Header } from '@/components/header';
 import { PushNotificationProvider } from '@/components/providers';
-import { HeaderMemberMainNavigation, HeaderMemberIconNavigation } from '@/components/header-member';
-import { HeaderVisitorIconNavigation } from '@/components/header-visitor';
 import { PushNotificationToggle } from '@/components/notifications/notification-toggle';
 import { AddToHomeScreen } from '@/components/add-to-home-screen';
 
@@ -155,8 +153,6 @@ const jsonLd = {
 
 // Root Layout
 export default async function RootLayout({ children }) {
-  const session = await auth();
-
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
@@ -166,14 +162,11 @@ export default async function RootLayout({ children }) {
         />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <SessionProvider session={session}>
-          <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+          <AuthProviderServer>
             <PushNotificationProvider>
               <div className='flex min-h-dvh flex-col'>
-                <Header
-                  mainNavigation={session ? HeaderMemberMainNavigation : undefined}
-                  iconNavigation={session ? HeaderMemberIconNavigation : HeaderVisitorIconNavigation}
-                />
+                <Header />
                 <main className='flex flex-col h-full grow items-center p-4 sm:p-8 md:p-12'>
                   <div className='container flex flex-col items-center gap-6 text-center grow relative'>
                     {children}
@@ -181,13 +174,13 @@ export default async function RootLayout({ children }) {
                 </main>
                 <Footer author={siteConfig.author} github={siteConfig.links.github} />
               </div>
-              {session && <PushNotificationToggle vapidPublicKey={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ''} />}
-              {session && <AddToHomeScreen />}
+              <PushNotificationToggle vapidPublicKey={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ''} />
+              <AddToHomeScreen />
             </PushNotificationProvider>
             <Toaster richColors closeButton />
             <CookieConsent />
-          </ThemeProvider>
-        </SessionProvider>
+          </AuthProviderServer>
+        </ThemeProvider>
       </body>
     </html>
   );

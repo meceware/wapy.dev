@@ -1,6 +1,6 @@
 'use server';
 
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import { prisma } from '@/lib/prisma';
 import { addMonths, differenceInDays, isPast } from 'date-fns';
 import { PADDLE_STATUS_MAP, TRIAL_DURATION_MONTHS } from './enum';
@@ -79,8 +79,9 @@ export const paddleGetStatus = async (user) => {
 };
 
 export const paddleGetSession = async () => {
-  const session = await auth();
-  if (!session || !session?.user?.id) {
+  const {isAuthenticated, getUserId, session} = await useAuthServer();
+
+  if (!isAuthenticated()) {
     return {
       session: session,
       user: null,
@@ -90,7 +91,7 @@ export const paddleGetSession = async () => {
 
   const user = await prisma.user.findUnique({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     omit: {
       id: true,

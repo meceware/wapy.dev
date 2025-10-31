@@ -1,9 +1,10 @@
 'use server';
 
 import { prisma } from '@/lib/prisma';
+import { withAuth } from '@/lib/with-auth';
 import { SubscriptionList } from '@/components/subscriptions/list';
 
-export const HomeMember = async ({ userId, settings }) => {
+const HomeMember = async ({ userId, settings }) => {
   const subscriptions = await prisma.subscription.findMany({
     where: {
       userId: userId,
@@ -47,4 +48,6 @@ export const HomeMember = async ({ userId, settings }) => {
       <SubscriptionList subscriptions={subscriptions} settings={settings} />
     </div>
   );
-}
+};
+
+export default withAuth(HomeMember);

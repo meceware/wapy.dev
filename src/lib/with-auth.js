@@ -1,31 +1,28 @@
-import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
+import { useAuthServer } from '@/lib/auth-server';
 
 export function withAuth(WrappedComponent, isProtected = true, isRedirected = true) {
-  return async function WithAuthWrapper(props) {
-    const session = await auth();
-    const isAuth = session && session?.user;
+  return async (props) => {
+    const { isAuthenticated, isBlocked, signOut } = await useAuthServer();
 
-    if (isProtected && !isAuth) {
+    if (isBlocked()) {
+      await signOut();
+      redirect('/');
+    }
+
+    if (isProtected && !isAuthenticated()) {
       if (isRedirected) {
         redirect('/login');
       }
       return null;
     }
 
-    if (isAuth) {
-      if (session?.user?.isBlocked) {
-        redirect('/signout');
+    if (!isProtected && isAuthenticated()) {
+      if (isRedirected) {
+        redirect('/');
       }
-
-      if (!isProtected) {
-        if (isRedirected) {
-          redirect('/');
-        }
-        return null;
-      }
+      return null;
     }
-
 
     return <WrappedComponent {...props} />;
   };

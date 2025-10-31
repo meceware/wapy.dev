@@ -1,6 +1,6 @@
 'use server';
 
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import webpush from 'web-push';
 import { prisma } from '@/lib/prisma';
 import { mailFrom, mailSend } from '@/lib/mail';
@@ -65,14 +65,14 @@ export const UserSubscriptionSendNotification = async (subscription, title, mess
 }
 
 export const UserSubscriptionSendTestNotification = async () => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return { success: false };
   }
 
   const user = await prisma.user.findUnique({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     include: {
       push: {

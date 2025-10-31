@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { SchemaNotifications } from '@/components/subscriptions/schema';
 
 export const SchemaCategoryId = z.object({
-  id: z.string().cuid()
+  id: z.cuid()
 });
 
 export const SchemaCategory = z.object({
@@ -11,7 +11,7 @@ export const SchemaCategory = z.object({
 });
 
 export const SchemaPaymentMethodId = z.object({
-  id: z.string().cuid()
+  id: z.cuid()
 });
 
 export const SchemaPaymentMethod = z.object({
@@ -27,6 +27,6 @@ export const SchemaUserNotifications = SchemaNotifications;
 export const SchemaUserName = z.string().min(1);
 
 export const SchemaWebhook = z.union([
-  z.string().min(9).url(),
+  z.url().min(9),
   z.literal(''),
 ]);

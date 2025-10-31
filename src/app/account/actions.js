@@ -1,6 +1,6 @@
 'use server';
 
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
 import { DefaultCategories } from '@/config/categories';
@@ -19,14 +19,14 @@ import {
 import { sendWebhook } from '@/components/subscriptions/webhook';
 
 export const UserGetCategories = async () => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
   const categories = await prisma.category.findMany({
     where: {
-      userId: session.user.id
+      userId: getUserId(),
     },
     orderBy: {
       name: 'asc'
@@ -41,14 +41,14 @@ export const UserGetCategories = async () => {
 };
 
 export const UserLoadDefaultCategories = async () => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
   const createdCategories = await prisma.category.createManyAndReturn({
     data: Object.entries(DefaultCategories).map(([name, color]) => ({
-      userId: session.user.id,
+      userId: getUserId(),
       name: name,
       color: color
     })),
@@ -67,8 +67,8 @@ export const UserLoadDefaultCategories = async () => {
 };
 
 export const UserRemoveCategory = async (id) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
@@ -78,7 +78,10 @@ export const UserRemoveCategory = async (id) => {
   }
 
   const deletedCategory = await prisma.category.delete({
-    where: { id: validatedData.id, userId: session.user.id }
+    where: {
+      id: validatedData.id,
+      userId: getUserId(),
+    },
   });
 
   if (!deletedCategory) {
@@ -91,11 +94,12 @@ export const UserRemoveCategory = async (id) => {
 };
 
 export const UserSaveCategory = async (category) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
+  const userId = getUserId();
   const schema = category.id !== null ? z.intersection(
     SchemaCategoryId,
     SchemaCategory,
@@ -107,13 +111,13 @@ export const UserSaveCategory = async (category) => {
 
   const updatedCategory = validatedData.id ?
     await prisma.category.update({
-      where: { id: validatedData.id, userId: session.user.id },
+      where: { id: validatedData.id, userId: userId },
       data: validatedData
     }) :
     await prisma.category.create({
       data: {
         ...validatedData,
-        userId: session.user.id
+        userId: userId,
       }
     });
 
@@ -129,14 +133,14 @@ export const UserSaveCategory = async (category) => {
 };
 
 export const UserGetPaymentMethods = async () => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
   const paymentMethods = await prisma.paymentMethod.findMany({
     where: {
-      userId: session.user.id
+      userId: getUserId(),
     },
     orderBy: {
       name: 'asc'
@@ -151,14 +155,14 @@ export const UserGetPaymentMethods = async () => {
 };
 
 export const UserLoadDefaultPaymentMethods = async () => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
   const createdPaymentMethods = await prisma.paymentMethod.createManyAndReturn({
     data: Object.entries(DefaultPaymentMethods).map(([name, icon]) => ({
-      userId: session.user.id,
+      userId: getUserId(),
       name: name,
       icon: icon
     })),
@@ -177,8 +181,8 @@ export const UserLoadDefaultPaymentMethods = async () => {
 };
 
 export const UserRemovePaymentMethod = async (id) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
@@ -188,7 +192,7 @@ export const UserRemovePaymentMethod = async (id) => {
   }
 
   const deletedPaymentMethod = await prisma.paymentMethod.delete({
-    where: { id: validatedData.id, userId: session.user.id }
+    where: { id: validatedData.id, userId: getUserId() }
   });
 
   if (!deletedPaymentMethod) {
@@ -201,11 +205,12 @@ export const UserRemovePaymentMethod = async (id) => {
 };
 
 export const UserSavePaymentMethod = async (paymentMethod) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
+  const userId = getUserId();
   const schema = paymentMethod.id !== null ? z.intersection(
     SchemaPaymentMethodId,
     SchemaPaymentMethod,
@@ -217,13 +222,13 @@ export const UserSavePaymentMethod = async (paymentMethod) => {
 
   const updatedPaymentMethod = validatedData.id ?
     await prisma.paymentMethod.update({
-      where: { id: validatedData.id, userId: session.user.id },
+      where: { id: validatedData.id, userId: userId },
       data: validatedData
     }) :
     await prisma.paymentMethod.create({
       data: {
         ...validatedData,
-        userId: session.user.id
+        userId: userId
       }
     });
 
@@ -239,8 +244,8 @@ export const UserSavePaymentMethod = async (paymentMethod) => {
 };
 
 export const UserUpdateTimezone = async (timezone) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
@@ -251,7 +256,7 @@ export const UserUpdateTimezone = async (timezone) => {
 
   const updated = await prisma.user.update({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     data: {
       timezone: validatedData,
@@ -266,8 +271,8 @@ export const UserUpdateTimezone = async (timezone) => {
 };
 
 export const UserUpdateCurrency = async (currency) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
@@ -278,7 +283,7 @@ export const UserUpdateCurrency = async (currency) => {
 
   const updated = await prisma.user.update({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     data: {
       currency: validatedData,
@@ -293,8 +298,8 @@ export const UserUpdateCurrency = async (currency) => {
 };
 
 export const UserUpdateNotifications = async (notifications) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
@@ -305,7 +310,7 @@ export const UserUpdateNotifications = async (notifications) => {
 
   const updated = await prisma.user.update({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     data: {
       notifications: validatedData.map(notification => {
@@ -328,8 +333,8 @@ export const UserUpdateNotifications = async (notifications) => {
 };
 
 export const UserUpdateWebhook = async (webhook) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
@@ -351,7 +356,7 @@ export const UserUpdateWebhook = async (webhook) => {
 
   const updated = await prisma.user.update({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     data: {
       webhook: validatedData,
@@ -366,8 +371,8 @@ export const UserUpdateWebhook = async (webhook) => {
 };
 
 export const UserUpdateName = async (name) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
@@ -378,7 +383,7 @@ export const UserUpdateName = async (name) => {
 
   const updated = await prisma.user.update({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     data: {
       name: validatedData,
@@ -393,14 +398,14 @@ export const UserUpdateName = async (name) => {
 };
 
 export const UserExportData = async () => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
   const user = await prisma.user.findUnique({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     select: {
       name: true,

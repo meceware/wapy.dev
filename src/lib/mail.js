@@ -1,25 +1,17 @@
 import { createTransport } from 'nodemailer';
 
-// TODO: Deprecate Resend by 01.01.2026
-
 const mailServerConfiguration = {
-  host: process.env?.EMAIL_SERVER_HOST ? process.env.EMAIL_SERVER_HOST : (
-    process.env?.RESEND_API_KEY ? 'smtp.resend.com' : ''
-  ),
+  host: process.env?.EMAIL_SERVER_HOST ? process.env.EMAIL_SERVER_HOST : '',
   port: process.env?.EMAIL_SERVER_PORT ? process.env.EMAIL_SERVER_PORT : 587,
   auth: {
-    user: process.env?.EMAIL_SERVER_USER ? process.env.EMAIL_SERVER_USER : (
-      process.env?.RESEND_API_KEY ? 'resend' : ''
-    ),
-    pass: process.env?.EMAIL_SERVER_PASSWORD ? process.env.EMAIL_SERVER_PASSWORD : (
-      process.env?.RESEND_API_KEY ? process.env.RESEND_API_KEY : ''
-    ),
+    user: process.env?.EMAIL_SERVER_USER ? process.env.EMAIL_SERVER_USER : '',
+    pass: process.env?.EMAIL_SERVER_PASSWORD ? process.env.EMAIL_SERVER_PASSWORD : '',
   },
 };
 
-const mailFrom = process.env?.EMAIL_FROM ? process.env.EMAIL_FROM : process.env?.RESEND_FROM;
+const mailFrom = process.env?.EMAIL_FROM ? process.env.EMAIL_FROM : '?';
 
-const mailContact = process.env?.EMAIL_CONTACT_EMAIL ? process.env.EMAIL_CONTACT_EMAIL : process.env?.RESEND_CONTACT_EMAIL;
+const mailContact = process.env?.EMAIL_CONTACT_EMAIL ? process.env.EMAIL_CONTACT_EMAIL : '';
 
 const mailSend = async (params) => {
   const transport = createTransport(mailServerConfiguration);

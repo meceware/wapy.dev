@@ -38,7 +38,7 @@ export async function sendContactForm(formData) {
     }
 
     await mailSend({
-      from: `Wapy.dev Contact Form <${mailFrom}>`,
+      from: `${siteConfig.name} Contact Form <${mailFrom}>`,
       to: mailContact,
       replyTo: `${name} <${email_address}>`,
       subject: `Contact form submission from ${name}`,

@@ -7,7 +7,7 @@ export const SchemaSubscriptionId = z.object({
 
 export const SchemaNotifications = z.array(
   z.object({
-    type: z.array(z.enum(['EMAIL', 'PUSH', 'WEBHOOK'])),
+    type: z.array(z.enum(['EMAIL', 'PUSH', 'WEBHOOK', 'NTFY', 'DISCORD', 'SLACK'])),
     time: z.enum(['INSTANT', 'MINUTES', 'HOURS', 'DAYS', 'WEEKS']),
     due: z.number().int().min(0),
   })
@@ -18,7 +18,13 @@ export const SchemaNotifications = z.array(
     if (notificationMap.has(key)) {
       // Merge 'type' arrays and remove duplicates
       const existingNotification = notificationMap.get(key);
-      existingNotification.type = [...new Set([...existingNotification.type, ...notification.type])];
+      const merged = [...existingNotification.type];
+      notification.type.forEach(type => {
+        if (!merged.includes(type)) {
+          merged.push(type);
+        }
+      });
+      existingNotification.type = merged;
     } else {
       notificationMap.set(key, { ...notification });
     }

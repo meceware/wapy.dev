@@ -85,8 +85,8 @@ export const auth = betterAuth({
         type: "boolean",
         required: false,
       },
-			webhook: {
-        type: "string",
+			externalServices: {
+        type: "json",
         required: false,
       },
 		},

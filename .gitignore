@@ -44,6 +44,7 @@ next-env.d.ts
 /.backup/
 /keycloak/
 /authentik/
+/external_services/
 
 # dashboard-icons
 /public/icons/dashboard

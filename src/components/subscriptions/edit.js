@@ -46,7 +46,7 @@ import { addDays } from 'date-fns';
 import { toZonedTime, fromZonedTime } from 'date-fns-tz';
 import { Icons } from '@/components/icons';
 
-export const SubscriptionEdit = ({ user, subscription = undefined, settings }) =>  {
+export const SubscriptionEdit = ({ user, subscription = undefined }) =>  {
   const [dialogOpen, setDialogOpen] = useState(false);
   const form = useForm({
     resolver: zodResolver(SchemaSubscriptionEdit),
@@ -232,7 +232,7 @@ export const SubscriptionEdit = ({ user, subscription = undefined, settings }) =
                   control={form.control}
                   name='notifications'
                   render={({ field }) => (
-                    <FormFieldNotifications field={field} settings={settings} />
+                    <FormFieldNotifications field={field} externalServices={user.externalServices || {}} />
                   )}
                 />
               </div>

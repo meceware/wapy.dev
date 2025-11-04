@@ -6,6 +6,12 @@ import { z } from 'zod';
 import { DefaultCategories } from '@/config/categories';
 import { DefaultPaymentMethods } from '@/config/payment-methods';
 import {
+  SendWebhook,
+  SendNtfy,
+  SendDiscord,
+  SendSlack,
+} from '@/components/subscriptions/external-services';
+import {
   SchemaCategoryId,
   SchemaCategory,
   SchemaPaymentMethodId,
@@ -14,9 +20,12 @@ import {
   SchemaCurrency,
   SchemaUserNotifications,
   SchemaUserName,
-  SchemaWebhook,
+  SchemaNtfyService,
+  SchemaWebhookService,
+  SchemaDiscordService,
+  SchemaSlackService,
 } from './schema';
-import { sendWebhook } from '@/components/subscriptions/webhook';
+import { siteConfig } from '@/components/config';
 
 export const UserGetCategories = async () => {
   const {isAuthenticated, getUserId} = await useAuthServer();
@@ -332,44 +341,6 @@ export const UserUpdateNotifications = async (notifications) => {
   return { success: true, notifications: updated.notifications };
 };
 
-export const UserUpdateWebhook = async (webhook) => {
-  const {isAuthenticated, getUserId} = await useAuthServer();
-  if (!isAuthenticated()) {
-    throw new Error('Unauthorized');
-  }
-
-  const result = SchemaWebhook.safeParse(webhook);
-  if (!result.success) {
-    return { success: false, webhook: webhook };
-  }
-  const validatedData = result.data;
-
-  // Check if the webhook URL is valid
-  if (validatedData && validatedData !== '') {
-    const isSuccess = await sendWebhook(validatedData, {
-      event: 'verify',
-    });
-    if (!isSuccess) {
-      return { success: false, webhook: validatedData };
-    }
-  }
-
-  const updated = await prisma.user.update({
-    where: {
-      id: getUserId(),
-    },
-    data: {
-      webhook: validatedData,
-    }
-  });
-
-  if (!updated) {
-    return { success: false, webhook: validatedData };
-  }
-
-  return { success: true, webhook: updated.webhook };
-};
-
 export const UserUpdateName = async (name) => {
   const {isAuthenticated, getUserId} = await useAuthServer();
   if (!isAuthenticated()) {
@@ -466,4 +437,292 @@ export const UserExportData = async () => {
     paymentMethods: user.paymentMethods,
     subscriptions: user.subscriptions,
   };
+};
+
+export const UserSaveNtfy = async (config) => {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
+    throw new Error('Unauthorized');
+  }
+
+  const result = SchemaNtfyService.safeParse(config);
+  if (!result.success) {
+    return { success: false };
+  }
+  const validatedData = result.data;
+
+  const userId = getUserId();
+
+  // Use Prisma transaction
+  const updated = await prisma.$transaction(async (tx) => {
+    // Get current user data
+    const user = await tx.user.findUnique({
+      where: { id: userId },
+      select: { externalServices: true }
+    });
+
+    const currentServices = user?.externalServices || {};
+
+    return await tx.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        externalServices: {
+          ...currentServices,
+          ntfy: validatedData.enabled === false
+            // If only disabling, just set enabled to false
+            ? {
+                ...(currentServices.ntfy || {}),
+                enabled: false,
+              }
+            : {
+                ...validatedData,
+                // Change token if necessary (full of *, since it's hidden on client component)
+                token: (validatedData.token && validatedData.token.match(/^\*+$/))
+                  ? currentServices?.ntfy?.token
+                  : validatedData.token,
+            },
+        },
+      }
+    });
+  });
+
+  return { success: !!updated };
+};
+
+export const UserTestNtfy = async (config) => {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
+    throw new Error('Unauthorized');
+  }
+
+  const result = SchemaNtfyService.safeParse(config);
+  if (!result.success) {
+    return { success: false };
+  }
+  const validatedData = result.data;
+
+  // If token is all asterisks, get the real token from database
+  if (validatedData.token && validatedData.token.match(/^\*+$/)) {
+    const user = await prisma.user.findUnique({
+      where: { id: getUserId() },
+      select: { externalServices: true }
+    });
+
+    const storedToken = user?.externalServices?.ntfy?.token;
+    if (storedToken) {
+      validatedData.token = storedToken;
+    } else {
+      delete validatedData.token;
+    }
+  }
+
+  const success = await SendNtfy(validatedData, {
+    title: `${siteConfig.name} Test Notification`,
+    message: `This is a test notification from ${siteConfig.name}. Your ntfy integration is configured correctly.`,
+    actions: [
+      {
+        action: 'view',
+        label: 'View',
+        url: siteConfig.url,
+        clear: true
+      }
+    ]
+  });
+
+  return { success: success };
+};
+
+export const UserSaveWebhook = async (config) => {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
+    throw new Error('Unauthorized');
+  }
+
+  const result = SchemaWebhookService.safeParse(config);
+  if (!result.success) {
+    return { success: false };
+  }
+  const validatedData = result.data;
+
+  const userId = getUserId();
+
+  // Use Prisma transaction
+  const updated = await prisma.$transaction(async (tx) => {
+    // Get current user data
+    const user = await tx.user.findUnique({
+      where: { id: userId },
+      select: { externalServices: true }
+    });
+
+    const currentServices = user?.externalServices || {};
+
+    return await tx.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        externalServices: {
+          ...currentServices,
+          webhook: validatedData.enabled === false
+            // If only disabling, just set enabled to false
+            ? {
+                ...(currentServices.webhook || {}),
+                enabled: false,
+              }
+            : validatedData,
+        },
+      }
+    });
+  });
+
+  return { success: !!updated };
+};
+
+export const UserTestWebhook = async (config) => {
+  const result = SchemaWebhookService.safeParse(config);
+  if (!result.success) {
+    return { success: false };
+  }
+  const validatedData = result.data;
+
+  const success = await SendWebhook(
+    validatedData.url,
+    {
+      event: 'test-notification',
+      title: `${siteConfig.name} Test Notification`,
+      message: `This is a test webhook from ${siteConfig.name}. Your webhook integration is configured correctly.`,
+      tags: ['wapy.dev'],
+      timestamp: new Date().toISOString(),
+    }
+  );
+
+  return { success: success };
+};
+
+export const UserSaveDiscord = async (config) => {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
+    throw new Error('Unauthorized');
+  }
+
+  const result = SchemaDiscordService.safeParse(config);
+  if (!result.success) {
+    return { success: false };
+  }
+  const validatedData = result.data;
+
+  const userId = getUserId();
+
+  // Use Prisma transaction
+  const updated = await prisma.$transaction(async (tx) => {
+    // Get current user data
+    const user = await tx.user.findUnique({
+      where: { id: userId },
+      select: { externalServices: true }
+    });
+
+    const currentServices = user?.externalServices || {};
+
+    return await tx.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        externalServices: {
+          ...currentServices,
+          discord: validatedData.enabled === false
+            // If only disabling, just set enabled to false
+            ? {
+                ...(currentServices.discord || {}),
+                enabled: false,
+              }
+            : validatedData,
+        },
+      }
+    });
+  });
+
+  return { success: !!updated };
+};
+
+export const UserTestDiscord = async (config) => {
+  const result = SchemaDiscordService.safeParse(config);
+  if (!result.success) {
+    return { success: false };
+  }
+
+  const success = await SendDiscord(
+    result.data,
+    {
+      title: `${siteConfig.name} Test Notification`,
+      message: `This is a test Discord message from ${siteConfig.name}. Your Discord integration is configured correctly.`,
+    }
+  );
+
+  return { success: success };
+};
+
+export const UserSaveSlack = async (config) => {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
+    throw new Error('Unauthorized');
+  }
+
+  const result = SchemaSlackService.safeParse(config);
+  if (!result.success) {
+    return { success: false };
+  }
+  const validatedData = result.data;
+
+  const userId = getUserId();
+
+  // Use Prisma transaction
+  const updated = await prisma.$transaction(async (tx) => {
+    // Get current user data
+    const user = await tx.user.findUnique({
+      where: { id: userId },
+      select: { externalServices: true }
+    });
+
+    const currentServices = user?.externalServices || {};
+
+    return await tx.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        externalServices: {
+          ...currentServices,
+          slack: validatedData.enabled === false
+            // If only disabling, just set enabled to false
+            ? {
+                ...(currentServices.slack || {}),
+                enabled: false,
+              }
+            : validatedData,
+        },
+      }
+    });
+  });
+
+  return { success: !!updated };
+};
+
+export const UserTestSlack = async (config) => {
+  const result = SchemaSlackService.safeParse(config);
+  if (!result.success) {
+    return { success: false };
+  }
+
+  const success = await SendSlack(
+    result.data,
+    {
+      title: `${siteConfig.name} Test Notification`,
+      message: `This is a test Slack message from ${siteConfig.name}. Your Slack integration is configured correctly.`,
+    }
+  );
+
+  return { success: success };
 };

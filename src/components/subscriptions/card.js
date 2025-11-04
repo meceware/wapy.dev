@@ -256,11 +256,19 @@ const SubscriptionMarkAsPaid = ({ subscription }) => {
   );
 };
 
-const SubscriptionIsNotified = ({ subscription, settings }) => {
+const SubscriptionIsNotified = ({ subscription, externalServices }) => {
+  const isNtfySettingsEnabled = externalServices?.ntfy?.enabled && externalServices?.ntfy?.url;
+  const isWebhookSettingsEnabled = externalServices?.webhook?.enabled && externalServices?.webhook?.url;
+  const isDiscordSettingsEnabled = externalServices?.discord?.enabled && externalServices?.discord?.url;
+  const isSlackSettingsEnabled = externalServices?.slack?.enabled && externalServices?.slack?.url;
+
   if (subscription.enabled && subscription.nextNotificationTime) {
-    const nextNotificationDetails = subscription.nextNotificationDetails?.type?.filter(
-      type => type !== 'WEBHOOK' || settings?.webhook
-    ) ?? [];
+    const nextNotificationDetails = subscription.nextNotificationDetails?.type?.filter(type =>
+      (type !== 'WEBHOOK' || isWebhookSettingsEnabled) &&
+      (type !== 'NTFY' || isNtfySettingsEnabled) &&
+      (type !== 'DISCORD' || isDiscordSettingsEnabled) &&
+      (type !== 'SLACK' || isSlackSettingsEnabled)
+    )
 
     if (nextNotificationDetails.length !== 0) {
       return (
@@ -281,6 +289,9 @@ const SubscriptionIsNotified = ({ subscription, settings }) => {
             if (type.toLowerCase().includes('push')) label = 'notification';
             if (type.toLowerCase().includes('email')) label = 'email';
             if (type.toLowerCase().includes('webhook')) label = 'webhook';
+            if (type.toLowerCase().includes('ntfy')) label = 'ntfy';
+            if (type.toLowerCase().includes('discord')) label = 'discord';
+            if (type.toLowerCase().includes('slack')) label = 'slack';
 
             return (
               <div key={type} className='inline'>
@@ -405,12 +416,19 @@ const SubscriptionPastPaymentCount = ({ subscription }) => {
   );
 };
 
-export const SubscriptionCard = ({ subscription, settings }) => {
+export const SubscriptionCard = ({ subscription, externalServices }) => {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
   const categories = subscription.categories || [];
   const isPushEnabled = subscription.enabled && subscription.notifications.some(notification => notification.type.includes('PUSH'));
   const isEmailEnabled = subscription.enabled && subscription.notifications.some(notification => notification.type.includes('EMAIL'));
-  const isWebHookEnabled = subscription.enabled && settings?.webhook && subscription.notifications.some(notification => notification.type.includes('WEBHOOK'));
+  const isNtfySettingsEnabled = externalServices?.ntfy?.enabled && externalServices?.ntfy?.url;
+  const isNtfyEnabled = subscription.enabled && isNtfySettingsEnabled && subscription.notifications.some(notification => notification.type.includes('NTFY'));
+  const isWebhookSettingsEnabled = externalServices?.webhook?.enabled && externalServices?.webhook?.url;
+  const isWebHookEnabled = subscription.enabled && isWebhookSettingsEnabled && subscription.notifications.some(notification => notification.type.includes('WEBHOOK'));
+  const isDiscordSettingsEnabled = externalServices?.discord?.enabled && externalServices?.discord?.url;
+  const isDiscordEnabled = subscription.enabled && isDiscordSettingsEnabled && subscription.notifications.some(notification => notification.type.includes('DISCORD'));
+  const isSlackSettingsEnabled = externalServices?.slack?.enabled && externalServices?.slack?.url;
+  const isSlackEnabled = subscription.enabled && isSlackSettingsEnabled && subscription.notifications.some(notification => notification.type.includes('SLACK'));
 
   return (
     <Card className='w-full hover:shadow-lg transition-shadow duration-200 flex flex-col'>
@@ -445,7 +463,7 @@ export const SubscriptionCard = ({ subscription, settings }) => {
               <SubscriptionPaymentCount subscription={subscription} />
               <SubscriptionPaymentMethods subscription={subscription} />
               <SubscriptionPastPaymentCount subscription={subscription} />
-              <SubscriptionIsNotified subscription={subscription} settings={settings} />
+              <SubscriptionIsNotified subscription={subscription} externalServices={externalServices} />
             </>
           ) : (
             <>
@@ -501,13 +519,46 @@ export const SubscriptionCard = ({ subscription, settings }) => {
                 )
               }/>
             </div>
-            {settings?.webhook && (
+            {isNtfySettingsEnabled && (
+              <div title={`Ntfy notifications are ${isNtfyEnabled ? 'enabled' : 'disabled'}`}>
+                <Icons.ntfy className={
+                  cn(
+                    'size-5',
+                    {'text-green-500': isNtfyEnabled},
+                    {'text-red-500 opacity-50': !isNtfyEnabled}
+                  )
+                }/>
+              </div>
+            )}
+            {isWebhookSettingsEnabled && (
               <div title={`Webhook notifications are ${isWebHookEnabled ? 'enabled' : 'disabled'}`}>
                 <Icons.webhook className={
                   cn(
                     'size-5',
                     {'text-green-500': isWebHookEnabled},
                     {'text-red-500 opacity-50': !isWebHookEnabled}
+                  )
+                }/>
+              </div>
+            )}
+            {isDiscordSettingsEnabled && (
+              <div title={`Discord notifications are ${isDiscordEnabled ? 'enabled' : 'disabled'}`}>
+                <Icons.discord className={
+                  cn(
+                    'size-5',
+                    {'text-green-500': isDiscordEnabled},
+                    {'text-red-500 opacity-30': !isDiscordEnabled}
+                  )
+                }/>
+              </div>
+            )}
+            {isSlackSettingsEnabled && (
+              <div title={`Slack notifications are ${isSlackEnabled ? 'enabled' : 'disabled'}`}>
+                <Icons.slack className={
+                  cn(
+                    'size-5',
+                    {'text-green-500': isSlackEnabled},
+                    {'text-red-500 opacity-30': !isSlackEnabled}
                   )
                 }/>
               </div>

@@ -130,6 +130,14 @@ export const paddleGetSession = async () => {
     },
   });
 
+  // Hide sensitive ntfy token data from client
+  if (user?.externalServices?.ntfy?.token) {
+    user.externalServices.ntfy = {
+      ...user.externalServices.ntfy,
+      token: '*'.repeat(user.externalServices.ntfy.token.length)
+    };
+  }
+
   const paddleStatus = await paddleGetStatus(user);
 
   return {

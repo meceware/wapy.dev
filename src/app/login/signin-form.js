@@ -285,7 +285,7 @@ export function SignInForm({isGoogle = false, isGithub = false, genericAuthProvi
               : (
                 genericAuthProvider.toLowerCase() === 'keycloak' ? <Icons.keycloak className='mr-2' /> :
                 genericAuthProvider.toLowerCase() === 'authentik' ? <Icons.authentik className='mr-2' /> :
-                <Icons.KeyRound className='mr-2 text-green-600' />
+                <Icons.keyRound className='mr-2 text-green-600' />
               )
             }
             Login with {genericAuthProvider.replace(/\b\w/g, l => l.toUpperCase())}

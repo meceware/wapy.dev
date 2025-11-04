@@ -22,7 +22,7 @@ const PageLogin = async () => {
 
 export default withAuth(PageLogin, /* isProtected */ false, /* isRedirected */ true);
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
   return {
     title: 'Sign In',
   };

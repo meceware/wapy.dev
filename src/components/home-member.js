@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { withAuth } from '@/lib/with-auth';
 import { SubscriptionList } from '@/components/subscriptions/list';
 
-const HomeMember = async ({ userId, settings }) => {
+const HomeMember = async ({ userId, externalServices }) => {
   const subscriptions = await prisma.subscription.findMany({
     where: {
       userId: userId,
@@ -45,7 +45,7 @@ const HomeMember = async ({ userId, settings }) => {
 
   return (
     <div className='flex flex-col items-center w-full max-w-3xl gap-4'>
-      <SubscriptionList subscriptions={subscriptions} settings={settings} />
+      <SubscriptionList subscriptions={subscriptions} externalServices={externalServices} />
     </div>
   );
 };

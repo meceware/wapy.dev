@@ -93,8 +93,8 @@ export const UserSubscriptionSendTestNotification = async () => {
   try {
   const promises = await UserSubscriptionSendNotification(
       { user: user },
-      'Wapy.dev Test Notification',
-      'This is a test notification from Wapy.dev. If you are seeing this, it means push notifications are working correctly!',
+      `${siteConfig.name} Test Notification`,
+      `This is a test notification from ${siteConfig.name}. If you are seeing this, it means push notifications are working correctly!`,
       '',
       true
     );
@@ -112,7 +112,7 @@ export const UserSubscriptionSendEmail = async (subscription, title, message, ma
   return new Promise(async (resolve, reject) => {
     try {
       await mailSend({
-        from: `Wapy.dev Subscription Reminder <${mailFrom}>`,
+        from: `${siteConfig.name} Subscription Reminder <${mailFrom}>`,
         to: subscription.user.email,
         subject: title,
         html: `

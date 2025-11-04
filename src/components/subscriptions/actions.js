@@ -146,12 +146,6 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId, price
     ...subscription,
     paymentDate: nextPaymentDate,
   });
-  const updateData = {
-    paymentDate: nextPaymentDate ?? subscription.paymentDate,
-    enabled: !!nextPaymentDate,
-    nextNotificationTime: nextPaymentDate ? nextNotificationDate?.date : null,
-    nextNotificationDetails: nextPaymentDate ? nextNotificationDate?.details : {},
-  };
 
   const operations = [
     prisma.subscription.update({
@@ -159,7 +153,12 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId, price
         id: subscription.id,
         userId: userId,
       },
-      data: updateData,
+      data: {
+        paymentDate: nextPaymentDate ?? subscription.paymentDate,
+        enabled: !!nextPaymentDate,
+        nextNotificationTime: nextPaymentDate ? nextNotificationDate?.date : null,
+        nextNotificationDetails: nextPaymentDate ? nextNotificationDate?.details : {},
+      },
     }),
   ];
 

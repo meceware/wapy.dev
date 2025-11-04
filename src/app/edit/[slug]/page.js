@@ -17,14 +17,10 @@ const PageSubscriptionEdit = async ({ params }) => {
     return notFound();
   }
 
-  const settings = {
-    webhook: session?.user?.webhook,
-  };
-
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
       <div className='container flex flex-col items-center justify-center gap-6'>
-        <SubscriptionEdit user={user} subscription={ subscription } settings={settings} />
+        <SubscriptionEdit user={user} subscription={ subscription } />
       </div>
     </SubscriptionGuard>
   );

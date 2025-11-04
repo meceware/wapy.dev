@@ -18,14 +18,10 @@ const PageSubscriptionView = async ({ params }) => {
   }
   subscription.pastPayments = await SubscriptionGetPastPaymentsStats(subscription.id, session?.user?.id);
 
-  const settings = {
-    webhook: session?.user?.webhook,
-  };
-
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
       <div className='container flex flex-col items-center justify-center gap-6'>
-        <SubscriptionView subscription={subscription} settings={settings} />
+        <SubscriptionView subscription={subscription} externalServices={session?.user?.externalServices || {}} />
       </div>
     </SubscriptionGuard>
   );

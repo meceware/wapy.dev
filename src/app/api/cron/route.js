@@ -205,10 +205,18 @@ export async function GET() {
 
     const paymentDate = subscription.nextNotificationDetails?.paymentDate;
     const isPaymentDueNow = isEqual(paymentDate, subscription.nextNotificationTime);
+    const isPaymentReminder = subscription.nextNotificationDetails?.isRepeat ? true : false;
     const dueText = isPaymentDueNow
       ? 'due now'
-      : `${formatDistanceToNowStrict(paymentDate, {addSuffix: true})}`;
-    const title = (isPaymentDueNow ? 'Payment Due' : 'Upcoming Payment')
+      : isPaymentReminder
+        ? 'overdue'
+        : `${formatDistanceToNowStrict(paymentDate, {addSuffix: true})}`;
+    const title = (isPaymentDueNow
+        ? 'Payment Due'
+        : isPaymentReminder
+          ? 'Payment Reminder'
+          : 'Upcoming Payment'
+      )
       + ` for '${subscription.name}'`;
     const message = `Your '${subscription.name}' subscription payment (${formatPrice(subscription.price, subscription.currency)}) is ${dueText}!`;
 
@@ -232,7 +240,7 @@ export async function GET() {
     // Send webhook notification if enabled
     if (isWebhookEnabled) {
       promises.push(SendWebhook(subscription.user?.externalServices?.webhook?.url, {
-        event: isPaymentDueNow ? 'payment_due_now' : 'payment_due_upcoming',
+        event: isPaymentDueNow ? 'payment_due_now' : (isPaymentReminder ? 'payment_overdue' : 'payment_due_upcoming'),
         price: subscription.price,
         currency: subscription.currency,
         paymentDate: subscription.paymentDate,

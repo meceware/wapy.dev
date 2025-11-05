@@ -2,7 +2,18 @@
 
 import { useMemo, Fragment } from 'react';
 import Link from 'next/link';
-import { format, addMonths, differenceInDays, addYears, isBefore, isPast, formatDistanceToNowStrict, isEqual, formatDistanceStrict, differenceInMinutes } from 'date-fns';
+import {
+  format,
+  addMonths,
+  differenceInDays,
+  addYears,
+  isBefore,
+  isPast,
+  formatDistanceToNowStrict,
+  isEqual,
+  formatDistanceStrict,
+  differenceInMinutes,
+} from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import {
   Card,
@@ -16,7 +27,10 @@ import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
 import { Badge } from '@/components/ui/badge';
 import { LogoIcon } from '@/components/ui/icon-picker';
-import { SubscriptionGetUpcomingPayments, SubscriptionGetNextFuturePaymentDate } from '@/components/subscriptions/lib';
+import {
+  SubscriptionGetUpcomingPayments,
+  SubscriptionGetNextFuturePaymentDate,
+} from '@/components/subscriptions/lib';
 import { getCycleLabel, getPaymentCount, formatPrice } from '@/components/subscriptions/utils';
 import { cn } from '@/lib/utils';
 import {

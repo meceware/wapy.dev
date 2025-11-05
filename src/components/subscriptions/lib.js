@@ -1,4 +1,4 @@
-import { addDays, addWeeks, addMonths, addYears, subMinutes, subHours, subDays, subWeeks, isPast, isBefore, isAfter } from 'date-fns';
+import { addDays, addWeeks, addMonths, addYears, subMinutes, subHours, subDays, subWeeks, isPast, isAfter } from 'date-fns';
 
 // This function assumes subscription is enabled
 export const GetNextPaymentDate = (currentPaymentDate, untilDate, time, every) => {
@@ -16,13 +16,13 @@ export const GetNextPaymentDate = (currentPaymentDate, untilDate, time, every) =
 }
 
 const GetNotificationDates = (paymentDate, notifications) => {
-  return notifications.map(notification => {
-    if ( notification.type.length === 0 ) {
+  const sortedNotifications = notifications.map(notification => {
+    if (notification.type.length === 0) {
       return null;
     }
 
     let date;
-    switch(notification.time) {
+    switch (notification.time) {
       case 'INSTANT':
         date = paymentDate;
         break;
@@ -43,20 +43,43 @@ const GetNotificationDates = (paymentDate, notifications) => {
         break;
     }
 
-    return date ? {
-      date: date,
-      details: {
-        paymentDate: paymentDate,
-        type: notification.type,
-      }
-    } : null;
+    return date
+      ? {
+          date: date,
+          details: {
+            paymentDate: paymentDate,
+            type: notification.type,
+          },
+        }
+      : null;
   })
   .filter(Boolean)
-  // Filter out past dates
-  .filter(item => !isPast(item.date))
   // Sort ascending
   .sort((a, b) => a.date - b.date);
-}
+
+  // Duplicate the last (max) date and add +1, +2, +3 days
+  const repeatMax = 3;
+  debugger;
+  if (sortedNotifications.length > 0) {
+    const lastNotification = sortedNotifications[sortedNotifications.length - 1];
+    for (let i = 1; i <= repeatMax; i++) {
+      sortedNotifications.push({
+        date: addDays(paymentDate, i),
+        details: {
+          ...lastNotification.details,
+          isRepeat: true,
+        },
+      });
+    }
+  }
+
+  return sortedNotifications
+    // Filter out past dates
+    .filter(item => !isPast(item.date))
+    // Sort ascending
+    .sort((a, b) => a.date - b.date);
+};
+
 
 export const SubscriptionGetNextPaymentDate = (subscription) => {
   if (!subscription.enabled) {
@@ -114,6 +137,14 @@ export const SubscriptionGetNextNotificationDate = (subscription) => {
     return null;
   }
 
+  const repeatNotificationDates = GetNotificationDates(subscription.paymentDate, notifications);
+  if (repeatNotificationDates.length !== 0) {
+    return {
+      date: repeatNotificationDates[0].date,
+      details: repeatNotificationDates[0].details
+    };
+  }
+
   const paymentDate = SubscriptionGetNextFuturePaymentDate(subscription);
   if (!paymentDate) {
     return null;
@@ -121,7 +152,6 @@ export const SubscriptionGetNextNotificationDate = (subscription) => {
 
   // Calculate all notification dates for current payment
   const notificationDates = GetNotificationDates(paymentDate, notifications);
-
   if (notificationDates.length !== 0) {
     return {
       date: notificationDates[0].date,

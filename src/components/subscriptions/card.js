@@ -268,13 +268,19 @@ const SubscriptionIsNotified = ({ subscription, externalServices }) => {
       (type !== 'NTFY' || isNtfySettingsEnabled) &&
       (type !== 'DISCORD' || isDiscordSettingsEnabled) &&
       (type !== 'SLACK' || isSlackSettingsEnabled)
-    )
+    );
+    const nextNotificationIsRepeat = subscription.nextNotificationDetails?.isRepeat ? true : false;
 
     if (nextNotificationDetails.length !== 0) {
       return (
         <div>
-          <span className='text-sm text-muted-foreground'>You will be notified </span>
-          {' '}
+          <span className='text-sm text-muted-foreground'>
+            {nextNotificationIsRepeat
+              ? 'You will be reminded'
+              : 'You will be notified'
+            }
+            {' '}
+          </span>
           <SubscriptionDate date={subscription.nextNotificationTime} timezone={subscription.timezone} text={DateFNS.isPast(subscription.nextNotificationTime) ? 'soon' : undefined} />
           {nextNotificationDetails.map((type, index) => {
             const isLast = index === nextNotificationDetails.length - 1;
@@ -300,6 +306,9 @@ const SubscriptionIsNotified = ({ subscription, externalServices }) => {
               </div>
             );
           })}
+          {nextNotificationIsRepeat && (
+            <span className='text-sm text-muted-foreground'>{' '}again</span>
+          )}
           <span className='text-muted-foreground'>.</span>
         </div>
       );

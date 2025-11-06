@@ -13,7 +13,8 @@ COPY . .
 # Build the application
 RUN npm ci --force
 # Provide a dummy DATABASE_URL for Prisma generate (needed on arm64)
-ENV DATABASE_URL="postgresql://user:pass@localhost:5432/db"
+ARG DUMMY_DATABASE_URL
+ENV DATABASE_URL=$DUMMY_DATABASE_URL
 RUN npx prisma generate
 RUN npm run build
 

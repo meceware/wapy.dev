@@ -12,7 +12,8 @@ COPY . .
 
 # Build the application
 RUN npm ci --force
-RUN npx prisma generate
+# Provide a dummy DATABASE_URL for Prisma generate (needed on arm64)
+RUN DATABASE_URL="postgresql://user:pass@localhost:5432/db" npx prisma generate
 RUN npm run build
 
 FROM base AS runner
@@ -38,7 +39,7 @@ COPY --from=builder /app/scripts/entrypoint.sh ./
 COPY --from=builder /app/LICENSE ./
 
 RUN chmod +x ./entrypoint.sh
-RUN npm i -g prisma
+# RUN npm i -g prisma
 
 # Expose port
 EXPOSE 3000 5555

@@ -1,7 +1,7 @@
 'use server';
 
 import { notFound } from 'next/navigation';
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import { withAuth } from '@/lib/with-auth';
 import { SubscriptionGet, SubscriptionGetPastPaymentsStats } from '@/components/subscriptions/actions';
 import { SubscriptionView } from '@/components/subscriptions/view';
@@ -10,7 +10,7 @@ import { SubscriptionGuard } from '@/components/subscription-guard';
 
 const PageSubscriptionView = async ({ params }) => {
   const slug = (await params).slug;
-  const { session, user, paddleStatus } = await paddleGetSession();
+  const {session, paddleStatus} = await paddleGetSession();
 
   const subscription = await SubscriptionGet(slug, session?.user?.id);
   if (!subscription) {
@@ -18,14 +18,10 @@ const PageSubscriptionView = async ({ params }) => {
   }
   subscription.pastPayments = await SubscriptionGetPastPaymentsStats(subscription.id, session?.user?.id);
 
-  const settings = {
-    webhook: session?.user?.webhook,
-  };
-
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
       <div className='container flex flex-col items-center justify-center gap-6'>
-        <SubscriptionView subscription={subscription} settings={settings} />
+        <SubscriptionView subscription={subscription} externalServices={session?.user?.externalServices || {}} />
       </div>
     </SubscriptionGuard>
   );
@@ -34,15 +30,15 @@ const PageSubscriptionView = async ({ params }) => {
 export default withAuth(PageSubscriptionView);
 
 export async function generateMetadata({ params }) {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return {
       title: 'Unauthorized',
     };
   }
 
   const subscriptionId = (await params).slug;
-  const subscription = await SubscriptionGet(subscriptionId, session?.user?.id);
+  const subscription = await SubscriptionGet(subscriptionId, getUserId());
   return {
     title: subscription?.name ? `View ${subscription.name}` : 'Not Found',
   };

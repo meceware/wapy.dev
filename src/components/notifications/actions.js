@@ -1,18 +1,18 @@
 'use server'
 
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import { prisma } from '@/lib/prisma';
 
 export async function PushNotificationSubscribe(subscription) {
-  const session = await auth()
-  if (!session) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
   const pushSubscription = await prisma.pushSubscription.upsert({
     where: {
       userId_endpoint: {
-        userId: session.user.id,
+        userId: getUserId(),
         endpoint: subscription.endpoint
       }
     },
@@ -21,7 +21,7 @@ export async function PushNotificationSubscribe(subscription) {
       auth: subscription.keys.auth
     },
     create: {
-      userId: session.user.id,
+      userId: getUserId(),
       endpoint: subscription.endpoint,
       p256dh: subscription.keys.p256dh,
       auth: subscription.keys.auth
@@ -32,14 +32,14 @@ export async function PushNotificationSubscribe(subscription) {
 }
 
 export async function PushNotificationUnsubscribe(endpoint) {
-  const session = await auth()
-  if (!session) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
   const pushSubscription = await prisma.pushSubscription.deleteMany({
     where: {
-      userId: session.user.id,
+      userId: getUserId(),
       endpoint
     }
   });
@@ -52,14 +52,14 @@ export async function PushNotificationCheckEndpoint(endpoint) {
     return { success: false };
   }
 
-  const session = await auth()
-  if (!session) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     throw new Error('Unauthorized');
   }
 
   const pushSubscription = await prisma.pushSubscription.findFirst({
     where: {
-      userId: session.user.id,
+      userId: getUserId(),
       endpoint
     }
   });
@@ -68,15 +68,15 @@ export async function PushNotificationCheckEndpoint(endpoint) {
 }
 
 export async function PastNotificationsGetUnread() {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return { notifications: [], unreadCount: 0 };
   }
 
   const [notifications, unreadCount] = await Promise.all([
     prisma.pastNotification.findMany({
       where: {
-        userId: session.user.id,
+        userId: getUserId(),
       },
       orderBy: {
         createdAt: 'desc',
@@ -89,7 +89,7 @@ export async function PastNotificationsGetUnread() {
     }),
     prisma.pastNotification.count({
       where: {
-        userId: session.user.id,
+        userId: getUserId(),
         read: false,
       },
     }),
@@ -102,15 +102,15 @@ export async function PastNotificationsGetUnread() {
 }
 
 export async function PastNotificationsMarkAsRead(id) {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return { success: false };
   }
 
   await prisma.pastNotification.delete({
     where: {
       id: id,
-      userId: session.user.id,
+      userId: getUserId(),
     },
   });
 
@@ -118,14 +118,14 @@ export async function PastNotificationsMarkAsRead(id) {
 }
 
 export async function PastNotificationsMarkAllAsRead() {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return { success: false };
   }
 
   await prisma.pastNotification.deleteMany({
     where: {
-      userId: session.user.id,
+      userId: getUserId(),
     },
   });
 

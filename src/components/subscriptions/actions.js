@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import {
   SchemaSubscriptionId,
   SchemaSubscriptionPrice,
@@ -146,12 +146,6 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId, price
     ...subscription,
     paymentDate: nextPaymentDate,
   });
-  const updateData = {
-    paymentDate: nextPaymentDate ?? subscription.paymentDate,
-    enabled: !!nextPaymentDate,
-    nextNotificationTime: nextPaymentDate ? nextNotificationDate?.date : null,
-    nextNotificationDetails: nextPaymentDate ? nextNotificationDate?.details : {},
-  };
 
   const operations = [
     prisma.subscription.update({
@@ -159,7 +153,12 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId, price
         id: subscription.id,
         userId: userId,
       },
-      data: updateData,
+      data: {
+        paymentDate: nextPaymentDate ?? subscription.paymentDate,
+        enabled: !!nextPaymentDate,
+        nextNotificationTime: nextPaymentDate ? nextNotificationDate?.date : null,
+        nextNotificationDetails: nextPaymentDate ? nextNotificationDate?.details : {},
+      },
     }),
   ];
 
@@ -187,16 +186,16 @@ export async function SubscriptionActionMarkAsPaid(subscriptionId, userId, price
 }
 
 export const SubscriptionActionMarkAsPaidSession = async (subscriptionId) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return false;
   }
-  return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id);
+  return SubscriptionActionMarkAsPaid(subscriptionId, getUserId());
 }
 
 export const SubscriptionActionMarkAsPaidSessionWithPrice = async (subscriptionId, price) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return false;
   }
 
@@ -205,16 +204,16 @@ export const SubscriptionActionMarkAsPaidSessionWithPrice = async (subscriptionI
     return false;
   }
 
-  return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id, parsedData.data.price);
+  return SubscriptionActionMarkAsPaid(subscriptionId, getUserId(), parsedData.data.price);
 }
 
 export const SubscriptionActionMarkAsPaidSessionNoPrice = async (subscriptionId) => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return false;
   }
 
-  return SubscriptionActionMarkAsPaid(subscriptionId, session.user.id, false);
+  return SubscriptionActionMarkAsPaid(subscriptionId, getUserId(), false);
 }
 
 export async function SubscriptionActionEdit(data) {
@@ -227,8 +226,8 @@ export async function SubscriptionActionEdit(data) {
     return null;
   }
 
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return null;
   }
 
@@ -237,7 +236,7 @@ export async function SubscriptionActionEdit(data) {
     const existingSubscription = await prisma.subscription.findUnique({
       where: {
         id: parsedData.data.id,
-        userId: session.user.id,
+        userId: getUserId(),
       },
       select: {
         id: true
@@ -255,7 +254,7 @@ export async function SubscriptionActionEdit(data) {
     data: parsedData.data.categories.filter(c => !c.id).map(category => ({
       name: category.name,
       color: category.color,
-      userId: session.user.id
+      userId: getUserId()
     })),
     skipDuplicates: true,
   });
@@ -269,7 +268,7 @@ export async function SubscriptionActionEdit(data) {
     data: parsedData.data.paymentMethods.filter(c => !c.id).map(paymentMethod => ({
       name: paymentMethod.name,
       icon: paymentMethod.icon,
-      userId: session.user.id
+      userId: getUserId()
     })),
     skipDuplicates: true,
   });
@@ -281,7 +280,7 @@ export async function SubscriptionActionEdit(data) {
   // Prepare base subscription data
   const nextNotificationDate = SubscriptionGetNextNotificationDate(parsedData.data);
   const baseSubscriptionData = {
-    userId: session.user.id,
+    userId: getUserId(),
     name: parsedData.data.name,
     logo: parsedData.data.logo,
     enabled: parsedData.data.enabled,
@@ -307,7 +306,7 @@ export async function SubscriptionActionEdit(data) {
   await prisma.subscription.upsert({
     where: {
       id: parsedData.data?.id || '',
-      userId: session.user.id,
+      userId: getUserId(),
     },
     update: {
       ...baseSubscriptionData,
@@ -338,11 +337,11 @@ export async function SubscriptionActionEdit(data) {
 
 export async function SubscriptionActionDelete(subscriptionId, userId = undefined) {
   if (!userId) {
-    const session = await auth();
-    if (!session?.user?.id) {
+    const {isAuthenticated, getUserId} = await useAuthServer();
+    if (!isAuthenticated()) {
       return false;
     }
-    userId = session.user.id;
+    userId = getUserId();
   }
 
   const subscription = await SubscriptionGet(subscriptionId, userId);

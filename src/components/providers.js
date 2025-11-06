@@ -1,14 +1,8 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { SessionProvider as NextAuthSessionProvider } from 'next-auth/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { NotificationsContext } from '@/components/notifications/notification-context';
-
-
-export function SessionProvider({ children }) {
-  return <NextAuthSessionProvider>{children}</NextAuthSessionProvider>;
-}
 
 export function ThemeProvider( { children,...props} ) {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;

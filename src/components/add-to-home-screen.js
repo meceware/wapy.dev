@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/responsive-dialog';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
+import { useAuth } from '@/lib/auth-client';
 
 const AddToIosSafari = () => {
   return (
@@ -143,7 +144,7 @@ const STORAGE_KEY = 'add-to-home-screen';
 const DELAY_DAYS = 400;
 const MIN_VISITS = 5;
 
-export function AddToHomeScreen() {
+function AddToHomeScreenContent() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isInstallSupported, setIsInstallSupported] = useState(false);
@@ -276,7 +277,7 @@ export function AddToHomeScreen() {
 
     const visitCount = incrementVisitCount();
     if (visitCount >= MIN_VISITS) {
-      setIsVisible(true);
+      setIsVisible(checkInstallSupport());
       setIsInstallSupported(checkInstallSupport());
     }
   }, []);
@@ -363,4 +364,11 @@ export function AddToHomeScreen() {
       </ResponsiveDialogContent>
     </ResponsiveDialog>
   );
+}
+
+export function AddToHomeScreen() {
+  const { isAuthenticated } = useAuth();
+  if (!isAuthenticated) return null;
+
+  return <AddToHomeScreenContent />;
 }

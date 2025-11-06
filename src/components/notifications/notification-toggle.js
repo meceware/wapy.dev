@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/responsive-dialog';
 import { Icons } from '@/components/icons';
 import { useNotifications } from '@/components/notifications/notification-context';
+import { useAuth } from '@/lib/auth-client';
 
 const STORAGE_KEY = 'notification-prompt-delay';
 const DELAY_DAYS = 30;
@@ -57,7 +58,7 @@ const NotificationPermissionModal = ({ open, onOpenChange, onEnable, onMaybeLate
   </ResponsiveDialog>
 );
 
-export const PushNotificationToggle = ({vapidPublicKey}) => {
+const PushNotificationToggleContent = ({vapidPublicKey}) => {
   const {
     showNotificationModal,
     setShowNotificationModal,
@@ -182,3 +183,10 @@ export const PushNotificationToggle = ({vapidPublicKey}) => {
     />
   );
 }
+
+export const PushNotificationToggle = (props) => {
+  const { isAuthenticated } = useAuth();
+  if (!isAuthenticated) return null;
+
+  return <PushNotificationToggleContent {...props} />;
+};

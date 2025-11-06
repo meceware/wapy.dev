@@ -14,16 +14,13 @@ generator client {
 }
 
 model User {
-  // Auth.js
   id                String          @id @default(cuid())
   name              String?
   email             String          @unique
-  emailVerified     DateTime?       @map("email_verified")
+  emailVerified     Boolean         @map("email_verified")
   image             String?
   accounts          Account[]
   sessions          Session[]
-  // Optional for WebAuthn support
-  Authenticator     Authenticator[]
 
   createdAt         DateTime        @default(now()) @map("created_at")
   updatedAt         DateTime        @updatedAt      @map("updated_at")
@@ -35,10 +32,10 @@ model User {
   currency          String          @default("EUR")
   // Default notifications
   // time can be INSTANT, MINUTES, HOURS, DAYS, WEEKS
-  // type is an array of PUSH + EMAIL + WEBHOOK
+  // type is an array of PUSH + EMAIL + WEBHOOK + NTFY + DISCORD + SLACK
   notifications     Json            @default("[{\"type\": [\"PUSH\"], \"time\": \"INSTANT\", \"due\": 0}]")
-  // WebHook URL
-  webhook           String          @default("")
+  // External service configurations
+  externalServices  Json            @default("{}")
 
   // Payments details
   trialStartedAt    DateTime?       @default(now()) @map("trial_started_at")
@@ -63,69 +60,46 @@ model User {
 }
 
 model Account {
-  userId            String          @map("user_id")
-  type              String
-  provider          String
-  providerAccountId String          @map("provider_account_id")
-  refresh_token     String?         @map("refresh_token")
-  access_token      String?         @map("access_token")
-  expires_at        Int?            @map("expires_at")
-  token_type        String?         @map("token_type")
-  scope             String?         @map("scope")
-  id_token          String?         @map("id_token")
-  session_state     String?         @map("session_state")
+  id                    String       @id @default(cuid())
+  userId                String       @map("user_id")
+  accountId             String       @map("provider_account_id")
+  providerId            String       @map("provider")
+  accessToken           String?      @map("access_token")
+  refreshToken          String?      @map("refresh_token")
+  accessTokenExpiresAt  DateTime?    @map("expires_at")
+  refreshTokenExpiresAt DateTime?    @map("refresh_token_expires_at")
+  scope                 String?      @map("scope")
+  idToken               String?      @map("id_token")
 
-  createdAt         DateTime        @default(now()) @map("created_at")
-  updatedAt         DateTime        @updatedAt      @map("updated_at")
+  createdAt         DateTime         @default(now()) @map("created_at")
+  updatedAt         DateTime         @updatedAt      @map("updated_at")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@id([provider, providerAccountId])
+  @@unique([providerId, accountId])
 }
 
 model Session {
-  sessionToken      String          @unique @map("session_token")
+  id                String          @id @default(cuid())
+  token             String          @unique @map("session_token")
   userId            String          @map("user_id")
-  expires           DateTime
+  expiresAt         DateTime        @map("expires")
+  ipAddress         String?         @map("ip_address")
+  userAgent         String?         @map("user_agent")
   user              User            @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   createdAt         DateTime        @default(now()) @map("created_at")
   updatedAt         DateTime        @updatedAt      @map("updated_at")
 }
 
-model VerificationToken {
+model Verification {
+  id                String      @id @default(cuid())
   identifier        String
-  token             String
-  expires           DateTime
+  value             String      @map("token")
+  expiresAt         DateTime    @map("expires")
 
-  @@id([identifier, token])
-}
-
-model VerificationOTPToken {
-  id          String      @id @default(cuid())
-  identifier  String
-  code        String
-  token       String
-  expires     DateTime
-
-  @@index([identifier, code])
-  @@index([expires])
-}
-
-// Optional for WebAuthn support
-model Authenticator {
-  credentialID         String     @unique @map("credential_id")
-  userId               String     @map("user_id")
-  providerAccountId    String     @map("provider_account_id")
-  credentialPublicKey  String     @map("credential_public_key")
-  counter              Int
-  credentialDeviceType String     @map("credential_device_type")
-  credentialBackedUp   Boolean    @map("credential_backed_up")
-  transports           String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@id([userId, credentialID])
+  createdAt         DateTime    @default(now()) @map("created_at")
+  updatedAt         DateTime    @updatedAt      @map("updated_at")
 }
 
 model Subscription {

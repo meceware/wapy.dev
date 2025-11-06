@@ -1,10 +1,7 @@
 'use server';
 
-import { prisma } from '@/lib/prisma';
-import { auth } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
 import { AccountSettings } from './account-container';
-import { paddleGetStatus } from '@/lib/paddle/status';
 import { paddleGetSession } from '@/lib/paddle/status';
 
 const PageAccount = async () => {

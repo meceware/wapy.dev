@@ -2,7 +2,18 @@
 
 import { useMemo, Fragment } from 'react';
 import Link from 'next/link';
-import { format, addMonths, differenceInDays, addYears, isBefore, isPast, formatDistanceToNowStrict, isEqual, formatDistanceStrict, differenceInMinutes } from 'date-fns';
+import {
+  format,
+  addMonths,
+  differenceInDays,
+  addYears,
+  isBefore,
+  isPast,
+  formatDistanceToNowStrict,
+  isEqual,
+  formatDistanceStrict,
+  differenceInMinutes,
+} from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import {
   Card,
@@ -16,7 +27,10 @@ import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
 import { Badge } from '@/components/ui/badge';
 import { LogoIcon } from '@/components/ui/icon-picker';
-import { SubscriptionGetUpcomingPayments, SubscriptionGetNextFuturePaymentDate } from '@/components/subscriptions/lib';
+import {
+  SubscriptionGetUpcomingPayments,
+  SubscriptionGetNextFuturePaymentDate,
+} from '@/components/subscriptions/lib';
 import { getCycleLabel, getPaymentCount, formatPrice } from '@/components/subscriptions/utils';
 import { cn } from '@/lib/utils';
 import {
@@ -25,7 +39,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 
-export function SubscriptionView({ subscription, settings }) {
+export function SubscriptionView({ subscription, externalServices }) {
   const parsedIcon = subscription.logo ? JSON.parse(subscription.logo) : false;
   const maxUpcomingPayments = 20;
 
@@ -332,7 +346,10 @@ export function SubscriptionView({ subscription, settings }) {
                         const notifyViaList = [
                           notification.type.includes('EMAIL') && 'email',
                           notification.type.includes('PUSH') && 'push notification',
-                          notification.type.includes('WEBHOOK') && settings?.webhook && 'webhook'
+                          notification.type.includes('WEBHOOK') && externalServices?.webhook?.enabled && 'webhook',
+                          notification.type.includes('NTFY') && externalServices?.ntfy?.enabled && 'ntfy',
+                          notification.type.includes('DISCORD') && externalServices?.discord?.enabled && 'discord',
+                          notification.type.includes('SLACK') && externalServices?.slack?.enabled && 'slack',
                         ].filter(Boolean);
 
                         // Format "email, push notification and webhook"
@@ -397,7 +414,7 @@ export function SubscriptionView({ subscription, settings }) {
                         </span>
                         {' via '}
                         {subscription.nextNotificationDetails.type
-                          .filter(type => type !== 'WEBHOOK' || settings.webhook)
+                          .filter(type => (type !== 'WEBHOOK' || externalServices?.webhook?.enabled) && (type !== 'NTFY' || externalServices?.ntfy?.enabled) && (type !== 'DISCORD' || externalServices?.discord?.enabled) && (type !== 'SLACK' || externalServices?.slack?.enabled))
                           .map((type, index) => (
                             <span key={type}>
                               {index > 0 && ' and '}
@@ -406,6 +423,12 @@ export function SubscriptionView({ subscription, settings }) {
                                   ? 'email'
                                   : type === 'WEBHOOK'
                                   ? 'webhook'
+                                  : type === 'NTFY'
+                                  ? 'ntfy'
+                                  : type === 'DISCORD'
+                                  ? 'discord'
+                                  : type === 'SLACK'
+                                  ? 'slack'
                                   : 'push notification'}
                               </span>
                             </span>

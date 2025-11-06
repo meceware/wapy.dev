@@ -19,6 +19,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
 import {
   Popover,
   PopoverContent,
@@ -43,15 +44,25 @@ import {
   UserUpdateTimezone,
   UserUpdateCurrency,
   UserUpdateNotifications,
-  UserUpdateWebhook,
   UserUpdateName,
   UserExportData,
+  UserSaveNtfy,
+  UserTestNtfy,
+  UserSaveWebhook,
+  UserTestWebhook,
+  UserSaveDiscord,
+  UserTestDiscord,
+  UserSaveSlack,
+  UserTestSlack,
 } from './actions';
 import {
   SchemaCategory,
   SchemaPaymentMethod,
-  SchemaWebhook,
   SchemaUserNotifications,
+  SchemaNtfyService,
+  SchemaWebhookService,
+  SchemaDiscordService,
+  SchemaSlackService,
 } from './schema';
 import { DefaultCategories } from '@/config/categories';
 import { CurrencyFieldManager } from '@/components/subscriptions/form/field-currency';
@@ -137,10 +148,9 @@ const DefaultSettings = ({ user }) => {
   );
 };
 
-const NotificationManager  = ({user}) => {
+const NotificationManager  = ({user, externalServices}) => {
   const [loading, setLoading] = useState(false);
   const [notifications, setNotifications] = useState(user?.notifications);
-  const [webhook, setWebhook] = useState(user?.webhook);
 
   const handleSave = async () => {
     try {
@@ -164,32 +174,8 @@ const NotificationManager  = ({user}) => {
     setNotifications(notifications);
   } };
 
-  const webhookField = { value: webhook, onChange: async (webhook) => {
-    try {
-      setLoading(true);
-      const result = SchemaWebhook.safeParse(webhook);
-      if (!result.success) {
-        throw new Error('Invalid webhook URL');
-      }
-
-      const { success } = await UserUpdateWebhook(webhook);
-      if (success) {
-        setWebhook(webhook);
-        toast.success('Webhook URL is saved');
-      } else {
-        setWebhook('');
-        toast.error('Failed to save webhook URL!');
-      }
-    } catch (error) {
-      setWebhook('');
-      toast.error('Failed to save webhook URL!');
-    } finally {
-      setLoading(false);
-    }
-  } };
-
   return (
-    <NotificationsFieldManager field={field} webhook={webhookField} isLoading={loading} >
+    <NotificationsFieldManager field={field} externalServices={externalServices} isLoading={loading} >
       <Button
         onClick={handleSave}
         className='w-full sm:w-auto'
@@ -754,7 +740,7 @@ const PaymentMethodItem = ({ paymentMethod, onSave, onDelete, edit = false }) =>
       ) : (
         <>
           <div className='flex items-center gap-3 text-sm'>
-            <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} placeholder className='size-8' />
+            <LogoIcon icon={paymentMethod.icon ? JSON.parse(paymentMethod.icon) : false} placeholder className='size-6' />
             <span className='line-clamp-2 break-all'>{paymentMethod.name}</span>
           </div>
           <Button
@@ -1312,6 +1298,680 @@ const PaymentStatusWrapper = ({ user, paddleStatus }) => {
 
 };
 
+const ExternalServiceNtfy = ( {ntfy, onUpdate} ) => {
+  const [ntfyEnabled, setNtfyEnabled] = useState(ntfy?.enabled || false);
+  const [ntfyServerUrl, setNtfyServerUrl] = useState(ntfy?.url || '');
+  const [ntfyTopic, setNtfyTopic] = useState(ntfy?.topic || 'wapy-dev');
+  const [ntfyAccessToken, setNtfyAccessToken] = useState(ntfy?.token || '');
+  const [ntfyLoading, setNtfyLoading] = useState(false);
+
+  const handleToggle = async (checked) => {
+    if (!checked) {
+      setNtfyLoading(true);
+      try {
+        const { success } = await UserSaveNtfy({ enabled: false });
+        if (success) {
+          setNtfyEnabled(false);
+          toast.success('ntfy integration disabled.');
+          onUpdate?.({ enabled: false });
+        } else {
+          toast.error('Failed to disable ntfy integration!');
+        }
+      } catch (error) {
+        toast.error(error.message || 'Failed to disable ntfy integration!');
+      } finally {
+        setNtfyLoading(false);
+      }
+    } else {
+      // If enabling, just update state - save happens on Save button click
+      setNtfyEnabled(true);
+    }
+  };
+
+  const handleSave = async () => {
+    setNtfyLoading(true);
+
+    try {
+      if (!ntfyEnabled) {
+        throw new Error('ntfy integration is not enabled.');
+      }
+
+      const result = SchemaNtfyService.safeParse({
+        enabled: ntfyEnabled,
+        url: ntfyServerUrl,
+        topic: ntfyTopic,
+        ...(ntfyAccessToken ? { token: ntfyAccessToken } : {}),
+      });
+      if (!result.success) {
+        throw new Error('Invalid parameters! Cannot save the ntfy configuration.');
+      }
+
+      const { success } = await UserSaveNtfy(result.data);
+
+      if (success) {
+        toast.success('ntfy configuration saved successfully!');
+        onUpdate?.(result.data);
+      } else {
+        toast.error('Failed to save ntfy configuration!');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Failed to save ntfy configuration!');
+    } finally {
+      setNtfyLoading(false);
+    }
+  };
+
+  const handleTest = async () => {
+    setNtfyLoading(true);
+
+    try {
+      if (!ntfyEnabled) {
+        throw new Error('ntfy integration is not enabled.');
+      }
+
+      const result = SchemaNtfyService.safeParse({
+        enabled: ntfyEnabled,
+        url: ntfyServerUrl,
+        topic: ntfyTopic,
+        ...(ntfyAccessToken ? { token: ntfyAccessToken } : {}),
+      });
+      if (!result.success) {
+        throw new Error('Invalid parameters! Cannot send test notification.');
+      }
+
+      const { success } = await UserTestNtfy(result.data);
+
+      if (success) {
+        toast.success('Test ntfy notification sent!');
+      } else {
+        toast.error('Failed to send test ntfy notification!');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Failed to send test ntfy notification!');
+    } finally {
+      setNtfyLoading(false);
+    }
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <div className='flex items-start justify-between gap-4'>
+          <div className='flex gap-3 flex-1'>
+            <div className='space-y-1'>
+              <CardTitle className='flex items-center gap-2'>
+                <Switch
+                  checked={ntfyEnabled}
+                  onCheckedChange={handleToggle}
+                  disabled={ntfyLoading}
+                  className='shrink-0'
+                />
+                ntfy
+              </CardTitle>
+              <CardDescription>
+                Receive notifications via ntfy.
+              </CardDescription>
+            </div>
+          </div>
+          <Icons.ntfy className='size-8 shrink-0'/>
+        </div>
+      </CardHeader>
+
+      {ntfyEnabled && (
+        <CardContent className='grid gap-4'>
+          <div className='grid gap-2'>
+            <Label htmlFor='ntfy-server-url'>Server URL</Label>
+            <Input
+              id='ntfy-server-url'
+              value={ntfyServerUrl}
+              onChange={(e) => setNtfyServerUrl(e.target.value)}
+              placeholder='ntfy.sh or self-hosted URL'
+            />
+          </div>
+
+          <div className='grid gap-2'>
+            <Label htmlFor='ntfy-topic-name'>Topic Name</Label>
+            <Input
+              id='ntfy-topic-name'
+              value={ntfyTopic}
+              onChange={(e) => setNtfyTopic(e.target.value)}
+              placeholder='wapy-dev'
+            />
+          </div>
+
+          <div className='grid gap-2'>
+            <Label htmlFor='ntfy-access-token'>Access Token (Optional)</Label>
+            <Input
+              id='ntfy-access-token'
+              type='password'
+              value={ntfyAccessToken}
+              onChange={(e) => setNtfyAccessToken(e.target.value)}
+              placeholder='Access Token'
+            />
+          </div>
+
+          <div className='flex flex-col sm:flex-row gap-4 w-full'>
+            <Button onClick={handleSave} disabled={ntfyLoading} className='w-full sm:w-auto'>
+              {ntfyLoading ? (
+                <Icons.spinner className='mr-2 animate-spin' />
+              ) : (
+                <Icons.save className='mr-2' />
+              )}
+              Save ntfy
+            </Button>
+            <Button onClick={handleTest} variant='secondary' disabled={ntfyLoading} className='w-full text-left sm:w-auto'>
+              {ntfyLoading ? (
+                <Icons.spinner className='mr-2 animate-spin' />
+              ) : (
+                <Icons.send className='mr-2' />
+              )}
+              Test ntfy
+            </Button>
+          </div>
+        </CardContent>
+      )}
+    </Card>
+  );
+};
+
+const ExternalServiceWebhook = ( {webhook, onUpdate} ) => {
+  const [webhookEnabled, setWebhookEnabled] = useState(webhook?.enabled || false);
+  const [webhookUrl, setWebhookUrl] = useState(webhook?.url || '');
+  const [webhookLoading, setWebhookLoading] = useState(false);
+
+  const handleToggle = async (checked) => {
+    if (!checked) {
+      setWebhookLoading(true);
+      try {
+        const { success } = await UserSaveWebhook({ enabled: false });
+        if (success) {
+          setWebhookEnabled(false);
+          toast.success('Webhook integration disabled.');
+          onUpdate?.({ enabled: false });
+        } else {
+          toast.error('Failed to disable webhook integration!');
+        }
+      } catch (error) {
+        toast.error(error.message || 'Failed to disable webhook integration!');
+      } finally {
+        setWebhookLoading(false);
+      }
+    } else {
+      // If enabling, just update state - save happens on Save button click
+      setWebhookEnabled(true);
+    }
+  };
+
+  const handleSave = async () => {
+    setWebhookLoading(true);
+
+    try {
+      if (!webhookEnabled) {
+        throw new Error('Webhook integration is not enabled.');
+      }
+
+      const result = SchemaWebhookService.safeParse({
+        enabled: webhookEnabled,
+        url: webhookUrl,
+      });
+      if (!result.success) {
+        throw new Error('Invalid parameters! Cannot save the webhook configuration.');
+      }
+
+      const { success } = await UserSaveWebhook(result.data);
+
+      if (success) {
+        toast.success('Webhook configuration saved successfully!');
+        onUpdate?.(result.data);
+      } else {
+        toast.error('Failed to save webhook configuration!');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Failed to save webhook configuration!');
+    } finally {
+      setWebhookLoading(false);
+    }
+  };
+
+  const handleTest = async () => {
+    setWebhookLoading(true);
+
+    try {
+      if (!webhookEnabled) {
+        throw new Error('Webhook integration is not enabled.');
+      }
+
+      const result = SchemaWebhookService.safeParse({
+        enabled: webhookEnabled,
+        url: webhookUrl,
+      });
+      if (!result.success) {
+        throw new Error('Invalid parameters! Cannot send test notification.');
+      }
+
+      const { success } = await UserTestWebhook(result.data);
+
+      if (success) {
+        toast.success('Test webhook notification sent!');
+      } else {
+        toast.error('Failed to send test webhook notification!');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Failed to send test webhook notification!');
+    } finally {
+      setWebhookLoading(false);
+    }
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <div className='flex items-start justify-between gap-4'>
+          <div className='flex gap-3 flex-1'>
+            <div className='space-y-1'>
+              <CardTitle className='flex items-center gap-2'>
+                <Switch
+                  checked={webhookEnabled}
+                  onCheckedChange={handleToggle}
+                  disabled={webhookLoading}
+                  className='shrink-0'
+                />
+                Webhook
+              </CardTitle>
+              <CardDescription>
+                Receive notifications via webhook.
+              </CardDescription>
+            </div>
+          </div>
+          <Icons.webhook className='size-8 shrink-0'/>
+        </div>
+      </CardHeader>
+
+      {webhookEnabled && (
+        <CardContent className='grid gap-4'>
+          <div className='grid gap-2'>
+            <Label htmlFor='webhook-server-url'>Server URL</Label>
+            <Input
+              id='webhook-server-url'
+              value={webhookUrl}
+              onChange={(e) => setWebhookUrl(e.target.value)}
+              placeholder='Webhook server URL'
+            />
+          </div>
+
+          <div className='flex flex-col sm:flex-row gap-4 w-full'>
+            <Button onClick={handleSave} disabled={webhookLoading} className='w-full sm:w-auto'>
+              {webhookLoading ? (
+                <Icons.spinner className='mr-2 animate-spin' />
+              ) : (
+                <Icons.save className='mr-2' />
+              )}
+              Save webhook
+            </Button>
+            <Button onClick={handleTest} variant='secondary' disabled={webhookLoading} className='w-full text-left sm:w-auto'>
+              {webhookLoading ? (
+                <Icons.spinner className='mr-2 animate-spin' />
+              ) : (
+                <Icons.send className='mr-2' />
+              )}
+              Test webhook
+            </Button>
+          </div>
+        </CardContent>
+      )}
+    </Card>
+  );
+};
+
+const ExternalServiceDiscord = ( {discord, onUpdate} ) => {
+  const [discordEnabled, setDiscordEnabled] = useState(discord?.enabled || false);
+  const [discordUrl, setDiscordUrl] = useState(discord?.url || '');
+  const [discordLoading, setDiscordLoading] = useState(false);
+
+  const handleToggle = async (checked) => {
+    if (!checked) {
+      setDiscordLoading(true);
+      try {
+        const { success } = await UserSaveDiscord({ enabled: false });
+        if (success) {
+          setDiscordEnabled(false);
+          toast.success('Discord integration disabled.');
+          onUpdate?.({ enabled: false });
+        } else {
+          toast.error('Failed to disable Discord integration!');
+        }
+      } catch (error) {
+        toast.error(error.message || 'Failed to disable Discord integration!');
+      } finally {
+        setDiscordLoading(false);
+      }
+    } else {
+      // If enabling, just update state - save happens on Save button click
+      setDiscordEnabled(true);
+    }
+  };
+
+  const handleSave = async () => {
+    setDiscordLoading(true);
+
+    try {
+      if (!discordEnabled) {
+        throw new Error('Discord integration is not enabled.');
+      }
+
+      const result = SchemaDiscordService.safeParse({
+        enabled: discordEnabled,
+        url: discordUrl,
+      });
+      if (!result.success) {
+        throw new Error('Invalid parameters! Cannot save the Discord configuration.');
+      }
+
+      const { success } = await UserSaveDiscord(result.data);
+
+      if (success) {
+        toast.success('Discord configuration saved successfully!');
+        onUpdate?.(result.data);
+      } else {
+        toast.error('Failed to save Discord configuration!');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Failed to save Discord configuration!');
+    } finally {
+      setDiscordLoading(false);
+    }
+  };
+
+  const handleTest = async () => {
+    setDiscordLoading(true);
+
+    try {
+      if (!discordEnabled) {
+        throw new Error('Discord integration is not enabled.');
+      }
+
+      const result = SchemaDiscordService.safeParse({
+        enabled: discordEnabled,
+        url: discordUrl,
+      });
+      if (!result.success) {
+        throw new Error('Invalid parameters! Cannot send test notification.');
+      }
+
+      const { success } = await UserTestDiscord(result.data);
+
+      if (success) {
+        toast.success('Test Discord notification sent!');
+      } else {
+        toast.error('Failed to send test Discord notification!');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Failed to send test Discord notification!');
+    } finally {
+      setDiscordLoading(false);
+    }
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <div className='flex items-start justify-between gap-4'>
+          <div className='flex gap-3 flex-1'>
+            <div className='space-y-1'>
+              <CardTitle className='flex items-center gap-2'>
+                <Switch
+                  checked={discordEnabled}
+                  onCheckedChange={handleToggle}
+                  disabled={discordLoading}
+                  className='shrink-0'
+                />
+                Discord
+              </CardTitle>
+              <CardDescription>
+                Receive notifications via Discord.
+              </CardDescription>
+            </div>
+          </div>
+          <Icons.discord className='size-8 shrink-0'/>
+        </div>
+      </CardHeader>
+
+      {discordEnabled && (
+        <CardContent className='grid gap-4'>
+          <div className='grid gap-2'>
+            <Label htmlFor='discord-server-url'>Server URL</Label>
+            <Input
+              id='discord-server-url'
+              value={discordUrl}
+              onChange={(e) => setDiscordUrl(e.target.value)}
+              placeholder='Discord server URL'
+            />
+          </div>
+
+          <div className='flex flex-col sm:flex-row gap-4 w-full'>
+            <Button onClick={handleSave} disabled={discordLoading} className='w-full sm:w-auto'>
+              {discordLoading ? (
+                <Icons.spinner className='mr-2 animate-spin' />
+              ) : (
+                <Icons.save className='mr-2' />
+              )}
+              Save Discord
+            </Button>
+            <Button onClick={handleTest} variant='secondary' disabled={discordLoading} className='w-full text-left sm:w-auto'>
+              {discordLoading ? (
+                <Icons.spinner className='mr-2 animate-spin' />
+              ) : (
+                <Icons.send className='mr-2' />
+              )}
+              Test Discord
+            </Button>
+          </div>
+        </CardContent>
+      )}
+    </Card>
+  );
+};
+
+const ExternalServiceSlack = ( {slack, onUpdate} ) => {
+  const [slackEnabled, setSlackEnabled] = useState(slack?.enabled || false);
+  const [slackUrl, setSlackUrl] = useState(slack?.url || '');
+  const [slackLoading, setSlackLoading] = useState(false);
+
+  const handleToggle = async (checked) => {
+    if (!checked) {
+      setSlackLoading(true);
+      try {
+        const { success } = await UserSaveSlack({ enabled: false });
+        if (success) {
+          setSlackEnabled(false);
+          toast.success('Slack integration disabled.');
+          onUpdate?.({ enabled: false });
+        } else {
+          toast.error('Failed to disable Slack integration!');
+        }
+      } catch (error) {
+        toast.error(error.message || 'Failed to disable Slack integration!');
+      } finally {
+        setSlackLoading(false);
+      }
+    } else {
+      // If enabling, just update state - save happens on Save button click
+      setSlackEnabled(true);
+    }
+  };
+
+  const handleSave = async () => {
+    setSlackLoading(true);
+
+    try {
+      if (!slackEnabled) {
+        throw new Error('Slack integration is not enabled.');
+      }
+
+      const result = SchemaSlackService.safeParse({
+        enabled: slackEnabled,
+        url: slackUrl,
+      });
+      if (!result.success) {
+        throw new Error('Invalid parameters! Cannot save the Slack configuration.');
+      }
+
+      const { success } = await UserSaveSlack(result.data);
+
+      if (success) {
+        toast.success('Slack configuration saved successfully!');
+        onUpdate?.(result.data);
+      } else {
+        toast.error('Failed to save Slack configuration!');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Failed to save Slack configuration!');
+    } finally {
+      setSlackLoading(false);
+    }
+  };
+
+  const handleTest = async () => {
+    setSlackLoading(true);
+
+    try {
+      if (!slackEnabled) {
+        throw new Error('Slack integration is not enabled.');
+      }
+
+      const result = SchemaSlackService.safeParse({
+        enabled: slackEnabled,
+        url: slackUrl,
+      });
+      if (!result.success) {
+        throw new Error('Invalid parameters! Cannot send test notification.');
+      }
+
+      const { success } = await UserTestSlack(result.data);
+
+      if (success) {
+        toast.success('Test Slack notification sent!');
+      } else {
+        toast.error('Failed to send test Slack notification!');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Failed to send test Slack notification!');
+    } finally {
+      setSlackLoading(false);
+    }
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <div className='flex items-start justify-between gap-4'>
+          <div className='flex gap-3 flex-1'>
+            <div className='space-y-1'>
+              <CardTitle className='flex items-center gap-2'>
+                <Switch
+                  checked={slackEnabled}
+                  onCheckedChange={handleToggle}
+                  disabled={slackLoading}
+                  className='shrink-0'
+                />
+                Slack
+              </CardTitle>
+              <CardDescription>
+                Receive notifications via Slack.
+              </CardDescription>
+            </div>
+          </div>
+          <Icons.slack className='size-8 shrink-0'/>
+        </div>
+      </CardHeader>
+
+      {slackEnabled && (
+        <CardContent className='grid gap-4'>
+          <div className='grid gap-2'>
+            <Label htmlFor='slack-server-url'>Server URL</Label>
+            <Input
+              id='slack-server-url'
+              value={slackUrl}
+              onChange={(e) => setSlackUrl(e.target.value)}
+              placeholder='Slack server URL'
+            />
+          </div>
+
+          <div className='flex flex-col sm:flex-row gap-4 w-full'>
+            <Button onClick={handleSave} disabled={slackLoading} className='w-full sm:w-auto'>
+              {slackLoading ? (
+                <Icons.spinner className='mr-2 animate-spin' />
+              ) : (
+                <Icons.save className='mr-2' />
+              )}
+              Save Slack
+            </Button>
+            <Button onClick={handleTest} variant='secondary' disabled={slackLoading} className='w-full text-left sm:w-auto'>
+              {slackLoading ? (
+                <Icons.spinner className='mr-2 animate-spin' />
+              ) : (
+                <Icons.send className='mr-2' />
+              )}
+              Test Slack
+            </Button>
+          </div>
+        </CardContent>
+      )}
+    </Card>
+  );
+};
+
+const ExternalServices = ({ externalServices, onUpdate }) => {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>External Services</CardTitle>
+        <CardDescription>
+          Configure integrations with external services
+        </CardDescription>
+      </CardHeader>
+      <CardContent className='flex flex-col gap-6'>
+        <ExternalServiceNtfy
+          ntfy={externalServices?.ntfy || {}}
+          onUpdate={(data) => {
+            onUpdate?.({
+              ...externalServices,
+              ntfy: data,
+            });
+          }}
+        />
+        <ExternalServiceWebhook
+          webhook={externalServices?.webhook || {}}
+          onUpdate={(data) => {
+            onUpdate?.({
+              ...externalServices,
+              webhook: data,
+            });
+          }}
+        />
+        <ExternalServiceDiscord
+          discord={externalServices?.discord || {}}
+          onUpdate={(data) => {
+            onUpdate?.({
+              ...externalServices,
+              discord: data,
+            });
+          }}
+        />
+        <ExternalServiceSlack
+          slack={externalServices?.slack || {}}
+          onUpdate={(data) => {
+            onUpdate?.({
+              ...externalServices,
+              slack: data,
+            });
+          }}
+        />
+      </CardContent>
+    </Card>
+  );
+};
+
 const ExportActions = () => {
   const [loading, setLoading] = useState(false);
 
@@ -1366,14 +2026,21 @@ const ExportActions = () => {
 };
 
 export const AccountSettings = ({ user, paddleStatus }) => {
+  const [externalServices, setExternalServices] = useState(user?.externalServices || {});
+
+  const handleExternalServicesUpdate = useCallback((data) => {
+    setExternalServices(data);
+  }, [setExternalServices]);
+
   return (
     <div className='w-full max-w-4xl space-y-6 text-left'>
       <UserProfile user={user} />
       <PaymentStatusWrapper user={user} paddleStatus={paddleStatus} />
       <DefaultSettings user={user} />
-      <NotificationManager user={user} />
+      <NotificationManager user={user} externalServices={externalServices} />
       <CategoryManager user={user} />
       <PaymentMethodManager user={user} />
+      <ExternalServices externalServices={externalServices} onUpdate={handleExternalServicesUpdate} />
       <ExportActions />
     </div>
   );

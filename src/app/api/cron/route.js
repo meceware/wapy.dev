@@ -10,7 +10,12 @@ import { siteConfig } from '@/components/config';
 import { paddleGetStatus } from '@/lib/paddle/status';
 import { PADDLE_STATUS_MAP, TRIAL_DURATION_MONTHS, paddleIsValid } from '@/lib/paddle/enum';
 import { formatPrice } from '@/components/subscriptions/utils';
-import { sendWebhook } from '@/components/subscriptions/webhook';
+import {
+  SendWebhook,
+  SendNtfy,
+  SendDiscord,
+  SendSlack,
+} from '@/components/subscriptions/external-services';
 
 const UserSubscriptionNotifications = async (rightNow) => {
   if (!process.env.PADDLE_API_KEY) {
@@ -109,7 +114,7 @@ const UserSubscriptionNotifications = async (rightNow) => {
       );
     } else {
       pastNotificationData.title = 'Wapy.dev Payment Reminder';
-      pastNotificationData.message = `Just a reminder that your Wapy.dev subscription is ending soon.`;
+      pastNotificationData.message = 'Just a reminder that your Wapy.dev subscription is ending soon.';
 
       promises.push(UserSubscriptionSendNotification(
         {user: user},
@@ -167,7 +172,6 @@ export async function GET() {
         include: {
           push: true,
           paddleUserDetails: true,
-          // webhook: true,
         }
       }
     }
@@ -186,14 +190,33 @@ export async function GET() {
       : [];
     const isPushEnabled = notificationTypes.includes('PUSH');
     const isEmailEnabled = notificationTypes.includes('EMAIL');
-    const isWebhookEnabled = subscription.user?.webhook && notificationTypes.includes('WEBHOOK');
+    const isUserWebhookEnabled = !!(subscription.user?.externalServices?.webhook?.enabled
+      && subscription.user?.externalServices?.webhook?.url);
+    const isWebhookEnabled = isUserWebhookEnabled && notificationTypes.includes('WEBHOOK');
+    const isUserNtfyEnabled = !!(subscription.user?.externalServices?.ntfy?.enabled
+      && subscription.user?.externalServices?.ntfy?.url);
+    const isNtfyEnabled = isUserNtfyEnabled && notificationTypes.includes('NTFY');
+    const isUserDiscordEnabled = !!(subscription.user?.externalServices?.discord?.enabled
+      && subscription.user?.externalServices?.discord?.url);
+    const isDiscordEnabled = isUserDiscordEnabled && notificationTypes.includes('DISCORD');
+    const isUserSlackEnabled = !!(subscription.user?.externalServices?.slack?.enabled
+      && subscription.user?.externalServices?.slack?.url);
+    const isSlackEnabled = isUserSlackEnabled && notificationTypes.includes('SLACK');
 
     const paymentDate = subscription.nextNotificationDetails?.paymentDate;
     const isPaymentDueNow = isEqual(paymentDate, subscription.nextNotificationTime);
+    const isPaymentReminder = subscription.nextNotificationDetails?.isRepeat ? true : false;
     const dueText = isPaymentDueNow
       ? 'due now'
-      : `${formatDistanceToNowStrict(paymentDate, {addSuffix: true})}`;
-    const title = (isPaymentDueNow ? 'Payment Due' : 'Upcoming Payment')
+      : isPaymentReminder
+        ? 'overdue'
+        : `${formatDistanceToNowStrict(paymentDate, {addSuffix: true})}`;
+    const title = (isPaymentDueNow
+        ? 'Payment Due'
+        : isPaymentReminder
+          ? 'Payment Reminder'
+          : 'Upcoming Payment'
+      )
       + ` for '${subscription.name}'`;
     const message = `Your '${subscription.name}' subscription payment (${formatPrice(subscription.price, subscription.currency)}) is ${dueText}!`;
 
@@ -216,19 +239,50 @@ export async function GET() {
 
     // Send webhook notification if enabled
     if (isWebhookEnabled) {
-      promises.push(sendWebhook(subscription.user?.webhook, {
-        event: isPaymentDueNow ? 'payment_due_now' : 'payment_due_upcoming',
+      promises.push(SendWebhook(subscription.user?.externalServices?.webhook?.url, {
+        event: isPaymentDueNow ? 'payment_due_now' : (isPaymentReminder ? 'payment_overdue' : 'payment_due_upcoming'),
         price: subscription.price,
         currency: subscription.currency,
         paymentDate: subscription.paymentDate,
-        untilDate: subscription.untilDate,
-        timezone: subscription.timezone,
         url: subscription.url,
         notes: subscription.notes,
         title: title,
         message: message,
+        tags: ['wapy.dev'],
         markAsPaidUrl: markAsPaidUrl,
         url: siteConfig.url,
+        timestamp: rightNow.toISOString(),
+      }));
+    }
+
+    if (isNtfyEnabled) {
+      promises.push(SendNtfy(subscription.user?.externalServices?.ntfy, {
+        title: title,
+        message: message,
+        actions: [
+          {
+            action: 'view',
+            label: 'Mark As Paid',
+            url: markAsPaidUrl,
+            clear: true
+          },
+        ]
+      }));
+    }
+
+    if (isDiscordEnabled) {
+      promises.push(SendDiscord(subscription.user?.externalServices?.discord, {
+        title: title,
+        message: message,
+        markAsPaidUrl: markAsPaidUrl,
+      }));
+    }
+
+    if (isSlackEnabled) {
+      promises.push(SendSlack(subscription.user?.externalServices?.slack, {
+        title: title,
+        message: message,
+        markAsPaidUrl: markAsPaidUrl,
       }));
     }
 

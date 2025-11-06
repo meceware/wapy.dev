@@ -1,6 +1,6 @@
 'use server';
 
-import { auth } from '@/lib/auth';
+import { useAuthServer } from '@/lib/auth-server';
 import webpush from 'web-push';
 import { prisma } from '@/lib/prisma';
 import { mailFrom, mailSend } from '@/lib/mail';
@@ -65,14 +65,14 @@ export const UserSubscriptionSendNotification = async (subscription, title, mess
 }
 
 export const UserSubscriptionSendTestNotification = async () => {
-  const session = await auth();
-  if (!session?.user?.id) {
+  const {isAuthenticated, getUserId} = await useAuthServer();
+  if (!isAuthenticated()) {
     return { success: false };
   }
 
   const user = await prisma.user.findUnique({
     where: {
-      id: session.user.id,
+      id: getUserId(),
     },
     include: {
       push: {
@@ -93,8 +93,8 @@ export const UserSubscriptionSendTestNotification = async () => {
   try {
   const promises = await UserSubscriptionSendNotification(
       { user: user },
-      'Wapy.dev Test Notification',
-      'This is a test notification from Wapy.dev. If you are seeing this, it means push notifications are working correctly!',
+      `${siteConfig.name} Test Notification`,
+      `This is a test notification from ${siteConfig.name}. If you are seeing this, it means push notifications are working correctly!`,
       '',
       true
     );
@@ -112,7 +112,7 @@ export const UserSubscriptionSendEmail = async (subscription, title, message, ma
   return new Promise(async (resolve, reject) => {
     try {
       await mailSend({
-        from: `Wapy.dev Subscription Reminder <${mailFrom}>`,
+        from: `${siteConfig.name} Subscription Reminder <${mailFrom}>`,
         to: subscription.user.email,
         subject: title,
         html: `

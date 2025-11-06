@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { SchemaNotifications } from '@/components/subscriptions/schema';
 
 export const SchemaCategoryId = z.object({
-  id: z.string().cuid()
+  id: z.cuid()
 });
 
 export const SchemaCategory = z.object({
@@ -11,7 +11,7 @@ export const SchemaCategory = z.object({
 });
 
 export const SchemaPaymentMethodId = z.object({
-  id: z.string().cuid()
+  id: z.cuid()
 });
 
 export const SchemaPaymentMethod = z.object({
@@ -26,7 +26,24 @@ export const SchemaUserNotifications = SchemaNotifications;
 
 export const SchemaUserName = z.string().min(1);
 
-export const SchemaWebhook = z.union([
-  z.string().min(9).url(),
-  z.literal(''),
-]);
+export const SchemaNtfyService = z.object({
+  enabled: z.boolean(),
+  url: z.url().min(9).optional(),
+  topic: z.string().regex(/^[a-zA-Z0-9\-_]+$/, 'Invalid topic name. Use alphanumeric, hyphens, or underscores.').optional(),
+  token: z.string().min(8).optional(),
+}).partial();
+
+export const SchemaWebhookService = z.object({
+  enabled: z.boolean(),
+  url: z.url().min(9).optional(),
+}).partial();
+
+export const SchemaDiscordService = z.object({
+  enabled: z.boolean(),
+  url: z.url().min(9).optional(),
+}).partial();
+
+export const SchemaSlackService = z.object({
+  enabled: z.boolean(),
+  url: z.url().min(9).optional(),
+}).partial();

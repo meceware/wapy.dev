@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
 export const SchemaSubscriptionId = z.object({
-  id: z.string().cuid(),
-  userId: z.string().cuid().optional(),
+  id: z.cuid(),
+  userId: z.cuid().optional(),
 });
 
 export const SchemaNotifications = z.array(
   z.object({
-    type: z.array(z.enum(['EMAIL', 'PUSH', 'WEBHOOK'])),
+    type: z.array(z.enum(['EMAIL', 'PUSH', 'WEBHOOK', 'NTFY', 'DISCORD', 'SLACK'])),
     time: z.enum(['INSTANT', 'MINUTES', 'HOURS', 'DAYS', 'WEEKS']),
     due: z.number().int().min(0),
   })
@@ -18,7 +18,13 @@ export const SchemaNotifications = z.array(
     if (notificationMap.has(key)) {
       // Merge 'type' arrays and remove duplicates
       const existingNotification = notificationMap.get(key);
-      existingNotification.type = [...new Set([...existingNotification.type, ...notification.type])];
+      const merged = [...existingNotification.type];
+      notification.type.forEach(type => {
+        if (!merged.includes(type)) {
+          merged.push(type);
+        }
+      });
+      existingNotification.type = merged;
     } else {
       notificationMap.set(key, { ...notification });
     }
@@ -32,7 +38,7 @@ export const SchemaSubscriptionPrice = z.object({
 });
 
 export const SchemaSubscriptionEdit = z.object({
-  id: z.string().cuid().optional(),
+  id: z.cuid().optional(),
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.'
   }),
@@ -56,14 +62,14 @@ export const SchemaSubscriptionEdit = z.object({
   notes: z.string().optional(),
   categories: z.array(
     z.object({
-      id: z.string().cuid().optional().or(z.literal('')),
+      id: z.cuid().optional().or(z.literal('')),
       name: z.string().min(1),
       color: z.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, 'Invalid hex color')
     })
   ).optional(),
   paymentMethods: z.array(
     z.object({
-      id: z.string().cuid().optional().or(z.literal('')),
+      id: z.cuid().optional().or(z.literal('')),
       name: z.string().min(1),
       icon: z.string().optional()
     })

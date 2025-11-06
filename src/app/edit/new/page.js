@@ -8,14 +8,10 @@ import { SubscriptionGuard } from '@/components/subscription-guard';
 const PageNewSubscription = async () => {
   const { user, paddleStatus } = await paddleGetSession();
 
-  const settings = {
-    webhook: user?.webhook,
-  };
-
   return (
     <SubscriptionGuard paddleStatus={paddleStatus}>
       <div className='container flex flex-col items-center justify-center gap-6 text-center'>
-        <SubscriptionEdit user={user} settings={settings} />
+        <SubscriptionEdit user={user} />
       </div>
     </SubscriptionGuard>
   )
@@ -23,7 +19,7 @@ const PageNewSubscription = async () => {
 
 export default withAuth(PageNewSubscription);
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
   return {
     title: 'New Subscription',
   };

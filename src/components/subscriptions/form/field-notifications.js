@@ -32,59 +32,6 @@ import {
 import { PushNotificationCheckEndpoint } from '@/components/notifications/actions';
 import { UserSubscriptionSendTestNotification } from '@/lib/notifications';
 
-const WebhookManager = ( { field, loading } ) => {
-  const [show, setShow] = useState(field?.value ? true : false);
-  const [url, setUrl] = useState(field?.value || '');
-
-  return (
-    <>
-      {!show && (
-        <p className='text-sm text-muted-foreground'>
-          Want to receive automatic updates?{' '}
-          <Button
-            variant='link'
-            className='p-0 h-auto text-sm align-baseline cursor-pointer'
-            onClick={() => setShow(true)}
-            type='button'
-          >
-            Configure webhook
-          </Button>
-        </p>
-      )}
-
-      {show && (
-        <div className='flex flex-col gap-4 p-4 border rounded-md'>
-          <div className='flex flex-col gap-1'>
-            <p className='text-sm font-medium leading-none'>Webhook Settings</p>
-            <p className='text-sm text-muted-foreground'>
-              Enter the URL where event notifications should be sent. Leave empty to disable.
-            </p>
-          </div>
-          <div className='flex flex-col sm:flex-row sm:items-center gap-2'>
-            <Input
-              placeholder='Webhook URL'
-              value={url}
-              disabled={loading}
-              onChange={(e) => setUrl(e.target.value)}
-              className='flex-1'
-            />
-            <Button
-              variant='default'
-              disabled={loading}
-              onClick={() => {
-                field?.onChange(url);
-              }}
-              type='button'
-            >
-              Save
-            </Button>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
-
 export const NotificationStatusManager = () => {
   const [hasPushSubscription, setHasPushSubscription] = useState(true);
   const {
@@ -157,7 +104,7 @@ export const NotificationStatusManager = () => {
   );
 };
 
-export const NotificationsFieldManager = ({ field, webhook, isLoading = false, children }) => {
+export const NotificationsFieldManager = ({ field, externalServices, isLoading = false, children }) => {
   const convertTime = (time, due) => {
     if (time === 'INSTANT') return 'INSTANT';
     if (time === 'MINUTES' && due === 15) return '15_MINUTES';
@@ -301,9 +248,6 @@ export const NotificationsFieldManager = ({ field, webhook, isLoading = false, c
         </CardHeader>
         <CardContent className='space-y-4'>
           <NotificationStatusManager />
-          {webhook?.onChange && (
-            <WebhookManager field={webhook} loading={isLoading} />
-          )}
           {notifications.map((notification, index) => (
             <div key={index} className='flex flex-col gap-4 p-4 border rounded-md'>
               <div className='flex items-start gap-4'>
@@ -331,7 +275,7 @@ export const NotificationsFieldManager = ({ field, webhook, isLoading = false, c
                     >
                       <Icons.mail/>
                     </ToggleGroupItem>
-                    { webhook?.value && (
+                    {externalServices?.webhook?.enabled && (
                       <ToggleGroupItem
                         value='WEBHOOK'
                         aria-label='Toggle webhook'
@@ -339,6 +283,36 @@ export const NotificationsFieldManager = ({ field, webhook, isLoading = false, c
                         className='data-[state=on]:bg-primary data-[state=on]:text-primary-foreground border'
                       >
                         <Icons.webhook/>
+                      </ToggleGroupItem>
+                    )}
+                    {externalServices?.ntfy?.enabled && (
+                      <ToggleGroupItem
+                        value='NTFY'
+                        aria-label='Toggle ntfy'
+                        title='ntfy Notifications'
+                        className='data-[state=on]:bg-primary data-[state=on]:text-primary-foreground border'
+                      >
+                        <Icons.ntfy/>
+                      </ToggleGroupItem>
+                    )}
+                    {externalServices?.discord?.enabled && (
+                      <ToggleGroupItem
+                        value='DISCORD'
+                        aria-label='Toggle Discord'
+                        title='Discord Notifications'
+                        className='data-[state=on]:bg-primary data-[state=on]:text-primary-foreground border'
+                      >
+                        <Icons.discord/>
+                      </ToggleGroupItem>
+                    )}
+                    {externalServices?.slack?.enabled && (
+                      <ToggleGroupItem
+                        value='SLACK'
+                        aria-label='Toggle Slack'
+                        title='Slack Notifications'
+                        className='data-[state=on]:bg-primary data-[state=on]:text-primary-foreground border'
+                      >
+                        <Icons.slack/>
                       </ToggleGroupItem>
                     )}
                   </ToggleGroup>
@@ -456,13 +430,11 @@ export const NotificationsFieldManager = ({ field, webhook, isLoading = false, c
   );
 }
 
-export const FormFieldNotifications = ({ field, settings }) => {
-  const webhookField = { value: settings?.webhook };
-
+export const FormFieldNotifications = ({ field, externalServices }) => {
   return (
     <FormItem className='flex-1 truncate space-y-2'>
       <FormControl>
-        <NotificationsFieldManager field={field} webhook={webhookField} />
+        <NotificationsFieldManager field={field} externalServices={externalServices} />
       </FormControl>
       <FormMessage />
     </FormItem>

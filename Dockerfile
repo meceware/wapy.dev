@@ -7,13 +7,15 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 # Provide a dummy DATABASE_URL for Prisma generate (needed on arm64)
-ENV DATABASE_URL=postgresql://user:pass@localhost:5432/db
+ARG DATABASE_URL=postgresql://localhost:5432/db
+ENV DATABASE_URL=${DATABASE_URL}
 
 # Copy source code
 COPY . .
 
 # Build the application
 RUN npm ci --force
+RUN echo "DATABASE_URL=$DATABASE_URL"
 RUN npx prisma generate
 RUN npm run build
 

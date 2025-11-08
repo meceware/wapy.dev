@@ -12,12 +12,8 @@ COPY . .
 
 # Build the application
 RUN npm ci --force
-# TODO: Create temporary .env for Prisma generate (needed on arm64)
-RUN echo "DATABASE_URL=\"postgresql://localhost:5432/db\"" > .env
-RUN cat .env
-RUN npx prisma generate
-# TODO: Clean up temporary .env to prevent baking secrets into image
-RUN rm -f .env
+# Dummy database url for arm64 build fail
+RUN DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public" npx prisma generate
 RUN npm run build
 
 FROM base AS runner

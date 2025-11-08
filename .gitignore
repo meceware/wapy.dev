@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -39,6 +37,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# prisma generated
+src/generated/
+
 # db
 /db/
 /.backup/
@@ -47,4 +48,4 @@ next-env.d.ts
 /external_services/
 
 # dashboard-icons
-/public/icons/dashboard
+/public/icons/dashboard/

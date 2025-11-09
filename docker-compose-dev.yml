@@ -14,7 +14,7 @@ services:
 
   app:
     container_name: wapydev-app
-    image: node:25-alpine
+    image: node:24-alpine
     restart: unless-stopped
     environment:
       - NODE_ENV=development

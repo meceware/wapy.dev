@@ -6,6 +6,7 @@ FROM base AS builder
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public"
 
 # Copy source code
 COPY . .
@@ -13,7 +14,7 @@ COPY . .
 # Build the application
 RUN npm ci --force
 # Dummy database url for arm64 build fail
-RUN DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public" npx prisma generate
+RUN npx prisma generate
 RUN npm run build
 
 FROM base AS runner
@@ -33,6 +34,7 @@ ENV PORT=3000
 # Copy necessary files from builder
 COPY --from=builder /app/public ./public/
 COPY --from=builder /app/prisma ./prisma/
+COPY --from=builder /app/prisma.config.js ./
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/scripts/entrypoint.sh ./

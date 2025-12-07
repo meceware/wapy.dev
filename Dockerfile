@@ -43,7 +43,7 @@ COPY --from=builder /app/LICENSE ./
 RUN chmod +x ./entrypoint.sh
 
 # Install runtime dependencies needed for Prisma v7
-RUN npm install -g prisma dotenv dotenv-expand
+RUN npm install prisma dotenv dotenv-expand
 
 # Expose port
 EXPOSE 3000 5555

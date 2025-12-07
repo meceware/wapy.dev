@@ -136,7 +136,12 @@ export const auth = betterAuth({
           clientId: process.env.GENERIC_AUTH_CLIENT_ID,
           clientSecret: process.env.GENERIC_AUTH_CLIENT_SECRET,
           discoveryUrl: process.env.GENERIC_AUTH_ISSUER,
-      } ],
+          ...(
+            process.env.GENERIC_AUTH_SCOPE
+              ? { scope: process.env.GENERIC_AUTH_SCOPE.split(/\s+/) }
+              : {}
+          ),
+        } ],
       })]
       : []
     ),

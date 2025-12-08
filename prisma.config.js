@@ -3,8 +3,7 @@ import dotenvExpand from 'dotenv-expand';
 import { defineConfig, env } from 'prisma/config';
 
 // load and expand .env variables
-const myEnv = dotenv.config();
-dotenvExpand.expand(myEnv);
+dotenvExpand.expand( dotenv.config() );
 
 export default defineConfig({
   schema: 'prisma/schema.prisma',

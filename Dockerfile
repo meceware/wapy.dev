@@ -1,11 +1,12 @@
 # Base
-FROM node:25-alpine AS base
+FROM node:24-alpine AS base
 WORKDIR /app
 
 FROM base AS builder
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public"
 
 # Copy source code
 COPY . .
@@ -13,7 +14,7 @@ COPY . .
 # Build the application
 RUN npm ci --force
 # Dummy database url for arm64 build fail
-RUN DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public" npx prisma generate
+RUN npx prisma generate
 RUN npm run build
 
 FROM base AS runner
@@ -33,13 +34,16 @@ ENV PORT=3000
 # Copy necessary files from builder
 COPY --from=builder /app/public ./public/
 COPY --from=builder /app/prisma ./prisma/
+COPY --from=builder /app/prisma.config.js ./
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/scripts/entrypoint.sh ./
 COPY --from=builder /app/LICENSE ./
 
 RUN chmod +x ./entrypoint.sh
-# RUN npm i -g prisma
+
+# Install runtime dependencies needed for Prisma v7
+RUN npm install prisma dotenv dotenv-expand
 
 # Expose port
 EXPOSE 3000 5555

@@ -138,7 +138,7 @@ export const auth = betterAuth({
           discoveryUrl: process.env.GENERIC_AUTH_ISSUER,
           ...(
             process.env.GENERIC_AUTH_SCOPE
-              ? { scope: process.env.GENERIC_AUTH_SCOPE }
+              ? { scopes: process.env.GENERIC_AUTH_SCOPE.split(/\s+/) }
               : {}
           ),
         } ],

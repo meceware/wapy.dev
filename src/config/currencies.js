@@ -31,5 +31,6 @@ export const DefaultCurrencies = {
   TRY: { symbol: '₺', name: 'Turkish Lira', position: 'before' },
   UAH: { symbol: '₴', name: 'Ukrainian Hryvnia', position: 'before' },
   USD: { symbol: '$', name: 'US Dollar', position: 'before' },
-  ZAR: { symbol: 'R', name: 'South African Rand', position: 'before' }
+  ZAR: { symbol: 'R', name: 'South African Rand', position: 'before' },
+  COP: { symbol: 'Col$', name: 'Colombian Peso', position: 'before'}
 };

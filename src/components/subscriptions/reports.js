@@ -338,7 +338,7 @@ const OverviewRowPaymentMethod = ({ title, description, costs = {total: {}}, pay
 };
 
 const MostExpensiveSubscription = ({ title, mostExpensive }) => {
-  const t = useTranslations('components.list');
+  const t = useTranslations('components.subscriptions.list');
 
   return (
     <div className='flex flex-col gap-2 p-2'>

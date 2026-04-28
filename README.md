@@ -99,9 +99,9 @@ Thanks go to these wonderful people for their time and contributions ✨.
   <tbody>
     <tr>
       <td align="center" valign="top" width="20%"><a href="https://github.com/03Jesus" target="_blank" rel="noopener noreferrer"><img src="https://github.com/03Jesus.png" width="100%" alt="Jesús Puello"/><br /><sub>Jesús Puello</sub></a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/breezinstein" target="_blank" rel="noopener noreferrer"><img src="https://github.com/breezinstein.png" width="100%" alt="Tiago Martins"/><br /><sub>Adedeji Ogundipe</sub></a></td>
       <td align="center" valign="top" width="20%"><a href="https://github.com/TheSander562" target="_blank" rel="noopener noreferrer"><img src="https://github.com/TheSander562.png" width="100%" alt="Sander Lambrechts"/><br /><sub>Sander Lambrechts</sub></a></td>
       <td align="center" valign="top" width="20%"><a href="https://github.com/tiagorvmartins" target="_blank" rel="noopener noreferrer"><img src="https://github.com/tiagorvmartins.png" width="100%" alt="Tiago Martins"/><br /><sub>Tiago Martins</sub></a></td>
-      <td align="center" valign="top" width="20%"></td>
       <td align="center" valign="top" width="20%"></td>
     </tr>
   </tbody>

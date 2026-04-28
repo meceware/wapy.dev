@@ -22,6 +22,7 @@ export const DefaultCurrencies = {
   MYR: { symbol: 'RM', name: 'Malaysian Ringgit', position: 'before' },
   NOK: { symbol: 'kr', name: 'Norwegian Krone', position: 'after' },
   NZD: { symbol: 'NZ$', name: 'New Zealand Dollar', position: 'before' },
+  NGN: { symbol: '₦', name: 'Nigerian Naira', position: 'before' },
   PHP: { symbol: '₱', name: 'Philippine Peso', position: 'before' },
   PLN: { symbol: 'zł', name: 'Polish Zloty', position: 'after' },
   RON: { symbol: 'lei', name: 'Romanian Leu', position: 'after' },

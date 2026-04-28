@@ -1,0 +1,1287 @@
+{
+  "common": {
+    "add": "Agregar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "confirm": "Confirmar",
+    "view": "Ver",
+    "close": "Cerrar",
+    "contact": "Contáctanos",
+    "signIn": "Iniciar sesión",
+    "pricing": "Precios",
+    "refundPolicy": "Política de Reembolso",
+    "termsOfService": "Términos de Servicio",
+    "privacyPolicy": "Política de Privacidad"
+  },
+  "notifications": {
+    "trial": {
+      "reminder": {
+        "title": "Recordatorio de prueba de {siteName}",
+        "message": "Tu período de prueba de {siteName} está por terminar. Suscríbete ahora para seguir disfrutando de todas las funciones."
+      },
+      "expired": {
+        "title": "Prueba de {siteName} expirada",
+        "message": "Tu período de prueba de {siteName} ha expirado. Suscríbete ahora para seguir disfrutando de todas las funciones."
+      }
+    },
+    "subscription": {
+      "reminder": {
+        "title": "Recordatorio de pago de {siteName}",
+        "message": "Solo un recordatorio de que tu suscripción a {siteName} está por terminar."
+      },
+      "payment": {
+        "title": {
+          "due": "Pago pendiente de {name}",
+          "reminder": "Recordatorio de pago de {name}",
+          "upcoming": "Próximo pago de {name}"
+        },
+        "message": {
+          "due": "¡El pago de tu suscripción a {name} ({price}) vence ahora!",
+          "reminder": "¡El pago de tu suscripción a {name} ({price}) está atrasado!",
+          "upcoming": "El pago de tu suscripción a {name} ({price}) es {dueText}."
+        },
+        "markAsPaid": "Marcar como pagado",
+        "dismiss": "Descartar"
+      }
+    },
+    "externalServices": {
+      "header": "Recordatorio de suscripción de {siteName}",
+      "footer": "Enviado por {siteName}",
+      "visitDashboard": "Ir al panel",
+      "paymentQuestion": "¿Ya realizaste el pago?",
+      "viewDetails": "Ver detalles"
+    }
+  },
+  "header": {
+    "signOut": "Cerrar sesión",
+    "subscriptions": "Suscripciones",
+    "reports": "Informes",
+    "settings": "Configuración",
+    "account": "Cuenta"
+  },
+  "footer": {
+    "madeBy": "Hecho con ♥ por <author>{name}</author>.",
+    "github": "GitHub",
+    "menu": "Menú"
+  },
+  "languages": {
+    "selectLanguage": "Seleccionar idioma",
+    "invalid": "Idioma no válido",
+    "failed": "No se pudo cambiar el idioma",
+    "notAvailableTitle": "Selección de idioma no disponible",
+    "notAvailableMessage": "No es posible cambiar las preferencias de idioma porque las cookies funcionales están desactivadas y no has iniciado sesión. Para cambiar el idioma, debes:",
+    "enableCookies": "Activar cookies funcionales"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "¿Quieres tomar el control de tus gastos?",
+        "title": "Gestión Inteligente de Suscripciones Simplificada",
+        "subtitle": "{appName} te ayuda a rastrear suscripciones, monitorear gastos recurrentes y recibir recordatorios de pago en un panel potente y fácil de entender.",
+        "tagline": "Recibe notificaciones y no vuelvas a perder un pago.",
+        "imageAlt": "Hero"
+      },
+      "features": {
+        "title": "Funciones Potentes",
+        "subtitle": "Todo lo que necesitas para gestionar tus suscripciones de forma efectiva",
+        "billingCycles": {
+          "title": "Ciclos de Facturación Flexibles",
+          "description": "Soporte para intervalos de facturación mensuales, anuales y personalizados"
+        },
+        "notifications": {
+          "title": "Notificaciones Inteligentes",
+          "description": "Recibe recordatorios puntuales sobre los pagos y la finalización del periodo de prueba"
+        },
+        "reports": {
+          "title": "Informes y Análisis",
+          "description": "Haz seguimiento de tus gastos con informes y análisis detallados"
+        },
+        "currencies": {
+          "title": "Múltiples Monedas",
+          "description": "Soporte para múltiples monedas con seguimiento de costos en tiempo real"
+        },
+        "timezone": {
+          "title": "Soporte de Zona Horaria",
+          "description": "Rastrea suscripciones en diferentes zonas horarias con conversiones automáticas de fecha"
+        },
+        "categories": {
+          "title": "Gestión de Categorías",
+          "description": "Organiza tus suscripciones con categorías personalizadas y un sistema de colores"
+        }
+      },
+      "howItWorks": {
+        "title": "Cómo Funciona Wapy",
+        "subtitle": "Comienza en minutos",
+        "step1": {
+          "title": "Regístrate e Inicia Sesión",
+          "description": "Crea una cuenta o inicia sesión para comenzar a rastrear tus gastos"
+        },
+        "step2": {
+          "title": "Configura Notificaciones",
+          "description": "Personaliza las alertas sobre próximos pagos y fechas de finalización de periodos de prueba mediante notificaciones por correo electrónico, notificaciones push y webhooks"
+        },
+        "step3": {
+          "title": "Rastrea y Optimiza",
+          "description": "Monitorea patrones de gasto y obtén insights para reducir costos innecesarios de suscripciones"
+        }
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Página No Encontrada",
+        "description": "La página que estás buscando no existe."
+      },
+      "title": "404",
+      "backToHome": "Volver a la página de inicio"
+    },
+    "contact": {
+      "description": "¿Tienes alguna pregunta o quieres ponerte en contacto con nosotros? Rellena el siguiente formulario y te responderemos lo antes posible.",
+      "form": {
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Tu nombre",
+          "error": "El nombre debe tener al menos 2 caracteres"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "tu@correo.com",
+          "error": "Dirección de email inválida"
+        },
+        "message": {
+          "label": "Mensaje",
+          "placeholder": "Cuéntanos cómo podemos ayudarte...",
+          "error": "El mensaje debe tener al menos 10 caracteres"
+        },
+        "submit": "Enviar Mensaje",
+        "submitting": "Enviando..."
+      },
+      "success": {
+        "title": "¡Gracias!",
+        "message1": "Tu mensaje ha sido enviado exitosamente.",
+        "message2": "Te responderemos lo antes posible..."
+      },
+      "toast": {
+        "success": "Tu mensaje ha sido enviado exitosamente.",
+        "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
+        "spam": "Ocurrió un error. Por favor, inténtalo de nuevo más tarde."
+      }
+    },
+    "account": {
+      "meta": {
+        "title": "Configuración de la Cuenta",
+        "description": "Gestiona la configuración y las preferencias de tu cuenta."
+      },
+      "defaultSettings": {
+        "title": "Configuración Predeterminada",
+        "description": "Configura tus ajustes predeterminados para nuevas suscripciones",
+        "timezone": {
+          "label": "Zona Horaria",
+          "success": "Zona horaria actualizada correctamente.",
+          "error": "¡Error al actualizar la zona horaria!"
+        },
+        "currency": {
+          "label": "Moneda",
+          "success": "Moneda actualizada correctamente.",
+          "error": "¡Error al actualizar la moneda!"
+        }
+      },
+      "notifications": {
+        "success": "Preferencias de notificación guardadas.",
+        "error": "¡Error al guardar las preferencias de notificación!",
+        "saveButton": "Guardar Cambios",
+        "saveButtonTitle": "Guardar preferencias de notificación"
+      },
+      "profile": {
+        "success": "Tu nombre ha sido actualizado correctamente.",
+        "error": "¡Error al actualizar tu nombre!",
+        "namePlaceholder": "Ingresa tu nombre",
+        "addNamePrompt": "Añade tu nombre",
+        "memberSince": "Miembro desde {date}"
+      },
+      "categories": {
+        "title": "Categorías",
+        "description": "Gestiona tus categorías",
+        "default": {
+          "load": "Cargar categorías predeterminadas",
+          "success": "Categorías predeterminadas cargadas correctamente.",
+          "error": "¡Error al crear las categorías predeterminadas!"
+        },
+        "save": {
+          "success": "Categoría guardada correctamente.",
+          "error": "¡Error al guardar la categoría!"
+        },
+        "addButtonTitle": "Añadir nueva categoría",
+        "selectColor": "Seleccionar color",
+        "namePlaceholder": "Nombre de la categoría",
+        "delete": {
+          "title": "Eliminar Categoría",
+          "description": "¿Estás seguro de que quieres eliminar esta categoría? Esta acción no se puede deshacer.",
+          "success": "Categoría eliminada correctamente.",
+          "error": "¡Error al eliminar la categoría!"
+        },
+        "invalid": "Datos de categoría inválidos",
+        "edit": "Editar categoría"
+      },
+      "paymentMethods": {
+        "title": "Métodos de Pago",
+        "description": "Gestiona tus métodos de pago",
+        "add": "Añadir nuevo método de pago",
+        "edit": "Editar método de pago",
+        "invalid": "Datos de método de pago inválidos",
+        "placeholder": "Nombre del método de pago",
+        "load": {
+          "title": "Cargar métodos de pago predeterminados",
+          "success": "Métodos de pago predeterminados cargados correctamente.",
+          "error": "¡Error al crear los métodos de pago predeterminados!"
+        },
+        "save": {
+          "success": "Método de pago guardado correctamente.",
+          "error": "¡Error al guardar el método de pago!"
+        },
+        "delete": {
+          "title": "Eliminar Método de Pago",
+          "description": "¿Estás seguro de que quieres eliminar este método de pago? Esta acción no se puede deshacer.",
+          "success": "Método de pago eliminado correctamente.",
+          "error": "¡Error al eliminar el método de pago!"
+        }
+      },
+      "subscriptionStatus": {
+        "title": "Estado de la Suscripción",
+        "description": "Estado de tu suscripción",
+        "trial": {
+          "active": "Tu periodo de prueba termina el <date></date>.",
+          "notification": {
+            "multipleDays": "Te notificaremos <highlight>1 día antes</highlight> de que termine tu prueba.",
+            "lastDay": "Te notificaremos <highlight>cuando</highlight> termine tu prueba."
+          },
+          "ended": "¡Tu período de prueba ha finalizado!",
+          "subscribe": "¿Listo para continuar con nosotros?"
+        },
+        "subscription": {
+          "active": {
+            "scheduled": {
+              "pause": "Tu suscripción está <status>en pausa</status> y finalizará el <date></date>.",
+              "cancel": "Tu suscripción está <status>cancelada</status> y finalizará el <date></date>."
+            },
+            "nextPayment": "Tu próximo pago vence el <date></date>.",
+            "notification": "Te avisaremos antes de que finalice tu suscripción."
+          },
+          "paused": {
+            "message": "Tu suscripción está actualmente en pausa.",
+            "button": "Reanudar Suscripción"
+          },
+          "cancelled": {
+            "message": "Tu suscripción ha sido cancelada.",
+            "button": "Reactivar Suscripción"
+          },
+          "pastDue": {
+            "message": "Tu pago está vencido. Por favor, actualiza tu método de pago."
+          },
+          "cancel": {
+            "button": "Cancelar Suscripción",
+            "dialog": {
+              "title": "¿Estás seguro de que quieres cancelar?",
+              "description": "Esta acción cancelará tu suscripción al final del periodo de facturación actual. Seguirás teniendo acceso hasta entonces."
+            },
+            "confirmButton": "Confirmar Cancelación"
+          }
+        },
+        "fullAccess": {
+          "message": "¡Felicidades! Tienes acceso completo a todas las funciones."
+        },
+        "blocked": {
+          "message": "¡Qué raro! Se te ha bloqueado el acceso a nuestro servicio."
+        }
+      },
+      "externalServices": {
+        "title": "Servicios Externos",
+        "description": "Configurar integraciones con servicios externos",
+        "testNotification": {
+          "title": "{siteName} Notificación de Prueba",
+          "message": "Este es un mensaje de prueba del {service} de {siteName}. La integración de tu {service} está configurada correctamente."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Recibe notificaciones a través de ntfy.",
+          "toast": {
+            "disable": {
+              "success": "Integración de ntfy desactivada.",
+              "error": "¡No se ha podido desactivar la integración de ntfy!"
+            },
+            "save": {
+              "success": "La configuración de ntfy se ha guardado correctamente.",
+              "error": "¡No se pudo guardar la configuración de ntfy!"
+            },
+            "test": {
+              "success": "Se ha enviado una notificación de prueba.",
+              "error": "¡No se pudo enviar la notificación de prueba!"
+            },
+            "notEnabled": "La integración con ntfy no está habilitada.",
+            "invalidParams": "¡Parámetros no válidos! No se puede guardar la configuración de ntfy.",
+            "testInvalidParams": "¡Parámetros no válidos! No se puede enviar la notificación de prueba."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "URL del servidor",
+              "placeholder": "ntfy.sh o una URL autohospedada"
+            },
+            "topic": {
+              "label": "Nombre del canal"
+            },
+            "token": {
+              "label": "Access Token (Opcional)",
+              "placeholder": "Access Token"
+            }
+          },
+          "buttons": {
+            "save": "Guardar ntfy",
+            "test": "Probar ntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "Recibe notificaciones a través de webhook.",
+          "toast": {
+            "disable": {
+              "success": "La integración de Webhooks está desactivada.",
+              "error": "¡No se ha podido desactivar la integración de webhooks!"
+            },
+            "save": {
+              "success": "La configuración del webhook se ha guardado correctamente.",
+              "error": "¡No se pudo guardar la configuración del webhook!"
+            },
+            "test": {
+              "success": "Se ha enviado una notificación de prueba del webhook.",
+              "error": "¡No se pudo enviar la notificación de prueba del webhook!"
+            },
+            "notEnabled": "La integración de Webhooks no está habilitada.",
+            "invalidParams": "¡Parámetros no válidos! No se puede guardar la configuración del webhook.",
+            "testInvalidParams": "¡Parámetros no válidos! No se puede enviar la notificación de prueba."
+          },
+          "fields": {
+            "url": {
+              "label": "URL del servidor",
+              "placeholder": "URL del servidor de webhooks"
+            }
+          },
+          "buttons": {
+            "save": "Guardar webhook",
+            "test": "Probar webhook"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Recibe notificaciones a través de Discord.",
+          "toast": {
+            "disable": {
+              "success": "Integración con Discord desactivada.",
+              "error": "¡No se ha podido desactivar la integración con Discord!"
+            },
+            "save": {
+              "success": "La configuración de Discord se ha guardado correctamente.",
+              "error": "¡No se pudo guardar la configuración de Discord!"
+            },
+            "test": {
+              "success": "Se ha enviado una notificación de prueba a Discord.",
+              "error": "¡No se pudo enviar la notificación de prueba de Discord!"
+            },
+            "notEnabled": "La integración con Discord no está habilitada.",
+            "invalidParams": "¡Parámetros no válidos! No se puede guardar la configuración de Discord.",
+            "testInvalidParams": "¡Parámetros no válidos! No se puede enviar la notificación de prueba."
+          },
+          "fields": {
+            "url": {
+              "label": "URL del servidor",
+              "placeholder": "URL del servidor de Discord"
+            }
+          },
+          "buttons": {
+            "save": "Guardar Discord",
+            "test": "Probar Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Recibe notificaciones a través de Slack.",
+          "toast": {
+            "disable": {
+              "success": "La integración con Slack está desactivada.",
+              "error": "¡No se ha podido desactivar la integración con Slack!"
+            },
+            "save": {
+              "success": "La configuración de Slack se ha guardado correctamente.",
+              "error": "¡No se pudo guardar la configuración de Slack!"
+            },
+            "test": {
+              "success": "Se ha enviado una notificación de prueba a Slack.",
+              "error": "¡No se pudo enviar la notificación de prueba de Slack!"
+            },
+            "notEnabled": "La integración con Slack no está habilitada.",
+            "invalidParams": "¡Parámetros no válidos! No se puede guardar la configuración de Slack.",
+            "testInvalidParams": "¡Parámetros no válidos! No se puede enviar la notificación de prueba."
+          },
+          "fields": {
+            "url": {
+              "label": "URL del servidor",
+              "placeholder": "URL del servidor de Slack"
+            }
+          },
+          "buttons": {
+            "save": "Guardar Slack",
+            "test": "Probar Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Exportar Datos",
+        "description": "Descarga una copia de tus suscripciones, categorías, métodos de pago y ajustes",
+        "button": "Exportar Datos",
+        "toast": {
+          "success": "Los datos se han exportado correctamente.",
+          "error": "¡No se pudieron exportar los datos!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "Nueva Suscripción",
+        "edit": "Editar {name}",
+        "unauthorized": "No autorizado"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Iniciar Sesión"
+      },
+      "description": "Inicia sesión con tu correo electrónico para acceder a tu cuenta o crear una nueva automáticamente",
+      "form": {
+        "emailPlaceholder": "tu@correo.com",
+        "loginButton": "Iniciar sesión",
+        "loginWithProvider": "Iniciar sesión con {provider}"
+      },
+      "otp": {
+        "title": "Revisa tu bandeja de entrada",
+        "description": "Te hemos enviado un enlace a tu correo electrónico para que inicies sesión.",
+        "instructions": "Introduce el código de 6 dígitos que se te ha enviado por correo electrónico",
+        "divider": "o",
+        "resend": {
+          "prompt": "¿No has recibido el correo electrónico?",
+          "button": "Haga clic aquí para reenviar",
+          "timer": "Puedes volver a enviarlo en {seconds, plural, one {# segundo} other {# segundos}}"
+        }
+      },
+      "toast": {
+        "success": "¡Bienvenido! Has iniciado sesión correctamente.",
+        "error": {
+          "accessDenied": "¡Lo sentimos, pero no tienes permiso para iniciar sesión!",
+          "generic": "¡Qué raro! No hemos podido iniciar tu sesión. Puede que sea por tu correo electrónico o que haya habido algún problema por nuestra parte.",
+          "invalidCode": "El código parece incorrecto. Verifica los 6 dígitos y vuelve a intentarlo.",
+          "somethingWrong": "Ha ocurrido un error. Solicita un nuevo código e inténtalo de nuevo.",
+          "workspaceAccess": "Lo sentimos, no tienes acceso a este espacio de trabajo."
+        }
+      }
+    },
+    "pricing": {
+      "title": "Precios sencillos y transparentes",
+      "description": "Realiza un seguimiento y gestiona todas tus suscripciones con potentes funciones a un precio asequible"
+    },
+    "privacy": {
+      "lastUpdated": "Ultima actualización Enero 17, 2025",
+      "introduction": {
+        "title": "Introducción",
+        "paragraph1": "Nos comprometemos a proteger su privacidad y a garantizar la seguridad de su información personal.",
+        "paragraph2": "Esta Política de Privacidad explica cómo recopilamos, utilizamos y protegemos tus datos cuando utilizas nuestro servicio de suscripción y gestión de gastos."
+      },
+      "informationWeCollect": {
+        "title": "Información que Recopilamos",
+        "description": "Recopilamos únicamente la información necesaria para prestarle nuestros servicios:",
+        "items": {
+          "account": "Información de la cuenta",
+          "subscription": "Datos sobre la gestión de suscripciones y gastos",
+          "expense": "Información sobre el seguimiento de gastos"
+        }
+      },
+      "howWeUse": {
+        "title": "Cómo Utilizamos Su Información",
+        "description": "Tu información se utiliza exclusivamente para:",
+        "items": {
+          "providing": "Prestación y mantenimiento de nuestros servicios",
+          "managing": "Gestionar tu cuenta y tus suscripciones",
+          "sending": "Envío de actualizaciones importantes sobre el servicio",
+          "improving": "Mejoramos nuestros servicios analizando el uso de forma anónima"
+        }
+      },
+      "paymentProcessing": {
+        "title": "Procesamiento de Pagos",
+        "description": "Utilizamos <paddle>Paddle.com</paddle> como nuestro sistema de procesamiento de pagos. Cuando realizas un pago, Paddle recopila y procesa directamente tu información de pago. No almacenamos tus datos de pago en nuestros servidores. Para obtener información sobre cómo Paddle procesa tus datos, consulta <privacy>la Política de privacidad de Paddle</privacy>."
+      },
+      "dataProtection": {
+        "title": "Protección de Datos",
+        "description": "Aplicamos medidas de seguridad rigurosas para proteger tu información personal. Nunca compartimos tus datos con terceros y mantenemos protocolos estrictos de protección de datos para evitar el acceso no autorizado, la divulgación o el uso indebido de tu información."
+      },
+      "analytics": {
+        "title": "Análisis",
+        "description": "Utilizamos una herramienta de análisis personalizada para mejorar nuestros servicios. Esta herramienta recopila datos de uso anónimos que nos ayudan a comprender cómo interactúan los usuarios con nuestra plataforma y a mejorar su experiencia."
+      },
+      "yourRights": {
+        "title": "Tus Derechos",
+        "description": "Tienes derecho a:",
+        "items": {
+          "access": "Acceder a tus datos personales",
+          "correct": "Solicitar que se corrijan tus datos",
+          "delete": "Solicitar la eliminación de tus datos",
+          "optOut": "Excluirse de la recopilación de datos no esenciales"
+        }
+      },
+      "contactUs": {
+        "description": "Si tiene alguna pregunta sobre nuestra Política de privacidad o sobre cómo gestionamos sus datos, póngase en contacto con nosotros a través del <link>formulario de contacto</link>."
+      },
+      "updates": {
+        "title": "Actualizaciones de esta Política",
+        "description": "Es posible que actualicemos esta Política de privacidad de vez en cuando. Le notificaremos cualquier cambio publicando la nueva Política de privacidad en esta página y actualizando la fecha de entrada en vigor."
+      }
+    },
+    "refundPolicy": {
+      "lastUpdated": "Ultima actualización Enero 17, 2025",
+      "introduction": "Las malas políticas de reembolso son exasperantes. Da la sensación de que la empresa solo está tratando de estafarte. No queremos que nuestros clientes se sientan así, por lo que nuestra política de reembolso es sencilla: si en algún momento no estás satisfecho por cualquier motivo, solo tienes que <link>contactarnos</link> y explicarnos cuál es el problema, y trabajaremos contigo para asegurarnos de que quedes satisfecho.",
+      "fullRefunds": {
+        "title": "Ejemplos de reembolsos totales",
+        "items": {
+          "charged": "Si te acaban de cobrar el servicio del próximo mes, pero tu intención era cancelarlo, estaremos encantados de reembolsarte ese cargo adicional"
+        }
+      },
+      "partialRefunds": {
+        "title": "Ejemplos de reembolsos parciales",
+        "items": {
+          "week": "Si te cobraron un mes de servicio pero solo lo usaste durante una semana, te devolveremos la diferencia",
+          "year": "Si te cobraron un año de servicio pero solo lo usaste durante un mes, te devolveremos la diferencia",
+          "weekDuplicate": "Si te cobraron un mes de servicio pero solo lo usaste durante una semana, te devolveremos la diferencia"
+        }
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "Informe de Suscripción"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "No autorizado",
+        "view": "Ver {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Última actualización Enero 17, 2025",
+      "welcome": "Bienvenido al sitio web de {siteName} (el \"Sitio\"). Al acceder o utilizar el Sitio, usted acepta cumplir y quedar sujeto a los siguientes términos y condiciones (\"Términos de Servicio\").",
+      "overview": {
+        "title": "Descripción General",
+        "paragraph1": "{siteName} ofrece este Sitio, incluyendo toda la información, las herramientas y los servicios disponibles en él para usted, el usuario, siempre y cuando acepte todos los términos, condiciones, políticas y avisos aquí establecidos.",
+        "paragraph2": "Lea atentamente estos Términos de Servicio antes de acceder al Sitio o utilizarlo. Al acceder a cualquier parte del Sitio o utilizarla, usted acepta quedar vinculado por estos Términos de Servicio. Si no está de acuerdo con todos los términos y condiciones del presente acuerdo, no podrá acceder al Sitio ni utilizar ninguno de sus servicios. En caso de que estos Términos de Servicio se consideren una oferta, la aceptación queda expresamente limitada a las mismas.",
+        "paragraph3": "Cualquier nueva función o herramienta que se añada al Sitio también estará sujeta a los Términos de Servicio. Puede consultar la versión más reciente de los Términos de Servicio en cualquier momento en esta página. El Sitio se reserva el derecho de actualizar, modificar o sustituir cualquier parte de estos Términos de Servicio mediante la publicación de actualizaciones y/o modificaciones en el Sitio. Es su responsabilidad consultar esta página periódicamente para conocer los cambios. Su uso continuado o acceso al Sitio tras la publicación de cualquier cambio constituye la aceptación de dichos cambios."
+      },
+      "websiteTerms": {
+        "title": "Términos de uso del sitio web",
+        "paragraph1": "Al aceptar estos Términos de Servicio, usted declara que ha alcanzado la mayoría de edad en su estado o provincia de residencia, o que ha alcanzado la mayoría de edad en su estado o provincia de residencia y nos ha dado su consentimiento para permitir que cualquiera de sus hijos menores a su cargo utilice este sitio web.",
+        "paragraph2": "El uso de nuestros servicios debe cumplir con todas las leyes y normativas aplicables. En concreto:",
+        "items": {
+          "unlawful": "Usted se compromete a no utilizar nuestros productos con fines ilegales o no autorizados",
+          "comply": "Debe cumplir con toda la legislación vigente en su jurisdicción, incluidas las leyes de derechos de autor y de propiedad intelectual",
+          "malicious": "No está permitido transmitir código malicioso, virus u otro contenido perjudicial"
+        },
+        "paragraph3": "Tenga en cuenta que cualquier incumplimiento de estos Términos de Servicio dará lugar a la suspensión inmediata de su acceso a nuestros Servicios."
+      },
+      "payment": {
+        "title": "Pago",
+        "paragraph1": "Si adquieres una suscripción al Sitio, te comprometes a abonar las tarifas correspondientes tal y como se indican durante el proceso de pago.",
+        "paragraph2": "Utilizamos <paddle>Paddle.com</paddle> como nuestro proveedor de servicios de pago. Al realizar una compra, también aceptas los <terms>Términos de Servicio</terms> de Paddle. Paddle se encarga de procesar todos los pagos y de gestionar las consultas de atención al cliente relacionadas.",
+        "paragraph3": "El sitio web gestiona los reembolsos de acuerdo con nuestra <refund>política de reembolsos</refund>."
+      },
+      "cookies": {
+        "title": "Uso de Cookies",
+        "description": "El sitio web utiliza cookies y tecnologías similares (como el almacenamiento local) para realizar un seguimiento de su uso del sitio web y con fines de marketing. Al utilizar el sitio web, usted da su consentimiento para el uso de cookies de conformidad con nuestra <privacy>Política de Privacidad</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Propiedad Intelectual",
+        "description": "Todo el contenido del Sitio, incluyendo, entre otros, textos, gráficos, logotipos, imágenes, vídeos y contenidos de los cursos, es propiedad del Sitio o de sus licenciantes y está protegido por las leyes de propiedad intelectual. No está permitido reproducir, modificar, distribuir ni utilizar de ningún otro modo ningún contenido del Sitio sin nuestro consentimiento previo por escrito."
+      },
+      "disclaimer": {
+        "title": "Aviso legal",
+        "description": "La información y los contenidos del Sitio se proporcionan únicamente con fines informativos y no pretenden constituir asesoramiento profesional. El Sitio no ofrece garantía alguna, ya sea expresa o implícita, sobre la exactitud, fiabilidad, integridad o idoneidad de la información y los contenidos del Sitio. El uso del Sitio es bajo su propia responsabilidad."
+      },
+      "limitationOfLiability": {
+        "title": "Limitación de Responsabilidad",
+        "description": "{siteName} no se hace responsable de ningún daño indirecto, incidental, especial o consecuente que pueda derivarse del uso que usted haga del Sitio, independientemente de si dichos daños se derivan de un contrato, un acto ilícito, negligencia, responsabilidad objetiva o cualquier otra teoría jurídica. El importe máximo por el que el Sitio puede ser responsable en cualquier reclamación relacionada con el Sitio se limita al total de las cuotas de suscripción que usted haya abonado en los últimos 12 meses."
+      },
+      "changes": {
+        "title": "Cambios a los Términos de Servicio",
+        "description": "El Sitio podrá actualizar o modificar estos Términos de Servicio periódicamente, y cualquier cambio entrará en vigor en el momento de su publicación en el Sitio. El uso continuado del Sitio tras dichos cambios implica la aceptación de los Términos de Servicio revisadas."
+      },
+      "indemnification": {
+        "title": "Indemnización",
+        "description": "Usted se compromete a indemnizar y eximir de responsabilidad a {siteName}, sus filiales, directivos, consejeros, empleados, agentes y licenciantes frente a cualquier reclamación, responsabilidad, daño, pérdida y gasto —incluidos, entre otros, los honorarios razonables de abogados— que se deriven o estén relacionados con su uso del Sitio, su incumplimiento de estos Términos de Servicio o su vulneración de cualquier derecho de terceros."
+      },
+      "modifications": {
+        "title": "Modificaciones del Servicio y de los Precios",
+        "paragraph1": "Los precios de nuestros servicios están sujetos a cambios sin previo aviso. El sitio web se reserva el derecho de modificar o suspender el Servicio (o cualquier parte o contenido del mismo) en cualquier momento y sin previo aviso.",
+        "paragraph2": "El Sitio no se hace responsable ante usted ni ante ningún tercero por cualquier modificación, cambio de precio, suspensión o interrupción del Servicio."
+      },
+      "governingLaw": {
+        "title": "Legislación Aplicable y Jurisdicción",
+        "description": "Los presentes Términos de Servicio se regirán e interpretarán de conformidad con la legislación de la jurisdicción en la que {siteName} tiene su sede social, sin que sean de aplicación los principios sobre conflicto de leyes. Usted acepta someterse a la jurisdicción exclusiva de los tribunales de dicha jurisdicción para cualquier controversia que surja de o en relación con las presentes Condiciones de servicio o con su uso del Sitio."
+      },
+      "entireAgreement": {
+        "title": "Acuerdo Íntegro",
+        "description": "Los presentes Términos de Servicio constituyen el acuerdo íntegro entre usted y {siteName} en relación con el uso que haga del Sitio y sustituyen a todos los acuerdos y pactos anteriores y contemporáneos, ya sean verbales o escritos, relacionados con el mismo objeto."
+      },
+      "severability": {
+        "title": "Cláusula de Separabilidad",
+        "description": "Si alguna de las disposiciones de estos Términos de Servicio resultara inválida, ilegal o inaplicable, las disposiciones restantes seguirán siendo plenamente vigentes y efectivas."
+      },
+      "waiver": {
+        "title": "Renuncia",
+        "description": "El hecho de que {siteName} no haga valer algún derecho o disposición de estos Términos de Servicio no constituirá una renuncia a dicho derecho o disposición."
+      },
+      "contactUs": {
+        "description": "Si tiene alguna pregunta o duda sobre estos Términos de Servicio, póngase en contacto con nosotros a través del <link>formulario de contacto</link> disponible en el sitio web."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} Notificación de Prueba",
+          "message": "Esta es una notificación de prueba de {siteName}. Si estás viendo esto, ¡significa que las notificaciones push funcionan correctamente!"
+        }
+      },
+      "email": {
+        "header": "Recordatorio de Pago",
+        "footer": "Este es un correo electrónico de recordatorio de {siteName}.",
+        "thanks": "Gracias",
+        "madeBy": "Hecho con ♥ por {siteLink}"
+      },
+      "bell": {
+        "title": "Notificaciones",
+        "unreadTitle": "Notificaciones no leídas",
+        "clearAll": "Borrar todo",
+        "removeNotification": "Eliminar notificación",
+        "noNotifications": "No hay nuevas notificaciones"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Mantente al día",
+          "description": "Recibe recordatorios puntuales sobre los pagos de tus suscripciones y sus fechas de vencimiento. Te avisaremos antes de que venzan los pagos y cuando las suscripciones estén a punto de caducar.",
+          "maybeLater": "Quizás más tarde",
+          "enable": "Activar Notificaciones",
+          "enabling": "Habilitando..."
+        },
+        "toast": {
+          "success": "A partir de ahora recibirás recordatorios sobre tu suscripción.",
+          "error": "No se han podido activar las notificaciones. Inténtalo de nuevo.",
+          "permissionRequired": {
+            "title": "Se requiere permiso",
+            "description": "Activa las notificaciones para recibir recordatorios."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "El nombre debe tener al menos 2 caracteres.",
+        "paymentDate": "¡Esa fecha no es válida!",
+        "color": "Color hexadecimal no válido"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Diario} other {Cada # días}}",
+        "WEEKS": "{count, plural, =1 {Semanal} other {Cada # semanas}}",
+        "MONTHS": "{count, plural, =1 {Mensual} other {Cada # meses}}",
+        "YEARS": "{count, plural, =1 {Anual} other {Cada # años}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Categorías",
+            "selected": "{count, plural, =0 {Selecciona categorías} one {# categoría seleccionada} other {# categorías seleccionadas}}",
+            "search": "Buscar categoría...",
+            "create": "Crear nueva categoría \"{value}\""
+          },
+          "currency": {
+            "label": "Moneda",
+            "placeholder": "Seleccionar moneda",
+            "search": "Buscar moneda...",
+            "noResults": "¡No se encontraron resultados!"
+          },
+          "cycle": {
+            "label": "Ciclo de facturación",
+            "placeholder": "Seleccionar ciclo de facturación",
+            "options": {
+              "daily": "Diario",
+              "weekly": "Semanal",
+              "monthly": "Mensual",
+              "yearly": "Anual",
+              "custom": "Personalizado"
+            },
+            "units": {
+              "days": "{count, plural, one {Día} other {Días}}",
+              "weeks": "{count, plural, one {Semana} other {Semanas}}",
+              "months": "{count, plural, one {Mes} other {Meses}}",
+              "years": "{count, plural, one {Año} other {Años}}"
+            },
+            "unitPlaceholder": "Unidad"
+          },
+          "name": {
+            "label": "Nombre",
+            "placeholder": "Nombre de la suscripción"
+          },
+          "notes": {
+            "label": "Notas",
+            "placeholder": "Añadir notas..."
+          },
+          "notifications": {
+            "title": "Notificaciones",
+            "description": "Configura las notificaciones predeterminadas para tus suscripciones",
+            "via": "A través de",
+            "whenToNotify": "Cuándo notificar",
+            "whenPlaceholder": "Selecciona cuándo notificar",
+            "unitPlaceholder": "Unidad",
+            "addNotification": "Añadir notificación",
+            "deleteDialog": {
+              "title": "Confirmar eliminación",
+              "description": "¿Estás seguro de que quieres eliminar esta plantilla de notificación?"
+            },
+            "status": {
+              "denied": "Las notificaciones push están bloqueadas en este dispositivo. Actívalas en la configuración de tu navegador.",
+              "default": "Las notificaciones push no están activadas en este dispositivo. <link>¿Deseas activarlas?</link>",
+              "grantedNotConfigured": "Se ha concedido el permiso para recibir notificaciones push, pero no está configurado correctamente. <link>¿Deseas activarlo?</link>",
+              "grantedConfigured": "Las notificaciones push están activadas en este dispositivo. ¿Deseas enviar una <link>notificación push de prueba</link>?"
+            },
+            "toast": {
+              "success": "¡Se ha enviado la notificación push! Comprueba tu(s) dispositivo(s).",
+              "error": "¡No se ha podido enviar la notificación push de prueba! Asegúrate de que las notificaciones estén activadas y configuradas correctamente."
+            },
+            "timeOptions": {
+              "instant": "En la fecha de pago",
+              "15minutes": "15 minutos antes",
+              "1hour": "1 hora antes",
+              "2hours": "2 horas antes",
+              "1day": "1 día antes",
+              "2days": "2 días antes",
+              "1week": "1 semana antes",
+              "custom": "Personalizado"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minuto} other {Minutos}}",
+              "hours": "{count, plural, one {Hora} other {Horas}}",
+              "days": "{count, plural, one {Día} other {Días}}",
+              "weeks": "{count, plural, one {Semana} other {Semanas}}"
+            },
+            "types": {
+              "push": {
+                "label": "Notificaciones push",
+                "ariaLabel": "Alternar notificaciones push"
+              },
+              "email": {
+                "label": "Notificaciones por correo electrónico",
+                "ariaLabel": "Alternar notificaciones por correo electrónico"
+              },
+              "webhook": {
+                "label": "Notificaciones webhook",
+                "ariaLabel": "Alternar notificaciones webhook"
+              },
+              "ntfy": {
+                "label": "Notificaciones de ntfy",
+                "ariaLabel": "Alternar notificaciones de ntfy"
+              },
+              "discord": {
+                "label": "Notificaciones de Discord",
+                "ariaLabel": "Alternar notificaciones de Discord"
+              },
+              "slack": {
+                "label": "Notificaciones de Slack",
+                "ariaLabel": "Alternar notificaciones de Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Próxima Fecha de Pago"
+          },
+          "paymentMethod": {
+            "label": "Método de pago",
+            "placeholder": "Seleccionar método de pago",
+            "search": "Buscar método de pago...",
+            "create": "Crear nuevo método de pago \"{value}\""
+          },
+          "price": {
+            "label": "Precio"
+          },
+          "timezone": {
+            "label": "Zona horaria",
+            "placeholder": "Seleccionar zona horaria",
+            "search": "Buscar zona horaria...",
+            "noResults": "¡No se encontraron resultados!"
+          },
+          "untilDate": {
+            "label": "Válida hasta",
+            "description": "Déjalo vacío para una suscripción indefinida"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logo",
+            "description": "Selecciona un ícono predefinido o ingresa una URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} Zona horaria",
+        "paymentDate": {
+          "past": "Debería haberse pagado <date></date>.",
+          "future": "Se pagará <date></date>."
+        },
+        "markAsPaid": {
+          "question": "¿Has pagado esto? <action>Marcar como pagado</action> o ver <options>otras opciones</options>.",
+          "customPrice": {
+            "title": "¿Has pagado una cantidad diferente?",
+            "description": "Utiliza esta opción si has pagado más o menos de lo habitual",
+            "prompt": "Introduce la cantidad que has pagado:"
+          },
+          "noPrice": {
+            "title": "¡Solo marca como pagado!",
+            "description": "Utiliza esto para omitir este pago sin registrar una cantidad",
+            "prompt": "¿Marcar como pagado sin registrar la cantidad?",
+            "warning": "Esto no registrará la cantidad del pago."
+          },
+          "toast": {
+            "success": "¡Suscripción marcada como pagada!",
+            "error": "Error al marcar la suscripción como pagada",
+            "custom": {
+              "success": "¡Suscripción marcada como pagada con precio personalizado!",
+              "error": "Error al marcar la suscripción como pagada con precio personalizado"
+            },
+            "noPrice": {
+              "success": "¡Suscripción marcada como pagada sin pago!",
+              "error": "Error al marcar la suscripción como pagada sin pago"
+            },
+            "failed": "¡Error al actualizar!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "Se te notificará <date></date> por {channels}.",
+          "willBeNotifiedSoon": "Se te notificará pronto por {channels}.",
+          "willBeRemindedAt": "Se te recordará nuevamente <date></date> por {channels}.",
+          "willBeRemindedSoon": "Se te recordará nuevamente pronto por {channels}.",
+          "wontBeNotified": "No se te notificará.",
+          "types": {
+            "push": "notificación",
+            "email": "correo electrónico",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "¡Felicidades! Ya has pagado todo.",
+          "remaining": "Pagarás esto <trigger>{count, plural, =1 {# vez más} other {# veces}}</trigger>.",
+          "until": "Hasta {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "El pago se realizará a través de {methods}."
+        },
+        "pastPayments": {
+          "count": "Has realizado <highlight>{count, plural, one {# pago} other {# pagos}}</highlight> hasta ahora."
+        },
+        "actions": {
+          "inactive": "Esta suscripción no está activa.",
+          "edit": "Editar suscripción {name}",
+          "link": "Enlace a {url}",
+          "notificationEnabled": "{type} están activadas",
+          "notificationDisabled": "{type} están desactivadas"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Crear suscripción",
+          "update": "Actualizar suscripción"
+        },
+        "sections": {
+          "details": "Detalles de la suscripción",
+          "advanced": "Configuración avanzada"
+        },
+        "deleteDialog": {
+          "title": "Eliminar suscripción",
+          "description": "¿Estás seguro de que quieres eliminar esta suscripción? Esta acción no se puede deshacer."
+        },
+        "toast": {
+          "create": {
+            "error": "¡Interesante, no se puede crear la suscripción!",
+            "success": "¡Suscripción creada correctamente!"
+          },
+          "delete": {
+            "success": "¡Suscripción eliminada correctamente!",
+            "error": "¡No se pudo eliminar la suscripción!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "Nueva Suscripción",
+        "noSubscription": "No se encontraron suscripciones"
+      }
+    },
+    "filters": {
+      "title": "Filtros de suscripciones",
+      "description": "Aplica filtros y encuentra las suscripciones que necesitas",
+      "buttons": {
+        "filter": "Filtrar suscripciones",
+        "reset": "Restablecer filtros"
+      },
+      "selectAll": "Seleccionar todo",
+      "selectNone": "No seleccionar ninguna opción",
+      "status": {
+        "title": "Estado",
+        "active": {
+          "title": "Activas",
+          "description": "Filtrar por suscripciones activas"
+        },
+        "inactive": {
+          "title": "Inactivas",
+          "description": "Filtrar por suscripciones inactivas"
+        }
+      },
+      "paymentDate": {
+        "title": "Fecha de pago",
+        "all": {
+          "title": "Todo",
+          "description": "Desactivar todos los filtros de fecha de pago"
+        },
+        "thisMonth": {
+          "title": "Este mes",
+          "description": "Filtrar por este mes"
+        },
+        "next30Days": {
+          "title": "Próximos 30 días",
+          "description": "Filtrar por los próximos 30 días"
+        }
+      },
+      "currencies": {
+        "title": "Monedas",
+        "all": {
+          "description": "Seleccionar todas las monedas"
+        },
+        "clear": {
+          "description": "Borrar todas las monedas"
+        },
+        "filter": "Filtrar por {currency}"
+      },
+      "categories": {
+        "title": "Categorías",
+        "uncategorized": "Sin categoría",
+        "all": {
+          "description": "Seleccionar todas las categorías"
+        },
+        "clear": {
+          "description": "Borrar todas las categorías"
+        },
+        "filterBy": "Filtrar por {category}"
+      },
+      "paymentMethods": {
+        "title": "Métodos de pago",
+        "unspecified": "Sin especificar",
+        "all": {
+          "description": "Seleccionar todos los métodos de pago"
+        },
+        "clear": {
+          "description": "Borrar todos los métodos de pago"
+        },
+        "filterBy": "Filtrar por {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} se pagará {count, plural, one {# vez} other {# veces}}"
+      },
+      "overview": {
+        "title": "Resumen",
+        "total": "<count></count> suscripciones totales",
+        "active": "<count></count> suscripciones activas",
+        "inactive": "<count></count> suscripciones inactivas"
+      },
+      "costAverages": {
+        "title": "Promedios de costos",
+        "description": "Promedios mensuales y anuales de los costos de suscripciones",
+        "monthly": "Promedio mensual",
+        "yearly": "Promedio anual"
+      },
+      "monthlyCost": {
+        "title": "Resumen de costos mensuales",
+        "description": "Haz seguimiento de tus costos mensuales de suscripciones"
+      },
+      "yearlyCost": {
+        "title": "Resumen de costos anuales",
+        "description": "Haz seguimiento de tus costos anuales de suscripciones"
+      },
+      "upcomingPayments": {
+        "title": "Próximos pagos",
+        "description": "Haz seguimiento de tus próximos pagos",
+        "noPayments": "No hay pagos próximos en un mes.",
+        "nextMonth": "Próximo mes"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Este mes",
+          "description": "Hasta fin de mes"
+        },
+        "nextMonth": {
+          "title": "Próximo mes",
+          "description": "Solo el próximo mes"
+        },
+        "next30Days": {
+          "title": "Próximos 30 días",
+          "description": "Período de renovación"
+        },
+        "thisYear": {
+          "title": "Este año",
+          "description": "Hasta fin de año"
+        },
+        "nextYear": {
+          "title": "Próximo año",
+          "description": "Siguiente año calendario"
+        },
+        "next365Days": {
+          "title": "Próximos 365 días",
+          "description": "Período de renovación"
+        }
+      },
+      "tabs": {
+        "byCategories": "Por categorías",
+        "byPaymentMethods": "Por métodos de pago"
+      },
+      "mostExpensive": {
+        "monthly": "Suscripción mensual más cara",
+        "yearly": "Suscripción anual más cara"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} pagos en esta categoría",
+          "noSubscriptions": "No se encontraron suscripciones en esta categoría"
+        },
+        "paymentMethod": {
+          "description": "{period} pagos con este método de pago",
+          "noSubscriptions": "No se encontraron suscripciones con este método de pago"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Enlace",
+        "linkTitle": "Enlace de suscripción",
+        "editTitle": "Editar suscripción"
+      },
+      "overview": {
+        "title": "Resumen",
+        "description": "Métricas clave de esta suscripción",
+        "disabled": "Esta suscripción está actualmente deshabilitada. Puedes activarla nuevamente en cualquier momento.",
+        "unpaid": {
+          "hasUnpaid": "¡Oh no! Tienes <count>{count, plural, one {# pago pendiente} other {# pagos pendientes}}</count> para esta suscripción, con un total de <total>{total}</total>.",
+          "allPaid": "¡Bien hecho! Esta suscripción está completamente al día."
+        },
+        "nextPayment": {
+          "scheduled": "Tu próximo pago de <price>{price}</price> vence el <date>{date}</date>, que será dentro de <distance>{distance}</distance>.",
+          "none": "¡Felicidades! No hay pagos futuros programados para esta suscripción."
+        },
+        "endDate": {
+          "hasEndDate": "Esta suscripción finalizará el <date>{date}</date>.",
+          "ongoing": "Esta es una suscripción continua sin fecha de finalización especificada."
+        },
+        "remainingPayments": {
+          "withEndDate": "Esta suscripción requerirá <count>{count, plural, one {# pago} other {# pagos}}</count>, con un total de <total>{total}</total>.",
+          "thisYear": "Esta suscripción requerirá <count>{count, plural, one {# pago} other {# pagos}}</count> este año, con un total de <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "Esta suscripción se pagará por <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "Has realizado <countTag>{count, plural, one {# pago} other {# pagos}}</countTag> para esta suscripción hasta ahora, con un total de <totalTag>{total}</totalTag>.",
+          "yearStats": " En el último año, realizaste <countTag>{count, plural, one {# pago} other {# pagos}}</countTag>, con un total de <totalTag>{total}</totalTag>.",
+          "none": "Esta es una suscripción sin historial de pagos aún."
+        },
+        "notifications": {
+          "title": "Recibirás notificaciones:",
+          "none": "No hay notificaciones configuradas para esta suscripción.",
+          "item": "<timing></timing> a través <channels></channels>.",
+          "itemNoType": "<timing></timing>, pero <error>no se ha configurado ningún tipo de notificación</error>.",
+          "timing": {
+            "instant": "En la fecha de pago",
+            "minutes": "{count, plural, one {# minuto} other {# minutos}} antes del pago",
+            "hours": "{count, plural, one {# hora} other {# horas}} antes del pago",
+            "days": "{count, plural, one {# día} other {# días}} antes del pago",
+            "weeks": "{count, plural, one {# semana} other {# semanas}} antes del pago"
+          },
+          "types": {
+            "email": "correo electrónico",
+            "push": "notificación push",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "La próxima notificación será el <date>{date}</date>, que será dentro de <distance>{distance}</distance> por <channels></channels>.",
+          "soon": "pronto"
+        }
+      },
+      "costBreakdown": {
+        "title": "Desglose de costos",
+        "description": "Gasto futuro de esta suscripción",
+        "periods": {
+          "30days": "Próximos 30 días",
+          "3months": "Próximos 3 meses",
+          "12months": "Próximos 12 meses"
+        }
+      },
+      "notes": {
+        "title": "Notas"
+      },
+      "paymentSchedule": {
+        "title": "Calendario de pagos",
+        "description": "Próximas fechas de pago en un año",
+        "noUpcoming": "No hay pagos próximos",
+        "more": "+ {count} más",
+        "totalPayments": "Pagos totales:",
+        "total": "Total:"
+      },
+      "latestPayments": {
+        "title": "Últimos pagos",
+        "description": "Pagos más recientes de esta suscripción",
+        "none": "Aún no hay pagos registrados para esta suscripción.",
+        "status": {
+          "onTime": "a tiempo",
+          "late": "{distance} de retraso",
+          "early": "{distance} de anticipación"
+        },
+        "popover": {
+          "paidStatus": "Esta suscripción se pagó <status>{status}</status>.",
+          "scheduled": "Programado:",
+          "actual": "Actual:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Instalar como aplicación",
+      "description": "Para disfrutar de la mejor experiencia, te recomendamos instalar la app en tu pantalla de inicio.",
+      "buttons": {
+        "gotIt": "Entendido",
+        "maybeLater": "Quizás más tarde",
+        "installNow": "Instalar ahora"
+      },
+      "common": {
+        "addToHomeScreen": "Añadir a la pantalla de inicio",
+        "clickIcon": "Haz clic en el icono <icon></icon>",
+        "scrollDownClick": "Desplázate hacia abajo y haz clic en"
+      },
+      "ios": {
+        "safari": {
+          "title": "Pasos de instalación en iOS",
+          "step3": "Toca \"Añadir\" para confirmar"
+        },
+        "chrome": {
+          "title": "Pasos de instalación en Chrome para iOS"
+        },
+        "firefox": {
+          "title": "Pasos de instalación en Firefox para iOS",
+          "step2": "Desplázate hacia abajo y haz clic en el botón <icon></icon>",
+          "step3": "Luego haz clic en"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Pasos de instalación en Chrome"
+        },
+        "firefox": {
+          "title": "Pasos de instalación en Firefox"
+        }
+      },
+      "unknown": {
+        "title": "Pasos de instalación",
+        "step1": "Busca una opción como \"Añadir a la pantalla de inicio\" o \"Instalar aplicación\" en el menú de tu navegador",
+        "step2": "La opción suele encontrarse en el menú principal (normalmente representado por tres puntos o líneas)",
+        "step3": "Sigue las instrucciones de instalación específicas de tu navegador"
+      }
+    },
+    "cookieConsent": {
+      "title": "Preferencias de cookies",
+      "description": "Selecciona qué cookies deseas aceptar. Las cookies esenciales no se pueden desactivar, ya que son necesarias para que el sitio web funcione.",
+      "essential": {
+        "title": "Cookies esenciales",
+        "description": "Necesarias para que el sitio web funcione (autenticación, seguridad)."
+      },
+      "functional": {
+        "title": "Cookies funcionales",
+        "description": "Mejoran tu experiencia (tema, preferencias de idioma)."
+      },
+      "analytics": {
+        "title": "Cookies de análisis",
+        "description": "Nos ayudan a comprender cómo los visitantes interactúan con nuestro sitio web."
+      },
+      "buttons": {
+        "savePreferences": "Guardar preferencias",
+        "acceptAll": "Aceptar todas"
+      }
+    },
+    "modeToggle": {
+      "toggleTheme": "Cambiar tema",
+      "dark": "Oscuro",
+      "light": "Claro",
+      "system": "Sistema"
+    },
+    "pricingTable": {
+      "enjoy": {
+        "title": "Disfruta",
+        "description": "Perfecto para una experiencia sin complicaciones",
+        "period": "+impuestos/mes",
+        "features": {
+          "unlimited": "Suscripciones ilimitadas",
+          "notifications": "Notificaciones por correo y push",
+          "reports": "Informes y análisis",
+          "support": "Soporte premium",
+          "firstMonth": "Primer mes gratis",
+          "priority": "Solicitudes de funciones prioritarias"
+        },
+        "button": "Comenzar"
+      },
+      "selfHosted": {
+        "title": "Autohospedado",
+        "description": "Perfecto para quienes se autohospedan",
+        "price": "Gratis",
+        "period": "para siempre",
+        "features": {
+          "infrastructure": "Tu infraestructura",
+          "sourceCode": "Acceso al código fuente",
+          "community": "Soporte de la comunidad"
+        },
+        "button": "Ver en GitHub"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Buscar..."
+    },
+    "subscriptionGuard": {
+      "title": "Suscripción requerida",
+      "description": {
+        "trialExpired": "Tu periodo de prueba ha expirado.",
+        "cancelled": "Tu suscripción ha sido cancelada.",
+        "pastDue": "Tu pago está vencido.",
+        "paused": "Tu suscripción está en pausa.",
+        "default": "Necesitas una suscripción activa para acceder a esta función."
+      },
+      "message": "Visita la página de tu cuenta para gestionar tu suscripción y seguir usando todas las funciones.",
+      "button": "Ir a la configuración de la cuenta"
+    }
+  }
+}

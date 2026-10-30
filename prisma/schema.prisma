@@ -73,6 +73,7 @@ model Account {
   refreshTokenExpiresAt DateTime?    @map("refresh_token_expires_at")
   scope                 String?      @map("scope")
   idToken               String?      @map("id_token")
+  password              String?      @map("password")
 
   createdAt         DateTime         @default(now()) @map("created_at")
   updatedAt         DateTime         @updatedAt      @map("updated_at")

@@ -52,6 +52,16 @@ const SupportedLanguages = {
       </svg>
     ),
   },
+  'vi': {
+    name: 'Vietnamese',
+    nativeName: 'Tiếng Việt',
+    flag: (props) => (
+      <svg viewBox='0 0 513 342' {...props}>
+        <rect fill='#DA251D' width='513' height='342'/>
+        <polygon fill='#FFFF00' points='256.5,32.4 273.3,110.7 345.6,110.7 287.2,155.7 309.5,232.2 256.5,184.8 203.5,232.2 225.8,155.7 167.4,110.7 239.7,110.7'/>
+      </svg>
+    ),
+  },
 };
 
 export const DefaultLanguage = 'en';
@@ -65,5 +75,5 @@ export const isLanguageSupported = (code) => {
 };
 
 export const getLanguageConfig = (code) => {
-  return isLanguageSupported(code) ? SupportedLanguages[code] : DefaultLanguage;
+  return isLanguageSupported(code) ? SupportedLanguages[code] : SupportedLanguages[DefaultLanguage];
 };

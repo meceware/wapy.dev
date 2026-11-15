@@ -3,9 +3,16 @@ import { differenceInDays, differenceInWeeks, differenceInMonths, differenceInYe
 
 export const formatPrice = (price, currencySymbol) => {
   const currency = DefaultCurrencies[currencySymbol] || DefaultCurrencies.EUR;
+  const decimals = currency.decimals ?? 2;
+  // de-DE grouping gives dot thousands separators, e.g. 1.500.000 ₫
+  const amount = Number(price).toLocaleString('de-DE', {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
+
   return currency.position === 'before'
-    ? `${currency.symbol}${price.toFixed(2)}`
-    : `${price.toFixed(2)}${currency.symbol}`;
+    ? `${currency.symbol}${amount}`
+    : `${amount} ${currency.symbol}`;
 };
 
 export const getPaymentCount = (startDate, endDate, cycle) => {

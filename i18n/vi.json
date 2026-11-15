@@ -1,0 +1,1153 @@
+{
+  "common": {
+    "add": "Thêm",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "edit": "Sửa",
+    "delete": "Xóa",
+    "confirm": "Xác nhận",
+    "view": "Xem",
+    "close": "Đóng",
+    "contact": "Liên hệ",
+    "signIn": "Đăng nhập",
+    "termsOfService": "Điều khoản dịch vụ",
+    "privacyPolicy": "Chính sách bảo mật"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "Nhắc thanh toán {siteName}",
+        "message": "Chỉ là lời nhắc rằng gói đăng ký {siteName} của bạn sắp kết thúc."
+      },
+      "payment": {
+        "title": {
+          "due": "Đến hạn thanh toán {name}",
+          "reminder": "Nhắc thanh toán {name}",
+          "upcoming": "Khoản thanh toán sắp tới cho {name}"
+        },
+        "message": {
+          "due": "Khoản thanh toán {name} ({price}) đã đến hạn!",
+          "reminder": "Khoản thanh toán {name} ({price}) đã quá hạn!",
+          "upcoming": "Khoản thanh toán {name} ({price}) sẽ đến hạn {dueText}!"
+        },
+        "markAsPaid": "Đánh dấu đã trả",
+        "dismiss": "Bỏ qua"
+      }
+    },
+    "externalServices": {
+      "header": "Nhắc gói đăng ký {siteName}",
+      "footer": "Gửi từ {siteName}",
+      "visitDashboard": "Mở bảng điều khiển",
+      "paymentQuestion": "Đã thanh toán xong?",
+      "viewDetails": "Xem chi tiết"
+    }
+  },
+  "header": {
+    "signOut": "Đăng xuất",
+    "subscriptions": "Gói đăng ký",
+    "reports": "Báo cáo",
+    "settings": "Cài đặt",
+    "account": "Tài khoản"
+  },
+  "footer": {
+    "madeBy": "Vận hành bằng hy vọng bởi <author>{name}</author>.",
+    "github": "Mã nguồn",
+    "menu": "Menu"
+  },
+  "languages": {
+    "selectLanguage": "Chọn ngôn ngữ",
+    "invalid": "Ngôn ngữ không hợp lệ",
+    "failed": "Đổi ngôn ngữ thất bại",
+    "notAvailableTitle": "Không thể chọn ngôn ngữ",
+    "notAvailableMessage": "Không thể thay đổi ngôn ngữ vì cookie chức năng đang bị tắt và bạn chưa đăng nhập. Để đổi ngôn ngữ, bạn cần:",
+    "enableCookies": "Bật cookie chức năng"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "Miễn phí sử dụng. Một người tự vận hành.",
+        "title": "Theo dõi mọi gói đăng ký. Không bỏ lỡ khoản nào.",
+        "subtitle": "{appName} gom mọi khoản phí định kỳ vào một bảng điều khiển dễ đọc và nhắc bạn trước khi đến hạn.",
+        "tagline": "Miễn phí. Không cần thẻ, không dùng thử, không chèo kéo."
+      },
+      "features": {
+        "title": "Nó làm được gì",
+        "subtitle": "Mọi thứ phần mềm làm được, và không mất đồng nào.",
+        "billingCycles": {
+          "title": "Chu kỳ thanh toán linh hoạt",
+          "description": "Hỗ trợ chu kỳ theo tháng, theo năm và tùy chỉnh"
+        },
+        "notifications": {
+          "title": "Thông báo thông minh",
+          "description": "Nhắc nhở qua email, push, webhook, ntfy, Discord hoặc Slack"
+        },
+        "reports": {
+          "title": "Báo cáo & thông tin chi tiêu",
+          "description": "Theo dõi chi tiêu với báo cáo và thông tin chi tiết"
+        },
+        "currencies": {
+          "title": "Nhiều loại tiền tệ",
+          "description": "Hỗ trợ nhiều loại tiền tệ với theo dõi chi phí theo thời gian thực"
+        },
+        "timezone": {
+          "title": "Hỗ trợ múi giờ",
+          "description": "Theo dõi gói đăng ký ở nhiều múi giờ khác nhau với quy đổi ngày tự động"
+        },
+        "categories": {
+          "title": "Quản lý danh mục",
+          "description": "Sắp xếp gói đăng ký bằng danh mục tùy chỉnh và mã màu"
+        }
+      },
+      "howItWorks": {
+        "title": "Cách hoạt động",
+        "subtitle": "Bắt đầu trong vài phút",
+        "step1": {
+          "title": "Đăng nhập bằng liên kết",
+          "description": "Nhập email, mở liên kết là xong. Không cần nhớ mật khẩu."
+        },
+        "step2": {
+          "title": "Thêm những gì bạn trả tiền",
+          "description": "Ghi lại từng gói đăng ký kèm giá, chu kỳ thanh toán và tiền tệ."
+        },
+        "step3": {
+          "title": "Để nhắc nhở tự đến",
+          "description": "Chọn kênh bạn muốn, rồi đánh dấu đã trả ngay từ thông báo."
+        }
+      },
+      "free": {
+        "eyebrow": "Miễn phí",
+        "title": "Miễn phí, không kèm điều kiện",
+        "description": "Phần mềm là mã nguồn mở. Bản này được vận hành cho những người không thể tự dựng.",
+        "price": "€0",
+        "period": "mãi mãi",
+        "features": {
+          "unlimited": "Không giới hạn gói đăng ký",
+          "notifications": "Nhắc nhở qua email, push, webhook, ntfy, Discord và Slack",
+          "reports": "Báo cáo và thông tin chi tiêu",
+          "export": "Xuất dữ liệu bất cứ lúc nào",
+          "noAds": "Không quảng cáo, không theo dõi, không cần thông tin thanh toán",
+          "bestEffort": "Nỗ lực tối đa, không cam kết thời gian hoạt động"
+        },
+        "button": "Đăng nhập",
+        "selfHostButton": "Tự dựng",
+        "selfHostNote": "Thích máy chủ riêng? Cùng phần mềm này chạy được bằng Docker trong khoảng mười phút."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Không tìm thấy trang",
+        "description": "Trang bạn tìm không tồn tại."
+      },
+      "title": "404",
+      "backToHome": "Về trang chủ"
+    },
+    "account": {
+      "meta": {
+        "title": "Cài đặt tài khoản",
+        "description": "Quản lý cài đặt và tùy chọn tài khoản của bạn."
+      },
+      "defaultSettings": {
+        "title": "Cài đặt mặc định",
+        "description": "Cấu hình mặc định cho gói đăng ký mới",
+        "timezone": {
+          "label": "Múi giờ",
+          "success": "Đã cập nhật múi giờ.",
+          "error": "Cập nhật múi giờ thất bại!"
+        },
+        "currency": {
+          "label": "Tiền tệ",
+          "success": "Đã cập nhật tiền tệ.",
+          "error": "Cập nhật tiền tệ thất bại!"
+        }
+      },
+      "notifications": {
+        "success": "Đã lưu tùy chọn thông báo.",
+        "error": "Lưu tùy chọn thông báo thất bại!",
+        "saveButton": "Lưu thay đổi",
+        "saveButtonTitle": "Lưu tùy chọn thông báo"
+      },
+      "profile": {
+        "success": "Đã cập nhật tên của bạn.",
+        "error": "Cập nhật tên thất bại!",
+        "namePlaceholder": "Nhập tên của bạn",
+        "addNamePrompt": "Thêm tên của bạn",
+        "memberSince": "Thành viên từ {date}"
+      },
+      "categories": {
+        "title": "Danh mục",
+        "description": "Quản lý danh mục của bạn",
+        "default": {
+          "load": "Tải danh mục mặc định",
+          "success": "Đã tải danh mục mặc định.",
+          "error": "Tạo danh mục mặc định thất bại!"
+        },
+        "save": {
+          "success": "Đã lưu danh mục.",
+          "error": "Lưu danh mục thất bại!"
+        },
+        "addButtonTitle": "Thêm danh mục mới",
+        "selectColor": "Chọn màu",
+        "namePlaceholder": "Tên danh mục",
+        "delete": {
+          "title": "Xóa danh mục",
+          "description": "Bạn có chắc muốn xóa danh mục này? Không thể hoàn tác.",
+          "success": "Đã xóa danh mục.",
+          "error": "Xóa danh mục thất bại!"
+        },
+        "invalid": "Dữ liệu danh mục không hợp lệ",
+        "edit": "Sửa danh mục"
+      },
+      "paymentMethods": {
+        "title": "Phương thức thanh toán",
+        "description": "Quản lý phương thức thanh toán của bạn",
+        "add": "Thêm phương thức thanh toán",
+        "edit": "Sửa phương thức thanh toán",
+        "invalid": "Dữ liệu phương thức thanh toán không hợp lệ",
+        "placeholder": "Tên phương thức thanh toán",
+        "load": {
+          "title": "Tải phương thức thanh toán mặc định",
+          "success": "Đã tải phương thức thanh toán mặc định.",
+          "error": "Tạo phương thức thanh toán mặc định thất bại!"
+        },
+        "save": {
+          "success": "Đã lưu phương thức thanh toán.",
+          "error": "Lưu phương thức thanh toán thất bại!"
+        },
+        "delete": {
+          "title": "Xóa phương thức thanh toán",
+          "description": "Bạn có chắc muốn xóa phương thức thanh toán này? Không thể hoàn tác.",
+          "success": "Đã xóa phương thức thanh toán.",
+          "error": "Xóa phương thức thanh toán thất bại!"
+        }
+      },
+      "externalServices": {
+        "title": "Dịch vụ bên ngoài",
+        "description": "Cấu hình tích hợp với dịch vụ bên ngoài",
+        "testNotification": {
+          "title": "{siteName} Thông báo thử",
+          "message": "Đây là tin nhắn {service} thử từ {siteName}. Tích hợp {service} của bạn đã được cấu hình đúng."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Nhận thông báo qua ntfy.",
+          "toast": {
+            "disable": {
+              "success": "Đã tắt tích hợp ntfy.",
+              "error": "Tắt tích hợp ntfy thất bại!"
+            },
+            "save": {
+              "success": "Đã lưu cấu hình ntfy.",
+              "error": "Lưu cấu hình ntfy thất bại!"
+            },
+            "test": {
+              "success": "Đã gửi thông báo ntfy thử.",
+              "error": "Gửi thông báo ntfy thử thất bại!"
+            },
+            "notEnabled": "Tích hợp ntfy chưa được bật.",
+            "invalidParams": "Tham số không hợp lệ! Không thể lưu cấu hình ntfy.",
+            "testInvalidParams": "Tham số không hợp lệ! Không thể gửi thông báo thử."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "URL máy chủ",
+              "placeholder": "ntfy.sh hoặc URL tự dựng"
+            },
+            "topic": {
+              "label": "Tên chủ đề"
+            },
+            "token": {
+              "label": "Access Token (Tùy chọn)",
+              "placeholder": "Access Token"
+            }
+          },
+          "buttons": {
+            "save": "Lưu ntfy",
+            "test": "Thử ntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "Nhận thông báo qua webhook.",
+          "toast": {
+            "disable": {
+              "success": "Đã tắt tích hợp webhook.",
+              "error": "Tắt tích hợp webhook thất bại!"
+            },
+            "save": {
+              "success": "Đã lưu cấu hình webhook.",
+              "error": "Lưu cấu hình webhook thất bại!"
+            },
+            "test": {
+              "success": "Đã gửi thông báo webhook thử.",
+              "error": "Gửi thông báo webhook thử thất bại!"
+            },
+            "notEnabled": "Tích hợp webhook chưa được bật.",
+            "invalidParams": "Tham số không hợp lệ! Không thể lưu cấu hình webhook.",
+            "testInvalidParams": "Tham số không hợp lệ! Không thể gửi thông báo thử."
+          },
+          "fields": {
+            "url": {
+              "label": "URL máy chủ",
+              "placeholder": "URL máy chủ webhook"
+            }
+          },
+          "buttons": {
+            "save": "Lưu webhook",
+            "test": "Thử webhook"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Nhận thông báo qua Discord.",
+          "toast": {
+            "disable": {
+              "success": "Đã tắt tích hợp Discord.",
+              "error": "Tắt tích hợp Discord thất bại!"
+            },
+            "save": {
+              "success": "Đã lưu cấu hình Discord.",
+              "error": "Lưu cấu hình Discord thất bại!"
+            },
+            "test": {
+              "success": "Đã gửi thông báo Discord thử.",
+              "error": "Gửi thông báo Discord thử thất bại!"
+            },
+            "notEnabled": "Tích hợp Discord chưa được bật.",
+            "invalidParams": "Tham số không hợp lệ! Không thể lưu cấu hình Discord.",
+            "testInvalidParams": "Tham số không hợp lệ! Không thể gửi thông báo thử."
+          },
+          "fields": {
+            "url": {
+              "label": "URL máy chủ",
+              "placeholder": "URL máy chủ Discord"
+            }
+          },
+          "buttons": {
+            "save": "Lưu Discord",
+            "test": "Thử Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Nhận thông báo qua Slack.",
+          "toast": {
+            "disable": {
+              "success": "Đã tắt tích hợp Slack.",
+              "error": "Tắt tích hợp Slack thất bại!"
+            },
+            "save": {
+              "success": "Đã lưu cấu hình Slack.",
+              "error": "Lưu cấu hình Slack thất bại!"
+            },
+            "test": {
+              "success": "Đã gửi thông báo Slack thử.",
+              "error": "Gửi thông báo Slack thử thất bại!"
+            },
+            "notEnabled": "Tích hợp Slack chưa được bật.",
+            "invalidParams": "Tham số không hợp lệ! Không thể lưu cấu hình Slack.",
+            "testInvalidParams": "Tham số không hợp lệ! Không thể gửi thông báo thử."
+          },
+          "fields": {
+            "url": {
+              "label": "URL máy chủ",
+              "placeholder": "URL máy chủ Slack"
+            }
+          },
+          "buttons": {
+            "save": "Lưu Slack",
+            "test": "Thử Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Xuất dữ liệu",
+        "description": "Tải bản sao gói đăng ký, danh mục, phương thức thanh toán và cài đặt của bạn",
+        "button": "Xuất dữ liệu",
+        "toast": {
+          "success": "Đã xuất dữ liệu.",
+          "error": "Xuất dữ liệu thất bại!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "Gói đăng ký mới",
+        "edit": "Sửa {name}",
+        "unauthorized": "Không có quyền"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Đăng nhập"
+      },
+      "description": "Đăng nhập bằng email để vào tài khoản hoặc tự động tạo tài khoản mới",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "Đăng nhập",
+        "loginWithProvider": "Đăng nhập với {provider}"
+      },
+      "otp": {
+        "title": "Kiểm tra hộp thư",
+        "description": "Chúng tôi đã gửi một liên kết đăng nhập tới email của bạn.",
+        "instructions": "Nhập mã 6 chữ số đã gửi tới email",
+        "divider": "hoặc",
+        "resend": {
+          "prompt": "Không nhận được email?",
+          "button": "Nhấn để gửi lại",
+          "timer": "Bạn có thể gửi lại sau {seconds, plural, one {# giây} other {# giây}}"
+        }
+      },
+      "toast": {
+        "success": "Chào mừng! Bạn đã đăng nhập thành công.",
+        "error": {
+          "accessDenied": "Xin lỗi, bạn không được phép đăng nhập!",
+          "generic": "Lạ thật! Chúng tôi không thể đăng nhập cho bạn. Có thể do email, hoặc lỗi từ phía chúng tôi.",
+          "invalidCode": "Mã có vẻ không đúng. Kiểm tra lại 6 chữ số và thử lại.",
+          "somethingWrong": "Đã có lỗi xảy ra. Hãy yêu cầu mã mới và thử lại.",
+          "workspaceAccess": "Xin lỗi, bạn không có quyền truy cập không gian làm việc này.",
+          "rateLimited": "Quá nhiều yêu cầu. Chờ một phút rồi thử lại."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "Cập nhật lần cuối 15 tháng 11, 2026",
+      "introduction": {
+        "title": "Giới thiệu",
+        "paragraph1": "sub.idler.me chỉ lưu những gì ứng dụng cần để hoạt động, không gì khác. Trang này nói rõ đó là những gì.",
+        "paragraph2": "Đây là một dịch vụ nhỏ, do một người vận hành. Không có công ty, không quảng cáo, không xử lý thanh toán."
+      },
+      "informationWeCollect": {
+        "title": "Thông tin chúng tôi thu thập",
+        "description": "Cơ sở dữ liệu lưu gì cho tài khoản của bạn:",
+        "items": {
+          "account": "Địa chỉ email của bạn, và tên hoặc ảnh đại diện mà nhà cung cấp đăng nhập trả về.",
+          "subscription": "Các gói đăng ký bạn thêm: tên, giá, tiền tệ, ngày thanh toán, danh mục và nhãn phương thức thanh toán.",
+          "expense": "Những khoản bạn đã đánh dấu đã trả, và thời điểm."
+        }
+      },
+      "howWeUse": {
+        "title": "Chúng tôi dùng thông tin thế nào",
+        "description": "Dữ liệu của bạn được dùng để:",
+        "items": {
+          "providing": "Hiển thị gói đăng ký, báo cáo và lịch sử thanh toán cho bạn.",
+          "managing": "Gửi những nhắc nhở bạn đã thiết lập, tới những kênh bạn đã thiết lập.",
+          "sending": "Đăng nhập cho bạn qua liên kết email.",
+          "improving": "Không gì khác. Không lập hồ sơ, không mạng quảng cáo, không bán dữ liệu."
+        }
+      },
+      "dataProtection": {
+        "title": "Bảo vệ dữ liệu",
+        "description": "Dữ liệu nằm trong cơ sở dữ liệu Postgres trên hạ tầng do người vận hành kiểm soát. Không chia sẻ với bên thứ ba ngoài các kênh thông báo bạn tự bật. Không có cam kết mã hóa khi lưu trữ ngoài mặc định của máy chủ."
+      },
+      "analytics": {
+        "title": "Cookie và phân tích",
+        "description": "Không có phân tích của bên thứ ba và không có script theo dõi. Ứng dụng lưu cookie phiên, lựa chọn ngôn ngữ và tùy chọn cookie trong trình duyệt của bạn."
+      },
+      "yourRights": {
+        "title": "Quyền của bạn",
+        "description": "Bạn có thể:",
+        "items": {
+          "access": "Xuất mọi bản ghi ứng dụng lưu về bạn từ trang tài khoản.",
+          "correct": "Thay đổi cài đặt bất cứ lúc nào.",
+          "delete": "Yêu cầu xóa tài khoản và dữ liệu của bạn.",
+          "optOut": "Từ chối cookie không thiết yếu trong banner cookie."
+        }
+      },
+      "contactUs": {
+        "description": "Nếu bạn có câu hỏi về Chính sách bảo mật hoặc cách chúng tôi xử lý dữ liệu, hãy liên hệ người vận hành qua Matrix ở <link>trang liên hệ</link>."
+      },
+      "updates": {
+        "title": "Cập nhật chính sách này",
+        "description": "Trang này thay đổi khi phần mềm hoặc bản triển khai thay đổi. Ngày ở đầu trang là phiên bản hiện tại."
+      },
+      "operator": {
+        "title": "Ai vận hành",
+        "description": "sub.idler.me do một người vận hành trên hạ tầng tự dựng như một dịch vụ cộng đồng, không phải công ty. Không xử lý thanh toán và không quảng cáo."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "Báo cáo gói đăng ký"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "Không có quyền",
+        "view": "Xem {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Cập nhật lần cuối 15 tháng 11, 2026",
+      "welcome": "Chào mừng bạn đến với website {siteName} (\"Trang\"). Khi truy cập hoặc sử dụng Trang, bạn đồng ý tuân thủ và bị ràng buộc bởi các điều khoản và điều kiện sau (\"Điều khoản dịch vụ\").",
+      "overview": {
+        "title": "Tổng quan",
+        "paragraph1": "{siteName} cung cấp Trang này, bao gồm mọi thông tin, công cụ và dịch vụ có trên Trang, cho bạn với điều kiện bạn chấp nhận toàn bộ điều khoản, điều kiện, chính sách và thông báo nêu tại đây.",
+        "paragraph2": "Vui lòng đọc kỹ các Điều khoản dịch vụ này trước khi truy cập hoặc sử dụng Trang. Khi truy cập hoặc sử dụng bất kỳ phần nào của Trang, bạn đồng ý bị ràng buộc bởi các Điều khoản dịch vụ này. Nếu bạn không đồng ý với toàn bộ điều khoản và điều kiện của thỏa thuận này, bạn không được truy cập Trang hoặc sử dụng bất kỳ dịch vụ nào. Nếu các Điều khoản dịch vụ này được coi là một đề nghị, việc chấp nhận chỉ giới hạn ở các Điều khoản dịch vụ này.",
+        "paragraph3": "Mọi tính năng hoặc công cụ mới được thêm vào Trang cũng chịu sự điều chỉnh của Điều khoản dịch vụ. Bạn có thể xem phiên bản mới nhất của Điều khoản dịch vụ bất cứ lúc nào trên trang này. Trang có quyền cập nhật, thay đổi hoặc thay thế bất kỳ phần nào của Điều khoản dịch vụ bằng cách đăng cập nhật và/hoặc thay đổi lên Trang. Bạn có trách nhiệm kiểm tra trang này định kỳ để biết thay đổi. Việc bạn tiếp tục sử dụng hoặc truy cập Trang sau khi đăng bất kỳ thay đổi nào đồng nghĩa với việc chấp nhận những thay đổi đó."
+      },
+      "websiteTerms": {
+        "title": "Điều khoản website",
+        "paragraph1": "Khi đồng ý với các Điều khoản dịch vụ này, bạn xác nhận rằng bạn đã đủ tuổi trưởng thành theo quy định tại bang hoặc tỉnh nơi bạn cư trú, hoặc bạn đã đủ tuổi trưởng thành và đã cho phép chúng tôi để bất kỳ người phụ thuộc chưa thành niên nào của bạn sử dụng trang này.",
+        "paragraph2": "Việc sử dụng dịch vụ của chúng tôi phải tuân thủ mọi luật và quy định hiện hành. Cụ thể:",
+        "items": {
+          "unlawful": "Bạn đồng ý không dùng sản phẩm của chúng tôi cho mục đích bất hợp pháp hoặc không được phép",
+          "comply": "Bạn phải tuân thủ mọi luật tại nơi bạn sinh sống, bao gồm luật bản quyền và sở hữu trí tuệ",
+          "malicious": "Bạn không được truyền mã độc, virus hoặc nội dung có hại khác"
+        },
+        "paragraph3": "Xin lưu ý rằng mọi vi phạm các Điều khoản dịch vụ này sẽ dẫn đến việc chấm dứt ngay quyền truy cập dịch vụ của bạn."
+      },
+      "cookies": {
+        "title": "Sử dụng cookie",
+        "description": "Trang dùng cookie và công nghệ tương tự (như lưu trữ cục bộ) để theo dõi việc bạn sử dụng Trang và cho mục đích tiếp thị. Khi sử dụng Trang, bạn đồng ý việc dùng cookie theo <privacy>Chính sách bảo mật</privacy> của chúng tôi."
+      },
+      "intellectualProperty": {
+        "title": "Sở hữu trí tuệ",
+        "description": "Phần mềm được cấp phép theo giấy phép MIT kèm Commons Clause, bản quyền meceware. Bản triển khai này không thêm nội dung độc quyền nào."
+      },
+      "disclaimer": {
+        "title": "Tuyên bố miễn trừ",
+        "description": "Thông tin và nội dung trên Trang chỉ nhằm mục đích tham khảo và không phải lời khuyên chuyên môn. Trang không đưa ra bất kỳ tuyên bố hay bảo đảm nào, dù rõ ràng hay ngụ ý, về tính chính xác, độ tin cậy, tính đầy đủ hoặc tính phù hợp của thông tin và nội dung trên Trang. Bạn sử dụng Trang với rủi ro của chính mình."
+      },
+      "limitationOfLiability": {
+        "title": "Giới hạn trách nhiệm",
+        "description": "{siteName} không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt hoặc do hậu quả nào phát sinh từ việc bạn sử dụng Trang, bất kể thiệt hại đó phát sinh từ hợp đồng, vi phạm ngoài hợp đồng, sơ suất, trách nhiệm nghiêm ngặt hay bất kỳ lý thuyết pháp lý nào khác. Số tiền tối đa Trang có thể phải chịu trong bất kỳ khiếu nại nào liên quan đến Trang được giới hạn ở tổng phí đăng ký bạn đã trả trong 12 tháng gần nhất."
+      },
+      "changes": {
+        "title": "Thay đổi Điều khoản dịch vụ",
+        "description": "Trang có thể cập nhật hoặc sửa đổi các Điều khoản dịch vụ này theo thời gian, và mọi thay đổi sẽ có hiệu lực khi được đăng trên Trang. Việc bạn tiếp tục sử dụng Trang sau những thay đổi đó đồng nghĩa với việc chấp nhận Điều khoản dịch vụ đã sửa đổi."
+      },
+      "indemnification": {
+        "title": "Bồi thường",
+        "description": "Bạn đồng ý bồi thường và giữ cho {siteName}, các đơn vị liên kết, cán bộ, giám đốc, nhân viên, đại lý và bên cấp phép của nó không bị tổn hại trước mọi khiếu nại, trách nhiệm, thiệt hại, tổn thất và chi phí, bao gồm nhưng không giới hạn ở phí luật sư hợp lý, phát sinh từ hoặc liên quan đến việc bạn sử dụng Trang, việc bạn vi phạm các Điều khoản dịch vụ này, hoặc việc bạn vi phạm quyền của bên khác."
+      },
+      "modifications": {
+        "title": "Thay đổi dịch vụ và giá",
+        "paragraph1": "Giá dịch vụ của chúng tôi có thể thay đổi mà không cần thông báo. Trang có quyền vào bất kỳ lúc nào sửa đổi hoặc ngừng Dịch vụ (hoặc bất kỳ phần hay nội dung nào của Dịch vụ) mà không cần thông báo.",
+        "paragraph2": "Trang không chịu trách nhiệm với bạn hoặc bất kỳ bên thứ ba nào về việc sửa đổi, thay đổi giá, tạm ngừng hoặc ngừng Dịch vụ."
+      },
+      "governingLaw": {
+        "title": "Luật điều chỉnh và thẩm quyền",
+        "description": "Các Điều khoản dịch vụ này được điều chỉnh và giải thích theo luật của nơi {siteName} đặt trụ sở, không áp dụng các nguyên tắc xung đột pháp luật. Bạn đồng ý chịu thẩm quyền độc quyền của tòa án tại nơi đó cho mọi tranh chấp phát sinh từ hoặc liên quan đến các Điều khoản dịch vụ này hoặc việc bạn sử dụng Trang."
+      },
+      "entireAgreement": {
+        "title": "Toàn bộ thỏa thuận",
+        "description": "Các Điều khoản dịch vụ này tạo thành toàn bộ thỏa thuận giữa bạn và {siteName} về việc bạn sử dụng Trang và thay thế mọi thỏa thuận, hiểu biết trước đây và cùng thời điểm, dù bằng lời nói hay văn bản, liên quan đến cùng chủ đề."
+      },
+      "severability": {
+        "title": "Tính tách rời",
+        "description": "Nếu bất kỳ điều khoản nào của Điều khoản dịch vụ này bị coi là vô hiệu, bất hợp pháp hoặc không thể thi hành, các điều khoản còn lại vẫn giữ nguyên hiệu lực đầy đủ."
+      },
+      "waiver": {
+        "title": "Từ bỏ quyền",
+        "description": "Việc {siteName} không thực thi bất kỳ quyền hoặc điều khoản nào của Điều khoản dịch vụ này không cấu thành việc từ bỏ quyền hoặc điều khoản đó."
+      },
+      "contactUs": {
+        "description": "Nếu bạn có câu hỏi hoặc lo ngại về các Điều khoản dịch vụ này, hãy liên hệ người vận hành qua Matrix ở <link>trang liên hệ</link>."
+      },
+      "freeService": {
+        "title": "Dịch vụ miễn phí, không thu phí",
+        "paragraph1": "sub.idler.me là miễn phí. Không có gói, không dùng thử, không có ô nhập thẻ, không hoàn tiền, vì không có tiền trao đổi.",
+        "paragraph2": "Phần mềm là mã nguồn mở theo giấy phép MIT kèm Commons Clause. Bạn có thể tự dựng. Bản này tồn tại cho những người không thể hoặc không muốn tự vận hành.",
+        "paragraph3": "Dịch vụ được cung cấp nguyên trạng và với nỗ lực tối đa. Không cam kết thời gian hoạt động và không bảo đảm dữ liệu sống sót qua sự cố. Hãy xuất dữ liệu định kỳ và tự giữ bản sao lưu."
+      }
+    },
+    "contact": {
+      "title": "Liên hệ",
+      "description": "Cách nhanh nhất để liên hệ người vận hành là Matrix. Các kênh khác đang được bổ sung.",
+      "matrix": {
+        "label": "Nhắn qua Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "Kênh khác",
+        "note": "Sắp có."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} Thông báo thử",
+          "message": "Đây là thông báo thử từ {siteName}. Nếu bạn thấy tin này, thông báo đẩy đang hoạt động đúng."
+        }
+      },
+      "email": {
+        "header": "Nhắc thanh toán",
+        "footer": "Đây là email nhắc nhở thân thiện từ {siteName}.",
+        "thanks": "Cảm ơn",
+        "madeBy": "Làm bằng ♥ bởi {siteLink}"
+      },
+      "bell": {
+        "title": "Thông báo",
+        "unreadTitle": "Thông báo chưa đọc",
+        "clearAll": "Xóa tất cả",
+        "removeNotification": "Xóa thông báo",
+        "noNotifications": "Không có thông báo mới"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Cập nhật liên tục",
+          "description": "Nhận nhắc nhở kịp thời về các khoản thanh toán và ngày đến hạn của gói đăng ký. Chúng tôi sẽ báo bạn trước khi đến hạn và khi gói đăng ký sắp hết hạn.",
+          "maybeLater": "Để sau",
+          "enable": "Bật thông báo",
+          "enabling": "Đang bật..."
+        },
+        "toast": {
+          "success": "Bạn sẽ nhận được nhắc nhở gói đăng ký.",
+          "error": "Bật thông báo thất bại. Vui lòng thử lại.",
+          "permissionRequired": {
+            "title": "Cần quyền truy cập",
+            "description": "Hãy cho phép thông báo để nhận nhắc nhở."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "Tên phải có ít nhất 2 ký tự.",
+        "paymentDate": "Ngày không hợp lệ!",
+        "color": "Màu hex không hợp lệ"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Hằng ngày} other {Mỗi # ngày}}",
+        "WEEKS": "{count, plural, =1 {Hằng tuần} other {Mỗi # tuần}}",
+        "MONTHS": "{count, plural, =1 {Hằng tháng} other {Mỗi # tháng}}",
+        "YEARS": "{count, plural, =1 {Hằng năm} other {Mỗi # năm}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Danh mục",
+            "selected": "{count, plural, =0 {Chọn danh mục} one {Đã chọn # danh mục} other {Đã chọn # danh mục}}",
+            "search": "Tìm danh mục...",
+            "create": "Tạo danh mục mới \"{value}\""
+          },
+          "currency": {
+            "label": "Tiền tệ",
+            "placeholder": "Chọn tiền tệ",
+            "search": "Tìm tiền tệ...",
+            "noResults": "Không tìm thấy kết quả!"
+          },
+          "cycle": {
+            "label": "Chu kỳ thanh toán",
+            "placeholder": "Chọn chu kỳ thanh toán",
+            "options": {
+              "daily": "Hằng ngày",
+              "weekly": "Hằng tuần",
+              "monthly": "Hằng tháng",
+              "yearly": "Hằng năm",
+              "custom": "Tùy chỉnh"
+            },
+            "units": {
+              "days": "{count, plural, one {Ngày} other {Ngày}}",
+              "weeks": "{count, plural, one {Tuần} other {Tuần}}",
+              "months": "{count, plural, one {Tháng} other {Tháng}}",
+              "years": "{count, plural, one {Năm} other {Năm}}"
+            },
+            "unitPlaceholder": "Đơn vị"
+          },
+          "name": {
+            "label": "Tên",
+            "placeholder": "Tên gói đăng ký"
+          },
+          "notes": {
+            "label": "Ghi chú",
+            "placeholder": "Thêm ghi chú..."
+          },
+          "notifications": {
+            "title": "Thông báo",
+            "description": "Cấu hình thông báo mặc định cho gói đăng ký của bạn",
+            "via": "Qua",
+            "whenToNotify": "Khi nào thông báo",
+            "whenPlaceholder": "Chọn thời điểm thông báo",
+            "unitPlaceholder": "Đơn vị",
+            "addNotification": "Thêm thông báo",
+            "deleteDialog": {
+              "title": "Xác nhận xóa",
+              "description": "Bạn có chắc muốn xóa mẫu thông báo này?"
+            },
+            "status": {
+              "denied": "Thông báo đẩy bị chặn trên thiết bị này. Hãy bật trong cài đặt trình duyệt.",
+              "default": "Thông báo đẩy chưa được bật trên thiết bị này. <link>Bạn có muốn bật không?</link>",
+              "grantedNotConfigured": "Quyền thông báo đẩy đã được cấp nhưng chưa được cấu hình đúng. <link>Bạn có muốn bật không?</link>",
+              "grantedConfigured": "Thông báo đẩy đã được bật cho thiết bị này. Bạn có muốn gửi <link>thông báo đẩy thử</link> không?"
+            },
+            "toast": {
+              "success": "Đã gửi thông báo đẩy! Kiểm tra thiết bị của bạn.",
+              "error": "Gửi thông báo đẩy thử thất bại! Hãy chắc rằng thông báo đã được bật và cấu hình đúng."
+            },
+            "timeOptions": {
+              "instant": "Đúng ngày thanh toán",
+              "15minutes": "15 phút trước",
+              "1hour": "1 giờ trước",
+              "2hours": "2 giờ trước",
+              "1day": "1 ngày trước",
+              "2days": "2 ngày trước",
+              "1week": "1 tuần trước",
+              "custom": "Tùy chỉnh"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Phút} other {Phút}}",
+              "hours": "{count, plural, one {Giờ} other {Giờ}}",
+              "days": "{count, plural, one {Ngày} other {Ngày}}",
+              "weeks": "{count, plural, one {Tuần} other {Tuần}}"
+            },
+            "types": {
+              "push": {
+                "label": "Thông báo đẩy",
+                "ariaLabel": "Bật/tắt push"
+              },
+              "email": {
+                "label": "Thông báo email",
+                "ariaLabel": "Bật/tắt email"
+              },
+              "webhook": {
+                "label": "Thông báo webhook",
+                "ariaLabel": "Bật/tắt webhook"
+              },
+              "ntfy": {
+                "label": "Thông báo ntfy",
+                "ariaLabel": "Bật/tắt ntfy"
+              },
+              "discord": {
+                "label": "Thông báo Discord",
+                "ariaLabel": "Bật/tắt Discord"
+              },
+              "slack": {
+                "label": "Thông báo Slack",
+                "ariaLabel": "Bật/tắt Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Ngày thanh toán tiếp theo"
+          },
+          "paymentMethod": {
+            "label": "Phương thức thanh toán",
+            "placeholder": "Chọn phương thức thanh toán",
+            "search": "Tìm phương thức thanh toán...",
+            "create": "Tạo phương thức thanh toán mới \"{value}\""
+          },
+          "price": {
+            "label": "Giá"
+          },
+          "timezone": {
+            "label": "Múi giờ",
+            "placeholder": "Chọn múi giờ",
+            "search": "Tìm múi giờ...",
+            "noResults": "Không tìm thấy kết quả!"
+          },
+          "untilDate": {
+            "label": "Có hiệu lực đến",
+            "description": "Để trống nếu gói đăng ký không có ngày kết thúc"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logo",
+            "description": "Chọn biểu tượng có sẵn hoặc nhập URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "Múi giờ {timezone}",
+        "paymentDate": {
+          "past": "Lẽ ra đã phải trả <date></date>.",
+          "future": "Sẽ được trả <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Bạn đã trả khoản này? <action>Đánh dấu đã trả</action> hoặc xem <options>tùy chọn khác</options>.",
+          "customPrice": {
+            "title": "Trả số tiền khác?",
+            "description": "Dùng khi bạn trả nhiều hoặc ít hơn bình thường",
+            "prompt": "Nhập số tiền bạn đã trả:"
+          },
+          "noPrice": {
+            "title": "Chỉ đánh dấu đã trả!",
+            "description": "Dùng để bỏ qua khoản này mà không ghi số tiền",
+            "prompt": "Đánh dấu đã trả mà không ghi số tiền?",
+            "warning": "Thao tác này sẽ không ghi lại số tiền thanh toán."
+          },
+          "toast": {
+            "success": "Đã đánh dấu gói đăng ký là đã trả!",
+            "error": "Lỗi khi đánh dấu gói đăng ký là đã trả",
+            "custom": {
+              "success": "Đã đánh dấu đã trả với số tiền tùy chỉnh!",
+              "error": "Lỗi khi đánh dấu đã trả với số tiền tùy chỉnh"
+            },
+            "noPrice": {
+              "success": "Đã đánh dấu đã trả mà không ghi số tiền!",
+              "error": "Lỗi khi đánh dấu đã trả mà không ghi số tiền"
+            },
+            "failed": "Cập nhật thất bại!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "Bạn sẽ được thông báo <date></date> qua {channels}.",
+          "willBeNotifiedSoon": "Bạn sẽ sớm được thông báo qua {channels}.",
+          "willBeRemindedAt": "Bạn sẽ được nhắc lại <date></date> qua {channels}.",
+          "willBeRemindedSoon": "Bạn sẽ sớm được nhắc lại qua {channels}.",
+          "wontBeNotified": "Bạn sẽ không được thông báo.",
+          "types": {
+            "push": "thông báo đẩy",
+            "email": "email",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "Chúc mừng! Bạn đã trả hết.",
+          "remaining": "Bạn sẽ trả khoản này <trigger>{count, plural, =1 {# lần nữa} other {# lần}}</trigger>.",
+          "until": "Đến {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "Khoản này sẽ được trả qua {methods}."
+        },
+        "pastPayments": {
+          "count": "Bạn đã thực hiện <highlight>{count, plural, one {# khoản thanh toán} other {# khoản thanh toán}}</highlight> cho đến nay."
+        },
+        "actions": {
+          "inactive": "Gói đăng ký này không hoạt động.",
+          "edit": "Sửa gói đăng ký {name}",
+          "link": "Liên kết tới {url}",
+          "notificationEnabled": "{type} đang được bật",
+          "notificationDisabled": "{type} đang bị tắt"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Tạo gói đăng ký",
+          "update": "Cập nhật gói đăng ký"
+        },
+        "sections": {
+          "details": "Chi tiết gói đăng ký",
+          "advanced": "Cài đặt nâng cao"
+        },
+        "deleteDialog": {
+          "title": "Xóa gói đăng ký",
+          "description": "Bạn có chắc muốn xóa gói đăng ký này? Không thể hoàn tác."
+        },
+        "toast": {
+          "create": {
+            "error": "Lạ thật, không thể tạo gói đăng ký!",
+            "success": "Đã tạo gói đăng ký!"
+          },
+          "delete": {
+            "success": "Đã xóa gói đăng ký!",
+            "error": "Xóa gói đăng ký thất bại!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "Gói đăng ký mới",
+        "noSubscription": "Không tìm thấy gói đăng ký"
+      }
+    },
+    "filters": {
+      "title": "Bộ lọc gói đăng ký",
+      "description": "Áp dụng bộ lọc và tìm gói đăng ký bạn cần",
+      "buttons": {
+        "filter": "Lọc gói đăng ký",
+        "reset": "Đặt lại bộ lọc"
+      },
+      "selectAll": "Chọn tất cả",
+      "selectNone": "Bỏ chọn tất cả",
+      "status": {
+        "title": "Trạng thái",
+        "active": {
+          "title": "Đang hoạt động",
+          "description": "Lọc theo gói đăng ký đang hoạt động"
+        },
+        "inactive": {
+          "title": "Không hoạt động",
+          "description": "Lọc theo gói đăng ký không hoạt động"
+        }
+      },
+      "paymentDate": {
+        "title": "Ngày thanh toán",
+        "all": {
+          "title": "Tất cả",
+          "description": "Tắt mọi bộ lọc ngày thanh toán"
+        },
+        "thisMonth": {
+          "title": "Tháng này",
+          "description": "Lọc theo tháng này"
+        },
+        "next30Days": {
+          "title": "30 ngày tới",
+          "description": "Lọc theo 30 ngày tới"
+        }
+      },
+      "currencies": {
+        "title": "Tiền tệ",
+        "all": {
+          "description": "Chọn tất cả tiền tệ"
+        },
+        "clear": {
+          "description": "Bỏ chọn tất cả tiền tệ"
+        },
+        "filter": "Lọc theo {currency}"
+      },
+      "categories": {
+        "title": "Danh mục",
+        "uncategorized": "Chưa phân loại",
+        "all": {
+          "description": "Chọn tất cả danh mục"
+        },
+        "clear": {
+          "description": "Bỏ chọn tất cả danh mục"
+        },
+        "filterBy": "Lọc theo {category}"
+      },
+      "paymentMethods": {
+        "title": "Phương thức thanh toán",
+        "unspecified": "Không xác định",
+        "all": {
+          "description": "Chọn tất cả phương thức thanh toán"
+        },
+        "clear": {
+          "description": "Bỏ chọn tất cả phương thức thanh toán"
+        },
+        "filterBy": "Lọc theo {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} sẽ được trả {count, plural, one {# lần} other {# lần}}"
+      },
+      "overview": {
+        "title": "Tổng quan",
+        "total": "Tổng <count></count> gói đăng ký",
+        "active": "<count></count> gói đăng ký đang hoạt động",
+        "inactive": "<count></count> gói đăng ký không hoạt động"
+      },
+      "costAverages": {
+        "title": "Chi phí trung bình",
+        "description": "Chi phí gói đăng ký trung bình theo tháng và theo năm",
+        "monthly": "Trung bình tháng",
+        "yearly": "Trung bình năm"
+      },
+      "monthlyCost": {
+        "title": "Tổng quan chi phí tháng",
+        "description": "Theo dõi chi phí gói đăng ký hằng tháng"
+      },
+      "yearlyCost": {
+        "title": "Tổng quan chi phí năm",
+        "description": "Theo dõi chi phí gói đăng ký hằng năm"
+      },
+      "upcomingPayments": {
+        "title": "Khoản thanh toán sắp tới",
+        "description": "Theo dõi các khoản thanh toán sắp tới",
+        "noPayments": "Không có khoản thanh toán nào trong một tháng tới.",
+        "nextMonth": "Tháng sau"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Tháng này",
+          "description": "Đến cuối tháng"
+        },
+        "nextMonth": {
+          "title": "Tháng sau",
+          "description": "Chỉ tháng tới"
+        },
+        "next30Days": {
+          "title": "30 ngày tới",
+          "description": "Khoảng thời gian cuốn"
+        },
+        "thisYear": {
+          "title": "Năm nay",
+          "description": "Đến cuối năm"
+        },
+        "nextYear": {
+          "title": "Năm sau",
+          "description": "Năm dương lịch tới"
+        },
+        "next365Days": {
+          "title": "365 ngày tới",
+          "description": "Khoảng thời gian cuốn"
+        }
+      },
+      "tabs": {
+        "byCategories": "Theo danh mục",
+        "byPaymentMethods": "Theo phương thức thanh toán"
+      },
+      "mostExpensive": {
+        "monthly": "Gói đăng ký tháng đắt nhất",
+        "yearly": "Gói đăng ký năm đắt nhất"
+      },
+      "modal": {
+        "category": {
+          "description": "Các khoản thanh toán {period} trong danh mục này",
+          "noSubscriptions": "Không tìm thấy gói đăng ký trong danh mục này"
+        },
+        "paymentMethod": {
+          "description": "Các khoản thanh toán {period} qua phương thức này",
+          "noSubscriptions": "Không tìm thấy gói đăng ký qua phương thức này"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Liên kết",
+        "linkTitle": "Liên kết gói đăng ký",
+        "editTitle": "Sửa gói đăng ký"
+      },
+      "overview": {
+        "title": "Tổng quan",
+        "description": "Các chỉ số chính của gói đăng ký này",
+        "disabled": "Gói đăng ký này hiện đang bị tắt. Bạn có thể bật lại bất cứ lúc nào.",
+        "unpaid": {
+          "hasUnpaid": "Ôi! Bạn có <count>{count, plural, one {# khoản chưa trả} other {# khoản chưa trả}}</count> cho gói đăng ký này, tổng cộng <total>{total}</total>.",
+          "allPaid": "Tốt lắm! Gói đăng ký này đã được trả đầy đủ đến hiện tại."
+        },
+        "nextPayment": {
+          "scheduled": "Khoản thanh toán tiếp theo <price>{price}</price> đến hạn vào <date>{date}</date>, tức là <distance>{distance}</distance>.",
+          "none": "Chúc mừng! Không có khoản thanh toán nào được lên lịch cho gói đăng ký này."
+        },
+        "endDate": {
+          "hasEndDate": "Gói đăng ký này sẽ kết thúc vào <date>{date}</date>.",
+          "ongoing": "Đây là gói đăng ký đang tiếp diễn, không có ngày kết thúc."
+        },
+        "remainingPayments": {
+          "withEndDate": "Gói đăng ký này sẽ cần <count>{count, plural, one {# khoản} other {# khoản}}</count>, tổng cộng <total>{total}</total>.",
+          "thisYear": "Gói đăng ký này sẽ cần <count>{count, plural, one {# khoản} other {# khoản}}</count> trong năm nay, tổng cộng <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "Gói đăng ký này sẽ được trả qua <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "Bạn đã thực hiện <countTag>{count, plural, one {# khoản thanh toán} other {# khoản thanh toán}}</countTag> cho gói đăng ký này, tổng cộng <totalTag>{total}</totalTag>.",
+          "yearStats": " Trong năm qua, bạn đã thực hiện <countTag>{count, plural, one {# khoản} other {# khoản}}</countTag>, tổng cộng <totalTag>{total}</totalTag>.",
+          "none": "Gói đăng ký này chưa có lịch sử thanh toán."
+        },
+        "notifications": {
+          "title": "Bạn sẽ nhận được thông báo:",
+          "none": "Không có thông báo nào được thiết lập cho gói đăng ký này.",
+          "item": "<timing></timing> qua <channels></channels>.",
+          "itemNoType": "<timing></timing> nhưng <error>chưa chọn loại thông báo</error>.",
+          "timing": {
+            "instant": "Đúng ngày thanh toán",
+            "minutes": "{count, plural, one {# phút} other {# phút}} trước khi thanh toán",
+            "hours": "{count, plural, one {# giờ} other {# giờ}} trước khi thanh toán",
+            "days": "{count, plural, one {# ngày} other {# ngày}} trước khi thanh toán",
+            "weeks": "{count, plural, one {# tuần} other {# tuần}} trước khi thanh toán"
+          },
+          "types": {
+            "email": "email",
+            "push": "thông báo đẩy",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Thông báo tiếp theo vào <date>{date}</date>, tức là <distance>{distance}</distance>, qua <channels></channels>.",
+          "soon": "sắp tới"
+        }
+      },
+      "costBreakdown": {
+        "title": "Phân tích chi phí",
+        "description": "Chi tiêu tương lai cho gói đăng ký này",
+        "periods": {
+          "30days": "30 ngày tới",
+          "3months": "3 tháng tới",
+          "12months": "12 tháng tới"
+        }
+      },
+      "notes": {
+        "title": "Ghi chú"
+      },
+      "paymentSchedule": {
+        "title": "Lịch thanh toán",
+        "description": "Các ngày thanh toán sắp tới trong một năm",
+        "noUpcoming": "Không có khoản thanh toán sắp tới",
+        "more": "+ {count} nữa",
+        "totalPayments": "Tổng số khoản thanh toán:",
+        "total": "Tổng:"
+      },
+      "latestPayments": {
+        "title": "Thanh toán gần nhất",
+        "description": "Các khoản thanh toán gần đây nhất cho gói đăng ký này",
+        "none": "Chưa ghi nhận khoản thanh toán nào cho gói đăng ký này.",
+        "status": {
+          "onTime": "đúng hạn",
+          "late": "{distance} muộn",
+          "early": "{distance} sớm"
+        },
+        "popover": {
+          "paidStatus": "Gói đăng ký này được trả <status>{status}</status>.",
+          "scheduled": "Đã lên lịch:",
+          "actual": "Thực tế:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Cài đặt như ứng dụng",
+      "description": "Để có trải nghiệm tốt nhất, chúng tôi khuyên bạn cài ứng dụng vào màn hình chính!",
+      "buttons": {
+        "gotIt": "Đã hiểu",
+        "maybeLater": "Để sau",
+        "installNow": "Cài ngay"
+      },
+      "common": {
+        "addToHomeScreen": "Thêm vào màn hình chính",
+        "clickIcon": "Nhấn vào biểu tượng <icon></icon>",
+        "scrollDownClick": "Cuộn xuống và nhấn"
+      },
+      "ios": {
+        "safari": {
+          "title": "Các bước cài trên iOS",
+          "step3": "Nhấn 'Thêm' để xác nhận"
+        },
+        "chrome": {
+          "title": "Các bước cài Chrome trên iOS"
+        },
+        "firefox": {
+          "title": "Các bước cài Firefox trên iOS",
+          "step2": "Cuộn xuống và nhấn nút <icon></icon>",
+          "step3": "Rồi nhấn"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Các bước cài Chrome"
+        },
+        "firefox": {
+          "title": "Các bước cài Firefox"
+        }
+      },
+      "unknown": {
+        "title": "Các bước cài đặt",
+        "step1": "Tìm tùy chọn như \"Thêm vào màn hình chính\" hoặc \"Cài ứng dụng\" trong menu trình duyệt",
+        "step2": "Tùy chọn này thường nằm trong menu chính (thường là ba chấm hoặc ba gạch)",
+        "step3": "Làm theo hướng dẫn cài đặt của trình duyệt bạn dùng"
+      }
+    },
+    "cookieConsent": {
+      "title": "Tùy chọn cookie",
+      "description": "Hãy chọn loại cookie bạn muốn chấp nhận. Cookie thiết yếu không thể tắt vì website cần chúng để hoạt động.",
+      "essential": {
+        "title": "Cookie thiết yếu",
+        "description": "Cần thiết để website hoạt động (xác thực, bảo mật)."
+      },
+      "functional": {
+        "title": "Cookie chức năng",
+        "description": "Cải thiện trải nghiệm của bạn (giao diện, tùy chọn ngôn ngữ)."
+      },
+      "buttons": {
+        "savePreferences": "Lưu tùy chọn",
+        "acceptAll": "Chấp nhận tất cả"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Tìm kiếm..."
+    }
+  }
+}

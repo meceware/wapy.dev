@@ -6,7 +6,8 @@ import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { AuthProviderServer } from '@/lib/auth-server';
-import { ThemeProvider } from '@/components/providers';
+import { getLanguageConfig } from '@/config/languages';
+import { DirectionProviderWrapper, ThemeProvider } from '@/components/providers';
 import Footer from '@/components/footer';
 import { siteConfig } from '@/components/config';
 import { Toaster } from '@/components/ui/sonner';
@@ -156,9 +157,10 @@ const jsonLd = {
 // Root Layout
 export default async function RootLayout({ children }) {
   const locale = await getLocale();
+  const dir = getLanguageConfig(locale).dir;
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} dir={dir} suppressHydrationWarning>
       <head>
         <script
           type='application/ld+json'
@@ -167,6 +169,7 @@ export default async function RootLayout({ children }) {
       </head>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+          <DirectionProviderWrapper dir={dir}>
           <AuthProviderServer>
             <NextIntlClientProvider>
               <PushNotificationProvider>
@@ -186,6 +189,7 @@ export default async function RootLayout({ children }) {
               <CookieConsent />
             </NextIntlClientProvider>
           </AuthProviderServer>
+          </DirectionProviderWrapper>
         </ThemeProvider>
       </body>
     </html>

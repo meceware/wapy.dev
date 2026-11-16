@@ -5,6 +5,6 @@ export const LanguageCodeSchema = z.object({
   language: z
     .string()
     .min(1)
-    .max(4)
+    .max(5)
     .refine((val) => getSupportedLanguageCodes().includes(val)),
 });

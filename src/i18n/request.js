@@ -2,7 +2,7 @@
 
 import { cookies, headers } from 'next/headers';
 import { getRequestConfig } from 'next-intl/server';
-import { DefaultLanguage, isLanguageSupported } from '@/config/languages';
+import { DefaultLanguage, isLanguageSupported, resolveLanguageCode } from '@/config/languages';
 import { useAuthServer } from '@/lib/auth-server';
 import { LANGUAGE_COOKIE_NAME } from '@/components/language/cookie';
 import { ValidateLanguageCode } from '@/components/language/validate';
@@ -91,8 +91,8 @@ export default getRequestConfig(async ({requestLocale}) => {
   const headersList = await headers();
   const acceptLanguage = headersList.get('accept-language');
   if (acceptLanguage) {
-    const browserLocale = acceptLanguage.split(',')[0].split('-')[0];
-    if (isLanguageSupported(browserLocale)) {
+    const browserLocale = resolveLanguageCode(acceptLanguage.split(',')[0]);
+    if (browserLocale) {
       return buildConfig(browserLocale);
     }
   }

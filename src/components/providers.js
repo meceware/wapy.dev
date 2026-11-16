@@ -2,7 +2,12 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { DirectionProvider } from '@radix-ui/react-direction';
 import { NotificationsContext } from '@/components/notifications/notification-context';
+
+export function DirectionProviderWrapper({ dir, children }) {
+  return <DirectionProvider dir={dir}>{children}</DirectionProvider>;
+}
 
 export function ThemeProvider( { children,...props} ) {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;

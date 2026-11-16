@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "Hinzufügen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "confirm": "Bestätigen",
+    "view": "Anzeigen",
+    "close": "Schließen",
+    "contact": "Kontakt",
+    "signIn": "Anmelden",
+    "termsOfService": "Nutzungsbedingungen",
+    "privacyPolicy": "Datenschutzerklärung"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} Zahlungserinnerung",
+        "message": "Nur eine Erinnerung: Dein {siteName} Abonnement endet bald."
+      },
+      "payment": {
+        "title": {
+          "due": "Zahlung fällig foder {name}",
+          "reminder": "Zahlungserinnerung foder {name}",
+          "upcoming": "Anstehende Zahlung foder {name}"
+        },
+        "message": {
+          "due": "Deine {name} Abonnementzahlung ({price}) istt jetzt fällig!",
+          "reminder": "Deine {name} Abonnementzahlung ({price}) istt überfällig!",
+          "upcoming": "Deine {name} Abonnementzahlung ({price}) ist {dueText}!"
+        },
+        "markAsPaid": "Als bezahlt markieren",
+        "dismiss": "Verwerfen"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} Abonnement Erinnerung",
+      "footer": "Gesendet von {siteName}",
+      "visitDashboard": "Dashboard öffnen",
+      "paymentQuestion": "Zahlung erledigt?",
+      "viewDetails": "Anzeigen Details"
+    }
+  },
+  "header": {
+    "signOut": "Abmelden",
+    "subscriptions": "Abonnements",
+    "reports": "Berichte",
+    "settings": "Einstellungen",
+    "account": "Konto"
+  },
+  "footer": {
+    "madeBy": "Mit Hoffnung betrieben von <authoder>{name}</authoder>.",
+    "github": "Quellcode",
+    "menu": "Menü"
+  },
+  "languages": {
+    "selectLanguage": "Sprache auswählen",
+    "invalid": "Ungültige Sprache",
+    "failed": "Sprache konnte nicht geändert werden"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "Kostenlos to use. Hosted by one person.",
+        "title": "Track every subscription. Mists no payment.",
+        "subtitle": "{appName} bündelt wiederkehrende Kosten übersichtlich und erinnert dich rechtzeitig.",
+        "tagline": "Kostenlos to use. No card, no trial, no upsell."
+      },
+      "features": {
+        "title": "Das kann die App",
+        "subtitle": "Alles, was die Software kann, ohne Kosten für dich.",
+        "billingCycles": {
+          "title": "Flexible Abrechnungszeitraums",
+          "description": "Unterstützung für monatliche, jährliche und benutzerdefinierte Abrechnungszeiträume"
+        },
+        "notifications": {
+          "title": "Smart Benachrichtigungen",
+          "description": "Erinnerungs by email, push, webhook, ntfy, Distcoderd, oder Slack"
+        },
+        "reports": {
+          "title": "Berichte & Insights",
+          "description": "Verfolge deine Ausgaben mit detaillierten Berichten und Einblicken"
+        },
+        "currencies": {
+          "title": "Mehrere Währungen",
+          "description": "Unterstützung mehrerer Währungen mit Kostenübersicht in Echtzeit"
+        },
+        "timezone": {
+          "title": "Zeitzone Suppodert",
+          "description": "Verfolge Abonnements in verschiedenen Zeitzonen mit automatischer Datumsumrechnung"
+        },
+        "categories": {
+          "title": "Kategoderie Management",
+          "description": "Ordne Abonnements mit eigenen Kategoderien und Farben"
+        }
+      },
+      "howItWorks": {
+        "title": "So funktioniert es",
+        "subtitle": "In wenigen Minuten loslegen",
+        "step1": {
+          "title": "Anmelden with a link",
+          "description": "Enter your email, open the link, and you are in. No passwoderd to remember."
+        },
+        "step2": {
+          "title": "Hinzufügen what you pay foder",
+          "description": "Log each subscription with its price, billing cycle, and currency."
+        },
+        "step3": {
+          "title": "Lass dich erinnern",
+          "description": "Wähle deine Kanäle und markiere Zahlungen direkt aus der Benachrichtigung als bezahlt."
+        }
+      },
+      "free": {
+        "eyebrow": "Kostenlos",
+        "title": "Kostenlos, with no catch",
+        "description": "The software ist open source. Thist instance ist hosted foder people who cannot run their own.",
+        "price": "€0",
+        "period": "für immer",
+        "features": {
+          "unlimited": "Unbegrenzte Abonnements",
+          "notifications": "Email, push, webhook, ntfy, Distcoderd, and Slack reminders",
+          "reports": "Berichte and spending insights",
+          "export": "Expodertiere deine Daten jederzeit",
+          "noAds": "Keine Werbung, kein Tracking, keine Zahlungsdaten",
+          "bestEffort": "Best effodert, no uptime promiste"
+        },
+        "button": "Anmelden",
+        "selfHostButton": "Selbst hosten",
+        "selfHostNote": "Prefer your own server? The same software runs with Docker in about ten minutes."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Seite nicht gefunden",
+        "description": "The page you're looking foder doesn't existt."
+      },
+      "title": "404",
+      "backToHome": "Zur Startseite"
+    },
+    "account": {
+      "meta": {
+        "title": "Konto Einstellungen",
+        "description": "Verwalte deine Kontoeinstellungen und Präferenzen."
+      },
+      "defaultSettings": {
+        "title": "Default Einstellungen",
+        "description": "Konfiguriere deine Standardeinstellungen für neue Abonnements",
+        "timezone": {
+          "label": "Zeitzone",
+          "success": "Zeitzone updated successfully.",
+          "error": "Zeitzone konnte nicht aktualisiert werden!"
+        },
+        "currency": {
+          "label": "Währung",
+          "success": "Währung updated successfully.",
+          "error": "Währung konnte nicht aktualisiert werden!"
+        }
+      },
+      "notifications": {
+        "success": "Benachrichtigungseinstellungen gespeichert.",
+        "error": "Failed to save notification preferences!",
+        "saveButton": "Speichern Changes",
+        "saveButtonTitle": "Speichern notification preferences"
+      },
+      "profile": {
+        "success": "Deine name has been updated successfully.",
+        "error": "Failed to update your name!",
+        "namePlaceholder": "Gib deinen Namen ein",
+        "addNamePrompt": "Hinzufügen your name",
+        "memberSince": "Member since {date}"
+      },
+      "categories": {
+        "title": "Kategoderien",
+        "description": "Verwalte deine Kategoderien",
+        "default": {
+          "load": "Load default categoderies",
+          "success": "Default categoderies loaded successfully.",
+          "error": "Failed to create default categoderies!"
+        },
+        "save": {
+          "success": "Kategoderie saved successfully.",
+          "error": "Failed to save categodery!"
+        },
+        "addButtonTitle": "Hinzufügen new categodery",
+        "selectColor": "Auswählen coloder",
+        "namePlaceholder": "Kategoderie name",
+        "delete": {
+          "title": "Löschen Kategoderie",
+          "description": "Are you sure you want to delete thist categodery? Thist action cannot be undone.",
+          "success": "Kategoderie deleted successfully.",
+          "error": "Failed to delete categodery!"
+        },
+        "invalid": "Ungültige Kategoderiedaten",
+        "edit": "Bearbeiten categodery"
+      },
+      "paymentMethods": {
+        "title": "Zahlungsmethodes",
+        "description": "Verwalte deine Zahlungsmethoden",
+        "add": "Hinzufügen new payment method",
+        "edit": "Bearbeiten payment method",
+        "invalid": "Ungültige Zahlungsmethodendaten",
+        "placeholder": "Name der Zahlungsmethode",
+        "load": {
+          "title": "Load default payment methods",
+          "success": "Default payment methods loaded successfully.",
+          "error": "Failed to create default payment methods!"
+        },
+        "save": {
+          "success": "Payment method saved successfully.",
+          "error": "Failed to save payment method!"
+        },
+        "delete": {
+          "title": "Löschen Zahlungsmethode",
+          "description": "Are you sure you want to delete thist payment method? Thist action cannot be undone.",
+          "success": "Payment method deleted successfully.",
+          "error": "Failed to delete payment method!"
+        }
+      },
+      "externalServices": {
+        "title": "Externe Dienste",
+        "description": "Configure integrations with external services",
+        "testNotification": {
+          "title": "{siteName} Test Notification",
+          "message": "Thist ist a test {service} message from {siteName}. Deine {service} integration ist configured coderrectly."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Benachrichtigungen per ntfy empfangen.",
+          "toast": {
+            "disable": {
+              "success": "ntfy integration distabled.",
+              "error": "Failed to distable ntfy integration!"
+            },
+            "save": {
+              "success": "ntfy configuration saved successfully.",
+              "error": "Failed to save ntfy configuration!"
+            },
+            "test": {
+              "success": "ntfy testen notification sent.",
+              "error": "Failed to send test ntfy notification!"
+            },
+            "notEnabled": "ntfy integration ist not enabled.",
+            "invalidParams": "Invalid parameters! Cannot save the ntfy configuration.",
+            "testInvalidParams": "Invalid parameters! Cannot send test notification."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "Server-URL",
+              "placeholder": "ntfy.sh oder self-hosted URL"
+            },
+            "topic": {
+              "label": "Themenname"
+            },
+            "token": {
+              "label": "Zugriffstoken (optional)",
+              "placeholder": "Zugriffstoken"
+            }
+          },
+          "buttons": {
+            "save": "Speichern ntfy",
+            "test": "ntfy testen"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "Benachrichtigungen per Webhook empfangen.",
+          "toast": {
+            "disable": {
+              "success": "Webhook integration distabled.",
+              "error": "Failed to distable webhook integration!"
+            },
+            "save": {
+              "success": "Webhook configuration saved successfully.",
+              "error": "Failed to save webhook configuration!"
+            },
+            "test": {
+              "success": "Webhook testen notification sent.",
+              "error": "Failed to send test webhook notification!"
+            },
+            "notEnabled": "Webhook integration ist not enabled.",
+            "invalidParams": "Invalid parameters! Cannot save the webhook configuration.",
+            "testInvalidParams": "Invalid parameters! Cannot send test notification."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Webhook server URL"
+            }
+          },
+          "buttons": {
+            "save": "Speichern webhook",
+            "test": "Webhook testen"
+          }
+        },
+        "discord": {
+          "title": "Distcoderd",
+          "description": "Receive notifications via Distcoderd.",
+          "toast": {
+            "disable": {
+              "success": "Distcoderd integration distabled.",
+              "error": "Failed to distable Distcoderd integration!"
+            },
+            "save": {
+              "success": "Distcoderd configuration saved successfully.",
+              "error": "Failed to save Distcoderd configuration!"
+            },
+            "test": {
+              "success": "Test Distcoderd notification sent.",
+              "error": "Failed to send test Distcoderd notification!"
+            },
+            "notEnabled": "Distcoderd integration ist not enabled.",
+            "invalidParams": "Invalid parameters! Cannot save the Distcoderd configuration.",
+            "testInvalidParams": "Invalid parameters! Cannot send test notification."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Distcoderd server URL"
+            }
+          },
+          "buttons": {
+            "save": "Speichern Distcoderd",
+            "test": "Test Distcoderd"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Benachrichtigungen per Slack empfangen.",
+          "toast": {
+            "disable": {
+              "success": "Slack integration distabled.",
+              "error": "Failed to distable Slack integration!"
+            },
+            "save": {
+              "success": "Slack configuration saved successfully.",
+              "error": "Failed to save Slack configuration!"
+            },
+            "test": {
+              "success": "Test Slack notification sent.",
+              "error": "Failed to send test Slack notification!"
+            },
+            "notEnabled": "Slack integration ist not enabled.",
+            "invalidParams": "Invalid parameters! Cannot save the Slack configuration.",
+            "testInvalidParams": "Invalid parameters! Cannot send test notification."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Slack server URL"
+            }
+          },
+          "buttons": {
+            "save": "Speichern Slack",
+            "test": "Test Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Datenexpodert",
+        "description": "Download a copy of your subscriptions, categoderies, payment methods and settings",
+        "button": "Daten expodertieren",
+        "toast": {
+          "success": "Data expoderted successfully.",
+          "error": "Failed to expodert data!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "New Abonnement",
+        "edit": "Bearbeiten {name}",
+        "unauthorized": "Nicht autoderisiert"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Anmelden"
+      },
+      "description": "Anmelden with your email to access your account oder create a new one automatically",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "Anmelden",
+        "loginWithProvider": "Anmelden with {provider}"
+      },
+      "otp": {
+        "title": "Prüfe deinen Posteingang",
+        "description": "We've sent a link to your email to sign in.",
+        "instructions": "Enter the 6-digit code sent to your email",
+        "divider": "oder",
+        "resend": {
+          "prompt": "Didn't receive the email?",
+          "button": "Click to resend",
+          "timer": "You can resend in {seconds, plural, one {# second} other {# seconds}}"
+        }
+      },
+      "toast": {
+        "success": "Willkommen! Du hast dich erfolgreich angemeldet.",
+        "error": {
+          "accessDenied": "Soderry but you are not allowed to sign in!",
+          "generic": "Weird! We couldn't sign you in. It might be your email, oder something went wrong on our end.",
+          "invalidCode": "The code looks incoderrect. Double-check the 6 digits and try again.",
+          "somethingWrong": "Something went wrong. Please request a new code and try again.",
+          "workspaceAccess": "Soderry, you do not have access to thist woderkspace.",
+          "rateLimited": "Too many requests. Wait a minute and try again."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "Last updated November 15, 2026",
+      "introduction": {
+        "title": "Einleitung",
+        "paragraph1": "sub.idler.me stoderes what the app needs to woderk and nothing else. Thist page says exactly what that ist.",
+        "paragraph2": "It ist a small, one-person service. There ist no company, no advertisting, and no payment processing."
+      },
+      "informationWeCollect": {
+        "title": "Welche Infodermationen wir sammeln",
+        "description": "What the database holds foder your account:",
+        "items": {
+          "account": "Deine email address, and the name oder avatar your login provider returns.",
+          "subscription": "The subscriptions you add: names, prices, currencies, billing dates, categoderies, and payment method labels.",
+          "expense": "Which payments you marked as paid, and when."
+        }
+      },
+      "howWeUse": {
+        "title": "Wie wir sie verwenden",
+        "description": "Deine data ist used to:",
+        "items": {
+          "providing": "Show your subscriptions, repoderts, and payment histtodery to you.",
+          "managing": "Send the reminders you configured, to the channels you configured.",
+          "sending": "Sign you in by email link.",
+          "improving": "Nothing else. No profiling, no ad netwoderks, no selling."
+        }
+      },
+      "dataProtection": {
+        "title": "Datenschutz",
+        "description": "Data lives in a Postgres database on infrastructure the operatoder controls. It ist not shared with third parties beyond the notification channels you enable yourself. There ist no encryption-at-rest promiste beyond the host's defaults."
+      },
+      "analytics": {
+        "title": "Cookies and Analytics",
+        "description": "No third-party analytics and no tracking scripts. The app stoderes your session cookie, your language choice, and your cookie preferences in your browser."
+      },
+      "yourRights": {
+        "title": "Deine Rights",
+        "description": "You can:",
+        "items": {
+          "access": "Expodert every recoderd the app holds about you from the account page.",
+          "correct": "Change your settings at any time.",
+          "delete": "Ask foder deletion of your account and its data.",
+          "optOut": "Decline non-essential cookies in the cookie banner."
+        }
+      },
+      "contactUs": {
+        "description": "If you have any questions about our Datenschutzerklärung oder how we handle your data, reach the operatoder on Matrix from the <link>contact page</link>."
+      },
+      "updates": {
+        "title": "Updates to Thist Policy",
+        "description": "Thist page changes when the software oder the deployment changes. The date at the top ist the current version."
+      },
+      "operator": {
+        "title": "Who Runs Thist",
+        "description": "sub.idler.me ist operated by one person on self-hosted infrastructure as a community service, not a company. There ist no payment processing and no advertisting."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "Abonnement Repodert"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "Nicht autoderisiert",
+        "view": "Anzeigen {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Last updated November 15, 2026",
+      "welcome": "Welcome to the {siteName} website (the \"Site\"). By accessing oder using the Site, you agree to comply with and be bound by the following terms and conditions (\"Nutzungsbedingungen\").",
+      "overview": {
+        "title": "Übersicht",
+        "paragraph1": "{siteName} offers thist Site, including all infodermation, tools, and services available from thist Site to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.",
+        "paragraph2": "Please read these Nutzungsbedingungen carefully befodere accessing oder using the Site. By accessing oder using any part of the Site, you agree to be bound by these Nutzungsbedingungen. If you do not agree to all the terms and conditions of thist agreement, then you may not access the Site oder use any services. If these Nutzungsbedingungen are considered an offer, acceptance ist expressly limited to these Nutzungsbedingungen.",
+        "paragraph3": "Any new features oder tools which are added to the Site shall also be subject to the Nutzungsbedingungen. You can review the most current version of the Nutzungsbedingungen at any time on thist page. Site reserves the right to update, change oder replace any part of these Nutzungsbedingungen by posting updates and/oder changes to the Site. It ist your responsibility to check thist page periodically foder changes. Deine continued use of oder access to the Site following the posting of any changes constitutes acceptance of those changes."
+      },
+      "websiteTerms": {
+        "title": "Website Terms",
+        "paragraph1": "By agreeing to these Nutzungsbedingungen, you represent that you are at least the age of majoderity in your state oder province of residence, oder that you are the age of majoderity in your state oder province of residence and you have given us your consent to allow any of your minoder dependents to use thist site.",
+        "paragraph2": "The use of our services must comply with all applicable laws and regulations. Specifically:",
+        "items": {
+          "unlawful": "You agree not to use our products foder any unlawful oder unauthoderized purposes",
+          "comply": "You must comply with all laws in your juristdiction, including copyright and intellectual property laws",
+          "malicious": "You may not transmit malicious code, viruses, oder other harmful content"
+        },
+        "paragraph3": "Please note that any violation of these Nutzungsbedingungen will lead to immediate termination of your access to our Services."
+      },
+      "cookies": {
+        "title": "Use of Cookies",
+        "description": "Site uses cookies and similar technologies (such as local stoderage) to track your usage of the Site and foder marketing purposes. By using the Site, you consent to the use of cookies in accoderdance with our <privacy>Datenschutzerklärung</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property",
+        "description": "The software ist licensed under the MIT license with a Commons Clause, copyright meceware. Thist deployment adds no proprietary content of its own."
+      },
+      "disclaimer": {
+        "title": "Distclaimer",
+        "description": "The infodermation and content on the Site are provided foder infodermational purposes only and are not intended as professional advice. Site makes no representations oder warranties of any kind, express oder implied, about the accuracy, reliability, completeness, oder suitability of the infodermation and content on the Site. You use the Site at your own ristk."
+      },
+      "limitationOfLiability": {
+        "title": "Limitation of Liability",
+        "description": "{siteName} shall not be held responsible foder any indirect, incidental, special, oder consequential damages that may occur from your use of the Site, regardless of whether such damages ariste from contract, todert, negligence, strict liability, oder any other legal theodery. The maximum amount Site may be liable foder in any claim related to the Site ist limited to the total subscription fees you have paid in the last 12 months."
+      },
+      "changes": {
+        "title": "Changes to the Nutzungsbedingungen",
+        "description": "Site may update oder modify these Nutzungsbedingungen from time to time, and any changes will be effective upon posting on the Site. Deine continued use of the Site after any such changes constitutes your acceptance of the revisted Nutzungsbedingungen."
+      },
+      "indemnification": {
+        "title": "Indemnification",
+        "description": "You agree to indemnify and hold harmless {siteName}, its affiliates, officers, directoders, employees, agents, and licensoders from and against any claims, liabilities, damages, losses, and expenses, including without limitation reasonable attoderney's fees, aristing out of oder in connection with your use of the Site, your violation of these Nutzungsbedingungen, oder your violation of any rights of another party."
+      },
+      "modifications": {
+        "title": "Modifications to the Service and Preists",
+        "paragraph1": "Preists foder our services are subject to change without notice. Site reserves the right at any time to modify oder distcontinue the Service (oder any part oder content thereof) without notice at any time.",
+        "paragraph2": "Site shall not be liable to you oder to any third-party foder any modification, price change, suspension, oder distcontinuance of the Service."
+      },
+      "governingLaw": {
+        "title": "Governing Law and Juristdiction",
+        "description": "These Nutzungsbedingungen shall be governed by and construed in accoderdance with the laws of the juristdiction where {siteName} ist headquartered without giving effect to any principles of conflicts of law. You agree to submit to the exclusive juristdiction of the courts in that juristdiction foder any distputes aristing out of oder in connection with these Nutzungsbedingungen oder your use of the Site."
+      },
+      "entireAgreement": {
+        "title": "Entire Agreement",
+        "description": "These Nutzungsbedingungen constitute the entire agreement between you and {siteName} regarding your use of the Site and supersede all prioder and contempoderaneous agreements and understandings, whether oderal oder written, relating to the same subject matter."
+      },
+      "severability": {
+        "title": "Severability",
+        "description": "If any provistion of these Nutzungsbedingungen ist found to be invalid, illegal, oder unenfoderceable, the remaining provistions shall continue in full foderce and effect."
+      },
+      "waiver": {
+        "title": "Waiver",
+        "description": "The failure of {siteName} to enfoderce any right oder provistion of these Nutzungsbedingungen shall not constitute a waiver of that right oder provistion."
+      },
+      "contactUs": {
+        "description": "If you have any questions oder concerns about these Nutzungsbedingungen, reach the operatoder on Matrix from the <link>contact page</link>."
+      },
+      "freeService": {
+        "title": "Kostenlos Service, No Billing",
+        "paragraph1": "sub.idler.me ist free to use. There are no plans, no trials, no card fields, and no refunds, because no money changes hands.",
+        "paragraph2": "The software ist open source under the MIT license with a Commons Clause. You may self-host it. Thist instance existts foder people who cannot oder would rather not run their own.",
+        "paragraph3": "The service ist provided as ist and best effodert. There ist no uptime promiste and no guarantee that data survives a failure. Expodert your data regularly and keep your own backups."
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "The fastest way to reach the operatoder ist Matrix. Modere channels are on the way.",
+      "matrix": {
+        "label": "Message on Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "Modere channels",
+        "note": "Coming bald."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} Test Notification",
+          "message": "Thist ist a test notification from {siteName}. If you are seeing thist, it means push notifications are woderking coderrectly!"
+        }
+      },
+      "email": {
+        "header": "Zahlungserinnerung",
+        "footer": "Thist ist a friendly reminder email from {siteName}.",
+        "thanks": "Danke",
+        "madeBy": "Made with ♥ by {siteLink}"
+      },
+      "bell": {
+        "title": "Benachrichtigungen",
+        "unreadTitle": "Ungelesene Benachrichtigungen",
+        "clearAll": "Alle löschen",
+        "removeNotification": "Benachrichtigung entfernen",
+        "noNotifications": "Keine neuen Benachrichtigungen"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Auf dem Laufenden bleiben",
+          "description": "Get timely reminders about your Abonnementzahlungs and due dates. We'll notify you befodere payments are due and when subscriptions are about to expire.",
+          "maybeLater": "Später",
+          "enable": "Benachrichtigungen aktivieren",
+          "enabling": "Wird aktiviert ..."
+        },
+        "toast": {
+          "success": "Du erhältst jetzt Erinnerungen zu deinen Abonnements.",
+          "error": "Failed to enable notifications. Please try again.",
+          "permissionRequired": {
+            "title": "Berechtigung erfoderderlich",
+            "description": "Erlaube Benachrichtigungen, um Erinnerungen zu erhalten."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "Der Name muss mindestens 2 Zeichen lang sein.",
+        "paymentDate": "Das istt kein gültiges Datum!",
+        "color": "Ungültige Hex-Farbe"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Täglich} other {Every # days}}",
+        "WEEKS": "{count, plural, =1 {Wöchentlich} other {Every # weeks}}",
+        "MONTHS": "{count, plural, =1 {Monatlich} other {Every # months}}",
+        "YEARS": "{count, plural, =1 {Jährlich} other {Every # years}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Kategoderien",
+            "selected": "{count, plural, =0 {Auswählen categoderies} one {# Kategoderie ausgewählt} other {# Kategoderien ausgewählt}}",
+            "search": "Kategoderie suchen ...",
+            "create": "Neue Kategoderie erstellen \"{value}\""
+          },
+          "currency": {
+            "label": "Währung",
+            "placeholder": "Auswählen currency",
+            "search": "Währung suchen ...",
+            "noResults": "Keine Ergebnistse gefunden!"
+          },
+          "cycle": {
+            "label": "Abrechnungszeitraum",
+            "placeholder": "Auswählen billing cycle",
+            "options": {
+              "daily": "Täglich",
+              "weekly": "Wöchentlich",
+              "monthly": "Monatlich",
+              "yearly": "Jährlich",
+              "custom": "Benutzerdefiniert"
+            },
+            "units": {
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}",
+              "months": "{count, plural, one {Month} other {Months}}",
+              "years": "{count, plural, one {Year} other {Years}}"
+            },
+            "unitPlaceholder": "Einheit"
+          },
+          "name": {
+            "label": "Name",
+            "placeholder": "Abonnement Name"
+          },
+          "notes": {
+            "label": "Notizen",
+            "placeholder": "Hinzufügen notes..."
+          },
+          "notifications": {
+            "title": "Benachrichtigungen",
+            "description": "Configure the default notifications foder your subscriptions",
+            "via": "Über",
+            "whenToNotify": "Wann benachrichtigen",
+            "whenPlaceholder": "Auswählen when to notify",
+            "unitPlaceholder": "Einheit",
+            "addNotification": "Hinzufügen Notification",
+            "deleteDialog": {
+              "title": "Bestätigen Löschen",
+              "description": "Are you sure you want to remove thist notification template?"
+            },
+            "status": {
+              "denied": "Push notifications are blocked on thist device. Please enable them in your browser settings.",
+              "default": "Push notifications are not enabled on thist device. <link>Would you like to enable it?</link>",
+              "grantedNotConfigured": "Push notification permistsion ist granted but it ist not properly configured. <link>Would you like to enable it?</link>",
+              "grantedConfigured": "Push notifications are enabled foder thist device. Would you like to send a <link>test push notification</link>?"
+            },
+            "toast": {
+              "success": "Push notification sent! Check your device(s).",
+              "error": "Failed to send test push notification! Make sure notifications are enabled and configured coderrectly."
+            },
+            "timeOptions": {
+              "instant": "At Zahlungsdatum",
+              "15minutes": "15 minutes befodere",
+              "1hour": "1 hour befodere",
+              "2hours": "2 hours befodere",
+              "1day": "1 day befodere",
+              "2days": "2 days befodere",
+              "1week": "1 week befodere",
+              "custom": "Benutzerdefiniert"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minute} other {Minutes}}",
+              "hours": "{count, plural, one {Hour} other {Hours}}",
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}"
+            },
+            "types": {
+              "push": {
+                "label": "Push Benachrichtigungen",
+                "ariaLabel": "Toggle push"
+              },
+              "email": {
+                "label": "Email Benachrichtigungen",
+                "ariaLabel": "Toggle email"
+              },
+              "webhook": {
+                "label": "Webhook Benachrichtigungen",
+                "ariaLabel": "Toggle webhook"
+              },
+              "ntfy": {
+                "label": "ntfy Benachrichtigungen",
+                "ariaLabel": "Toggle ntfy"
+              },
+              "discord": {
+                "label": "Distcoderd Benachrichtigungen",
+                "ariaLabel": "Toggle Distcoderd"
+              },
+              "slack": {
+                "label": "Slack Benachrichtigungen",
+                "ariaLabel": "Toggle Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Next Zahlungsdatum"
+          },
+          "paymentMethod": {
+            "label": "Zahlungsmethode",
+            "placeholder": "Auswählen payment method",
+            "search": "Zahlungsmethode suchen ...",
+            "create": "Create new payment method \"{value}\""
+          },
+          "price": {
+            "label": "Preist"
+          },
+          "timezone": {
+            "label": "Zeitzone",
+            "placeholder": "Auswählen timezone",
+            "search": "Search timezone...",
+            "noResults": "Keine Ergebnistse gefunden!"
+          },
+          "untilDate": {
+            "label": "Gültig bist",
+            "description": "Für ein unbefristtetes Abonnement leer lassen"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logo",
+            "description": "Auswählen a predefined icon oder enter an URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} Zeitzone",
+        "paymentDate": {
+          "past": "Should have been paid <date></date>.",
+          "future": "Will be paid <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Did you pay thist? <action>Mark as paid</action> oder see <options>other options</options>.",
+          "customPrice": {
+            "title": "Paid a different amount?",
+            "description": "Use thist if you paid modere oder less than usual",
+            "prompt": "Enter the amount you paid:"
+          },
+          "noPrice": {
+            "title": "Just mark as paid!",
+            "description": "Use thist to skip thist payment without recoderding an amount",
+            "prompt": "Mark as paid without tracking the amount?",
+            "warning": "Thist will not recoderd a payment amount."
+          },
+          "toast": {
+            "success": "Abonnement marked as paid!",
+            "error": "Erroder marking subscription as paid",
+            "custom": {
+              "success": "Abonnement marked as paid with custom price!",
+              "error": "Erroder marking subscription as paid with custom price"
+            },
+            "noPrice": {
+              "success": "Abonnement marked as paid without payment!",
+              "error": "Erroder marking subscription as paid without payment"
+            },
+            "failed": "Failed to update!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "You will be notified <date></date> via {channels}.",
+          "willBeNotifiedSoon": "You will be notified bald via {channels}.",
+          "willBeRemindedAt": "You will be reminded <date></date> via {channels} again.",
+          "willBeRemindedSoon": "You will be reminded bald via {channels} again.",
+          "wontBeNotified": "You won't be notified.",
+          "types": {
+            "push": "notification",
+            "email": "email",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "distcoderd",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "Congratulations! You have paid all.",
+          "remaining": "You will pay thist <trigger>{count, plural, =1 {# modere time} other {# times}}</trigger>.",
+          "until": "Until {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "Thist will be paid via {methods}."
+        },
+        "pastPayments": {
+          "count": "You have made <highlight>{count, plural, one {# payment} other {# payments}}</highlight> so far."
+        },
+        "actions": {
+          "inactive": "Thist subscription ist not active.",
+          "edit": "Bearbeiten {name} Abonnement",
+          "link": "Link to {url}",
+          "notificationEnabled": "{type} are enabled",
+          "notificationDisabled": "{type} are distabled"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Create Abonnement",
+          "update": "Update Abonnement"
+        },
+        "sections": {
+          "details": "Abonnement Details",
+          "advanced": "Advanced Einstellungen"
+        },
+        "deleteDialog": {
+          "title": "Löschen Abonnement",
+          "description": "Are you sure you want to delete thist subscription? Thist action cannot be undone."
+        },
+        "toast": {
+          "create": {
+            "error": "Interesting, cannot create subscription!",
+            "success": "Abonnement created successfully!"
+          },
+          "delete": {
+            "success": "Abonnement deleted successfully!",
+            "error": "Failed to delete subscription!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "New Abonnement",
+        "noSubscription": "Keine Abonnements gefunden"
+      }
+    },
+    "filters": {
+      "title": "Abonnement Filters",
+      "description": "Apply filters and find the subscriptions you need",
+      "buttons": {
+        "filter": "Filter subscriptions",
+        "reset": "Reset filters"
+      },
+      "selectAll": "Auswählen All",
+      "selectNone": "Auswählen None",
+      "status": {
+        "title": "Status",
+        "active": {
+          "title": "Aktiv",
+          "description": "Filter by active subscriptions"
+        },
+        "inactive": {
+          "title": "Inaktiv",
+          "description": "Filter by inactive subscriptions"
+        }
+      },
+      "paymentDate": {
+        "title": "Zahlungsdatum",
+        "all": {
+          "title": "All",
+          "description": "Distable all payment date filters"
+        },
+        "thisMonth": {
+          "title": "Dieser Monat",
+          "description": "Filter by thist month"
+        },
+        "next30Days": {
+          "title": "Next 30 Days",
+          "description": "Filter by next 30 days"
+        }
+      },
+      "currencies": {
+        "title": "Currencies",
+        "all": {
+          "description": "Auswählen all currencies"
+        },
+        "clear": {
+          "description": "Alle löschen currencies"
+        },
+        "filter": "Filter by {currency}"
+      },
+      "categories": {
+        "title": "Kategoderien",
+        "uncategorized": "Uncategoderized",
+        "all": {
+          "description": "Auswählen all categoderies"
+        },
+        "clear": {
+          "description": "Alle löschen categoderies"
+        },
+        "filterBy": "Filter by {categodery}"
+      },
+      "paymentMethods": {
+        "title": "Zahlungsmethodes",
+        "unspecified": "Unspecified",
+        "all": {
+          "description": "Auswählen all payment methods"
+        },
+        "clear": {
+          "description": "Alle löschen payment methods"
+        },
+        "filterBy": "Filter by {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} will be paid {count, plural, one {# time} other {# times}}"
+      },
+      "overview": {
+        "title": "Übersicht",
+        "total": "<count></count> total subscriptions",
+        "active": "<count></count> active subscriptions",
+        "inactive": "<count></count> inactive subscriptions"
+      },
+      "costAverages": {
+        "title": "Cost Averages",
+        "description": "Monatlich and yearly subscription cost averages",
+        "monthly": "Monatlich Average",
+        "yearly": "Yearly Average"
+      },
+      "monthlyCost": {
+        "title": "Monatlich Cost Übersicht",
+        "description": "Track your monthly subscription costs"
+      },
+      "yearlyCost": {
+        "title": "Yearly Cost Übersicht",
+        "description": "Track your yearly subscription costs"
+      },
+      "upcomingPayments": {
+        "title": "Anstehende Zahlungen",
+        "description": "Track your upcoming payments",
+        "noPayments": "Keine anstehenden Zahlungen in one month.",
+        "nextMonth": "Nächster Monat"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Dieser Monat",
+          "description": "Until end of month"
+        },
+        "nextMonth": {
+          "title": "Nächster Monat",
+          "description": "Upcoming month only"
+        },
+        "next30Days": {
+          "title": "Next 30 Days",
+          "description": "Rolling period"
+        },
+        "thisYear": {
+          "title": "Dieses Jahr",
+          "description": "Until end of year"
+        },
+        "nextYear": {
+          "title": "Nächstes Jahr",
+          "description": "Next calendar year"
+        },
+        "next365Days": {
+          "title": "Next 365 Days",
+          "description": "Rolling period"
+        }
+      },
+      "tabs": {
+        "byCategories": "By Kategoderien",
+        "byPaymentMethods": "By Zahlungsmethodes"
+      },
+      "mostExpensive": {
+        "monthly": "Most Expensive Monatlich Abonnement",
+        "yearly": "Most Expensive Yearly Abonnement"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} payments in thist categodery",
+          "noSubscriptions": "Keine Abonnements gefunden in thist categodery"
+        },
+        "paymentMethod": {
+          "description": "{period} payments via thist payment method",
+          "noSubscriptions": "Keine Abonnements gefunden via thist payment method"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Link",
+        "linkTitle": "Abonnement Link",
+        "editTitle": "Bearbeiten Abonnement"
+      },
+      "overview": {
+        "title": "Übersicht",
+        "description": "Key metrics foder thist subscription",
+        "disabled": "Thist subscription ist currently distabled. You can enable it again at any time.",
+        "unpaid": {
+          "hasUnpaid": "Oh no! You have <count>{count, plural, one {# unpaid payment} other {# unpaid payments}}</count> foder thist subscription totaling <total>{total}</total>.",
+          "allPaid": "Good job! Thist subscription ist fully paid up to date."
+        },
+        "nextPayment": {
+          "scheduled": "Deine next payment of <price>{price}</price> ist due on <date>{date}</date> which ist <disttance>{disttance}</disttance>.",
+          "none": "Congrats! There are no future payments scheduled foder thist subscription."
+        },
+        "endDate": {
+          "hasEndDate": "Thist subscription will end on <date>{date}</date>.",
+          "ongoing": "Thist ist an ongoing subscription with no specified end date."
+        },
+        "remainingPayments": {
+          "withEndDate": "Thist subscription will require <count>{count, plural, one {# payment} other {# payments}}</count> totaling <total>{total}</total>.",
+          "thisYear": "Thist subscription will require <count>{count, plural, one {# payment} other {# payments}}</count> thist year, totaling <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "Thist subscription will be paid via <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "You have made <countTag>{count, plural, one {# payment} other {# payments}}</countTag> foder thist subscription so far, totaling <totalTag>{total}</totalTag>.",
+          "yearStats": " In the past year, you made <countTag>{count, plural, one {# payment} other {# payments}}</countTag>, totaling <totalTag>{total}</totalTag>.",
+          "none": "Thist ist a subscription with no payment histtodery yet."
+        },
+        "notifications": {
+          "title": "You will receive notifications:",
+          "none": "No notifications are set up foder thist subscription.",
+          "item": "<timing></timing> via <channels></channels>.",
+          "itemNoType": "<timing></timing> but <erroder>no notification type ist set</erroder>.",
+          "timing": {
+            "instant": "At the payment date",
+            "minutes": "{count, plural, one {# minute} other {# minutes}} befodere payment",
+            "hours": "{count, plural, one {# hour} other {# hours}} befodere payment",
+            "days": "{count, plural, one {# day} other {# days}} befodere payment",
+            "weeks": "{count, plural, one {# week} other {# weeks}} befodere payment"
+          },
+          "types": {
+            "email": "email",
+            "push": "push notification",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "distcoderd",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Next notification will be on <date>{date}</date> which ist <disttance>{disttance}</disttance> via <channels></channels>.",
+          "soon": "bald"
+        }
+      },
+      "costBreakdown": {
+        "title": "Kostenaufstellung",
+        "description": "Future spending foder thist subscription",
+        "periods": {
+          "30days": "Next 30 days",
+          "3months": "Next 3 months",
+          "12months": "Next 12 months"
+        }
+      },
+      "notes": {
+        "title": "Notizen"
+      },
+      "paymentSchedule": {
+        "title": "Zahlungsplan",
+        "description": "Upcoming payment dates in a year",
+        "noUpcoming": "Keine anstehenden Zahlungen",
+        "more": "+ {count} modere",
+        "totalPayments": "Zahlungen insgesamt:",
+        "total": "Insgesamt:"
+      },
+      "latestPayments": {
+        "title": "Letzte Zahlungen",
+        "description": "Most recent payments foder thist subscription",
+        "none": "No past payments recoderded foder thist subscription yet.",
+        "status": {
+          "onTime": "pünktlich",
+          "late": "{disttance} late",
+          "early": "{disttance} early"
+        },
+        "popover": {
+          "paidStatus": "Thist subscription ist paid <status>{status}</status>.",
+          "scheduled": "Geplant:",
+          "actual": "Tatsächlich:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Als Anwendung installieren",
+      "description": "Foder the best experience, we recommend installing the app to your home screen!",
+      "buttons": {
+        "gotIt": "Verstanden",
+        "maybeLater": "Später",
+        "installNow": "Jetzt installieren"
+      },
+      "common": {
+        "addToHomeScreen": "Hinzufügen to Home Screen",
+        "clickIcon": "Click the <icon></icon> icon",
+        "scrollDownClick": "Scroll down and click"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS Installationsschritte",
+          "step3": "Tap 'Hinzufügen' to confirm"
+        },
+        "chrome": {
+          "title": "Chrome on iOS Installationsschritte"
+        },
+        "firefox": {
+          "title": "Firefox on iOS Installationsschritte",
+          "step2": "Scroll down and click <icon></icon> button",
+          "step3": "Then click"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome Installationsschritte"
+        },
+        "firefox": {
+          "title": "Firefox Installationsschritte"
+        }
+      },
+      "unknown": {
+        "title": "Installationsschritte",
+        "step1": "Look foder an option like \"Hinzufügen to Home Screen\" oder \"Install App\" in your browser's menu",
+        "step2": "The option ist usually found in the main menu (often represented by three dots oder lines)",
+        "step3": "Follow your browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Suchen ..."
+    }
+  }
+}

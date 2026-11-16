@@ -69,10 +69,7 @@
   "languages": {
     "selectLanguage": "Valitse kieli",
     "invalid": "Virheellinen kieli",
-    "failed": "Kielen vaihtaminen epäonnistui",
-    "notAvailableTitle": "Kielivalinta ei käytettävissä",
-    "notAvailableMessage": "Kieliasetuksia ei voi muuttaa, koska toiminnalliset evästeet on poistettu käytöstä etkä ole kirjautunut sisään. Vaihda kieli joko:",
-    "enableCookies": "Ota toiminnalliset evästeet käyttöön"
+    "failed": "Kielen vaihtaminen epäonnistui"
   },
   "home": {
     "visitor": {

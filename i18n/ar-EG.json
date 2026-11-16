@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "إضافة",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "confirm": "تأكيد",
+    "view": "عرض",
+    "close": "إغلاق",
+    "contact": "اتصل بنا",
+    "signIn": "تسجيل الدخول",
+    "termsOfService": "شروط الخدمة",
+    "privacyPolicy": "سياسة الخصوصية"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "تذكير بدفع اشتراك {siteName}",
+        "message": "مجرد تذكير بأن اشتراكك في {siteName} سينتهي قريبًا."
+      },
+      "payment": {
+        "title": {
+          "due": "حان موعد دفع اشتراك {name}",
+          "reminder": "تذكير بدفع اشتراك {name}",
+          "upcoming": "دفعة اشتراك {name} القادمة"
+        },
+        "message": {
+          "due": "حان الآن موعد دفع اشتراك {name} ({price})!",
+          "reminder": "تأخرت دفعة اشتراك {name} ({price})!",
+          "upcoming": "موعد دفع اشتراك {name} ({price}) هو {dueText}!"
+        },
+        "markAsPaid": "تحديد كمدفوعة",
+        "dismiss": "تجاهل"
+      }
+    },
+    "externalServices": {
+      "header": "تذكير باشتراك {siteName}",
+      "footer": "أرسلها {siteName}",
+      "visitDashboard": "زيارة لوحة التحكم",
+      "paymentQuestion": "هل أتممت الدفع؟",
+      "viewDetails": "عرض التفاصيل"
+    }
+  },
+  "header": {
+    "signOut": "تسجيل الخروج",
+    "subscriptions": "الاشتراكات",
+    "reports": "التقارير",
+    "settings": "الإعدادات",
+    "account": "الحساب"
+  },
+  "footer": {
+    "madeBy": "يُدار بأمل بواسطة <author>{name}</author>.",
+    "github": "المصدر",
+    "menu": "القائمة"
+  },
+  "languages": {
+    "selectLanguage": "اختيار اللغة",
+    "invalid": "لغة غير صالحة",
+    "failed": "تعذر تغيير اللغة"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "مجاني للاستخدام. يستضيفه شخص واحد.",
+        "title": "تتبّع كل اشتراك. لا تفوّت أي دفعة.",
+        "subtitle": "يحتفظ {appName} بالرسوم المتكررة في لوحة تحكم واضحة واحدة، ويذكّرك قبل استحقاقها.",
+        "tagline": "مجاني للاستخدام. بلا بطاقة، بلا تجربة، وبلا عروض إضافية."
+      },
+      "features": {
+        "title": "ماذا يفعل؟",
+        "subtitle": "كل ما يفعله البرنامج، ولا شيء يتعين عليك الدفع مقابله.",
+        "billingCycles": {
+          "title": "دورات فوترة مرنة",
+          "description": "دعم للفواصل الشهرية والسنوية والمخصصة بين الفواتير"
+        },
+        "notifications": {
+          "title": "إشعارات ذكية",
+          "description": "تذكيرات عبر البريد الإلكتروني أو push أو webhook أو ntfy أو Discord أو Slack"
+        },
+        "reports": {
+          "title": "التقارير والرؤى",
+          "description": "تتبّع إنفاقك عبر تقارير ورؤى مفصلة"
+        },
+        "currencies": {
+          "title": "عملات متعددة",
+          "description": "دعم عملات متعددة مع تتبع التكلفة آنيًا"
+        },
+        "timezone": {
+          "title": "دعم المناطق الزمنية",
+          "description": "تتبّع الاشتراكات عبر مناطق زمنية مختلفة مع تحويل تلقائي للتواريخ"
+        },
+        "categories": {
+          "title": "إدارة الفئات",
+          "description": "نظّم الاشتراكات باستخدام فئات مخصصة وترميز بالألوان"
+        }
+      },
+      "howItWorks": {
+        "title": "كيف يعمل؟",
+        "subtitle": "ابدأ خلال دقائق",
+        "step1": {
+          "title": "سجّل الدخول عبر رابط",
+          "description": "أدخل بريدك الإلكتروني وافتح الرابط، وستدخل مباشرة. لا كلمة مرور عليك تذكرها."
+        },
+        "step2": {
+          "title": "أضف ما تدفع مقابله",
+          "description": "سجّل كل اشتراك مع سعره ودورة الفاتورة وعملته."
+        },
+        "step3": {
+          "title": "دع التذكيرات تصلك",
+          "description": "اختر القنوات التي تريدها، ثم حدّد الدفعة كمدفوعة مباشرة من الإشعار."
+        }
+      },
+      "free": {
+        "eyebrow": "مجاني",
+        "title": "مجاني بلا خدعة",
+        "description": "البرنامج مفتوح المصدر. هذه النسخة مستضافة لمن لا يستطيعون تشغيل نسختهم الخاصة.",
+        "price": "€0",
+        "period": "إلى الأبد",
+        "features": {
+          "unlimited": "اشتراكات غير محدودة",
+          "notifications": "تذكيرات عبر البريد الإلكتروني وpush وwebhook وntfy وDiscord وSlack",
+          "reports": "تقارير ورؤى حول الإنفاق",
+          "export": "صدّر بياناتك في أي وقت",
+          "noAds": "لا إعلانات، ولا تتبع، ولا بيانات دفع",
+          "bestEffort": "أفضل جهد، بلا ضمان لوقت التشغيل"
+        },
+        "button": "تسجيل الدخول",
+        "selfHostButton": "استضفه بنفسك",
+        "selfHostNote": "تفضّل خادمك الخاص؟ يعمل البرنامج نفسه مع Docker خلال نحو 10 دقائق."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "الصفحة غير موجودة",
+        "description": "الصفحة التي تبحث عنها غير موجودة."
+      },
+      "title": "404",
+      "backToHome": "العودة إلى الصفحة الرئيسية"
+    },
+    "account": {
+      "meta": {
+        "title": "إعدادات الحساب",
+        "description": "إدارة إعدادات حسابك وتفضيلاتك."
+      },
+      "defaultSettings": {
+        "title": "الإعدادات الافتراضية",
+        "description": "اضبط الإعدادات الافتراضية للاشتراكات الجديدة",
+        "timezone": {
+          "label": "المنطقة الزمنية",
+          "success": "تم تحديث المنطقة الزمنية بنجاح.",
+          "error": "تعذر تحديث المنطقة الزمنية!"
+        },
+        "currency": {
+          "label": "العملة",
+          "success": "تم تحديث العملة بنجاح.",
+          "error": "تعذر تحديث العملة!"
+        }
+      },
+      "notifications": {
+        "success": "تم حفظ تفضيلات الإشعارات.",
+        "error": "تعذر حفظ تفضيلات الإشعارات!",
+        "saveButton": "حفظ التغييرات",
+        "saveButtonTitle": "حفظ تفضيلات الإشعارات"
+      },
+      "profile": {
+        "success": "تم تحديث اسمك بنجاح.",
+        "error": "تعذر تحديث اسمك!",
+        "namePlaceholder": "أدخل اسمك",
+        "addNamePrompt": "أضف اسمك",
+        "memberSince": "عضو منذ {date}"
+      },
+      "categories": {
+        "title": "الفئات",
+        "description": "إدارة فئاتك",
+        "default": {
+          "load": "تحميل الفئات الافتراضية",
+          "success": "تم تحميل الفئات الافتراضية بنجاح.",
+          "error": "تعذر إنشاء الفئات الافتراضية!"
+        },
+        "save": {
+          "success": "تم حفظ الفئة بنجاح.",
+          "error": "تعذر حفظ الفئة!"
+        },
+        "addButtonTitle": "إضافة فئة جديدة",
+        "selectColor": "اختيار اللون",
+        "namePlaceholder": "اسم الفئة",
+        "delete": {
+          "title": "حذف الفئة",
+          "description": "هل أنت متأكد من حذف هذه الفئة؟ لا يمكن التراجع عن هذا الإجراء.",
+          "success": "تم حذف الفئة بنجاح.",
+          "error": "تعذر حذف الفئة!"
+        },
+        "invalid": "بيانات الفئة غير صالحة",
+        "edit": "تعديل الفئة"
+      },
+      "paymentMethods": {
+        "title": "طرق الدفع",
+        "description": "إدارة طرق الدفع",
+        "add": "إضافة طريقة دفع جديدة",
+        "edit": "تعديل طريقة الدفع",
+        "invalid": "بيانات طريقة الدفع غير صالحة",
+        "placeholder": "اسم طريقة الدفع",
+        "load": {
+          "title": "تحميل طرق الدفع الافتراضية",
+          "success": "تم تحميل طرق الدفع الافتراضية بنجاح.",
+          "error": "تعذر إنشاء طرق الدفع الافتراضية!"
+        },
+        "save": {
+          "success": "تم حفظ طريقة الدفع بنجاح.",
+          "error": "تعذر حفظ طريقة الدفع!"
+        },
+        "delete": {
+          "title": "حذف طريقة الدفع",
+          "description": "هل أنت متأكد من حذف طريقة الدفع هذه؟ لا يمكن التراجع عن هذا الإجراء.",
+          "success": "تم حذف طريقة الدفع بنجاح.",
+          "error": "تعذر حذف طريقة الدفع!"
+        }
+      },
+      "externalServices": {
+        "title": "الخدمات الخارجية",
+        "description": "اضبط عمليات التكامل مع الخدمات الخارجية",
+        "testNotification": {
+          "title": "إشعار اختبار من {siteName}",
+          "message": "هذه رسالة {service} اختبارية من {siteName}. تم ضبط تكامل {service} بشكل صحيح."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "استقبل الإشعارات عبر ntfy.",
+          "toast": {
+            "disable": {
+              "success": "تم تعطيل تكامل ntfy.",
+              "error": "تعذر تعطيل تكامل ntfy!"
+            },
+            "save": {
+              "success": "تم حفظ إعدادات ntfy بنجاح.",
+              "error": "تعذر حفظ إعدادات ntfy!"
+            },
+            "test": {
+              "success": "تم إرسال إشعار ntfy اختباري.",
+              "error": "تعذر إرسال إشعار ntfy اختباري!"
+            },
+            "notEnabled": "تكامل ntfy غير مفعّل.",
+            "invalidParams": "المعلمات غير صالحة! لا يمكن حفظ إعدادات ntfy.",
+            "testInvalidParams": "المعلمات غير صالحة! لا يمكن إرسال إشعار اختباري."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "عنوان الخادم",
+              "placeholder": "ntfy.sh أو عنوان URL مستضاف ذاتيًا"
+            },
+            "topic": {
+              "label": "اسم الموضوع"
+            },
+            "token": {
+              "label": "رمز الوصول (اختياري)",
+              "placeholder": "رمز الوصول"
+            }
+          },
+          "buttons": {
+            "save": "حفظ ntfy",
+            "test": "اختبار ntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "Receive notifications via webhook.",
+          "toast": {
+            "disable": {
+              "success": "Webhook integration disabled.",
+              "error": "Failed to disable webhook integration!"
+            },
+            "save": {
+              "success": "Webhook configuration saved successfully.",
+              "error": "Failed to save webhook configuration!"
+            },
+            "test": {
+              "success": "Test webhook notification sent.",
+              "error": "Failed to send test webhook notification!"
+            },
+            "notEnabled": "Webhook integration is not enabled.",
+            "invalidParams": "Invalid parameters! Cannot save the webhook configuration.",
+            "testInvalidParams": "Invalid parameters! Cannot send test notification."
+          },
+          "fields": {
+            "url": {
+              "label": "Server URL",
+              "placeholder": "Webhook server URL"
+            }
+          },
+          "buttons": {
+            "save": "Save webhook",
+            "test": "Test webhook"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "استقبل الإشعارات عبر Discord.",
+          "toast": {
+            "disable": {
+              "success": "تم تعطيل تكامل Discord.",
+              "error": "تعذر تعطيل تكامل Discord!"
+            },
+            "save": {
+              "success": "تم حفظ إعدادات Discord بنجاح.",
+              "error": "تعذر حفظ إعدادات Discord!"
+            },
+            "test": {
+              "success": "تم إرسال إشعار Discord اختباري.",
+              "error": "تعذر إرسال إشعار Discord اختباري!"
+            },
+            "notEnabled": "تكامل Discord غير مفعّل.",
+            "invalidParams": "المعلمات غير صالحة! لا يمكن حفظ إعدادات Discord.",
+            "testInvalidParams": "المعلمات غير صالحة! لا يمكن إرسال إشعار اختباري."
+          },
+          "fields": {
+            "url": {
+              "label": "عنوان الخادم",
+              "placeholder": "عنوان خادم Discord"
+            }
+          },
+          "buttons": {
+            "save": "حفظ Discord",
+            "test": "اختبار Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "استقبل الإشعارات عبر Slack.",
+          "toast": {
+            "disable": {
+              "success": "تم تعطيل تكامل Slack.",
+              "error": "تعذر تعطيل تكامل Slack!"
+            },
+            "save": {
+              "success": "تم حفظ إعدادات Slack بنجاح.",
+              "error": "تعذر حفظ إعدادات Slack!"
+            },
+            "test": {
+              "success": "تم إرسال إشعار Slack اختباري.",
+              "error": "تعذر إرسال إشعار Slack اختباري!"
+            },
+            "notEnabled": "تكامل Slack غير مفعّل.",
+            "invalidParams": "المعلمات غير صالحة! لا يمكن حفظ إعدادات Slack.",
+            "testInvalidParams": "المعلمات غير صالحة! لا يمكن إرسال إشعار اختباري."
+          },
+          "fields": {
+            "url": {
+              "label": "عنوان الخادم",
+              "placeholder": "عنوان خادم Slack"
+            }
+          },
+          "buttons": {
+            "save": "حفظ Slack",
+            "test": "اختبار Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "تصدير البيانات",
+        "description": "نزّل نسخة من اشتراكاتك وفئاتك وطرق الدفع وإعداداتك",
+        "button": "تصدير البيانات",
+        "toast": {
+          "success": "تم تصدير البيانات بنجاح.",
+          "error": "تعذر تصدير البيانات!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "اشتراك جديد",
+        "edit": "تعديل {name}",
+        "unauthorized": "غير مصرح"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "تسجيل الدخول"
+      },
+      "description": "سجّل الدخول ببريدك الإلكتروني للوصول إلى حسابك أو إنشاء حساب جديد تلقائيًا",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "تسجيل الدخول",
+        "loginWithProvider": "تسجيل الدخول باستخدام {provider}"
+      },
+      "otp": {
+        "title": "تحقق من صندوق الوارد",
+        "description": "أرسلنا رابطًا إلى بريدك الإلكتروني لتسجيل الدخول.",
+        "instructions": "أدخل الرمز المكوّن من 6 أرقام المرسل إلى بريدك الإلكتروني",
+        "divider": "أو",
+        "resend": {
+          "prompt": "ألم يصلك البريد الإلكتروني؟",
+          "button": "انقر لإعادة الإرسال",
+          "timer": "يمكنك إعادة الإرسال خلال {seconds, plural, one {# ثانية} other {# ثوانٍ}}"
+        }
+      },
+      "toast": {
+        "success": "مرحبًا! سجّلت الدخول بنجاح.",
+        "error": {
+          "accessDenied": "عذرًا، لا يُسمح لك بتسجيل الدخول!",
+          "generic": "عذرًا! تعذر تسجيل دخولك. قد تكون المشكلة في بريدك الإلكتروني أو حدث خطأ من جانبنا.",
+          "invalidCode": "يبدو أن الرمز غير صحيح. تحقق من الأرقام الستة وحاول مجددًا.",
+          "somethingWrong": "حدث خطأ ما. يرجى طلب رمز جديد والمحاولة مجددًا.",
+          "workspaceAccess": "عذرًا، لا يمكنك الوصول إلى مساحة العمل هذه.",
+          "rateLimited": "طلبات كثيرة جدًا. انتظر دقيقة وحاول مجددًا."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "آخر تحديث في 15 نوفمبر 2026",
+      "introduction": {
+        "title": "مقدمة",
+        "paragraph1": "يخزّن sub.idler.me ما يحتاجه التطبيق للعمل ولا شيء آخر. توضح هذه الصفحة ذلك بالتحديد.",
+        "paragraph2": "إنها خدمة صغيرة يديرها شخص واحد. لا توجد شركة أو إعلانات أو معالجة للمدفوعات."
+      },
+      "informationWeCollect": {
+        "title": "المعلومات التي نجمعها",
+        "description": "ما تخزنه قاعدة البيانات لحسابك:",
+        "items": {
+          "account": "عنوان بريدك الإلكتروني، والاسم أو الصورة الرمزية التي يعيدها مزود تسجيل الدخول.",
+          "subscription": "الاشتراكات التي تضيفها: الأسماء والأسعار والعملات وتواريخ الفوترة والفئات وتسميات طرق الدفع.",
+          "expense": "المدفوعات التي حددتها كمدفوعة ووقت دفعها."
+        }
+      },
+      "howWeUse": {
+        "title": "كيف نستخدمها",
+        "description": "تُستخدم بياناتك من أجل:",
+        "items": {
+          "providing": "عرض اشتراكاتك وتقاريرك وسجل مدفوعاتك لك.",
+          "managing": "إرسال التذكيرات التي أعددتها إلى القنوات التي اخترتها.",
+          "sending": "تسجيل دخولك عبر رابط البريد الإلكتروني.",
+          "improving": "لا شيء آخر. لا إعداد ملفات شخصية ولا شبكات إعلانية ولا بيع للبيانات."
+        }
+      },
+      "dataProtection": {
+        "title": "حماية البيانات",
+        "description": "توجد البيانات في قاعدة PostgreSQL على بنية تحت سيطرة المشغّل. لا تُشارك مع أطراف خارجية باستثناء قنوات الإشعارات التي تفعّلها بنفسك. لا يوجد تعهد بتشفير البيانات وهي مخزنة يتجاوز الإعدادات الافتراضية للمضيف."
+      },
+      "analytics": {
+        "title": "ملفات تعريف الارتباط والتحليلات",
+        "description": "لا توجد تحليلات من جهات خارجية ولا نصوص تتبع. يخزن التطبيق ملف جلسة و​​اختيار اللغة وتفضيلات ملفات تعريف الارتباط في متصفحك."
+      },
+      "yourRights": {
+        "title": "حقوقك",
+        "description": "يمكنك:",
+        "items": {
+          "access": "تصدير كل سجل يحتفظ به التطبيق عنك من صفحة الحساب.",
+          "correct": "تغيير إعداداتك في أي وقت.",
+          "delete": "طلب حذف حسابك وبياناته.",
+          "optOut": "رفض ملفات تعريف الارتباط غير الضرورية في banner ملفات تعريف الارتباط."
+        }
+      },
+      "contactUs": {
+        "description": "إذا كانت لديك أسئلة عن سياسة الخصوصية أو طريقة تعاملنا مع بياناتك، فتواصل مع المشغّل عبر Matrix من <link>صفحة الاتصال</link>."
+      },
+      "updates": {
+        "title": "تحديثات هذه السياسة",
+        "description": "تتغير هذه الصفحة عند تغير البرنامج أو النشر. التاريخ في الأعلى هو تاريخ الإصدار الحالي."
+      },
+      "operator": {
+        "title": "من يدير هذه الخدمة؟",
+        "description": "يدير sub.idler.me شخص واحد على بنية مستضافة ذاتيًا كخدمة مجتمعية، وليس كشركة. لا توجد معالجة للمدفوعات ولا إعلانات."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "تقرير الاشتراكات"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "غير مصرح",
+        "view": "عرض {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "آخر تحديث في 15 نوفمبر 2026",
+      "welcome": "مرحبًا بك في موقع {siteName} (ويُسمى «الموقع»). باستخدامك الموقع أو دخولك إليه، توافق على الالتزام بالشروط والأحكام التالية («شروط الخدمة»).",
+      "overview": {
+        "title": "نظرة عامة",
+        "paragraph1": "يقدم {siteName} هذا الموقع، بما فيه كل المعلومات والأدوات والخدمات المتاحة لك كمستخدم، بشرط موافقتك على جميع الشروط والسياسات والإشعارات المذكورة هنا.",
+        "paragraph2": "يرجى قراءة شروط الخدمة هذه بعناية قبل دخول الموقع أو استخدامه. بدخولك إلى أي جزء منه أو استخدامه، توافق على الالتزام بهذه الشروط. إذا لم توافق على جميع الشروط والأحكام، فلا يجوز لك دخول الموقع أو استخدام أي خدمة. وإذا اعتُبرت شروط الخدمة هذه عرضًا، فإن قبولك يقتصر صراحة عليها.",
+        "paragraph3": "Any new features or tools which are added to the Site shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. Site reserves the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to the Site. It is your responsibility to check this page periodically for changes. Your continued use of or access to the Site following the posting of any changes constitutes acceptance of those changes."
+      },
+      "websiteTerms": {
+        "title": "شروط الموقع",
+        "paragraph1": "بموافقتك على شروط الخدمة، تقر بأنك بلغت سن الرشد في ولاية أو مقاطعة إقامتك، أو أنك بلغت سن الرشد وحصلت على موافقتنا للسماح لأي قاصر تعوله باستخدام الموقع.",
+        "paragraph2": "يجب أن يتوافق استخدام خدماتنا مع جميع القوانين واللوائح السارية. وتحديدًا:",
+        "items": {
+          "unlawful": "توافق على عدم استخدام منتجاتنا لأي أغراض غير قانونية أو غير مصرح بها",
+          "comply": "يجب الالتزام بجميع القوانين في نطاق اختصاصك، بما فيها قوانين حقوق النشر والملكية الفكرية",
+          "malicious": "لا يجوز لك نقل تعليمات برمجية ضارة أو فيروسات أو أي محتوى مؤذٍ"
+        },
+        "paragraph3": "يرجى ملاحظة أن أي مخالفة لشروط الخدمة ستؤدي إلى إنهاء وصولك إلى خدماتنا فورًا."
+      },
+      "cookies": {
+        "title": "استخدام ملفات تعريف الارتباط",
+        "description": "يستخدم الموقع ملفات تعريف الارتباط وتقنيات مشابهة (مثل التخزين المحلي) لتتبع استخدامك للموقع ولأغراض التسويق. باستخدامك الموقع، توافق على استخدام ملفات تعريف الارتباط وفقًا لـ <privacy>سياسة الخصوصية</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "الملكية الفكرية",
+        "description": "البرنامج مرخص بموجب ترخيص MIT مع Commons Clause، وحقوق نشره لـ meceware. لا يضيف هذا النشر أي محتوى خاص به."
+      },
+      "disclaimer": {
+        "title": "إخلاء المسؤولية",
+        "description": "تُقدم المعلومات والمحتوى في الموقع لأغراض إعلامية فقط، ولا يُقصد بها تقديم مشورة مهنية. لا يقدم الموقع أي إقرارات أو ضمانات، صريحة أو ضمنية، بشأن دقة المعلومات والمحتوى أو موثوقيتهما أو اكتمالهما أو ملاءمتهما. تستخدم الموقع على مسؤوليتك الخاصة."
+      },
+      "limitationOfLiability": {
+        "title": "حدود المسؤولية",
+        "description": "لا يتحمل {siteName} مسؤولية أي أضرار غير مباشرة أو عرضية أو خاصة أو تبعية قد تنتج عن استخدامك للموقع، مهما كان أساسها القانوني. يقتصر الحد الأقصى لمسؤولية الموقع في أي مطالبة على إجمالي رسوم الاشتراكات التي دفعتها خلال آخر 12 شهرًا."
+      },
+      "changes": {
+        "title": "التغييرات على شروط الخدمة",
+        "description": "يجوز للموقع تحديث شروط الخدمة أو تعديلها من وقت لآخر، وتسري التغييرات عند نشرها. استمرارك في استخدام الموقع بعد التغييرات يعني قبولك للشروط المعدلة."
+      },
+      "indemnification": {
+        "title": "التعويض",
+        "description": "توافق على تعويض {siteName} والشركات التابعة والمسؤولين والمديرين والموظفين والوكلاء والمرخصين وحمايتهم من أي مطالبات أو مسؤوليات أو أضرار أو خسائر أو نفقات، بما في ذلك أتعاب المحاماة المعقولة، الناشئة عن استخدامك للموقع أو مخالفتك لشروط الخدمة أو حقوق أي طرف آخر."
+      },
+      "modifications": {
+        "title": "تعديلات الخدمة والأسعار",
+        "paragraph1": "تخضع أسعار خدماتنا للتغيير دون إشعار. يحتفظ الموقع بحقه في تعديل الخدمة أو إيقافها، كليًا أو جزئيًا، دون إشعار.",
+        "paragraph2": "لا يتحمل الموقع مسؤولية أي تعديل أو تغيير في السعر أو تعليق أو إيقاف للخدمة."
+      },
+      "governingLaw": {
+        "title": "القانون والاختصاص القضائي",
+        "description": "تخضع شروط الخدمة هذه لقوانين الاختصاص القضائي الذي يقع فيه مقر {siteName} وتُفسر وفقًا لها، دون تطبيق مبادئ تنازع القوانين. توافق على الخضوع للاختصاص الحصري لمحاكم ذلك الاختصاص في أي نزاع مرتبط بالموقع أو باستخدامك له."
+      },
+      "entireAgreement": {
+        "title": "الاتفاق الكامل",
+        "description": "تشكل شروط الخدمة هذه الاتفاق الكامل بينك وبين {siteName} بشأن استخدامك للموقع، وتحل محل جميع الاتفاقيات والتفاهمات السابقة والمتزامنة، شفوية كانت أم مكتوبة، المتعلقة بالموضوع نفسه."
+      },
+      "severability": {
+        "title": "قابلية الفصل",
+        "description": "إذا تبين أن أي حكم من هذه الشروط غير صالح أو غير قانوني أو غير قابل للتنفيذ، تظل الأحكام الأخرى سارية بالكامل."
+      },
+      "waiver": {
+        "title": "التنازل",
+        "description": "عدم إنفاذ {siteName} لأي حق أو حكم من شروط الخدمة لا يشكل تنازلًا عن ذلك الحق أو الحكم."
+      },
+      "contactUs": {
+        "description": "إذا كانت لديك أسئلة أو مخاوف بشأن شروط الخدمة، فتواصل مع المشغّل عبر Matrix من <link>صفحة الاتصال</link>."
+      },
+      "freeService": {
+        "title": "خدمة مجانية بلا فوترة",
+        "paragraph1": "استخدام sub.idler.me مجاني. لا توجد خطط أو تجارب أو حقول بطاقات أو مبالغ مستردة، لأن المال لا ينتقل بين الأطراف.",
+        "paragraph2": "البرنامج مفتوح المصدر بموجب ترخيص MIT مع Commons Clause. يمكنك استضافته بنفسك. هذه النسخة موجودة لمن لا يستطيعون أو لا يرغبون في تشغيل نسختهم الخاصة.",
+        "paragraph3": "تُقدم الخدمة كما هي وبأفضل جهد. لا يوجد ضمان لوقت التشغيل ولا ضمان لبقاء البيانات بعد العطل. صدّر بياناتك بانتظام واحتفظ بنسخك الاحتياطية."
+      }
+    },
+    "contact": {
+      "title": "الاتصال",
+      "description": "أسرع طريقة للتواصل مع المشغّل هي Matrix. ستتوفر قنوات أخرى قريبًا.",
+      "matrix": {
+        "label": "مراسلة عبر Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "قنوات أخرى",
+        "note": "قريبًا."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "إشعار اختبار من {siteName}",
+          "message": "هذه رسالة إشعار اختبار من {siteName}. إذا كنت تراها، فهذا يعني أن إشعارات push تعمل بشكل صحيح!"
+        }
+      },
+      "email": {
+        "header": "تذكير بالدفع",
+        "footer": "هذا بريد تذكير ودي من {siteName}.",
+        "thanks": "شكرًا",
+        "madeBy": "صُنع بحب ♥ بواسطة {siteLink}"
+      },
+      "bell": {
+        "title": "الإشعارات",
+        "unreadTitle": "الإشعارات غير المقروءة",
+        "clearAll": "مسح الكل",
+        "removeNotification": "إزالة الإشعار",
+        "noNotifications": "لا توجد إشعارات جديدة"
+      },
+      "toggle": {
+        "modal": {
+          "title": "ابقَ على اطلاع",
+          "description": "احصل على تذكيرات في الوقت المناسب بشأن مدفوعات اشتراكاتك وتواريخ استحقاقها. سنخطرك قبل استحقاق المدفوعات وقبل انتهاء الاشتراكات.",
+          "maybeLater": "ربما لاحقًا",
+          "enable": "تفعيل الإشعارات",
+          "enabling": "جارٍ التفعيل..."
+        },
+        "toast": {
+          "success": "ستتلقى الآن تذكيرات بالاشتراكات.",
+          "error": "تعذر تفعيل الإشعارات. يرجى المحاولة مجددًا.",
+          "permissionRequired": {
+            "title": "الإذن مطلوب",
+            "description": "يرجى السماح بالإشعارات لتلقي التذكيرات."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "يجب ألا يقل الاسم عن حرفين.",
+        "paymentDate": "هذا التاريخ غير صالح!",
+        "color": "رمز اللون السداسي غير صالح"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {يوميًا} other {كل # أيام}}",
+        "WEEKS": "{count, plural, =1 {أسبوعيًا} other {كل # أسابيع}}",
+        "MONTHS": "{count, plural, =1 {شهريًا} other {كل # أشهر}}",
+        "YEARS": "{count, plural, =1 {سنويًا} other {كل # سنوات}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "الفئات",
+            "selected": "{count, plural, =0 {اختيار الفئات} one {تم اختيار # فئة} other {تم اختيار # فئات}}",
+            "search": "ابحث عن فئة...",
+            "create": "إنشاء فئة جديدة باسم \"{value}\""
+          },
+          "currency": {
+            "label": "العملة",
+            "placeholder": "اختيار العملة",
+            "search": "ابحث عن عملة...",
+            "noResults": "لم يتم العثور على نتائج!"
+          },
+          "cycle": {
+            "label": "دورة الفاتورة",
+            "placeholder": "اختيار دورة الفاتورة",
+            "options": {
+              "daily": "يوميًا",
+              "weekly": "أسبوعيًا",
+              "monthly": "شهريًا",
+              "yearly": "سنويًا",
+              "custom": "مخصص"
+            },
+            "units": {
+              "days": "{count, plural, one {يوم} other {أيام}}",
+              "weeks": "{count, plural, one {أسبوع} other {أسابيع}}",
+              "months": "{count, plural, one {شهر} other {أشهر}}",
+              "years": "{count, plural, one {سنة} other {سنوات}}"
+            },
+            "unitPlaceholder": "الوحدة"
+          },
+          "name": {
+            "label": "الاسم",
+            "placeholder": "اسم الاشتراك"
+          },
+          "notes": {
+            "label": "ملاحظات",
+            "placeholder": "أضف ملاحظات..."
+          },
+          "notifications": {
+            "title": "الإشعارات",
+            "description": "اضبط الإشعارات الافتراضية لاشتراكاتك",
+            "via": "عبر",
+            "whenToNotify": "موعد الإشعار",
+            "whenPlaceholder": "اختيار موعد الإشعار",
+            "unitPlaceholder": "الوحدة",
+            "addNotification": "إضافة إشعار",
+            "deleteDialog": {
+              "title": "تأكيد الحذف",
+              "description": "هل أنت متأكد من إزالة قالب الإشعار هذا؟"
+            },
+            "status": {
+              "denied": "إشعارات push محظورة على هذا الجهاز. فعّلها من إعدادات المتصفح.",
+              "default": "إشعارات push غير مفعّلة على هذا الجهاز. <link>هل تريد تفعيلها؟</link>",
+              "grantedNotConfigured": "إذن إشعارات push ممنوح لكنه غير مضبوط بشكل صحيح. <link>هل تريد تفعيلها؟</link>",
+              "grantedConfigured": "إشعارات push مفعّلة لهذا الجهاز. هل تريد إرسال <link>إشعار push اختباري</link>؟"
+            },
+            "toast": {
+              "success": "تم إرسال إشعار push! تحقق من أجهزتك.",
+              "error": "تعذر إرسال إشعار push اختباري! تأكد من تفعيل الإشعارات وضبطها بشكل صحيح."
+            },
+            "timeOptions": {
+              "instant": "في موعد الدفع",
+              "15minutes": "قبل 15 دقيقة",
+              "1hour": "قبل ساعة واحدة",
+              "2hours": "قبل ساعتين",
+              "1day": "قبل يوم واحد",
+              "2days": "قبل يومين",
+              "1week": "قبل أسبوع واحد",
+              "custom": "مخصص"
+            },
+            "units": {
+              "minutes": "{count, plural, one {دقيقة} other {دقائق}}",
+              "hours": "{count, plural, one {ساعة} other {ساعات}}",
+              "days": "{count, plural, one {يوم} other {أيام}}",
+              "weeks": "{count, plural, one {أسبوع} other {أسابيع}}"
+            },
+            "types": {
+              "push": {
+                "label": "إشعارات push",
+                "ariaLabel": "تبديل إشعارات push"
+              },
+              "email": {
+                "label": "إشعارات البريد الإلكتروني",
+                "ariaLabel": "تبديل البريد الإلكتروني"
+              },
+              "webhook": {
+                "label": "إشعارات Webhook",
+                "ariaLabel": "تبديل Webhook"
+              },
+              "ntfy": {
+                "label": "إشعارات ntfy",
+                "ariaLabel": "تبديل ntfy"
+              },
+              "discord": {
+                "label": "إشعارات Discord",
+                "ariaLabel": "تبديل Discord"
+              },
+              "slack": {
+                "label": "إشعارات Slack",
+                "ariaLabel": "تبديل Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "تاريخ الدفع التالي"
+          },
+          "paymentMethod": {
+            "label": "طريقة الدفع",
+            "placeholder": "اختيار طريقة الدفع",
+            "search": "ابحث عن طريقة دفع...",
+            "create": "إنشاء طريقة دفع جديدة باسم \"{value}\""
+          },
+          "price": {
+            "label": "السعر"
+          },
+          "timezone": {
+            "label": "المنطقة الزمنية",
+            "placeholder": "اختيار المنطقة الزمنية",
+            "search": "ابحث عن منطقة زمنية...",
+            "noResults": "لم يتم العثور على نتائج!"
+          },
+          "untilDate": {
+            "label": "صالح حتى",
+            "description": "اتركه فارغًا للاشتراك المفتوح بلا تاريخ انتهاء"
+          },
+          "url": {
+            "label": "عنوان URL"
+          },
+          "logo": {
+            "label": "الشعار",
+            "description": "اختر أيقونة جاهزة أو أدخل عنوان URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} Timezone",
+        "paymentDate": {
+          "past": "Should have been paid <date></date>.",
+          "future": "Will be paid <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Did you pay this? <action>Mark as paid</action> or see <options>other options</options>.",
+          "customPrice": {
+            "title": "Paid a different amount?",
+            "description": "Use this if you paid more or less than usual",
+            "prompt": "Enter the amount you paid:"
+          },
+          "noPrice": {
+            "title": "Just mark as paid!",
+            "description": "Use this to skip this payment without recording an amount",
+            "prompt": "Mark as paid without tracking the amount?",
+            "warning": "This will not record a payment amount."
+          },
+          "toast": {
+            "success": "Subscription marked as paid!",
+            "error": "Error marking subscription as paid",
+            "custom": {
+              "success": "Subscription marked as paid with custom price!",
+              "error": "Error marking subscription as paid with custom price"
+            },
+            "noPrice": {
+              "success": "Subscription marked as paid without payment!",
+              "error": "Error marking subscription as paid without payment"
+            },
+            "failed": "Failed to update!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "You will be notified <date></date> via {channels}.",
+          "willBeNotifiedSoon": "You will be notified soon via {channels}.",
+          "willBeRemindedAt": "You will be reminded <date></date> via {channels} again.",
+          "willBeRemindedSoon": "You will be reminded soon via {channels} again.",
+          "wontBeNotified": "You won't be notified.",
+          "types": {
+            "push": "notification",
+            "email": "email",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "Congratulations! You have paid all.",
+          "remaining": "You will pay this <trigger>{count, plural, =1 {# more time} other {# times}}</trigger>.",
+          "until": "Until {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "This will be paid via {methods}."
+        },
+        "pastPayments": {
+          "count": "You have made <highlight>{count, plural, one {# payment} other {# payments}}</highlight> so far."
+        },
+        "actions": {
+          "inactive": "هذا الاشتراك غير نشط.",
+          "edit": "تعديل اشتراك {name}",
+          "link": "رابط إلى {url}",
+          "notificationEnabled": "تم تفعيل {type}",
+          "notificationDisabled": "تم تعطيل {type}"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "إنشاء اشتراك",
+          "update": "تحديث الاشتراك"
+        },
+        "sections": {
+          "details": "تفاصيل الاشتراك",
+          "advanced": "الإعدادات المتقدمة"
+        },
+        "deleteDialog": {
+          "title": "حذف الاشتراك",
+          "description": "هل أنت متأكد من حذف هذا الاشتراك؟ لا يمكن التراجع عن هذا الإجراء."
+        },
+        "toast": {
+          "create": {
+            "error": "غريب، لا يمكن إنشاء الاشتراك!",
+            "success": "تم إنشاء الاشتراك بنجاح!"
+          },
+          "delete": {
+            "success": "تم حذف الاشتراك بنجاح!",
+            "error": "تعذر حذف الاشتراك!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "اشتراك جديد",
+        "noSubscription": "لم يتم العثور على اشتراكات"
+      }
+    },
+    "filters": {
+      "title": "فلاتر الاشتراكات",
+      "description": "طبّق الفلاتر واعثر على الاشتراكات التي تحتاجها",
+      "buttons": {
+        "filter": "تصفية الاشتراكات",
+        "reset": "إعادة ضبط الفلاتر"
+      },
+      "selectAll": "تحديد الكل",
+      "selectNone": "إلغاء تحديد الكل",
+      "status": {
+        "title": "الحالة",
+        "active": {
+          "title": "نشط",
+          "description": "التصفية حسب الاشتراكات النشطة"
+        },
+        "inactive": {
+          "title": "غير نشط",
+          "description": "التصفية حسب الاشتراكات غير النشطة"
+        }
+      },
+      "paymentDate": {
+        "title": "تاريخ الدفع",
+        "all": {
+          "title": "الكل",
+          "description": "تعطيل جميع فلاتر تاريخ الدفع"
+        },
+        "thisMonth": {
+          "title": "هذا الشهر",
+          "description": "التصفية حسب هذا الشهر"
+        },
+        "next30Days": {
+          "title": "الأيام 30 القادمة",
+          "description": "التصفية حسب الأيام 30 القادمة"
+        }
+      },
+      "currencies": {
+        "title": "العملات",
+        "all": {
+          "description": "تحديد جميع العملات"
+        },
+        "clear": {
+          "description": "مسح جميع العملات"
+        },
+        "filter": "التصفية حسب {currency}"
+      },
+      "categories": {
+        "title": "الفئات",
+        "uncategorized": "غير مصنف",
+        "all": {
+          "description": "تحديد جميع الفئات"
+        },
+        "clear": {
+          "description": "مسح جميع الفئات"
+        },
+        "filterBy": "التصفية حسب {category}"
+      },
+      "paymentMethods": {
+        "title": "طرق الدفع",
+        "unspecified": "غير محدد",
+        "all": {
+          "description": "تحديد جميع طرق الدفع"
+        },
+        "clear": {
+          "description": "مسح جميع طرق الدفع"
+        },
+        "filterBy": "التصفية حسب {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "سيُدفع {price} {count, plural, one {# مرة} other {# مرات}}"
+      },
+      "overview": {
+        "title": "نظرة عامة",
+        "total": "<count></count> إجمالي الاشتراكات",
+        "active": "<count></count> اشتراكات نشطة",
+        "inactive": "<count></count> اشتراكات غير نشطة"
+      },
+      "costAverages": {
+        "title": "متوسطات التكلفة",
+        "description": "متوسط تكاليف الاشتراكات الشهرية والسنوية",
+        "monthly": "المتوسط الشهري",
+        "yearly": "المتوسط السنوي"
+      },
+      "monthlyCost": {
+        "title": "نظرة عامة على التكلفة الشهرية",
+        "description": "تتبّع تكاليف اشتراكاتك الشهرية"
+      },
+      "yearlyCost": {
+        "title": "نظرة عامة على التكلفة السنوية",
+        "description": "تتبّع تكاليف اشتراكاتك السنوية"
+      },
+      "upcomingPayments": {
+        "title": "المدفوعات القادمة",
+        "description": "تتبّع مدفوعاتك القادمة",
+        "noPayments": "لا توجد مدفوعات قادمة خلال شهر.",
+        "nextMonth": "الشهر القادم"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "هذا الشهر",
+          "description": "حتى نهاية الشهر"
+        },
+        "nextMonth": {
+          "title": "الشهر القادم",
+          "description": "الشهر القادم فقط"
+        },
+        "next30Days": {
+          "title": "الأيام 30 القادمة",
+          "description": "فترة متحركة"
+        },
+        "thisYear": {
+          "title": "هذا العام",
+          "description": "حتى نهاية العام"
+        },
+        "nextYear": {
+          "title": "العام القادم",
+          "description": "السنة التقويمية القادمة"
+        },
+        "next365Days": {
+          "title": "الأيام 365 القادمة",
+          "description": "فترة متحركة"
+        }
+      },
+      "tabs": {
+        "byCategories": "حسب الفئات",
+        "byPaymentMethods": "حسب طرق الدفع"
+      },
+      "mostExpensive": {
+        "monthly": "أعلى اشتراك شهري تكلفة",
+        "yearly": "أعلى اشتراك سنوي تكلفة"
+      },
+      "modal": {
+        "category": {
+          "description": "مدفوعات {period} في هذه الفئة",
+          "noSubscriptions": "لم يتم العثور على اشتراكات في هذه الفئة"
+        },
+        "paymentMethod": {
+          "description": "مدفوعات {period} عبر طريقة الدفع هذه",
+          "noSubscriptions": "لم يتم العثور على اشتراكات عبر طريقة الدفع هذه"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "رابط",
+        "linkTitle": "رابط الاشتراك",
+        "editTitle": "تعديل الاشتراك"
+      },
+      "overview": {
+        "title": "نظرة عامة",
+        "description": "المقاييس الرئيسية لهذا الاشتراك",
+        "disabled": "هذا الاشتراك معطل حاليًا. يمكنك تفعيله مجددًا في أي وقت.",
+        "unpaid": {
+          "hasUnpaid": "لديك <count>{count, plural, one {# دفعة غير مدفوعة} other {# دفعات غير مدفوعة}}</count> لهذا الاشتراك بإجمالي <total>{total}</total>.",
+          "allPaid": "أحسنت! هذا الاشتراك مدفوع بالكامل حتى الآن."
+        },
+        "nextPayment": {
+          "scheduled": "تستحق دفعتك التالية بقيمة <price>{price}</price> في <date>{date}</date>، أي بعد <distance>{distance}</distance>.",
+          "none": "رائع! لا توجد دفعات مستقبلية مجدولة لهذا الاشتراك."
+        },
+        "endDate": {
+          "hasEndDate": "سينتهي هذا الاشتراك في <date>{date}</date>.",
+          "ongoing": "هذا اشتراك مستمر بلا تاريخ انتهاء محدد."
+        },
+        "remainingPayments": {
+          "withEndDate": "يتطلب هذا الاشتراك <count>{count, plural, one {# دفعة} other {# دفعات}}</count> بإجمالي <total>{total}</total>.",
+          "thisYear": "يتطلب هذا الاشتراك <count>{count, plural, one {# دفعة} other {# دفعات}}</count> هذا العام، بإجمالي <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "سيُدفع هذا الاشتراك عبر <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "أجريت <countTag>{count, plural, one {# دفعة} other {# دفعات}}</countTag> لهذا الاشتراك حتى الآن، بإجمالي <totalTag>{total}</totalTag>.",
+          "yearStats": " خلال العام الماضي، أجريت <countTag>{count, plural, one {# دفعة} other {# دفعات}}</countTag>، بإجمالي <totalTag>{total}</totalTag>.",
+          "none": "هذا اشتراك بلا سجل مدفوعات حتى الآن."
+        },
+        "notifications": {
+          "title": "ستتلقى إشعارات:",
+          "none": "لم يتم إعداد إشعارات لهذا الاشتراك.",
+          "item": "<timing></timing> عبر <channels></channels>.",
+          "itemNoType": "<timing></timing> لكن <error>لم يتم تحديد نوع إشعار</error>.",
+          "timing": {
+            "instant": "في موعد الدفع",
+            "minutes": "{count, plural, one {قبل الدفع بدقيقة واحدة} other {قبل الدفع بـ # دقائق}}",
+            "hours": "{count, plural, one {قبل الدفع بساعة واحدة} other {قبل الدفع بـ # ساعات}}",
+            "days": "{count, plural, one {قبل الدفع بيوم واحد} other {قبل الدفع بـ # أيام}}",
+            "weeks": "{count, plural, one {قبل الدفع بأسبوع واحد} other {قبل الدفع بـ # أسابيع}}"
+          },
+          "types": {
+            "email": "بريد إلكتروني",
+            "push": "إشعار push",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "سيكون الإشعار التالي في <date>{date}</date>، أي بعد <distance>{distance}</distance> عبر <channels></channels>.",
+          "soon": "قريبًا"
+        }
+      },
+      "costBreakdown": {
+        "title": "تفصيل التكلفة",
+        "description": "الإنفاق المستقبلي على هذا الاشتراك",
+        "periods": {
+          "30days": "الأيام 30 القادمة",
+          "3months": "الأشهر 3 القادمة",
+          "12months": "الأشهر 12 القادمة"
+        }
+      },
+      "notes": {
+        "title": "ملاحظات"
+      },
+      "paymentSchedule": {
+        "title": "جدول الدفع",
+        "description": "تواريخ الدفع القادمة خلال عام",
+        "noUpcoming": "لا توجد دفعات قادمة",
+        "more": "+ {count} أخرى",
+        "totalPayments": "إجمالي المدفوعات:",
+        "total": "الإجمالي:"
+      },
+      "latestPayments": {
+        "title": "أحدث المدفوعات",
+        "description": "أحدث المدفوعات لهذا الاشتراك",
+        "none": "لم تُسجل مدفوعات سابقة لهذا الاشتراك بعد.",
+        "status": {
+          "onTime": "في الموعد",
+          "late": "متأخر {distance}",
+          "early": "مبكر {distance}"
+        },
+        "popover": {
+          "paidStatus": "هذا الاشتراك مدفوع <status>{status}</status>.",
+          "scheduled": "مجدول:",
+          "actual": "فعلي:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "التثبيت كتطبيق",
+      "description": "لأفضل تجربة، نوصي بتثبيت التطبيق على شاشتك الرئيسية!",
+      "buttons": {
+        "gotIt": "فهمت",
+        "maybeLater": "ربما لاحقًا",
+        "installNow": "التثبيت الآن"
+      },
+      "common": {
+        "addToHomeScreen": "إضافة إلى الشاشة الرئيسية",
+        "clickIcon": "انقر على أيقونة <icon></icon>",
+        "scrollDownClick": "مرر لأسفل وانقر"
+      },
+      "ios": {
+        "safari": {
+          "title": "خطوات التثبيت على iOS",
+          "step3": "اضغط «إضافة» للتأكيد"
+        },
+        "chrome": {
+          "title": "خطوات التثبيت على Chrome في iOS"
+        },
+        "firefox": {
+          "title": "خطوات التثبيت على Firefox في iOS",
+          "step2": "مرر لأسفل وانقر زر <icon></icon>",
+          "step3": "ثم انقر"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "خطوات التثبيت على Chrome"
+        },
+        "firefox": {
+          "title": "خطوات التثبيت على Firefox"
+        }
+      },
+      "unknown": {
+        "title": "خطوات التثبيت",
+        "step1": "ابحث عن خيار مثل «إضافة إلى الشاشة الرئيسية» أو «تثبيت التطبيق» في قائمة المتصفح",
+        "step2": "يوجد الخيار عادةً في القائمة الرئيسية (ويمثله غالبًا ثلاث نقاط أو خطوط)",
+        "step3": "اتبع تعليمات التثبيت الخاصة بمتصفحك"
+      }
+    },
+    "searchBar": {
+      "placeholder": "بحث..."
+    }
+  }
+}

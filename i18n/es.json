@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "Añadir",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "confirm": "Confirmar",
+    "view": "Ver",
+    "close": "Cerrar",
+    "contact": "Contáctanos",
+    "signIn": "Iniciar sesión",
+    "termsOfService": "Términos del servicio",
+    "privacyPolicy": "Política de privacidad"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} Recordatorio de pago",
+        "message": "Just un recordatorio esa tu {siteName} suscripción es ending pronto."
+      },
+      "payment": {
+        "title": {
+          "due": "Pago pendiente de {name}",
+          "reminder": "Recordatorio de pago de {name}",
+          "upcoming": "Próximo pago de {name}"
+        },
+        "message": {
+          "due": "Tu {name} suscripción pago ({price}) es due now!",
+          "reminder": "Tu {name} suscripción pago ({price}) es overdue!",
+          "upcoming": "Tu {name} suscripción pago ({price}) es {dueText}!"
+        },
+        "markAsPaid": "Marcar como pagado",
+        "dismiss": "Descartar"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} suscripción Reminder",
+      "footer": "Sent por {siteName}",
+      "visitDashboard": "Visitar el panel",
+      "paymentQuestion": "¿Terminaste el pago??",
+      "viewDetails": "Ver detalles"
+    }
+  },
+  "header": {
+    "signOut": "Cerrar sesión",
+    "subscriptions": "suscripciones",
+    "reports": "Informes",
+    "settings": "Configuración",
+    "account": "Cuenta"
+  },
+  "footer": {
+    "madeBy": "Operated con hope por <author>{name}</author>.",
+    "github": "Código fuente",
+    "menu": "Menú"
+  },
+  "languages": {
+    "selectLanguage": "Seleccionar idioma",
+    "invalid": "Idioma no válido",
+    "failed": "No se pudo cambiar el idioma"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "Uso gratuito. Alojado por una persona.",
+        "title": "Registra cada suscripción. No pierdas ningún pago.",
+        "subtitle": "{appName} keeps recurrentes cargos en uno readable dashboard y reminds tú antes they hit.",
+        "tagline": "Uso gratuito. Sin tarjeta, sin prueba gratuita y sin ventas adicionales."
+      },
+      "features": {
+        "title": "What it does",
+        "subtitle": "Everything el software does, y nothing tú tiene a pagar para.",
+        "billingCycles": {
+          "title": "Ciclos de facturación flexibles",
+          "description": "Support para mensual, anual, y custom billing intervals"
+        },
+        "notifications": {
+          "title": "Notificaciones inteligentes",
+          "description": "Reminders por email, push, webhook, ntfy, Discord, o Slack"
+        },
+        "reports": {
+          "title": "Informes y análisis",
+          "description": "Track tu gastos con detailed reports y insights"
+        },
+        "currencies": {
+          "title": "Múltiples monedas",
+          "description": "Support para multiple currencies con real-time costo tracking"
+        },
+        "timezone": {
+          "title": "Compatibilidad con zonas horarias",
+          "description": "Track suscripciones across diferentes timezones con automáticas date conversions"
+        },
+        "categories": {
+          "title": "Gestión de categorías",
+          "description": "Organize suscripciones con custom categorías y color coding"
+        }
+      },
+      "howItWorks": {
+        "title": "Cómo funciona",
+        "subtitle": "Comienza en minutos",
+        "step1": {
+          "title": "Inicia sesión con un enlace",
+          "description": "Enter tu email, abre el enlace, y tú son en. Sin contraseñas que recordar."
+        },
+        "step2": {
+          "title": "Añade lo que pagas",
+          "description": "Log cada suscripción con its price, billing cycle, y currency."
+        },
+        "step3": {
+          "title": "Deja que lleguen los recordatorios",
+          "description": "Choose el canales tú want, then mark un pago as pagado straight de el notificación."
+        }
+      },
+      "free": {
+        "eyebrow": "Gratis",
+        "title": "Gratis, sin condiciones",
+        "description": "El software es abre código fuente. Esta instance es hosted para people who no puede run their own.",
+        "price": "€0",
+        "period": "para siempre",
+        "features": {
+          "unlimited": "Suscripciones ilimitadas",
+          "notifications": "Correo electrónico, push, webhook, ntfy, Discord, y Slack recordatorios",
+          "reports": "Informes y gastos insights",
+          "export": "Export tu data any vez",
+          "noAds": "Sin anuncios, seguimiento ni datos de pago",
+          "bestEffort": "Mejor esfuerzo, sin garantía de disponibilidad"
+        },
+        "button": "Iniciar sesión",
+        "selfHostButton": "Alojalo en tu propio servidor",
+        "selfHostNote": "Prefer tu own server? El same software runs con Docker en sobre ten minutes."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Página no encontrada",
+        "description": "El página you're looking para doesn't exist."
+      },
+      "title": "404",
+      "backToHome": "Volver al inicio"
+    },
+    "account": {
+      "meta": {
+        "title": "Configuración de la cuenta",
+        "description": "Manage tu cuenta settings y preferencias."
+      },
+      "defaultSettings": {
+        "title": "Configuración predeterminada",
+        "description": "Configure tu predeterminado settings para nuevo suscripciones",
+        "timezone": {
+          "label": "Zona horaria",
+          "success": "Zona horaria updated successfully.",
+          "error": "No se pudo update timezone!"
+        },
+        "currency": {
+          "label": "Moneda",
+          "success": "Moneda updated successfully.",
+          "error": "No se pudo update currency!"
+        }
+      },
+      "notifications": {
+        "success": "Notification preferencias saved.",
+        "error": "No se pudo save notificación preferencias!",
+        "saveButton": "Guardar cambios",
+        "saveButtonTitle": "Guardar notificación preferencias"
+      },
+      "profile": {
+        "success": "Tu name ha been updated successfully.",
+        "error": "No se pudo update tu name!",
+        "namePlaceholder": "Enter tu name",
+        "addNamePrompt": "Añadir tu name",
+        "memberSince": "Member since {date}"
+      },
+      "categories": {
+        "title": "Categorías",
+        "description": "Manage tu categorías",
+        "default": {
+          "load": "Load predeterminado categorías",
+          "success": "Default categorías loaded successfully.",
+          "error": "No se pudo create predeterminado categorías!"
+        },
+        "save": {
+          "success": "Category saved successfully.",
+          "error": "No se pudo save categoría!"
+        },
+        "addButtonTitle": "Añadir categoría nueva",
+        "selectColor": "Seleccionar color",
+        "namePlaceholder": "Nombre de la categoría",
+        "delete": {
+          "title": "Eliminar categoría",
+          "description": "Are tú sure tú want a delete esta categoría? Esta action no puede ser undone.",
+          "success": "Category deleted successfully.",
+          "error": "No se pudo delete categoría!"
+        },
+        "invalid": "No válido categoría data",
+        "edit": "Editar categoría"
+      },
+      "paymentMethods": {
+        "title": "Métodos de pago",
+        "description": "Manage tu pago methods",
+        "add": "Añadir nuevo pago method",
+        "edit": "Editar pago method",
+        "invalid": "No válido pago method data",
+        "placeholder": "Payment method name",
+        "load": {
+          "title": "Load predeterminado pago methods",
+          "success": "Default pago methods loaded successfully.",
+          "error": "No se pudo create predeterminado pago methods!"
+        },
+        "save": {
+          "success": "Payment method saved successfully.",
+          "error": "No se pudo save pago method!"
+        },
+        "delete": {
+          "title": "Eliminar Método de pago",
+          "description": "Are tú sure tú want a delete esta pago method? Esta action no puede ser undone.",
+          "success": "Payment method deleted successfully.",
+          "error": "No se pudo delete pago method!"
+        }
+      },
+      "externalServices": {
+        "title": "Servicios externos",
+        "description": "Configure integrations con external servicios",
+        "testNotification": {
+          "title": "{siteName} Notificación de prueba",
+          "message": "Esta es un test {service} mensaje de {siteName}. Tu {service} integration es configured correctamente."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Recibe notificaciones mediante ntfy.",
+          "toast": {
+            "disable": {
+              "success": "ntfy integración desactivada.",
+              "error": "No se pudo disable ntfy integration!"
+            },
+            "save": {
+              "success": "ntfy configuración guardada correctamente.",
+              "error": "No se pudo save ntfy configuration!"
+            },
+            "test": {
+              "success": "Notificación de prueba enviada.",
+              "error": "No se pudo enviar test ntfy notificación!"
+            },
+            "notEnabled": "ntfy integration es no activado.",
+            "invalidParams": "No válido parameters! Cannot save el ntfy configuration.",
+            "testInvalidParams": "No válido parameters! Cannot enviar test notificación."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "URL del servidor",
+              "placeholder": "ntfy.sh o self-hosted URL"
+            },
+            "topic": {
+              "label": "Nombre del tema"
+            },
+            "token": {
+              "label": "Access Token (Optional)",
+              "placeholder": "Access Token"
+            }
+          },
+          "buttons": {
+            "save": "Guardar ntfy",
+            "test": "Test ntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "Recibe notificaciones mediante webhook.",
+          "toast": {
+            "disable": {
+              "success": "Webhook integración desactivada.",
+              "error": "No se pudo disable webhook integration!"
+            },
+            "save": {
+              "success": "Webhook configuración guardada correctamente.",
+              "error": "No se pudo save webhook configuration!"
+            },
+            "test": {
+              "success": "Notificación de prueba enviada.",
+              "error": "No se pudo enviar test webhook notificación!"
+            },
+            "notEnabled": "Webhook integration es no activado.",
+            "invalidParams": "No válido parameters! Cannot save el webhook configuration.",
+            "testInvalidParams": "No válido parameters! Cannot enviar test notificación."
+          },
+          "fields": {
+            "url": {
+              "label": "URL del servidor",
+              "placeholder": "Webhook server URL"
+            }
+          },
+          "buttons": {
+            "save": "Guardar webhook",
+            "test": "Probar webhook"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Recibe notificaciones mediante Discord.",
+          "toast": {
+            "disable": {
+              "success": "Discord integración desactivada.",
+              "error": "No se pudo disable Discord integration!"
+            },
+            "save": {
+              "success": "Discord configuración guardada correctamente.",
+              "error": "No se pudo save Discord configuration!"
+            },
+            "test": {
+              "success": "Notificación de prueba enviada.",
+              "error": "No se pudo enviar test Discord notificación!"
+            },
+            "notEnabled": "Discord integration es no activado.",
+            "invalidParams": "No válido parameters! Cannot save el Discord configuration.",
+            "testInvalidParams": "No válido parameters! Cannot enviar test notificación."
+          },
+          "fields": {
+            "url": {
+              "label": "URL del servidor",
+              "placeholder": "Discord server URL"
+            }
+          },
+          "buttons": {
+            "save": "Guardar Discord",
+            "test": "Test Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Recibe notificaciones mediante Slack.",
+          "toast": {
+            "disable": {
+              "success": "Slack integración desactivada.",
+              "error": "No se pudo disable Slack integration!"
+            },
+            "save": {
+              "success": "Slack configuración guardada correctamente.",
+              "error": "No se pudo save Slack configuration!"
+            },
+            "test": {
+              "success": "Notificación de prueba enviada.",
+              "error": "No se pudo enviar test Slack notificación!"
+            },
+            "notEnabled": "Slack integration es no activado.",
+            "invalidParams": "No válido parameters! Cannot save el Slack configuration.",
+            "testInvalidParams": "No válido parameters! Cannot enviar test notificación."
+          },
+          "fields": {
+            "url": {
+              "label": "URL del servidor",
+              "placeholder": "Slack server URL"
+            }
+          },
+          "buttons": {
+            "save": "Guardar Slack",
+            "test": "Test Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Exportación de datos",
+        "description": "Download un copy de tu suscripciones, categorías, pago methods y settings",
+        "button": "Exportar datos",
+        "toast": {
+          "success": "Datos exported successfully.",
+          "error": "No se pudo export data!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "Nueva suscripción",
+        "edit": "Editar {name}",
+        "unauthorized": "No autorizado"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Sign In"
+      },
+      "description": "Iniciar sesión con tu email a acceso tu cuenta o create un nuevo uno automatically",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "Login",
+        "loginWithProvider": "Login con {provider}"
+      },
+      "otp": {
+        "title": "Revisa tu bandeja de entrada",
+        "description": "We've enviado un enlace a tu email a sign en.",
+        "instructions": "Enter el 6-digit code enviado a tu email",
+        "divider": "o",
+        "resend": {
+          "prompt": "Didn't receive el email?",
+          "button": "Haz clic para reenviar",
+          "timer": "Tú puede resend en {seconds, plural, one {# second} other {# seconds}}"
+        }
+      },
+      "toast": {
+        "success": "¡Bienvenido! Has iniciado sesión correctamente.",
+        "error": {
+          "accessDenied": "Sorry but tú son no allowed a sign en!",
+          "generic": "Weird! We couldn't sign tú en. It might ser tu email, o something went wrong en our fin.",
+          "invalidCode": "El code looks incorrect. Double-check el 6 digits y try again.",
+          "somethingWrong": "Something went wrong. Please request un nuevo code y try again.",
+          "workspaceAccess": "Sorry, tú do no tiene acceso a esta workspace.",
+          "rateLimited": "Too many requests. Wait un minute y try again."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "Last updated November 15, 2026",
+      "introduction": {
+        "title": "Introduction",
+        "paragraph1": "sub.idler.me stores qué el app needs a work y nothing else. Esta página says exactly qué esa es.",
+        "paragraph2": "It es un pequeño, una persona servicio. There es no empresa, no publicidad, y no pago processing."
+      },
+      "informationWeCollect": {
+        "title": "Information We Collect",
+        "description": "What el database holds para tu cuenta:",
+        "items": {
+          "account": "Tu email address, y el name o avatar tu inicio de sesión provider returns.",
+          "subscription": "El suscripciones tú add: names, precios, currencies, billing dates, categorías, y pago method labels.",
+          "expense": "Which pagos tú marked as pagado, y cuando."
+        }
+      },
+      "howWeUse": {
+        "title": "How We Use It",
+        "description": "Tu data es used a:",
+        "items": {
+          "providing": "Show tu suscripciones, reports, y pago historial a tú.",
+          "managing": "Send el recordatorios tú configured, a el canales tú configured.",
+          "sending": "Sign tú en por email enlace.",
+          "improving": "Nothing else. No profiling, no ad networks, no selling."
+        }
+      },
+      "dataProtection": {
+        "title": "Datos Protection",
+        "description": "Datos lives en un Postgres database en infrastructure el operador controls. It es no shared con third parties beyond el notificación canales tú enable yourself. There es no encryption-at-rest promise beyond el host's defaults."
+      },
+      "analytics": {
+        "title": "Cookies y Analytics",
+        "description": "No third-party analytics y no tracking scripts. El app stores tu session cookie, tu idioma choice, y tu cookie preferencias en tu browser."
+      },
+      "yourRights": {
+        "title": "Tu Rights",
+        "description": "Tú puede:",
+        "items": {
+          "access": "Export cada record el app holds sobre tú de el cuenta página.",
+          "correct": "Change tu settings a any vez.",
+          "delete": "Ask para deletion de tu cuenta y its data.",
+          "optOut": "Decline non-essential cookies en el cookie banner."
+        }
+      },
+      "contactUs": {
+        "description": "If tú tiene any questions sobre our Política de privacidad o cómo we handle tu data, reach el operador en Matrix de el <link>contact página</link>."
+      },
+      "updates": {
+        "title": "Updates a Esta Policy",
+        "description": "Esta página cambios cuando el software o el deployment cambios. El date a el top es el actual version."
+      },
+      "operator": {
+        "title": "Who Runs Esta",
+        "description": "sub.idler.me es operated por uno person en self-hosted infrastructure as un comunidad servicio, no un empresa. There es no pago processing y no publicidad."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "suscripción Report"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "No autorizado",
+        "view": "Ver {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Last updated November 15, 2026",
+      "welcome": "Welcome a el {siteName} sitio web (el \"Site\"). By accessing o using el Site, tú agree a comply con y ser bound por el following términos y condiciones (\"Términos del servicio\").",
+      "overview": {
+        "title": "Resumen",
+        "paragraph1": "{siteName} offers esta Site, incluidos todos información, tools, y servicios disponible de esta Site a tú, el user, conditioned upon tu acceptance de todos términos, condiciones, policies, y notices stated here.",
+        "paragraph2": "Please lee these Términos del servicio carefully antes accessing o using el Site. By accessing o using any part de el Site, tú agree a ser bound por these Términos del servicio. If tú do no agree a todos el términos y condiciones de esta acuerdo, then tú may no acceso el Site o use any servicios. If these Términos del servicio son considered un offer, acceptance es expressly limited a these Términos del servicio.",
+        "paragraph3": "Any nuevo features o tools which son added a el Site shall also ser subject a el Términos del servicio. Tú puede review el most actual version de el Términos del servicio a any vez en esta página. Site reserves el right a update, cambia o replace any part de these Términos del servicio por posting updates y/o cambios a el Site. It es tu responsibility a check esta página periodically para cambios. Tu continued use de o acceso a el Site following el posting de any cambios constitutes acceptance de those cambios."
+      },
+      "websiteTerms": {
+        "title": "Website Terms",
+        "paragraph1": "By agreeing a these Términos del servicio, tú represent esa tú son a least el age de majority en tu state o province de residence, o esa tú son el age de majority en tu state o province de residence y tú tiene given us tu consent a allow any de tu minor dependents a use esta site.",
+        "paragraph2": "El use de our servicios must comply con todos applicable leyes y regulations. Specifically:",
+        "items": {
+          "unlawful": "Tú agree no a use our products para any unlawful o unauthorized purposes",
+          "comply": "Tú must comply con todos leyes en tu jurisdicción, incluidos copyright y intelectual propiedad leyes",
+          "malicious": "Tú may no transmit malicious code, viruses, o otro harmful contenido"
+        },
+        "paragraph3": "Please note esa any violation de these Términos del servicio se lead a immediate termination de tu acceso a our Services."
+      },
+      "cookies": {
+        "title": "Use de Cookies",
+        "description": "Site uses cookies y similar technologies (such as local storage) a track tu usage de el Site y para marketing purposes. By using el Site, tú consent a el use de cookies en accordance con our <privacy>Política de privacidad</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property",
+        "description": "El software es licensed under el MIT licencia con un Commons Clause, copyright meceware. Esta deployment adds no proprietary contenido de its own."
+      },
+      "disclaimer": {
+        "title": "Disclaimer",
+        "description": "El información y contenido en el Site son proporcionado para informational purposes solo y son no intended as professional advice. Site makes no representations o warranties de any kind, express o implied, sobre el accuracy, reliability, completeness, o suitability de el información y contenido en el Site. Tú use el Site a tu own risk."
+      },
+      "limitationOfLiability": {
+        "title": "Limitation de Liability",
+        "description": "{siteName} shall no ser held responsible para any indirect, incidental, special, o consequential damages esa may occur de tu use de el Site, regardless de whether such damages arise de contract, tort, negligence, strict liability, o any otro legal theory. El maximum amount Site may ser liable para en any claim related a el Site es limited a el total suscripción fees tú tiene pagado en el last 12 months."
+      },
+      "changes": {
+        "title": "Changes a el Términos del servicio",
+        "description": "Site may update o modify these Términos del servicio de vez a vez, y any cambios se ser effective upon posting en el Site. Tu continued use de el Site after any such cambios constitutes tu acceptance de el revised Términos del servicio."
+      },
+      "indemnification": {
+        "title": "Indemnification",
+        "description": "Tú agree a indemnify y hold harmless {siteName}, its affiliates, officers, directors, employees, agents, y licensors de y against any claims, liabilities, damages, losses, y expenses, incluidos sin limitation reasonable attorney's fees, arising out de o en connection con tu use de el Site, tu violation de these Términos del servicio, o tu violation de any derechos de another party."
+      },
+      "modifications": {
+        "title": "Modifications a el Service y Prices",
+        "paragraph1": "Prices para our servicios son subject a cambia sin notice. Site reserves el right a any vez a modify o discontinue el Service (o any part o contenido thereof) sin notice a any vez.",
+        "paragraph2": "Site shall no ser liable a tú o a any third-party para any modification, price cambia, suspension, o discontinuance de el Service."
+      },
+      "governingLaw": {
+        "title": "Governing Law y Jurisdiction",
+        "description": "These Términos del servicio shall ser governed por y construed en accordance con el leyes de el jurisdicción donde {siteName} es headquartered sin giving effect a any principles de conflicts de law. Tú agree a submit a el exclusive jurisdicción de el courts en esa jurisdicción para any disputes arising out de o en connection con these Términos del servicio o tu use de el Site."
+      },
+      "entireAgreement": {
+        "title": "Entire Agreement",
+        "description": "These Términos del servicio constitute el entire acuerdo between tú y {siteName} regarding tu use de el Site y supersede todos prior y contemporaneous agreements y understandings, whether oral o written, relating a el same subject matter."
+      },
+      "severability": {
+        "title": "Severability",
+        "description": "If any provision de these Términos del servicio es found a ser invalid, illegal, o unenforceable, el remaining provisions shall continue en full force y effect."
+      },
+      "waiver": {
+        "title": "Waiver",
+        "description": "El fallo de {siteName} a enforce any right o provision de these Términos del servicio shall no constitute un waiver de esa right o provision."
+      },
+      "contactUs": {
+        "description": "If tú tiene any questions o concerns sobre these Términos del servicio, reach el operador en Matrix de el <link>contact página</link>."
+      },
+      "freeService": {
+        "title": "Gratis Service, No Billing",
+        "paragraph1": "sub.idler.me es gratuito a use. There son no plans, no trials, no tarjeta fields, y no refunds, because no money cambios hands.",
+        "paragraph2": "El software es abre código fuente under el MIT licencia con un Commons Clause. Tú may self-host it. Esta instance exists para people who no puede o would rather no run their own.",
+        "paragraph3": "El servicio es proporcionado as es y best effort. There es no uptime promise y no garantía esa data survives un fallo. Export tu data regularly y mantén tu own backups."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "El fastest way a reach el operador es Matrix. More canales son en el way.",
+      "matrix": {
+        "label": "Message en Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "More canales",
+        "note": "Coming pronto."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} Notificación de prueba",
+          "message": "Esta es un test notificación de {siteName}. If tú son seeing esta, it means push notificaciones son funcionando correctamente!"
+        }
+      },
+      "email": {
+        "header": "Recordatorio de pago",
+        "footer": "Esta es un friendly recordatorio email de {siteName}.",
+        "thanks": "Thanks",
+        "madeBy": "Made con ♥ por {siteLink}"
+      },
+      "bell": {
+        "title": "Notificaciones",
+        "unreadTitle": "Unread notificaciones",
+        "clearAll": "Borrar todo",
+        "removeNotification": "Eliminar notificación",
+        "noNotifications": "No hay notificaciones nuevas"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Mantente al día",
+          "description": "Get timely recordatorios sobre tu suscripción pagos y due dates. We'll notify tú antes pagos son due y cuando suscripciones son sobre a expire.",
+          "maybeLater": "Quizás más tarde",
+          "enable": "Activar notificaciones",
+          "enabling": "Enabling..."
+        },
+        "toast": {
+          "success": "Tú se now receive suscripción recordatorios.",
+          "error": "No se pudo enable notificaciones. Please try again.",
+          "permissionRequired": {
+            "title": "Se requiere permiso",
+            "description": "Please allow notificaciones a receive recordatorios."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "El nombre debe tener al menos 2 caracteres.",
+        "paymentDate": "That's no un válido date!",
+        "color": "Color hexadecimal no válido"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Daily} other {Every # days}}",
+        "WEEKS": "{count, plural, =1 {Weekly} other {Every # weeks}}",
+        "MONTHS": "{count, plural, =1 {Monthly} other {Every # months}}",
+        "YEARS": "{count, plural, =1 {Annually} other {Every # years}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Categorías",
+            "selected": "{count, plural, =0 {Select categories} one {# category selected} other {# categories selected}}",
+            "search": "Buscar categoría...",
+            "create": "Crear categoría nueva \"{value}\""
+          },
+          "currency": {
+            "label": "Moneda",
+            "placeholder": "Seleccionar moneda",
+            "search": "Buscar moneda...",
+            "noResults": "¡No se encontraron resultados!"
+          },
+          "cycle": {
+            "label": "Ciclo de facturación",
+            "placeholder": "Seleccionar ciclo de facturación",
+            "options": {
+              "daily": "Diario",
+              "weekly": "Semanal",
+              "monthly": "Mensual",
+              "yearly": "Anual",
+              "custom": "Personalizado"
+            },
+            "units": {
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}",
+              "months": "{count, plural, one {Month} other {Months}}",
+              "years": "{count, plural, one {Year} other {Years}}"
+            },
+            "unitPlaceholder": "Unidad"
+          },
+          "name": {
+            "label": "Nombre",
+            "placeholder": "Nombre de la suscripción"
+          },
+          "notes": {
+            "label": "Notas",
+            "placeholder": "Añadir notas..."
+          },
+          "notifications": {
+            "title": "Notificaciones",
+            "description": "Configure el predeterminado notificaciones para tu suscripciones",
+            "via": "Via",
+            "whenToNotify": "Cuándo notificar",
+            "whenPlaceholder": "Seleccionar cuándo notificar",
+            "unitPlaceholder": "Unidad",
+            "addNotification": "Añadir notificación",
+            "deleteDialog": {
+              "title": "Confirmar eliminación",
+              "description": "Are tú sure tú want a remove esta notificación template?"
+            },
+            "status": {
+              "denied": "Push notificaciones son blocked en esta device. Please enable them en tu browser settings.",
+              "default": "Push notificaciones son no activado en esta device. <link>Would tú like a enable it?</link>",
+              "grantedNotConfigured": "Push notificación permission es granted but it es no properly configured. <link>Would tú like a enable it?</link>",
+              "grantedConfigured": "Push notificaciones son activado para esta device. Would tú like a enviar un <link>test push notificación</link>?"
+            },
+            "toast": {
+              "success": "Push notificación enviado! Check tu device(s).",
+              "error": "No se pudo enviar test push notificación! Make sure notificaciones son activado y configured correctamente."
+            },
+            "timeOptions": {
+              "instant": "En la fecha de pago",
+              "15minutes": "15 minutes antes",
+              "1hour": "1 hour antes",
+              "2hours": "2 hours antes",
+              "1day": "1 day antes",
+              "2days": "2 days antes",
+              "1week": "1 week antes",
+              "custom": "Personalizado"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minute} other {Minutes}}",
+              "hours": "{count, plural, one {Hour} other {Hours}}",
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}"
+            },
+            "types": {
+              "push": {
+                "label": "Notificaciones push",
+                "ariaLabel": "Toggle push"
+              },
+              "email": {
+                "label": "Notificaciones por correo electrónico",
+                "ariaLabel": "Toggle email"
+              },
+              "webhook": {
+                "label": "Notificaciones de webhook",
+                "ariaLabel": "Toggle webhook"
+              },
+              "ntfy": {
+                "label": "ntfy Notificaciones",
+                "ariaLabel": "Toggle ntfy"
+              },
+              "discord": {
+                "label": "Discord Notificaciones",
+                "ariaLabel": "Toggle Discord"
+              },
+              "slack": {
+                "label": "Slack Notificaciones",
+                "ariaLabel": "Toggle Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Próxima fecha de pago"
+          },
+          "paymentMethod": {
+            "label": "Método de pago",
+            "placeholder": "Seleccionar pago method",
+            "search": "Buscar pago method...",
+            "create": "Crear nuevo pago method \"{value}\""
+          },
+          "price": {
+            "label": "Precio"
+          },
+          "timezone": {
+            "label": "Zona horaria",
+            "placeholder": "Seleccionar timezone",
+            "search": "Buscar timezone...",
+            "noResults": "¡No se encontraron resultados!"
+          },
+          "untilDate": {
+            "label": "Válido hasta",
+            "description": "Leave empty para un indefinite suscripción"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logotipo",
+            "description": "Selecciona un icono predeterminado o introduce una URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} Zona horaria",
+        "paymentDate": {
+          "past": "Debió pagarse <date></date>.",
+          "future": "Se pagará <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Did tú pagar esta? <action>Marcar como pagado</action> o see <options>otras opciones</options>.",
+          "customPrice": {
+            "title": "¿Pagaste un importe diferente??",
+            "description": "Use esta if tú pagado más o menos than usual",
+            "prompt": "Introduce el importe pagado:"
+          },
+          "noPrice": {
+            "title": "¡Solo marcar como pagado!",
+            "description": "Use esta a skip esta pago sin recording un amount",
+            "prompt": "Marcar como pagado sin tracking el amount?",
+            "warning": "Esta se no record un pago amount."
+          },
+          "toast": {
+            "success": "suscripción marked as pagado!",
+            "error": "Error marking suscripción as pagado",
+            "custom": {
+              "success": "suscripción marked as pagado con custom price!",
+              "error": "Error marking suscripción as pagado con custom price"
+            },
+            "noPrice": {
+              "success": "suscripción marked as pagado sin pago!",
+              "error": "Error marking suscripción as pagado sin pago"
+            },
+            "failed": "No se pudo update!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "Tú se ser notified <date></date> mediante {channels}.",
+          "willBeNotifiedSoon": "Tú se ser notified pronto mediante {channels}.",
+          "willBeRemindedAt": "Tú se ser reminded <date></date> mediante {channels} again.",
+          "willBeRemindedSoon": "Tú se ser reminded pronto mediante {channels} again.",
+          "wontBeNotified": "Tú won't ser notified.",
+          "types": {
+            "push": "notificación",
+            "email": "email",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "¡Felicidades! Has pagado todo.",
+          "remaining": "Tú se pagar esta <trigger>{count, plural, =1 {# more time} other {# times}}</trigger>.",
+          "until": "Until {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "Esta se ser pagado mediante {methods}."
+        },
+        "pastPayments": {
+          "count": "Tú tiene made <highlight>{count, plural, one {# payment} other {# payments}}</highlight> so far."
+        },
+        "actions": {
+          "inactive": "Esta suscripción no está activa.",
+          "edit": "Editar {name} suscripción",
+          "link": "Link a {url}",
+          "notificationEnabled": "{type} son activado",
+          "notificationDisabled": "{type} son desactivado"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Crear suscripción",
+          "update": "Actualizar suscripción"
+        },
+        "sections": {
+          "details": "suscripción Detalles",
+          "advanced": "Advanced Configuración"
+        },
+        "deleteDialog": {
+          "title": "Eliminar suscripción",
+          "description": "Are tú sure tú want a delete esta suscripción? Esta action no puede ser undone."
+        },
+        "toast": {
+          "create": {
+            "error": "Interesting, no puede create suscripción!",
+            "success": "suscripción created successfully!"
+          },
+          "delete": {
+            "success": "suscripción deleted successfully!",
+            "error": "No se pudo delete suscripción!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "Nueva suscripción",
+        "noSubscription": "No se encontraron suscripciones"
+      }
+    },
+    "filters": {
+      "title": "Filtros de suscripciones",
+      "description": "Apply filters y find el suscripciones tú need",
+      "buttons": {
+        "filter": "Filtrar suscripciones",
+        "reset": "Restablecer filtros"
+      },
+      "selectAll": "Seleccionar todo",
+      "selectNone": "No seleccionar nada",
+      "status": {
+        "title": "Status",
+        "active": {
+          "title": "Activas",
+          "description": "Filter por active suscripciones"
+        },
+        "inactive": {
+          "title": "Inactivas",
+          "description": "Filter por inactive suscripciones"
+        }
+      },
+      "paymentDate": {
+        "title": "Fecha de pago",
+        "all": {
+          "title": "Todos",
+          "description": "Disable todos pago date filters"
+        },
+        "thisMonth": {
+          "title": "Este mes",
+          "description": "Filter por esta month"
+        },
+        "next30Days": {
+          "title": "Próximos 30 días",
+          "description": "Filter por next 30 days"
+        }
+      },
+      "currencies": {
+        "title": "Monedas",
+        "all": {
+          "description": "Seleccionar todos currencies"
+        },
+        "clear": {
+          "description": "Borrar todo currencies"
+        },
+        "filter": "Filter por {currency}"
+      },
+      "categories": {
+        "title": "Categorías",
+        "uncategorized": "Sin categoría",
+        "all": {
+          "description": "Seleccionar todos categorías"
+        },
+        "clear": {
+          "description": "Borrar todo categorías"
+        },
+        "filterBy": "Filter por {category}"
+      },
+      "paymentMethods": {
+        "title": "Métodos de pago",
+        "unspecified": "Unspecified",
+        "all": {
+          "description": "Seleccionar todos pago methods"
+        },
+        "clear": {
+          "description": "Borrar todo pago methods"
+        },
+        "filterBy": "Filter por {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} se ser pagado {count, plural, one {# time} other {# times}}"
+      },
+      "overview": {
+        "title": "Resumen",
+        "total": "<count></count> total suscripciones",
+        "active": "<count></count> active suscripciones",
+        "inactive": "<count></count> inactive suscripciones"
+      },
+      "costAverages": {
+        "title": "Promedios de costos",
+        "description": "Mensual y anual suscripción costo averages",
+        "monthly": "Promedio mensual",
+        "yearly": "Promedio anual"
+      },
+      "monthlyCost": {
+        "title": "Mensual Cost Resumen",
+        "description": "Track tu mensual suscripción costos"
+      },
+      "yearlyCost": {
+        "title": "Yearly Cost Resumen",
+        "description": "Track tu anual suscripción costos"
+      },
+      "upcomingPayments": {
+        "title": "Próximos pagos",
+        "description": "Track tu upcoming pagos",
+        "noPayments": "No hay próximos pagos en uno month.",
+        "nextMonth": "Próximo mes"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Este mes",
+          "description": "Until fin de month"
+        },
+        "nextMonth": {
+          "title": "Próximo mes",
+          "description": "Upcoming month solo"
+        },
+        "next30Days": {
+          "title": "Próximos 30 días",
+          "description": "Rolling period"
+        },
+        "thisYear": {
+          "title": "Este año",
+          "description": "Until fin de year"
+        },
+        "nextYear": {
+          "title": "Próximo año",
+          "description": "Próximo calendar year"
+        },
+        "next365Days": {
+          "title": "Próximo 365 Días",
+          "description": "Rolling period"
+        }
+      },
+      "tabs": {
+        "byCategories": "Por categorías",
+        "byPaymentMethods": "Por métodos de pago"
+      },
+      "mostExpensive": {
+        "monthly": "Most Expensive Mensual suscripción",
+        "yearly": "Most Expensive Yearly suscripción"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} pagos en esta categoría",
+          "noSubscriptions": "No se encontraron suscripciones en esta categoría"
+        },
+        "paymentMethod": {
+          "description": "{period} pagos mediante esta pago method",
+          "noSubscriptions": "No se encontraron suscripciones mediante esta pago method"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Link",
+        "linkTitle": "suscripción Link",
+        "editTitle": "Editar suscripción"
+      },
+      "overview": {
+        "title": "Resumen",
+        "description": "Key metrics para esta suscripción",
+        "disabled": "Esta suscripción es currently desactivado. Tú puede enable it again a any vez.",
+        "unpaid": {
+          "hasUnpaid": "Oh no! Tú tiene <count>{count, plural, one {# unpaid payment} other {# unpaid payments}}</count> para esta suscripción por un total de <total>{total}</total>.",
+          "allPaid": "Good job! Esta suscripción es fully pagado up a date."
+        },
+        "nextPayment": {
+          "scheduled": "Tu next pago de <price>{price}</price> es due en <date>{date}</date> which es <distance>{distance}</distance>.",
+          "none": "Congrats! There son no futuro pagos programado para esta suscripción."
+        },
+        "endDate": {
+          "hasEndDate": "Esta suscripción se fin en <date>{date}</date>.",
+          "ongoing": "Esta es un ongoing suscripción con no specified fin date."
+        },
+        "remainingPayments": {
+          "withEndDate": "Esta suscripción se require <count>{count, plural, one {# payment} other {# payments}}</count> por un total de <total>{total}</total>.",
+          "thisYear": "Esta suscripción se require <count>{count, plural, one {# payment} other {# payments}}</count> esta year, por un total de <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "Esta suscripción se ser pagado mediante <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "Tú tiene made <countTag>{count, plural, one {# payment} other {# payments}}</countTag> para esta suscripción so far, por un total de <totalTag>{total}</totalTag>.",
+          "yearStats": "In el past year, tú made <countTag>{count, plural, one {# payment} other {# payments}}</countTag>, por un total de <totalTag>{total}</totalTag>.",
+          "none": "Esta es un suscripción con no pago historial yet."
+        },
+        "notifications": {
+          "title": "Tú se receive notificaciones:",
+          "none": "No notificaciones son set up para esta suscripción.",
+          "item": "<timing></timing> mediante <channels></channels>.",
+          "itemNoType": "<timing></timing> but <error>no notificación type es set</error>.",
+          "timing": {
+            "instant": "At el pago date",
+            "minutes": "{count, plural, one {# minute} other {# minutes}} antes pago",
+            "hours": "{count, plural, one {# hour} other {# hours}} antes pago",
+            "days": "{count, plural, one {# day} other {# days}} antes pago",
+            "weeks": "{count, plural, one {# week} other {# weeks}} antes pago"
+          },
+          "types": {
+            "email": "email",
+            "push": "push notificación",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Próximo notificación se ser en <date>{date}</date> which es <distance>{distance}</distance> mediante <channels></channels>.",
+          "soon": "pronto"
+        }
+      },
+      "costBreakdown": {
+        "title": "Cost Breakdown",
+        "description": "Future gastos para esta suscripción",
+        "periods": {
+          "30days": "Próximo 30 days",
+          "3months": "Próximo 3 months",
+          "12months": "Próximo 12 months"
+        }
+      },
+      "notes": {
+        "title": "Notas"
+      },
+      "paymentSchedule": {
+        "title": "Calendario de pagos",
+        "description": "Upcoming pago dates en un year",
+        "noUpcoming": "No hay próximos pagos",
+        "more": "+ {count} más",
+        "totalPayments": "Total pagos:",
+        "total": "Total:"
+      },
+      "latestPayments": {
+        "title": "Pagos recientes",
+        "description": "Most recent pagos para esta suscripción",
+        "none": "No past pagos recorded para esta suscripción yet.",
+        "status": {
+          "onTime": "en vez",
+          "late": "{distance} tarde",
+          "early": "{distance} antes"
+        },
+        "popover": {
+          "paidStatus": "Esta suscripción es pagado <status>{status}</status>.",
+          "scheduled": "Scheduled:",
+          "actual": "Actual:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Instalar como aplicación",
+      "description": "For el best experience, we recommend installing el app a tu home screen!",
+      "buttons": {
+        "gotIt": "Entendido",
+        "maybeLater": "Quizás más tarde",
+        "installNow": "Instalar ahora"
+      },
+      "common": {
+        "addToHomeScreen": "Añadir un la pantalla de inicio",
+        "clickIcon": "Click el <icon></icon> icon",
+        "scrollDownClick": "Scroll down y haz clic"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS Installation Steps",
+          "step3": "Tap 'Añadir' a confirm"
+        },
+        "chrome": {
+          "title": "Chrome en iOS Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox en iOS Installation Steps",
+          "step2": "Scroll down y haz clic <icon></icon> button",
+          "step3": "Then haz clic"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox Installation Steps"
+        }
+      },
+      "unknown": {
+        "title": "Installation Steps",
+        "step1": "Look para un option like \"Añadir un la pantalla de inicio\" o \"Install App\" en tu browser's menu",
+        "step2": "El option es normalmente found en el main menu (a menudo represented por three dots o lines)",
+        "step3": "Follow tu browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Buscar..."
+    }
+  }
+}

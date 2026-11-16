@@ -69,10 +69,7 @@
   "languages": {
     "selectLanguage": "Dil seçin",
     "invalid": "Geçersiz dil",
-    "failed": "Dil değiştirilemedi",
-    "notAvailableTitle": "Dil Seçimi Kullanılamıyor",
-    "notAvailableMessage": "Fonksiyonel çerezler devre dışı olduğu ve giriş yapmadığınız için dil tercihleri değiştirilemiyor. Dili değiştirmek için şunlardan birini yapmanız gerekiyor:",
-    "enableCookies": "Fonksiyonel çerezleri etkinleştirin"
+    "failed": "Dil değiştirilemedi"
   },
   "home": {
     "visitor": {

@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "जोड़ें",
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "edit": "संपादित करें",
+    "delete": "हटाएँ",
+    "confirm": "पुष्टि करें",
+    "view": "देखें",
+    "close": "बंद करें",
+    "contact": "संपर्क करें",
+    "signIn": "साइन इन",
+    "termsOfService": "सेवा की शर्तें",
+    "privacyPolicy": "गोपनीयता नीति"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} भुगतान अनुस्मारक",
+        "message": "यह याद दिलाने के लिए एक अनुस्मारक है कि आपकी {siteName} सदस्यता जल्द समाप्त हो रही है."
+      },
+      "payment": {
+        "title": {
+          "due": "भुगतान देय {name}",
+          "reminder": "भुगतान अनुस्मारक {name}",
+          "upcoming": "आगामी भुगतान: {name}"
+        },
+        "message": {
+          "due": "आपकी {name} सदस्यता भुगतान ({price}) अब देय है!",
+          "reminder": "आपकी {name} सदस्यता भुगतान ({price}) की समय-सीमा बीत चुकी है!",
+          "upcoming": "आपकी {name} सदस्यता भुगतान ({price}) है {dueText}!"
+        },
+        "markAsPaid": "भुगतान किया हुआ चिह्नित करें",
+        "dismiss": "खारिज करें"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} सदस्यता अनुस्मारक",
+      "footer": "द्वारा भेजा गया: {siteName}",
+      "visitDashboard": "डैशबोर्ड पर जाएँ",
+      "paymentQuestion": "भुगतान पूरा हो गया?",
+      "viewDetails": "विवरण देखें"
+    }
+  },
+  "header": {
+    "signOut": "साइन आउट",
+    "subscriptions": "सदस्यताएँ",
+    "reports": "रिपोर्ट",
+    "settings": "सेटिंग्स",
+    "account": "खाता"
+  },
+  "footer": {
+    "madeBy": "आशा के साथ संचालित, <author>{name}</author>.",
+    "github": "स्रोत",
+    "menu": "मेनू"
+  },
+  "languages": {
+    "selectLanguage": "भाषा चुनें",
+    "invalid": "अमान्य भाषा",
+    "failed": "भाषा बदलने में विफल"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "निःशुल्क उपयोग. एक व्यक्ति द्वारा होस्ट किया गया.",
+        "title": "हर सदस्यता ट्रैक करें. कोई भुगतान न चूकें.",
+        "subtitle": "{appName} आवर्ती शुल्कों को एक स्पष्ट डैशबोर्ड में दिखाता है और उनसे पहले आपको याद दिलाता है।",
+        "tagline": "निःशुल्क उपयोग। कोई कार्ड नहीं, कोई ट्रायल नहीं, कोई अतिरिक्त बिक्री नहीं।"
+      },
+      "features": {
+        "title": "यह क्या करता है",
+        "subtitle": "सॉफ़्टवेयर की सभी सुविधाएँ, और आपके लिए कोई भुगतान नहीं।",
+        "billingCycles": {
+          "title": "लचीले बिलिंग चक्र",
+          "description": "समर्थन: मासिक, वार्षिक, और कस्टम बिलिंग अंतराल"
+        },
+        "notifications": {
+          "title": "स्मार्ट सूचनाएँ",
+          "description": "अनुस्मारक: ईमेल, पुश, वेबहुक, ntfy, Discord, या Slack"
+        },
+        "reports": {
+          "title": "रिपोर्ट और जानकारी",
+          "description": "विस्तृत रिपोर्ट और जानकारी से अपना खर्च ट्रैक करें"
+        },
+        "currencies": {
+          "title": "कई मुद्राएँ",
+          "description": "कई मुद्राओं के साथ वास्तविक समय में लागत ट्रैक करें"
+        },
+        "timezone": {
+          "title": "समय क्षेत्र समर्थन",
+          "description": "स्वचालित तिथि रूपांतरण के साथ अलग-अलग समय क्षेत्रों में सदस्यताएँ ट्रैक करें"
+        },
+        "categories": {
+          "title": "श्रेणी प्रबंधन",
+          "description": "कस्टम श्रेणियों और रंग संकेतों से सदस्यताएँ व्यवस्थित करें"
+        }
+      },
+      "howItWorks": {
+        "title": "यह कैसे काम करता है",
+        "subtitle": "कुछ ही मिनटों में शुरू करें",
+        "step1": {
+          "title": "लिंक से साइन इन करें",
+          "description": "अपना ईमेल दर्ज करें, लिंक खोलें और आप अंदर हैं। पासवर्ड याद रखने की आवश्यकता नहीं।"
+        },
+        "step2": {
+          "title": "जिन चीज़ों का भुगतान करते हैं उन्हें जोड़ें",
+          "description": "हर सदस्यता की कीमत, बिलिंग चक्र और मुद्रा दर्ज करें।"
+        },
+        "step3": {
+          "title": "अनुस्मारक आने दें",
+          "description": "अपने पसंदीदा माध्यम चुनें, फिर सूचना से सीधे भुगतान को चुकाया हुआ चिह्नित करें।"
+        }
+      },
+      "free": {
+        "eyebrow": "निःशुल्क",
+        "title": "निःशुल्क, बिना किसी शर्त के",
+        "description": "यह सॉफ़्टवेयर ओपन सोर्स है। यह इंस्टेंस उन लोगों के लिए होस्ट किया गया है जो अपना सर्वर नहीं चला सकते।",
+        "price": "€0",
+        "period": "हमेशा के लिए",
+        "features": {
+          "unlimited": "असीमित सदस्यताएँ",
+          "notifications": "ईमेल, पुश, वेबहुक, ntfy, Discord, और Slack अनुस्मारक",
+          "reports": "रिपोर्ट और खर्च की जानकारी",
+          "export": "अपना डेटा कभी भी निर्यात करें",
+          "noAds": "कोई विज्ञापन, ट्रैकिंग या भुगतान विवरण नहीं",
+          "bestEffort": "पूरी कोशिश, अपटाइम की कोई गारंटी नहीं"
+        },
+        "button": "साइन इन",
+        "selfHostButton": "स्वयं होस्ट करें",
+        "selfHostNote": "अपना सर्वर पसंद है? यही सॉफ़्टवेयर Docker के साथ लगभग दस मिनट में चलता है।"
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "पृष्ठ नहीं मिला",
+        "description": "आप जिस पृष्ठ को ढूँढ रहे हैं वह मौजूद नहीं है।"
+      },
+      "title": "404",
+      "backToHome": "होम पर वापस जाएँ"
+    },
+    "account": {
+      "meta": {
+        "title": "खाता सेटिंग्स",
+        "description": "प्रबंधित करें आपकी खाता सेटिंग्स और प्राथमिकताएँ."
+      },
+      "defaultSettings": {
+        "title": "डिफ़ॉल्ट सेटिंग्स",
+        "description": "अपनी डिफ़ॉल्ट सेटिंग्स के लिए नई सदस्यताएँ",
+        "timezone": {
+          "label": "समय क्षेत्र",
+          "success": "समय क्षेत्र सफलतापूर्वक अपडेट किया गया.",
+          "error": "विफल को अपडेट करें समय क्षेत्र!"
+        },
+        "currency": {
+          "label": "मुद्रा",
+          "success": "मुद्रा सफलतापूर्वक अपडेट किया गया.",
+          "error": "विफल को अपडेट करें मुद्रा!"
+        }
+      },
+      "notifications": {
+        "success": "सूचना प्राथमिकताएँ सहेजा गया।",
+        "error": "सहेजने में विफल सूचना प्राथमिकताएँ!",
+        "saveButton": "सहेजें बदलाव",
+        "saveButtonTitle": "सहेजें सूचना प्राथमिकताएँ"
+      },
+      "profile": {
+        "success": "आपकी नाम सफलतापूर्वक अपडेट किया गया.",
+        "error": "विफल को अपडेट करें आपकी नाम!",
+        "namePlaceholder": "दर्ज करें आपकी नाम",
+        "addNamePrompt": "जोड़ें आपकी नाम",
+        "memberSince": "सदस्यता शुरू हुई {date}"
+      },
+      "categories": {
+        "title": "श्रेणियाँ",
+        "description": "प्रबंधित करें आपकी श्रेणियाँ",
+        "default": {
+          "load": "लोड करें डिफ़ॉल्ट श्रेणियाँ",
+          "success": "डिफ़ॉल्ट श्रेणियाँ सफलतापूर्वक लोड की गईं.",
+          "error": "विफल को बनाएँ डिफ़ॉल्ट श्रेणियाँ!"
+        },
+        "save": {
+          "success": "श्रेणी सफलतापूर्वक सहेजा गया.",
+          "error": "सहेजने में विफल श्रेणी!"
+        },
+        "addButtonTitle": "जोड़ें नई श्रेणी",
+        "selectColor": "चुनें रंग",
+        "namePlaceholder": "श्रेणी नाम",
+        "delete": {
+          "title": "हटाएँ श्रेणी",
+          "description": "क्या आप वाकई हटाना चाहते हैं यह श्रेणी? यह कार्रवाई वापस नहीं ली जा सकती.",
+          "success": "श्रेणी सफलतापूर्वक हटाई गई.",
+          "error": "विफल को हटाएँ श्रेणी!"
+        },
+        "invalid": "अमान्य श्रेणी डेटा",
+        "edit": "संपादित करें श्रेणी"
+      },
+      "paymentMethods": {
+        "title": "भुगतान विधियाँ",
+        "description": "प्रबंधित करें आपकी भुगतान विधियाँ",
+        "add": "जोड़ें नई भुगतान विधि",
+        "edit": "संपादित करें भुगतान विधि",
+        "invalid": "अमान्य भुगतान विधि डेटा",
+        "placeholder": "भुगतान विधि नाम",
+        "load": {
+          "title": "लोड करें डिफ़ॉल्ट भुगतान विधियाँ",
+          "success": "डिफ़ॉल्ट भुगतान विधियाँ सफलतापूर्वक लोड की गईं.",
+          "error": "विफल को बनाएँ डिफ़ॉल्ट भुगतान विधियाँ!"
+        },
+        "save": {
+          "success": "भुगतान विधि सफलतापूर्वक सहेजा गया.",
+          "error": "सहेजने में विफल भुगतान विधि!"
+        },
+        "delete": {
+          "title": "हटाएँ भुगतान विधि",
+          "description": "क्या आप वाकई हटाना चाहते हैं यह भुगतान विधि? यह कार्रवाई वापस नहीं ली जा सकती.",
+          "success": "भुगतान विधि सफलतापूर्वक हटाई गई.",
+          "error": "विफल को हटाएँ भुगतान विधि!"
+        }
+      },
+      "externalServices": {
+        "title": "बाहरी सेवाएँ",
+        "description": "बाहरी सेवाओं के साथ एकीकरण कॉन्फ़िगर करें",
+        "testNotification": {
+          "title": "{siteName} परीक्षण सूचना",
+          "message": "यह है a test {service} message से {siteName}. आपकी {service} एकीकरण है configured correctly."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "प्राप्त करें सूचनाएँ के माध्यम से ntfy.",
+          "toast": {
+            "disable": {
+              "success": "ntfy एकीकरण अक्षम.",
+              "error": "अक्षम करने में विफल ntfy एकीकरण!"
+            },
+            "save": {
+              "success": "ntfy कॉन्फ़िगरेशन सफलतापूर्वक सहेजा गया.",
+              "error": "सहेजने में विफल ntfy कॉन्फ़िगरेशन!"
+            },
+            "test": {
+              "success": "ntfy परीक्षण सूचना भेजी गई।",
+              "error": "भेजने में विफल test ntfy सूचना!"
+            },
+            "notEnabled": "ntfy एकीकरण है नहीं सक्षम.",
+            "invalidParams": "अमान्य पैरामीटर! नहीं कर सकते सहेजें यह ntfy कॉन्फ़िगरेशन.",
+            "testInvalidParams": "अमान्य पैरामीटर! नहीं कर सकते भेजें test सूचना."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "सर्वर URL",
+              "placeholder": "ntfy.sh या स्वयं होस्ट किया गया URL"
+            },
+            "topic": {
+              "label": "Topic नाम"
+            },
+            "token": {
+              "label": "एक्सेस टोकन (वैकल्पिक)",
+              "placeholder": "एक्सेस टोकन"
+            }
+          },
+          "buttons": {
+            "save": "सहेजें ntfy",
+            "test": "परीक्षण ntfy"
+          }
+        },
+        "webhook": {
+          "title": "वेबहुक",
+          "description": "प्राप्त करें सूचनाएँ के माध्यम से वेबहुक.",
+          "toast": {
+            "disable": {
+              "success": "वेबहुक एकीकरण अक्षम.",
+              "error": "अक्षम करने में विफल वेबहुक एकीकरण!"
+            },
+            "save": {
+              "success": "वेबहुक कॉन्फ़िगरेशन सफलतापूर्वक सहेजा गया.",
+              "error": "सहेजने में विफल वेबहुक कॉन्फ़िगरेशन!"
+            },
+            "test": {
+              "success": "वेबहुक परीक्षण सूचना भेजी गई।",
+              "error": "भेजने में विफल test वेबहुक सूचना!"
+            },
+            "notEnabled": "वेबहुक एकीकरण है नहीं सक्षम.",
+            "invalidParams": "अमान्य पैरामीटर! नहीं कर सकते सहेजें यह वेबहुक कॉन्फ़िगरेशन.",
+            "testInvalidParams": "अमान्य पैरामीटर! नहीं कर सकते भेजें test सूचना."
+          },
+          "fields": {
+            "url": {
+              "label": "सर्वर URL",
+              "placeholder": "वेबहुक server URL"
+            }
+          },
+          "buttons": {
+            "save": "सहेजें वेबहुक",
+            "test": "परीक्षण वेबहुक"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "प्राप्त करें सूचनाएँ के माध्यम से Discord.",
+          "toast": {
+            "disable": {
+              "success": "Discord एकीकरण अक्षम.",
+              "error": "अक्षम करने में विफल Discord एकीकरण!"
+            },
+            "save": {
+              "success": "Discord कॉन्फ़िगरेशन सफलतापूर्वक सहेजा गया.",
+              "error": "सहेजने में विफल Discord कॉन्फ़िगरेशन!"
+            },
+            "test": {
+              "success": "परीक्षण Discord सूचना भेजी गई.",
+              "error": "भेजने में विफल test Discord सूचना!"
+            },
+            "notEnabled": "Discord एकीकरण है नहीं सक्षम.",
+            "invalidParams": "अमान्य पैरामीटर! नहीं कर सकते सहेजें यह Discord कॉन्फ़िगरेशन.",
+            "testInvalidParams": "अमान्य पैरामीटर! नहीं कर सकते भेजें test सूचना."
+          },
+          "fields": {
+            "url": {
+              "label": "सर्वर URL",
+              "placeholder": "Discord server URL"
+            }
+          },
+          "buttons": {
+            "save": "सहेजें Discord",
+            "test": "परीक्षण Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "प्राप्त करें सूचनाएँ के माध्यम से Slack.",
+          "toast": {
+            "disable": {
+              "success": "Slack एकीकरण अक्षम.",
+              "error": "अक्षम करने में विफल Slack एकीकरण!"
+            },
+            "save": {
+              "success": "Slack कॉन्फ़िगरेशन सफलतापूर्वक सहेजा गया.",
+              "error": "सहेजने में विफल Slack कॉन्फ़िगरेशन!"
+            },
+            "test": {
+              "success": "परीक्षण Slack सूचना भेजी गई.",
+              "error": "भेजने में विफल test Slack सूचना!"
+            },
+            "notEnabled": "Slack एकीकरण है नहीं सक्षम.",
+            "invalidParams": "अमान्य पैरामीटर! नहीं कर सकते सहेजें यह Slack कॉन्फ़िगरेशन.",
+            "testInvalidParams": "अमान्य पैरामीटर! नहीं कर सकते भेजें test सूचना."
+          },
+          "fields": {
+            "url": {
+              "label": "सर्वर URL",
+              "placeholder": "Slack server URL"
+            }
+          },
+          "buttons": {
+            "save": "सहेजें Slack",
+            "test": "परीक्षण Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Data Export",
+        "description": "Download a copy का आपकी सदस्यताएँ, श्रेणियाँ, भुगतान विधियाँ और सेटिंग्स",
+        "button": "Export Data",
+        "toast": {
+          "success": "Data exported सफलतापूर्वक.",
+          "error": "विफल को export डेटा!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "New सदस्यता",
+        "edit": "संपादित करें {name}",
+        "unauthorized": "अनधिकृत"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "साइन इन"
+      },
+      "description": "साइन इन के साथ आपकी ईमेल को access आपकी खाता या बनाएँ a नई एक automatically",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "Login",
+        "loginWithProvider": "Login के साथ {provider}"
+      },
+      "otp": {
+        "title": "Check आपकी inbox",
+        "description": "We've भेजी गई a लिंक को आपकी ईमेल को साइन इन.",
+        "instructions": "दर्ज करें यह 6-digit code भेजी गई को आपकी ईमेल",
+        "divider": "या",
+        "resend": {
+          "prompt": "Didn't receive यह ईमेल?",
+          "button": "Click को reभेजें",
+          "timer": "आप can reभेजें में {seconds, plural, one {# second} अन्य {# seconds}}"
+        }
+      },
+      "toast": {
+        "success": "Welcome! आप have सफलतापूर्वक signed में.",
+        "error": {
+          "accessDenied": "Sorry but आप हैं नहीं allowed को साइन इन!",
+          "generic": "Weird! We couldn't sign आप में. It might be आपकी ईमेल, या something went wrong पर our end.",
+          "invalidCode": "यह code looks incorrect. Double-check यह 6 digits और try again.",
+          "somethingWrong": "Something went wrong. Please request a नई code और try again.",
+          "workspaceAccess": "Sorry, आप do नहीं have access को यह workspace.",
+          "rateLimited": "Too many requests. Wait a मिनट और try again."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "अंतिम अपडेट: 15 नवंबर 2026",
+      "introduction": {
+        "title": "परिचय",
+        "paragraph1": "sub.idler.me stores what यह app needs को work और nothing else. यह page says exactly what that है.",
+        "paragraph2": "It है a small, एक-person service. There है कोई नहीं company, कोई नहीं advertising, और कोई नहीं भुगतान processing."
+      },
+      "informationWeCollect": {
+        "title": "हम जो जानकारी एकत्र करते हैं",
+        "description": "What यह database holds के लिए आपकी खाता:",
+        "items": {
+          "account": "आपकी ईमेल address, और यह नाम या avatar आपकी login provider returns.",
+          "subscription": "यह सदस्यताएँ आप जोड़ें: names, prices, currencies, billing dates, श्रेणियाँ, और भुगतान विधि labels.",
+          "expense": "Which भुगतान आप marked as paid, और when."
+        }
+      },
+      "howWeUse": {
+        "title": "हम इसका उपयोग कैसे करते हैं",
+        "description": "आपकी डेटा है used को:",
+        "items": {
+          "providing": "Show आपकी सदस्यताएँ, रिपोर्ट, और भुगतान history को आप.",
+          "managing": "Send यह अनुस्मारक आप configured, को यह channels आप configured.",
+          "sending": "Sign आप में by ईमेल लिंक.",
+          "improving": "Nothing else. कोई नहीं profiling, कोई नहीं ad networks, कोई नहीं selling."
+        }
+      },
+      "dataProtection": {
+        "title": "डेटा सुरक्षा",
+        "description": "Data lives में a Postgres database पर infrastructure यह operator controls. It है नहीं shared के साथ third parties beyond यह सूचना channels आप सक्षम करें yourself. There है कोई नहीं encryption-पर-rest promise beyond यह host's defaults."
+      },
+      "analytics": {
+        "title": "कुकीज़ और विश्लेषण",
+        "description": "कोई नहीं third-party analytics और कोई नहीं tracking scripts. यह app stores आपकी session cookie, आपकी language choice, और आपकी कुकी प्राथमिकताएँ में आपकी browser."
+      },
+      "yourRights": {
+        "title": "आपके अधिकार",
+        "description": "आप can:",
+        "items": {
+          "access": "Export every record यह app holds about आप से यह खाता page.",
+          "correct": "Change आपकी सेटिंग्स पर any समय.",
+          "delete": "Ask के लिए deletion का आपकी खाता और its डेटा.",
+          "optOut": "Decline non-आवश्यक कुकीज़ में यह cookie banner."
+        }
+      },
+      "contactUs": {
+        "description": "If आप have any questions about our गोपनीयता नीति या how we handle आपकी डेटा, reach यह operator पर Matrix से यह <link>contact page</link>."
+      },
+      "updates": {
+        "title": "Updates को यह Policy",
+        "description": "यह page changes when यह software या यह deployment changes. यह तिथि पर यह top है यह current version."
+      },
+      "operator": {
+        "title": "इसे कौन चलाता है",
+        "description": "sub.idler.me है operated by एक person पर स्वयं होस्ट किया गया infrastructure as a community service, नहीं a company. There है कोई नहीं भुगतान processing और कोई नहीं advertising."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "सदस्यता Report"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "अनधिकृत",
+        "view": "देखें {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "अंतिम अपडेट: 15 नवंबर 2026",
+      "welcome": "Welcome को यह {siteName} website (यह \"Site\"). By accessing या using यह Site, आप agree को comply के साथ और be bound by यह following terms और conditions (\"सेवा की शर्तें\").",
+      "overview": {
+        "title": "अवलोकन",
+        "paragraph1": "{siteName} offers यह Site, including सभी information, tools, और services available से यह Site को आप, यह user, conditioned upon आपकी acceptance का सभी terms, conditions, policies, और notices stated here.",
+        "paragraph2": "Please read these सेवा की शर्तें carefully पहले accessing या using यह Site. By accessing या using any part का यह Site, आप agree को be bound by these सेवा की शर्तें. If आप do नहीं agree को सभी यह terms और conditions का यह agreement, then आप may नहीं access यह Site या use any services. If these सेवा की शर्तें हैं considered an offer, acceptance है expressly limited को these सेवा की शर्तें.",
+        "paragraph3": "Any नई features या tools which हैं added को यह Site shall also be subject को यह सेवा की शर्तें. आप can review यह most current version का यह सेवा की शर्तें पर any समय पर यह page. Site reserves यह right को अपडेट करें, change या replace any part का these सेवा की शर्तें by posting updates और/या changes को यह Site. It है आपकी responsibility को check यह page periodically के लिए changes. आपकी continued use का या access को यह Site following यह posting का any changes constitutes acceptance का those changes."
+      },
+      "websiteTerms": {
+        "title": "Website Terms",
+        "paragraph1": "By agreeing को these सेवा की शर्तें, आप repreभेजी गई that आप हैं पर least यह age का majority में आपकी state या province का residence, या that आप हैं यह age का majority में आपकी state या province का residence और आप have given us आपकी conभेजी गई को allow any का आपकी minor dependents को use यह site.",
+        "paragraph2": "यह use का our services must comply के साथ सभी applicable laws और regulations. Specifically:",
+        "items": {
+          "unlawful": "आप agree नहीं को use our products के लिए any unlawful या unauthorized purposes",
+          "comply": "आप must comply के साथ सभी laws में आपकी jurisdiction, including copyright और intellectual property laws",
+          "malicious": "आप may नहीं transmit malicious code, viruses, या अन्य harmful content"
+        },
+        "paragraph3": "Please note that any violation का these सेवा की शर्तें होगा lead को immediate termination का आपकी access को our Services."
+      },
+      "cookies": {
+        "title": "Use का Cookies",
+        "description": "Site uses cookies और similar technologies (such as local storage) को track आपकी usage का यह Site और के लिए marketing purposes. By using यह Site, आप conभेजी गई को यह use का cookies में accordance के साथ our <privacy>Privacy Policy</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property",
+        "description": "यह software है licensed under यह MIT license के साथ a Commons Clause, copyright meceware. यह deployment adds कोई नहीं proprietary content का its own."
+      },
+      "disclaimer": {
+        "title": "Disclaimer",
+        "description": "यह information और content पर यह Site हैं provided के लिए informational purposes केवल और हैं नहीं intended as professional advice. Site makes कोई नहीं repreभेजी गईations या warranties का any kind, express या implied, about यह accuracy, reliability, completeness, या suitability का यह information और content पर यह Site. आप use यह Site पर आपकी own risk."
+      },
+      "limitationOfLiability": {
+        "title": "Limitation का Liability",
+        "description": "{siteName} shall नहीं be held responsible के लिए any indirect, incidental, special, या consequential damages that may occur से आपकी use का यह Site, regardless का whether such damages arise से contract, tort, negligence, strict liability, या any अन्य legal theory. यह maximum amount Site may be liable के लिए में any claim related को यह Site है limited को यह कुल सदस्यता fees आप have paid में यह last 12 महीने."
+      },
+      "changes": {
+        "title": "बदलाव को यह सेवा की शर्तें",
+        "description": "Site may अपडेट करें या modify these सेवा की शर्तें से समय को समय, और any changes होगा be effective upon posting पर यह Site. आपकी continued use का यह Site बाद any such changes constitutes आपकी acceptance का यह revised सेवा की शर्तें."
+      },
+      "indemnification": {
+        "title": "Indemnification",
+        "description": "आप agree को indemnify और hold harmless {siteName}, its affiliates, officers, directors, employees, agents, और licensors से और against any claims, liabilities, damages, losses, और expenses, including without limitation reasonable attorney's fees, arising out का या में connection के साथ आपकी use का यह Site, आपकी violation का these सेवा की शर्तें, या आपकी violation का any rights का another party."
+      },
+      "modifications": {
+        "title": "Modifications को यह Service और Prices",
+        "paragraph1": "Prices के लिए our services हैं subject को change without notice. Site reserves यह right पर any समय को modify या discontinue यह Service (या any part या content thereof) without notice पर any समय.",
+        "paragraph2": "Site shall नहीं be liable को आप या को any third-party के लिए any modification, कीमत change, suspension, या discontinuance का यह Service."
+      },
+      "governingLaw": {
+        "title": "Governing Law और Jurisdiction",
+        "description": "These सेवा की शर्तें shall be governed by और construed में accordance के साथ यह laws का यह jurisdiction where {siteName} है headquartered without giving effect को any principles का conflicts का law. आप agree को submit को यह exclusive jurisdiction का यह courts में that jurisdiction के लिए any disputes arising out का या में connection के साथ these सेवा की शर्तें या आपकी use का यह Site."
+      },
+      "entireAgreement": {
+        "title": "Entire Agreement",
+        "description": "These सेवा की शर्तें constitute यह entire agreement between आप और {siteName} regarding आपकी use का यह Site और supersede सभी prior और contemporaneous agreements और understandings, whether oral या written, relating को यह same subject matter."
+      },
+      "severability": {
+        "title": "Severability",
+        "description": "If any provision का these सेवा की शर्तें है found को be invalid, illegal, या unenforceable, यह remaining provisions shall continue में full force और effect."
+      },
+      "waiver": {
+        "title": "Waiver",
+        "description": "यह failure का {siteName} को enforce any right या provision का these सेवा की शर्तें shall नहीं constitute a waiver का that right या provision."
+      },
+      "contactUs": {
+        "description": "If आप have any questions या concerns about these सेवा की शर्तें, reach यह operator पर Matrix से यह <link>contact page</link>."
+      },
+      "freeService": {
+        "title": "निःशुल्क Service, कोई नहीं Billing",
+        "paragraph1": "sub.idler.me है निःशुल्क उपयोग. There हैं कोई नहीं plans, कोई नहीं trials, कोई नहीं card fields, और कोई नहीं refunds, because कोई नहीं money changes hands.",
+        "paragraph2": "यह software है open स्रोत under यह MIT license के साथ a Commons Clause. आप may self-host it. यह instance exists के लिए people who cannot या would rather नहीं run their own.",
+        "paragraph3": "यह service है provided as है और best effort. There है कोई नहीं uptime promise और कोई नहीं guarantee that डेटा survives a failure. Export आपकी डेटा regularly और keep आपकी own backups."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "यह fastest way को reach यह operator है Matrix. और channels हैं पर यह way.",
+      "matrix": {
+        "label": "Message पर Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "और channels",
+        "note": "Coming जल्द."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} परीक्षण सूचना",
+          "message": "यह है a test सूचना से {siteName}. If आप हैं seeing यह, it means पुश सूचनाएँ हैं working correctly!"
+        }
+      },
+      "email": {
+        "header": "भुगतान अनुस्मारक",
+        "footer": "यह है a friendly अनुस्मारक ईमेल से {siteName}.",
+        "thanks": "धन्यवाद",
+        "madeBy": "Made के साथ ♥ by {siteLink}"
+      },
+      "bell": {
+        "title": "सूचनाएँ",
+        "unreadTitle": "अपठित सूचनाएँ",
+        "clearAll": "सभी साफ़ करें",
+        "removeNotification": "सूचना हटाएँ",
+        "noNotifications": "कोई नई सूचना नहीं"
+      },
+      "toggle": {
+        "modal": {
+          "title": "अपडेट रहें",
+          "description": "Get timely अनुस्मारक about आपकी सदस्यता भुगतान और देय dates. We'll notify आप पहले भुगतान हैं देय और when सदस्यताएँ हैं about को expire.",
+          "maybeLater": "बाद में",
+          "enable": "सक्षम करें सूचनाएँ",
+          "enabling": "सक्षम किया जा रहा है..."
+        },
+        "toast": {
+          "success": "आप होगा now receive सदस्यता अनुस्मारक.",
+          "error": "विफल को सक्षम करें सूचनाएँ. Please try again.",
+          "permissionRequired": {
+            "title": "अनुमति आवश्यक है",
+            "description": "Please allow सूचनाएँ को receive अनुस्मारक."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "नाम must be पर least 2 characters.",
+        "paymentDate": "That's नहीं a valid तिथि!",
+        "color": "अमान्य hex रंग"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Daily} अन्य {Every # days}}",
+        "WEEKS": "{count, plural, =1 {Weekly} अन्य {Every # weeks}}",
+        "MONTHS": "{count, plural, =1 {Monthly} अन्य {Every # months}}",
+        "YEARS": "{count, plural, =1 {Annually} अन्य {Every # years}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "श्रेणियाँ",
+            "selected": "{count, plural, =0 {Select categories} एक {# category selected} अन्य {# categories selected}}",
+            "search": "खोजें श्रेणी...",
+            "create": "बनाएँ नई श्रेणी \"{value}\""
+          },
+          "currency": {
+            "label": "मुद्रा",
+            "placeholder": "चुनें मुद्रा",
+            "search": "खोजें मुद्रा...",
+            "noResults": "कोई परिणाम नहीं मिला!"
+          },
+          "cycle": {
+            "label": "बिलिंग चक्र",
+            "placeholder": "चुनें बिलिंग चक्र",
+            "options": {
+              "daily": "दैनिक",
+              "weekly": "साप्ताहिक",
+              "monthly": "मासिक",
+              "yearly": "वार्षिक",
+              "custom": "कस्टम"
+            },
+            "units": {
+              "days": "{count, plural, one {Day} अन्य {Days}}",
+              "weeks": "{count, plural, one {Week} अन्य {Weeks}}",
+              "months": "{count, plural, one {Month} अन्य {Months}}",
+              "years": "{count, plural, one {Year} अन्य {Years}}"
+            },
+            "unitPlaceholder": "Unit"
+          },
+          "name": {
+            "label": "नाम",
+            "placeholder": "सदस्यता नाम"
+          },
+          "notes": {
+            "label": "नोट्स",
+            "placeholder": "जोड़ें नोट्स..."
+          },
+          "notifications": {
+            "title": "सूचनाएँ",
+            "description": "कॉन्फ़िगर करें यह डिफ़ॉल्ट सूचनाएँ के लिए आपकी सदस्यताएँ",
+            "via": "के माध्यम से",
+            "whenToNotify": "When को Notify",
+            "whenPlaceholder": "चुनें when को notify",
+            "unitPlaceholder": "Unit",
+            "addNotification": "जोड़ें सूचना",
+            "deleteDialog": {
+              "title": "पुष्टि करें हटाएँ",
+              "description": "हैं आप sure आप want को remove यह सूचना template?"
+            },
+            "status": {
+              "denied": "पुश सूचनाएँ हैं blocked पर यह device. Please सक्षम करें them में आपकी browser सेटिंग्स.",
+              "default": "पुश सूचनाएँ हैं नहीं सक्षम पर यह device. <link>Would आप like को सक्षम करें it?</link>",
+              "grantedNotConfigured": "Push सूचना permission है granted but it है नहीं properly configured. <link>Would आप like को सक्षम करें it?</link>",
+              "grantedConfigured": "पुश सूचनाएँ हैं सक्षम के लिए यह device. Would आप like को भेजें a <link>test पुश सूचना</link>?"
+            },
+            "toast": {
+              "success": "Push सूचना भेजी गई! Check आपकी device(s).",
+              "error": "भेजने में विफल test पुश सूचना! Make sure सूचनाएँ हैं सक्षम और configured correctly."
+            },
+            "timeOptions": {
+              "instant": "At भुगतान Date",
+              "15minutes": "15 मिनट पहले",
+              "1hour": "1 घंटा पहले",
+              "2hours": "2 घंटे पहले",
+              "1day": "1 दिन पहले",
+              "2days": "2 दिन पहले",
+              "1week": "1 सप्ताह पहले",
+              "custom": "कस्टम"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minute} अन्य {Minutes}}",
+              "hours": "{count, plural, one {Hour} अन्य {Hours}}",
+              "days": "{count, plural, one {Day} अन्य {Days}}",
+              "weeks": "{count, plural, one {Week} अन्य {Weeks}}"
+            },
+            "types": {
+              "push": {
+                "label": "पुश सूचनाएँ",
+                "ariaLabel": "Toggle पुश"
+              },
+              "email": {
+                "label": "ईमेल सूचनाएँ",
+                "ariaLabel": "Toggle ईमेल"
+              },
+              "webhook": {
+                "label": "वेबहुक सूचनाएँ",
+                "ariaLabel": "Toggle वेबहुक"
+              },
+              "ntfy": {
+                "label": "ntfy सूचनाएँ",
+                "ariaLabel": "Toggle ntfy"
+              },
+              "discord": {
+                "label": "Discord सूचनाएँ",
+                "ariaLabel": "Toggle Discord"
+              },
+              "slack": {
+                "label": "Slack सूचनाएँ",
+                "ariaLabel": "Toggle Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "अगली भुगतान तिथि"
+          },
+          "paymentMethod": {
+            "label": "भुगतान विधि",
+            "placeholder": "चुनें भुगतान विधि",
+            "search": "खोजें भुगतान विधि...",
+            "create": "बनाएँ नई भुगतान विधि \"{value}\""
+          },
+          "price": {
+            "label": "कीमत"
+          },
+          "timezone": {
+            "label": "समय क्षेत्र",
+            "placeholder": "चुनें समय क्षेत्र",
+            "search": "खोजें समय क्षेत्र...",
+            "noResults": "कोई परिणाम नहीं मिला!"
+          },
+          "untilDate": {
+            "label": "मान्य अवधि",
+            "description": "Leave empty के लिए an indefinite सदस्यता"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "लोगो",
+            "description": "चुनें a predefined icon या दर्ज करें an URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} समय क्षेत्र",
+        "paymentDate": {
+          "past": "Should have been paid <date></date>.",
+          "future": "होगा be paid <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Did आप pay यह? <action>Mark as paid</action> या see <options>other options</options>.",
+          "customPrice": {
+            "title": "Paid a different amount?",
+            "description": "Use यह if आप paid और या less than usual",
+            "prompt": "दर्ज करें यह amount आप paid:"
+          },
+          "noPrice": {
+            "title": "Just भुगतान किया हुआ चिह्नित करें!",
+            "description": "Use यह को skip यह भुगतान without recording an amount",
+            "prompt": "भुगतान किया हुआ चिह्नित करें without tracking यह amount?",
+            "warning": "यह होगा नहीं record a भुगतान amount."
+          },
+          "toast": {
+            "success": "सदस्यता marked as paid!",
+            "error": "त्रुटि marking सदस्यता as paid",
+            "custom": {
+              "success": "सदस्यता marked as paid के साथ कस्टम कीमत!",
+              "error": "त्रुटि marking सदस्यता as paid के साथ कस्टम कीमत"
+            },
+            "noPrice": {
+              "success": "सदस्यता marked as paid without भुगतान!",
+              "error": "त्रुटि marking सदस्यता as paid without भुगतान"
+            },
+            "failed": "विफल को अपडेट करें!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "आप होगा be notified <date></date> के माध्यम से {channels}.",
+          "willBeNotifiedSoon": "आप होगा be notified जल्द के माध्यम से {channels}.",
+          "willBeRemindedAt": "आप होगा be reminded <date></date> के माध्यम से {channels} again.",
+          "willBeRemindedSoon": "आप होगा be reminded जल्द के माध्यम से {channels} again.",
+          "wontBeNotified": "आप won't be notified.",
+          "types": {
+            "push": "सूचना",
+            "email": "ईमेल",
+            "webhook": "वेबहुक",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "बधाई! आप have paid सभी.",
+          "remaining": "आप होगा pay यह <trigger>{count, plural, =1 {# more time} अन्य {# times}}</trigger>.",
+          "until": "Until {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "यह होगा be paid के माध्यम से {methods}."
+        },
+        "pastPayments": {
+          "count": "आप have made <highlight>{count, plural, one {# payment} अन्य {# payments}}</highlight> so far."
+        },
+        "actions": {
+          "inactive": "यह सदस्यता है नहीं सक्रिय.",
+          "edit": "संपादित करें {name} सदस्यता",
+          "link": "Link को {url}",
+          "notificationEnabled": "{type} हैं सक्षम",
+          "notificationDisabled": "{type} हैं अक्षम"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "बनाएँ सदस्यता",
+          "update": "अपडेट करें सदस्यता"
+        },
+        "sections": {
+          "details": "सदस्यता विवरण",
+          "advanced": "Advanced सेटिंग्स"
+        },
+        "deleteDialog": {
+          "title": "हटाएँ सदस्यता",
+          "description": "क्या आप वाकई हटाना चाहते हैं यह सदस्यता? यह कार्रवाई वापस नहीं ली जा सकती."
+        },
+        "toast": {
+          "create": {
+            "error": "Interesting, cannot बनाएँ सदस्यता!",
+            "success": "सदस्यता created सफलतापूर्वक!"
+          },
+          "delete": {
+            "success": "सदस्यता सफलतापूर्वक हटाई गई!",
+            "error": "विफल को हटाएँ सदस्यता!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "New सदस्यता",
+        "noSubscription": "कोई सदस्यता नहीं मिली"
+      }
+    },
+    "filters": {
+      "title": "सदस्यता Filters",
+      "description": "फ़िल्टर लागू करें और find यह सदस्यताएँ आप need",
+      "buttons": {
+        "filter": "Filter सदस्यताएँ",
+        "reset": "फ़िल्टर रीसेट करें"
+      },
+      "selectAll": "सभी चुनें",
+      "selectNone": "कोई नहीं चुनें",
+      "status": {
+        "title": "स्थिति",
+        "active": {
+          "title": "सक्रिय",
+          "description": "Filter by सक्रिय सदस्यताएँ"
+        },
+        "inactive": {
+          "title": "निष्क्रिय",
+          "description": "Filter by निष्क्रिय सदस्यताएँ"
+        }
+      },
+      "paymentDate": {
+        "title": "भुगतान Date",
+        "all": {
+          "title": "सभी",
+          "description": "अक्षम करें सभी भुगतान तिथि filters"
+        },
+        "thisMonth": {
+          "title": "इस महीने",
+          "description": "Filter by इस महीने"
+        },
+        "next30Days": {
+          "title": "अगले 30 दिन",
+          "description": "Filter by अगले 30 दिन"
+        }
+      },
+      "currencies": {
+        "title": "Currencies",
+        "all": {
+          "description": "सभी चुनें currencies"
+        },
+        "clear": {
+          "description": "सभी साफ़ करें currencies"
+        },
+        "filter": "Filter by {currency}"
+      },
+      "categories": {
+        "title": "श्रेणियाँ",
+        "uncategorized": "Uncategorized",
+        "all": {
+          "description": "सभी चुनें श्रेणियाँ"
+        },
+        "clear": {
+          "description": "सभी साफ़ करें श्रेणियाँ"
+        },
+        "filterBy": "Filter by {category}"
+      },
+      "paymentMethods": {
+        "title": "भुगतान विधियाँ",
+        "unspecified": "Unspecified",
+        "all": {
+          "description": "सभी चुनें भुगतान विधियाँ"
+        },
+        "clear": {
+          "description": "सभी साफ़ करें भुगतान विधियाँ"
+        },
+        "filterBy": "Filter by {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} होगा be paid {count, plural, one {# time} अन्य {# times}}"
+      },
+      "overview": {
+        "title": "अवलोकन",
+        "total": "<count></count> कुल सदस्यताएँ",
+        "active": "<count></count> सक्रिय सदस्यताएँ",
+        "inactive": "<count></count> निष्क्रिय सदस्यताएँ"
+      },
+      "costAverages": {
+        "title": "Cost Averages",
+        "description": "मासिक और वार्षिक सदस्यता cost averages",
+        "monthly": "मासिक Average",
+        "yearly": "वार्षिक Average"
+      },
+      "monthlyCost": {
+        "title": "मासिक Cost अवलोकन",
+        "description": "Track आपकी मासिक सदस्यता costs"
+      },
+      "yearlyCost": {
+        "title": "वार्षिक Cost अवलोकन",
+        "description": "Track आपकी वार्षिक सदस्यता costs"
+      },
+      "upcomingPayments": {
+        "title": "आगामी भुगतान",
+        "description": "Track आपकी आगामी भुगतान",
+        "noPayments": "कोई नहीं आगामी भुगतान में एक महीना.",
+        "nextMonth": "अगले महीने"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "इस महीने",
+          "description": "Until end का महीना"
+        },
+        "nextMonth": {
+          "title": "अगले महीने",
+          "description": "आगामी महीना केवल"
+        },
+        "next30Days": {
+          "title": "अगले 30 दिन",
+          "description": "Rolling period"
+        },
+        "thisYear": {
+          "title": "इस वर्ष",
+          "description": "Until end का वर्ष"
+        },
+        "nextYear": {
+          "title": "अगले वर्ष",
+          "description": "Next calendar वर्ष"
+        },
+        "next365Days": {
+          "title": "Next 365 दिन",
+          "description": "Rolling period"
+        }
+      },
+      "tabs": {
+        "byCategories": "By श्रेणियाँ",
+        "byPaymentMethods": "By भुगतान विधियाँ"
+      },
+      "mostExpensive": {
+        "monthly": "Most Expensive मासिक सदस्यता",
+        "yearly": "Most Expensive वार्षिक सदस्यता"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} भुगतान में यह श्रेणी",
+          "noSubscriptions": "कोई सदस्यता नहीं मिली में यह श्रेणी"
+        },
+        "paymentMethod": {
+          "description": "{period} भुगतान के माध्यम से यह भुगतान विधि",
+          "noSubscriptions": "कोई सदस्यता नहीं मिली के माध्यम से यह भुगतान विधि"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Link",
+        "linkTitle": "सदस्यता Link",
+        "editTitle": "संपादित करें सदस्यता"
+      },
+      "overview": {
+        "title": "अवलोकन",
+        "description": "Key metrics के लिए यह सदस्यता",
+        "disabled": "यह सदस्यता है currently अक्षम. आप can सक्षम करें it again पर any समय.",
+        "unpaid": {
+          "hasUnpaid": "Oh कोई नहीं! आप have <count>{count, plural, one {# unpaid payment} अन्य {# unpaid payments}}</count> के लिए यह सदस्यता totaling <total>{total}</total>.",
+          "allPaid": "Good job! यह सदस्यता है fully paid up को तिथि."
+        },
+        "nextPayment": {
+          "scheduled": "आपकी next भुगतान का <price>{price}</price> है देय पर <date>{date}</date> which है <distance>{distance}</distance>.",
+          "none": "Congrats! There हैं कोई नहीं future भुगतान scheduled के लिए यह सदस्यता."
+        },
+        "endDate": {
+          "hasEndDate": "यह सदस्यता होगा end पर <date>{date}</date>.",
+          "ongoing": "यह है an ongoing सदस्यता के साथ कोई नहीं specified end तिथि."
+        },
+        "remainingPayments": {
+          "withEndDate": "यह सदस्यता होगा require <count>{count, plural, one {# payment} अन्य {# payments}}</count> totaling <total>{total}</total>.",
+          "thisYear": "यह सदस्यता होगा require <count>{count, plural, one {# payment} अन्य {# payments}}</count> इस वर्ष, totaling <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "यह सदस्यता होगा be paid के माध्यम से <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "आप have made <countTag>{count, plural, one {# payment} अन्य {# payments}}</countTag> के लिए यह सदस्यता so far, totaling <totalTag>{total}</totalTag>.",
+          "yearStats": " में यह past वर्ष, आप made <countTag>{count, plural, one {# payment} अन्य {# payments}}</countTag>, totaling <totalTag>{total}</totalTag>.",
+          "none": "यह है a सदस्यता के साथ कोई नहीं भुगतान history yet."
+        },
+        "notifications": {
+          "title": "आप होगा receive सूचनाएँ:",
+          "none": "कोई नहीं सूचनाएँ हैं set up के लिए यह सदस्यता.",
+          "item": "<timing></timing> के माध्यम से <channels></channels>.",
+          "itemNoType": "<timing></timing> but <error>no सूचना type है set</error>.",
+          "timing": {
+            "instant": "At यह भुगतान तिथि",
+            "minutes": "{count, plural, one {# minute} अन्य {# minutes}} पहले भुगतान",
+            "hours": "{count, plural, one {# hour} अन्य {# hours}} पहले भुगतान",
+            "days": "{count, plural, one {# day} अन्य {# days}} पहले भुगतान",
+            "weeks": "{count, plural, one {# week} अन्य {# weeks}} पहले भुगतान"
+          },
+          "types": {
+            "email": "ईमेल",
+            "push": "पुश सूचना",
+            "webhook": "वेबहुक",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Next सूचना होगा be पर <date>{date}</date> which है <distance>{distance}</distance> के माध्यम से <channels></channels>.",
+          "soon": "जल्द"
+        }
+      },
+      "costBreakdown": {
+        "title": "लागत विवरण",
+        "description": "Future spending के लिए यह सदस्यता",
+        "periods": {
+          "30days": "अगले 30 दिन",
+          "3months": "Next 3 महीने",
+          "12months": "Next 12 महीने"
+        }
+      },
+      "notes": {
+        "title": "नोट्स"
+      },
+      "paymentSchedule": {
+        "title": "भुगतान अनुसूची",
+        "description": "आगामी भुगतान dates में a वर्ष",
+        "noUpcoming": "कोई नहीं आगामी भुगतान",
+        "more": "+ {count} और",
+        "totalPayments": "कुल भुगतान:",
+        "total": "कुल:"
+      },
+      "latestPayments": {
+        "title": "नवीनतम भुगतान",
+        "description": "Most recent भुगतान के लिए यह सदस्यता",
+        "none": "कोई नहीं past भुगतान recorded के लिए यह सदस्यता yet.",
+        "status": {
+          "onTime": "समय पर",
+          "late": "{distance} देर से",
+          "early": "{distance} जल्दी"
+        },
+        "popover": {
+          "paidStatus": "यह सदस्यता है paid <status>{status}</status>.",
+          "scheduled": "Scheduled:",
+          "actual": "Actual:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "ऐप्लिकेशन के रूप में इंस्टॉल करें",
+      "description": "के लिए यह best experience, we recommend installing यह app को आपकी home screen!",
+      "buttons": {
+        "gotIt": "समझ गया",
+        "maybeLater": "बाद में",
+        "installNow": "अभी इंस्टॉल करें"
+      },
+      "common": {
+        "addToHomeScreen": "जोड़ें को Home Screen",
+        "clickIcon": "Click यह <icon></icon> icon",
+        "scrollDownClick": "Scroll down और click"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS Installation Steps",
+          "step3": "Tap 'जोड़ें' को पुष्टि करें"
+        },
+        "chrome": {
+          "title": "Chrome पर iOS Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox पर iOS Installation Steps",
+          "step2": "Scroll down और click <icon></icon> button",
+          "step3": "Then click"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox Installation Steps"
+        }
+      },
+      "unknown": {
+        "title": "Installation Steps",
+        "step1": "Look के लिए an option like \"जोड़ें को Home Screen\" या \"Install App\" में आपकी browser's मेनू",
+        "step2": "यह option है usually found में यह main मेनू (often repreभेजी गईed by three dots या lines)",
+        "step3": "Follow आपकी browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "खोजें..."
+    }
+  }
+}

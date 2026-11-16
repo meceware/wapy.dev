@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "추가",
+    "save": "저장",
+    "cancel": "취소",
+    "edit": "편집",
+    "delete": "삭제",
+    "confirm": "확인",
+    "view": "보기",
+    "close": "닫기",
+    "contact": "문의",
+    "signIn": "로그인",
+    "termsOfService": "서비스 약관",
+    "privacyPolicy": "개인 정보 보호 정책"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} 결제 알림",
+        "message": "{siteName} 구독이 곧 종료된다는 점을 알려드립니다."
+      },
+      "payment": {
+        "title": {
+          "due": "{name}에 대한 결제 기한",
+          "reminder": "{name}에 대한 결제 알림",
+          "upcoming": "{name}에 대한 예정된 결제"
+        },
+        "message": {
+          "due": "{name} 정기 결제( {price} )를 지금 결제하셔야 합니다!",
+          "reminder": "{name} 구독료( {price} ) 결제 기한이 지났습니다!",
+          "upcoming": "귀하의 {name} 구독 결제( {price} )가 {dueText} 입니다!"
+        },
+        "markAsPaid": "결제완료 표시",
+        "dismiss": "무시하기"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} 정기 구독 알림",
+      "footer": "보낸 사람: {siteName}",
+      "visitDashboard": "알림판 방문하기",
+      "paymentQuestion": "결제를 완료하셨나요?",
+      "viewDetails": "세부 정보 보기"
+    }
+  },
+  "header": {
+    "signOut": "로그아웃",
+    "subscriptions": "구독",
+    "reports": "신고",
+    "settings": "설정",
+    "account": "계정"
+  },
+  "footer": {
+    "madeBy": "희망을 담아<author>{name}</author>운영합니다.",
+    "github": "출처",
+    "menu": "메뉴"
+  },
+  "languages": {
+    "selectLanguage": "언어 선택",
+    "invalid": "잘못된 언어",
+    "failed": "언어를 변경하지 못했습니다."
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "무료로 이용 가능. 1인 호스팅.",
+        "title": "모든 구독을 추적하세요. 결제를 놓치지 마세요.",
+        "subtitle": "{appName}는 반복 청구 내역을 한눈에 보기 쉬운 대시보드에 표시하고 청구되기 전에 알려줍니다.",
+        "tagline": "무료로 사용 가능. 카드 정보 입력, 체험판, 상향 판매 없음."
+      },
+      "features": {
+        "title": "역할",
+        "subtitle": "소프트웨어가 모든 것을 처리하며, 사용자는 비용을 지불할 필요가 없습니다.",
+        "billingCycles": {
+          "title": "유연한 청구 주기",
+          "description": "월간, 연간 및 맞춤 청구 주기 지원"
+        },
+        "notifications": {
+          "title": "스마트 알림",
+          "description": "이메일, 푸시 알림, 웹훅, ntfy , Discord 또는 Slack 로 알림 전송"
+        },
+        "reports": {
+          "title": "보고서 및 인사이트",
+          "description": "상세한 보고서와 인사이트로 지출 내역을 추적하세요."
+        },
+        "currencies": {
+          "title": "여러 통화",
+          "description": "실시간 비용 추적을 통한 여러 통화 지원"
+        },
+        "timezone": {
+          "title": "표준 시간대 지원",
+          "description": "자동 날짜 변환으로 서로 다른 시간대의 구독을 추적합니다."
+        },
+        "categories": {
+          "title": "카테고리 관리",
+          "description": "사용자 지정 카테고리와 색상 코드로 구독을 정리하세요."
+        }
+      },
+      "howItWorks": {
+        "title": "사용 방식",
+        "subtitle": "몇 분이면 시작할 수 있습니다.",
+        "step1": {
+          "title": "링크로 로그인",
+          "description": "이메일을 입력하고 링크를 열면 로그인됩니다. 기억해야 할 비밀번호가 없습니다."
+        },
+        "step2": {
+          "title": "결제 항목 추가",
+          "description": "각 구독을 가격, 청구 주기, 통화와 함께 기록합니다."
+        },
+        "step3": {
+          "title": "알림을 받으세요",
+          "description": "원하는 채널을 선택한 다음 알림에서 바로 결제 완료로 표시하세요."
+        }
+      },
+      "free": {
+        "eyebrow": "비점유",
+        "title": "무료, 숨겨진 조건 없음",
+        "description": "이 소프트웨어는 오픈 소스입니다. 이 인스턴스는 자체 인스턴스를 실행할 수 없는 사람들을 위해 호스팅됩니다.",
+        "price": "€0",
+        "period": "평생",
+        "features": {
+          "unlimited": "무제한 구독",
+          "notifications": "이메일, 푸시, 웹훅, ntfy , Discord , Slack 알림",
+          "reports": "보고서 및 지출 분석 정보",
+          "export": "언제든지 데이터 내보내기",
+          "noAds": "광고 없음, 추적 없음, 결제 정보 없음",
+          "bestEffort": "최선을 다하되, 가동 시간 보장 없음"
+        },
+        "button": "로그인",
+        "selfHostButton": "직접 호스팅하기",
+        "selfHostNote": "자체 서버를 선호하시나요? 동일한 소프트웨어가 Docker에서 약 10분 만에 실행됩니다."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "페이지를 찾을 수 없습니다",
+        "description": "찾으시는 페이지가 존재하지 않습니다."
+      },
+      "title": "404&amp;nbsp;",
+      "backToHome": "집으로 돌아가기"
+    },
+    "account": {
+      "meta": {
+        "title": "계정 설정",
+        "description": "계정 설정 및 기본 설정을 관리하세요."
+      },
+      "defaultSettings": {
+        "title": "기본 설정",
+        "description": "새 구독에 대한 기본 설정 구성",
+        "timezone": {
+          "label": "표준 시간대",
+          "success": "시간대가 성공적으로 업데이트되었습니다.",
+          "error": "표준 시간대를 업데이트하지 못했습니다!"
+        },
+        "currency": {
+          "label": "화폐",
+          "success": "통화가 성공적으로 업데이트되었습니다.",
+          "error": "통화를 업데이트하지 못했습니다!"
+        }
+      },
+      "notifications": {
+        "success": "알림 설정이 저장되었습니다.",
+        "error": "알림 기본 설정을 저장하지 못했습니다!",
+        "saveButton": "변경사항저장",
+        "saveButtonTitle": "알림 환경 설정"
+      },
+      "profile": {
+        "success": "당신의 퀴즈 이름이 성공적으로 업데이트됐습니다.",
+        "error": "이름을 업데이트하지 못했습니다!",
+        "namePlaceholder": "자신의 이름을 입력하세요.",
+        "addNamePrompt": "이름을 입력하세요.",
+        "memberSince": "가입일: {date}"
+      },
+      "categories": {
+        "title": "카테고리",
+        "description": "카테고리 관리",
+        "default": {
+          "load": "기본 카테고리",
+          "success": "기본 카테고리가 성공적으로 로드되었습니다.",
+          "error": "기본 카테고리를 생성하지 못했습니다!"
+        },
+        "save": {
+          "success": "카테고리가 성공적으로 저장되었습니다.",
+          "error": "카테고리를 저장하지 못했습니다!"
+        },
+        "addButtonTitle": "새 카테고리 추가하기",
+        "selectColor": "색 선택",
+        "namePlaceholder": "카테고리 이름",
+        "delete": {
+          "title": "분류 삭제",
+          "description": "해당 메모를 삭제하시겠습니까? 완료시 취소할 수 없습니다.",
+          "success": "카테고리가 성공적으로 삭제되었습니다.",
+          "error": "카테고리를 삭제하지 못했습니다!"
+        },
+        "invalid": "잘못된 분류",
+        "edit": "카테고리 수정"
+      },
+      "paymentMethods": {
+        "title": "결제 수단",
+        "description": "결제 수단 관리",
+        "add": "새 결제 방법을 추가합니다.",
+        "edit": "결제 수단",
+        "invalid": "올바르지 않은 지불 방법입니다",
+        "placeholder": "결제수단 이름: ",
+        "load": {
+          "title": "기본 결제 수단 불러오기",
+          "success": "기본 결제 수단이 성공적으로 로드되었습니다.",
+          "error": "기본 결제 수단을 생성하지 못했습니다!"
+        },
+        "save": {
+          "success": "결제 수단이 성공적으로 저장되었습니다.",
+          "error": "결제 수단을 저장하지 못했습니다!"
+        },
+        "delete": {
+          "title": "지불 방법 삭제",
+          "description": "해당 메모를 삭제하시겠습니까? 완료시 취소할 수 없습니다.",
+          "success": "지불 방법이 삭제되었습니다.",
+          "error": "결제 수단을 삭제하지 못했습니다!"
+        }
+      },
+      "externalServices": {
+        "title": "외부 서비스",
+        "description": "외부 서비스 연동 구성",
+        "testNotification": {
+          "title": "{siteName} 테스트 알림",
+          "message": "{siteName} 에서 보낸 {service} 테스트 메시지입니다. {service} 통합이 올바르게 구성되었습니다."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "ntfy 를 통해 알림을 받으세요.",
+          "toast": {
+            "disable": {
+              "success": "ntfy 연동이 비활성화되었습니다.",
+              "error": "ntfy 연동을 비활성화하지 못했습니다!"
+            },
+            "save": {
+              "success": "ntfy 구성이 성공적으로 저장되었습니다.",
+              "error": "ntfy 구성을 저장하지 못했습니다!"
+            },
+            "test": {
+              "success": "ntfy 테스트 알림이 전송되었습니다.",
+              "error": "테스트 ntfy 알림을 보내지 못했습니다!"
+            },
+            "notEnabled": "ntfy 연동이 활성화되지 않았습니다.",
+            "invalidParams": "잘못된 매개변수입니다! ntfy 구성을 저장할 수 없습니다.",
+            "testInvalidParams": "잘못된 매개변수입니다! 테스트 알림을 보낼 수 없습니다."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "서버 URL",
+              "placeholder": "ntfy.sh 또는 자체 호스팅 URL"
+            },
+            "topic": {
+              "label": "주제 이름"
+            },
+            "token": {
+              "label": "액세스 토큰(선택 사항)",
+              "placeholder": "액세스 토큰"
+            }
+          },
+          "buttons": {
+            "save": "ntfy 저장",
+            "test": "테스트 ntfy"
+          }
+        },
+        "webhook": {
+          "title": "웹훅",
+          "description": "웹훅을 통해 알림을 받습니다.",
+          "toast": {
+            "disable": {
+              "success": "웹훅 통합이 비활성화되었습니다.",
+              "error": "웹훅 통합을 비활성화하지 못했습니다!"
+            },
+            "save": {
+              "success": "웹훅 구성이 성공적으로 저장되었습니다.",
+              "error": "웹훅 구성을 저장하지 못했습니다!"
+            },
+            "test": {
+              "success": "웹훅 알림 테스트가 전송되었습니다.",
+              "error": "테스트 웹훅 알림을 전송하지 못했습니다!"
+            },
+            "notEnabled": "웹훅 통합이 활성화되어 있지 않습니다.",
+            "invalidParams": "잘못된 매개변수입니다! 웹훅 구성을 저장할 수 없습니다.",
+            "testInvalidParams": "잘못된 매개변수입니다! 테스트 알림을 보낼 수 없습니다."
+          },
+          "fields": {
+            "url": {
+              "label": "서버 URL",
+              "placeholder": "웹훅 서버 URL"
+            }
+          },
+          "buttons": {
+            "save": "웹쿡 저장",
+            "test": "웹훅 테스트"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Discord 를 통해 알림을 받으세요.",
+          "toast": {
+            "disable": {
+              "success": "Discord 연동이 비활성화되었습니다.",
+              "error": "Discord 연동을 비활성화하지 못했습니다!"
+            },
+            "save": {
+              "success": "Discord 구성이 성공적으로 저장되었습니다.",
+              "error": "Discord 구성을 저장하지 못했습니다!"
+            },
+            "test": {
+              "success": "Discord 테스트 알림이 전송되었습니다.",
+              "error": "테스트 Discord 알림을 전송하지 못했습니다!"
+            },
+            "notEnabled": "Discord 연동이 활성화되어 있지 않습니다.",
+            "invalidParams": "잘못된 매개변수입니다! Discord 구성을 저장할 수 없습니다.",
+            "testInvalidParams": "잘못된 매개변수입니다! 테스트 알림을 보낼 수 없습니다."
+          },
+          "fields": {
+            "url": {
+              "label": "서버 URL",
+              "placeholder": "Discord 서버 URL"
+            }
+          },
+          "buttons": {
+            "save": "Discord 저장",
+            "test": "테스트 Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Slack 를 통해 알림을 받으세요.",
+          "toast": {
+            "disable": {
+              "success": "Slack 연동이 비활성화되었습니다.",
+              "error": "Slack 연동을 비활성화하지 못했습니다!"
+            },
+            "save": {
+              "success": "Slack 구성이 성공적으로 저장되었습니다.",
+              "error": "Slack 구성을 저장하지 못했습니다!"
+            },
+            "test": {
+              "success": "Slack 테스트 알림이 전송되었습니다.",
+              "error": "테스트 Slack 알림을 전송하지 못했습니다!"
+            },
+            "notEnabled": "Slack 연동이 활성화되어 있지 않습니다.",
+            "invalidParams": "잘못된 매개변수입니다! Slack 구성을 저장할 수 없습니다.",
+            "testInvalidParams": "잘못된 매개변수입니다! 테스트 알림을 보낼 수 없습니다."
+          },
+          "fields": {
+            "url": {
+              "label": "서버 URL",
+              "placeholder": "Slack 서버 URL"
+            }
+          },
+          "buttons": {
+            "save": "Slack 저장",
+            "test": "테스트 Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "데이터 내보내기",
+        "description": "구독, 카테고리, 결제 수단 및 설정 사본 다운로드",
+        "button": "데이터 내보내기",
+        "toast": {
+          "success": "성공적으로 내보내기",
+          "error": "데이터를 내보내지 못했습니다!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "새로 추가",
+        "edit": "{name} 수정",
+        "unauthorized": "허가되지 않음"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "로그인"
+      },
+      "description": "이메일로 로그인하여 계정에 액세스하거나 자동으로 새 계정을 만드세요.",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "로그인",
+        "loginWithProvider": "{provider}로 로그인"
+      },
+      "otp": {
+        "title": "받은 편지함을 확인하하세요",
+        "description": "로그인하실 수 있도록 이메일로 링크를 보내드렸습니다.",
+        "instructions": "이메일로 전송된 6자리 코드를 입력하세요.",
+        "divider": "또는",
+        "resend": {
+          "prompt": "이메일을 받지 못했나요?",
+          "button": "다시 보내려면 클릭하세요.",
+          "timer": "You can resend in {seconds, plural, one {#초} other {#초}}"
+        }
+      },
+      "toast": {
+        "success": "환영합니다! 로그인에 성공했습니다.",
+        "error": {
+          "accessDenied": "죄송하지만 로그인하실 수 없습니다!",
+          "generic": "이상하네요! 로그인을 할 수 없습니다. 이메일 주소에 문제가 있거나 당사 측에서 오류가 발생했을 수 있습니다.",
+          "invalidCode": "코드가 올바르지 않은 것 같습니다. 6자리 숫자를 다시 확인하고 다시 시도해 보세요.",
+          "somethingWrong": "문제가 발생했습니다. 새 코드를 요청하고 다시 시도해 주세요.",
+          "workspaceAccess": "이 작업 공간에 액세스할 수 없습니다.",
+          "rateLimited": "요청이 너무 많습니다. 잠시 기다렸다가 다시 시도하세요."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "최종 수정일: 2026년 11월 15일",
+      "introduction": {
+        "title": "개요",
+        "paragraph1": "sub.idler.me는 앱이 작동하는 데 필요한 것만 저장하고 그 외에는 아무것도 저장하지 않습니다. 이 페이지에는 그 내용이 정확히 명시되어 있습니다.",
+        "paragraph2": "이 서비스는 1인 운영의 소규모 서비스입니다. 회사도, 광고도, 결제 처리도 없습니다."
+      },
+      "informationWeCollect": {
+        "title": "당사가 수집하는 정보",
+        "description": "데이터베이스에 저장되는 회원님 계정 정보:",
+        "items": {
+          "account": "회원님의 이메일 주소와 로그인 제공업체가 반환하는 이름 또는 아바타.",
+          "subscription": "추가하는 구독: 이름, 가격, 통화, 청구일, 카테고리 및 결제 수단 라벨.",
+          "expense": "결제 완료로 표시한 결제 건과 해당 시점."
+        }
+      },
+      "howWeUse": {
+        "title": "당사의 정보 사용 방식",
+        "description": "귀하의 데이터는 다음과 같은 목적으로 사용됩니다.",
+        "items": {
+          "providing": "구독, 보고서 및 결제 내역을 표시합니다.",
+          "managing": "설정한 알림을 설정한 채널로 전송합니다.",
+          "sending": "이메일 링크로 로그인합니다.",
+          "improving": "그 외에는 아무것도 하지 않습니다. 프로파일링, 광고 네트워크, 판매 등이 없습니다."
+        }
+      },
+      "dataProtection": {
+        "title": "데이터 보호 ",
+        "description": "데이터는 운영자가 제어하는 인프라의 Postgres 데이터베이스에 저장됩니다. 데이터는 사용자가 직접 활성화한 알림 채널 이외의 제3자와 공유되지 않습니다. 호스트의 기본 설정 이외에는 저장 데이터 암호화에 대한 약속이 없습니다."
+      },
+      "analytics": {
+        "title": "쿠키 및 분석",
+        "description": "타사 분석 및 추적 스크립트가 없습니다. 앱은 세션 쿠키, 언어 선택, 쿠키 기본 설정을 브라우저에 저장합니다."
+      },
+      "yourRights": {
+        "title": "귀하의 권리",
+        "description": "가능한 작업:",
+        "items": {
+          "access": "계정 페이지에서 앱에 저장된 모든 사용자 기록을 내보냅니다.",
+          "correct": "언제든지 설정을 변경하실 수 있습니다.",
+          "delete": "계정 및 계정 데이터 삭제를 요청합니다.",
+          "optOut": "쿠키 배너에서 필수적이지 않은 쿠키를 거부합니다."
+        }
+      },
+      "contactUs": {
+        "description": "개인정보 처리방침 또는 당사의 데이터 처리 방식에 대해 궁금한 점이 있으시면<link>문의 페이지</link>의 Matrix 로 문의해 주세요."
+      },
+      "updates": {
+        "title": "본 정책의 업데이트",
+        "description": "이 페이지는 소프트웨어나 배포가 변경될 때 변경됩니다. 상단의 날짜는 현재 버전입니다."
+      },
+      "operator": {
+        "title": "운영 주체",
+        "description": "sub.idler.me는 기업이 아닌 커뮤니티 서비스로서 한 사람이 자체 호스팅 인프라에서 운영합니다. 결제 처리가 없으며 광고도 없습니다."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "구독 보고서"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "허가되지 않음",
+        "view": "{name} 보기"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "최종 수정일: 2026년 11월 15일",
+      "welcome": "{siteName} 웹사이트(이하 '사이트')에 오신 것을 환영합니다. 본 사이트에 접속하거나 이를 이용함으로써 귀하는 다음 이용 약관('이용 약관')을 준수하고 이에 구속되는 데 동의하는 것입니다.",
+      "overview": {
+        "title": "개요",
+        "paragraph1": "{siteName}는 귀하(사용자)가 여기에 명시된 모든 약관, 조건, 정책 및 고지를 수락하는 것을 조건으로 본 사이트에서 이용 가능한 모든 정보, 도구 및 서비스를 포함하여 본 사이트를 제공합니다.",
+        "paragraph2": "본 사이트에 접속하거나 사용하기 전에 본 서비스 약관을 주의 깊게 읽어보시기 바랍니다. 본 사이트의 일부라도 접속하거나 이용함으로써 귀하는 본 서비스 약관의 구속을 받는 데 동의하는 것입니다. 본 계약의 모든 약관에 동의하지 않는 경우, 귀하는 본 사이트에 접속하거나 서비스를 이용할 수 없습니다. 본 이용약관이 제안으로 간주되는 경우, 수락은 본 이용약관에 명시적으로 제한됩니다.",
+        "paragraph3": "QUERY LENGTH LIMIT EXCEEDED. MAX ALLOWED QUERY : 500 CHARS"
+      },
+      "websiteTerms": {
+        "title": "웹사이트 이용 약관",
+        "paragraph1": "귀하는 본 서비스 약관에 동의함으로써, 귀하가 거주하는 주 또는 도에서 성인으로 간주되는 나이 이상이거나, 귀하가 거주하는 주 또는 도에서 성인으로 간주되는 나이 이상이며 미성년자인 부양가족이 본 사이트를 이용할 수 있도록 당사에 동의를 제공했음을 진술합니다.",
+        "paragraph2": "당사 서비스 이용은 모든 관련 법률 및 규정을 준수해야 합니다. 구체적으로 다음과 같습니다.",
+        "items": {
+          "unlawful": "귀하는 당사 제품을 불법적이거나 승인되지 않은 목적으로 사용하지 않을 것에 동의합니다.",
+          "comply": "저작권 및 지식재산권법을 포함하여 관할 지역의 모든 법률을 준수해야 합니다.",
+          "malicious": "악성 코드, 바이러스 또는 기타 유해한 콘텐츠를 전송해서는 안 됩니다."
+        },
+        "paragraph3": "본 서비스 약관을 위반할 경우 당사 서비스에 대한 귀하의 접근 권한이 즉시 종료된다는 점에 유의하시기 바랍니다."
+      },
+      "cookies": {
+        "title": "쿠키 사용",
+        "description": "사이트는 귀하의 사이트 이용을 추적하고 마케팅 목적으로 쿠키 및 유사한 기술(예: 로컬 스토리지)을 사용합니다. 사이트를 이용함으로써 귀하는 당사의<privacy>개인정보 처리방침</privacy>에 따라 쿠키 사용에 동의하는 것입니다."
+      },
+      "intellectualProperty": {
+        "title": "지적 재산",
+        "description": "이 소프트웨어는 Commons Clause가 적용된 MIT 라이선스 하에 라이선스가 부여되며, 저작권은 meceware에 있습니다. 이 배포에는 자체 독점 콘텐츠가 추가되지 않습니다."
+      },
+      "disclaimer": {
+        "title": "면책 조항 ",
+        "description": "사이트의 정보 및 콘텐츠는 정보 제공 목적으로만 제공되며 전문적인 조언을 위한 것이 아닙니다. 사이트는 사이트에 게시된 정보 및 콘텐츠의 정확성, 신뢰성, 완전성 또는 적합성에 대해 명시적이거나 묵시적인 어떠한 진술이나 보증도 하지 않습니다. 귀하는 본 사이트를 본인의 책임 하에 사용합니다."
+      },
+      "limitationOfLiability": {
+        "title": "책임의 제한",
+        "description": "{siteName}는 귀하의 사이트 이용으로 인해 발생할 수 있는 간접적, 부수적, 특별적 또는 결과적 손해에 대해 책임을 지지 않습니다. 이러한 손해가 계약, 불법 행위, 과실, 무과실 책임 또는 기타 법적 이론에 기인하는지 여부는 관계없습니다. 사이트와 관련된 모든 청구에서 사이트가 책임질 수 있는 최대 금액은 지난 12개월 동안 귀하가 지불한 총 구독료로 제한됩니다."
+      },
+      "changes": {
+        "title": "서비스 약관 변경",
+        "description": "사이트는 수시로 본 서비스 약관을 업데이트하거나 수정할 수 있으며, 모든 변경 사항은 사이트에 게시되는 즉시 효력이 발생합니다. 이러한 변경 후에도 계속해서 사이트를 이용하는 경우, 수정된 서비스 약관에 동의하는 것으로 간주됩니다."
+      },
+      "indemnification": {
+        "title": "면책",
+        "description": "귀하는 사이트 이용, 본 서비스 약관 위반 또는 다른 당사자의 권리 위반과 관련하여 발생하거나 그로 인해 발생하는 합리적인 변호사 수임료를 포함하되 이에 국한되지 않는 모든 청구, 책임, 손해, 손실 및 비용으로부터 {siteName}, 그 계열사, 임원, 이사, 직원, 대리인 및 라이선스 제공자를 면책하고 보호하는 데 동의합니다."
+      },
+      "modifications": {
+        "title": "서비스 및 가격 수정",
+        "paragraph1": "당사 서비스의 가격은 예고 없이 변경될 수 있습니다. 사이트는 언제든지 사전 통지 없이 서비스(또는 그 일부 또는 콘텐츠)를 수정하거나 중단할 권리를 보유합니다.",
+        "paragraph2": "회사는 서비스의 수정, 가격 변경, 일시 정지 또는 중단에 대해 귀하 또는 제3자에게 책임을 지지 않습니다."
+      },
+      "governingLaw": {
+        "title": "준거법 및 관할권",
+        "description": "본 서비스 약관은 법률 충돌 원칙을 적용하지 않고 {siteName} 의 본사가 위치한 관할권의 법률에 따라 규율되고 해석됩니다. 귀하는 본 서비스 약관 또는 사이트 이용과 관련하여 발생하는 모든 분쟁에 대해 해당 관할권 내 법원의 전속 관할권에 따르는 데 동의합니다."
+      },
+      "entireAgreement": {
+        "title": "통합조항",
+        "description": "본 서비스 약관은 귀하와 {siteName} 간에 귀하의 사이트 이용과 관련하여 체결된 완전한 계약이며, 동일한 주제와 관련하여 구두 또는 서면으로 체결된 모든 선행 및 동시 계약 및 합의를 대체합니다."
+      },
+      "severability": {
+        "title": "조항의 독립성.",
+        "description": "본 서비스 약관의 조항 중 어느 것이라도 무효, 불법 또는 집행 불가능한 것으로 판명되는 경우, 나머지 조항은 계속해서 완전한 효력을 유지합니다."
+      },
+      "waiver": {
+        "title": "권리 포기",
+        "description": "{siteName}가 본 서비스 약관의 권리 또는 조항을 행사하지 않는다고 해서 해당 권리 또는 조항을 포기하는 것으로 간주되지 않습니다."
+      },
+      "contactUs": {
+        "description": "본 서비스 약관에 대해 궁금한 점이나 우려 사항이 있는 경우,<link>문의 페이지</link>의 Matrix 번으로 운영자에게 문의하시기 바랍니다."
+      },
+      "freeService": {
+        "title": "무료 서비스, 청구 없음",
+        "paragraph1": "sub.idler.me는 무료로 사용할 수 있습니다. 요금제가 없고, 체험판이 없고, 카드 정보 입력란이 없고, 환불이 없습니다. 왜냐하면 돈이 오가지 않기 때문입니다.",
+        "paragraph2": "이 소프트웨어는 Commons Clause가 적용된 MIT 라이선스에 따라 오픈 소스로 제공됩니다. 직접 호스팅하실 수 있습니다. 이 인스턴스는 자체 인스턴스를 실행할 수 없거나 실행하고 싶지 않은 사람들을 위해 존재합니다.",
+        "paragraph3": "본 서비스는 있는 그대로 제공되며 최선을 다해 제공됩니다. 가동 시간 보장이나 장애 발생 시 데이터가 손실되지 않는다는 보장은 없습니다. 정기적으로 데이터를 내보내고 자체 백업을 보관하세요."
+      }
+    },
+    "contact": {
+      "title": "연락하기",
+      "description": "상담원에게 가장 빠르게 연락하는 방법은 Matrix 입니다. 더 많은 채널이 곧 추가될 예정입니다.",
+      "matrix": {
+        "label": "Matrix에 대한 메시지",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "채널 더 보기",
+        "note": "출시 예정"
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} 테스트 알림",
+          "message": "{siteName} 에서 보낸 테스트 알림입니다. 이 메시지가 표시되면 푸시 알림이 올바르게 작동하고 있다는 뜻입니다!"
+        }
+      },
+      "email": {
+        "header": "결제 알림",
+        "footer": "{siteName} 에서 보내드리는 친절한 알림 이메일입니다.",
+        "thanks": "감사합니다.",
+        "madeBy": "{siteLink} 가 ♥을 담아 제작"
+      },
+      "bell": {
+        "title": "토",
+        "unreadTitle": "읽지 않은 알림",
+        "clearAll": "모두 지우기",
+        "removeNotification": "알림 제거",
+        "noNotifications": "새로운 알림 없음"
+      },
+      "toggle": {
+        "modal": {
+          "title": "최신 뉴스 확인",
+          "description": "구독료 결제 및 기한에 대한 알림을 적시에 받아보세요. 결제 기한이 도래하기 전과 구독이 곧 만료될 때 알려드리겠습니다.",
+          "maybeLater": "잠시 고민해 보겠습니다.",
+          "enable": "알림 사용",
+          "enabling": "활성화 중..."
+        },
+        "toast": {
+          "success": "이제 구독 알림을 받으시게 됩니다.",
+          "error": "알림을 활성화하지 못했습니다. 다시 시도해 주세요.",
+          "permissionRequired": {
+            "title": "권한이 없습니다",
+            "description": "알림을 받으려면 알림을 허용하세요."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "이름은 2자 이상이어야 합니다.",
+        "paymentDate": "유효한 날짜가 아닙니다!",
+        "color": "유효하지 않은 16진수 색상"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Daily} 기타 {Every # days} }",
+        "WEEKS": "{count, plural, =1 {매주} other {#주마다}}",
+        "MONTHS": "{count, plural, =1 {매월} other {#개월마다}}",
+        "YEARS": "{count, plural, =1 {매년} other {#년마다}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "카테고리",
+            "selected": "{count, plural, =0 {카테고리 선택} one {#개 카테고리 선택} other {#개 카테고리 선택}}",
+            "search": "카테고리 검색...",
+            "create": "새 카테고리 만들기 \"{value}\""
+          },
+          "currency": {
+            "label": "통화",
+            "placeholder": "통화 선택",
+            "search": "통화 검색...",
+            "noResults": "검색 결과가 없습니다!"
+          },
+          "cycle": {
+            "label": "결제 주기",
+            "placeholder": "결제 주기 선택",
+            "options": {
+              "daily": "매일",
+              "weekly": "매주",
+              "monthly": "매월",
+              "yearly": "매년",
+              "custom": "사용자 지정"
+            },
+            "units": {
+              "days": "{count, plural, one {일} other {일}}",
+              "weeks": "{count, plural, one {주} other {주}}",
+              "months": "{count, plural, one {개월} other {개월}}",
+              "years": "{count, plural, one {년} other {년}}"
+            },
+            "unitPlaceholder": "단위"
+          },
+          "name": {
+            "label": "이름",
+            "placeholder": "구독 이름"
+          },
+          "notes": {
+            "label": "메모",
+            "placeholder": "메모 추가..."
+          },
+          "notifications": {
+            "title": "알림",
+            "description": "구독에 사용할 기본 알림을 구성합니다",
+            "via": "수단",
+            "whenToNotify": "알림 시점",
+            "whenPlaceholder": "알림 시점 선택",
+            "unitPlaceholder": "단위",
+            "addNotification": "알림 추가",
+            "deleteDialog": {
+              "title": "삭제 확인",
+              "description": "이 알림 템플릿을 삭제하시겠습니까?"
+            },
+            "status": {
+              "denied": "이 기기에서 푸시 알림이 차단되어 있습니다. 브라우저 설정에서 활성화하세요.",
+              "default": "이 기기에서 푸시 알림이 활성화되어 있지 않습니다.<link>활성화하시겠습니까?</link>",
+              "grantedNotConfigured": "푸시 알림 권한은 허용되었지만 올바르게 구성되지 않았습니다.<link>활성화하시겠습니까?</link>",
+              "grantedConfigured": "이 기기에서 푸시 알림이 활성화되어 있습니다.<link>테스트 푸시 알림</link>을 보내시겠습니까?"
+            },
+            "toast": {
+              "success": "푸시 알림을 보냈습니다! 기기를 확인하세요.",
+              "error": "테스트 푸시 알림을 보내지 못했습니다! 알림이 활성화되고 올바르게 설정되었는지 확인하세요."
+            },
+            "timeOptions": {
+              "instant": "결제일",
+              "15minutes": "15분 전",
+              "1hour": "1시간 전",
+              "2hours": "2시간 전",
+              "1day": "1일 전",
+              "2days": "2일 전",
+              "1week": "1주 전",
+              "custom": "사용자 지정"
+            },
+            "units": {
+              "minutes": "{count, plural, one {분} other {분}}",
+              "hours": "{count, plural, one {시간} other {시간}}",
+              "days": "{count, plural, one {일} other {일}}",
+              "weeks": "{count, plural, one {주} other {주}}"
+            },
+            "types": {
+              "push": {
+                "label": "푸시 알림",
+                "ariaLabel": "푸시 알림 전환"
+              },
+              "email": {
+                "label": "이메일 알림",
+                "ariaLabel": "이메일 알림 전환"
+              },
+              "webhook": {
+                "label": "웹훅 알림",
+                "ariaLabel": "웹훅 알림 전환"
+              },
+              "ntfy": {
+                "label": "ntfy 알림",
+                "ariaLabel": "ntfy 알림 전환"
+              },
+              "discord": {
+                "label": "Discord 알림",
+                "ariaLabel": "Discord 알림 전환"
+              },
+              "slack": {
+                "label": "Slack 알림",
+                "ariaLabel": "Slack 알림 전환"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "다음 결제일"
+          },
+          "paymentMethod": {
+            "label": "결제 수단",
+            "placeholder": "결제 수단 선택",
+            "search": "결제 수단 검색...",
+            "create": "새 결제 수단 만들기 \"{value}\""
+          },
+          "price": {
+            "label": "가격"
+          },
+          "timezone": {
+            "label": "시간대",
+            "placeholder": "시간대 선택",
+            "search": "시간대 검색...",
+            "noResults": "검색 결과가 없습니다!"
+          },
+          "untilDate": {
+            "label": "유효 기간",
+            "description": "기간 제한 없이 구독하려면 비워 두세요"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "로고",
+            "description": "미리 정의된 아이콘을 선택하거나 URL을 입력하세요"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} 시간대",
+        "paymentDate": {
+          "past": "<date></date>에 결제했어야 합니다.",
+          "future": "<date></date>에 결제됩니다."
+        },
+        "markAsPaid": {
+          "question": "결제하셨나요?<action>결제 완료로 표시</action>하거나<options>다른 옵션</options>을 확인하세요.",
+          "customPrice": {
+            "title": "다른 금액을 결제하셨나요?",
+            "description": "평소보다 많거나 적게 결제했을 때 사용하세요",
+            "prompt": "결제한 금액을 입력하세요:"
+          },
+          "noPrice": {
+            "title": "결제 완료로 표시!",
+            "description": "금액을 기록하지 않고 이번 결제를 건너뜁니다",
+            "prompt": "금액을 기록하지 않고 결제 완료로 표시할까요?",
+            "warning": "결제 금액은 기록되지 않습니다."
+          },
+          "toast": {
+            "success": "구독이 결제 완료로 표시되었습니다!",
+            "error": "구독을 결제 완료로 표시하는 중 오류가 발생했습니다",
+            "custom": {
+              "success": "구독이 사용자 지정 금액으로 결제 완료 처리되었습니다!",
+              "error": "사용자 지정 금액으로 결제 완료 처리 중 오류가 발생했습니다"
+            },
+            "noPrice": {
+              "success": "결제 없이 구독이 결제 완료로 표시되었습니다!",
+              "error": "결제 없이 처리하는 중 오류가 발생했습니다"
+            },
+            "failed": "업데이트하지 못했습니다!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "<date></date>에 {channels}을(를) 통해 알림을 받습니다.",
+          "willBeNotifiedSoon": "곧 {channels}을(를) 통해 알림을 받습니다.",
+          "willBeRemindedAt": "<date></date>에 {channels}을(를) 통해 다시 알림을 받습니다.",
+          "willBeRemindedSoon": "곧 {channels}을(를) 통해 다시 알림을 받습니다.",
+          "wontBeNotified": "알림을 받지 않습니다.",
+          "types": {
+            "push": "notification",
+            "email": "email",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "축하합니다! 모든 결제를 완료했습니다.",
+          "remaining": "이 구독은<trigger>{count, plural, =1 {#회 더} other {#회 더}}</trigger>결제됩니다.",
+          "until": "{date}까지"
+        },
+        "paymentMethods": {
+          "paidVia": "{methods}을(를) 통해 결제됩니다."
+        },
+        "pastPayments": {
+          "count": "지금까지<highlight>{count, plural, one {#건} other {#건}}</highlight>결제했습니다."
+        },
+        "actions": {
+          "inactive": "이 구독은 활성 상태가 아닙니다.",
+          "edit": "{name} 구독 편집",
+          "link": "{url} 링크",
+          "notificationEnabled": "{type}이(가) 활성화되어 있습니다",
+          "notificationDisabled": "{type}이(가) 비활성화되어 있습니다"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "구독 만들기",
+          "update": "구독 업데이트"
+        },
+        "sections": {
+          "details": "구독 세부 정보",
+          "advanced": "고급 설정"
+        },
+        "deleteDialog": {
+          "title": "구독 삭제",
+          "description": "이 구독을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+        },
+        "toast": {
+          "create": {
+            "error": "구독을 만들 수 없습니다!",
+            "success": "구독을 만들었습니다!"
+          },
+          "delete": {
+            "success": "구독을 삭제했습니다!",
+            "error": "구독을 삭제하지 못했습니다!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "새 구독",
+        "noSubscription": "구독을 찾을 수 없습니다"
+      }
+    },
+    "filters": {
+      "title": "구독 필터",
+      "description": "필터를 적용하여 필요한 구독을 찾으세요",
+      "buttons": {
+        "filter": "구독 필터링",
+        "reset": "필터 초기화"
+      },
+      "selectAll": "모두 선택",
+      "selectNone": "선택 해제",
+      "status": {
+        "title": "상태",
+        "active": {
+          "title": "활성",
+          "description": "활성 구독으로 필터링"
+        },
+        "inactive": {
+          "title": "비활성",
+          "description": "비활성 구독으로 필터링"
+        }
+      },
+      "paymentDate": {
+        "title": "결제일",
+        "all": {
+          "title": "전체",
+          "description": "모든 결제일 필터 비활성화"
+        },
+        "thisMonth": {
+          "title": "이번 달",
+          "description": "이번 달 결제로 필터링"
+        },
+        "next30Days": {
+          "title": "다음 30일",
+          "description": "향후 30일 결제로 필터링"
+        }
+      },
+      "currencies": {
+        "title": "통화",
+        "all": {
+          "description": "모든 통화 선택"
+        },
+        "clear": {
+          "description": "모든 통화 선택 해제"
+        },
+        "filter": "{currency}(으)로 필터링"
+      },
+      "categories": {
+        "title": "카테고리",
+        "uncategorized": "미분류",
+        "all": {
+          "description": "모든 카테고리 선택"
+        },
+        "clear": {
+          "description": "모든 카테고리 선택 해제"
+        },
+        "filterBy": "{category}(으)로 필터링"
+      },
+      "paymentMethods": {
+        "title": "결제 수단",
+        "unspecified": "지정되지 않음",
+        "all": {
+          "description": "모든 결제 수단 선택"
+        },
+        "clear": {
+          "description": "모든 결제 수단 선택 해제"
+        },
+        "filterBy": "{method}(으)로 필터링"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} will be paid {count, plural, one {# time} other {# times}}"
+      },
+      "overview": {
+        "title": "Overview",
+        "total": "<count></count>total subscriptions",
+        "active": "<count></count>active subscriptions",
+        "inactive": "<count></count>inactive subscriptions"
+      },
+      "costAverages": {
+        "title": "Cost Averages",
+        "description": "Monthly and yearly subscription cost averages",
+        "monthly": "Monthly Average",
+        "yearly": "Yearly Average"
+      },
+      "monthlyCost": {
+        "title": "Monthly Cost Overview",
+        "description": "Track your monthly subscription costs"
+      },
+      "yearlyCost": {
+        "title": "Yearly Cost Overview",
+        "description": "Track your yearly subscription costs"
+      },
+      "upcomingPayments": {
+        "title": "Upcoming Payments",
+        "description": "Track your upcoming payments",
+        "noPayments": "No upcoming payments in one month.",
+        "nextMonth": "Next Month"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "This Month",
+          "description": "Until end of month"
+        },
+        "nextMonth": {
+          "title": "Next Month",
+          "description": "Upcoming month only"
+        },
+        "next30Days": {
+          "title": "Next 30 Days",
+          "description": "Rolling period"
+        },
+        "thisYear": {
+          "title": "This Year",
+          "description": "Until end of year"
+        },
+        "nextYear": {
+          "title": "Next Year",
+          "description": "Next calendar year"
+        },
+        "next365Days": {
+          "title": "Next 365 Days",
+          "description": "Rolling period"
+        }
+      },
+      "tabs": {
+        "byCategories": "By Categories",
+        "byPaymentMethods": "By Payment Methods"
+      },
+      "mostExpensive": {
+        "monthly": "Most Expensive Monthly Subscription",
+        "yearly": "Most Expensive Yearly Subscription"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} payments in this category",
+          "noSubscriptions": "No subscriptions found in this category"
+        },
+        "paymentMethod": {
+          "description": "{period} payments via this payment method",
+          "noSubscriptions": "No subscriptions found via this payment method"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Link",
+        "linkTitle": "Subscription Link",
+        "editTitle": "Edit Subscription"
+      },
+      "overview": {
+        "title": "Overview",
+        "description": "Key metrics for this subscription",
+        "disabled": "This subscription is currently disabled. You can enable it again at any time.",
+        "unpaid": {
+          "hasUnpaid": "Oh no! You have<count>{count, plural, one {# unpaid payment} other {# unpaid payments}}</count>for this subscription totaling<total>{total}</total>.",
+          "allPaid": "Good job! This subscription is fully paid up to date."
+        },
+        "nextPayment": {
+          "scheduled": "Your next payment of<price>{price}</price>is due on<date>{date}</date>which is<distance>{distance}</distance>.",
+          "none": "Congrats! There are no future payments scheduled for this subscription."
+        },
+        "endDate": {
+          "hasEndDate": "This subscription will end on<date>{date}</date>.",
+          "ongoing": "This is an ongoing subscription with no specified end date."
+        },
+        "remainingPayments": {
+          "withEndDate": "This subscription will require<count>{count, plural, one {# payment} other {# payments}}</count>totaling<total>{total}</total>.",
+          "thisYear": "This subscription will require<count>{count, plural, one {# payment} other {# payments}}</count>this year, totaling<total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "This subscription will be paid via<methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "You have made<countTag>{count, plural, one {# payment} other {# payments}}</countTag>for this subscription so far, totaling<totalTag>{total}</totalTag>.",
+          "yearStats": " In the past year, you made<countTag>{count, plural, one {# payment} other {# payments}}</countTag>, totaling<totalTag>{total}</totalTag>.",
+          "none": "This is a subscription with no payment history yet."
+        },
+        "notifications": {
+          "title": "You will receive notifications:",
+          "none": "No notifications are set up for this subscription.",
+          "item": "<timing></timing>via<channels></channels>.",
+          "itemNoType": "<timing></timing>but<error>no notification type is set</error>.",
+          "timing": {
+            "instant": "At the payment date",
+            "minutes": "{count, plural, one {# minute} other {# minutes}} before payment",
+            "hours": "{count, plural, one {# hour} other {# hours}} before payment",
+            "days": "{count, plural, one {# day} other {# days}} before payment",
+            "weeks": "{count, plural, one {# week} other {# weeks}} before payment"
+          },
+          "types": {
+            "email": "email",
+            "push": "push notification",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Next notification will be on<date>{date}</date>which is<distance>{distance}</distance>via<channels></channels>.",
+          "soon": "soon"
+        }
+      },
+      "costBreakdown": {
+        "title": "Cost Breakdown",
+        "description": "Future spending for this subscription",
+        "periods": {
+          "30days": "Next 30 days",
+          "3months": "Next 3 months",
+          "12months": "Next 12 months"
+        }
+      },
+      "notes": {
+        "title": "Notes"
+      },
+      "paymentSchedule": {
+        "title": "Payment Schedule",
+        "description": "Upcoming payment dates in a year",
+        "noUpcoming": "No upcoming payments",
+        "more": "+ {count} more",
+        "totalPayments": "Total payments:",
+        "total": "Total:"
+      },
+      "latestPayments": {
+        "title": "Latest Payments",
+        "description": "Most recent payments for this subscription",
+        "none": "No past payments recorded for this subscription yet.",
+        "status": {
+          "onTime": "on time",
+          "late": "{distance} late",
+          "early": "{distance} early"
+        },
+        "popover": {
+          "paidStatus": "This subscription is paid<status>{status}</status>.",
+          "scheduled": "Scheduled:",
+          "actual": "Actual:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Install as Application",
+      "description": "For the best experience, we recommend installing the app to your home screen!",
+      "buttons": {
+        "gotIt": "Got it",
+        "maybeLater": "Maybe Later",
+        "installNow": "Install Now"
+      },
+      "common": {
+        "addToHomeScreen": "Add to Home Screen",
+        "clickIcon": "Click the<icon></icon>icon",
+        "scrollDownClick": "Scroll down and click"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS Installation Steps",
+          "step3": "Tap 'Add' to confirm"
+        },
+        "chrome": {
+          "title": "Chrome on iOS Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox on iOS Installation Steps",
+          "step2": "Scroll down and click<icon></icon>button",
+          "step3": "Then click"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox Installation Steps"
+        }
+      },
+      "unknown": {
+        "title": "Installation Steps",
+        "step1": "Look for an option like \"Add to Home Screen\" or \"Install App\" in your browser's menu",
+        "step2": "The option is usually found in the main menu (often represented by three dots or lines)",
+        "step3": "Follow your browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "검색..."
+    }
+  }
+}

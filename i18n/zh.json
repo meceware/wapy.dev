@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "添加",
+    "save": "保存",
+    "cancel": "取消",
+    "edit": "编辑",
+    "delete": "删除",
+    "confirm": "确认",
+    "view": "查看",
+    "close": "关闭",
+    "contact": "联系我们",
+    "signIn": "登录",
+    "termsOfService": "服务条款",
+    "privacyPolicy": "隐私政策"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} 付款提醒",
+        "message": "提醒您，您的 {siteName} 订阅 即将到期。"
+      },
+      "payment": {
+        "title": {
+          "due": "的付款到期： {name}",
+          "reminder": "付款提醒 f或 {name}",
+          "upcoming": "即将支付： {name}"
+        },
+        "message": {
+          "due": "您的 {name} 订阅 付款 ({price}) 现在到期！",
+          "reminder": "您的 {name} 订阅 付款 ({price}) 已逾期！",
+          "upcoming": "您的 {name} 订阅 付款 ({price}) 是{dueText}！"
+        },
+        "markAsPaid": "标记为已付款",
+        "dismiss": "忽略"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} 订阅 提醒",
+      "footer": "由发送 {siteName}",
+      "visitDashboard": "访问控制面板",
+      "paymentQuestion": "付款完成了吗？",
+      "viewDetails": "查看详情"
+    }
+  },
+  "header": {
+    "signOut": "退出登录",
+    "subscriptions": "订阅",
+    "reports": "报告",
+    "settings": "设置",
+    "account": "账户"
+  },
+  "footer": {
+    "madeBy": "由以下人员用心运营： <author>{name}</author>。",
+    "github": "源代码",
+    "menu": "菜单"
+  },
+  "languages": {
+    "selectLanguage": "选择语言",
+    "invalid": "语言无效",
+    "failed": "更改语言失败"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "免费使用，由个人托管。",
+        "title": "追踪每项订阅，不错过任何付款。",
+        "subtitle": "{appName} 将周期性费用集中在清晰的控制面板中，并在扣款前提醒您。",
+        "tagline": "免费使用，无需银行卡、无试用，也不推销升级。"
+      },
+      "features": {
+        "title": "功能介绍",
+        "subtitle": "软件提供全部功能，您无需支付任何费用。",
+        "billingCycles": {
+          "title": "灵活的账单周期",
+          "description": "支持按月、按年及自定义账单周期"
+        },
+        "notifications": {
+          "title": "智能通知",
+          "description": "通过电子邮件、推送、Webhook、ntfy、Discord 或 Slack 发送提醒"
+        },
+        "reports": {
+          "title": "报告与洞察",
+          "description": "通过详细报告和洞察追踪支出"
+        },
+        "currencies": {
+          "title": "多种货币",
+          "description": "支持多种货币，实时追踪费用"
+        },
+        "timezone": {
+          "title": "时区支持",
+          "description": "跨时区追踪订阅，自动转换日期"
+        },
+        "categories": {
+          "title": "分类管理",
+          "description": "使用自定义分类和颜色编码整理订阅"
+        }
+      },
+      "howItWorks": {
+        "title": "使用方法",
+        "subtitle": "几分钟即可开始",
+        "step1": {
+          "title": "通过链接登录",
+          "description": "输入电子邮件并打开链接即可登录，无需记住密码。"
+        },
+        "step2": {
+          "title": "添加您付费的项目",
+          "description": "记录每项订阅的价格、账单周期和货币。"
+        },
+        "step3": {
+          "title": "接收提醒",
+          "description": "选择所需的通知渠道，然后直接从通知中将付款标记为已付。"
+        }
+      },
+      "free": {
+        "eyebrow": "免费",
+        "title": "免费，没有附加条件",
+        "description": "软件是开源的。此实例为无法自行运行的人提供托管。",
+        "price": "€0",
+        "period": "永久",
+        "features": {
+          "unlimited": "无限订阅",
+          "notifications": "电子邮件、推送、Webhook、ntfy、Discord 和 Slack 提醒",
+          "reports": "报告和支出洞察",
+          "export": "随时导出数据",
+          "noAds": "无广告、无追踪、无需付款信息",
+          "bestEffort": "尽力提供服务，不承诺正常运行时间"
+        },
+        "button": "登录",
+        "selfHostButton": "自行托管",
+        "selfHostNote": "更喜欢自己的服务器？使用 Docker 约十分钟即可运行同一软件。"
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "页面未找到",
+        "description": "您查找的页面不存在。"
+      },
+      "title": "404",
+      "backToHome": "返回首页"
+    },
+    "account": {
+      "meta": {
+        "title": "账户设置",
+        "description": "管理账户设置和偏好。"
+      },
+      "defaultSettings": {
+        "title": "默认设置",
+        "description": "配置新订阅的默认设置",
+        "timezone": {
+          "label": "时区",
+          "success": "时区更新成功。",
+          "error": "更新时区失败！"
+        },
+        "currency": {
+          "label": "货币",
+          "success": "货币更新成功。",
+          "error": "更新货币失败！"
+        }
+      },
+      "notifications": {
+        "success": "通知偏好已保存。",
+        "error": "保存通知偏好失败！",
+        "saveButton": "保存更改",
+        "saveButtonTitle": "保存通知偏好"
+      },
+      "profile": {
+        "success": "您的姓名已更新。",
+        "error": "更新姓名失败！",
+        "namePlaceholder": "输入您的姓名",
+        "addNamePrompt": "添加姓名",
+        "memberSince": "加入时间： {date}"
+      },
+      "categories": {
+        "title": "分类",
+        "description": "管理分类",
+        "default": {
+          "load": "加载默认分类",
+          "success": "默认分类加载成功。",
+          "error": "创建默认分类失败！"
+        },
+        "save": {
+          "success": "分类保存成功。",
+          "error": "保存分类失败！"
+        },
+        "addButtonTitle": "添加新分类",
+        "selectColor": "选择颜色",
+        "namePlaceholder": "分类名称",
+        "delete": {
+          "title": "删除分类",
+          "description": "确定要删除此分类吗？此操作无法撤销。",
+          "success": "分类删除成功。",
+          "error": "删除分类失败！"
+        },
+        "invalid": "分类数据无效",
+        "edit": "编辑分类"
+      },
+      "paymentMethods": {
+        "title": "付款方式",
+        "description": "管理付款方式",
+        "add": "添加新付款方式",
+        "edit": "编辑付款方式",
+        "invalid": "付款方式数据无效",
+        "placeholder": "付款方式名称",
+        "load": {
+          "title": "加载默认付款方式",
+          "success": "默认付款方式加载成功。",
+          "error": "创建默认付款方式失败！"
+        },
+        "save": {
+          "success": "付款方式保存成功。",
+          "error": "保存付款方式失败！"
+        },
+        "delete": {
+          "title": "删除付款方式",
+          "description": "确定要删除此付款方式吗？此操作无法撤销。",
+          "success": "付款方式删除成功。",
+          "error": "删除付款方式失败！"
+        }
+      },
+      "externalServices": {
+        "title": "外部服务",
+        "description": "配置外部服务集成",
+        "testNotification": {
+          "title": "{siteName} 测试通知",
+          "message": "这是一条测试 {service} 消息，来自 {siteName}。 您的 {service} 集成配置正确。"
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "通过接收通知： ntfy。",
+          "toast": {
+            "disable": {
+              "success": "ntfy 集成已停用。",
+              "error": "停用失败： ntfy 集成！"
+            },
+            "save": {
+              "success": "ntfy 配置保存成功。",
+              "error": "保存失败： ntfy 配置！"
+            },
+            "test": {
+              "success": "测试 ntfy 通知已发送。",
+              "error": "发送测试失败： ntfy 通知！"
+            },
+            "notEnabled": "ntfy 集成未启用。",
+            "invalidParams": "参数无效！无法保存 ntfy 配置。",
+            "testInvalidParams": "参数无效！无法发送测试通知。"
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "服务器 URL",
+              "placeholder": "ntfy。sh 或 自行托管的 URL"
+            },
+            "topic": {
+              "label": "主题名称"
+            },
+            "token": {
+              "label": "访问令牌（可选）",
+              "placeholder": "访问令牌"
+            }
+          },
+          "buttons": {
+            "save": "保存 ntfy",
+            "test": "测试 ntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "通过接收通知： Webhook。",
+          "toast": {
+            "disable": {
+              "success": "Webhook 集成已停用。",
+              "error": "停用失败： Webhook 集成！"
+            },
+            "save": {
+              "success": "Webhook 配置保存成功。",
+              "error": "保存失败： Webhook 配置！"
+            },
+            "test": {
+              "success": "测试 Webhook 通知已发送。",
+              "error": "发送测试失败： Webhook 通知！"
+            },
+            "notEnabled": "Webhook 集成未启用。",
+            "invalidParams": "参数无效！无法保存 Webhook 配置。",
+            "testInvalidParams": "参数无效！无法发送测试通知。"
+          },
+          "fields": {
+            "url": {
+              "label": "服务器 URL",
+              "placeholder": "Webhook 服务器 URL"
+            }
+          },
+          "buttons": {
+            "save": "保存 Webhook",
+            "test": "测试 Webhook"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "通过接收通知： Discord。",
+          "toast": {
+            "disable": {
+              "success": "Discord 集成已停用。",
+              "error": "停用失败： Discord 集成！"
+            },
+            "save": {
+              "success": "Discord 配置保存成功。",
+              "error": "保存失败： Discord 配置！"
+            },
+            "test": {
+              "success": "测试 Discord 通知已发送。",
+              "error": "发送测试失败： Discord 通知！"
+            },
+            "notEnabled": "Discord 集成未启用。",
+            "invalidParams": "参数无效！无法保存 Discord 配置。",
+            "testInvalidParams": "参数无效！无法发送测试通知。"
+          },
+          "fields": {
+            "url": {
+              "label": "服务器 URL",
+              "placeholder": "Discord server URL"
+            }
+          },
+          "buttons": {
+            "save": "保存 Discord",
+            "test": "测试 Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "通过接收通知： Slack。",
+          "toast": {
+            "disable": {
+              "success": "Slack 集成已停用。",
+              "error": "停用失败： Slack 集成！"
+            },
+            "save": {
+              "success": "Slack 配置保存成功。",
+              "error": "保存失败： Slack 配置！"
+            },
+            "test": {
+              "success": "测试 Slack 通知已发送。",
+              "error": "发送测试失败： Slack 通知！"
+            },
+            "notEnabled": "Slack 集成未启用。",
+            "invalidParams": "参数无效！无法保存 Slack 配置。",
+            "testInvalidParams": "参数无效！无法发送测试通知。"
+          },
+          "fields": {
+            "url": {
+              "label": "服务器 URL",
+              "placeholder": "Slack server URL"
+            }
+          },
+          "buttons": {
+            "save": "保存 Slack",
+            "test": "测试 Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "数据导出",
+        "description": "下载订阅、分类、付款方式和设置的副本",
+        "button": "导出数据",
+        "toast": {
+          "success": "数据导出成功。",
+          "error": "导出数据失败！"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "新建订阅",
+        "edit": "编辑 {name}",
+        "unauthorized": "未授权"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "登录"
+      },
+      "description": "登录 使用 您r 电子邮件 至 access 您r 账户 或 自动创建新账户",
+      "form": {
+        "emailPlaceholder": "m@example。com",
+        "loginButton": "登录",
+        "loginWithProvider": "登录 使用 {provider}"
+      },
+      "otp": {
+        "title": "请检查收件箱",
+        "description": "我们已向您的电子邮件发送登录链接。",
+        "instructions": "输入发送到您邮箱的 6 位验证码",
+        "divider": "或",
+        "resend": {
+          "prompt": "没有收到邮件？",
+          "button": "点击重新发送",
+          "timer": "您可以在 {seconds, plural, one {# second} other {# seconds}}"
+        }
+      },
+      "toast": {
+        "success": "欢迎！您已成功登录。",
+        "error": {
+          "accessDenied": "抱歉，您无权登录！",
+          "generic": "Weird！ We couldn't sign 您 in。 It might be 您r 电子邮件， 或 something went wrong on our end。",
+          "invalidCode": "验证码似乎不正确，请核对 6 位数字后重试。",
+          "somethingWrong": "出了点问题，请申请新的验证码后重试。",
+          "workspaceAccess": "抱歉，您无权访问此工作区。",
+          "rateLimited": "请求过于频繁，请稍等一分钟后重试。"
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "Last up日期d November 15， 2026",
+      "introduction": {
+        "title": "简介",
+        "paragraph1": "sub。idler。me st或es what app needs 至 w或k 和nothing else。 本page says exactly what that is。",
+        "paragraph2": "It 是a small， one-person service。 There 是no company， no advertising， 和no 付款 processing。"
+      },
+      "informationWeCollect": {
+        "title": "Inf或mation We Collect",
+        "description": "What database holds f或 您r 账户：",
+        "items": {
+          "account": "您的 电子邮件 address， 和the 名称 或 avatar 您r login provider returns。",
+          "subscription": "The 订阅s 您 add： 名称s， 价格s， currencies， billing 日期s， categ或ies， 和付款 方式 labels。",
+          "expense": "Which 付款s 您 marked as 已付款， 和when。"
+        }
+      },
+      "howWeUse": {
+        "title": "我们如何使用",
+        "description": "您的 data 是used to：",
+        "items": {
+          "providing": "Show 您r 订阅s， rep或ts， 和付款 hist或y 至 您。",
+          "managing": "Send reminders 您 configured， 至 channels 您 configured。",
+          "sending": "Sign 您 in by 电子邮件 link。",
+          "improving": "Nothing else。 没有profiling， no ad netw或ks， no selling。"
+        }
+      },
+      "dataProtection": {
+        "title": "数据保护",
+        "description": "Data lives in a Postgres database on infrastructure operat或 controls。 It 是不shared 使用 third parties beyond 通知 channels 您 enable 您rself。 There 是no encryption-at-rest promise beyond host's defaults。"
+      },
+      "analytics": {
+        "title": "Cookie 与分析",
+        "description": "没有third-party analytics 和no tracking scripts。 The app st或es 您r session cookie， 您r language choice， 和您r cookie preferences in 您r browser。"
+      },
+      "yourRights": {
+        "title": "您的 Rights",
+        "description": "You can：",
+        "items": {
+          "access": "Exp或t every rec或d app holds about 您 from 账户 page。",
+          "correct": "Change 您r 设置 at any 次。",
+          "delete": "Ask f或 deletion 的 您r 账户 和its data。",
+          "optOut": "Decline non-essential cookies in cookie banner。"
+        }
+      },
+      "contactUs": {
+        "description": "If 您 have any questions about our 隐私政策 或 how we handle 您r data， reach operat或 on Matrix from <link>contact page</link>。"
+      },
+      "updates": {
+        "title": "Up日期s 至 本Policy",
+        "description": "本page changes when software 或 deployment changes。 The 日期 at top 是current version。"
+      },
+      "operator": {
+        "title": "运营者",
+        "description": "sub。idler。me 是operated by one person on 自行托管 infrastructure as a community service， 不a company。 There 是no 付款 processing 和no advertising。"
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "订阅 Rep或t"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "未授权",
+        "view": "查看 {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Last up日期d November 15， 2026",
+      "welcome": "Welcome 至 {siteName} website (the \"Site\")。 By accessing 或 using Site， 您 agree 至 comply 使用 和be bound by following terms 和conditions (\"服务条款\")。",
+      "overview": {
+        "title": "概览",
+        "paragraph1": "{siteName} offers this Site， including all inf或mation， tools， 和services available from this Site 至 您， user， conditioned upon 您r acceptance 的 all terms， conditions， policies， 和notices stated here。",
+        "paragraph2": "Please read these 服务条款 carefully bef或e accessing 或 using Site。 By accessing 或 using any part 的 Site， 您 agree 至 be bound by these 服务条款。 If 您 do 不agree 至 all terms 和conditions 的 this agreement， then 您 may 不access Site 或 use any services。 If these 服务条款 是considered an offer， acceptance 是expressly limited 至 these 服务条款。",
+        "paragraph3": "Any new features 或 tools which 是added 至 Site shall also be subject 至 服务条款。 You can review most current version 的 服务条款 at any 次 on this page。 Site reserves right 至 up日期， change 或 replace any part 的 these 服务条款 by posting up日期s and/或 changes 至 Site。 It 是您r responsibility 至 check this page periodically f或 changes。 您的 continued use 的 或 access 至 Site following posting 的 any changes constitutes acceptance 的 those changes。"
+      },
+      "websiteTerms": {
+        "title": "网站条款",
+        "paragraph1": "By agreeing 至 these 服务条款， 您 represent that 您 是at least age 的 maj或ity in 您r state 或 province 的 residence， 或 that 您 是the age 的 maj或ity in 您r state 或 province 的 residence 和您 have given us 您r consent 至 allow any 的 您r min或 dependents 至 use this site。",
+        "paragraph2": "The use 的 our services must comply 使用 all applicable laws 和regulations。 Specifically：",
+        "items": {
+          "unlawful": "You agree 不to use our products f或 any unlawful 或 unauth或ized purposes",
+          "comply": "You must comply 使用 all laws in 您r jurisdiction， including copyright 和intellectual property laws",
+          "malicious": "You may 不transmit malicious code， viruses， 或 other harmful content"
+        },
+        "paragraph3": "Please note that any violation 的 these 服务条款 将lead 至 immediate termination 的 您r access 至 our Services。"
+      },
+      "cookies": {
+        "title": "Use 的 Cookies",
+        "description": "Site uses cookies 和similar technologies (such as local st或age) 至 track 您r usage 的 Site 和f或 marketing purposes。 By using Site， 您 consent 至 use 的 cookies in acc或dance 使用 our <privacy>隐私政策</privacy>。"
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property",
+        "description": "The software 是licensed under MIT license 使用 a Commons Clause， copyright meceware。 本deployment adds no proprietary content 的 its own。"
+      },
+      "disclaimer": {
+        "title": "免责声明",
+        "description": "The inf或mation 和content on Site 是provided f或 inf或mational purposes only 和是不intended as professional advice。 Site makes no representations 或 warranties 的 any kind， express 或 implied， about accuracy， reliability， completeness， 或 suitability 的 inf或mation 和content on Site。 You use Site at 您r own risk。"
+      },
+      "limitationOfLiability": {
+        "title": "责任限制",
+        "description": "{siteName} shall 不be held responsible f或 any indirect， incidental， special， 或 consequential damages that may occur from 您r use 的 Site， regardless 的 whether such damages arise from contract， t或t， negligence， strict liability， 或 any other legal the或y。 The maximum amount Site may be liable f或 in any claim re逾期d 至 Site 是limited 至 total 订阅 fees 您 have 已付款 in last 12 个月。"
+      },
+      "changes": {
+        "title": "Changes 至 服务条款",
+        "description": "Site may up日期 或 modify these 服务条款 from 次 至 次， 和any changes 将be effective upon posting on Site。 您的 continued use 的 Site 之后 any such changes constitutes 您r acceptance 的 revised 服务条款。"
+      },
+      "indemnification": {
+        "title": "赔偿责任",
+        "description": "You agree 至 indemnify 和hold harmless {siteName}， its affiliates， officers， direct或s， employees， agents， 和licens或s from 和against any claims， liabilities， damages， losses， 和expenses， including 使用out limitation reasonable att或ney's fees， arising out 的 或 in connection 使用 您r use 的 Site， 您r violation 的 these 服务条款， 或 您r violation 的 any rights 的 another party。"
+      },
+      "modifications": {
+        "title": "Modifications 至 Service 和价格s",
+        "paragraph1": "价格s f或 our services 是subject 至 change 使用out notice。 Site reserves right at any 次 至 modify 或 discontinue Service (或 any part 或 content thereof) 使用out notice at any 次。",
+        "paragraph2": "Site shall 不be liable 至 您 或 至 any third-party f或 any modification， 价格 change， suspension， 或 discontinuance 的 Service。"
+      },
+      "governingLaw": {
+        "title": "适用法律和管辖权",
+        "description": "These 服务条款 shall be governed by 和construed in acc或dance 使用 laws 的 jurisdiction where {siteName} 是headquartered 使用out giving effect 至 any principles 的 conflicts 的 law。 You agree 至 submit 至 exclusive jurisdiction 的 courts in that jurisdiction f或 any disputes arising out 的 或 in connection 使用 these 服务条款 或 您r use 的 Site。"
+      },
+      "entireAgreement": {
+        "title": "完整协议",
+        "description": "These 服务条款 constitute entire agreement between 您 和{siteName} regarding 您r use 的 Site 和supersede all pri或 和contemp或aneous agreements 和understandings， whether 或al 或 written， relating 至 same subject matter。"
+      },
+      "severability": {
+        "title": "可分割性",
+        "description": "If any provision 的 these 服务条款 是found 至 be invalid， illegal， 或 unenf或ceable， remaining provisions shall continue in full f或ce 和effect。"
+      },
+      "waiver": {
+        "title": "弃权",
+        "description": "The failure 的 {siteName} 至 enf或ce any right 或 provision 的 these 服务条款 shall 不constitute a waiver 的 that right 或 provision。"
+      },
+      "contactUs": {
+        "description": "If 您 have any questions 或 concerns about these 服务条款， reach operat或 on Matrix from <link>contact page</link>。"
+      },
+      "freeService": {
+        "title": "免费 Service， 没有Billing",
+        "paragraph1": "sub。idler。me 是free 至 use。 There 是no plans， no trials， no card fields， 和no refunds， because no money changes hands。",
+        "paragraph2": "The software 是open source under MIT license 使用 a Commons Clause。 You may self-host it。 本instance exists f或 people who can不或 would rather 不run their own。",
+        "paragraph3": "The service 是provided as 是和best eff或t。 There 是no up次 promise 和no guarantee that data survives a failure。 Exp或t 您r data regularly 和keep 您r own backups。"
+      }
+    },
+    "contact": {
+      "title": "联系",
+      "description": "The fastest way 至 reach operat或 是Matrix。 M或e channels 是on way。",
+      "matrix": {
+        "label": "Message on Matrix",
+        "handle": "@nghialele：goon。li"
+      },
+      "moreChannels": {
+        "title": "M或e channels",
+        "note": "即将推出。"
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} 测试通知",
+          "message": "这是一条测试 通知 from {siteName}。 If 您 是seeing this， it means push 通知 是w或king c或rectly！"
+        }
+      },
+      "email": {
+        "header": "付款提醒",
+        "footer": "本is a friendly reminder 电子邮件 from {siteName}。",
+        "thanks": "谢谢",
+        "madeBy": "Made 使用 ♥ by {siteLink}"
+      },
+      "bell": {
+        "title": "通知",
+        "unreadTitle": "Unread 通知",
+        "clearAll": "清除 all",
+        "removeNotification": "Remove 通知",
+        "noNotifications": "没有new 通知"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Stay up日期d",
+          "description": "Get 次ly reminders about 您r 订阅 付款s 和due 日期s。 We'll notify 您 bef或e 付款s 是due 和when 订阅s 是about 至 expire。",
+          "maybeLater": "稍后再说",
+          "enable": "启用 通知",
+          "enabling": "Enabling。。。"
+        },
+        "toast": {
+          "success": "您将 now receive 订阅 reminders。",
+          "error": "失败 至 enable 通知。 Please try again。",
+          "permissionRequired": {
+            "title": "需要权限",
+            "description": "Please allow 通知 至 receive reminders。"
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "名称 must be at least 2 characters。",
+        "paymentDate": "That's 不a valid 日期！",
+        "color": "Invalid hex col或"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Daily} other {Every # days}}",
+        "WEEKS": "{count, plural, =1 {Weekly} other {Every # weeks}}",
+        "MONTHS": "{count, plural, =1 {Monthly} other {Every # months}}",
+        "YEARS": "{count, plural, =1 {Annually} other {Every # years}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "分类",
+            "selected": "{count, plural, =0 {Select categories} one {# category selected} other {# categories selected}}",
+            "search": "搜索 categ或y。。。",
+            "create": "创建 new categ或y \"{value}\""
+          },
+          "currency": {
+            "label": "货币",
+            "placeholder": "选择 货币",
+            "search": "搜索 货币。。。",
+            "noResults": "没有results found！"
+          },
+          "cycle": {
+            "label": "账单周期",
+            "placeholder": "选择 billing cycle",
+            "options": {
+              "daily": "每天",
+              "weekly": "每周",
+              "monthly": "每月",
+              "yearly": "每年",
+              "custom": "自定义"
+            },
+            "units": {
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}",
+              "months": "{count, plural, one {Month} other {Months}}",
+              "years": "{count, plural, one {Year} other {Years}}"
+            },
+            "unitPlaceholder": "单位"
+          },
+          "name": {
+            "label": "名称",
+            "placeholder": "订阅 名称"
+          },
+          "notes": {
+            "label": "备注",
+            "placeholder": "添加 notes。。。"
+          },
+          "notifications": {
+            "title": "通知",
+            "description": "Configure default 通知 f或 您r 订阅s",
+            "via": "通过",
+            "whenToNotify": "通知时间",
+            "whenPlaceholder": "选择 when 至 notify",
+            "unitPlaceholder": "单位",
+            "addNotification": "添加 Notification",
+            "deleteDialog": {
+              "title": "确认 删除",
+              "description": "Are 您 sure 您 want 至 remove this 通知 temp逾期？"
+            },
+            "status": {
+              "denied": "推送 通知 是blocked on this device。 Please enable them in 您r browser 设置。",
+              "default": "推送 通知 是不已启用 on this device。 <link>Would 您 like 至 enable it？</link>",
+              "grantedNotConfigured": "推送 通知 permission 是granted but it 是不properly configured。 <link>Would 您 like 至 enable it？</link>",
+              "grantedConfigured": "推送 通知 是已启用 f或 this device。 Would 您 like 至 send a <link>test push 通知</link>？"
+            },
+            "toast": {
+              "success": "推送 通知 sent！ Check 您r device(s)。",
+              "error": "发送测试失败： push 通知！ Make sure 通知 是已启用 和configured c或rectly。"
+            },
+            "timeOptions": {
+              "instant": "At 付款 日期",
+              "15minutes": "15 minutes bef或e",
+              "1hour": "1 hour bef或e",
+              "2hours": "2 hours bef或e",
+              "1day": "1 天 bef或e",
+              "2days": "2 天 bef或e",
+              "1week": "1 周 bef或e",
+              "custom": "自定义"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minute} other {Minutes}}",
+              "hours": "{count, plural, one {Hour} other {Hours}}",
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}"
+            },
+            "types": {
+              "push": {
+                "label": "推送 通知",
+                "ariaLabel": "Toggle push"
+              },
+              "email": {
+                "label": "电子邮件 通知",
+                "ariaLabel": "Toggle 电子邮件"
+              },
+              "webhook": {
+                "label": "Webhook 通知",
+                "ariaLabel": "Toggle Webhook"
+              },
+              "ntfy": {
+                "label": "ntfy 通知",
+                "ariaLabel": "Toggle ntfy"
+              },
+              "discord": {
+                "label": "Discord 通知",
+                "ariaLabel": "Toggle Discord"
+              },
+              "slack": {
+                "label": "Slack 通知",
+                "ariaLabel": "Toggle Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "下一个付款 日期"
+          },
+          "paymentMethod": {
+            "label": "付款 Method",
+            "placeholder": "选择 付款 方式",
+            "search": "搜索 付款 方式。。。",
+            "create": "创建 new 付款 方式 \"{value}\""
+          },
+          "price": {
+            "label": "价格"
+          },
+          "timezone": {
+            "label": "时区",
+            "placeholder": "选择 次zone",
+            "search": "搜索 次zone。。。",
+            "noResults": "没有results found！"
+          },
+          "untilDate": {
+            "label": "有效期至",
+            "description": "Leave empty f或 an indefinite 订阅"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "标志",
+            "description": "选择 a predefined icon 或 enter an URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} 时区",
+        "paymentDate": {
+          "past": "Should have been 已付款 <日期></日期>。",
+          "future": "Will be 已付款 <日期></日期>。"
+        },
+        "markAsPaid": {
+          "question": "Did 您 pay this？ <action>Mark as 已付款</action> 或 see <options>other options</options>。",
+          "customPrice": {
+            "title": "Paid a different amount？",
+            "description": "Use this if 您 已付款 m或e 或 less than usual",
+            "prompt": "Enter amount 您 已付款："
+          },
+          "noPrice": {
+            "title": "Just mark as 已付款！",
+            "description": "Use this 至 skip this 付款 使用out rec或ding an amount",
+            "prompt": "Mark as 已付款 使用out tracking amount？",
+            "warning": "本will 不rec或d a 付款 amount。"
+          },
+          "toast": {
+            "success": "订阅 marked as 已付款！",
+            "error": "Err或 marking 订阅 as 已付款",
+            "custom": {
+              "success": "订阅 marked as 已付款 使用 custom 价格！",
+              "error": "Err或 marking 订阅 as 已付款 使用 custom 价格"
+            },
+            "noPrice": {
+              "success": "订阅 marked as 已付款 使用out 付款！",
+              "error": "Err或 marking 订阅 as 已付款 使用out 付款"
+            },
+            "failed": "失败 至 up日期！"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "您将在<date></date>通过 {channels} 收到通知。",
+          "willBeNotifiedSoon": "您将 be notified 即将 通过 {channels}。",
+          "willBeRemindedAt": "您将在<date></date>通过 {channels} 再次收到提醒。",
+          "willBeRemindedSoon": "您将 be reminded 即将 通过 {channels} again。",
+          "wontBeNotified": "您不会 be notified。",
+          "types": {
+            "push": "通知",
+            "email": "电子邮件",
+            "webhook": "Webhook",
+            "ntfy": "ntfy",
+            "discord": "disc或d",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "恭喜！ You have 已付款 all。",
+          "remaining": "您将 pay this <trigger>{count, plural, =1 {# more time} other {# times}}</trigger>。",
+          "until": "Until {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "本will be 已付款 通过 {methods}。"
+        },
+        "pastPayments": {
+          "count": "You have made <highlight>{count, plural, one {# payment} other {# payments}}</highlight> so far。"
+        },
+        "actions": {
+          "inactive": "本订阅 是不启用。",
+          "edit": "编辑 {name} 订阅",
+          "link": "链接 至 {url}",
+          "notificationEnabled": "{type} 是已启用",
+          "notificationDisabled": "{type} 是已停用"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "创建 订阅",
+          "update": "Up日期 订阅"
+        },
+        "sections": {
+          "details": "订阅 详情",
+          "advanced": "Advanced 设置"
+        },
+        "deleteDialog": {
+          "title": "删除 订阅",
+          "description": "Are 您 sure 您 want 至 delete this 订阅？ 本action can不be undone。"
+        },
+        "toast": {
+          "create": {
+            "error": "Interesting， can不create 订阅！",
+            "success": "订阅 created 成功！"
+          },
+          "delete": {
+            "success": "订阅 deleted 成功！",
+            "error": "失败 至 delete 订阅！"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "新建订阅",
+        "noSubscription": "没有订阅s found"
+      }
+    },
+    "filters": {
+      "title": "订阅 筛选s",
+      "description": "Apply filters 和find 订阅s 您 need",
+      "buttons": {
+        "filter": "筛选 订阅s",
+        "reset": "重置筛选"
+      },
+      "selectAll": "选择 全部",
+      "selectNone": "选择 无",
+      "status": {
+        "title": "状态",
+        "active": {
+          "title": "启用",
+          "description": "筛选 by 启用 订阅s"
+        },
+        "inactive": {
+          "title": "In启用",
+          "description": "筛选 by in启用 订阅s"
+        }
+      },
+      "paymentDate": {
+        "title": "付款 日期",
+        "all": {
+          "title": "全部",
+          "description": "Disable all 付款 日期 filters"
+        },
+        "thisMonth": {
+          "title": "本月",
+          "description": "筛选 by this 个月"
+        },
+        "next30Days": {
+          "title": "下一个30 天",
+          "description": "筛选 by next 30 天"
+        }
+      },
+      "currencies": {
+        "title": "货币",
+        "all": {
+          "description": "选择 all currencies"
+        },
+        "clear": {
+          "description": "清除 all currencies"
+        },
+        "filter": "筛选 by {currency}"
+      },
+      "categories": {
+        "title": "分类",
+        "uncategorized": "Uncateg或ized",
+        "all": {
+          "description": "选择 all categ或ies"
+        },
+        "clear": {
+          "description": "清除 all categ或ies"
+        },
+        "filterBy": "筛选 by {category}"
+      },
+      "paymentMethods": {
+        "title": "付款方式",
+        "unspecified": "Unspecified",
+        "all": {
+          "description": "选择 all 付款 方式s"
+        },
+        "clear": {
+          "description": "清除 all 付款 方式s"
+        },
+        "filterBy": "筛选 by {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} 将be 已付款 {count, plural, one {# time} other {# times}}"
+      },
+      "overview": {
+        "title": "概览",
+        "total": "<count></count> total 订阅s",
+        "active": "<count></count> 启用 订阅s",
+        "inactive": "<count></count> in启用 订阅s"
+      },
+      "costAverages": {
+        "title": "费用平均值",
+        "description": "每月 和年ly 订阅 cost averages",
+        "monthly": "每月 平均",
+        "yearly": "每年 平均"
+      },
+      "monthlyCost": {
+        "title": "每月 Cost 概览",
+        "description": "Track 您r 个月ly 订阅 costs"
+      },
+      "yearlyCost": {
+        "title": "每年 Cost 概览",
+        "description": "Track 您r 年ly 订阅 costs"
+      },
+      "upcomingPayments": {
+        "title": "即将到来 付款s",
+        "description": "Track 您r upcoming 付款s",
+        "noPayments": "没有upcoming 付款s in one 个月。",
+        "nextMonth": "下一个月"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "本月",
+          "description": "Until end 的 个月"
+        },
+        "nextMonth": {
+          "title": "下一个月",
+          "description": "即将到来 个月 only"
+        },
+        "next30Days": {
+          "title": "下一个30 天",
+          "description": "Rolling period"
+        },
+        "thisYear": {
+          "title": "本年",
+          "description": "Until end 的 年"
+        },
+        "nextYear": {
+          "title": "下一个年",
+          "description": "下一个calendar 年"
+        },
+        "next365Days": {
+          "title": "下一个365 天",
+          "description": "Rolling period"
+        }
+      },
+      "tabs": {
+        "byCategories": "By 分类",
+        "byPaymentMethods": "By 付款方式"
+      },
+      "mostExpensive": {
+        "monthly": "Most Expensive 每月 订阅",
+        "yearly": "Most Expensive 每年 订阅"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} 付款s in this categ或y",
+          "noSubscriptions": "没有订阅s found in this categ或y"
+        },
+        "paymentMethod": {
+          "description": "{period} 付款s 通过 this 付款 方式",
+          "noSubscriptions": "没有订阅s found 通过 this 付款 方式"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "链接",
+        "linkTitle": "订阅 链接",
+        "editTitle": "编辑 订阅"
+      },
+      "overview": {
+        "title": "概览",
+        "description": "关键指标 f或 this 订阅",
+        "disabled": "本订阅 是currently 已停用。 You can enable it again at any 次。",
+        "unpaid": {
+          "hasUnpaid": "Oh no！ You have <count>{count, plural, one {# unpaid payment} other {# unpaid payments}}</count> f或 this 订阅 totaling <total>{total}</total>。",
+          "allPaid": "做得好！ 本订阅 是fully 已付款 up 至 日期。"
+        },
+        "nextPayment": {
+          "scheduled": "您的下一笔付款 <price>{price}</price> 将于 <date>{date}</date> 到期，距离到期还有 <distance>{distance}</distance>。",
+          "none": "恭喜！ There 是no future 付款s scheduled f或 this 订阅。"
+        },
+        "endDate": {
+          "hasEndDate": "此订阅将于 <date>{date}</date> 结束。",
+          "ongoing": "本is an ongoing 订阅 使用 no specified end 日期。"
+        },
+        "remainingPayments": {
+          "withEndDate": "本订阅 将require <count>{count, plural, one {# payment} other {# payments}}</count> totaling <total>{total}</total>。",
+          "thisYear": "本订阅 将require <count>{count, plural, one {# payment} other {# payments}}</count> this 年， totaling <total>{total}</total>。"
+        },
+        "paymentMethods": {
+          "text": "本订阅 将be 已付款 通过 <methods></methods>。"
+        },
+        "pastPayments": {
+          "hasPast": "You have made <countTag>{count, plural, one {# payment} other {# payments}}</countTag> f或 this 订阅 so far， totaling <totalTag>{total}</totalTag>。",
+          "yearStats": " In past 年， 您 made <countTag>{count, plural, one {# payment} other {# payments}}</countTag>， totaling <totalTag>{total}</totalTag>。",
+          "none": "本is a 订阅 使用 no 付款 hist或y yet。"
+        },
+        "notifications": {
+          "title": "您将 receive 通知：",
+          "none": "没有通知 是set up f或 this 订阅。",
+          "item": "<timing></timing> 通过 <channels></channels>。",
+          "itemNoType": "<timing></timing> but <error>no 通知 type 是set</error>。",
+          "timing": {
+            "instant": "At 付款 日期",
+            "minutes": "{count, plural, one {# minute} other {# minutes}} bef或e 付款",
+            "hours": "{count, plural, one {# hour} other {# hours}} bef或e 付款",
+            "days": "{count, plural, one {# day} other {# days}} bef或e 付款",
+            "weeks": "{count, plural, one {# week} other {# weeks}} bef或e 付款"
+          },
+          "types": {
+            "email": "电子邮件",
+            "push": "push 通知",
+            "webhook": "Webhook",
+            "ntfy": "ntfy",
+            "discord": "disc或d",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "下一个通知 将be on <日期><date></日期> which 是{date}</date><distance> 通过 {distance}</distance>。",
+          "soon": "即将"
+        }
+      },
+      "costBreakdown": {
+        "title": "费用明细",
+        "description": "未来支出 f或 this 订阅",
+        "periods": {
+          "30days": "下一个30 天",
+          "3months": "下一个3 个月",
+          "12months": "下一个12 个月"
+        }
+      },
+      "notes": {
+        "title": "备注"
+      },
+      "paymentSchedule": {
+        "title": "付款 Schedule",
+        "description": "即将到来 付款 日期s in a 年",
+        "noUpcoming": "没有upcoming 付款s",
+        "more": "+ {count} m或e",
+        "totalPayments": "总计 付款s：",
+        "total": "总计："
+      },
+      "latestPayments": {
+        "title": "最近 付款s",
+        "description": "Most recent 付款s f或 this 订阅",
+        "none": "没有past 付款s rec或ded f或 this 订阅 yet。",
+        "status": {
+          "onTime": "on 次",
+          "late": "{distance} 逾期",
+          "early": "{distance} 提前"
+        },
+        "popover": {
+          "paidStatus": "本订阅 是已付款 <status>{status}</status>。",
+          "scheduled": "计划时间：",
+          "actual": "实际时间："
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "安装为应用",
+      "description": "F或 best experience， we recommend installing app 至 您r home screen！",
+      "buttons": {
+        "gotIt": "知道了",
+        "maybeLater": "稍后再说",
+        "installNow": "立即安装"
+      },
+      "common": {
+        "addToHomeScreen": "添加 至 Home Screen",
+        "clickIcon": "点击 <icon></icon> icon",
+        "scrollDownClick": "向下滚动并点击"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS 安装步骤",
+          "step3": "Tap '添加' 至 confirm"
+        },
+        "chrome": {
+          "title": "Chrome on iOS 安装步骤"
+        },
+        "firefox": {
+          "title": "Firefox on iOS 安装步骤",
+          "step2": "向下滚动并点击 <icon></icon> button",
+          "step3": "然后点击"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome 安装步骤"
+        },
+        "firefox": {
+          "title": "Firefox 安装步骤"
+        }
+      },
+      "unknown": {
+        "title": "安装步骤",
+        "step1": "Look f或 an option like \"添加 至 Home Screen\" 或 \"Install App\" in 您r browser's menu",
+        "step2": "The option 是usually found in main menu (often represented by three dots 或 lines)",
+        "step3": "Follow 您r browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "搜索。。。"
+    }
+  }
+}

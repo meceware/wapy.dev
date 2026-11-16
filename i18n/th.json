@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "เพิ่ม",
+    "save": "บันทึก",
+    "cancel": "ยกเลิก",
+    "edit": "แก้ไข",
+    "delete": "ลบ",
+    "confirm": "ยืนยัน",
+    "view": "ดู",
+    "close": "ปิด",
+    "contact": "ติดต่อเรา",
+    "signIn": "เข้าสู่ระบบ",
+    "termsOfService": "ข้อกำหนดการใช้งาน",
+    "privacyPolicy": "นโยบายความเป็นส่วนตัว"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} การแจ้งเตือนการชำระเงิน",
+        "message": "รายละเอียด Just a reminder that your {siteName} subscription is ending soon."
+      },
+      "payment": {
+        "title": {
+          "due": "ถึงกำหนดชำระเงิน for {name}",
+          "reminder": "การแจ้งเตือนการชำระเงิน for {name}",
+          "upcoming": "การชำระเงินที่กำลังจะมาถึง for {name}"
+        },
+        "message": {
+          "due": "รายละเอียด Your {name} subscription payment ({price}) is due now!",
+          "reminder": "รายละเอียด Your {name} subscription payment ({price}) is overdue!",
+          "upcoming": "รายละเอียด Your {name} subscription payment ({price}) is {dueText}!"
+        },
+        "markAsPaid": "ทำเครื่องหมายว่าชำระแล้ว",
+        "dismiss": "ปิดการแจ้งเตือน"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} การสมัครสมาชิก การแจ้งเตือน",
+      "footer": "ส่งโดย {siteName}",
+      "visitDashboard": "ไปที่แดชบอร์ด",
+      "paymentQuestion": "ชำระเงินเรียบร้อยแล้วหรือยัง",
+      "viewDetails": "ดูรายละเอียด"
+    }
+  },
+  "header": {
+    "signOut": "ออกจากระบบ",
+    "subscriptions": "การสมัครสมาชิก",
+    "reports": "รายงาน",
+    "settings": "การตั้งค่า",
+    "account": "บัญชี"
+  },
+  "footer": {
+    "madeBy": "รายละเอียด Operated with hope by <author>{name}</author>.",
+    "github": "แหล่งที่มา",
+    "menu": "เมนู"
+  },
+  "languages": {
+    "selectLanguage": "เลือกภาษา",
+    "invalid": "ภาษาไม่ถูกต้อง",
+    "failed": "เปลี่ยนภาษาไม่สำเร็จ"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "ฟรี ไปยัง use. Hosted by one person.",
+        "title": "Track ทุก การสมัครสมาชิก. Miss ไม่ การชำระเงิน.",
+        "subtitle": "รายละเอียด {appName} keeps recurring charges in one readable dashboard and reminds you before they hit.",
+        "tagline": "ฟรี ไปยัง use. ไม่ card, ไม่ ทดลองใช้, ไม่ upsell."
+      },
+      "features": {
+        "title": "สิ่งที่ทำได้",
+        "subtitle": "ฟีเจอร์ทั้งหมดของซอฟต์แวร์ โดยไม่ต้องเสียค่าใช้จ่าย",
+        "billingCycles": {
+          "title": "รอบการเรียกเก็บเงินที่ยืดหยุ่น",
+          "description": "รองรับ รายเดือน, รายปี, และรอบการเรียกเก็บเงินแบบกำหนดเอง"
+        },
+        "notifications": {
+          "title": "Smart การแจ้งเตือน",
+          "description": "แจ้งเตือนผ่าน อีเมล, push, เว็บฮุก, ntfy, Discหรือd, หรือ Slack"
+        },
+        "reports": {
+          "title": "รายงาน & Insights",
+          "description": "Track ของคุณ spending พร้อม detailed รายงาน และ insights"
+        },
+        "currencies": {
+          "title": "หลายสกุลเงิน",
+          "description": "รองรับหลายสกุลเงิน พร้อมติดตามค่าใช้จ่ายแบบเรียลไทม์"
+        },
+        "timezone": {
+          "title": "รองรับเขตเวลา",
+          "description": "ติดตามการสมัครสมาชิกในหลายเขตเวลา พร้อมแปลงวันที่อัตโนมัติ"
+        },
+        "categories": {
+          "title": "หมวดหมู่ Management",
+          "description": "Organize การสมัครสมาชิก พร้อม custom categหรือies และ colหรือ coding"
+        }
+      },
+      "howItWorks": {
+        "title": "วิธีการทำงาน",
+        "subtitle": "เริ่มต้นใช้งานได้ภายในไม่กี่นาที",
+        "step1": {
+          "title": "เข้าสู่ระบบ ด้วยลิงก์",
+          "description": "Enter ของคุณ อีเมล, open link, และ คุณ เป็น ใน. ไม่ รหัสผ่าน ไปยัง remember."
+        },
+        "step2": {
+          "title": "เพิ่ม สิ่งที่คุณต้องจ่าย",
+          "description": "Log each การสมัครสมาชิก พร้อม its ราคา, รอบการเรียกเก็บเงิน, และ สกุลเงิน."
+        },
+        "step3": {
+          "title": "รับการแจ้งเตือนตามกำหนด",
+          "description": "Choose channels คุณ want, then mark a การชำระเงิน as paid straight จาก การแจ้งเตือน."
+        }
+      },
+      "free": {
+        "eyebrow": "ฟรี",
+        "title": "ฟรี, พร้อม ไม่ catch",
+        "description": "software คือ open แหล่งที่มา. นี้ instance คือ hosted สำหรับ people who ไม่สามารถ run their own.",
+        "price": "€0",
+        "period": "ตลอดไป",
+        "features": {
+          "unlimited": "Unlimited การสมัครสมาชิก",
+          "notifications": "อีเมล, push, เว็บฮุก, ntfy, Discหรือd, และ Slack reminders",
+          "reports": "รายงาน และ spending insights",
+          "export": "ส่งออกข้อมูลได้ทุกเมื่อ",
+          "noAds": "ไม่ ads, ไม่ tracking, ไม่ การชำระเงิน รายละเอียด",
+          "bestEffort": "Best efสำหรับt, ไม่ uptime promise"
+        },
+        "button": "เข้าสู่ระบบ",
+        "selfHostButton": "โฮสต์เอง",
+        "selfHostNote": "Prefer ของคุณ own server? same software runs พร้อม Docker ใน เกี่ยวกับ ten minutes."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "ไม่พบหน้านี้",
+        "description": "ไม่พบหน้าที่คุณกำลังค้นหา"
+      },
+      "title": "404",
+      "backToHome": "ย้อนกลับ ไปยัง Home"
+    },
+    "account": {
+      "meta": {
+        "title": "บัญชี การตั้งค่า",
+        "description": "จัดการ ของคุณ บัญชี การตั้งค่า และ preferences."
+      },
+      "defaultSettings": {
+        "title": "เริ่มต้น การตั้งค่า",
+        "description": "Configure ของคุณ เริ่มต้น การตั้งค่า สำหรับ ใหม่ การสมัครสมาชิก",
+        "timezone": {
+          "label": "เขตเวลา",
+          "success": "เขตเวลา อัปเดตสำเร็จ.",
+          "error": "ไม่สามารถ อัปเดต เขตเวลา!"
+        },
+        "currency": {
+          "label": "สกุลเงิน",
+          "success": "สกุลเงิน อัปเดตสำเร็จ.",
+          "error": "ไม่สามารถ อัปเดต สกุลเงิน!"
+        }
+      },
+      "notifications": {
+        "success": "การแจ้งเตือน บันทึกตัวเลือกแล้ว.",
+        "error": "ไม่สามารถ บันทึก การแจ้งเตือน preferences!",
+        "saveButton": "บันทึกการเปลี่ยนแปลง",
+        "saveButtonTitle": "บันทึก การแจ้งเตือน preferences"
+      },
+      "profile": {
+        "success": "การ ชื่อ has been อัปเดตสำเร็จ.",
+        "error": "ไม่สามารถ อัปเดต ของคุณ ชื่อ!",
+        "namePlaceholder": "Enter ของคุณ ชื่อ",
+        "addNamePrompt": "เพิ่ม ของคุณ ชื่อ",
+        "memberSince": "เป็นสมาชิกตั้งแต่ {date}"
+      },
+      "categories": {
+        "title": "หมวดหมู่",
+        "description": "จัดการ ของคุณ categหรือies",
+        "default": {
+          "load": "Load เริ่มต้น categหรือies",
+          "success": "เริ่มต้น categหรือies loaded สำเร็จ.",
+          "error": "ไม่สามารถ สร้าง เริ่มต้น categหรือies!"
+        },
+        "save": {
+          "success": "หมวดหมู่ saved สำเร็จ.",
+          "error": "ไม่สามารถ บันทึก หมวดหมู่!"
+        },
+        "addButtonTitle": "เพิ่ม ใหม่ หมวดหมู่",
+        "selectColor": "เลือกสี",
+        "namePlaceholder": "หมวดหมู่ ชื่อ",
+        "delete": {
+          "title": "ลบ หมวดหมู่",
+          "description": "คุณต้องการ ลบ นี้ หมวดหมู่? การดำเนินการนี้ไม่สามารถย้อนกลับได้",
+          "success": "หมวดหมู่ ลบสำเร็จแล้ว.",
+          "error": "ไม่สามารถ ลบ หมวดหมู่!"
+        },
+        "invalid": "ไม่ถูกต้อง หมวดหมู่ ข้อมูล",
+        "edit": "แก้ไข หมวดหมู่"
+      },
+      "paymentMethods": {
+        "title": "การชำระเงิน Methods",
+        "description": "จัดการ ของคุณ การชำระเงิน methods",
+        "add": "เพิ่ม ใหม่ การชำระเงิน วิธีการ",
+        "edit": "แก้ไข การชำระเงิน วิธีการ",
+        "invalid": "ไม่ถูกต้อง การชำระเงิน วิธีการ ข้อมูล",
+        "placeholder": "การชำระเงิน วิธีการ ชื่อ",
+        "load": {
+          "title": "Load เริ่มต้น การชำระเงิน methods",
+          "success": "เริ่มต้น การชำระเงิน methods loaded สำเร็จ.",
+          "error": "ไม่สามารถ สร้าง เริ่มต้น การชำระเงิน methods!"
+        },
+        "save": {
+          "success": "การชำระเงิน วิธีการ saved สำเร็จ.",
+          "error": "ไม่สามารถ บันทึก การชำระเงิน วิธีการ!"
+        },
+        "delete": {
+          "title": "ลบ การชำระเงิน วิธีการ",
+          "description": "คุณต้องการ ลบ นี้ การชำระเงิน วิธีการ? การดำเนินการนี้ไม่สามารถย้อนกลับได้",
+          "success": "การชำระเงิน วิธีการ ลบสำเร็จแล้ว.",
+          "error": "ไม่สามารถ ลบ การชำระเงิน วิธีการ!"
+        }
+      },
+      "externalServices": {
+        "title": "External บริการ",
+        "description": "Configure integrations พร้อม external บริการ",
+        "testNotification": {
+          "title": "{siteName} การแจ้งเตือนทดสอบ",
+          "message": "นี่คือข้อความทดสอบ {service} message from {siteName}. Your {service} integration is กำหนดค่าถูกต้องแล้ว."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Receive การแจ้งเตือน ผ่าน ntfy.",
+          "toast": {
+            "disable": {
+              "success": "ntfy ปิดใช้การเชื่อมต่อแล้ว.",
+              "error": "ไม่สามารถ ปิดใช้งาน ntfy integration!"
+            },
+            "save": {
+              "success": "ntfy บันทึกการกำหนดค่าแล้ว.",
+              "error": "ไม่สามารถ บันทึก ntfy configuration!"
+            },
+            "test": {
+              "success": "ทดสอบ ntfy การแจ้งเตือน ส่งแล้ว.",
+              "error": "ไม่สามารถ send test ntfy การแจ้งเตือน!"
+            },
+            "notEnabled": "ntfy integration คือ ไม่ เปิดใช้งาน.",
+            "invalidParams": "ไม่ถูกต้อง parameters! ไม่สามารถ บันทึก ntfy configuration.",
+            "testInvalidParams": "ไม่ถูกต้อง parameters! ไม่สามารถ send test การแจ้งเตือน."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "URL เซิร์ฟเวอร์",
+              "placeholder": "ntfy.sh หรือ self-hosted URL"
+            },
+            "topic": {
+              "label": "Topic ชื่อ"
+            },
+            "token": {
+              "label": "โทเค็นเข้าถึง (ไม่บังคับ)",
+              "placeholder": "โทเค็นเข้าถึง"
+            }
+          },
+          "buttons": {
+            "save": "บันทึก ntfy",
+            "test": "ทดสอบ ntfy"
+          }
+        },
+        "webhook": {
+          "title": "เว็บฮุก",
+          "description": "Receive การแจ้งเตือน ผ่าน เว็บฮุก.",
+          "toast": {
+            "disable": {
+              "success": "เว็บฮุก ปิดใช้การเชื่อมต่อแล้ว.",
+              "error": "ไม่สามารถ ปิดใช้งาน เว็บฮุก integration!"
+            },
+            "save": {
+              "success": "เว็บฮุก บันทึกการกำหนดค่าแล้ว.",
+              "error": "ไม่สามารถ บันทึก เว็บฮุก configuration!"
+            },
+            "test": {
+              "success": "ทดสอบ เว็บฮุก การแจ้งเตือน ส่งแล้ว.",
+              "error": "ไม่สามารถ send test เว็บฮุก การแจ้งเตือน!"
+            },
+            "notEnabled": "เว็บฮุก integration คือ ไม่ เปิดใช้งาน.",
+            "invalidParams": "ไม่ถูกต้อง parameters! ไม่สามารถ บันทึก เว็บฮุก configuration.",
+            "testInvalidParams": "ไม่ถูกต้อง parameters! ไม่สามารถ send test การแจ้งเตือน."
+          },
+          "fields": {
+            "url": {
+              "label": "URL เซิร์ฟเวอร์",
+              "placeholder": "เว็บฮุก server URL"
+            }
+          },
+          "buttons": {
+            "save": "บันทึก เว็บฮุก",
+            "test": "ทดสอบ เว็บฮุก"
+          }
+        },
+        "discord": {
+          "title": "Discหรือd",
+          "description": "Receive การแจ้งเตือน ผ่าน Discหรือd.",
+          "toast": {
+            "disable": {
+              "success": "Discหรือd ปิดใช้การเชื่อมต่อแล้ว.",
+              "error": "ไม่สามารถ ปิดใช้งาน Discหรือd integration!"
+            },
+            "save": {
+              "success": "Discหรือd บันทึกการกำหนดค่าแล้ว.",
+              "error": "ไม่สามารถ บันทึก Discหรือd configuration!"
+            },
+            "test": {
+              "success": "ทดสอบ Discหรือd การแจ้งเตือน ส่งแล้ว.",
+              "error": "ไม่สามารถส่งการแจ้งเตือนทดสอบของ Discord ได้!"
+            },
+            "notEnabled": "ยังไม่ได้เปิดใช้การเชื่อมต่อ Discord",
+            "invalidParams": "พารามิเตอร์ไม่ถูกต้อง ไม่สามารถบันทึกการกำหนดค่า Discord ได้",
+            "testInvalidParams": "พารามิเตอร์ไม่ถูกต้อง ไม่สามารถส่งการแจ้งเตือนทดสอบได้"
+          },
+          "fields": {
+            "url": {
+              "label": "URL เซิร์ฟเวอร์",
+              "placeholder": "URL เซิร์ฟเวอร์ Discord"
+            }
+          },
+          "buttons": {
+            "save": "บันทึก Discหรือd",
+            "test": "ทดสอบ Discหรือd"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Receive การแจ้งเตือน ผ่าน Slack.",
+          "toast": {
+            "disable": {
+              "success": "Slack ปิดใช้การเชื่อมต่อแล้ว.",
+              "error": "ไม่สามารถ ปิดใช้งาน Slack integration!"
+            },
+            "save": {
+              "success": "Slack บันทึกการกำหนดค่าแล้ว.",
+              "error": "ไม่สามารถ บันทึก Slack configuration!"
+            },
+            "test": {
+              "success": "ทดสอบ Slack การแจ้งเตือน ส่งแล้ว.",
+              "error": "ไม่สามารถ send test Slack การแจ้งเตือน!"
+            },
+            "notEnabled": "Slack integration คือ ไม่ เปิดใช้งาน.",
+            "invalidParams": "ไม่ถูกต้อง parameters! ไม่สามารถ บันทึก Slack configuration.",
+            "testInvalidParams": "ไม่ถูกต้อง parameters! ไม่สามารถ send test การแจ้งเตือน."
+          },
+          "fields": {
+            "url": {
+              "label": "URL เซิร์ฟเวอร์",
+              "placeholder": "URL เซิร์ฟเวอร์ Slack"
+            }
+          },
+          "buttons": {
+            "save": "บันทึก Slack",
+            "test": "ทดสอบ Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "ส่งออกข้อมูล",
+        "description": "ดาวน์โหลดสำเนา การสมัครสมาชิก, categหรือies, การชำระเงิน methods และ การตั้งค่า",
+        "button": "ส่งออกข้อมูล",
+        "toast": {
+          "success": "ข้อมูล expหรือted สำเร็จ.",
+          "error": "ไม่สามารถ expหรือt ข้อมูล!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "การสมัครสมาชิกใหม่",
+        "edit": "แก้ไข {name}",
+        "unauthorized": "Unauthหรือized"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "เข้าสู่ระบบ"
+      },
+      "description": "เข้าสู่ระบบ พร้อม ของคุณ อีเมล ไปยัง access ของคุณ บัญชี หรือ สร้าง a ใหม่ one automatically",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "เข้าสู่ระบบ",
+        "loginWithProvider": "เข้าสู่ระบบด้วย {provider}"
+      },
+      "otp": {
+        "title": "ตรวจสอบกล่องจดหมาย",
+        "description": "เราได้ส่งลิงก์ไปยัง อีเมล ไปยัง เข้าสู่ระบบ.",
+        "instructions": "กรอกรหัส 6 หลักที่ส่งไปยัง อีเมล",
+        "divider": "หรือ",
+        "resend": {
+          "prompt": "ไม่ได้รับ อีเมล?",
+          "button": "คลิกเพื่อส่งอีกครั้ง",
+          "timer": "รายละเอียด You can resend in {seconds, plural, one {# second} other {# seconds}}"
+        }
+      },
+      "toast": {
+        "success": "ยินดีต้อนรับ เข้าสู่ระบบสำเร็จแล้ว",
+        "error": {
+          "accessDenied": "ขออภัย คุณไม่มีสิทธิ์เข้าสู่ระบบ!",
+          "generic": "เข้าสู่ระบบไม่สำเร็จ อาจเกิดจากอีเมลของคุณหรือข้อผิดพลาดทางระบบ",
+          "invalidCode": "รหัสไม่ถูกต้อง โปรดตรวจสอบรหัส 6 หลักแล้วลองอีกครั้ง",
+          "somethingWrong": "เกิดข้อผิดพลาด โปรดขอรหัสใหม่แล้วลองอีกครั้ง",
+          "workspaceAccess": "ขออภัย คุณไม่มีสิทธิ์เข้าถึงพื้นที่ทำงานนี้",
+          "rateLimited": "มีคำขอมากเกินไป โปรดรอสักครู่แล้วลองอีกครั้ง"
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "Last updated ไม่มีvember 15, 2026",
+      "introduction": {
+        "title": "บทนำ",
+        "paragraph1": "sub.idler.me stหรือes what app needs ไปยัง wหรือk และ nothing else. นี้ page says exactly what that คือ.",
+        "paragraph2": "It คือ a small, one-person บริการ. There คือ ไม่ company, ไม่ advertising, และ ไม่ การชำระเงิน processing."
+      },
+      "informationWeCollect": {
+        "title": "ในสำหรับmation We Collect",
+        "description": "What database holds สำหรับ ของคุณ บัญชี:",
+        "items": {
+          "account": "การ อีเมล address, และ ชื่อ หรือ avatar ของคุณ login provider returns.",
+          "subscription": "การสมัครสมาชิก คุณ เพิ่ม: names, prices, currencies, billing dates, categหรือies, และ การชำระเงิน วิธีการ labels.",
+          "expense": "Which การชำระเงินs คุณ marked as paid, และ when."
+        }
+      },
+      "howWeUse": {
+        "title": "เราใช้ข้อมูลอย่างไร",
+        "description": "การ ข้อมูล คือ used ไปยัง:",
+        "items": {
+          "providing": "Show ของคุณ การสมัครสมาชิก, รายงาน, และ การชำระเงิน histหรือy ไปยัง คุณ.",
+          "managing": "Send reminders คุณ configured, ไปยัง channels คุณ configured.",
+          "sending": "Sign คุณ ใน by อีเมล link.",
+          "improving": "ไม่มีthing else. ไม่ profiling, ไม่ ad netwหรือks, ไม่ selling."
+        }
+      },
+      "dataProtection": {
+        "title": "ข้อมูล Protection",
+        "description": "ข้อมูล lives ใน a Postgres database ใน infrastructure operatหรือ controls. It คือ ไม่ shared พร้อม third parties beyond การแจ้งเตือน channels คุณ เปิดใช้งาน ของคุณself. There คือ ไม่ encryption-at-rest promise beyond host's defaults."
+      },
+      "analytics": {
+        "title": "Cookies และ Analytics",
+        "description": "ไม่ third-party analytics และ ไม่ tracking scripts. app stหรือes ของคุณ session cookie, ของคุณ ภาษา choice, และ ของคุณ cookie preferences ใน ของคุณ browser."
+      },
+      "yourRights": {
+        "title": "การ Rights",
+        "description": "คุณ สามารถ:",
+        "items": {
+          "access": "Expหรือt ทุก recหรือd app holds เกี่ยวกับ คุณ จาก บัญชี page.",
+          "correct": "Change ของคุณ การตั้งค่า at any ครั้ง.",
+          "delete": "Ask สำหรับ deletion ของ ของคุณ บัญชี และ its ข้อมูล.",
+          "optOut": "Decline non-esส่งแล้วial cookies ใน cookie banner."
+        }
+      },
+      "contactUs": {
+        "description": "If คุณ have any questions เกี่ยวกับ our นโยบายความเป็นส่วนตัว หรือ how we handle ของคุณ ข้อมูล, reach operatหรือ ใน Matrix จาก <link>contact page</link>."
+      },
+      "updates": {
+        "title": "Updates ไปยัง นี้ Policy",
+        "description": "นี้ page changes when software หรือ deployment changes. วันที่ at top คือ ปัจจุบัน version."
+      },
+      "operator": {
+        "title": "Who Runs นี้",
+        "description": "sub.idler.me คือ operated by one person ใน self-hosted infrastructure as a community บริการ, ไม่ a company. There คือ ไม่ การชำระเงิน processing และ ไม่ advertising."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "รายงานการสมัครสมาชิก"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "ไม่ได้รับอนุญาต",
+        "view": "รายละเอียด View {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Last updated ไม่มีvember 15, 2026",
+      "welcome": "รายละเอียด Welcome to the {siteName} website (the \"Site\"). By accessing or using the Site, you agree to comply with and be bound by the following terms and conditions (\"Terms of Service\").",
+      "overview": {
+        "title": "ภาพรวม",
+        "paragraph1": "รายละเอียด {siteName} offers this Site, including all information, tools, and services available from this Site to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.",
+        "paragraph2": "Please read these ข้อกำหนดการใช้งาน carefully เป็นสำหรับe accessing หรือ using Site. By accessing หรือ using any part ของ Site, คุณ agree ไปยัง เป็น bound by these ข้อกำหนดการใช้งาน. If คุณ do ไม่ agree ไปยัง all ข้อกำหนด และ conditions ของ นี้ agreement, then คุณ may ไม่ access Site หรือ use any บริการ. If these ข้อกำหนดการใช้งาน เป็น considered an offer, acceptance คือ expressly limited ไปยัง these ข้อกำหนดการใช้งาน.",
+        "paragraph3": "Any ใหม่ features หรือ tools which เป็น added ไปยัง Site shall also เป็น subject ไปยัง ข้อกำหนดการใช้งาน. คุณ สามารถ review most ปัจจุบัน version ของ ข้อกำหนดการใช้งาน at any ครั้ง ใน นี้ page. Site reserves right ไปยัง อัปเดต, change หรือ replace any part ของ these ข้อกำหนดการใช้งาน by posting updates และ/หรือ changes ไปยัง Site. It คือ ของคุณ responsibility ไปยัง check นี้ page periodically สำหรับ changes. การ continued use ของ หรือ access ไปยัง Site following posting ของ any changes constitutes acceptance ของ those changes."
+      },
+      "websiteTerms": {
+        "title": "Website ข้อกำหนด",
+        "paragraph1": "By agreeing ไปยัง these ข้อกำหนดการใช้งาน, คุณ repreส่งแล้ว that คุณ เป็น at least age ของ majหรือity ใน ของคุณ state หรือ province ของ residence, หรือ that คุณ เป็น age ของ majหรือity ใน ของคุณ state หรือ province ของ residence และ คุณ have given us ของคุณ conส่งแล้ว ไปยัง allow any ของ ของคุณ minหรือ dependents ไปยัง use นี้ site.",
+        "paragraph2": "use ของ our บริการ must comply พร้อม all applicable laws และ regulations. Specifically:",
+        "items": {
+          "unlawful": "คุณ agree ไม่ ไปยัง use our products สำหรับ any unlawful หรือ unauthหรือized purposes",
+          "comply": "คุณ must comply พร้อม all laws ใน ของคุณ jurisdiction, including copyright และ intellectual property laws",
+          "malicious": "คุณ may ไม่ transmit malicious code, viruses, หรือ other harmful content"
+        },
+        "paragraph3": "Please note that any violation ของ these ข้อกำหนดการใช้งาน จะ lead ไปยัง immediate termination ของ ของคุณ access ไปยัง our บริการ."
+      },
+      "cookies": {
+        "title": "คุกกี้และการวิเคราะห์",
+        "description": "เว็บไซต์ใช้คุกกี้และเทคโนโลยีที่คล้ายกัน เช่น localStorage เพื่อติดตามการใช้งานเว็บไซต์และวัตถุประสงค์ทางการตลาด การใช้เว็บไซต์ถือว่ายอมรับการใช้คุกกี้ตาม <privacy>นโยบายความเป็นส่วนตัว</privacy>"
+      },
+      "intellectualProperty": {
+        "title": "ทรัพย์สินทางปัญญา",
+        "description": "ซอฟต์แวร์นี้เผยแพร่ภายใต้ใบอนุญาต MIT พร้อม Commons Clause ลิขสิทธิ์เป็นของผู้จัดทำ อินสแตนซ์นี้ไม่มีเนื้อหาที่เป็นกรรมสิทธิ์เพิ่มเติม"
+      },
+      "disclaimer": {
+        "title": "ข้อจำกัดความรับผิดชอบ",
+        "description": "ข้อมูลและเนื้อหาบนเว็บไซต์มีไว้เพื่อให้ข้อมูลเท่านั้น ไม่ใช่คำแนะนำจากผู้เชี่ยวชาญ เว็บไซต์ไม่รับรองหรือรับประกันความถูกต้อง ความน่าเชื่อถือ ความครบถ้วน หรือความเหมาะสมของข้อมูลและเนื้อหา คุณใช้งานเว็บไซต์ด้วยความเสี่ยงของคุณเอง"
+      },
+      "limitationOfLiability": {
+        "title": "ข้อจำกัดความรับผิด",
+        "description": "รายละเอียด {siteName} shall not be held responsible for any indirect, incidental, special, or consequential damages that may occur from your use of the Site, regardless of whether such damages arise from contract, tort, negligence, strict liability, or any other legal theory. The maximum amount Site may be liable for in any claim related to the Site is limited to the total subscription fees you have paid in the last 12 months."
+      },
+      "changes": {
+        "title": "Changes ไปยัง ข้อกำหนดการใช้งาน",
+        "description": "Site may อัปเดต หรือ modify these ข้อกำหนดการใช้งาน จาก ครั้ง ไปยัง ครั้ง, และ any changes จะ เป็น effective upon posting ใน Site. การ continued use ของ Site หลัง any such changes constitutes ของคุณ acceptance ของ revised ข้อกำหนดการใช้งาน."
+      },
+      "indemnification": {
+        "title": "รายละเอียด Indemnification",
+        "description": "รายละเอียด You agree to indemnify and hold harmless {siteName}, its affiliates, officers, directors, employees, agents, and licensors from and against any claims, liabilities, damages, losses, and expenses, including without limitation reasonable attorney's fees, arising out of or in connection with your use of the Site, your violation of these Terms of Service, or your violation of any rights of another party."
+      },
+      "modifications": {
+        "title": "Modifications ไปยัง บริการ และ Prices",
+        "paragraph1": "Prices สำหรับ our บริการ เป็น subject ไปยัง change without notice. Site reserves right at any ครั้ง ไปยัง modify หรือ discontinue บริการ (หรือ any part หรือ content thereof) without notice at any ครั้ง.",
+        "paragraph2": "Site shall ไม่ เป็น liable ไปยัง คุณ หรือ ไปยัง any third-party สำหรับ any modification, ราคา change, suspension, หรือ discontinuance ของ บริการ."
+      },
+      "governingLaw": {
+        "title": "Governing Law และ Jurisdiction",
+        "description": "รายละเอียด These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction where {siteName} is headquartered without giving effect to any principles of conflicts of law. You agree to submit to the exclusive jurisdiction of the courts in that jurisdiction for any disputes arising out of or in connection with these Terms of Service or your use of the Site."
+      },
+      "entireAgreement": {
+        "title": "รายละเอียด Entire Agreement",
+        "description": "รายละเอียด These Terms of Service constitute the entire agreement between you and {siteName} regarding your use of the Site and supersede all prior and contemporaneous agreements and understandings, whether oral or written, relating to the same subject matter."
+      },
+      "severability": {
+        "title": "รายละเอียด Severability",
+        "description": "If any provision ของ these ข้อกำหนดการใช้งาน คือ found ไปยัง เป็น invalid, illegal, หรือ unenสำหรับceable, remaining provisions shall ดำเนินการต่อ ใน full สำหรับce และ effect."
+      },
+      "waiver": {
+        "title": "รายละเอียด Waiver",
+        "description": "รายละเอียด The failure of {siteName} to enforce any right or provision of these Terms of Service shall not constitute a waiver of that right or provision."
+      },
+      "contactUs": {
+        "description": "If คุณ have any questions หรือ concerns เกี่ยวกับ these ข้อกำหนดการใช้งาน, reach operatหรือ ใน Matrix จาก <link>contact page</link>."
+      },
+      "freeService": {
+        "title": "ฟรี บริการ, ไม่ Billing",
+        "paragraph1": "sub.idler.me คือ ฟรี ไปยัง use. There เป็น ไม่ plans, ไม่ trials, ไม่ card fields, และ ไม่ refunds, because ไม่ money changes hands.",
+        "paragraph2": "software คือ open แหล่งที่มา under MIT license พร้อม a Commons Clause. คุณ may self-host it. นี้ instance exists สำหรับ people who ไม่สามารถ หรือ would rather ไม่ run their own.",
+        "paragraph3": "บริการ คือ provided as คือ และ best efสำหรับt. There คือ ไม่ uptime promise และ ไม่ guarantee that ข้อมูล survives a failure. Expหรือt ของคุณ ข้อมูล regularly และ keep ของคุณ own backups."
+      }
+    },
+    "contact": {
+      "title": "รายละเอียด Contact",
+      "description": "fastest way ไปยัง reach operatหรือ คือ Matrix. Mหรือe channels เป็น ใน way.",
+      "matrix": {
+        "label": "Message ใน Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "Mหรือe channels",
+        "note": "Coming เร็ว ๆ นี้."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} การแจ้งเตือนทดสอบ",
+          "message": "นี่คือข้อความทดสอบ notification from {siteName}. If you are seeing this, it means push notifications are working correctly!"
+        }
+      },
+      "email": {
+        "header": "การแจ้งเตือนการชำระเงิน",
+        "footer": "รายละเอียด This is a friendly reminder email from {siteName}.",
+        "thanks": "รายละเอียด Thanks",
+        "madeBy": "รายละเอียด Made with ♥ by {siteLink}"
+      },
+      "bell": {
+        "title": "การแจ้งเตือน",
+        "unreadTitle": "การแจ้งเตือนที่ยังไม่ได้อ่าน",
+        "clearAll": "ล้างทั้งหมด",
+        "removeNotification": "ลบการแจ้งเตือน",
+        "noNotifications": "ไม่มีการแจ้งเตือนใหม่"
+      },
+      "toggle": {
+        "modal": {
+          "title": "ติดตามข้อมูลล่าสุด",
+          "description": "รายละเอียด Get timely reminders about your subscription payments and due dates. We'll notify you before payments are due and when subscriptions are about to expire.",
+          "maybeLater": "ไว้ภายหลัง",
+          "enable": "เปิดใช้การแจ้งเตือน",
+          "enabling": "กำลังเปิดใช้งาน..."
+        },
+        "toast": {
+          "success": "รายละเอียด You will now receive subscription reminders.",
+          "error": "รายละเอียด Failed to enable notifications. Please try again.",
+          "permissionRequired": {
+            "title": "ต้องได้รับอนุญาต",
+            "description": "รายละเอียด Please allow notifications to receive reminders."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "ชื่อต้องมีอย่างน้อย 2 ตัวอักษร",
+        "paymentDate": "วันที่ไม่ถูกต้อง",
+        "color": "สีเลขฐานสิบหกไม่ถูกต้อง"
+      },
+      "cycles": {
+        "DAYS": "รายละเอียด {count, plural, =1 {Daily} other {Every # days}}",
+        "WEEKS": "รายละเอียด {count, plural, =1 {Weekly} other {Every # weeks}}",
+        "MONTHS": "รายละเอียด {count, plural, =1 {Monthly} other {Every # months}}",
+        "YEARS": "รายละเอียด {count, plural, =1 {Annually} other {Every # years}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "หมวดหมู่",
+            "selected": "รายละเอียด {count, plural, =0 {Select categories} one {# category selected} other {# categories selected}}",
+            "search": "รายละเอียด Search category...",
+            "create": "รายละเอียด Create new category \"{value}\""
+          },
+          "currency": {
+            "label": "สกุลเงิน",
+            "placeholder": "เลือกสกุลเงิน",
+            "search": "ค้นหาสกุลเงิน...",
+            "noResults": "ไม่พบผลลัพธ์"
+          },
+          "cycle": {
+            "label": "รอบการเรียกเก็บเงิน",
+            "placeholder": "เลือกรอบการเรียกเก็บเงิน",
+            "options": {
+              "daily": "รายวัน",
+              "weekly": "รายสัปดาห์",
+              "monthly": "รายเดือน",
+              "yearly": "รายปี",
+              "custom": "กำหนดเอง"
+            },
+            "units": {
+              "days": "รายละเอียด {count, plural, one {Day} other {Days}}",
+              "weeks": "รายละเอียด {count, plural, one {Week} other {Weeks}}",
+              "months": "รายละเอียด {count, plural, one {Month} other {Months}}",
+              "years": "รายละเอียด {count, plural, one {Year} other {Years}}"
+            },
+            "unitPlaceholder": "หน่วย"
+          },
+          "name": {
+            "label": "รายละเอียด Name",
+            "placeholder": "การสมัครสมาชิก Name"
+          },
+          "notes": {
+            "label": "หมายเหตุ",
+            "placeholder": "เพิ่มหมายเหตุ..."
+          },
+          "notifications": {
+            "title": "การแจ้งเตือน",
+            "description": "รายละเอียด Configure the default notifications for your subscriptions",
+            "via": "ผ่าน",
+            "whenToNotify": "เวลาแจ้งเตือน",
+            "whenPlaceholder": "เลือกเวลาแจ้งเตือน",
+            "unitPlaceholder": "หน่วย",
+            "addNotification": "เพิ่มการแจ้งเตือน",
+            "deleteDialog": {
+              "title": "ยืนยันการลบ",
+              "description": "รายละเอียด Are you sure you want to remove this notification template?"
+            },
+            "status": {
+              "denied": "รายละเอียด Push notifications are blocked on this device. Please enable them in your browser settings.",
+              "default": "รายละเอียด Push notifications are not enabled on this device. <link>Would you like to enable it?</link>",
+              "grantedNotConfigured": "รายละเอียด Push notification permission is granted but it is not properly configured. <link>Would you like to enable it?</link>",
+              "grantedConfigured": "รายละเอียด Push notifications are enabled for this device. Would you like to send a <link>test push notification</link>?"
+            },
+            "toast": {
+              "success": "รายละเอียด Push notification sent! Check your device(s).",
+              "error": "Failed to send test push notification! Make sure notifications are enabled and กำหนดค่าถูกต้องแล้ว."
+            },
+            "timeOptions": {
+              "instant": "At วันที่ชำระเงิน",
+              "15minutes": "รายละเอียด 15 minutes before",
+              "1hour": "รายละเอียด 1 hour before",
+              "2hours": "รายละเอียด 2 hours before",
+              "1day": "รายละเอียด 1 day before",
+              "2days": "รายละเอียด 2 days before",
+              "1week": "รายละเอียด 1 week before",
+              "custom": "กำหนดเอง"
+            },
+            "units": {
+              "minutes": "รายละเอียด {count, plural, one {Minute} other {Minutes}}",
+              "hours": "รายละเอียด {count, plural, one {Hour} other {Hours}}",
+              "days": "รายละเอียด {count, plural, one {Day} other {Days}}",
+              "weeks": "รายละเอียด {count, plural, one {Week} other {Weeks}}"
+            },
+            "types": {
+              "push": {
+                "label": "Push การแจ้งเตือน",
+                "ariaLabel": "รายละเอียด Toggle push"
+              },
+              "email": {
+                "label": "Email การแจ้งเตือน",
+                "ariaLabel": "รายละเอียด Toggle email"
+              },
+              "webhook": {
+                "label": "Webhook การแจ้งเตือน",
+                "ariaLabel": "รายละเอียด Toggle webhook"
+              },
+              "ntfy": {
+                "label": "การแจ้งเตือน ntfy",
+                "ariaLabel": "รายละเอียด Toggle ntfy"
+              },
+              "discord": {
+                "label": "การแจ้งเตือน Discord",
+                "ariaLabel": "รายละเอียด Toggle Discord"
+              },
+              "slack": {
+                "label": "การแจ้งเตือน Slack",
+                "ariaLabel": "รายละเอียด Toggle Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Next วันที่ชำระเงิน"
+          },
+          "paymentMethod": {
+            "label": "วิธีการชำระเงิน",
+            "placeholder": "เลือกวิธีการชำระเงิน",
+            "search": "ค้นหาวิธีการชำระเงิน...",
+            "create": "รายละเอียด Create new payment method \"{value}\""
+          },
+          "price": {
+            "label": "ราคา"
+          },
+          "timezone": {
+            "label": "เขตเวลา",
+            "placeholder": "เลือกเขตเวลา",
+            "search": "รายละเอียด Search timezone...",
+            "noResults": "ไม่พบผลลัพธ์"
+          },
+          "untilDate": {
+            "label": "ใช้ได้ถึง",
+            "description": "รายละเอียด Leave empty for an indefinite subscription"
+          },
+          "url": {
+            "label": "รายละเอียด URL"
+          },
+          "logo": {
+            "label": "โลโก้",
+            "description": "รายละเอียด Select a predefined icon or enter an URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} เขตเวลา",
+        "paymentDate": {
+          "past": "รายละเอียด Should have been paid <date></date>.",
+          "future": "รายละเอียด Will be paid <date></date>."
+        },
+        "markAsPaid": {
+          "question": "รายละเอียด Did you pay this? <action>Mark as paid</action> or see <options>other options</options>.",
+          "customPrice": {
+            "title": "รายละเอียด Paid a different amount?",
+            "description": "รายละเอียด Use this if you paid more or less than usual",
+            "prompt": "รายละเอียด Enter the amount you paid:"
+          },
+          "noPrice": {
+            "title": "รายละเอียด Just mark as paid!",
+            "description": "รายละเอียด Use this to skip this payment without recording an amount",
+            "prompt": "รายละเอียด Mark as paid without tracking the amount?",
+            "warning": "รายละเอียด This will not record a payment amount."
+          },
+          "toast": {
+            "success": "การสมัครสมาชิก marked as paid!",
+            "error": "รายละเอียด Error marking subscription as paid",
+            "custom": {
+              "success": "การสมัครสมาชิก marked as paid with custom price!",
+              "error": "รายละเอียด Error marking subscription as paid with custom price"
+            },
+            "noPrice": {
+              "success": "การสมัครสมาชิก marked as paid without payment!",
+              "error": "รายละเอียด Error marking subscription as paid without payment"
+            },
+            "failed": "รายละเอียด Failed to update!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "รายละเอียด You will be notified <date></date> via {channels}.",
+          "willBeNotifiedSoon": "รายละเอียด You will be notified soon via {channels}.",
+          "willBeRemindedAt": "รายละเอียด You will be reminded <date></date> via {channels} again.",
+          "willBeRemindedSoon": "รายละเอียด You will be reminded soon via {channels} again.",
+          "wontBeNotified": "รายละเอียด You won't be notified.",
+          "types": {
+            "push": "รายละเอียด notification",
+            "email": "รายละเอียด email",
+            "webhook": "รายละเอียด webhook",
+            "ntfy": "ntfy",
+            "discord": "รายละเอียด discord",
+            "slack": "รายละเอียด slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "รายละเอียด Congratulations! You have paid all.",
+          "remaining": "รายละเอียด You will pay this <trigger>{count, plural, =1 {# more time} other {# times}}</trigger>.",
+          "until": "รายละเอียด Until {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "รายละเอียด This will be paid via {methods}."
+        },
+        "pastPayments": {
+          "count": "รายละเอียด You have made <highlight>{count, plural, one {# payment} other {# payments}}</highlight> so far."
+        },
+        "actions": {
+          "inactive": "รายละเอียด This subscription is not active.",
+          "edit": "แก้ไข {name} การสมัครสมาชิก",
+          "link": "รายละเอียด Link to {url}",
+          "notificationEnabled": "รายละเอียด {type} are enabled",
+          "notificationDisabled": "รายละเอียด {type} are disabled"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Create การสมัครสมาชิก",
+          "update": "Update การสมัครสมาชิก"
+        },
+        "sections": {
+          "details": "การสมัครสมาชิก Details",
+          "advanced": "รายละเอียด Advanced Settings"
+        },
+        "deleteDialog": {
+          "title": "Delete การสมัครสมาชิก",
+          "description": "รายละเอียด Are you sure you want to delete this subscription? This action cannot be undone."
+        },
+        "toast": {
+          "create": {
+            "error": "รายละเอียด Interesting, cannot create subscription!",
+            "success": "การสมัครสมาชิก created successfully!"
+          },
+          "delete": {
+            "success": "การสมัครสมาชิก deleted successfully!",
+            "error": "รายละเอียด Failed to delete subscription!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "New การสมัครสมาชิก",
+        "noSubscription": "รายละเอียด No subscriptions found"
+      }
+    },
+    "filters": {
+      "title": "การสมัครสมาชิก Filters",
+      "description": "รายละเอียด Apply filters and find the subscriptions you need",
+      "buttons": {
+        "filter": "รายละเอียด Filter subscriptions",
+        "reset": "รายละเอียด Reset filters"
+      },
+      "selectAll": "รายละเอียด Select All",
+      "selectNone": "รายละเอียด Select None",
+      "status": {
+        "title": "รายละเอียด Status",
+        "active": {
+          "title": "รายละเอียด Active",
+          "description": "รายละเอียด Filter by active subscriptions"
+        },
+        "inactive": {
+          "title": "รายละเอียด Inactive",
+          "description": "รายละเอียด Filter by inactive subscriptions"
+        }
+      },
+      "paymentDate": {
+        "title": "วันที่ชำระเงิน",
+        "all": {
+          "title": "รายละเอียด All",
+          "description": "รายละเอียด Disable all payment date filters"
+        },
+        "thisMonth": {
+          "title": "รายละเอียด This Month",
+          "description": "รายละเอียด Filter by this month"
+        },
+        "next30Days": {
+          "title": "รายละเอียด Next 30 Days",
+          "description": "รายละเอียด Filter by next 30 days"
+        }
+      },
+      "currencies": {
+        "title": "รายละเอียด Currencies",
+        "all": {
+          "description": "รายละเอียด Select all currencies"
+        },
+        "clear": {
+          "description": "ล้างทั้งหมด currencies"
+        },
+        "filter": "รายละเอียด Filter by {currency}"
+      },
+      "categories": {
+        "title": "หมวดหมู่",
+        "uncategorized": "รายละเอียด Uncategorized",
+        "all": {
+          "description": "รายละเอียด Select all categories"
+        },
+        "clear": {
+          "description": "ล้างทั้งหมด categories"
+        },
+        "filterBy": "รายละเอียด Filter by {category}"
+      },
+      "paymentMethods": {
+        "title": "วิธีการชำระเงินs",
+        "unspecified": "รายละเอียด Unspecified",
+        "all": {
+          "description": "รายละเอียด Select all payment methods"
+        },
+        "clear": {
+          "description": "ล้างทั้งหมด payment methods"
+        },
+        "filterBy": "รายละเอียด Filter by {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "รายละเอียด {price} will be paid {count, plural, one {# time} other {# times}}"
+      },
+      "overview": {
+        "title": "ภาพรวม",
+        "total": "รายละเอียด <count></count> total subscriptions",
+        "active": "รายละเอียด <count></count> active subscriptions",
+        "inactive": "รายละเอียด <count></count> inactive subscriptions"
+      },
+      "costAverages": {
+        "title": "รายละเอียด Cost Averages",
+        "description": "รายเดือน and yearly subscription cost averages",
+        "monthly": "รายเดือน Average",
+        "yearly": "รายละเอียด Yearly Average"
+      },
+      "monthlyCost": {
+        "title": "รายเดือน Cost ภาพรวม",
+        "description": "รายละเอียด Track your monthly subscription costs"
+      },
+      "yearlyCost": {
+        "title": "Yearly Cost ภาพรวม",
+        "description": "รายละเอียด Track your yearly subscription costs"
+      },
+      "upcomingPayments": {
+        "title": "การชำระเงินที่กำลังจะมาถึง",
+        "description": "รายละเอียด Track your upcoming payments",
+        "noPayments": "รายละเอียด No upcoming payments in one month.",
+        "nextMonth": "รายละเอียด Next Month"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "รายละเอียด This Month",
+          "description": "รายละเอียด Until end of month"
+        },
+        "nextMonth": {
+          "title": "รายละเอียด Next Month",
+          "description": "รายละเอียด Upcoming month only"
+        },
+        "next30Days": {
+          "title": "รายละเอียด Next 30 Days",
+          "description": "รายละเอียด Rolling period"
+        },
+        "thisYear": {
+          "title": "รายละเอียด This Year",
+          "description": "รายละเอียด Until end of year"
+        },
+        "nextYear": {
+          "title": "รายละเอียด Next Year",
+          "description": "รายละเอียด Next calendar year"
+        },
+        "next365Days": {
+          "title": "รายละเอียด Next 365 Days",
+          "description": "รายละเอียด Rolling period"
+        }
+      },
+      "tabs": {
+        "byCategories": "By หมวดหมู่",
+        "byPaymentMethods": "By วิธีการชำระเงินs"
+      },
+      "mostExpensive": {
+        "monthly": "Most Expensive รายเดือน การสมัครสมาชิก",
+        "yearly": "Most Expensive Yearly การสมัครสมาชิก"
+      },
+      "modal": {
+        "category": {
+          "description": "รายละเอียด {period} payments in this category",
+          "noSubscriptions": "รายละเอียด No subscriptions found in this category"
+        },
+        "paymentMethod": {
+          "description": "รายละเอียด {period} payments via this payment method",
+          "noSubscriptions": "รายละเอียด No subscriptions found via this payment method"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "รายละเอียด Link",
+        "linkTitle": "การสมัครสมาชิก Link",
+        "editTitle": "แก้ไข การสมัครสมาชิก"
+      },
+      "overview": {
+        "title": "ภาพรวม",
+        "description": "รายละเอียด Key metrics for this subscription",
+        "disabled": "รายละเอียด This subscription is currently disabled. You can enable it again at any time.",
+        "unpaid": {
+          "hasUnpaid": "รายละเอียด Oh no! You have <count>{count, plural, one {# unpaid payment} other {# unpaid payments}}</count> for this subscription totaling <total>{total}</total>.",
+          "allPaid": "รายละเอียด Good job! This subscription is fully paid up to date."
+        },
+        "nextPayment": {
+          "scheduled": "รายละเอียด Your next payment of <price>{price}</price> is due on <date>{date}</date> which is <distance>{distance}</distance>.",
+          "none": "รายละเอียด Congrats! There are no future payments scheduled for this subscription."
+        },
+        "endDate": {
+          "hasEndDate": "รายละเอียด This subscription will end on <date>{date}</date>.",
+          "ongoing": "รายละเอียด This is an ongoing subscription with no specified end date."
+        },
+        "remainingPayments": {
+          "withEndDate": "รายละเอียด This subscription will require <count>{count, plural, one {# payment} other {# payments}}</count> totaling <total>{total}</total>.",
+          "thisYear": "รายละเอียด This subscription will require <count>{count, plural, one {# payment} other {# payments}}</count> this year, totaling <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "รายละเอียด This subscription will be paid via <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "รายละเอียด You have made <countTag>{count, plural, one {# payment} other {# payments}}</countTag> for this subscription so far, totaling <totalTag>{total}</totalTag>.",
+          "yearStats": "รายละเอียด  In the past year, you made <countTag>{count, plural, one {# payment} other {# payments}}</countTag>, totaling <totalTag>{total}</totalTag>.",
+          "none": "รายละเอียด This is a subscription with no payment history yet."
+        },
+        "notifications": {
+          "title": "รายละเอียด You will receive notifications:",
+          "none": "รายละเอียด No notifications are set up for this subscription.",
+          "item": "รายละเอียด <timing></timing> via <channels></channels>.",
+          "itemNoType": "รายละเอียด <timing></timing> but <error>no notification type is set</error>.",
+          "timing": {
+            "instant": "รายละเอียด At the payment date",
+            "minutes": "รายละเอียด {count, plural, one {# minute} other {# minutes}} before payment",
+            "hours": "รายละเอียด {count, plural, one {# hour} other {# hours}} before payment",
+            "days": "รายละเอียด {count, plural, one {# day} other {# days}} before payment",
+            "weeks": "รายละเอียด {count, plural, one {# week} other {# weeks}} before payment"
+          },
+          "types": {
+            "email": "รายละเอียด email",
+            "push": "รายละเอียด push notification",
+            "webhook": "รายละเอียด webhook",
+            "ntfy": "ntfy",
+            "discord": "รายละเอียด discord",
+            "slack": "รายละเอียด slack"
+          }
+        },
+        "nextNotification": {
+          "text": "รายละเอียด Next notification will be on <date>{date}</date> which is <distance>{distance}</distance> via <channels></channels>.",
+          "soon": "รายละเอียด soon"
+        }
+      },
+      "costBreakdown": {
+        "title": "รายละเอียดค่าใช้จ่าย",
+        "description": "รายละเอียด Future spending for this subscription",
+        "periods": {
+          "30days": "รายละเอียด Next 30 days",
+          "3months": "รายละเอียด Next 3 months",
+          "12months": "รายละเอียด Next 12 months"
+        }
+      },
+      "notes": {
+        "title": "หมายเหตุ"
+      },
+      "paymentSchedule": {
+        "title": "กำหนดการชำระเงิน",
+        "description": "รายละเอียด Upcoming payment dates in a year",
+        "noUpcoming": "รายละเอียด No upcoming payments",
+        "more": "รายละเอียด + {count} more",
+        "totalPayments": "รายละเอียด Total payments:",
+        "total": "รายละเอียด Total:"
+      },
+      "latestPayments": {
+        "title": "การชำระเงินล่าสุด",
+        "description": "รายละเอียด Most recent payments for this subscription",
+        "none": "รายละเอียด No past payments recorded for this subscription yet.",
+        "status": {
+          "onTime": "รายละเอียด on time",
+          "late": "รายละเอียด {distance} late",
+          "early": "รายละเอียด {distance} early"
+        },
+        "popover": {
+          "paidStatus": "รายละเอียด This subscription is paid <status>{status}</status>.",
+          "scheduled": "รายละเอียด Scheduled:",
+          "actual": "รายละเอียด Actual:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "ติดตั้งเป็นแอปพลิเคชัน",
+      "description": "รายละเอียด For the best experience, we recommend installing the app to your home screen!",
+      "buttons": {
+        "gotIt": "เข้าใจแล้ว",
+        "maybeLater": "ไว้ภายหลัง",
+        "installNow": "ติดตั้งตอนนี้"
+      },
+      "common": {
+        "addToHomeScreen": "เพิ่มไปยังหน้าจอหลัก",
+        "clickIcon": "รายละเอียด Click the <icon></icon> icon",
+        "scrollDownClick": "รายละเอียด Scroll down and click"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS ขั้นตอนการติดตั้ง",
+          "step3": "รายละเอียด Tap 'Add' to confirm"
+        },
+        "chrome": {
+          "title": "Chrome on iOS ขั้นตอนการติดตั้ง"
+        },
+        "firefox": {
+          "title": "Firefox on iOS ขั้นตอนการติดตั้ง",
+          "step2": "รายละเอียด Scroll down and click <icon></icon> button",
+          "step3": "รายละเอียด Then click"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome ขั้นตอนการติดตั้ง"
+        },
+        "firefox": {
+          "title": "Firefox ขั้นตอนการติดตั้ง"
+        }
+      },
+      "unknown": {
+        "title": "ขั้นตอนการติดตั้ง",
+        "step1": "Look for an option like \"เพิ่มไปยังหน้าจอหลัก\" or \"Install App\" in your browser's menu",
+        "step2": "รายละเอียด The option is usually found in the main menu (often represented by three dots or lines)",
+        "step3": "รายละเอียด Follow your browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "ค้นหา..."
+    }
+  }
+}

@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "追加",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "edit": "編集",
+    "delete": "削除",
+    "confirm": "確認",
+    "view": "表示",
+    "close": "閉じる",
+    "contact": "お問い合わせ",
+    "signIn": "ログイン",
+    "termsOfService": "利用規約",
+    "privacyPolicy": "プライバシーポリシー"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName}支払いリマインダー",
+        "message": "リマインダーそのお客様の{siteName}サブスクリプションの終了が近づいています。"
+      },
+      "payment": {
+        "title": {
+          "due": "支払い期限{name}",
+          "reminder": "支払いリマインダー{name}",
+          "upcoming": "今後の支払い{name}"
+        },
+        "message": {
+          "due": "お客様の{name}サブスクリプション支払い({price})は期限！",
+          "reminder": "お客様の{name}サブスクリプション支払い({price})は！",
+          "upcoming": "お客様の{name}サブスクリプション支払い({price})は{dueText}！"
+        },
+        "markAsPaid": "支払済み",
+        "dismiss": "閉じる"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName}サブスクリプションリマインダー",
+      "footer": "送信しました{siteName}",
+      "visitDashboard": "ダッシュボードを見る",
+      "paymentQuestion": "支払い？",
+      "viewDetails": "表示詳細"
+    }
+  },
+  "header": {
+    "signOut": "ログアウト",
+    "subscriptions": "サブスクリプション",
+    "reports": "レポート",
+    "settings": "設定",
+    "account": "アカウント"
+  },
+  "footer": {
+    "madeBy": "<author>{name}</author>。",
+    "github": "ソース",
+    "menu": "メニュー"
+  },
+  "languages": {
+    "selectLanguage": "言語を選択",
+    "invalid": "無効な言語",
+    "failed": "言語の変更に失敗しました"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "無料で利用可能。個人運営。",
+        "title": "すべてのサブスクリプションを記録。支払い忘れなし。",
+        "subtitle": "{appName}は繰り返しの課金をひとつの見やすいダッシュボードにまとめ、支払い前に通知します。",
+        "tagline": "無料。カード不要、トライアルなし、追加課金なし。"
+      },
+      "features": {
+        "title": "できること",
+        "subtitle": "このソフトウェアの機能をすべて無料で利用できます。",
+        "billingCycles": {
+          "title": "柔軟な課金サイクル",
+          "description": "月次、年次、カスタムの請求間隔に対応"
+        },
+        "notifications": {
+          "title": "スマート通知",
+          "description": "メール、プッシュ、Webhook、ntfy、Discord、Slackでリマインダーを送信"
+        },
+        "reports": {
+          "title": "レポートと分析",
+          "description": "詳細なレポートと分析で支出を把握"
+        },
+        "currencies": {
+          "title": "複数通貨",
+          "description": "複数通貨に対応し、費用をリアルタイムで記録"
+        },
+        "timezone": {
+          "title": "タイムゾーン対応",
+          "description": "日付を自動変換し、異なるタイムゾーンのサブスクリプションを管理"
+        },
+        "categories": {
+          "title": "カテゴリ管理",
+          "description": "カスタムカテゴリと色分けでサブスクリプションを整理"
+        }
+      },
+      "howItWorks": {
+        "title": "使い方",
+        "subtitle": "数分で始められます",
+        "step1": {
+          "title": "リンクでログイン",
+          "description": "メールアドレスを入力してリンクを開くだけ。覚えるパスワードはありません。"
+        },
+        "step2": {
+          "title": "支払いを登録",
+          "description": "各サブスクリプションの料金、課金サイクル、通貨を記録します。"
+        },
+        "step3": {
+          "title": "リマインダーを受け取る",
+          "description": "通知チャンネルを選び、通知から直接支払い済みにできます。"
+        }
+      },
+      "free": {
+        "eyebrow": "無料",
+        "title": "完全無料、条件なし",
+        "description": "ソフトウェアはオープンソースです。このインスタンスは、自分で運営できない人のためにホストされています。",
+        "price": "€0",
+        "period": "永久に",
+        "features": {
+          "unlimited": "サブスクリプション数無制限",
+          "notifications": "メール、プッシュ、Webhook、ntfy、Discord、Slackのリマインダー",
+          "reports": "レポートと支出分析",
+          "export": "いつでもデータをエクスポート",
+          "noAds": "広告、追跡、支払い情報はありません",
+          "bestEffort": "ベストエフォート。稼働時間の保証はありません"
+        },
+        "button": "ログイン",
+        "selfHostButton": "セルフホスト",
+        "selfHostNote": "自分のサーバーを使いたいですか？同じソフトウェアをDockerで約10分で動かせます。"
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "ページが見つかりません",
+        "description": "ページお客様の。"
+      },
+      "title": "404",
+      "backToHome": "ホームに戻る"
+    },
+    "account": {
+      "meta": {
+        "title": "アカウント設定",
+        "description": "お客様のアカウント設定、設定。"
+      },
+      "defaultSettings": {
+        "title": "デフォルト設定",
+        "description": "設定お客様のデフォルト設定新しいサブスクリプション",
+        "timezone": {
+          "label": "タイムゾーン",
+          "success": "更新しました正常に。",
+          "error": "失敗しました更新！"
+        },
+        "currency": {
+          "label": "通貨",
+          "success": "通貨更新しました正常に。",
+          "error": "失敗しました更新通貨！"
+        }
+      },
+      "notifications": {
+        "success": "通知設定。",
+        "error": "失敗しました保存通知設定！",
+        "saveButton": "保存変更",
+        "saveButtonTitle": "保存通知設定"
+      },
+      "profile": {
+        "success": "お客様の名前更新しました正常に。",
+        "error": "失敗しました更新お客様の名前！",
+        "namePlaceholder": "入力お客様の名前",
+        "addNamePrompt": "追加お客様の名前",
+        "memberSince": "{date}"
+      },
+      "categories": {
+        "title": "カテゴリ",
+        "description": "お客様のカテゴリ",
+        "default": {
+          "load": "デフォルトカテゴリ",
+          "success": "デフォルトカテゴリ正常に。",
+          "error": "失敗しました作成デフォルトカテゴリ！"
+        },
+        "save": {
+          "success": "カテゴリ正常に。",
+          "error": "失敗しました保存カテゴリ！"
+        },
+        "addButtonTitle": "追加新しいカテゴリ",
+        "selectColor": "選択色",
+        "namePlaceholder": "カテゴリ名前",
+        "delete": {
+          "title": "削除カテゴリ",
+          "description": "ですお客様確認お客様削除このカテゴリ？このできない。",
+          "success": "カテゴリ正常に。",
+          "error": "失敗しました削除カテゴリ！"
+        },
+        "invalid": "無効なカテゴリデータ",
+        "edit": "編集カテゴリ"
+      },
+      "paymentMethods": {
+        "title": "支払い方法",
+        "description": "お客様の支払い方法",
+        "add": "追加新しい支払い方法",
+        "edit": "編集支払い方法",
+        "invalid": "無効な支払い方法データ",
+        "placeholder": "支払い方法名前",
+        "load": {
+          "title": "デフォルト支払い方法",
+          "success": "デフォルト支払い方法正常に。",
+          "error": "失敗しました作成デフォルト支払い方法！"
+        },
+        "save": {
+          "success": "支払い方法正常に。",
+          "error": "失敗しました保存支払い方法！"
+        },
+        "delete": {
+          "title": "削除支払い方法",
+          "description": "ですお客様確認お客様削除この支払い方法？このできない。",
+          "success": "支払い方法正常に。",
+          "error": "失敗しました削除支払い方法！"
+        }
+      },
+      "externalServices": {
+        "title": "サービス",
+        "description": "設定サービス",
+        "testNotification": {
+          "title": "{siteName}テスト通知",
+          "message": "このはテスト{service}メッセージから{siteName}。お客様の{service}は設定済み正しく。"
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "受信通知ntfy。",
+          "toast": {
+            "disable": {
+              "success": "ntfy無効。",
+              "error": "失敗しましたntfy！"
+            },
+            "save": {
+              "success": "ntfy設定正常に。",
+              "error": "失敗しました保存ntfy設定！"
+            },
+            "test": {
+              "success": "テストntfy通知送信しました。",
+              "error": "失敗しました送信テストntfy通知！"
+            },
+            "notEnabled": "ntfyはない有効。",
+            "invalidParams": "無効な！できない保存ntfy設定。",
+            "testInvalidParams": "無効な！できない送信テスト通知。"
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "サーバーURL",
+              "placeholder": "ntfy。または-ホスティングURL"
+            },
+            "topic": {
+              "label": "名前"
+            },
+            "token": {
+              "label": "アクセストークン(任意)",
+              "placeholder": "アクセストークン"
+            }
+          },
+          "buttons": {
+            "save": "保存ntfy",
+            "test": "テストntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "受信通知。",
+          "toast": {
+            "disable": {
+              "success": "Webhook無効。",
+              "error": "失敗しました！"
+            },
+            "save": {
+              "success": "Webhook設定正常に。",
+              "error": "失敗しました保存設定！"
+            },
+            "test": {
+              "success": "テスト通知送信しました。",
+              "error": "失敗しました送信テスト通知！"
+            },
+            "notEnabled": "Webhookはない有効。",
+            "invalidParams": "無効な！できない保存設定。",
+            "testInvalidParams": "無効な！できない送信テスト通知。"
+          },
+          "fields": {
+            "url": {
+              "label": "サーバーURL",
+              "placeholder": "WebhookサーバーURL"
+            }
+          },
+          "buttons": {
+            "save": "保存",
+            "test": "テスト"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "受信通知Discord。",
+          "toast": {
+            "disable": {
+              "success": "Discord無効。",
+              "error": "失敗しましたDiscord！"
+            },
+            "save": {
+              "success": "Discord設定正常に。",
+              "error": "失敗しました保存Discord設定！"
+            },
+            "test": {
+              "success": "テストDiscord通知送信しました。",
+              "error": "失敗しました送信テストDiscord通知！"
+            },
+            "notEnabled": "Discordはない有効。",
+            "invalidParams": "無効な！できない保存Discord設定。",
+            "testInvalidParams": "無効な！できない送信テスト通知。"
+          },
+          "fields": {
+            "url": {
+              "label": "サーバーURL",
+              "placeholder": "DiscordサーバーURL"
+            }
+          },
+          "buttons": {
+            "save": "保存Discord",
+            "test": "テストDiscord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "受信通知Slack。",
+          "toast": {
+            "disable": {
+              "success": "Slack無効。",
+              "error": "失敗しましたSlack！"
+            },
+            "save": {
+              "success": "Slack設定正常に。",
+              "error": "失敗しました保存Slack設定！"
+            },
+            "test": {
+              "success": "テストSlack通知送信しました。",
+              "error": "失敗しました送信テストSlack通知！"
+            },
+            "notEnabled": "Slackはない有効。",
+            "invalidParams": "無効な！できない保存Slack設定。",
+            "testInvalidParams": "無効な！できない送信テスト通知。"
+          },
+          "fields": {
+            "url": {
+              "label": "サーバーURL",
+              "placeholder": "SlackサーバーURL"
+            }
+          },
+          "buttons": {
+            "save": "保存Slack",
+            "test": "テストSlack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "データのエクスポート",
+        "description": "ダウンロードコピーのお客様のサブスクリプション,カテゴリ,支払い方法、設定",
+        "button": "データをエクスポート",
+        "toast": {
+          "success": "データ正常に。",
+          "error": "失敗しましたエクスポートデータ！"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "新しいサブスクリプション",
+        "edit": "編集{name}",
+        "unauthorized": "権限がありません"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "ログイン"
+      },
+      "description": "お客様のメールアクセスお客様のアカウントまたは作成新しい1",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "ログイン",
+        "loginWithProvider": "{provider}"
+      },
+      "otp": {
+        "title": "お客様の",
+        "description": "送信しましたリンクお客様のメール。",
+        "instructions": "入力6-送信しましたお客様のメール",
+        "divider": "または",
+        "resend": {
+          "prompt": "受信メール？",
+          "button": "クリック",
+          "timer": "{seconds, plural, one {#秒} other {#秒}}"
+        }
+      },
+      "toast": {
+        "success": "！お客様正常に。",
+        "error": {
+          "accessDenied": "お客様ですない許可！",
+          "generic": "！お客様。お客様のメール,または終了。",
+          "invalidCode": "。6、。",
+          "somethingWrong": "。してください新しい、。",
+          "workspaceAccess": "申し訳ありません。このワークスペースにはアクセスできません。",
+          "rateLimited": "。、。"
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "最後の更新しました15,2026",
+      "introduction": {
+        "title": "はじめに",
+        "paragraph1": "sub.idler.meは、アプリの動作に必要な情報だけを保存します。このページで内容を詳しく説明します。",
+        "paragraph2": "小規模な個人運営サービスです。会社、広告、決済処理はありません。"
+      },
+      "informationWeCollect": {
+        "title": "収集する情報",
+        "description": "お客様のアカウント:",
+        "items": {
+          "account": "お客様のメール,、名前またはお客様の。",
+          "subscription": "追加したサブスクリプションの名前、料金、通貨、請求日、カテゴリ、支払い方法のラベル。",
+          "expense": "支払いお客様支払済み,、。"
+        }
+      },
+      "howWeUse": {
+        "title": "使用",
+        "description": "お客様のデータは使用:",
+        "items": {
+          "providing": "お客様のサブスクリプション,レポート,、支払い履歴お客様。",
+          "managing": "送信リマインダーお客様設定済み,チャンネルお客様設定済み。",
+          "sending": "お客様メールリンク。",
+          "improving": "何もありません。なし,なし,なし。"
+        }
+      },
+      "dataProtection": {
+        "title": "データ",
+        "description": "データは運営者が管理するインフラ上のPostgresデータベースに保存されます。ご自身で有効にした通知チャンネル以外の第三者とは共有しません。保存時の暗号化については、ホストの標準設定を超える保証はありません。"
+      },
+      "analytics": {
+        "title": "、",
+        "description": "なし、なし記録。お客様の,お客様の言語,、お客様の設定お客様のブラウザ。"
+      },
+      "yourRights": {
+        "title": "お客様の権利",
+        "description": "お客様:",
+        "items": {
+          "access": "エクスポート記録お客様からアカウントページ。",
+          "correct": "変更お客様の設定時間。",
+          "delete": "のお客様のアカウント、データ。",
+          "optOut": "-必須。"
+        }
+      },
+      "contactUs": {
+        "description": "お客様質問プライバシーポリシーまたはお客様のデータ,Matrixから<link>連絡ページ</link>。"
+      },
+      "updates": {
+        "title": "このポリシー",
+        "description": "このページ変更または変更。日付は現在の。"
+      },
+      "operator": {
+        "title": "この",
+        "description": "sub.idler.meは、会社ではなくコミュニティサービスとして、個人がセルフホストのインフラで運営しています。決済処理や広告はありません。"
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "サブスクリプションレポート"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "権限がありません",
+        "view": "表示{name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "最後の更新しました15,2026",
+      "welcome": "{siteName}ウェブサイト(\"\")。アクセスまたは使用,お客様、規約、(\"規約のサービス\")。",
+      "overview": {
+        "title": "概要",
+        "paragraph1": "{siteName}は、ここに記載するすべての利用規約、条件、ポリシー、通知への同意を条件として、情報、ツール、サービスを含む本サイトをユーザーに提供します。",
+        "paragraph2": "本サイトにアクセスまたは利用する前に、本利用規約をよくお読みください。本サイトのいずれかの部分にアクセスまたは利用した時点で、本利用規約に同意したものとみなされます。すべての条件に同意しない場合、本サイトやサービスを利用できません。本利用規約が申し込みにあたる場合、承諾は本利用規約に明示的に限定されます。",
+        "paragraph3": "新しいまたはです追加しました規約のサービス。お客様現在のの規約のサービス時間このページ。更新,変更またはの規約のサービス、/または変更。はお客様のこのページ変更。お客様の使用のまたはアクセスの変更の変更。"
+      },
+      "websiteTerms": {
+        "title": "ウェブサイト規約",
+        "paragraph1": "規約のサービス,お客様そのお客様ですのお客様のまたはの,またはそのお客様ですのお客様のまたはの、お客様お客様の許可のお客様の使用この。",
+        "paragraph2": "使用のサービスすべて、。:",
+        "items": {
+          "unlawful": "お客様ない使用または",
+          "comply": "お客様すべてお客様の,、",
+          "malicious": "悪意のあるコード、ウイルス、その他の有害なコンテンツを送信しないでください。"
+        },
+        "paragraph3": "してくださいそのの規約のサービスのお客様のアクセスサービス。"
+      },
+      "cookies": {
+        "title": "使用の",
+        "description": "、()記録お客様のの、。使用,お客様使用の<privacy>プライバシーポリシー</privacy>。"
+      },
+      "intellectualProperty": {
+        "title": "知的財産",
+        "description": "ソフトウェアはCommons Clause付きMITライセンスで提供され、著作権はmecewareに帰属します。このデプロイメントに独自の専有コンテンツはありません。"
+      },
+      "disclaimer": {
+        "title": "免責事項",
+        "description": "本サイトの情報とコンテンツは情報提供のみを目的としており、専門的な助言ではありません。本サイトは情報の正確性、信頼性、完全性、適合性について、明示または黙示を問わず一切保証しません。利用は自己責任で行ってください。"
+      },
+      "limitationOfLiability": {
+        "title": "の",
+        "description": "{siteName}は、本サイトの利用により生じる間接的、付随的、特別または結果的な損害について、契約、不法行為、過失、厳格責任その他の法理論にかかわらず責任を負いません。本サイトに関する請求でサイトが負う責任の上限は、過去12か月間に支払ったサブスクリプション料金の合計です。"
+      },
+      "changes": {
+        "title": "変更規約のサービス",
+        "description": "更新または規約のサービスから時間時間,、変更。お客様の使用の後変更お客様のの規約のサービス。"
+      },
+      "indemnification": {
+        "title": "補償",
+        "description": "本サイトの利用、本利用規約への違反、または第三者の権利侵害に起因する請求、責任、損害、損失、費用（合理的な弁護士費用を含む）について、{siteName}およびその関連会社、役員、取締役、従業員、代理人、ライセンサーを補償し、免責することに同意します。"
+      },
+      "modifications": {
+        "title": "サービス、",
+        "paragraph1": "サービスです変更なしで。時間またはサービス(またはまたは)なしで時間。",
+        "paragraph2": "本サイトは、サービスの変更、料金変更、停止または終了について、ユーザーまたは第三者に対して責任を負いません。"
+      },
+      "governingLaw": {
+        "title": "、",
+        "description": "規約のサービス、の{siteName}はなしでのの。お客様のそののまたは規約のサービスまたはお客様の使用の。"
+      },
+      "entireAgreement": {
+        "title": "完全合意",
+        "description": "本利用規約は、本サイトの利用に関するユーザーと{siteName}の完全な合意を構成し、同じ事項に関する過去および現在の口頭または書面による合意や了解に優先します。"
+      },
+      "severability": {
+        "title": "分離可能性",
+        "description": "本規約のいずれかの条項が無効、違法または執行不能と判断されても、残りの条項は引き続き完全な効力を有します。"
+      },
+      "waiver": {
+        "title": "権利放棄",
+        "description": "の{siteName}またはの規約のサービスないのそのまたは。"
+      },
+      "contactUs": {
+        "description": "お客様質問または規約のサービス,Matrixから<link>連絡ページ</link>。"
+      },
+      "freeService": {
+        "title": "無料サービス、請求なし",
+        "paragraph1": "sub.idler.meは無料使用。ですなしプラン,なし,なしカード項目,、なし返金,なしお金変更。",
+        "paragraph2": "はオープンソースMITライセンス。お客様-ホスト。この人できないまたはない実行。",
+        "paragraph3": "サービスはは、。はなし、なしそのデータ。エクスポートお客様のデータ、保持お客様の。"
+      }
+    },
+    "contact": {
+      "title": "お問い合わせ",
+      "description": "はMatrix。その他チャンネルです。",
+      "matrix": {
+        "label": "メッセージMatrix",
+        "handle": "@:。"
+      },
+      "moreChannels": {
+        "title": "その他チャンネル",
+        "note": "まもなく。"
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName}テスト通知",
+          "message": "このはテスト通知から{siteName}。お客様ですこの,通知です動作正しく！"
+        }
+      },
+      "email": {
+        "header": "支払いリマインダー",
+        "footer": "このはリマインダーメールから{siteName}。",
+        "thanks": "ありがとうございます",
+        "madeBy": "♥{siteLink}"
+      },
+      "bell": {
+        "title": "通知",
+        "unreadTitle": "通知",
+        "clearAll": "すべて消去",
+        "removeNotification": "通知を削除",
+        "noNotifications": "新しい通知はありません"
+      },
+      "toggle": {
+        "modal": {
+          "title": "更新しました",
+          "description": "リマインダーお客様のサブスクリプション支払い、期限。お客様前支払いです期限、サブスクリプションです期限切れ。",
+          "maybeLater": "後で",
+          "enable": "通知を有効にする",
+          "enabling": "有効化中…"
+        },
+        "toast": {
+          "success": "お客様受信サブスクリプションリマインダー。",
+          "error": "失敗しました有効にする通知。してください。",
+          "permissionRequired": {
+            "title": "権限が必要です",
+            "description": "してください許可通知受信リマインダー。"
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "名前2。",
+        "paymentDate": "その'ない有効な日付！",
+        "color": "無効な色"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {毎日} other {#日ごと}}",
+        "WEEKS": "{count, plural, =1 {毎週} other {#週ごと}}",
+        "MONTHS": "{count, plural, =1 {毎月} other {#か月ごと}}",
+        "YEARS": "{count, plural, =1 {毎年} other {#年ごと}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "カテゴリ",
+            "selected": "{count, plural, =0 {カテゴリを選択} one {#件のカテゴリを選択中} other {#件のカテゴリを選択中}}",
+            "search": "検索カテゴリ。",
+            "create": "作成新しいカテゴリ\"{value}\""
+          },
+          "currency": {
+            "label": "通貨",
+            "placeholder": "選択通貨",
+            "search": "検索通貨。",
+            "noResults": "結果が見つかりません！"
+          },
+          "cycle": {
+            "label": "課金サイクル",
+            "placeholder": "選択",
+            "options": {
+              "daily": "毎日",
+              "weekly": "毎週",
+              "monthly": "毎月",
+              "yearly": "毎年",
+              "custom": "カスタム"
+            },
+            "units": {
+              "days": "{count, plural, one {日} other {日}}",
+              "weeks": "{count, plural, one {週} other {週}}",
+              "months": "{count, plural, one {か月} other {か月}}",
+              "years": "{count, plural, one {年} other {年}}"
+            },
+            "unitPlaceholder": "単位"
+          },
+          "name": {
+            "label": "名前",
+            "placeholder": "サブスクリプション名前"
+          },
+          "notes": {
+            "label": "メモ",
+            "placeholder": "追加。"
+          },
+          "notifications": {
+            "title": "通知",
+            "description": "設定デフォルト通知お客様のサブスクリプション",
+            "via": "通知方法",
+            "whenToNotify": "通知のタイミング",
+            "whenPlaceholder": "選択",
+            "unitPlaceholder": "単位",
+            "addNotification": "追加通知",
+            "deleteDialog": {
+              "title": "削除",
+              "description": "ですお客様確認お客様この通知？"
+            },
+            "status": {
+              "denied": "通知ですこのデバイス。してください有効にするお客様のブラウザ設定。",
+              "default": "通知ですない有効このデバイス。<link>お客様ような有効にする？</link>",
+              "grantedNotConfigured": "通知ははない設定済み。<link>お客様ような有効にする？</link>",
+              "grantedConfigured": "通知です有効このデバイス。お客様ような送信<link>テスト通知</link>？"
+            },
+            "toast": {
+              "success": "通知送信しました！お客様のデバイス()。",
+              "error": "失敗しました送信テスト通知！確認通知です有効、設定済み正しく。"
+            },
+            "timeOptions": {
+              "instant": "支払日",
+              "15minutes": "15前",
+              "1hour": "1前",
+              "2hours": "2前",
+              "1day": "1日前",
+              "2days": "2日前",
+              "1week": "1週前",
+              "custom": "カスタム"
+            },
+            "units": {
+              "minutes": "{count, plural, one {分} other {分}}",
+              "hours": "{count, plural, one {時間} other {時間}}",
+              "days": "{count, plural, one {日} other {日}}",
+              "weeks": "{count, plural, one {週} other {週}}"
+            },
+            "types": {
+              "push": {
+                "label": "プッシュ通知",
+                "ariaLabel": "プッシュ通知を切り替え"
+              },
+              "email": {
+                "label": "メール通知",
+                "ariaLabel": "メール"
+              },
+              "webhook": {
+                "label": "Webhook通知",
+                "ariaLabel": "Webhook通知を切り替え"
+              },
+              "ntfy": {
+                "label": "ntfy通知",
+                "ariaLabel": "ntfy"
+              },
+              "discord": {
+                "label": "Discord通知",
+                "ariaLabel": "Discord"
+              },
+              "slack": {
+                "label": "Slack通知",
+                "ariaLabel": "Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "次の支払い日付"
+          },
+          "paymentMethod": {
+            "label": "支払い方法",
+            "placeholder": "選択支払い方法",
+            "search": "検索支払い方法。",
+            "create": "作成新しい支払い方法\"{value}\""
+          },
+          "price": {
+            "label": "料金"
+          },
+          "timezone": {
+            "label": "タイムゾーン",
+            "placeholder": "選択",
+            "search": "検索。",
+            "noResults": "結果が見つかりません！"
+          },
+          "untilDate": {
+            "label": "有効なまで",
+            "description": "サブスクリプション"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "ロゴ",
+            "description": "選択アイコンまたは入力URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone}",
+        "paymentDate": {
+          "past": "支払済み<date></date>。",
+          "future": "支払済み<date></date>。"
+        },
+        "markAsPaid": {
+          "question": "お客様支払うこの？<action>支払済み</action>または<options></options>。",
+          "customPrice": {
+            "title": "支払済み？",
+            "description": "使用このお客様支払済みその他または少ない",
+            "prompt": "入力お客様支払済み:"
+          },
+          "noPrice": {
+            "title": "支払済み！",
+            "description": "使用このこの支払いなしで",
+            "prompt": "支払済みなしで記録？",
+            "warning": "このない記録支払い。"
+          },
+          "toast": {
+            "success": "サブスクリプション支払済み！",
+            "error": "エラーサブスクリプション支払済み",
+            "custom": {
+              "success": "サブスクリプション支払済みカスタム料金！",
+              "error": "エラーサブスクリプション支払済みカスタム料金"
+            },
+            "noPrice": {
+              "success": "サブスクリプション支払済みなしで支払い！",
+              "error": "エラーサブスクリプション支払済みなしで支払い"
+            },
+            "failed": "失敗しました更新！"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "お客様<date></date>{channels}。",
+          "willBeNotifiedSoon": "お客様まもなく{channels}。",
+          "willBeRemindedAt": "お客様リマインドしました<date></date>{channels}。",
+          "willBeRemindedSoon": "お客様リマインドしましたまもなく{channels}。",
+          "wontBeNotified": "お客様。",
+          "types": {
+            "push": "通知",
+            "email": "メール",
+            "webhook": "Webhook",
+            "ntfy": "ntfy",
+            "discord": "Discord",
+            "slack": "Slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "！お客様支払済みすべて。",
+          "remaining": "お支払いはあと<trigger>{count, plural, =1 {#回} other {#回}}</trigger>です。",
+          "until": "まで{date}"
+        },
+        "paymentMethods": {
+          "paidVia": "この支払済み{methods}。"
+        },
+        "pastPayments": {
+          "count": "これまでに<highlight>{count, plural, one {#件の支払い} other {#件の支払い}}</highlight>を行いました。"
+        },
+        "actions": {
+          "inactive": "このサブスクリプションはない有効。",
+          "edit": "編集{name}サブスクリプション",
+          "link": "リンク{url}",
+          "notificationEnabled": "{type}です有効",
+          "notificationDisabled": "{type}です無効"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "作成サブスクリプション",
+          "update": "更新サブスクリプション"
+        },
+        "sections": {
+          "details": "サブスクリプション詳細",
+          "advanced": "設定"
+        },
+        "deleteDialog": {
+          "title": "削除サブスクリプション",
+          "description": "ですお客様確認お客様削除このサブスクリプション？このできない。"
+        },
+        "toast": {
+          "create": {
+            "error": "サブスクリプションを作成できませんでした。",
+            "success": "サブスクリプション正常に！"
+          },
+          "delete": {
+            "success": "サブスクリプション正常に！",
+            "error": "失敗しました削除サブスクリプション！"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "新しいサブスクリプション",
+        "noSubscription": "サブスクリプションが見つかりません"
+      }
+    },
+    "filters": {
+      "title": "サブスクリプション",
+      "description": "、サブスクリプションお客様",
+      "buttons": {
+        "filter": "サブスクリプションを絞り込む",
+        "reset": "フィルターをリセット"
+      },
+      "selectAll": "すべて選択",
+      "selectNone": "すべて選択解除",
+      "status": {
+        "title": "ステータス",
+        "active": {
+          "title": "有効",
+          "description": "有効サブスクリプション"
+        },
+        "inactive": {
+          "title": "無効",
+          "description": "無効サブスクリプション"
+        }
+      },
+      "paymentDate": {
+        "title": "支払い日付",
+        "all": {
+          "title": "すべて",
+          "description": "すべて支払い日付"
+        },
+        "thisMonth": {
+          "title": "今月",
+          "description": "このか月"
+        },
+        "next30Days": {
+          "title": "次の30日",
+          "description": "次の30日"
+        }
+      },
+      "currencies": {
+        "title": "通貨",
+        "all": {
+          "description": "選択すべて"
+        },
+        "clear": {
+          "description": "すべて"
+        },
+        "filter": "{currency}"
+      },
+      "categories": {
+        "title": "カテゴリ",
+        "uncategorized": "未分類",
+        "all": {
+          "description": "選択すべてカテゴリ"
+        },
+        "clear": {
+          "description": "すべてカテゴリ"
+        },
+        "filterBy": "{category}"
+      },
+      "paymentMethods": {
+        "title": "支払い方法",
+        "unspecified": "指定なし",
+        "all": {
+          "description": "選択すべて支払い方法"
+        },
+        "clear": {
+          "description": "すべて支払い方法"
+        },
+        "filterBy": "{method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price}を{count, plural, one {#回} other {#回}}支払います。"
+      },
+      "overview": {
+        "title": "概要",
+        "total": "<count></count>合計サブスクリプション",
+        "active": "<count></count>有効サブスクリプション",
+        "inactive": "<count></count>無効サブスクリプション"
+      },
+      "costAverages": {
+        "title": "費用平均",
+        "description": "毎月の、毎年のサブスクリプション費用平均",
+        "monthly": "毎月の平均",
+        "yearly": "毎年の平均"
+      },
+      "monthlyCost": {
+        "title": "毎月の費用概要",
+        "description": "記録お客様の毎月のサブスクリプション費用"
+      },
+      "yearlyCost": {
+        "title": "毎年の費用概要",
+        "description": "記録お客様の毎年のサブスクリプション費用"
+      },
+      "upcomingPayments": {
+        "title": "今後の支払い",
+        "description": "記録お客様の今後の支払い",
+        "noPayments": "なし今後の支払い1か月。",
+        "nextMonth": "翌月"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "今月",
+          "description": "まで終了のか月"
+        },
+        "nextMonth": {
+          "title": "翌月",
+          "description": "今後のか月"
+        },
+        "next30Days": {
+          "title": "次の30日",
+          "description": "今後30日間の推移"
+        },
+        "thisYear": {
+          "title": "今年",
+          "description": "まで終了の年"
+        },
+        "nextYear": {
+          "title": "翌年",
+          "description": "次の年"
+        },
+        "next365Days": {
+          "title": "次の365日",
+          "description": "今後365日間の推移"
+        }
+      },
+      "tabs": {
+        "byCategories": "カテゴリ",
+        "byPaymentMethods": "支払い方法"
+      },
+      "mostExpensive": {
+        "monthly": "毎月のサブスクリプション",
+        "yearly": "毎年のサブスクリプション"
+      },
+      "modal": {
+        "category": {
+          "description": "{period}支払いこのカテゴリ",
+          "noSubscriptions": "なしサブスクリプション見つかりませんこのカテゴリ"
+        },
+        "paymentMethod": {
+          "description": "{period}支払いこの支払い方法",
+          "noSubscriptions": "なしサブスクリプション見つかりませんこの支払い方法"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "リンク",
+        "linkTitle": "サブスクリプションリンク",
+        "editTitle": "編集サブスクリプション"
+      },
+      "overview": {
+        "title": "概要",
+        "description": "このサブスクリプション",
+        "disabled": "このサブスクリプションは無効。お客様有効にする時間。",
+        "unpaid": {
+          "hasUnpaid": "未払いの支払いが<count>{count, plural, one {#件} other {#件}}</count>あり、合計<total>{total}</total>です。",
+          "allPaid": "！このサブスクリプションは支払済み日付。"
+        },
+        "nextPayment": {
+          "scheduled": "お客様の次の支払いの<price>{price}</price>は期限<date>{date}</date>は<distance>{distance}</distance>。",
+          "none": "！ですなし今後の支払い予定このサブスクリプション。"
+        },
+        "endDate": {
+          "hasEndDate": "このサブスクリプション終了<date>{date}</date>。",
+          "ongoing": "このはサブスクリプションなし終了日付。"
+        },
+        "remainingPayments": {
+          "withEndDate": "このサブスクリプションでは、あと<count>{count, plural, one {#件の支払い} other {#件の支払い}}</count>、合計<total>{total}</total>が必要です。",
+          "thisYear": "このサブスクリプションでは、今年あと<count>{count, plural, one {#件の支払い} other {#件の支払い}}</count>、合計<total>{total}</total>が必要です。"
+        },
+        "paymentMethods": {
+          "text": "このサブスクリプション支払済み<methods></methods>。"
+        },
+        "pastPayments": {
+          "hasPast": "このサブスクリプションでは、これまでに<countTag>{count, plural, one {#件の支払い} other {#件の支払い}}</countTag>を行い、合計<totalTag>{total}</totalTag>です。",
+          "yearStats": "過去1年間に<countTag>{count, plural, one {#件の支払い} other {#件の支払い}}</countTag>を行い、合計<totalTag>{total}</totalTag>です。",
+          "none": "このはサブスクリプションなし支払い履歴。"
+        },
+        "notifications": {
+          "title": "お客様受信通知:",
+          "none": "なし通知ですこのサブスクリプション。",
+          "item": "<timing></timing><channels></channels>。",
+          "itemNoType": "<timing></timing><error>なし通知は</error>。",
+          "timing": {
+            "instant": "支払い日付",
+            "minutes": "{count, plural, one {#分} other {#分}}前に支払い",
+            "hours": "{count, plural, one {#時間} other {#時間}}前に支払い",
+            "days": "{count, plural, one {#日前} other {#日前}}に支払い",
+            "weeks": "{count, plural, one {#週間前} other {#週間前}}に支払い"
+          },
+          "types": {
+            "email": "メール",
+            "push": "通知",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "次の通知<date>{date}</date>は<distance>{distance}</distance><channels></channels>。",
+          "soon": "まもなく"
+        }
+      },
+      "costBreakdown": {
+        "title": "費用",
+        "description": "今後のこのサブスクリプション",
+        "periods": {
+          "30days": "次の30日",
+          "3months": "次の3か月",
+          "12months": "次の12か月"
+        }
+      },
+      "notes": {
+        "title": "メモ"
+      },
+      "paymentSchedule": {
+        "title": "支払い予定",
+        "description": "今後の支払い年",
+        "noUpcoming": "今後の支払いはありません",
+        "more": "+{count}その他",
+        "totalPayments": "合計支払い:",
+        "total": "合計:"
+      },
+      "latestPayments": {
+        "title": "最新の支払い",
+        "description": "支払いこのサブスクリプション",
+        "none": "なし支払いこのサブスクリプション。",
+        "status": {
+          "onTime": "時間",
+          "late": "{distance}遅い",
+          "early": "{distance}早い"
+        },
+        "popover": {
+          "paidStatus": "このサブスクリプションは支払済み<status>{status}</status>。",
+          "scheduled": "予定:",
+          "actual": ":"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "インストールアプリ",
+      "description": "最適な体験のため、アプリをホーム画面に追加することをおすすめします！",
+      "buttons": {
+        "gotIt": "了解",
+        "maybeLater": "後で",
+        "installNow": "今すぐインストール"
+      },
+      "common": {
+        "addToHomeScreen": "ホーム画面に追加",
+        "clickIcon": "クリック<icon></icon>アイコン",
+        "scrollDownClick": "、クリック"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS",
+          "step3": "'追加'"
+        },
+        "chrome": {
+          "title": "ChromeiOS"
+        },
+        "firefox": {
+          "title": "FirefoxiOS",
+          "step2": "、クリック<icon></icon>",
+          "step3": "クリック"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome"
+        },
+        "firefox": {
+          "title": "Firefox"
+        }
+      },
+      "unknown": {
+        "title": "インストール手順",
+        "step1": "ような\"追加\"または\"インストール\"お客様のブラウザ'",
+        "step2": "は見つかりません(または)",
+        "step3": "従うお客様のブラウザ'"
+      }
+    },
+    "searchBar": {
+      "placeholder": "検索…"
+    }
+  }
+}

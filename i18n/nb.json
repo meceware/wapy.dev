@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "Legg til",
+    "save": "Lagre",
+    "cancel": "Avbryt",
+    "edit": "Rediger",
+    "delete": "Slett",
+    "confirm": "Bekreft",
+    "view": "Vis",
+    "close": "Lukk",
+    "contact": "Kontakt oss",
+    "signIn": "Logg inn",
+    "termsOfService": "Tjenestevilkår",
+    "privacyPolicy": "Personvernerklæring"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "Betalingspåminnelse for {siteName}",
+        "message": "Bare en påminnelse om at abonnementet ditt på {siteName} snart utløper."
+      },
+      "payment": {
+        "title": {
+          "due": "Betaling for {name} forfaller",
+          "reminder": "Betalingspåminnelse for {name}",
+          "upcoming": "Kommende betaling for {name}"
+        },
+        "message": {
+          "due": "Betalingen for abonnementet ditt på {name} ({price}) forfaller nå!",
+          "reminder": "Betalingen for abonnementet ditt på {name} ({price}) er forsinket!",
+          "upcoming": "Betalingen for abonnementet ditt på {name} ({price}) {dueText}!"
+        },
+        "markAsPaid": "Merk som betalt",
+        "dismiss": "Avvis"
+      }
+    },
+    "externalServices": {
+      "header": "Påminnelse om abonnement på {siteName}",
+      "footer": "Sendt av {siteName}",
+      "visitDashboard": "Gå til kontrollpanelet",
+      "paymentQuestion": "Ferdig med betalingen?",
+      "viewDetails": "Vis detaljer"
+    }
+  },
+  "header": {
+    "signOut": "Logg ut",
+    "subscriptions": "Abonnementer",
+    "reports": "Rapporter",
+    "settings": "Innstillinger",
+    "account": "Konto"
+  },
+  "footer": {
+    "madeBy": "Drevet med håp av <author>{name}</author>.",
+    "github": "Kilde",
+    "menu": "Meny"
+  },
+  "languages": {
+    "selectLanguage": "Velg språk",
+    "invalid": "Ugyldig språk",
+    "failed": "Kunne ikke endre språket"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "Gratis å bruke. Driftet av én person.",
+        "title": "Hold oversikt over alle abonnementer. Gå aldri glipp av en betaling.",
+        "subtitle": "{appName} samler faste kostnader i ett oversiktlig oversiktspanel og minner deg på dem før de belastes.",
+        "tagline": "Gratis å bruke. Ingen kort, ingen prøveperiode, ikke noe salgspress."
+      },
+      "features": {
+        "title": "Dette gjør det",
+        "subtitle": "Alt programvaren gjør, uten noe du må betale for.",
+        "billingCycles": {
+          "title": "Fleksible betalingsintervaller",
+          "description": "Støtte for månedlige, årlige og egendefinerte betalingsintervaller"
+        },
+        "notifications": {
+          "title": "Smarte varsler",
+          "description": "Påminnelser via e-post, push, webhook, ntfy, Discord eller Slack"
+        },
+        "reports": {
+          "title": "Rapporter og innsikt",
+          "description": "Følg med på forbruket ditt med detaljerte rapporter og innsikt"
+        },
+        "currencies": {
+          "title": "Flere valutaer",
+          "description": "Støtte for flere valutaer med kostnadsoversikt i sanntid"
+        },
+        "timezone": {
+          "title": "Støtte for tidssoner",
+          "description": "Følg abonnementer på tvers av ulike tidssoner med automatisk konvertering av datoer"
+        },
+        "categories": {
+          "title": "Kategorihåndtering",
+          "description": "Organiser abonnementer med egendefinerte kategorier og fargekoding"
+        }
+      },
+      "howItWorks": {
+        "title": "Slik fungerer det",
+        "subtitle": "Kom i gang på få minutter",
+        "step1": {
+          "title": "Logg inn med en lenke",
+          "description": "Skriv inn e-postadressen din, åpne lenken, og du er inne. Du slipper å huske et passord."
+        },
+        "step2": {
+          "title": "Legg til det du betaler for",
+          "description": "Registrer hvert abonnement med pris, betalingsintervall og valuta."
+        },
+        "step3": {
+          "title": "La påminnelsene komme",
+          "description": "Velg kanalene du vil bruke, og marker deretter en betaling som betalt direkte fra varslingen."
+        }
+      },
+      "free": {
+        "eyebrow": "Gratis",
+        "title": "Gratis, uten skjulte betingelser",
+        "description": "Programvaren er åpen kildekode. Denne instansen driftes for personer som ikke kan kjøre sin egen.",
+        "price": "€0",
+        "period": "for alltid",
+        "features": {
+          "unlimited": "Ubegrenset antall abonnementer",
+          "notifications": "E-post-, push-, webhook-, ntfy-, Discord- og Slack-påminnelser",
+          "reports": "Rapporter og innsikt i forbruk",
+          "export": "Eksporter dataene dine når som helst",
+          "noAds": "Ingen annonser, ingen sporing, ingen betalingsopplysninger",
+          "bestEffort": "Etter beste evne, ingen garanti for oppetid"
+        },
+        "button": "Logg inn",
+        "selfHostButton": "Drift det selv",
+        "selfHostNote": "Foretrekker du din egen server? Den samme programvaren kjører med Docker på omtrent ti minutter."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Finner ikke siden",
+        "description": "Siden du leter etter, finnes ikke."
+      },
+      "title": "404",
+      "backToHome": "Tilbake til startsiden"
+    },
+    "account": {
+      "meta": {
+        "title": "Kontoinnstillinger",
+        "description": "Administrer kontoinnstillingene og preferansene dine."
+      },
+      "defaultSettings": {
+        "title": "Standardinnstillinger",
+        "description": "Konfigurer standardinnstillingene dine for nye abonnementer",
+        "timezone": {
+          "label": "Tidssone",
+          "success": "Tidssonen er oppdatert.",
+          "error": "Kunne ikke oppdatere tidssonen!"
+        },
+        "currency": {
+          "label": "Valuta",
+          "success": "Valutaen er oppdatert.",
+          "error": "Kunne ikke oppdatere valutaen!"
+        }
+      },
+      "notifications": {
+        "success": "Varslingsinnstillingene er lagret.",
+        "error": "Kunne ikke lagre varslingsinnstillingene!",
+        "saveButton": "Lagre endringer",
+        "saveButtonTitle": "Lagre varslingsinnstillinger"
+      },
+      "profile": {
+        "success": "Navnet ditt er oppdatert.",
+        "error": "Kunne ikke oppdatere navnet ditt!",
+        "namePlaceholder": "Skriv inn navnet ditt",
+        "addNamePrompt": "Legg til navnet ditt",
+        "memberSince": "Medlem siden {date}"
+      },
+      "categories": {
+        "title": "Kategorier",
+        "description": "Administrer kategoriene dine",
+        "default": {
+          "load": "Last inn standardkategorier",
+          "success": "Standardkategoriene ble lastet inn.",
+          "error": "Kunne ikke opprette standardkategorier!"
+        },
+        "save": {
+          "success": "Kategorien ble lagret.",
+          "error": "Kunne ikke lagre kategorien!"
+        },
+        "addButtonTitle": "Legg til ny kategori",
+        "selectColor": "Velg farge",
+        "namePlaceholder": "Kategorinavn",
+        "delete": {
+          "title": "Slett kategori",
+          "description": "Er du sikker på at du vil slette denne kategorien? Denne handlingen kan ikke angres.",
+          "success": "Kategorien ble slettet.",
+          "error": "Kunne ikke slette kategorien!"
+        },
+        "invalid": "Ugyldige kategoridata",
+        "edit": "Rediger kategori"
+      },
+      "paymentMethods": {
+        "title": "Betalingsmetoder",
+        "description": "Administrer betalingsmetodene dine",
+        "add": "Legg til ny betalingsmetode",
+        "edit": "Rediger betalingsmetode",
+        "invalid": "Ugyldige data for betalingsmetode",
+        "placeholder": "Navn på betalingsmetode",
+        "load": {
+          "title": "Last inn standardbetalingsmetoder",
+          "success": "Standardbetalingsmetodene ble lastet inn.",
+          "error": "Kunne ikke opprette standardbetalingsmetoder!"
+        },
+        "save": {
+          "success": "Betalingsmetoden ble lagret.",
+          "error": "Kunne ikke lagre betalingsmetoden!"
+        },
+        "delete": {
+          "title": "Slett betalingsmetode",
+          "description": "Er du sikker på at du vil slette denne betalingsmetoden? Denne handlingen kan ikke angres.",
+          "success": "Betalingsmetoden ble slettet.",
+          "error": "Kunne ikke slette betalingsmetoden!"
+        }
+      },
+      "externalServices": {
+        "title": "Eksterne tjenester",
+        "description": "Konfigurer integrasjoner med eksterne tjenester",
+        "testNotification": {
+          "title": "{siteName}-testvarsel",
+          "message": "Dette er en testmelding fra {siteName} via {service}. {service}-integrasjonen er riktig konfigurert."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Motta varsler via ntfy.",
+          "toast": {
+            "disable": {
+              "success": "ntfy-integrasjonen er deaktivert.",
+              "error": "Kunne ikke deaktivere ntfy-integrasjonen!"
+            },
+            "save": {
+              "success": "ntfy-konfigurasjonen ble lagret.",
+              "error": "Kunne ikke lagre ntfy-konfigurasjonen!"
+            },
+            "test": {
+              "success": "Testvarsel for ntfy er sendt.",
+              "error": "Kunne ikke sende testvarsel for ntfy!"
+            },
+            "notEnabled": "ntfy-integrasjonen er ikke aktivert.",
+            "invalidParams": "Ugyldige parametere! Kan ikke lagre ntfy-konfigurasjonen.",
+            "testInvalidParams": "Ugyldige parametere! Kan ikke sende testvarsel."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "Server-URL",
+              "placeholder": "ntfy.sh eller selvhostet URL"
+            },
+            "topic": {
+              "label": "Emnenavn"
+            },
+            "token": {
+              "label": "Tilgangstoken (valgfritt)",
+              "placeholder": "Tilgangstoken"
+            }
+          },
+          "buttons": {
+            "save": "Lagre ntfy",
+            "test": "Test ntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "Motta varsler via webhook.",
+          "toast": {
+            "disable": {
+              "success": "Webhook-integrasjonen er deaktivert.",
+              "error": "Kunne ikke deaktivere webhook-integrasjonen!"
+            },
+            "save": {
+              "success": "Webhook-konfigurasjonen ble lagret.",
+              "error": "Kunne ikke lagre webhook-konfigurasjonen!"
+            },
+            "test": {
+              "success": "Testvarsel for webhook er sendt.",
+              "error": "Kunne ikke sende testvarsel for webhook!"
+            },
+            "notEnabled": "Webhook-integrasjonen er ikke aktivert.",
+            "invalidParams": "Ugyldige parametere! Kan ikke lagre webhook-konfigurasjonen.",
+            "testInvalidParams": "Ugyldige parametere! Kan ikke sende testvarsel."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Webhook-serverens URL"
+            }
+          },
+          "buttons": {
+            "save": "Lagre webhook",
+            "test": "Test webhook"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Motta varsler via Discord.",
+          "toast": {
+            "disable": {
+              "success": "Discord-integrasjonen er deaktivert.",
+              "error": "Kunne ikke deaktivere Discord-integrasjonen!"
+            },
+            "save": {
+              "success": "Discord-konfigurasjonen er lagret.",
+              "error": "Kunne ikke lagre Discord-konfigurasjonen!"
+            },
+            "test": {
+              "success": "Testvarsling fra Discord er sendt.",
+              "error": "Kunne ikke sende testvarsling fra Discord!"
+            },
+            "notEnabled": "Discord-integrasjonen er ikke aktivert.",
+            "invalidParams": "Ugyldige parametere! Kan ikke lagre Discord-konfigurasjonen.",
+            "testInvalidParams": "Ugyldige parametere! Kan ikke sende testvarsling."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Discord-serverens URL"
+            }
+          },
+          "buttons": {
+            "save": "Lagre Discord",
+            "test": "Test Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Motta varsler via Slack.",
+          "toast": {
+            "disable": {
+              "success": "Slack-integrasjonen er deaktivert.",
+              "error": "Kunne ikke deaktivere Slack-integrasjonen!"
+            },
+            "save": {
+              "success": "Slack-konfigurasjonen er lagret.",
+              "error": "Kunne ikke lagre Slack-konfigurasjonen!"
+            },
+            "test": {
+              "success": "Testvarsling fra Slack er sendt.",
+              "error": "Kunne ikke sende testvarsling fra Slack!"
+            },
+            "notEnabled": "Slack-integrasjonen er ikke aktivert.",
+            "invalidParams": "Ugyldige parametere! Kan ikke lagre Slack-konfigurasjonen.",
+            "testInvalidParams": "Ugyldige parametere! Kan ikke sende testvarsling."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Slack-serverens URL"
+            }
+          },
+          "buttons": {
+            "save": "Lagre Slack",
+            "test": "Test Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Dataeksport",
+        "description": "Last ned en kopi av abonnementene, kategoriene, betalingsmåtene og innstillingene dine",
+        "button": "Eksporter data",
+        "toast": {
+          "success": "Dataene er eksportert.",
+          "error": "Kunne ikke eksportere data!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "Nytt abonnement",
+        "edit": "Rediger {name}",
+        "unauthorized": "Uautorisert"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Logg inn"
+      },
+      "description": "Logg inn med e-postadressen din for å få tilgang til kontoen din eller opprette en ny automatisk",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "Logg inn",
+        "loginWithProvider": "Logg inn med {provider}"
+      },
+      "otp": {
+        "title": "Sjekk innboksen din",
+        "description": "Vi har sendt en lenke til e-postadressen din for å logge inn.",
+        "instructions": "Skriv inn den sekssifrede koden som ble sendt til e-postadressen din",
+        "divider": "eller",
+        "resend": {
+          "prompt": "Mottok du ikke e-posten?",
+          "button": "Klikk for å sende på nytt",
+          "timer": "Du kan sende på nytt om {seconds, plural, one {# sekund} other {# sekunder}}"
+        }
+      },
+      "toast": {
+        "success": "Velkommen! Du har logget inn.",
+        "error": {
+          "accessDenied": "Beklager, men du har ikke tillatelse til å logge inn!",
+          "generic": "Merkelig! Vi klarte ikke å logge deg inn. Det kan skyldes e-postadressen din, eller at noe gikk galt hos oss.",
+          "invalidCode": "Koden ser ikke riktig ut. Kontroller de 6 sifrene og prøv igjen.",
+          "somethingWrong": "Noe gikk galt. Be om en ny kode og prøv igjen.",
+          "workspaceAccess": "Beklager, du har ikke tilgang til dette arbeidsområdet.",
+          "rateLimited": "For mange forespørsler. Vent et minutt og prøv igjen."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "Sist oppdatert 15. november 2026",
+      "introduction": {
+        "title": "Innledning",
+        "paragraph1": "sub.idler.me lagrer det appen trenger for å fungere, og ikke noe annet. Denne siden forteller nøyaktig hva det er.",
+        "paragraph2": "Det er en liten tjeneste drevet av én person. Det er ingen bedrift, ingen annonsering og ingen betalingsbehandling."
+      },
+      "informationWeCollect": {
+        "title": "Informasjon vi samler inn",
+        "description": "Dette lagrer databasen om kontoen din:",
+        "items": {
+          "account": "E-postadressen din, samt navnet eller avataren som innloggingsleverandøren din returnerer.",
+          "subscription": "Abonnementene du legger til: navn, priser, valutaer, betalingsdatoer, kategorier og etiketter for betalingsmetoder.",
+          "expense": "Hvilke betalinger du har merket som betalt, og når."
+        }
+      },
+      "howWeUse": {
+        "title": "Slik bruker vi det",
+        "description": "Dataene dine brukes til å:",
+        "items": {
+          "providing": "Vise abonnementene, rapportene og betalingshistorikken din til deg.",
+          "managing": "Sende påminnelsene du har konfigurert, til kanalene du har konfigurert.",
+          "sending": "Logge deg inn via en lenke på e-post.",
+          "improving": "Ingenting annet. Ingen profilering, ingen annonsenettverk og ingen videresalg."
+        }
+      },
+      "dataProtection": {
+        "title": "Databeskyttelse",
+        "description": "Data lagres i en Postgres-database på infrastruktur som operatøren kontrollerer. Den deles ikke med tredjeparter utover varslingskanalene du selv aktiverer. Det gis ingen løfte om kryptering av data i ro utover vertens standardinnstillinger."
+      },
+      "analytics": {
+        "title": "Informasjonskapsler og analyse",
+        "description": "Ingen analyseverktøy fra tredjeparter og ingen sporingsskript. Appen lagrer øktens informasjonskapsel, språkvalget ditt og innstillingene dine for informasjonskapsler i nettleseren din."
+      },
+      "yourRights": {
+        "title": "Dine rettigheter",
+        "description": "Du kan:",
+        "items": {
+          "access": "Eksportere alle opplysninger appen har om deg fra kontosiden.",
+          "correct": "Endre innstillingene dine når som helst.",
+          "delete": "Be om sletting av kontoen din og tilhørende data.",
+          "optOut": "Avslå ikke-nødvendige informasjonskapsler i banneret for informasjonskapsler."
+        }
+      },
+      "contactUs": {
+        "description": "Hvis du har spørsmål om personvernerklæringen vår eller hvordan vi håndterer dataene dine, kan du kontakte operatøren på Matrix fra <link>kontaktsiden</link>."
+      },
+      "updates": {
+        "title": "Oppdateringer av denne erklæringen",
+        "description": "Denne siden endres når programvaren eller distribusjonen endres. Datoen øverst er gjeldende versjon."
+      },
+      "operator": {
+        "title": "Hvem driver dette",
+        "description": "sub.idler.me drives av én person på egen driftet infrastruktur som en samfunnstjeneste, ikke som et selskap. Det finnes ingen betalingsbehandling eller annonsering."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "Abonnementsrapport"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "Uautorisert",
+        "view": "Vis {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Sist oppdatert 15. november 2026",
+      "welcome": "Velkommen til nettstedet til {siteName} (\"nettstedet\"). Ved å gå inn på eller bruke nettstedet samtykker du i å overholde og være bundet av følgende vilkår og betingelser (\"bruksvilkårene\").",
+      "overview": {
+        "title": "Oversikt",
+        "paragraph1": "{siteName} tilbyr dette nettstedet, inkludert all informasjon, alle verktøy og tjenester som er tilgjengelige fra nettstedet, til deg som bruker, under forutsetning av at du godtar alle vilkår, betingelser, retningslinjer og merknader som er angitt her.",
+        "paragraph2": "Les disse bruksvilkårene nøye før du går inn på eller bruker nettstedet. Ved å gå inn på eller bruke en hvilken som helst del av nettstedet samtykker du i å være bundet av disse bruksvilkårene. Hvis du ikke godtar alle vilkårene og betingelsene i denne avtalen, kan du ikke gå inn på nettstedet eller bruke noen tjenester. Hvis disse bruksvilkårene anses som et tilbud, er aksepten uttrykkelig begrenset til disse bruksvilkårene.",
+        "paragraph3": "Alle nye funksjoner eller verktøy som legges til på nettstedet, skal også være underlagt bruksvilkårene. Du kan når som helst se den nyeste versjonen av bruksvilkårene på denne siden. Nettstedet forbeholder seg retten til å oppdatere, endre eller erstatte deler av disse bruksvilkårene ved å publisere oppdateringer og/eller endringer på nettstedet. Det er ditt ansvar å sjekke denne siden med jevne mellomrom for endringer. Din fortsatte bruk av eller tilgang til nettstedet etter at endringer er publisert, innebærer at du godtar endringene."
+      },
+      "websiteTerms": {
+        "title": "Vilkår for nettstedet",
+        "paragraph1": "Ved å godta disse bruksvilkårene bekrefter du at du har nådd myndighetsalderen i staten eller provinsen du bor i, eller at du har nådd myndighetsalderen i staten eller provinsen du bor i og har gitt oss samtykke til å la eventuelle mindreårige du forsørger, bruke dette nettstedet.",
+        "paragraph2": "Bruken av tjenestene våre må være i samsvar med alle gjeldende lover og forskrifter. Spesielt gjelder følgende:",
+        "items": {
+          "unlawful": "Du samtykker i å ikke bruke produktene våre til ulovlige eller uautoriserte formål",
+          "comply": "Du må overholde alle lover i jurisdiksjonen din, inkludert lover om opphavsrett og immaterielle rettigheter",
+          "malicious": "Du kan ikke overføre skadelig kode, virus eller annet skadelig innhold"
+        },
+        "paragraph3": "Vær oppmerksom på at ethvert brudd på disse bruksvilkårene vil føre til umiddelbar avslutning av tilgangen din til tjenestene våre."
+      },
+      "cookies": {
+        "title": "Bruk av informasjonskapsler",
+        "description": "Nettstedet bruker informasjonskapsler og lignende teknologier (for eksempel lokal lagring) for å spore bruken din av nettstedet og til markedsføringsformål. Ved å bruke nettstedet samtykker du i bruken av informasjonskapsler i samsvar med vår <privacy>personvernerklæring</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Immaterielle rettigheter",
+        "description": "Programvaren er lisensiert under MIT-lisensen med en Commons Clause, med meceware som rettighetshaver. Denne distribusjonen legger ikke til noe eget proprietært innhold."
+      },
+      "disclaimer": {
+        "title": "Ansvarsfraskrivelse",
+        "description": "Informasjonen og innholdet på nettstedet tilbys kun for informasjonsformål og er ikke ment som profesjonell rådgivning. Nettstedet gir ingen uttrykkelige eller underforståtte erklæringer eller garantier av noe slag med hensyn til nøyaktigheten, påliteligheten, fullstendigheten eller egnetheten til informasjonen og innholdet på nettstedet. Du bruker nettstedet på egen risiko."
+      },
+      "limitationOfLiability": {
+        "title": "Ansvarsbegrensning",
+        "description": "{siteName} skal ikke holdes ansvarlig for indirekte skader, tilfeldige skader, særskilte skader eller følgeskader som måtte oppstå som følge av din bruk av nettstedet, uavhengig av om slike skader skyldes kontrakt, erstatningsbetingende handling, uaktsomhet, objektivt ansvar eller noe annet rettslig grunnlag. Det maksimale beløpet nettstedet kan bli ansvarlig for i ethvert krav knyttet til nettstedet, er begrenset til de samlede abonnementsavgiftene du har betalt de siste 12 månedene."
+      },
+      "changes": {
+        "title": "Endringer i bruksvilkårene",
+        "description": "Nettstedet kan oppdatere eller endre disse bruksvilkårene fra tid til annen, og alle endringer trer i kraft når de publiseres på nettstedet. Hvis du fortsetter å bruke nettstedet etter slike endringer, innebærer det at du godtar de reviderte bruksvilkårene."
+      },
+      "indemnification": {
+        "title": "Skadesløsholdelse",
+        "description": "Du samtykker i å holde {siteName}, dets tilknyttede selskaper, ledere, styremedlemmer, ansatte, representanter og lisensgivere skadesløse fra og mot alle krav, forpliktelser, skader, tap og utgifter, inkludert, uten begrensning, rimelige advokathonorarer, som oppstår som følge av eller i forbindelse med din bruk av nettstedet, ditt brudd på disse bruksvilkårene eller ditt brudd på andres rettigheter."
+      },
+      "modifications": {
+        "title": "Endringer i tjenesten og prisene",
+        "paragraph1": "Prisene for tjenestene våre kan endres uten varsel. Nettstedet forbeholder seg retten til når som helst å endre eller avslutte tjenesten (eller deler av eller innholdet i den) uten varsel.",
+        "paragraph2": "Nettstedet skal ikke være ansvarlig overfor deg eller noen tredjepart for endringer, prisendringer, suspensjon eller avslutning av tjenesten."
+      },
+      "governingLaw": {
+        "title": "Lovvalg og verneting",
+        "description": "Disse bruksvilkårene skal reguleres av og tolkes i samsvar med lovene i jurisdiksjonen der {siteName} har sitt hovedkontor, uten hensyn til lovvalgsregler. Du samtykker i å underkaste deg den eksklusive jurisdiksjonen til domstolene i denne jurisdiksjonen for alle tvister som oppstår som følge av eller i forbindelse med disse bruksvilkårene eller din bruk av nettstedet."
+      },
+      "entireAgreement": {
+        "title": "Fullstendig avtale",
+        "description": "Disse bruksvilkårene utgjør hele avtalen mellom deg og {siteName} om din bruk av nettstedet og erstatter alle tidligere og samtidige avtaler og forståelser, enten muntlige eller skriftlige, som gjelder samme tema."
+      },
+      "severability": {
+        "title": "Delvis ugyldighet",
+        "description": "Hvis en bestemmelse i disse bruksvilkårene anses som ugyldig, ulovlig eller ikke kan håndheves, skal de øvrige bestemmelsene fortsatt gjelde fullt ut."
+      },
+      "waiver": {
+        "title": "Avkall på rettigheter",
+        "description": "At {siteName} unnlater å håndheve en rettighet eller bestemmelse i disse bruksvilkårene, skal ikke anses som et avkall på denne rettigheten eller bestemmelsen."
+      },
+      "contactUs": {
+        "description": "Hvis du har spørsmål eller bekymringer om disse bruksvilkårene, kan du kontakte operatøren på Matrix fra <link>kontaktsiden</link>."
+      },
+      "freeService": {
+        "title": "Gratis tjeneste, ingen fakturering",
+        "paragraph1": "sub.idler.me er gratis å bruke. Det finnes ingen abonnementer, ingen prøveperioder, ingen kortfelter og ingen refusjoner, fordi ingen penger skifter hender.",
+        "paragraph2": "Programvaren er åpen kildekode under MIT-lisensen med en Commons Clause. Du kan drifte den selv. Denne instansen finnes for personer som ikke kan eller helst ikke vil drifte sin egen.",
+        "paragraph3": "Tjenesten leveres som den er og etter beste evne. Det gis ingen oppetidsgaranti, og det er ingen garanti for at data overlever en feil. Eksporter dataene dine regelmessig, og oppbevar egne sikkerhetskopier."
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Den raskeste måten å kontakte operatøren på er via Matrix. Flere kanaler kommer snart.",
+      "matrix": {
+        "label": "Send melding på Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "Flere kanaler",
+        "note": "Kommer snart."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName}-testvarsel",
+          "message": "Dette er et testvarsel fra {siteName}. Hvis du ser dette, betyr det at push-varsler fungerer som de skal!"
+        }
+      },
+      "email": {
+        "header": "Betalingspåminnelse",
+        "footer": "Dette er en vennlig påminnelse på e-post fra {siteName}.",
+        "thanks": "Takk",
+        "madeBy": "Laget med ♥ av {siteLink}"
+      },
+      "bell": {
+        "title": "Varsler",
+        "unreadTitle": "Uleste varsler",
+        "clearAll": "Fjern alle",
+        "removeNotification": "Fjern varsel",
+        "noNotifications": "Ingen nye varsler"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Hold deg oppdatert",
+          "description": "Få påminnelser i tide om abonnementsbetalinger og forfallsdatoer. Vi varsler deg før betalinger forfaller, og når abonnementer snart utløper.",
+          "maybeLater": "Kanskje senere",
+          "enable": "Aktiver varsler",
+          "enabling": "Aktiverer..."
+        },
+        "toast": {
+          "success": "Du vil nå motta påminnelser om abonnementer.",
+          "error": "Kunne ikke aktivere varsler. Prøv igjen.",
+          "permissionRequired": {
+            "title": "Tillatelse kreves",
+            "description": "Tillat varsler for å motta påminnelser."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "Navnet må bestå av minst 2 tegn.",
+        "paymentDate": "Dette er ikke en gyldig dato!",
+        "color": "Ugyldig heksadesimal farge"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Daglig} other {Hver #. dag}}",
+        "WEEKS": "{count, plural, =1 {Ukentlig} other {Hver #. uke}}",
+        "MONTHS": "{count, plural, =1 {Månedlig} other {Hver #. måned}}",
+        "YEARS": "{count, plural, =1 {Årlig} other {Hvert #. år}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Kategorier",
+            "selected": "{count, plural, =0 {Velg kategorier} one {# kategori valgt} other {# kategorier valgt}}",
+            "search": "Søk etter kategori...",
+            "create": "Opprett ny kategori \"{value}\""
+          },
+          "currency": {
+            "label": "Valuta",
+            "placeholder": "Velg valuta",
+            "search": "Søk etter valuta...",
+            "noResults": "Ingen resultater funnet!"
+          },
+          "cycle": {
+            "label": "Betalingssyklus",
+            "placeholder": "Velg betalingssyklus",
+            "options": {
+              "daily": "Daglig",
+              "weekly": "Ukentlig",
+              "monthly": "Månedlig",
+              "yearly": "Årlig",
+              "custom": "Egendefinert"
+            },
+            "units": {
+              "days": "{count, plural, one {Dag} other {Dager}}",
+              "weeks": "{count, plural, one {Uke} other {Uker}}",
+              "months": "{count, plural, one {Måned} other {Måneder}}",
+              "years": "{count, plural, one {År} other {År}}"
+            },
+            "unitPlaceholder": "Enhet"
+          },
+          "name": {
+            "label": "Navn",
+            "placeholder": "Abonnementsnavn"
+          },
+          "notes": {
+            "label": "Notater",
+            "placeholder": "Legg til notater..."
+          },
+          "notifications": {
+            "title": "Varsler",
+            "description": "Konfigurer standardvarsler for abonnementene dine",
+            "via": "Via",
+            "whenToNotify": "Når skal det varsles",
+            "whenPlaceholder": "Velg når det skal varsles",
+            "unitPlaceholder": "Enhet",
+            "addNotification": "Legg til varsel",
+            "deleteDialog": {
+              "title": "Bekreft sletting",
+              "description": "Er du sikker på at du vil fjerne denne varslingsmalen?"
+            },
+            "status": {
+              "denied": "Push-varsler er blokkert på denne enheten. Aktiver dem i nettleserinnstillingene.",
+              "default": "Push-varsler er ikke aktivert på denne enheten. <link>Vil du aktivere dem?</link>",
+              "grantedNotConfigured": "Tillatelse til push-varsler er gitt, men de er ikke riktig konfigurert. <link>Vil du aktivere dem?</link>",
+              "grantedConfigured": "Push-varsler er aktivert for denne enheten. Vil du sende et <link>test-pushvarsel</link>?"
+            },
+            "toast": {
+              "success": "Pushvarsel sendt! Sjekk enhetene dine.",
+              "error": "Kunne ikke sende test-pushvarsel! Kontroller at varsler er aktivert og riktig konfigurert."
+            },
+            "timeOptions": {
+              "instant": "På betalingsdatoen",
+              "15minutes": "15 minutter før",
+              "1hour": "1 time før",
+              "2hours": "2 timer før",
+              "1day": "1 dag før",
+              "2days": "2 dager før",
+              "1week": "1 uke før",
+              "custom": "Egendefinert"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minutt} other {Minutter}}",
+              "hours": "{count, plural, one {Time} other {Timer}}",
+              "days": "{count, plural, one {Dag} other {Dager}}",
+              "weeks": "{count, plural, one {Uke} other {Uker}}"
+            },
+            "types": {
+              "push": {
+                "label": "Pushvarsler",
+                "ariaLabel": "Slå pushvarsler av eller på"
+              },
+              "email": {
+                "label": "E-postvarsler",
+                "ariaLabel": "Slå e-postvarsler av eller på"
+              },
+              "webhook": {
+                "label": "Webhook-varsler",
+                "ariaLabel": "Slå webhook-varsler av eller på"
+              },
+              "ntfy": {
+                "label": "ntfy-varsler",
+                "ariaLabel": "Slå ntfy-varsler av eller på"
+              },
+              "discord": {
+                "label": "Discord-varsler",
+                "ariaLabel": "Slå Discord-varsler av eller på"
+              },
+              "slack": {
+                "label": "Slack-varsler",
+                "ariaLabel": "Slå Slack-varsler av eller på"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Neste betalingsdato"
+          },
+          "paymentMethod": {
+            "label": "Betalingsmåte",
+            "placeholder": "Velg betalingsmåte",
+            "search": "Søk etter betalingsmåte...",
+            "create": "Opprett ny betalingsmåte «{value}»"
+          },
+          "price": {
+            "label": "Pris"
+          },
+          "timezone": {
+            "label": "Tidssone",
+            "placeholder": "Velg tidssone",
+            "search": "Søk etter tidssone...",
+            "noResults": "Ingen resultater funnet!"
+          },
+          "untilDate": {
+            "label": "Gyldig til",
+            "description": "La feltet stå tomt for et abonnement uten sluttdato"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logo",
+            "description": "Velg et forhåndsdefinert ikon eller skriv inn en URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "Tidssone: {timezone}",
+        "paymentDate": {
+          "past": "Skulle ha blitt betalt <date></date>.",
+          "future": "Blir betalt <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Har du betalt dette? <action>Marker som betalt</action> eller se <options>andre alternativer</options>.",
+          "customPrice": {
+            "title": "Betalte du et annet beløp?",
+            "description": "Bruk dette hvis du betalte mer eller mindre enn vanlig",
+            "prompt": "Angi beløpet du betalte:"
+          },
+          "noPrice": {
+            "title": "Bare merk som betalt!",
+            "description": "Bruk dette for å hoppe over denne betalingen uten å registrere et beløp",
+            "prompt": "Merk som betalt uten å registrere beløpet?",
+            "warning": "Dette registrerer ikke noe betalingsbeløp."
+          },
+          "toast": {
+            "success": "Abonnementet er merket som betalt!",
+            "error": "Det oppsto en feil ved merking av abonnementet som betalt",
+            "custom": {
+              "success": "Abonnementet er merket som betalt med egendefinert pris!",
+              "error": "Det oppsto en feil ved merking av abonnementet som betalt med egendefinert pris"
+            },
+            "noPrice": {
+              "success": "Abonnementet er merket som betalt uten betaling!",
+              "error": "Det oppsto en feil ved merking av abonnementet som betalt uten betaling"
+            },
+            "failed": "Kunne ikke oppdatere!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "Du blir varslet <date></date> via {channels}.",
+          "willBeNotifiedSoon": "Du blir snart varslet via {channels}.",
+          "willBeRemindedAt": "Du blir påminnet <date></date> igjen via {channels}.",
+          "willBeRemindedSoon": "Du blir snart påminnet igjen via {channels}.",
+          "wontBeNotified": "Du blir ikke varslet.",
+          "types": {
+            "push": "varsling",
+            "email": "e-post",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "Gratulerer! Du har betalt alt.",
+          "remaining": "Du skal betale dette <trigger>{count, plural, =1 {# gang til} other {# ganger}}</trigger>.",
+          "until": "Til {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "Dette betales med {methods}."
+        },
+        "pastPayments": {
+          "count": "Du har utført <highlight>{count, plural, one {# betaling} other {# betalinger}}</highlight> så langt."
+        },
+        "actions": {
+          "inactive": "Dette abonnementet er ikke aktivt.",
+          "edit": "Rediger {name}-abonnement",
+          "link": "Lenke til {url}",
+          "notificationEnabled": "{type} er aktivert",
+          "notificationDisabled": "{type} er deaktivert"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Opprett abonnement",
+          "update": "Oppdater abonnement"
+        },
+        "sections": {
+          "details": "Abonnementsdetaljer",
+          "advanced": "Avanserte innstillinger"
+        },
+        "deleteDialog": {
+          "title": "Slett abonnement",
+          "description": "Er du sikker på at du vil slette dette abonnementet? Denne handlingen kan ikke angres."
+        },
+        "toast": {
+          "create": {
+            "error": "Merkelig, kan ikke opprette abonnement!",
+            "success": "Abonnementet ble opprettet!"
+          },
+          "delete": {
+            "success": "Abonnementet ble slettet!",
+            "error": "Kunne ikke slette abonnementet!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "Nytt abonnement",
+        "noSubscription": "Ingen abonnementer funnet"
+      }
+    },
+    "filters": {
+      "title": "Abonnementsfiltre",
+      "description": "Bruk filtre for å finne abonnementene du trenger",
+      "buttons": {
+        "filter": "Filtrer abonnementer",
+        "reset": "Tilbakestill filtre"
+      },
+      "selectAll": "Velg alle",
+      "selectNone": "Velg ingen",
+      "status": {
+        "title": "Status",
+        "active": {
+          "title": "Aktiv",
+          "description": "Filtrer etter aktive abonnementer"
+        },
+        "inactive": {
+          "title": "Inaktiv",
+          "description": "Filtrer etter inaktive abonnementer"
+        }
+      },
+      "paymentDate": {
+        "title": "Betalingsdato",
+        "all": {
+          "title": "Alle",
+          "description": "Deaktiver alle filtre for betalingsdato"
+        },
+        "thisMonth": {
+          "title": "Denne måneden",
+          "description": "Filtrer etter denne måneden"
+        },
+        "next30Days": {
+          "title": "De neste 30 dagene",
+          "description": "Filtrer etter de neste 30 dagene"
+        }
+      },
+      "currencies": {
+        "title": "Valutaer",
+        "all": {
+          "description": "Velg alle valutaer"
+        },
+        "clear": {
+          "description": "Fjern alle valutaer"
+        },
+        "filter": "Filtrer etter {currency}"
+      },
+      "categories": {
+        "title": "Kategorier",
+        "uncategorized": "Uten kategori",
+        "all": {
+          "description": "Velg alle kategorier"
+        },
+        "clear": {
+          "description": "Fjern alle kategorier"
+        },
+        "filterBy": "Filtrer etter {category}"
+      },
+      "paymentMethods": {
+        "title": "Betalingsmetoder",
+        "unspecified": "Uspesifisert",
+        "all": {
+          "description": "Velg alle betalingsmetoder"
+        },
+        "clear": {
+          "description": "Fjern alle betalingsmetoder"
+        },
+        "filterBy": "Filtrer etter {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} betales {count, plural, one {# gang} other {# ganger}}"
+      },
+      "overview": {
+        "title": "Oversikt",
+        "total": "<count></count> abonnementer totalt",
+        "active": "<count></count> aktive abonnementer",
+        "inactive": "<count></count> inaktive abonnementer"
+      },
+      "costAverages": {
+        "title": "Gjennomsnittlige kostnader",
+        "description": "Gjennomsnittlige månedlige og årlige abonnementskostnader",
+        "monthly": "Månedlig gjennomsnitt",
+        "yearly": "Årlig gjennomsnitt"
+      },
+      "monthlyCost": {
+        "title": "Oversikt over månedlige kostnader",
+        "description": "Følg med på de månedlige abonnementskostnadene dine"
+      },
+      "yearlyCost": {
+        "title": "Oversikt over årlige kostnader",
+        "description": "Følg med på de årlige abonnementskostnadene dine"
+      },
+      "upcomingPayments": {
+        "title": "Kommende betalinger",
+        "description": "Følg med på kommende betalinger",
+        "noPayments": "Ingen kommende betalinger den neste måneden.",
+        "nextMonth": "Neste måned"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Denne måneden",
+          "description": "Frem til slutten av måneden"
+        },
+        "nextMonth": {
+          "title": "Neste måned",
+          "description": "Kun den kommende måneden"
+        },
+        "next30Days": {
+          "title": "Neste 30 dager",
+          "description": "Rullerende periode"
+        },
+        "thisYear": {
+          "title": "Dette året",
+          "description": "Frem til slutten av året"
+        },
+        "nextYear": {
+          "title": "Neste år",
+          "description": "Neste kalenderår"
+        },
+        "next365Days": {
+          "title": "Neste 365 dager",
+          "description": "Rullerende periode"
+        }
+      },
+      "tabs": {
+        "byCategories": "Etter kategorier",
+        "byPaymentMethods": "Etter betalingsmåter"
+      },
+      "mostExpensive": {
+        "monthly": "Dyreste månedlige abonnement",
+        "yearly": "Dyreste årlige abonnement"
+      },
+      "modal": {
+        "category": {
+          "description": "{period}-betalinger i denne kategorien",
+          "noSubscriptions": "Fant ingen abonnementer i denne kategorien"
+        },
+        "paymentMethod": {
+          "description": "{period}-betalinger via denne betalingsmåten",
+          "noSubscriptions": "Fant ingen abonnementer via denne betalingsmåten"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Lenke",
+        "linkTitle": "Abonnementslenke",
+        "editTitle": "Rediger abonnement"
+      },
+      "overview": {
+        "title": "Oversikt",
+        "description": "Nøkkeltall for dette abonnementet",
+        "disabled": "Dette abonnementet er deaktivert. Du kan aktivere det igjen når som helst.",
+        "unpaid": {
+          "hasUnpaid": "Å nei! Du har <count>{count, plural, one {# ubetalt betaling} other {# ubetalte betalinger}}</count> for dette abonnementet, totalt <total>{total}</total>.",
+          "allPaid": "Bra jobbet! Dette abonnementet er fullt betalt til dags dato."
+        },
+        "nextPayment": {
+          "scheduled": "Din neste betaling på <price>{price}</price> forfaller <date>{date}</date>, som er <distance>{distance}</distance> unna.",
+          "none": "Gratulerer! Det er ingen fremtidige betalinger planlagt for dette abonnementet."
+        },
+        "endDate": {
+          "hasEndDate": "Dette abonnementet avsluttes <date>{date}</date>.",
+          "ongoing": "Dette er et løpende abonnement uten angitt sluttdato."
+        },
+        "remainingPayments": {
+          "withEndDate": "Dette abonnementet krever <count>{count, plural, one {# betaling} other {# betalinger}}</count>, totalt <total>{total}</total>.",
+          "thisYear": "Dette abonnementet krever <count>{count, plural, one {# betaling} other {# betalinger}}</count> i år, totalt <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "Dette abonnementet betales via <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "Du har hittil foretatt <countTag>{count, plural, one {# betaling} other {# betalinger}}</countTag> for dette abonnementet, totalt <totalTag>{total}</totalTag>.",
+          "yearStats": " Det siste året har du foretatt <countTag>{count, plural, one {# betaling} other {# betalinger}}</countTag>, totalt <totalTag>{total}</totalTag>.",
+          "none": "Dette abonnementet har ingen betalingshistorikk ennå."
+        },
+        "notifications": {
+          "title": "Du vil motta varsler:",
+          "none": "Det er ikke konfigurert noen varsler for dette abonnementet.",
+          "item": "<timing></timing> via <channels></channels>.",
+          "itemNoType": "<timing></timing>, men <error>ingen varslingstype er angitt</error>.",
+          "timing": {
+            "instant": "På betalingsdatoen",
+            "minutes": "{count, plural, one {# minutt} other {# minutter}} før betaling",
+            "hours": "{count, plural, one {# time} other {# timer}} før betaling",
+            "days": "{count, plural, one {# dag} other {# dager}} før betaling",
+            "weeks": "{count, plural, one {# uke} other {# uker}} før betaling"
+          },
+          "types": {
+            "email": "e-post",
+            "push": "push-varsel",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Neste varsel kommer <date>{date}</date>, som er <distance>{distance}</distance> via <channels></channels>.",
+          "soon": "snart"
+        }
+      },
+      "costBreakdown": {
+        "title": "Kostnadsoversikt",
+        "description": "Fremtidige utgifter for dette abonnementet",
+        "periods": {
+          "30days": "Neste 30 dager",
+          "3months": "Neste 3 måneder",
+          "12months": "Neste 12 måneder"
+        }
+      },
+      "notes": {
+        "title": "Notater"
+      },
+      "paymentSchedule": {
+        "title": "Betalingsplan",
+        "description": "Kommende betalingsdatoer i løpet av et år",
+        "noUpcoming": "Ingen kommende betalinger",
+        "more": "+ {count} til",
+        "totalPayments": "Totalt antall betalinger:",
+        "total": "Totalt:"
+      },
+      "latestPayments": {
+        "title": "Siste betalinger",
+        "description": "De nyeste betalingene for dette abonnementet",
+        "none": "Det er ikke registrert noen tidligere betalinger for dette abonnementet ennå.",
+        "status": {
+          "onTime": "i tide",
+          "late": "{distance} forsinket",
+          "early": "{distance} tidlig"
+        },
+        "popover": {
+          "paidStatus": "Dette abonnementet er betalt <status>{status}</status>.",
+          "scheduled": "Planlagt:",
+          "actual": "Faktisk:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Installer som app",
+      "description": "For en best mulig opplevelse anbefaler vi at du installerer appen på startskjermen!",
+      "buttons": {
+        "gotIt": "Skjønner",
+        "maybeLater": "Kanskje senere",
+        "installNow": "Installer nå"
+      },
+      "common": {
+        "addToHomeScreen": "Legg til på Hjem-skjermen",
+        "clickIcon": "Klikk på <icon></icon>-ikonet",
+        "scrollDownClick": "Rull ned og klikk"
+      },
+      "ios": {
+        "safari": {
+          "title": "Installasjonstrinn for iOS",
+          "step3": "Trykk på «Legg til» for å bekrefte"
+        },
+        "chrome": {
+          "title": "Installasjonstrinn for Chrome på iOS"
+        },
+        "firefox": {
+          "title": "Installasjonstrinn for Firefox på iOS",
+          "step2": "Rull ned og klikk på <icon></icon>-knappen",
+          "step3": "Klikk deretter på"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Installasjonstrinn for Chrome"
+        },
+        "firefox": {
+          "title": "Installasjonstrinn for Firefox"
+        }
+      },
+      "unknown": {
+        "title": "Installasjonstrinn",
+        "step1": "Se etter et alternativ som «Legg til på Hjem-skjermen» eller «Installer appen» i nettlesermenyen",
+        "step2": "Alternativet finnes vanligvis i hovedmenyen (ofte vist med tre prikker eller streker)",
+        "step3": "Følg installasjonsinstruksjonene for nettleseren din"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Søk..."
+    }
+  }
+}

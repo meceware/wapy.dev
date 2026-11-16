@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "Tambah",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "edit": "Edit",
+    "delete": "Hapus",
+    "confirm": "Konfirmasi",
+    "view": "Lihat",
+    "close": "Tutup",
+    "contact": "Hubungi Kami",
+    "signIn": "Masuk",
+    "termsOfService": "Ketentuan Layanan",
+    "privacyPolicy": "Kebijakan Privasi"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} Pengingat Pembayaran",
+        "message": "Hanya pengingat bahwa Anda {siteName} langganan akan segera berakhir."
+      },
+      "payment": {
+        "title": {
+          "due": "Pembayaran Jatuh Tempo untuk {name}",
+          "reminder": "Pengingat Pembayaran untuk {name}",
+          "upcoming": "Pembayaran Mendatang untuk {name}"
+        },
+        "message": {
+          "due": "Anda {name} langganan Pembayaran ({price}) adalah Jatuh tempo sekarang!",
+          "reminder": "Anda {name} langganan Pembayaran ({price}) adalah overJatuh tempo!",
+          "upcoming": "Anda {name} langganan Pembayaran ({price}) adalah {dueText}!"
+        },
+        "markAsPaid": "Tandai Sudah Dibayar",
+        "dismiss": "Tutup"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} Pengingat Langganan",
+      "footer": "Dikirim oleh {siteName}",
+      "visitDashboard": "Kunjungi Dasbor",
+      "paymentQuestion": "Sudah membayar?",
+      "viewDetails": "Lihat Detail"
+    }
+  },
+  "header": {
+    "signOut": "Keluar",
+    "subscriptions": "langganan",
+    "reports": "Laporan",
+    "settings": "Pengaturan",
+    "account": "Akun"
+  },
+  "footer": {
+    "madeBy": "Dijalankan dengan harapan oleh <author>{name}</author>.",
+    "github": "Sumber",
+    "menu": "Menu"
+  },
+  "languages": {
+    "selectLanguage": "Pilih bahasa",
+    "invalid": "Bahasa tidak valid",
+    "failed": "Gagal mengubah bahasa"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "Gratadalah digunakan. Dihosting oleh satu orang.",
+        "title": "Lacak semua langganan. Jangan lewatkan pembayaran.",
+        "subtitle": "{appName} menyimpan tagihan berulang di one readable Dasbor dan reminds Anda sebelum y hit.",
+        "tagline": "Gratadalah digunakan. tidak ada card, tidak ada uji coba, tidak ada upsell."
+      },
+      "features": {
+        "title": "Fungsinya",
+        "subtitle": "Semua hal  perangkat lunak does, dan nothing Anda have ke pay untuk.",
+        "billingCycles": {
+          "title": "Siklus Tagihan Fleksibel",
+          "description": "Dukungan untuk Bulanan, tahunan, dan Kustom billing interval"
+        },
+        "notifications": {
+          "title": "Notifikasi Cerdas",
+          "description": "Pengingat oleh email, push, webhook, ntfy, Dadalahcord, atau Slack"
+        },
+        "reports": {
+          "title": "Laporan & Wawasan",
+          "description": "Lacak Anda spberakhir dengan detailed Laporan dan insights"
+        },
+        "currencies": {
+          "title": "Berbagai Mata Uang",
+          "description": "Dukungan untuk Berbagai Mata Uang dengan real-time Biaya tracking"
+        },
+        "timezone": {
+          "title": "Dukungan Zona Waktu",
+          "description": "Lacak langganan across zona waktu berbeda dengan konversi tanggal otomatis"
+        },
+        "categories": {
+          "title": "Pengelolaan Kategori",
+          "description": "Atur langganan dengan Kustom Kategori dan kode warna"
+        }
+      },
+      "howItWorks": {
+        "title": "Cara kerja",
+        "subtitle": "Mulai dalam hitungan menit",
+        "step1": {
+          "title": "Masuk dengan tautan",
+          "description": "Masukkan Anda email, open  link, dan Anda adalah di. tidak ada password ke remember."
+        },
+        "step2": {
+          "title": "Tambahkan yang Anda bayar",
+          "description": "Catat setiap langganan dengan its Harga, billing cycle, dan Mata uang."
+        },
+        "step3": {
+          "title": "Biarkan pengingat datang",
+          "description": "Pilih  kanal Anda want, n mark a Pembayaran as paid straight dari  notifikasi."
+        }
+      },
+      "free": {
+        "eyebrow": "Gratis",
+        "title": "Gratadalah, tanpa syarat tersembunyi",
+        "description": " perangkat lunak adalah open Sumber. Ini instance adalah Dihosting untuk people who cannot run ir own.",
+        "price": "€0",
+        "period": "selamanya",
+        "features": {
+          "unlimited": "Langganan tanpa batas",
+          "notifications": "email, push, webhook, ntfy, Dadalahcord, dan Slack Pengingat",
+          "reports": "Laporan dan spberakhir insights",
+          "export": "Ekspor Data kapan saja",
+          "noAds": "Tanpa iklan, pelacakan, atau detail pembayaran",
+          "bestEffort": "Upaya terbaik, tanpa jaminan waktu aktif"
+        },
+        "button": "Masuk",
+        "selfHostButton": "Hosting sendiri",
+        "selfHostNote": "Prefer Anda own server?  same perangkat lunak runs dengan Docker di sekitar sepuluh menit."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Halaman Tidak Ditemukan",
+        "description": " page Anda're looking untuk doesn't exadalaht."
+      },
+      "title": "404",
+      "backToHome": "Kembali ke Beranda"
+    },
+    "account": {
+      "meta": {
+        "title": "Pengaturan Akun",
+        "description": "Kelola Anda Pengaturan Akun dan preferences."
+      },
+      "defaultSettings": {
+        "title": "Pengaturan Default",
+        "description": "Konfigurasikan Anda Pengaturan Default untuk new langganan",
+        "timezone": {
+          "label": "Zona waktu",
+          "success": "Zona waktu updated berhasil.",
+          "error": "Gagal ke Perbarui Zona waktu!"
+        },
+        "currency": {
+          "label": "Mata uang",
+          "success": "Mata uang updated berhasil.",
+          "error": "Gagal ke Perbarui Mata uang!"
+        }
+      },
+      "notifications": {
+        "success": "notifikasi preferences Simpand.",
+        "error": "Gagal ke Simpan notifikasi preferences!",
+        "saveButton": "Simpan Perubahan",
+        "saveButtonTitle": "Simpan notifikasi preferences"
+      },
+      "profile": {
+        "success": "Anda Nama has been updated berhasil.",
+        "error": "Gagal ke Perbarui Anda Nama!",
+        "namePlaceholder": "Masukkan Anda Nama",
+        "addNamePrompt": "Tambah Anda Nama",
+        "memberSince": "Member since {date}"
+      },
+      "categories": {
+        "title": "Kategori",
+        "description": "Kelola Anda Kategori",
+        "default": {
+          "load": "Load default Kategori",
+          "success": "Default Kategori loaded berhasil.",
+          "error": "Gagal ke Buat default Kategori!"
+        },
+        "save": {
+          "success": "Category Simpand berhasil.",
+          "error": "Gagal ke Simpan category!"
+        },
+        "addButtonTitle": "Tambah kategori baru",
+        "selectColor": "Pilih color",
+        "namePlaceholder": "Category Nama",
+        "delete": {
+          "title": "Hapus Kategori",
+          "description": "adalah Anda sure Anda want ke Hapus Ini category? Ini action cannot be unSelesai.",
+          "success": "Category deleted berhasil.",
+          "error": "Gagal ke Hapus Kategori!"
+        },
+        "invalid": "Tidak valid category Data",
+        "edit": "Edit category"
+      },
+      "paymentMethods": {
+        "title": "Metode Pembayaran",
+        "description": "Kelola Anda Metode Pembayaran",
+        "add": "Tambah new Pembayaran method",
+        "edit": "Edit Pembayaran method",
+        "invalid": "Tidak valid Pembayaran method Data",
+        "placeholder": "Pembayaran method Nama",
+        "load": {
+          "title": "Load default Metode Pembayaran",
+          "success": "Default Metode Pembayaran loaded berhasil.",
+          "error": "Gagal ke Buat default Metode Pembayaran!"
+        },
+        "save": {
+          "success": "Pembayaran method Simpand berhasil.",
+          "error": "Gagal ke Simpan Pembayaran method!"
+        },
+        "delete": {
+          "title": "Hapus Pembayaran Method",
+          "description": "adalah Anda sure Anda want ke Hapus Ini Pembayaran method? Ini action cannot be unSelesai.",
+          "success": "Pembayaran method deleted berhasil.",
+          "error": "Gagal ke Hapus Pembayaran method!"
+        }
+      },
+      "externalServices": {
+        "title": "Layanan Eksternal",
+        "description": "Konfigurasikan integrations dengan Layanan Eksternal",
+        "testNotification": {
+          "title": "{siteName} Uji notifikasi",
+          "message": "Ini adalah a Uji {service} Pesan dari {siteName}. Anda {service} integration adalah configured correctly."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Terima Notifikasi Melalui ntfy.",
+          "toast": {
+            "disable": {
+              "success": "ntfy integration Dinonaktifkan.",
+              "error": "Gagal ke dadalahable ntfy integration!"
+            },
+            "save": {
+              "success": "ntfy configuration Simpand berhasil.",
+              "error": "Gagal ke Simpan ntfy configuration!"
+            },
+            "test": {
+              "success": "Uji ntfy notifikasi sent.",
+              "error": "Gagal ke Kirim Uji ntfy notifikasi!"
+            },
+            "notEnabled": "ntfy integration adalah tidak diaktifkan.",
+            "invalidParams": "Tidak valid parameters! Cannot Simpan  ntfy configuration.",
+            "testInvalidParams": "Tidak valid parameters! Cannot Kirim Uji notifikasi."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "URL Server",
+              "placeholder": "ntfy.sh atau self-Dihosting URL"
+            },
+            "topic": {
+              "label": "Topic Nama"
+            },
+            "token": {
+              "label": "Akses Token (Opsional)",
+              "placeholder": "Akses Token"
+            }
+          },
+          "buttons": {
+            "save": "Simpan ntfy",
+            "test": "Uji ntfy"
+          }
+        },
+        "webhook": {
+          "title": "webhook",
+          "description": "Terima Notifikasi Melalui webhook.",
+          "toast": {
+            "disable": {
+              "success": "webhook integration Dinonaktifkan.",
+              "error": "Gagal ke dadalahable webhook integration!"
+            },
+            "save": {
+              "success": "webhook configuration Simpand berhasil.",
+              "error": "Gagal ke Simpan webhook configuration!"
+            },
+            "test": {
+              "success": "Uji webhook notifikasi sent.",
+              "error": "Gagal ke Kirim Uji webhook notifikasi!"
+            },
+            "notEnabled": "webhook integration adalah tidak diaktifkan.",
+            "invalidParams": "Tidak valid parameters! Cannot Simpan  webhook configuration.",
+            "testInvalidParams": "Tidak valid parameters! Cannot Kirim Uji notifikasi."
+          },
+          "fields": {
+            "url": {
+              "label": "URL Server",
+              "placeholder": "webhook URL Server"
+            }
+          },
+          "buttons": {
+            "save": "Simpan webhook",
+            "test": "Uji webhook"
+          }
+        },
+        "discord": {
+          "title": "Dadalahcord",
+          "description": "Terima Notifikasi Melalui Dadalahcord.",
+          "toast": {
+            "disable": {
+              "success": "Dadalahcord integration Dinonaktifkan.",
+              "error": "Gagal ke dadalahable Dadalahcord integration!"
+            },
+            "save": {
+              "success": "Dadalahcord configuration Simpand berhasil.",
+              "error": "Gagal ke Simpan Dadalahcord configuration!"
+            },
+            "test": {
+              "success": "Uji Dadalahcord notifikasi sent.",
+              "error": "Gagal ke Kirim Uji Dadalahcord notifikasi!"
+            },
+            "notEnabled": "Dadalahcord integration adalah tidak diaktifkan.",
+            "invalidParams": "Tidak valid parameters! Cannot Simpan  Dadalahcord configuration.",
+            "testInvalidParams": "Tidak valid parameters! Cannot Kirim Uji notifikasi."
+          },
+          "fields": {
+            "url": {
+              "label": "URL Server",
+              "placeholder": "Dadalahcord URL Server"
+            }
+          },
+          "buttons": {
+            "save": "Simpan Dadalahcord",
+            "test": "Uji Dadalahcord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Terima Notifikasi Melalui Slack.",
+          "toast": {
+            "disable": {
+              "success": "Slack integration Dinonaktifkan.",
+              "error": "Gagal ke dadalahable Slack integration!"
+            },
+            "save": {
+              "success": "Slack configuration Simpand berhasil.",
+              "error": "Gagal ke Simpan Slack configuration!"
+            },
+            "test": {
+              "success": "Uji Slack notifikasi sent.",
+              "error": "Gagal ke Kirim Uji Slack notifikasi!"
+            },
+            "notEnabled": "Slack integration adalah tidak diaktifkan.",
+            "invalidParams": "Tidak valid parameters! Cannot Simpan  Slack configuration.",
+            "testInvalidParams": "Tidak valid parameters! Cannot Kirim Uji notifikasi."
+          },
+          "fields": {
+            "url": {
+              "label": "URL Server",
+              "placeholder": "Slack URL Server"
+            }
+          },
+          "buttons": {
+            "save": "Simpan Slack",
+            "test": "Uji Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Ekspor Data",
+        "description": "Download a copy dari Anda langganan, Kategori, Metode Pembayaran dan Pengaturan",
+        "button": "Ekspor Data",
+        "toast": {
+          "success": "Data Ekspored berhasil.",
+          "error": "Gagal ke Ekspor Data!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "Langganan Baru",
+        "edit": "Edit {name}",
+        "unauthorized": "Unauthorized"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Masuk"
+      },
+      "description": "Masuk dengan Anda email ke Akses Anda Akun atau Buat a new one automatically",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "Login",
+        "loginWithProvider": "Login dengan {provider}"
+      },
+      "otp": {
+        "title": "Check Anda inbox",
+        "description": "We've sent a link ke Anda email ke sign di.",
+        "instructions": "Masukkan  6-digit code sent ke Anda email",
+        "divider": "atau",
+        "resend": {
+          "prompt": "Didn't Terima  email?",
+          "button": "Click ke resend",
+          "timer": "Anda can resend di {seconds, plural, one {# second} or {# seconds}}"
+        }
+      },
+      "toast": {
+        "success": "Selamat datang! Anda have berhasil signed di.",
+        "error": {
+          "accessDenied": "Sorry but Anda adalah tidak allowed ke sign di!",
+          "generic": "Weird! We couldn't sign Anda di. It might be Anda email, atau something went wrong di our end.",
+          "invalidCode": " code looks incorrect. Double-check  6 digits dan try again.",
+          "somethingWrong": "Something went wrong. Please request a new code dan try again.",
+          "workspaceAccess": "Sorry, Anda do tidak have Akses ke Ini workspace.",
+          "rateLimited": "Too many requests. Wait a minute dan try again."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "Last updated November 15, 2026",
+      "introduction": {
+        "title": "Introduction",
+        "paragraph1": "sub.idler.me stores what  app needs ke work dan nothing else. Ini page says exactly what bahwa adalah.",
+        "paragraph2": "It adalah a small, one-person service. re adalah tidak ada company, tidak ada advertadalahing, dan tidak ada Pembayaran processing."
+      },
+      "informationWeCollect": {
+        "title": "Inuntukmasi We Collect",
+        "description": "What  database holds untuk Anda Akun:",
+        "items": {
+          "account": "Anda email Tambahress, dan  Nama atau avatar Anda login provider returns.",
+          "subscription": " langganan Anda Tambah: names, prices, currencies, billing dates, Kategori, dan Pembayaran method labels.",
+          "expense": "Which Pembayarans Anda marked as paid, dan when."
+        }
+      },
+      "howWeUse": {
+        "title": "Cara We Gunakan It",
+        "description": "Anda Data adalah used ke:",
+        "items": {
+          "providing": "SCara Anda langganan, Laporan, dan Pembayaran hadalahtory ke Anda.",
+          "managing": "Kirim  Pengingat Anda configured, ke  kanal Anda configured.",
+          "sending": "Sign Anda di oleh email link.",
+          "improving": "Nothing else. tidak ada profiling, tidak ada ad networks, tidak ada selling."
+        }
+      },
+      "dataProtection": {
+        "title": "Data Protection",
+        "description": "Data lives di a Postgres database di infrastructure  operator controls. It adalah tidak shared dengan third parties beyond  notifikasi kanal Anda Aktifkan Andaself. re adalah tidak ada encryption-pada-rest promadalahe beyond  host's defaults."
+      },
+      "analytics": {
+        "title": "Cookies dan Analytics",
+        "description": "tidak ada third-party analytics dan tidak ada tracking scripts.  app stores Anda session cookie, Anda language choice, dan Anda Preferensi Cookie di Anda browser."
+      },
+      "yourRights": {
+        "title": "Anda Rights",
+        "description": "Anda can:",
+        "items": {
+          "access": "Ekspor every record  app holds about Anda dari  Akun page.",
+          "correct": "Change Anda Pengaturan pada kapan saja.",
+          "delete": "Ask untuk deletion dari Anda Akun dan its Data.",
+          "optOut": "Decline non-Cookie Esensial di  cookie banner."
+        }
+      },
+      "contactUs": {
+        "description": "If Anda have any questions about our Kebijakan Privasi atau Cara we handle Anda Data, reach  operator di Matrix dari  <link>contact page</link>."
+      },
+      "updates": {
+        "title": "Updates ke Ini Policy",
+        "description": "Ini page Perubahan when  perangkat lunak atau  deployment Perubahan.  date pada  top adalah  current version."
+      },
+      "operator": {
+        "title": "Who Runs Ini",
+        "description": "sub.idler.me adalah Dijalankan oleh satu orang di self-Dihosting infrastructure as a community service, tidak a company. re adalah tidak ada Pembayaran processing dan tidak ada advertadalahing."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "langganan Report"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "Unauthorized",
+        "view": "Lihat {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Last updated November 15, 2026",
+      "welcome": "Selamat datang ke  {siteName} website ( \"Site\"). oleh accessing atau using  Site, Anda agree ke comply dengan dan be bound oleh  following terms dan conditions (\"Ketentuan Layanan\").",
+      "overview": {
+        "title": "Ringkasan",
+        "paragraph1": "{siteName} offers Ini Site, including Semua Inuntukmasi, tools, dan services available dari Ini Site ke Anda,  user, conditioned upon Anda acceptance dari Semua terms, conditions, policies, dan notices stated here.",
+        "paragraph2": "Please read se Ketentuan Layanan carefully sebelum accessing atau using  Site. oleh accessing atau using any part dari  Site, Anda agree ke be bound oleh se Ketentuan Layanan. If Anda do tidak agree ke Semua  terms dan conditions dari Ini agreement, n Anda may tidak Akses  Site atau Gunakan any services. If se Ketentuan Layanan adalah considered an offer, acceptance adalah expressly limited ke se Ketentuan Layanan.",
+        "paragraph3": "Any new features atau tools which adalah Tambahed ke  Site shall also be subject ke  Ketentuan Layanan. Anda can reLihat  most current version dari  Ketentuan Layanan pada kapan saja di Ini page. Site reserves  right ke Perbarui, change atau replace any part dari se Ketentuan Layanan oleh posting updates dan/atau Perubahan ke  Site. It adalah Anda responsibility ke check Ini page periodically untuk Perubahan. Anda continued Gunakan dari atau Akses ke  Site following  posting dari any Perubahan constitutes acceptance dari those Perubahan."
+      },
+      "websiteTerms": {
+        "title": "Website Terms",
+        "paragraph1": "oleh agreeing ke se Ketentuan Layanan, Anda represent bahwa Anda adalah pada least  age dari majority di Anda state atau province dari residence, atau bahwa Anda adalah  age dari majority di Anda state atau province dari residence dan Anda have given us Anda consent ke allow any dari Anda minor dependents ke Gunakan Ini site.",
+        "paragraph2": " Gunakan dari our services must comply dengan Semua applicable laws dan regulations. Specifically:",
+        "items": {
+          "unlawful": "Anda agree tidak ke Gunakan our products untuk any unlawful atau unauthorized purposes",
+          "comply": "Anda must comply dengan Semua laws di Anda juradalahdiction, including copyright dan intellectual property laws",
+          "malicious": "Anda may tidak transmit malicious code, viruses, atau or harmful content"
+        },
+        "paragraph3": "Please note bahwa any violation dari se Ketentuan Layanan akan lead ke immediate termination dari Anda Akses ke our Services."
+      },
+      "cookies": {
+        "title": "Gunakan dari Cookies",
+        "description": "Site uses cookies dan similar technologies (such as local storage) ke Lacak Anda usage dari  Site dan untuk marketing purposes. oleh using  Site, Anda consent ke  Gunakan dari cookies di accordance dengan our <privacy>Privacy Policy</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property",
+        "description": " perangkat lunak adalah licensed under  MIT license dengan a Commons Clause, copyright meceware. Ini deployment Tambahs tidak ada proprietary content dari its own."
+      },
+      "disclaimer": {
+        "title": "Dadalahclaimer",
+        "description": " Inuntukmasi dan content di  Site adalah provided untuk inuntukmational purposes hanya dan adalah tidak intended as professional advice. Site makes tidak ada representations atau warranties dari any kind, express atau implied, about  accuracy, reliability, completeness, atau suitability dari  Inuntukmasi dan content di  Site. Anda Gunakan  Site pada Anda own radalahk."
+      },
+      "limitationOfLiability": {
+        "title": "Limitation dari Liability",
+        "description": "{siteName} shall tidak be held responsible untuk any indirect, incidental, special, atau consequential damages bahwa may occur dari Anda Gunakan dari  Site, regardless dari wher such damages aradalahe dari contract, tort, negligence, strict liability, atau any or legal ory.  maximum amount Site may be liable untuk di any claim related ke  Site adalah limited ke  Total langganan fees Anda have paid di  last 12 Bulan."
+      },
+      "changes": {
+        "title": "Perubahan ke  Ketentuan Layanan",
+        "description": "Site may Perbarui atau modify se Ketentuan Layanan dari time ke time, dan any Perubahan akan be effective upon posting di  Site. Anda continued Gunakan dari  Site setelah any such Perubahan constitutes Anda acceptance dari  revadalahed Ketentuan Layanan."
+      },
+      "indemnification": {
+        "title": "Indemnification",
+        "description": "Anda agree ke indemnify dan hold harmless {siteName}, its affiliates, officers, directors, employees, agents, dan licensors dari dan against any claims, liabilities, damages, losses, dan expenses, including denganout limitation reasonable attorney's fees, aradalahing out dari atau di connection dengan Anda Gunakan dari  Site, Anda violation dari se Ketentuan Layanan, atau Anda violation dari any rights dari anor party."
+      },
+      "modifications": {
+        "title": "Modifications ke  Service dan Prices",
+        "paragraph1": "Prices untuk our services adalah subject ke change denganout notice. Site reserves  right pada kapan saja ke modify atau dadalahcontinue  Service (atau any part atau content reof) denganout notice pada kapan saja.",
+        "paragraph2": "Site shall tidak be liable ke Anda atau ke any third-party untuk any modification, Harga change, suspension, atau dadalahcontinuance dari  Service."
+      },
+      "governingLaw": {
+        "title": "Governing Law dan Juradalahdiction",
+        "description": "se Ketentuan Layanan shall be governed oleh dan construed di accordance dengan  laws dari  juradalahdiction where {siteName} adalah headquartered denganout giving effect ke any principles dari conflicts dari law. Anda agree ke submit ke  exclusive juradalahdiction dari  courts di bahwa juradalahdiction untuk any dadalahputes aradalahing out dari atau di connection dengan se Ketentuan Layanan atau Anda Gunakan dari  Site."
+      },
+      "entireAgreement": {
+        "title": "Entire Agreement",
+        "description": "se Ketentuan Layanan constitute  entire agreement between Anda dan {siteName} regarding Anda Gunakan dari  Site dan supersede Semua prior dan contemporaneous agreements dan understandings, wher oral atau written, relating ke  same subject matter."
+      },
+      "severability": {
+        "title": "Severability",
+        "description": "If any provadalahion dari se Ketentuan Layanan adalah found ke be Tidak valid, illegal, atau unenuntukceable,  remaining provadalahions shall continue di full untukce dan effect."
+      },
+      "waiver": {
+        "title": "Waiver",
+        "description": " failure dari {siteName} ke enuntukce any right atau provadalahion dari se Ketentuan Layanan shall tidak constitute a waiver dari bahwa right atau provadalahion."
+      },
+      "contactUs": {
+        "description": "If Anda have any questions atau concerns about se Ketentuan Layanan, reach  operator di Matrix dari  <link>contact page</link>."
+      },
+      "freeService": {
+        "title": "Gratis Service, tidak ada Billing",
+        "paragraph1": "sub.idler.me adalah Gratadalah digunakan. re adalah tidak ada plans, tidak ada trials, tidak ada card fields, dan tidak ada refunds, because tidak ada money Perubahan hands.",
+        "paragraph2": " perangkat lunak adalah open Sumber under  MIT license dengan a Commons Clause. Anda may Hosting sendiri. Ini instance exadalahts untuk people who cannot atau would rar tidak run ir own.",
+        "paragraph3": " service adalah provided as adalah dan best efuntukt. re adalah tidak ada uptime promadalahe dan tidak ada guarantee bahwa Data survives a failure. Ekspor Anda Data regularly dan keep Anda own backups."
+      }
+    },
+    "contact": {
+      "title": "Kontak",
+      "description": " fastest way ke reach  operator adalah Matrix. lagi kanal adalah di  way.",
+      "matrix": {
+        "label": "Pesan di Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "lagi kanal",
+        "note": "Coming segera."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} Uji notifikasi",
+          "message": "Ini adalah a Uji notifikasi dari {siteName}. If Anda adalah seeing Ini, it means push Notifikasi adalah working correctly!"
+        }
+      },
+      "email": {
+        "header": "Pengingat Pembayaran",
+        "footer": "Ini adalah a friendly reminder email dari {siteName}.",
+        "thanks": "Terima kasih",
+        "madeBy": "Made dengan ♥ oleh {siteLink}"
+      },
+      "bell": {
+        "title": "Notifikasi",
+        "unreadTitle": "Unread Notifikasi",
+        "clearAll": "Hapus Semua",
+        "removeNotification": "Hapus notifikasi",
+        "noNotifications": "tidak ada new Notifikasi"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Stay updated",
+          "description": "Get timely Pengingat about Anda langganan Pembayarans dan Jatuh tempo dates. We'll notify Anda sebelum Pembayarans adalah Jatuh tempo dan when langganan adalah about ke expire.",
+          "maybeLater": "Mungkin Nanti",
+          "enable": "Aktifkan Notifikasi",
+          "enabling": "Enabling..."
+        },
+        "toast": {
+          "success": "Anda akan sekarang Terima langganan Pengingat.",
+          "error": "Gagal ke Aktifkan Notifikasi. Please try again.",
+          "permissionRequired": {
+            "title": "Permadalahsion Required",
+            "description": "Please allow Notifikasi ke Terimpengingats."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "Nama must be pada least 2 characters.",
+        "paymentDate": "bahwa's tidak a valid date!",
+        "color": "Tidak valid hex color"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Daily} or {Every # days}}",
+        "WEEKS": "{count, plural, =1 {Weekly} or {Every # weeks}}",
+        "MONTHS": "{count, plural, =1 {Monthly} or {Every # months}}",
+        "YEARS": "{count, plural, =1 {Annually} or {Every # years}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Kategori",
+            "selected": "{count, plural, =0 {Select categories} one {# category selected} or {# categories selected}}",
+            "search": "Cari category...",
+            "create": "Buat new category \"{value}\""
+          },
+          "currency": {
+            "label": "Mata uang",
+            "placeholder": "Pilih Mata uang",
+            "search": "Cari Mata uang...",
+            "noResults": "Tidak ada hasil ditemukan!"
+          },
+          "cycle": {
+            "label": "Billing Cycle",
+            "placeholder": "Pilih billing cycle",
+            "options": {
+              "daily": "Harian",
+              "weekly": "Mingguan",
+              "monthly": "Bulanan",
+              "yearly": "Tahunan",
+              "custom": "Kustom"
+            },
+            "units": {
+              "days": "{count, plural, one {Day} or {Days}}",
+              "weeks": "{count, plural, one {Week} or {Weeks}}",
+              "months": "{count, plural, one {Month} or {Months}}",
+              "years": "{count, plural, one {Year} or {Years}}"
+            },
+            "unitPlaceholder": "Satuan"
+          },
+          "name": {
+            "label": "Nama",
+            "placeholder": "langganan Nama"
+          },
+          "notes": {
+            "label": "Catatan",
+            "placeholder": "Tambah Catatan..."
+          },
+          "notifications": {
+            "title": "Notifikasi",
+            "description": "Konfigurasikan  default Notifikasi untuk Anda langganan",
+            "via": "Melalui",
+            "whenToNotify": "When ke Notify",
+            "whenPlaceholder": "Pilih when ke notify",
+            "unitPlaceholder": "Satuan",
+            "addNotification": "Tambah notifikasi",
+            "deleteDialog": {
+              "title": "Konfirmasi Hapus",
+              "description": "adalah Anda sure Anda want ke Hapus Ini notifikasi template?"
+            },
+            "status": {
+              "denied": "push Notifikasi adalah blocked di Ini device. Please Aktifkan m di Anda browser Pengaturan.",
+              "default": "push Notifikasi adalah tidak diaktifkan di Ini device. <link>Would Anda like ke Aktifkan it?</link>",
+              "grantedNotConfigured": "push notifikasi permadalahsion adalah granted but it adalah tidak properly configured. <link>Would Anda like ke Aktifkan it?</link>",
+              "grantedConfigured": "push Notifikasi adalah diaktifkan untuk Ini device. Would Anda like ke Kirim a <link>test push notification</link>?"
+            },
+            "toast": {
+              "success": "push notifikasi sent! Check Anda device(s).",
+              "error": "Gagal ke Kirim Uji push notifikasi! Make sure Notifikasi adalah diaktifkan dan configured correctly."
+            },
+            "timeOptions": {
+              "instant": "pada Pembayaran Date",
+              "15minutes": "15 minutes sebelum",
+              "1hour": "1 hour sebelum",
+              "2hours": "2 hours sebelum",
+              "1day": "1 Hari sebelum",
+              "2days": "2 Hari sebelum",
+              "1week": "1 Minggu sebelum",
+              "custom": "Kustom"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minute} or {Minutes}}",
+              "hours": "{count, plural, one {Hour} or {Hours}}",
+              "days": "{count, plural, one {Day} or {Days}}",
+              "weeks": "{count, plural, one {Week} or {Weeks}}"
+            },
+            "types": {
+              "push": {
+                "label": "push Notifikasi",
+                "ariaLabel": "Toggle push"
+              },
+              "email": {
+                "label": "email Notifikasi",
+                "ariaLabel": "Toggle email"
+              },
+              "webhook": {
+                "label": "webhook Notifikasi",
+                "ariaLabel": "Toggle webhook"
+              },
+              "ntfy": {
+                "label": "ntfy Notifikasi",
+                "ariaLabel": "Toggle ntfy"
+              },
+              "discord": {
+                "label": "Dadalahcord Notifikasi",
+                "ariaLabel": "Toggle Dadalahcord"
+              },
+              "slack": {
+                "label": "Slack Notifikasi",
+                "ariaLabel": "Toggle Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Next Pembayaran Date"
+          },
+          "paymentMethod": {
+            "label": "Pembayaran Method",
+            "placeholder": "Pilih Pembayaran method",
+            "search": "Cari Pembayaran method...",
+            "create": "Buat new Pembayaran method \"{value}\""
+          },
+          "price": {
+            "label": "Harga"
+          },
+          "timezone": {
+            "label": "Zona waktu",
+            "placeholder": "Pilih Zona waktu",
+            "search": "Cari Zona waktu...",
+            "noResults": "Tidak ada hasil ditemukan!"
+          },
+          "untilDate": {
+            "label": "Valid Until",
+            "description": "Leave empty untuk an indefinite langganan"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logo",
+            "description": "Pilih a predefined icon atau Masukkan an URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} Zona waktu",
+        "paymentDate": {
+          "past": "Should have been paid <date></date>.",
+          "future": "akan be paid <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Did Anda pay Ini? <action>Mark as paid</action> atau see <options>or options</options>.",
+          "customPrice": {
+            "title": "Paid a different amount?",
+            "description": "Gunakan Ini if Anda paid lagi atau less than usual",
+            "prompt": "Masukkan  amount Anda paid:"
+          },
+          "noPrice": {
+            "title": "Hanya Tandai Sudah Dibayar!",
+            "description": "Gunakan Ini ke skip Ini Pembayaran denganout recording an amount",
+            "prompt": "Tandai Sudah Dibayar denganout tracking  amount?",
+            "warning": "Ini akan tidak record a Pembayaran amount."
+          },
+          "toast": {
+            "success": "langganan marked as paid!",
+            "error": "Kesalahan marking langganan as paid",
+            "custom": {
+              "success": "langganan marked as paid dengan Kustom Harga!",
+              "error": "Kesalahan marking langganan as paid dengan Kustom Harga"
+            },
+            "noPrice": {
+              "success": "langganan marked as paid denganout Pembayaran!",
+              "error": "Kesalahan marking langganan as paid denganout Pembayaran"
+            },
+            "failed": "Gagal ke Perbarui!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "Anda akan be notified <date></date> Melalui {channels}.",
+          "willBeNotifiedSoon": "Anda akan be notified segera Melalui {channels}.",
+          "willBeRemindedAt": "Anda akan be reminded <date></date> Melalui {channels} again.",
+          "willBeRemindedSoon": "Anda akan be reminded segera Melalui {channels} again.",
+          "wontBeNotified": "Anda won't be notified.",
+          "types": {
+            "push": "notifikasi",
+            "email": "email",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "dadalahcord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "Selamat! Anda have paid Semua.",
+          "remaining": "Anda akan pay Ini <trigger>{count, plural, =1 {# more time} or {# times}}</trigger>.",
+          "until": "Until {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "Ini akan be paid Melalui {methods}."
+        },
+        "pastPayments": {
+          "count": "Anda have made <highlight>{count, plural, one {# payment} or {# payments}}</highlight> so far."
+        },
+        "actions": {
+          "inactive": "Ini langganan adalah tidak Aktif.",
+          "edit": "Edit {name} langganan",
+          "link": "Link ke {url}",
+          "notificationEnabled": "{type} adalah diaktifkan",
+          "notificationDisabled": "{type} adalah Dinonaktifkan"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Buat Langganan",
+          "update": "Perbarui Langganan"
+        },
+        "sections": {
+          "details": "langganan Detail",
+          "advanced": "Advanced Pengaturan"
+        },
+        "deleteDialog": {
+          "title": "Hapus Langganan",
+          "description": "adalah Anda sure Anda want ke Hapus Ini langganan? Ini action cannot be unSelesai."
+        },
+        "toast": {
+          "create": {
+            "error": "Interesting, cannot Buat Langganan!",
+            "success": "langganan created berhasil!"
+          },
+          "delete": {
+            "success": "langganan deleted berhasil!",
+            "error": "Gagal ke Hapus Langganan!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "Langganan Baru",
+        "noSubscription": "Langganan tidak ditemukan"
+      }
+    },
+    "filters": {
+      "title": "Filter Langganan",
+      "description": "Apply filters dan find  langganan Anda need",
+      "buttons": {
+        "filter": "Filter langganan",
+        "reset": "Atur ulang filter"
+      },
+      "selectAll": "Pilih Semua",
+      "selectNone": "Pilih Tidak Ada",
+      "status": {
+        "title": "Status",
+        "active": {
+          "title": "Aktif",
+          "description": "Filter oleh Aktif langganan"
+        },
+        "inactive": {
+          "title": "Tidak aktif",
+          "description": "Filter oleh Tidak aktif langganan"
+        }
+      },
+      "paymentDate": {
+        "title": "Pembayaran Date",
+        "all": {
+          "title": "Semua",
+          "description": "Dadalahable Semua Pembayaran date filters"
+        },
+        "thisMonth": {
+          "title": "Bulan Ini",
+          "description": "Filter oleh Bulan Ini"
+        },
+        "next30Days": {
+          "title": "30 Hari Berikutnya",
+          "description": "Filter oleh 30 Hari Berikutnya"
+        }
+      },
+      "currencies": {
+        "title": "Currencies",
+        "all": {
+          "description": "Pilih Semua currencies"
+        },
+        "clear": {
+          "description": "Hapus Semua currencies"
+        },
+        "filter": "Filter oleh {currency}"
+      },
+      "categories": {
+        "title": "Kategori",
+        "uncategorized": "Uncategorized",
+        "all": {
+          "description": "Pilih Semua Kategori"
+        },
+        "clear": {
+          "description": "Hapus Semua Kategori"
+        },
+        "filterBy": "Filter oleh {category}"
+      },
+      "paymentMethods": {
+        "title": "Metode Pembayaran",
+        "unspecified": "Unspecified",
+        "all": {
+          "description": "Pilih Semua Metode Pembayaran"
+        },
+        "clear": {
+          "description": "Hapus Semua Metode Pembayaran"
+        },
+        "filterBy": "Filter oleh {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} akan be paid {count, plural, one {# time} or {# times}}"
+      },
+      "overview": {
+        "title": "Ringkasan",
+        "total": "<count></count> Total langganan",
+        "active": "<count></count> Aktif langganan",
+        "inactive": "<count></count> Tidak aktif langganan"
+      },
+      "costAverages": {
+        "title": "Biaya Averages",
+        "description": "Bulanan dan tahunan langganan Biaya averages",
+        "monthly": "Bulanan Rata-rata",
+        "yearly": "tahunan Rata-rata"
+      },
+      "monthlyCost": {
+        "title": "Bulanan Biaya Ringkasan",
+        "description": "Lacak Anda Bulanan langganan costs"
+      },
+      "yearlyCost": {
+        "title": "tahunan Biaya Ringkasan",
+        "description": "Lacak Anda tahunan langganan costs"
+      },
+      "upcomingPayments": {
+        "title": "Mendatang Pembayarans",
+        "description": "Lacak Anda Mendatang Pembayarans",
+        "noPayments": "Tidak ada pembayaran mendatang di one Bulan.",
+        "nextMonth": "Bulan Depan"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Bulan Ini",
+          "description": "Until end dari Bulan"
+        },
+        "nextMonth": {
+          "title": "Bulan Depan",
+          "description": "Mendatang Bulan hanya"
+        },
+        "next30Days": {
+          "title": "30 Hari Berikutnya",
+          "description": "Rolling period"
+        },
+        "thisYear": {
+          "title": "Tahun Ini",
+          "description": "Until end dari Tahun"
+        },
+        "nextYear": {
+          "title": "Tahun Depan",
+          "description": "Next calendar Tahun"
+        },
+        "next365Days": {
+          "title": "365 Hari Berikutnya",
+          "description": "Rolling period"
+        }
+      },
+      "tabs": {
+        "byCategories": "Menurut Kategori",
+        "byPaymentMethods": "oleh Metode Pembayaran"
+      },
+      "mostExpensive": {
+        "monthly": "Most Expensive Bulanan langganan",
+        "yearly": "Most Expensive tahunan langganan"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} Pembayarans di Ini category",
+          "noSubscriptions": "Langganan tidak ditemukan di Ini category"
+        },
+        "paymentMethod": {
+          "description": "{period} Pembayarans Melalui Ini Pembayaran method",
+          "noSubscriptions": "Langganan tidak ditemukan Melalui Ini Pembayaran method"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Link",
+        "linkTitle": "langganan Link",
+        "editTitle": "Edit Langganan"
+      },
+      "overview": {
+        "title": "Ringkasan",
+        "description": "Key metrics untuk Ini langganan",
+        "disabled": "Ini langganan adalah currently Dinonaktifkan. Anda can Aktifkan it again pada kapan saja.",
+        "unpaid": {
+          "hasUnpaid": "Oh tidak ada! Anda have <count>{count, plural, one {# unpaid payment} or {# unpaid payments}}</count> untuk Ini langganan totaling <total>{total}</total>.",
+          "allPaid": "Good job! Ini langganan adalah fully paid up ke date."
+        },
+        "nextPayment": {
+          "scheduled": "Anda next Pembayaran dari <price>{price}</price> adalah Jatuh tempo di <date>{date}</date> which adalah <distance>{distance}</distance>.",
+          "none": "Congrats! re adalah tidak ada future Pembayarans scheduled untuk Ini langganan."
+        },
+        "endDate": {
+          "hasEndDate": "Ini langganan akan end di <date>{date}</date>.",
+          "ongoing": "Ini adalah an ongoing langganan dengan tidak ada specified end date."
+        },
+        "remainingPayments": {
+          "withEndDate": "Ini langganan akan require <count>{count, plural, one {# payment} or {# payments}}</count> totaling <total>{total}</total>.",
+          "thisYear": "Ini langganan akan require <count>{count, plural, one {# payment} or {# payments}}</count> Tahun Ini, totaling <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "Ini langganan akan be paid Melalui <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "Anda have made <countTag>{count, plural, one {# payment} or {# payments}}</countTag> untuk Ini langganan so far, totaling <totalTag>{total}</totalTag>.",
+          "yearStats": " di  past Tahun, Anda made <countTag>{count, plural, one {# payment} or {# payments}}</countTag>, totaling <totalTag>{total}</totalTag>.",
+          "none": "Ini adalah a langganan dengan tidak ada Pembayaran hadalahtory yet."
+        },
+        "notifications": {
+          "title": "Anda akan Terima Notifikasi:",
+          "none": "tidak ada Notifikasi adalah set up untuk Ini langganan.",
+          "item": "<timing></timing> Melalui <channels></channels>.",
+          "itemNoType": "<timing></timing> but <error>no notifikasi type adalah set</error>.",
+          "timing": {
+            "instant": "pada  Pembayaran date",
+            "minutes": "{count, plural, one {# minute} or {# minutes}} sebelum Pembayaran",
+            "hours": "{count, plural, one {# hour} or {# hours}} sebelum Pembayaran",
+            "days": "{count, plural, one {# day} or {# days}} sebelum Pembayaran",
+            "weeks": "{count, plural, one {# week} or {# weeks}} sebelum Pembayaran"
+          },
+          "types": {
+            "email": "email",
+            "push": "push notifikasi",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "dadalahcord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Next notifikasi akan be di <date>{date}</date> which adalah <distance>{distance}</distance> Melalui <channels></channels>.",
+          "soon": "segera"
+        }
+      },
+      "costBreakdown": {
+        "title": "Rincian Biaya",
+        "description": "Future spberakhir untuk Ini langganan",
+        "periods": {
+          "30days": "30 Hari Berikutnya",
+          "3months": "Next 3 Bulan",
+          "12months": "Next 12 Bulan"
+        }
+      },
+      "notes": {
+        "title": "Catatan"
+      },
+      "paymentSchedule": {
+        "title": "Jadwal Pembayaran",
+        "description": "Pembayaran Mendatang dates di a Tahun",
+        "noUpcoming": "Tidak ada pembayaran mendatang",
+        "more": "+ {count} lagi",
+        "totalPayments": "Total Pembayarans:",
+        "total": "Total:"
+      },
+      "latestPayments": {
+        "title": "Pembayaran Terbaru",
+        "description": "Most recent Pembayarans untuk Ini langganan",
+        "none": "tidak ada past Pembayarans recorded untuk Ini langganan yet.",
+        "status": {
+          "onTime": "di time",
+          "late": "{distance} late",
+          "early": "{distance} early"
+        },
+        "popover": {
+          "paidStatus": "Ini langganan adalah paid <status>{status}</status>.",
+          "scheduled": "Scheduled:",
+          "actual": "Actual:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Instal sebagai Aplikasi",
+      "description": "untuk  best experience, we recommend installing  app ke Anda home screen!",
+      "buttons": {
+        "gotIt": "Got it",
+        "maybeLater": "Mungkin Nanti",
+        "installNow": "Instal Sekarang"
+      },
+      "common": {
+        "addToHomeScreen": "Tambah ke Home Screen",
+        "clickIcon": "Click  <icon></icon> icon",
+        "scrollDownClick": "Scroll down dan click"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS Installation Steps",
+          "step3": "Tap 'Tambah' ke Konfirmasi"
+        },
+        "chrome": {
+          "title": "Chrome di iOS Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox di iOS Installation Steps",
+          "step2": "Scroll down dan click <icon></icon> button",
+          "step3": "n click"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox Installation Steps"
+        }
+      },
+      "unknown": {
+        "title": "Installation Steps",
+        "step1": "Look untuk an option like \"Tambah ke Home Screen\" atau \"Install App\" di Anda browser's Menu",
+        "step2": " option adalah usually found di  main Menu (often represented oleh three dots atau lines)",
+        "step3": "Follow Anda browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Cari..."
+    }
+  }
+}

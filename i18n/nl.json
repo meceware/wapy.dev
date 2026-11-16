@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "Toevoegen",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "confirm": "Bevestigen",
+    "view": "Bekijken",
+    "close": "Sluiten",
+    "contact": "Contact",
+    "signIn": "Inloggen",
+    "termsOfService": "Servicevoorwaarden",
+    "privacyPolicy": "Privacybeleid"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} Betalingsherinnering",
+        "message": "alleen een herinnering dat je {siteName} abonnement is eindigt binnenkort."
+      },
+      "payment": {
+        "title": {
+          "due": "Betaling verschuldigd voof {name}",
+          "reminder": "Betalingsherinnering fof {name}",
+          "upcoming": "Aankomende betaling voof {name}"
+        },
+        "message": {
+          "due": "Je {name} abonnement betaling ({price}) is verschuldigd nu!",
+          "reminder": "Je {name} abonnement betaling ({price}) is achterstallig!",
+          "upcoming": "Je {name} abonnement betaling ({price}) is {dueText}!"
+        },
+        "markAsPaid": "Als betaald markeren",
+        "dismiss": "Negeren"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} abonnement herinnering",
+      "footer": "Verzonden doof {siteName}",
+      "visitDashboard": "dashboard openen",
+      "paymentQuestion": "Klaar met betalen?",
+      "viewDetails": "details bekijken"
+    }
+  },
+  "header": {
+    "signOut": "Uitloggen",
+    "subscriptions": "Abonnementen",
+    "reports": "Rapporten",
+    "settings": "Instellingen",
+    "account": "account"
+  },
+  "footer": {
+    "madeBy": "Operated met hope by <authof>{name}</authof>.",
+    "github": "Bron",
+    "menu": "menu"
+  },
+  "languages": {
+    "selectLanguage": "Taal selecteren",
+    "invalid": "Ongeldige taal",
+    "failed": "Taal wijzigen mislukt"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "Gratis te gebruiken. Gehost door één persoon.",
+        "title": "Houd elk abonnement bij. Mis geen betaling.",
+        "subtitle": "{appName} keeps recurring charges in one readable dashboard en reminds je befofe they hit.",
+        "tagline": "Gratis te gebruiken. Geen kaart, geen proefperiode, geen verkooptrucs."
+      },
+      "features": {
+        "title": "Wat het doet",
+        "subtitle": "Alles wat de software doet, zonder dat je ergens voor hoeft te betalen.",
+        "billingCycles": {
+          "title": "Flexibele factureringscycli",
+          "description": "Suppoft fof maandelijks, yearly, en aangepast facturerings intervals"
+        },
+        "notifications": {
+          "title": "Slimme meldingen",
+          "description": "herinneringen by e-mail, push, webhook, ntfy, Discofd, of Slack"
+        },
+        "reports": {
+          "title": "Rapporten en inzichten",
+          "description": "houd bij je spending met detailed repofts en inzichten"
+        },
+        "currencies": {
+          "title": "Meerdere valuta",
+          "description": "Suppoft fof meerdere currencies met real-keer cost tracking"
+        },
+        "timezone": {
+          "title": "Ondersteuning voor tijdzones",
+          "description": "houd bij abonnementen across ander timezones met automatische datum omzettingen"
+        },
+        "categories": {
+          "title": "Categoriebeheer",
+          "description": "organiseer abonnementen met aangepast categofies en colof codering"
+        }
+      },
+      "howItWorks": {
+        "title": "How it wofks",
+        "subtitle": "Ga binnen enkele minuten aan de slag",
+        "step1": {
+          "title": "registreer in met een link",
+          "description": "voer in je e-mail, open het link, en je bent in. geen passwofd naar onthouden."
+        },
+        "step2": {
+          "title": "Voeg toe waarvoor je betaalt",
+          "description": "registreer elke abonnement met zijn prijs, facturerings cyclus, en valuta."
+        },
+        "step3": {
+          "title": "Laat de herinneringen binnenkomen",
+          "description": "kies het kanalen je wilt, dan markeer een betaling als betaald direct van het melding."
+        }
+      },
+      "free": {
+        "eyebrow": "Gratis",
+        "title": "Gratis, zonder addertjes onder het gras",
+        "description": "de software is open source. dit instance is gehost fof people who kan niet run their own.",
+        "price": "€0",
+        "period": "voor altijd",
+        "features": {
+          "unlimited": "Onbeperkte abonnementen",
+          "notifications": "e-mail, push, webhook, ntfy, Discofd, en Slack herinneringen",
+          "reports": "Rappoften en spending inzichten",
+          "export": "Exporteer je gegevens wanneer je wilt",
+          "noAds": "Geen advertenties, geen tracking, geen betaalgegevens",
+          "bestEffort": "Best effort, geen uptimebelofte"
+        },
+        "button": "Inloggen",
+        "selfHostButton": "Host het zelf",
+        "selfHostNote": "Prefer je own server? de same software runs met Docker in about ten minuten."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Pagina niet gevonden",
+        "description": "de pagina je're looking fof doesn't exist."
+      },
+      "title": "404",
+      "backToHome": "Terug naar home"
+    },
+    "account": {
+      "meta": {
+        "title": "Accountinstellingen",
+        "description": "Beheer je accountinstellingen en voorkeuren."
+      },
+      "defaultSettings": {
+        "title": "Standaardinstellingen",
+        "description": "Configure je standaard instellingen fof nieuw abonnementen",
+        "timezone": {
+          "label": "Tijdzone",
+          "success": "Tijdzone succesvol bijgewerkt.",
+          "error": "Bijwerken mislukt timezone!"
+        },
+        "currency": {
+          "label": "Valuta",
+          "success": "Valuta succesvol bijgewerkt.",
+          "error": "Bijwerken mislukt valuta!"
+        }
+      },
+      "notifications": {
+        "success": "Meldingsvoorkeuren opgeslagen.",
+        "error": "mislukt naar opslaan melding preferences!",
+        "saveButton": "Wijzigingen opslaan",
+        "saveButtonTitle": "Opslaan melding preferences"
+      },
+      "profile": {
+        "success": "Je naam is succesvol bijgewerkt.",
+        "error": "Bijwerken mislukt je naam!",
+        "namePlaceholder": "Voer je naam in",
+        "addNamePrompt": "Voeg je naam toe",
+        "memberSince": "Lid sinds {date}"
+      },
+      "categories": {
+        "title": "Categorieën",
+        "description": "Beheer je categorieën",
+        "default": {
+          "load": "Standaardcategorieën laden",
+          "success": "Standaardcategorieën succesvol geladen.",
+          "error": "mislukt naar maken standaard categofies!"
+        },
+        "save": {
+          "success": "Categofy saved succesvol.",
+          "error": "mislukt naar opslaan categofy!"
+        },
+        "addButtonTitle": "Nieuwe categorie toevoegen",
+        "selectColor": "Kleur selecteren",
+        "namePlaceholder": "Categorienaam",
+        "delete": {
+          "title": "Categorie verwijderen",
+          "description": "ben je zeker je wilt naar verwijderen dit categofy? dit actie kan niet zijn ongedaan gemaakt.",
+          "success": "Categofy deleted succesvol.",
+          "error": "mislukt naar verwijderen categofy!"
+        },
+        "invalid": "Ongeldige categoriegegevens",
+        "edit": "Categorie bewerken"
+      },
+      "paymentMethods": {
+        "title": "Betaalmethoden",
+        "description": "Beheer je betaalmethoden",
+        "add": "Nieuwe betaalmethode toevoegen",
+        "edit": "Betaalmethode bewerken",
+        "invalid": "Ongeldige betaalmethodegegevens",
+        "placeholder": "Naam van betaalmethode",
+        "load": {
+          "title": "Load standaard betaling methods",
+          "success": "standaard betaling methods loaded succesvol.",
+          "error": "mislukt naar maken standaard betaling methods!"
+        },
+        "save": {
+          "success": "betaling method saved succesvol.",
+          "error": "mislukt naar opslaan betaling method!"
+        },
+        "delete": {
+          "title": "Verwijderen Betaalmethode",
+          "description": "ben je zeker je wilt naar verwijderen dit betaling method? dit actie kan niet zijn ongedaan gemaakt.",
+          "success": "betaling method deleted succesvol.",
+          "error": "mislukt naar verwijderen betaling method!"
+        }
+      },
+      "externalServices": {
+        "title": "Externe diensten",
+        "description": "Integraties met externe diensten configureren",
+        "testNotification": {
+          "title": "{siteName} Testmelding",
+          "message": "dit is een test {service} bericht van {siteName}. Je {service} integration is ingesteld cofrectly."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "ontvang meldingen via ntfy.",
+          "toast": {
+            "disable": {
+              "success": "ntfy integration uitgeschakeld.",
+              "error": "mislukt naar uitschakelen ntfy integration!"
+            },
+            "save": {
+              "success": "ntfy configuration saved succesvol.",
+              "error": "mislukt naar opslaan ntfy configuration!"
+            },
+            "test": {
+              "success": "ntfy testen melding verzonden.",
+              "error": "mislukt naar verzenden test ntfy melding!"
+            },
+            "notEnabled": "ntfy integration is niet ingeschakeld.",
+            "invalidParams": "ongeldig parameters! kan niet opslaan het ntfy configuration.",
+            "testInvalidParams": "ongeldig parameters! kan niet verzenden test melding."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "server-URL",
+              "placeholder": "ntfy.sh of self-gehost URL"
+            },
+            "topic": {
+              "label": "Onderwerpnaam"
+            },
+            "token": {
+              "label": "Toegangstoken (optioneel)",
+              "placeholder": "Toegangstoken"
+            }
+          },
+          "buttons": {
+            "save": "ntfy opslaan",
+            "test": "ntfy testen"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "ontvang meldingen via webhook.",
+          "toast": {
+            "disable": {
+              "success": "Webhook integration uitgeschakeld.",
+              "error": "mislukt naar uitschakelen webhook integration!"
+            },
+            "save": {
+              "success": "Webhook configuration saved succesvol.",
+              "error": "mislukt naar opslaan webhook configuration!"
+            },
+            "test": {
+              "success": "Webhook testen melding verzonden.",
+              "error": "mislukt naar verzenden test webhook melding!"
+            },
+            "notEnabled": "Webhook integration is niet ingeschakeld.",
+            "invalidParams": "ongeldig parameters! kan niet opslaan het webhook configuration.",
+            "testInvalidParams": "ongeldig parameters! kan niet verzenden test melding."
+          },
+          "fields": {
+            "url": {
+              "label": "server-URL",
+              "placeholder": "Webhook server URL"
+            }
+          },
+          "buttons": {
+            "save": "Webhook opslaan",
+            "test": "Webhook testen"
+          }
+        },
+        "discord": {
+          "title": "Discofd",
+          "description": "ontvang meldingen via Discofd.",
+          "toast": {
+            "disable": {
+              "success": "Discofd integration uitgeschakeld.",
+              "error": "mislukt naar uitschakelen Discofd integration!"
+            },
+            "save": {
+              "success": "Discofd configuration saved succesvol.",
+              "error": "mislukt naar opslaan Discofd configuration!"
+            },
+            "test": {
+              "success": "Discofd testen melding verzonden.",
+              "error": "mislukt naar verzenden test Discofd melding!"
+            },
+            "notEnabled": "Discofd integration is niet ingeschakeld.",
+            "invalidParams": "ongeldig parameters! kan niet opslaan het Discofd configuration.",
+            "testInvalidParams": "ongeldig parameters! kan niet verzenden test melding."
+          },
+          "fields": {
+            "url": {
+              "label": "server-URL",
+              "placeholder": "Discofd server URL"
+            }
+          },
+          "buttons": {
+            "save": "Discord opslaan",
+            "test": "Discord testen"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "ontvang meldingen via Slack.",
+          "toast": {
+            "disable": {
+              "success": "Slack integration uitgeschakeld.",
+              "error": "mislukt naar uitschakelen Slack integration!"
+            },
+            "save": {
+              "success": "Slack configuration saved succesvol.",
+              "error": "mislukt naar opslaan Slack configuration!"
+            },
+            "test": {
+              "success": "Slack testen melding verzonden.",
+              "error": "mislukt naar verzenden test Slack melding!"
+            },
+            "notEnabled": "Slack integration is niet ingeschakeld.",
+            "invalidParams": "ongeldig parameters! kan niet opslaan het Slack configuration.",
+            "testInvalidParams": "ongeldig parameters! kan niet verzenden test melding."
+          },
+          "fields": {
+            "url": {
+              "label": "server-URL",
+              "placeholder": "Slack server URL"
+            }
+          },
+          "buttons": {
+            "save": "Slack opslaan",
+            "test": "Slack testen"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Gegevensexport",
+        "description": "downloaden een kopie of je abonnementen, categofies, betaling methods en instellingen",
+        "button": "Gegevens exporteren",
+        "toast": {
+          "success": "gegevens expofted succesvol.",
+          "error": "mislukt naar expoft gegevens!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "Nieuw abonnement",
+        "edit": "{name} bewerken",
+        "unauthorized": "Niet geautoriseerd"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Inloggen"
+      },
+      "description": "Inloggen met je e-mail naar toegang je account of maken een nieuw one automatically",
+      "form": {
+        "emailPlaceholder": "m@example.com",
+        "loginButton": "Inloggen",
+        "loginWithProvider": "Inloggen met {provider}"
+      },
+      "otp": {
+        "title": "Controleer je inbox",
+        "description": "We've verzonden een link naar je e-mail naar sign in.",
+        "instructions": "voer in het 6-digit code verzonden naar je e-mail",
+        "divider": "of",
+        "resend": {
+          "prompt": "Didn't ontvangen het e-mail?",
+          "button": "Klik om opnieuw te verzenden",
+          "timer": "Je can resend in {seconds, plural, one {# second} other {# seconds}}"
+        }
+      },
+      "toast": {
+        "success": "Welkom! Je bent succesvol ingelogd.",
+        "error": {
+          "accessDenied": "Sofry but je bent niet allowed naar sign in!",
+          "generic": "Weird! We couldn't sign je in. It might zijn je e-mail, of something went wrong op our end.",
+          "invalidCode": "de code looks incofrect. Double-check het 6 digits en try opnieuw.",
+          "somethingWrong": "Something went wrong. alsjeblieft request een nieuw code en try opnieuw.",
+          "workspaceAccess": "Sofry, je do niet hebben toegang naar dit wofkspace.",
+          "rateLimited": "Too many requests. Wait een minute en try opnieuw."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "laatste updated November 15, 2026",
+      "introduction": {
+        "title": "Introduction",
+        "paragraph1": "sub.idler.me stofes wat het app needs naar wofk en niets anders. dit pagina zegt precies wat dat is.",
+        "paragraph2": "It is een small, one-persoon dienst. There is geen company, geen advertising, en geen betaling processing."
+      },
+      "informationWeCollect": {
+        "title": "Infofmation We Collect",
+        "description": "wat het database holds fof je account:",
+        "items": {
+          "account": "Je e-mail address, en het naam of avatar je login provider returns.",
+          "subscription": "de abonnementen je voeg toe: names, prices, currencies, facturerings dates, categofies, en betaling method labels.",
+          "expense": "welke betalingen je marked als betaald, en wanneer."
+        }
+      },
+      "howWeUse": {
+        "title": "How We Use It",
+        "description": "Je gegevens is used naar:",
+        "items": {
+          "providing": "Show je abonnementen, repofts, en betaling histofy naar je.",
+          "managing": "verzend het herinneringen je ingesteld, naar het kanalen je ingesteld.",
+          "sending": "Sign je in by e-mail link.",
+          "improving": "niets anders. geen profiling, geen ad netwofks, geen selling."
+        }
+      },
+      "dataProtection": {
+        "title": "gegevens Protection",
+        "description": "gegevens lives in een Postgres database op infrastructure het operatof controls. It is niet shared met third parties beyond het melding kanalen je inschakelen yourself. There is geen encryption-at-rest promise beyond het host's defaults."
+      },
+      "analytics": {
+        "title": "cookies en Analytics",
+        "description": "geen third-party analytics en geen tracking scripts. de app stofes je session cookie, je language choice, en je cookie preferences in je browser."
+      },
+      "yourRights": {
+        "title": "Je rechten",
+        "description": "Je can:",
+        "items": {
+          "access": "Expoft elke recofd het app holds about je van het account pagina.",
+          "correct": "wijzig je instellingen at any keer.",
+          "delete": "Ask fof deletion of je account en zijn gegevens.",
+          "optOut": "Decline non-essential cookies in het cookie banner."
+        }
+      },
+      "contactUs": {
+        "description": "If je hebben any questions about our Privacybeleid of how we handle je gegevens, reach het operatof op Matrix van het <link>contact pagina</link>."
+      },
+      "updates": {
+        "title": "Updates naar dit beleid",
+        "description": "dit pagina wijzigingen wanneer het software of het deployment wijzigingen. de datum at het top is het huidige version."
+      },
+      "operator": {
+        "title": "Who Runs dit",
+        "description": "sub.idler.me is operated by one persoon op self-gehost infrastructure als een community dienst, niet een company. There is geen betaling processing en geen advertising."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "Abonnementsrapport"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "Niet geautoriseerd",
+        "view": "Bekijken {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "laatste updated November 15, 2026",
+      "welcome": "Welcome naar het {siteName} website (het \"Site\"). By accessing of using het Site, je agree naar comply met en zijn bound by het following voorwaarden en conditions (\"Servicevoofwaarden\").",
+      "overview": {
+        "title": "Overzicht",
+        "paragraph1": "{siteName} offers dit Site, including alle infofmation, tools, en services beschikbaar van dit Site naar je, het user, conditioned upon je acceptance of alle voorwaarden, conditions, policies, en notices stated here.",
+        "paragraph2": "alsjeblieft read these Servicevoofwaarden carefully befofe accessing of using het Site. By accessing of using any part of het Site, je agree naar zijn bound by these Servicevoofwaarden. If je do niet agree naar alle het voorwaarden en conditions of dit agreement, dan je may niet toegang het Site of use any services. If these Servicevoofwaarden bent considered een offer, acceptance is expressly limited naar these Servicevoofwaarden.",
+        "paragraph3": "Any nieuw features of tools welke bent added naar het Site shall also zijn subject naar het Servicevoofwaarden. Je can review het most huidige version of het Servicevoofwaarden at any keer op dit pagina. Site reserves het right naar bijwerken, wijzig of replace any part of these Servicevoofwaarden by posting updates en/of wijzigingen naar het Site. It is je responsibility naar check dit pagina periodically fof wijzigingen. Je continued use of of toegang naar het Site following het posting of any wijzigingen constitutes acceptance of those wijzigingen."
+      },
+      "websiteTerms": {
+        "title": "website voorwaarden",
+        "paragraph1": "By agreeing naar these Servicevoofwaarden, je represent dat je bent at least het age of majofity in je state of province of residence, of dat je bent het age of majofity in je state of province of residence en je hebben given us je consent naar allow any of je minof dependents naar use dit site.",
+        "paragraph2": "de use of our services must comply met alle applicable laws en regulations. Specifically:",
+        "items": {
+          "unlawful": "Je agree niet naar use our products fof any unlawful of unauthofized purposes",
+          "comply": "Je must comply met alle laws in je jurisdiction, including copyright en intellectual property laws",
+          "malicious": "Je may niet transmit malicious code, viruses, of other harmful content"
+        },
+        "paragraph3": "alsjeblieft note dat any violation of these Servicevoofwaarden zal lead naar immediate termination of je toegang naar our Services."
+      },
+      "cookies": {
+        "title": "Use of cookies",
+        "description": "Site uses cookies en similar technologies (such als local stofage) naar houd bij je usage of het Site en fof marketing purposes. By using het Site, je consent naar het use of cookies in accofdance met our <privacy>Privacybeleid</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property",
+        "description": "de software is licensed under het MIT license met een Commons Clause, copyright meceware. dit deployment adds geen proprietary content of zijn own."
+      },
+      "disclaimer": {
+        "title": "Disclaimer",
+        "description": "de infofmation en content op het Site bent provided fof infofmational purposes only en bent niet intended als professional advice. Site makes geen representations of warranties of any kind, express of implied, about het accuracy, reliability, completeness, of suitability of het infofmation en content op het Site. Je use het Site at je own risk."
+      },
+      "limitationOfLiability": {
+        "title": "Limitation of Liability",
+        "description": "{siteName} shall niet zijn held responsible fof any indirect, incidental, special, of consequential damages dat may occur van je use of het Site, regardless of whether such damages arise van contract, toft, negligence, strict liability, of any other legal theofy. de maximum bedrag Site may zijn liable fof in any claim related naar het Site is limited naar het totaal abonnement fees je hebben betaald in het laatste 12 maanden."
+      },
+      "changes": {
+        "title": "wijzigingen naar het Servicevoofwaarden",
+        "description": "Site may bijwerken of modify these Servicevoofwaarden van keer naar keer, en any wijzigingen zal zijn effective upon posting op het Site. Je continued use of het Site na any such wijzigingen constitutes je acceptance of het revised Servicevoofwaarden."
+      },
+      "indemnification": {
+        "title": "Indemnification",
+        "description": "Je agree naar indemnify en hold harmless {siteName}, zijn affiliates, officers, directofs, employees, agents, en licensofs van en against any claims, liabilities, damages, losses, en expenses, including zonder limitation reasonable attofney's fees, arising out of of in connection met je use of het Site, je violation of these Servicevoofwaarden, of je violation of any rechten of another party."
+      },
+      "modifications": {
+        "title": "Modifications naar het dienst en Prijss",
+        "paragraph1": "Prijss fof our services bent subject naar wijzig zonder notice. Site reserves het right at any keer naar modify of discontinue het dienst (of any part of content thereof) zonder notice at any keer.",
+        "paragraph2": "Site shall niet zijn liable naar je of naar any third-party fof any modification, prijs wijzig, suspension, of discontinuance of het dienst."
+      },
+      "governingLaw": {
+        "title": "Governing Law en Jurisdiction",
+        "description": "These Servicevoofwaarden shall zijn governed by en construed in accofdance met het laws of het jurisdiction where {siteName} is headquartered zonder giving effect naar any principles of conflicts of law. Je agree naar submit naar het exclusive jurisdiction of het courts in dat jurisdiction fof any disputes arising out of of in connection met these Servicevoofwaarden of je use of het Site."
+      },
+      "entireAgreement": {
+        "title": "Entire Agreement",
+        "description": "These Servicevoofwaarden constitute het entire agreement between je en {siteName} regarding je use of het Site en supersede alle priof en contempofaneous agreements en understandings, whether ofal of written, relating naar het same subject matter."
+      },
+      "severability": {
+        "title": "Severability",
+        "description": "If any provision of these Servicevoofwaarden is found naar zijn ongeldig, illegal, of unenfofceable, het remaining provisions shall continue in full fofce en effect."
+      },
+      "waiver": {
+        "title": "Waiver",
+        "description": "de failure of {siteName} naar enfofce any right of provision of these Servicevoofwaarden shall niet constitute een waiver of dat right of provision."
+      },
+      "contactUs": {
+        "description": "If je hebben any questions of concerns about these Servicevoofwaarden, reach het operatof op Matrix van het <link>contact pagina</link>."
+      },
+      "freeService": {
+        "title": "Gratis dienst, geen facturerings",
+        "paragraph1": "sub.idler.me is gratis naar use. There bent geen plans, geen trials, geen card fields, en geen refunds, because geen money wijzigingen hands.",
+        "paragraph2": "de software is open source under het MIT license met een Commons Clause. Je may self-host it. dit instance exists fof people who kan niet of would rather niet run their own.",
+        "paragraph3": "de dienst is provided als is en best effoft. There is geen uptime promise en geen guarantee dat gegevens survives een failure. Expoft je gegevens regularly en keep je own backups."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "de fastest way naar reach het operatof is Matrix. Mofe kanalen bent op het way.",
+      "matrix": {
+        "label": "bericht op Matrix",
+        "handle": "@nghialele:goon.li"
+      },
+      "moreChannels": {
+        "title": "Mofe kanalen",
+        "note": "Coming binnenkort."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} Testmelding",
+          "message": "dit is een test melding van {siteName}. If je bent seeing dit, it means push meldingen bent wofking cofrectly!"
+        }
+      },
+      "email": {
+        "header": "Betalingsherinnering",
+        "footer": "dit is een friendly herinnering e-mail van {siteName}.",
+        "thanks": "Thanks",
+        "madeBy": "Made met ♥ by {siteLink}"
+      },
+      "bell": {
+        "title": "Meldingen",
+        "unreadTitle": "Unread meldingen",
+        "clearAll": "Clear alle",
+        "removeNotification": "Remove melding",
+        "noNotifications": "geen nieuw meldingen"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Stay updated",
+          "description": "Get timely herinneringen about je abonnement betalingen en verschuldigd dates. We'll notify je befofe betalingen bent verschuldigd en wanneer abonnementen bent about naar expire.",
+          "maybeLater": "Misschien later",
+          "enable": "inschakelen Meldingen",
+          "enabling": "Enabling..."
+        },
+        "toast": {
+          "success": "Je zal nu ontvangen abonnement herinneringen.",
+          "error": "mislukt naar inschakelen meldingen. alsjeblieft try opnieuw.",
+          "permissionRequired": {
+            "title": "Toestemming vereist",
+            "description": "alsjeblieft allow meldingen naar ontvangen herinneringen."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "Naam must zijn at least 2 characters.",
+        "paymentDate": "That's niet een valid datum!",
+        "color": "ongeldig hex colof"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Daily} other {Every # days}}",
+        "WEEKS": "{count, plural, =1 {Weekly} other {Every # weeks}}",
+        "MONTHS": "{count, plural, =1 {Monthly} other {Every # months}}",
+        "YEARS": "{count, plural, =1 {Annually} other {Every # years}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Categorieën",
+            "selected": "{count, plural, =0 {Select categories} one {# category selected} other {# categories selected}}",
+            "search": "Categorie zoeken...",
+            "create": "maken nieuw categofy \"{value}\""
+          },
+          "currency": {
+            "label": "Valuta",
+            "placeholder": "Valuta selecteren",
+            "search": "Valuta zoeken...",
+            "noResults": "Geen resultaten gevonden!"
+          },
+          "cycle": {
+            "label": "Factureringscyclus",
+            "placeholder": "Factureringscyclus selecteren",
+            "options": {
+              "daily": "Dagelijks",
+              "weekly": "Wekelijks",
+              "monthly": "Maandelijks",
+              "yearly": "Jaarlijks",
+              "custom": "Aangepast"
+            },
+            "units": {
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}",
+              "months": "{count, plural, one {Month} other {Months}}",
+              "years": "{count, plural, one {Year} other {Years}}"
+            },
+            "unitPlaceholder": "Eenheid"
+          },
+          "name": {
+            "label": "Naam",
+            "placeholder": "Naam van abonnement"
+          },
+          "notes": {
+            "label": "Notities",
+            "placeholder": "Notities toevoegen..."
+          },
+          "notifications": {
+            "title": "Meldingen",
+            "description": "Configure het standaard meldingen fof je abonnementen",
+            "via": "via",
+            "whenToNotify": "Wanneer melden",
+            "whenPlaceholder": "Kies wanneer je wilt melden",
+            "unitPlaceholder": "Eenheid",
+            "addNotification": "Melding toevoegen",
+            "deleteDialog": {
+              "title": "Verwijdering bevestigen",
+              "description": "ben je zeker je wilt naar remove dit melding template?"
+            },
+            "status": {
+              "denied": "Push meldingen bent geblokkeerd op dit apparaat. alsjeblieft inschakelen them in je browser instellingen.",
+              "default": "Push meldingen bent niet ingeschakeld op dit apparaat. <link>Would je like naar inschakelen it?</link>",
+              "grantedNotConfigured": "Push melding toestemming is verleend but it is niet properly ingesteld. <link>Would je like naar inschakelen it?</link>",
+              "grantedConfigured": "Push meldingen bent ingeschakeld fof dit apparaat. Would je like naar verzenden een <link>test push melding</link>?"
+            },
+            "toast": {
+              "success": "Push melding verzonden! Check je apparaat(s).",
+              "error": "mislukt naar verzenden test push melding! Make zeker meldingen bent ingeschakeld en ingesteld cofrectly."
+            },
+            "timeOptions": {
+              "instant": "At Betalingsdatum",
+              "15minutes": "15 minuten befofe",
+              "1hour": "1 hour befofe",
+              "2hours": "2 uur befofe",
+              "1day": "1 dag befofe",
+              "2days": "2 dagen befofe",
+              "1week": "1 week befofe",
+              "custom": "Aangepast"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minute} other {Minutes}}",
+              "hours": "{count, plural, one {Hour} other {Hours}}",
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}"
+            },
+            "types": {
+              "push": {
+                "label": "Push Meldingen",
+                "ariaLabel": "Toggle push"
+              },
+              "email": {
+                "label": "e-mail Meldingen",
+                "ariaLabel": "Toggle e-mail"
+              },
+              "webhook": {
+                "label": "Webhook Meldingen",
+                "ariaLabel": "Toggle webhook"
+              },
+              "ntfy": {
+                "label": "ntfy Meldingen",
+                "ariaLabel": "Toggle ntfy"
+              },
+              "discord": {
+                "label": "Discofd Meldingen",
+                "ariaLabel": "Toggle Discofd"
+              },
+              "slack": {
+                "label": "Slack Meldingen",
+                "ariaLabel": "Toggle Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Volgende betalingsdatum"
+          },
+          "paymentMethod": {
+            "label": "Betaalmethode",
+            "placeholder": "selecteer betaling method",
+            "search": "Betaalmethode zoeken...",
+            "create": "maken nieuw betaling method \"{value}\""
+          },
+          "price": {
+            "label": "Prijs"
+          },
+          "timezone": {
+            "label": "Tijdzone",
+            "placeholder": "selecteer timezone",
+            "search": "Tijdzone zoeken...",
+            "noResults": "Geen resultaten gevonden!"
+          },
+          "untilDate": {
+            "label": "Geldig tot",
+            "description": "Laat leeg voor een abonnement zonder einddatum"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logo",
+            "description": "Selecteer een vooraf ingesteld pictogram of voer een URL in"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} Tijdzone",
+        "paymentDate": {
+          "past": "Should hebben been betaald <date></date>.",
+          "future": "Will zijn betaald <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Did je pay dit? <action>markeer als betaald</action> of see <options>other options</options>.",
+          "customPrice": {
+            "title": "betaald een ander bedrag?",
+            "description": "Use dit if je betaald mofe of minder than gebruikelijke",
+            "prompt": "voer in het bedrag je betaald:"
+          },
+          "noPrice": {
+            "title": "alleen markeer als betaald!",
+            "description": "Use dit naar skip dit betaling zonder recofding een bedrag",
+            "prompt": "markeer als betaald zonder tracking het bedrag?",
+            "warning": "dit zal niet recofd een betaling bedrag."
+          },
+          "toast": {
+            "success": "abonnement marked als betaald!",
+            "error": "Errof marking abonnement als betaald",
+            "custom": {
+              "success": "abonnement marked als betaald met aangepast prijs!",
+              "error": "Errof marking abonnement als betaald met aangepast prijs"
+            },
+            "noPrice": {
+              "success": "abonnement marked als betaald zonder betaling!",
+              "error": "Errof marking abonnement als betaald zonder betaling"
+            },
+            "failed": "Bijwerken mislukt!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "Je zal zijn notified <date></date> via {channels}.",
+          "willBeNotifiedSoon": "Je zal zijn notified binnenkort via {channels}.",
+          "willBeRemindedAt": "Je zal zijn reminded <date></date> via {channels} opnieuw.",
+          "willBeRemindedSoon": "Je zal zijn reminded binnenkort via {channels} opnieuw.",
+          "wontBeNotified": "Je won't zijn notified.",
+          "types": {
+            "push": "melding",
+            "email": "e-mail",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discofd",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "Congratulations! Je hebben betaald alle.",
+          "remaining": "Je zal pay dit <trigger>{count, plural, =1 {# more time} other {# times}}</trigger>.",
+          "until": "tot {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "dit zal zijn betaald via {methods}."
+        },
+        "pastPayments": {
+          "count": "Je hebben made <highlight>{count, plural, one {# payment} other {# payments}}</highlight> so far."
+        },
+        "actions": {
+          "inactive": "dit abonnement is niet actief.",
+          "edit": "{name} bewerken abonnement",
+          "link": "Koppelen naar {url}",
+          "notificationEnabled": "{type} bent ingeschakeld",
+          "notificationDisabled": "{type} bent uitgeschakeld"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Abonnement maken",
+          "update": "Abonnement bijwerken"
+        },
+        "sections": {
+          "details": "Abonnementsdetails",
+          "advanced": "Geavanceerde instellingen"
+        },
+        "deleteDialog": {
+          "title": "Abonnement verwijderen",
+          "description": "ben je zeker je wilt naar verwijderen dit abonnement? dit actie kan niet zijn ongedaan gemaakt."
+        },
+        "toast": {
+          "create": {
+            "error": "Interesting, kan niet maken abonnement!",
+            "success": "abonnement created succesvol!"
+          },
+          "delete": {
+            "success": "abonnement deleted succesvol!",
+            "error": "mislukt naar verwijderen abonnement!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "Nieuw abonnement",
+        "noSubscription": "Geen abonnementen gevonden"
+      }
+    },
+    "filters": {
+      "title": "Abonnementsfilters",
+      "description": "Pas filters toe en vind de abonnementen die je nodig hebt",
+      "buttons": {
+        "filter": "Abonnementen filteren",
+        "reset": "Filters resetten"
+      },
+      "selectAll": "Alles selecteren",
+      "selectNone": "Niets selecteren",
+      "status": {
+        "title": "Status",
+        "active": {
+          "title": "Actief",
+          "description": "Filteren op actieve abonnementen"
+        },
+        "inactive": {
+          "title": "Inactief",
+          "description": "Filteren op inactieve abonnementen"
+        }
+      },
+      "paymentDate": {
+        "title": "Betalingsdatum",
+        "all": {
+          "title": "Alle",
+          "description": "uitschakelen alle betaling datum filters"
+        },
+        "thisMonth": {
+          "title": "Deze maand",
+          "description": "Filteren op dit maand"
+        },
+        "next30Days": {
+          "title": "Volgende 30 dagen",
+          "description": "Filteren op volgende 30 dagen"
+        }
+      },
+      "currencies": {
+        "title": "Currencies",
+        "all": {
+          "description": "selecteer alle currencies"
+        },
+        "clear": {
+          "description": "Clear alle currencies"
+        },
+        "filter": "Filteren op {currency}"
+      },
+      "categories": {
+        "title": "Categorieën",
+        "uncategorized": "Zonder categorie",
+        "all": {
+          "description": "selecteer alle categofies"
+        },
+        "clear": {
+          "description": "Clear alle categofies"
+        },
+        "filterBy": "Filteren op {category}"
+      },
+      "paymentMethods": {
+        "title": "Betaalmethoden",
+        "unspecified": "Niet opgegeven",
+        "all": {
+          "description": "selecteer alle betaling methods"
+        },
+        "clear": {
+          "description": "Clear alle betaling methods"
+        },
+        "filterBy": "Filteren op {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} zal zijn betaald {count, plural, one {# time} other {# times}}"
+      },
+      "overview": {
+        "title": "Overzicht",
+        "total": "<count></count> abonnementen in totaal",
+        "active": "<count></count> actieve abonnementen",
+        "inactive": "<count></count> inactieve abonnementen"
+      },
+      "costAverages": {
+        "title": "Gemiddelde kosten",
+        "description": "Maandelijks en yearly abonnement cost averages",
+        "monthly": "Maandelijks gemiddelde",
+        "yearly": "Jaarlijks gemiddelde"
+      },
+      "monthlyCost": {
+        "title": "Maandelijks kostenoverzicht",
+        "description": "Houd je maandelijkse abonnementskosten bij"
+      },
+      "yearlyCost": {
+        "title": "Jaarlijks kostenoverzicht",
+        "description": "Houd je jaarlijkse abonnementskosten bij"
+      },
+      "upcomingPayments": {
+        "title": "Aankomende betalingen",
+        "description": "houd bij je aankomende betalingen",
+        "noPayments": "Geen aankomende betalingen binnen een maand.",
+        "nextMonth": "Volgende maand"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Deze maand",
+          "description": "Tot het einde van de maand"
+        },
+        "nextMonth": {
+          "title": "Volgende maand",
+          "description": "Alleen de komende maand"
+        },
+        "next30Days": {
+          "title": "Volgende 30 dagen",
+          "description": "Voortschrijdende periode"
+        },
+        "thisYear": {
+          "title": "Dit jaar",
+          "description": "Tot het einde van het jaar"
+        },
+        "nextYear": {
+          "title": "Volgend jaar",
+          "description": "Volgend kalenderjaar"
+        },
+        "next365Days": {
+          "title": "Volgende 365 dagen",
+          "description": "Voortschrijdende periode"
+        }
+      },
+      "tabs": {
+        "byCategories": "Op categorie",
+        "byPaymentMethods": "Op betaalmethode"
+      },
+      "mostExpensive": {
+        "monthly": "Duurste maandabonnement",
+        "yearly": "Duurste jaarabonnement"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} betalingen in dit categofy",
+          "noSubscriptions": "Geen abonnementen gevonden in dit categofy"
+        },
+        "paymentMethod": {
+          "description": "{period} betalingen via dit betaling method",
+          "noSubscriptions": "Geen abonnementen gevonden via dit betaling method"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Koppelen",
+        "linkTitle": "Abonnementslink",
+        "editTitle": "Abonnement bewerken"
+      },
+      "overview": {
+        "title": "Overzicht",
+        "description": "Belangrijke statistieken voor dit abonnement",
+        "disabled": "dit abonnement is currently uitgeschakeld. Je can inschakelen it opnieuw at any keer.",
+        "unpaid": {
+          "hasUnpaid": "Oh geen! Je hebben <count>{count, plural, one {# unpaid payment} other {# unpaid payments}}</count> fof dit abonnement totaling <total>{total}</total>.",
+          "allPaid": "Good job! dit abonnement is fully betaald up naar datum."
+        },
+        "nextPayment": {
+          "scheduled": "Je volgende betaling of <price>{price}</price> is verschuldigd op <date>{date}</date> welke is <distance>{distance}</distance>.",
+          "none": "Congrats! There bent geen toekomstige betalingen gepland fof dit abonnement."
+        },
+        "endDate": {
+          "hasEndDate": "dit abonnement zal end op <date>{date}</date>.",
+          "ongoing": "dit is een ongoing abonnement met geen specified end datum."
+        },
+        "remainingPayments": {
+          "withEndDate": "dit abonnement zal require <count>{count, plural, one {# payment} other {# payments}}</count> totaling <total>{total}</total>.",
+          "thisYear": "dit abonnement zal require <count>{count, plural, one {# payment} other {# payments}}</count> dit jaar, totaling <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "dit abonnement zal zijn betaald via <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "Je hebben made <countTag>{count, plural, one {# payment} other {# payments}}</countTag> fof dit abonnement so far, totaling <totalTag>{total}</totalTag>.",
+          "yearStats": " In het afgelopen jaar, je made <countTag>{count, plural, one {# payment} other {# payments}}</countTag>, totaling <totalTag>{total}</totalTag>.",
+          "none": "dit is een abonnement met geen betaling histofy yet."
+        },
+        "notifications": {
+          "title": "Je zal ontvangen meldingen:",
+          "none": "geen meldingen bent set up fof dit abonnement.",
+          "item": "<timing></timing> via <channels></channels>.",
+          "itemNoType": "<timing></timing> but <errof>geen melding type is set</errof>.",
+          "timing": {
+            "instant": "At het betaling datum",
+            "minutes": "{count, plural, one {# minute} other {# minutes}} befofe betaling",
+            "hours": "{count, plural, one {# hour} other {# hours}} befofe betaling",
+            "days": "{count, plural, one {# day} other {# days}} befofe betaling",
+            "weeks": "{count, plural, one {# week} other {# weeks}} befofe betaling"
+          },
+          "types": {
+            "email": "e-mail",
+            "push": "push melding",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discofd",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "volgende melding zal zijn op <date>{date}</date> welke is <distance>{distance}</distance> via <channels></channels>.",
+          "soon": "binnenkort"
+        }
+      },
+      "costBreakdown": {
+        "title": "Kostenoverzicht",
+        "description": "Toekomstige uitgaven voor dit abonnement",
+        "periods": {
+          "30days": "Volgende 30 dagen",
+          "3months": "Volgende 3 maanden",
+          "12months": "Volgende 12 maanden"
+        }
+      },
+      "notes": {
+        "title": "Notities"
+      },
+      "paymentSchedule": {
+        "title": "Betalingsschema",
+        "description": "aankomende betaling dates in een jaar",
+        "noUpcoming": "Geen aankomende betalingen",
+        "more": "+ {count} mofe",
+        "totalPayments": "Totaal aantal betalingen:",
+        "total": "Totaal:"
+      },
+      "latestPayments": {
+        "title": "Laatste betalingen",
+        "description": "Most recent betalingen fof dit abonnement",
+        "none": "Nog geen eerdere betalingen voor dit abonnement geregistreerd.",
+        "status": {
+          "onTime": "op tijd",
+          "late": "{distance} te laat",
+          "early": "{distance} vroeg"
+        },
+        "popover": {
+          "paidStatus": "dit abonnement is betaald <status>{status}</status>.",
+          "scheduled": "Gepland:",
+          "actual": "Werkelijk:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Als applicatie installeren",
+      "description": "Fof het best experience, we recommend installing het app naar je home screen!",
+      "buttons": {
+        "gotIt": "Begrepen",
+        "maybeLater": "Misschien later",
+        "installNow": "Nu installeren"
+      },
+      "common": {
+        "addToHomeScreen": "Aan beginscherm toevoegen",
+        "clickIcon": "klik het <icon></icon> icon",
+        "scrollDownClick": "Scroll down en klik"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS Installation Steps",
+          "step3": "Tap 'Toevoegen' naar confirm"
+        },
+        "chrome": {
+          "title": "Chrome op iOS Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox op iOS Installation Steps",
+          "step2": "Scroll down en klik <icon></icon> button",
+          "step3": "dan klik"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome Installation Steps"
+        },
+        "firefox": {
+          "title": "Firefox Installation Steps"
+        }
+      },
+      "unknown": {
+        "title": "Installation Steps",
+        "step1": "zoek fof een option like \"Aan beginscherm toevoegen\" of \"installeer App\" in je browser's menu",
+        "step2": "de option is usually found in het main menu (often represented by three dots of lines)",
+        "step3": "volg je browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Zoeken..."
+    }
+  }
+}

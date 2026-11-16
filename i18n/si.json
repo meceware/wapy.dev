@@ -1,0 +1,1134 @@
+{
+  "common": {
+    "add": "එක් කරන්න",
+    "save": "සුරකින්න",
+    "cancel": "අවලංගු කරන්න",
+    "edit": "සංස්කරණය කරන්න",
+    "delete": "මකන්න",
+    "confirm": "තහවුරු කරන්න",
+    "view": "බලන්න",
+    "close": "වසන්න",
+    "contact": "අප අමතන්න",
+    "signIn": "පුරනය වන්න",
+    "termsOfService": "සේවා නියමයන්",
+    "privacyPolicy": "පෞද්ගලිකත්ව ප්‍රතිපත්තිය"
+  },
+  "notifications": {
+    "subscription": {
+      "reminder": {
+        "title": "{siteName}ඔබගේ ගෙවීම් පිළිබඳ නව දැනුම්දීමකි.",
+        "message": "සිහිපත් කිරීමක් ලෙස ඔබගේ {siteName}ඔබගේ ගෙවීම් පිළිබඳ නව දැනුම්දීමකි."
+      },
+      "payment": {
+        "title": {
+          "due": "ඔබගේ ගෙවීම් පිළිබඳ නව දැනුම්දීමකි.{name}",
+          "reminder": "ඔබගේ ගෙවීම් පිළිබඳ නව දැනුම්දීමකි.{name}",
+          "upcoming": "ඔබගේ ගෙවීම් පිළිබඳ නව දැනුම්දීමකි.{name}"
+        },
+        "message": {
+          "due": "ඔබගේ {name} දායකත්වය ගෙවීම ({price}) දැන් ගෙවිය යුතුය!",
+          "reminder": "ඔබගේ {name} දායකත්වය ගෙවීම ({price}) ගෙවීම කල් ඉකුත් වී ඇත!",
+          "upcoming": "ඔබගේ {name} දායකත්වය ගෙවීම ({price}) වේ {dueText}!"
+        },
+        "markAsPaid": "ගෙවූ ලෙස සලකුණු කරන්න",
+        "dismiss": "ඉවතලන්න"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName}ඔබගේ ගෙවීම් පිළිබඳ නව දැනුම්දීමකි.",
+      "footer": "ඔබගේ ගෙවීම් පිළිබඳ නව දැනුම්දීමකි.{siteName}",
+      "visitDashboard": "ඩෑෂ්බෝඩයට යන්න",
+      "paymentQuestion": "ගෙවීම අවසන්ද?",
+      "viewDetails": "විස්තර බලන්න"
+    }
+  },
+  "header": {
+    "signOut": "ඉවත් වන්න",
+    "subscriptions": "දායකත්වයන්",
+    "reports": "වාර්තා",
+    "settings": "සැකසුම්",
+    "account": "ගිණුම"
+  },
+  "footer": {
+    "madeBy": "<author>{name}</author> විසින් බලාපොරොත්තුවෙන් පවත්වාගෙන යයි.",
+    "github": "මූලාශ්‍රය",
+    "menu": "මෙනුව"
+  },
+  "languages": {
+    "selectLanguage": "භාෂාව තෝරන්න",
+    "invalid": "අවලංගු භාෂාව",
+    "failed": "භාෂාව වෙනස් කිරීම අසාර්ථක විය"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+        "title": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+        "subtitle": "{appName}මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+        "tagline": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+      },
+      "features": {
+        "title": "මෙය කරන දේ",
+        "subtitle": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+        "billingCycles": {
+          "title": "නම්‍යශීලී බිල් චක්‍ර",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        },
+        "notifications": {
+          "title": "ස්මාර්ට් දැනුම්දීම්",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        },
+        "reports": {
+          "title": "වාර්තා සහ අවබෝධය",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        },
+        "currencies": {
+          "title": "බහු මුදල් වර්ග",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        },
+        "timezone": {
+          "title": "වේලා කලාප සහාය",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        },
+        "categories": {
+          "title": "ප්‍රවර්ග කළමනාකරණය",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        }
+      },
+      "howItWorks": {
+        "title": "එය ක්‍රියා කරන ආකාරය",
+        "subtitle": "මිනිත්තු කිහිපයකින් ආරම්භ කරන්න",
+        "step1": {
+          "title": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        },
+        "step2": {
+          "title": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        },
+        "step3": {
+          "title": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+          "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        }
+      },
+      "free": {
+        "eyebrow": "නොමිලේ",
+        "title": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+        "description": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+        "price": "€0",
+        "period": "සදාකාලිකව",
+        "features": {
+          "unlimited": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+          "notifications": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+          "reports": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+          "export": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+          "noAds": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+          "bestEffort": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+        },
+        "button": "පුරනය වන්න",
+        "selfHostButton": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න.",
+        "selfHostNote": "මෙම යෙදුම සමඟ ඔබගේ දායකත්ව සහ ගෙවීම් පහසුවෙන් කළමනාකරණය කරන්න."
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "පිටුව හමු නොවීය",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "title": "404",
+      "backToHome": "මුල් පිටුවට"
+    },
+    "account": {
+      "meta": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "defaultSettings": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "timezone": {
+          "label": "වේලා කලාපය",
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        },
+        "currency": {
+          "label": "මුදල් වර්ගය",
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        }
+      },
+      "notifications": {
+        "success": "මෙම විස්තර මෙහි ඇත.",
+        "error": "මෙම විස්තර මෙහි ඇත.",
+        "saveButton": "මෙම විස්තර මෙහි ඇත.",
+        "saveButtonTitle": "මෙම විස්තර මෙහි ඇත."
+      },
+      "profile": {
+        "success": "මෙම විස්තර මෙහි ඇත.",
+        "error": "මෙම විස්තර මෙහි ඇත.",
+        "namePlaceholder": "මෙම විස්තර මෙහි ඇත.",
+        "addNamePrompt": "මෙම විස්තර මෙහි ඇත.",
+        "memberSince": "මෙම විස්තර මෙහි ඇත.{date}"
+      },
+      "categories": {
+        "title": "ප්‍රවර්ග",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "default": {
+          "load": "මෙම විස්තර මෙහි ඇත.",
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        },
+        "save": {
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        },
+        "addButtonTitle": "මෙම විස්තර මෙහි ඇත.",
+        "selectColor": "මෙම විස්තර මෙහි ඇත.",
+        "namePlaceholder": "මෙම විස්තර මෙහි ඇත.",
+        "delete": {
+          "title": "මෙම විස්තර මෙහි ඇත.",
+          "description": "මෙම විස්තර මෙහි ඇත.",
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        },
+        "invalid": "මෙම විස්තර මෙහි ඇත.",
+        "edit": "මෙම විස්තර මෙහි ඇත."
+      },
+      "paymentMethods": {
+        "title": "ගෙවීම් ක්‍රම",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "add": "මෙම විස්තර මෙහි ඇත.",
+        "edit": "මෙම විස්තර මෙහි ඇත.",
+        "invalid": "මෙම විස්තර මෙහි ඇත.",
+        "placeholder": "මෙම විස්තර මෙහි ඇත.",
+        "load": {
+          "title": "මෙම විස්තර මෙහි ඇත.",
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        },
+        "save": {
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        },
+        "delete": {
+          "title": "මෙම විස්තර මෙහි ඇත.",
+          "description": "මෙම විස්තර මෙහි ඇත.",
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        }
+      },
+      "externalServices": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "testNotification": {
+          "title": "{siteName}මෙම විස්තර මෙහි ඇත.",
+          "message": "මෙම විස්තර මෙහි ඇත.{service}මෙම විස්තර මෙහි ඇත.{siteName}. ඔබගේ {service}මෙම විස්තර මෙහි ඇත."
+        },
+        "ntfy": {
+          "title": "මෙම විස්තර මෙහි ඇත.",
+          "description": "මෙම විස්තර මෙහි ඇත.",
+          "toast": {
+            "disable": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "save": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "test": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "notEnabled": "මෙම විස්තර මෙහි ඇත.",
+            "invalidParams": "මෙම විස්තර මෙහි ඇත.",
+            "testInvalidParams": "මෙම විස්තර මෙහි ඇත."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "මෙම විස්තර මෙහි ඇත.",
+              "placeholder": "මෙම විස්තර මෙහි ඇත."
+            },
+            "topic": {
+              "label": "මෙම විස්තර මෙහි ඇත."
+            },
+            "token": {
+              "label": "ප්‍රවේශ ටෝකනය (විකල්ප)",
+              "placeholder": "ප්‍රවේශ ටෝකනය"
+            }
+          },
+          "buttons": {
+            "save": "මෙම විස්තර මෙහි ඇත.",
+            "test": "මෙම විස්තර මෙහි ඇත."
+          }
+        },
+        "webhook": {
+          "title": "වෙබ්හුක්",
+          "description": "මෙම විස්තර මෙහි ඇත.",
+          "toast": {
+            "disable": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "save": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "test": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "notEnabled": "මෙම විස්තර මෙහි ඇත.",
+            "invalidParams": "මෙම විස්තර මෙහි ඇත.",
+            "testInvalidParams": "මෙම විස්තර මෙහි ඇත."
+          },
+          "fields": {
+            "url": {
+              "label": "මෙම විස්තර මෙහි ඇත.",
+              "placeholder": "මෙම විස්තර මෙහි ඇත."
+            }
+          },
+          "buttons": {
+            "save": "මෙම විස්තර මෙහි ඇත.",
+            "test": "මෙම විස්තර මෙහි ඇත."
+          }
+        },
+        "discord": {
+          "title": "මෙම විස්තර මෙහි ඇත.",
+          "description": "මෙම විස්තර මෙහි ඇත.",
+          "toast": {
+            "disable": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "save": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "test": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "notEnabled": "මෙම විස්තර මෙහි ඇත.",
+            "invalidParams": "මෙම විස්තර මෙහි ඇත.",
+            "testInvalidParams": "මෙම විස්තර මෙහි ඇත."
+          },
+          "fields": {
+            "url": {
+              "label": "මෙම විස්තර මෙහි ඇත.",
+              "placeholder": "මෙම විස්තර මෙහි ඇත."
+            }
+          },
+          "buttons": {
+            "save": "මෙම විස්තර මෙහි ඇත.",
+            "test": "මෙම විස්තර මෙහි ඇත."
+          }
+        },
+        "slack": {
+          "title": "මෙම විස්තර මෙහි ඇත.",
+          "description": "මෙම විස්තර මෙහි ඇත.",
+          "toast": {
+            "disable": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "save": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "test": {
+              "success": "මෙම විස්තර මෙහි ඇත.",
+              "error": "මෙම විස්තර මෙහි ඇත."
+            },
+            "notEnabled": "මෙම විස්තර මෙහි ඇත.",
+            "invalidParams": "මෙම විස්තර මෙහි ඇත.",
+            "testInvalidParams": "මෙම විස්තර මෙහි ඇත."
+          },
+          "fields": {
+            "url": {
+              "label": "මෙම විස්තර මෙහි ඇත.",
+              "placeholder": "මෙම විස්තර මෙහි ඇත."
+            }
+          },
+          "buttons": {
+            "save": "මෙම විස්තර මෙහි ඇත.",
+            "test": "මෙම විස්තර මෙහි ඇත."
+          }
+        }
+      },
+      "dataExport": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "button": "මෙම විස්තර මෙහි ඇත.",
+        "toast": {
+          "success": "මෙම විස්තර මෙහි ඇත.",
+          "error": "මෙම විස්තර මෙහි ඇත."
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "නව දායකත්වය",
+        "edit": "සංස්කරණය කරන්න {name}",
+        "unauthorized": "අවසර නොමැත"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "මෙම විස්තර මෙහි ඇත."
+      },
+      "description": "මෙම විස්තර මෙහි ඇත.",
+      "form": {
+        "emailPlaceholder": "මෙම විස්තර මෙහි ඇත.",
+        "loginButton": "පුරනය වන්න",
+        "loginWithProvider": "පුරනය වන්න සමඟ {provider}"
+      },
+      "otp": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "instructions": "මෙම විස්තර මෙහි ඇත.",
+        "divider": "හෝ",
+        "resend": {
+          "prompt": "මෙම විස්තර මෙහි ඇත.",
+          "button": "මෙම විස්තර මෙහි ඇත.",
+          "timer": "මෙම විස්තර මෙහි ඇත.{seconds, plural, one {# second} other {# seconds}}"
+        }
+      },
+      "toast": {
+        "success": "මෙම විස්තර මෙහි ඇත.",
+        "error": {
+          "accessDenied": "මෙම විස්තර මෙහි ඇත.",
+          "generic": "මෙම විස්තර මෙහි ඇත.",
+          "invalidCode": "මෙම විස්තර මෙහි ඇත.",
+          "somethingWrong": "මෙම විස්තර මෙහි ඇත.",
+          "workspaceAccess": "මෙම විස්තර මෙහි ඇත.",
+          "rateLimited": "මෙම විස්තර මෙහි ඇත."
+        }
+      }
+    },
+    "privacy": {
+      "lastUpdated": "මෙම විස්තර මෙහි ඇත.",
+      "introduction": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph1": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph2": "මෙම විස්තර මෙහි ඇත."
+      },
+      "informationWeCollect": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "items": {
+          "account": "මෙම විස්තර මෙහි ඇත.",
+          "subscription": "මෙම විස්තර මෙහි ඇත.",
+          "expense": "මෙම විස්තර මෙහි ඇත."
+        }
+      },
+      "howWeUse": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "items": {
+          "providing": "මෙම විස්තර මෙහි ඇත.",
+          "managing": "මෙම විස්තර මෙහි ඇත.",
+          "sending": "මෙම විස්තර මෙහි ඇත.",
+          "improving": "මෙම විස්තර මෙහි ඇත."
+        }
+      },
+      "dataProtection": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "analytics": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "yourRights": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.",
+        "items": {
+          "access": "මෙම විස්තර මෙහි ඇත.",
+          "correct": "මෙම විස්තර මෙහි ඇත.",
+          "delete": "මෙම විස්තර මෙහි ඇත.",
+          "optOut": "මෙම විස්තර මෙහි ඇත."
+        }
+      },
+      "contactUs": {
+        "description": "මෙම විස්තර මෙහි ඇත.<link>මෙම විස්තර මෙහි ඇත.</link>."
+      },
+      "updates": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "operator": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "මෙම විස්තර මෙහි ඇත."
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "අවසර නොමැත",
+        "view": "මෙම විස්තර මෙහි ඇත.{name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "මෙම විස්තර මෙහි ඇත.",
+      "welcome": "මෙම විස්තර මෙහි ඇත.{siteName}මෙම විස්තර මෙහි ඇත.",
+      "overview": {
+        "title": "දළ විශ්ලේෂණය",
+        "paragraph1": "{siteName}මෙම විස්තර මෙහි ඇත.",
+        "paragraph2": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph3": "මෙම විස්තර මෙහි ඇත."
+      },
+      "websiteTerms": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph1": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph2": "මෙම විස්තර මෙහි ඇත.",
+        "items": {
+          "unlawful": "මෙම විස්තර මෙහි ඇත.",
+          "comply": "මෙම විස්තර මෙහි ඇත.",
+          "malicious": "මෙම විස්තර මෙහි ඇත."
+        },
+        "paragraph3": "මෙම විස්තර මෙහි ඇත."
+      },
+      "cookies": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.<privacy>මෙම විස්තර මෙහි ඇත.</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "disclaimer": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "limitationOfLiability": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "{siteName}මෙම විස්තර මෙහි ඇත."
+      },
+      "changes": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "indemnification": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.{siteName}මෙම විස්තර මෙහි ඇත."
+      },
+      "modifications": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph1": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph2": "මෙම විස්තර මෙහි ඇත."
+      },
+      "governingLaw": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.{siteName}මෙම විස්තර මෙහි ඇත."
+      },
+      "entireAgreement": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.{siteName}මෙම විස්තර මෙහි ඇත."
+      },
+      "severability": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත."
+      },
+      "waiver": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "description": "මෙම විස්තර මෙහි ඇත.{siteName}මෙම විස්තර මෙහි ඇත."
+      },
+      "contactUs": {
+        "description": "මෙම විස්තර මෙහි ඇත.<link>මෙම විස්තර මෙහි ඇත.</link>."
+      },
+      "freeService": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph1": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph2": "මෙම විස්තර මෙහි ඇත.",
+        "paragraph3": "මෙම විස්තර මෙහි ඇත."
+      }
+    },
+    "contact": {
+      "title": "සම්බන්ධ වන්න",
+      "description": "මෙම විස්තර මෙහි ඇත.",
+      "matrix": {
+        "label": "මෙම විස්තර මෙහි ඇත.",
+        "handle": "මෙම විස්තර මෙහි ඇත."
+      },
+      "moreChannels": {
+        "title": "මෙම විස්තර මෙහි ඇත.",
+        "note": "ළඟදීම පැමිණේ."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "දැනුම්දීම {siteName}",
+          "message": "දැනුම්දීම {siteName}"
+        }
+      },
+      "email": {
+        "header": "ගෙවීම් සිහිකැඳවීම",
+        "footer": "මෙම is a friendly සිහිකැඳවීම email සිට {siteName}.",
+        "thanks": "ස්තුතියි",
+        "madeBy": "{siteLink} විසින් ආදරයෙන් සාදන ලදී"
+      },
+      "bell": {
+        "title": "දැනුම්දීම්",
+        "unreadTitle": "දැනුම්දීම",
+        "clearAll": "සියල්ල හිස් කරන්න",
+        "removeNotification": "දැනුම්දීම ඉවත් කරන්න",
+        "noNotifications": "නැත නව දැනුම්දීම්"
+      },
+      "toggle": {
+        "modal": {
+          "title": "යාවත්කාලීනව සිටින්න",
+          "description": "දායකත්වය",
+          "maybeLater": "පසුව",
+          "enable": "දැනුම්දීම් සක්‍රීය කරන්න",
+          "enabling": "සක්‍රීය කරමින්..."
+        },
+        "toast": {
+          "success": "දායකත්වය",
+          "error": "අසාර්ථක විය වෙත enable දැනුම්දීම්. කරුණාකර try again.",
+          "permissionRequired": {
+            "title": "අවසරය අවශ්‍යයි",
+            "description": "දැනුම්දීම"
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "නමට අවම වශයෙන් අක්ෂර 2ක් තිබිය යුතුය.",
+        "paymentDate": "එය වලංගු දිනයක් නොවේ!",
+        "color": "අවලංගු හෙක්ස් වර්ණයකි"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Daily} other {Every # days}}",
+        "WEEKS": "{count, plural, =1 {Weekly} other {Every # weeks}}",
+        "MONTHS": "{count, plural, =1 {Monthly} other {Every # months}}",
+        "YEARS": "{count, plural, =1 {Annually} other {Every # years}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "ප්‍රවර්ග",
+            "selected": "{count, plural, =0 {Select categories} one {# category selected} other {# categories selected}}",
+            "search": "ප්‍රවර්ගය සොයන්න...",
+            "create": "සාදන්න new category \"{value}\""
+          },
+          "currency": {
+            "label": "මුදල් වර්ගය",
+            "placeholder": "තෝරන්න",
+            "search": "මුදල් වර්ගය සොයන්න...",
+            "noResults": "ප්‍රතිඵල හමු නොවීය!"
+          },
+          "cycle": {
+            "label": "බිල් චක්‍රය",
+            "placeholder": "බිල් චක්‍රය තෝරන්න",
+            "options": {
+              "daily": "දිනපතා",
+              "weekly": "සතිපතා",
+              "monthly": "මාසික",
+              "yearly": "වාර්ෂික",
+              "custom": "අභිරුචි"
+            },
+            "units": {
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}",
+              "months": "{count, plural, one {Month} other {Months}}",
+              "years": "{count, plural, one {Year} other {Years}}"
+            },
+            "unitPlaceholder": "ඒකකය"
+          },
+          "name": {
+            "label": "නම",
+            "placeholder": "දායකත්වය"
+          },
+          "notes": {
+            "label": "සටහන්",
+            "placeholder": "සටහන් එක් කරන්න..."
+          },
+          "notifications": {
+            "title": "දැනුම්දීම්",
+            "description": "දැනුම්දීම",
+            "via": "හරහා",
+            "whenToNotify": "දැනුම් දිය යුතු වේලාව",
+            "whenPlaceholder": "තෝරන්න",
+            "unitPlaceholder": "ඒකකය",
+            "addNotification": "දැනුම්දීම එක් කරන්න",
+            "deleteDialog": {
+              "title": "මැකීම තහවුරු කරන්න",
+              "description": "දැනුම්දීම"
+            },
+            "status": {
+              "denied": "දැනුම්දීම",
+              "default": "දැනුම්දීම <link> </link>",
+              "grantedNotConfigured": "දැනුම්දීම <link> </link>",
+              "grantedConfigured": "දැනුම්දීම <link> </link>"
+            },
+            "toast": {
+              "success": "දැනුම්දීම",
+              "error": "අසාර්ථක විය වෙත send test push දැනුම්දීම! Make sure දැනුම්දීම් are enabled සහ configured correctly."
+            },
+            "timeOptions": {
+              "instant": "ගෙවීම් දිනයේදී",
+              "15minutes": "15 මිනිත්තු පෙර",
+              "1hour": "1 පැය පෙර",
+              "2hours": "2 පැය පෙර",
+              "1day": "1 දින පෙර",
+              "2days": "2 දින පෙර",
+              "1week": "1 සතිය පෙර",
+              "custom": "අභිරුචි"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minute} other {Minutes}}",
+              "hours": "{count, plural, one {Hour} other {Hours}}",
+              "days": "{count, plural, one {Day} other {Days}}",
+              "weeks": "{count, plural, one {Week} other {Weeks}}"
+            },
+            "types": {
+              "push": {
+                "label": "දැනුම්දීම",
+                "ariaLabel": "දැනුම්දීම් ටොගල් කරන්න"
+              },
+              "email": {
+                "label": "දැනුම්දීම",
+                "ariaLabel": "දැනුම්දීම් ටොගල් කරන්න"
+              },
+              "webhook": {
+                "label": "දැනුම්දීම",
+                "ariaLabel": "දැනුම්දීම් ටොගල් කරන්න"
+              },
+              "ntfy": {
+                "label": "දැනුම්දීම",
+                "ariaLabel": "දැනුම්දීම් ටොගල් කරන්න"
+              },
+              "discord": {
+                "label": "දැනුම්දීම",
+                "ariaLabel": "දැනුම්දීම් ටොගල් කරන්න"
+              },
+              "slack": {
+                "label": "දැනුම්දීම",
+                "ariaLabel": "දැනුම්දීම් ටොගල් කරන්න"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "ඊළඟ ගෙවීම් දිනය"
+          },
+          "paymentMethod": {
+            "label": "ගෙවීම් ක්‍රමය",
+            "placeholder": "ගෙවීම් ක්‍රමය තෝරන්න",
+            "search": "ගෙවීම් ක්‍රමය සොයන්න...",
+            "create": "ගෙවීම {value}"
+          },
+          "price": {
+            "label": "මිල"
+          },
+          "timezone": {
+            "label": "වේලා කලාපය",
+            "placeholder": "තෝරන්න",
+            "search": "වේලා කලාපය සොයන්න...",
+            "noResults": "ප්‍රතිඵල හමු නොවීය!"
+          },
+          "untilDate": {
+            "label": "දැනුම්දීම්",
+            "description": "අවසන් දිනයක් නොමැති දායකත්වයක් සඳහා හිස්ව තබන්න"
+          },
+          "url": {
+            "label": "දැනුම්දීම්"
+          },
+          "logo": {
+            "label": "දැනුම්දීම්",
+            "description": "පෙරනිර්ණිත අයිකනයක් තෝරන්න හෝ URL එකක් ඇතුළත් කරන්න"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} වේලා කලාපය",
+        "paymentDate": {
+          "past": "<date></date> ගෙවා තිබිය යුතු විය.",
+          "future": "<date></date> ගෙවනු ලැබේ."
+        },
+        "markAsPaid": {
+          "question": "Did ඔබ pay මෙම? <action>Mark as paid</action> හෝ see <options>other options</options>.",
+          "customPrice": {
+            "title": "විස්තර",
+            "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත.",
+            "prompt": "Enter මෙම amount ඔබ paid:"
+          },
+          "noPrice": {
+            "title": "විස්තර",
+            "description": "ගෙවීම",
+            "prompt": "Mark as paid නොමැතිව tracking මෙම amount?",
+            "warning": "ගෙවීම"
+          },
+          "toast": {
+            "success": "දායකත්වය",
+            "error": "දෝෂය marking දායකත්වය as paid",
+            "custom": {
+              "success": "දායකත්වය",
+              "error": "දෝෂය marking දායකත්වය as paid සමඟ custom price"
+            },
+            "noPrice": {
+              "success": "දායකත්වය",
+              "error": "දෝෂය marking දායකත්වය as paid නොමැතිව ගෙවීම"
+            },
+            "failed": "කිරීමට නොහැකි විය යාවත්කාලීන කරන්න!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "ඔබ will be notified <date></date> හරහා {channels}.",
+          "willBeNotifiedSoon": "ඔබ will be notified soon හරහා {channels}.",
+          "willBeRemindedAt": "ඔබ will be reminded <date></date> හරහා {channels} again.",
+          "willBeRemindedSoon": "ඔබ will be reminded soon හරහා {channels} again.",
+          "wontBeNotified": "ඔබට දැනුම් නොදෙනු ඇත.",
+          "types": {
+            "push": "දැනුම්දීම",
+            "email": "ඊමේල්",
+            "webhook": "වෙබ්හුක්",
+            "ntfy": "ntfy",
+            "discord": "Discord",
+            "slack": "Slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "සුබ පැතුම්! සියලු ගෙවීම් සිදු කර ඇත.",
+          "remaining": "ඔබ will pay මෙම <trigger>{count, plural, =1 {# more time} other {# times}}</trigger>.",
+          "until": "Until {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "මෙය {methods} හරහා ගෙවනු ලැබේ."
+        },
+        "pastPayments": {
+          "count": "ගෙවීම <highlight> {count, plural, one {# payment} other {# payments}} </highlight>"
+        },
+        "actions": {
+          "inactive": "දායකත්වය",
+          "edit": "දායකත්වය {name}",
+          "link": "{url} වෙත සබැඳිය",
+          "notificationEnabled": "{type} සක්‍රීය කර ඇත",
+          "notificationDisabled": "{type} අක්‍රීය කර ඇත"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "දායකත්වය සාදන්න",
+          "update": "දායකත්වය යාවත්කාලීන කරන්න"
+        },
+        "sections": {
+          "details": "දායකත්ව විස්තර",
+          "advanced": "උසස් සැකසුම්"
+        },
+        "deleteDialog": {
+          "title": "මකන්න",
+          "description": "දායකත්වය"
+        },
+        "toast": {
+          "create": {
+            "error": "දායකත්වය",
+            "success": "දායකත්වය created සාර්ථකව!"
+          },
+          "delete": {
+            "success": "දායකත්වය deleted සාර්ථකව!",
+            "error": "කිරීමට නොහැකි විය මකන්න දායකත්වය!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "නව දායකත්වය",
+        "noSubscription": "දායකත්ව හමු නොවීය"
+      }
+    },
+    "filters": {
+      "title": "දායකත්වය",
+      "description": "දායකත්වය",
+      "buttons": {
+        "filter": "දායකත්ව පෙරහන් කරන්න",
+        "reset": "පෙරහන් යළි සකසන්න"
+      },
+      "selectAll": "සියල්ල තෝරන්න",
+      "selectNone": "කිසිවක් තෝරා නොගන්න",
+      "status": {
+        "title": "තත්ත්වය",
+        "active": {
+          "title": "සක්‍රීය",
+          "description": "දායකත්වය"
+        },
+        "inactive": {
+          "title": "අක්‍රීය",
+          "description": "දායකත්වය"
+        }
+      },
+      "paymentDate": {
+        "title": "ගෙවීම",
+        "all": {
+          "title": "සියල්ල",
+          "description": "ගෙවීම"
+        },
+        "thisMonth": {
+          "title": "මෙම මාසය",
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        },
+        "next30Days": {
+          "title": "ඊළඟ දින 30",
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        }
+      },
+      "currencies": {
+        "title": "විස්තර",
+        "all": {
+          "description": "තෝරන්න"
+        },
+        "clear": {
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        },
+        "filter": "Filter by {currency}"
+      },
+      "categories": {
+        "title": "ප්‍රවර්ග",
+        "uncategorized": "Uncategorized",
+        "all": {
+          "description": "තෝරන්න"
+        },
+        "clear": {
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        },
+        "filterBy": "Filter by {category}"
+      },
+      "paymentMethods": {
+        "title": "ගෙවීම් ක්‍රම",
+        "unspecified": "Unspecified",
+        "all": {
+          "description": "තෝරන්න"
+        },
+        "clear": {
+          "description": "ගෙවීම"
+        },
+        "filterBy": "Filter by {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} will be paid {count, plural, one {# time} other {# times}}"
+      },
+      "overview": {
+        "title": "දළ විශ්ලේෂණය",
+        "total": "දායකත්වය <count> </count>",
+        "active": "දායකත්වය <count> </count>",
+        "inactive": "දායකත්වය <count> </count>"
+      },
+      "costAverages": {
+        "title": "විස්තර",
+        "description": "දායකත්වය",
+        "monthly": "මාසික Average",
+        "yearly": "වාර්ෂික Average"
+      },
+      "monthlyCost": {
+        "title": "විස්තර",
+        "description": "දායකත්වය"
+      },
+      "yearlyCost": {
+        "title": "විස්තර",
+        "description": "දායකත්වය"
+      },
+      "upcomingPayments": {
+        "title": "ගෙවීම",
+        "description": "ගෙවීම",
+        "noPayments": "ගෙවීම",
+        "nextMonth": "ඊළඟ මාසය"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "මෙම මාසය",
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        },
+        "nextMonth": {
+          "title": "ඊළඟ මාසය",
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        },
+        "next30Days": {
+          "title": "ඊළඟ දින 30",
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        },
+        "thisYear": {
+          "title": "විස්තර",
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        },
+        "nextYear": {
+          "title": "විස්තර",
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        },
+        "next365Days": {
+          "title": "විස්තර",
+          "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත."
+        }
+      },
+      "tabs": {
+        "byCategories": "By ප්‍රවර්ග",
+        "byPaymentMethods": "ගෙවීම"
+      },
+      "mostExpensive": {
+        "monthly": "දායකත්වය",
+        "yearly": "දායකත්වය"
+      },
+      "modal": {
+        "category": {
+          "description": "ගෙවීම {period}",
+          "noSubscriptions": "දායකත්වය"
+        },
+        "paymentMethod": {
+          "description": "ගෙවීම {period}",
+          "noSubscriptions": "දායකත්වය"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Link",
+        "linkTitle": "දායකත්වය",
+        "editTitle": "දායකත්වය"
+      },
+      "overview": {
+        "title": "දළ විශ්ලේෂණය",
+        "description": "දායකත්වය",
+        "disabled": "දායකත්වය",
+        "unpaid": {
+          "hasUnpaid": "දායකත්වය <count> {count, plural, one {# unpaid payment} other {# unpaid payments}} </count> <total> {total} </total>",
+          "allPaid": "දායකත්වය"
+        },
+        "nextPayment": {
+          "scheduled": "ගෙවීම <price> {price} </price> <date> {date} </date> <distance> {distance} </distance>",
+          "none": "දායකත්වය"
+        },
+        "endDate": {
+          "hasEndDate": "දායකත්වය <date> {date} </date>",
+          "ongoing": "දායකත්වය"
+        },
+        "remainingPayments": {
+          "withEndDate": "දායකත්වය <count> {count, plural, one {# payment} other {# payments}} </count> <total> {total} </total>",
+          "thisYear": "දායකත්වය <count> {count, plural, one {# payment} other {# payments}} </count> <total> {total} </total>"
+        },
+        "paymentMethods": {
+          "text": "දායකත්වය <methods> </methods>"
+        },
+        "pastPayments": {
+          "hasPast": "දායකත්වය <countTag> {count, plural, one {# payment} other {# payments}} </countTag> <totalTag> {total} </totalTag>",
+          "yearStats": "ගෙවීම <countTag> {count, plural, one {# payment} other {# payments}} </countTag> <totalTag> {total} </totalTag>",
+          "none": "දායකත්වය"
+        },
+        "notifications": {
+          "title": "දැනුම්දීම",
+          "none": "මෙම දායකත්වය සඳහා දැනුම්දීම් සකසා නැත.",
+          "item": "<timing></timing> හරහා <channels></channels>.",
+          "itemNoType": "<timing></timing> but <error>no දැනුම්දීම type is set</error>.",
+          "timing": {
+            "instant": "ගෙවීම",
+            "minutes": "{count, plural, one {# minute} other {# minutes}} පෙර ගෙවීම",
+            "hours": "{count, plural, one {# hour} other {# hours}} පෙර ගෙවීම",
+            "days": "{count, plural, one {# day} other {# days}} පෙර ගෙවීම",
+            "weeks": "{count, plural, one {# week} other {# weeks}} පෙර ගෙවීම"
+          },
+          "types": {
+            "email": "email",
+            "push": "දැනුම්දීම",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "දැනුම්දීම <date> {date} </date> <distance> {distance} </distance> <channels> </channels>",
+          "soon": "ළඟදීම"
+        }
+      },
+      "costBreakdown": {
+        "title": "පිරිවැය විස්තරය",
+        "description": "දායකත්වය",
+        "periods": {
+          "30days": "ඊළඟ 30 days",
+          "3months": "ඊළඟ 3 months",
+          "12months": "ඊළඟ 12 months"
+        }
+      },
+      "notes": {
+        "title": "සටහන්"
+      },
+      "paymentSchedule": {
+        "title": "ගෙවීම් කාලසටහන",
+        "description": "ගෙවීම",
+        "noUpcoming": "ඉදිරි ගෙවීම් නැත",
+        "more": "+ {count} තවත්",
+        "totalPayments": "මුළු ගෙවීම්:",
+        "total": "මුළු එකතුව:"
+      },
+      "latestPayments": {
+        "title": "නවතම ගෙවීම්",
+        "description": "දායකත්වය",
+        "none": "දායකත්වය",
+        "status": {
+          "onTime": "වේලාවට",
+          "late": "{distance} late",
+          "early": "{distance} early"
+        },
+        "popover": {
+          "paidStatus": "දායකත්වය <status> {status} </status>",
+          "scheduled": "කාලසටහන්ගත:",
+          "actual": "සැබෑ:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "විස්තර",
+      "description": "මෙම විශේෂාංගය සඳහා විස්තර මෙහි ඇත.",
+      "buttons": {
+        "gotIt": "තේරුණා",
+        "maybeLater": "පසුව",
+        "installNow": "දැන් ස්ථාපනය කරන්න"
+      },
+      "common": {
+        "addToHomeScreen": "මුල් තිරයට එක් කරන්න",
+        "clickIcon": "Click මෙම <icon></icon> icon",
+        "scrollDownClick": "Scroll down සහ click"
+      },
+      "ios": {
+        "safari": {
+          "title": "විස්තර",
+          "step3": "Tap 'එක් කරන්න' වෙත confirm"
+        },
+        "chrome": {
+          "title": "විස්තර"
+        },
+        "firefox": {
+          "title": "විස්තර",
+          "step2": "Scroll down සහ click <icon></icon> button",
+          "step3": "Then click"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "විස්තර"
+        },
+        "firefox": {
+          "title": "විස්තර"
+        }
+      },
+      "unknown": {
+        "title": "විස්තර",
+        "step1": "Look සඳහා an option like \"එක් කරන්න වෙත Home Screen\" හෝ \"Install App\" in ඔබගේ browser's menu",
+        "step2": "මෙම option is usually found in මෙම main menu (often represented by three dots හෝ lines)",
+        "step3": "Follow ඔබගේ browser's specific installation prompts"
+      }
+    },
+    "searchBar": {
+      "placeholder": "සොයන්න..."
+    }
+  }
+}

@@ -114,7 +114,7 @@ export const CategoryFieldManager = ({ field, categories }) => {
             <span className='truncate'>
               {t('selected', { count: selectedCategories.length })}
             </span>
-            <Icons.down className='ml-2 size-4 shrink-0 opacity-50' />
+            <Icons.down className='ms-2 size-4 shrink-0 opacity-50' />
           </Button>
         </PopoverTrigger>
         <PopoverContent className='p-0 w-75 sm:w-lg' align='start'>
@@ -166,7 +166,7 @@ export const CategoryFieldManager = ({ field, categories }) => {
             style={{backgroundColor: `${color}`}}
           >
             {name}
-            <Icons.x className='ml-2 h-4 w-4 cursor-pointer' onClick={() => deleteCategory(name)} />
+            <Icons.x className='ms-2 h-4 w-4 cursor-pointer' onClick={() => deleteCategory(name)} />
           </Badge>
         ))}
       </div>

@@ -211,7 +211,7 @@ const SubscriptionMarkAsPaid = ({ subscription }) => {
       </div>
       {altOptExpanded && (
         <div>
-          <div className='flex flex-col gap-4 px-4 py-2 rounded-lg border-l-4 border-l-muted-background'>
+          <div className='flex flex-col gap-4 px-4 py-2 rounded-lg border-s-4 border-s-muted-background'>
             {altOptStep === 'initial' && (
               <>
                 <div>
@@ -586,15 +586,15 @@ export const SubscriptionCard = ({ subscription, externalServices }) => {
             </div>
             <div className='w-full text-sm text-muted-foreground truncate'>
               <span className='font-medium text-lg text-foreground'>
-                {formatPrice(subscription.price, subscription.currency)}
+                {formatPrice(subscription.price, subscription.currency, locale)}
               </span>
-              <span className='ml-1'>
+              <span className='ms-1'>
                 / {tCycle(subscription.cycle.time, { count: subscription.cycle.every })}
               </span>
             </div>
           </div>
           <div className='relative shrink-0 size-16 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-800'>
-            <div className={cn('size-4 rounded-full absolute top-0 right-0 ring-2 ring-background', {'bg-green-600': subscription.enabled}, {'bg-red-600': !subscription.enabled})}>
+            <div className={cn('size-4 rounded-full absolute top-0 end-0 ring-2 ring-background', {'bg-green-600': subscription.enabled}, {'bg-red-600': !subscription.enabled})}>
             </div>
             <LogoIcon icon={parsedIcon}>
               <span className='text-2xl'>{subscription.name[0].toUpperCase()}</span>

@@ -1,15 +1,24 @@
 import { DefaultCurrencies } from '@/config/currencies';
+import { getLanguageConfig } from '@/config/languages';
 import { differenceInDays, differenceInWeeks, differenceInMonths, differenceInYears } from 'date-fns';
 
-export const formatPrice = (price, currencySymbol) => {
-  const currency = DefaultCurrencies[currencySymbol] || DefaultCurrencies.EUR;
-  const decimals = currency.decimals ?? 2;
-  // de-DE grouping gives dot thousands separators, e.g. 1.500.000 ₫
-  const amount = Number(price).toLocaleString('de-DE', {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  });
+const numberFormatters = new Map();
 
+const getNumberFormatter = (locale, decimals) => {
+  const key = `${locale}:${decimals}`;
+  if (!numberFormatters.has(key)) {
+    numberFormatters.set(key, new Intl.NumberFormat(locale, {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }));
+  }
+  return numberFormatters.get(key);
+};
+
+export const formatPrice = (price, currencyCode, locale) => {
+  const currency = DefaultCurrencies[currencyCode] || DefaultCurrencies.EUR;
+  const decimals = currency.decimals ?? 2;
+  const amount = getNumberFormatter(getLanguageConfig(locale).numberLocale || locale, decimals).format(Number(price));
   return currency.position === 'before'
     ? `${currency.symbol}${amount}`
     : `${amount} ${currency.symbol}`;

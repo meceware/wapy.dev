@@ -47,7 +47,7 @@ const HeaderBase = ({ mainNavigation = (<></>), iconNavigation = (<></>) }) => {
         <div className='h-16 flex items-center justify-between'>
           {/* Logo and Brand */}
           <div className='flex'>
-            <Link href='/' title={siteConfig.name} className='inline-flex items-center space-x-2'>
+            <Link href='/' title={siteConfig.name} className='inline-flex items-center gap-2'>
               <Image
                 src='/icons/icon-32.png'
                 alt={siteConfig.name}

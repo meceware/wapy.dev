@@ -265,7 +265,7 @@ export async function GET() {
           : 'message.upcoming',
       {
         name: subscription.name,
-        price: formatPrice(subscription.price, subscription.currency),
+        price: formatPrice(subscription.price, subscription.currency, subscription.user.language || 'en'),
         ...(!isPaymentDueNow && !isPaymentReminder && {
           dueText: formatter.relativeTime(paymentDate, {
             now: rightNow,

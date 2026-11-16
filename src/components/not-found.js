@@ -15,7 +15,7 @@ export const NotFound = () => {
       </p>
       <Button variant='default' aria-label={t('backToHome')} asChild>
         <Link href='/'>
-          <HomeIcon className='w-4 h-4 mr-2' />
+          <HomeIcon className='w-4 h-4 me-2' />
           {t('backToHome')}
         </Link>
       </Button>

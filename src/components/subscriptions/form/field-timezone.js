@@ -76,8 +76,8 @@ export const TimezoneFieldManager = ({ field, loading = false }) => {
             )}
           </div>
           {loading
-            ? <Icons.spinner className='animate-spin ml-2 text-muted-foreground' />
-            : <Icons.down className='ml-2 text-muted-foreground' />
+            ? <Icons.spinner className='animate-spin ms-2 text-muted-foreground' />
+            : <Icons.down className='ms-2 text-muted-foreground' />
           }
         </Button>
       </PopoverTrigger>
@@ -109,7 +109,7 @@ export const TimezoneFieldManager = ({ field, loading = false }) => {
                   <span className='text-muted-foreground text-xs truncate flex-1 max-w-full'>{getLocalizedTimezoneName(name)}</span>
                   <Icons.check
                     className={cn(
-                      'ml-auto',
+                      'ms-auto',
                       name === field.value ? 'opacity-100' : 'opacity-0'
                     )}
                   />

@@ -107,7 +107,7 @@ export const PaymentMethodFieldManager = ({ field, paymentMethods }) => {
                 <div className='flex-1 truncate'>{selectedPaymentMethod[0].name}</div>
               </div>
             )}
-            <Icons.down className='ml-2 size-4 shrink-0 opacity-50' />
+            <Icons.down className='ms-2 size-4 shrink-0 opacity-50' />
           </Button>
         </PopoverTrigger>
         <PopoverContent className='p-0 w-75 sm:w-lg' align='start'>

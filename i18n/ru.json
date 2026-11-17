@@ -1,0 +1,1287 @@
+{
+  "common": {
+    "add": "Lägg till",
+    "save": "Spara",
+    "cancel": "Avbryt",
+    "edit": "Redigera",
+    "delete": "Ta bort",
+    "confirm": "Bekräfta",
+    "view": "Visa",
+    "close": "Stäng",
+    "contact": "Kontakta oss",
+    "signIn": "Logga in",
+    "pricing": "Prissättning",
+    "refundPolicy": "Återbetalningspolicy",
+    "termsOfService": "Användarvillkor",
+    "privacyPolicy": "Integritetspolicy"
+  },
+  "notifications": {
+    "trial": {
+      "reminder": {
+        "title": "{siteName} påminnelse om provperiod",
+        "message": "Din provperiod hos {siteName} är på väg att ta slut. Prenumerera nu för att fortsätta använda alla funktioner."
+      },
+      "expired": {
+        "title": "{siteName} provperiod har utgått",
+        "message": "Din provperiod hos {siteName} har utgått. Prenumerera nu för att fortsätta använda alla funktioner."
+      }
+    },
+    "subscription": {
+      "reminder": {
+        "title": "{siteName} påminnelse om betalning",
+        "message": "En påminnelse om att din prenumeration hos {siteName} snart tar slut."
+      },
+      "payment": {
+        "title": {
+          "due": "Betalning förfaller för {name}",
+          "reminder": "Betalningspåminnelse för {name}",
+          "upcoming": "Kommande betalning för {name}"
+        },
+        "message": {
+          "due": "Din prenumerationsbetalning för {name} ({price}) förfaller nu!",
+          "reminder": "Din prenumerationsbetalning för {name} ({price}) är försenad!",
+          "upcoming": "Din prenumerationsbetalning för {name} ({price}) är {dueText}!"
+        },
+        "markAsPaid": "Markera som betald",
+        "dismiss": "Avfärda"
+      }
+    },
+    "externalServices": {
+      "header": "{siteName} prenumerationspåminnelse",
+      "footer": "Skickat av {siteName}",
+      "visitDashboard": "Besök kontrollpanelen",
+      "paymentQuestion": "Betalt?",
+      "viewDetails": "Visa detaljer"
+    }
+  },
+  "header": {
+    "signOut": "Logga ut",
+    "subscriptions": "Prenumerationer",
+    "reports": "Rapporter",
+    "settings": "Inställningar",
+    "account": "Konto"
+  },
+  "footer": {
+    "madeBy": "Skapat med ♥ av <author>{name}</author>.",
+    "github": "Github",
+    "menu": "Meny"
+  },
+  "languages": {
+    "selectLanguage": "Välj språk",
+    "invalid": "Ogiltigt språk",
+    "failed": "Det gick inte att byta språk",
+    "notAvailableTitle": "Språkval otillgängligt",
+    "notAvailableMessage": "Språkinställningar kan inte ändras eftersom funktionella kakor är inaktiverade och du inte är inloggad. För att ändra språk behöver du antingen:",
+    "enableCookies": "Aktivera funktionella kakor"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "Vill du ta kontroll över dina utgifter?",
+        "title": "Smart prenumerationshantering gjort enkelt",
+        "subtitle": "{appName} hjälper dig spåra prenumerationer, övervaka återkommande utgifter och få betalningspåminnelser i en kraftfull och läslig kontrollpanel.",
+        "tagline": "Få påminnelser och missa aldrig en betalning igen.",
+        "imageAlt": "Huvudbild"
+      },
+      "features": {
+        "title": "Kraftfulla funktioner",
+        "subtitle": "Allt du behöver för att hantera dina prenumerationer effektivt",
+        "billingCycles": {
+          "title": "Flexibla faktureringscykler",
+          "description": "Stöd för månadsvisa, årsvisa och anpassade faktureringsintervall"
+        },
+        "notifications": {
+          "title": "Smarta notifieringar",
+          "description": "Få retliga påminnelser om betalningar och provperioders slut"
+        },
+        "reports": {
+          "title": "Rapporter och insikter",
+          "description": "Följ dina utgifter med detaljerade rapporter och insikter"
+        },
+        "currencies": {
+          "title": "Flera valutor",
+          "description": "Stöd för flera valutor med kostnadsspårning i realtid"
+        },
+        "timezone": {
+          "title": "Tidszonstöd",
+          "description": "Spåra prenumerationer i olika tidszoner med automatisk datumkonvertering"
+        },
+        "categories": {
+          "title": "Kategori Hantering",
+          "description": "Organisera prenumerationer med egna kategorier och färgkoder"
+        }
+      },
+      "howItWorks": {
+        "title": "Hur Wapy fungerar",
+        "subtitle": "Kom igång på minuter",
+        "step1": {
+          "title": "Registrering och inloggning",
+          "description": "Skapa ett konto eller logga in för att börja spåra dina utgifter"
+        },
+        "step2": {
+          "title": "Konfigurera notifieringar",
+          "description": "Anpassa aviseringar för kommande betalningar och provperiodslut via e-post, push och webhooks"
+        },
+        "step3": {
+          "title": "Spåra och optimera",
+          "description": "Övervaka utgiftsmönster och få insikter för att minska onödiga prenumerationskostnader"
+        }
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Sidan hittades inte",
+        "description": "Sidan du söker finns inte."
+      },
+      "title": "404",
+      "backToHome": "Tillbaka till startsidan"
+    },
+    "contact": {
+      "description": "Har du en fråga eller vill du komma i kontakt? Fyll i formuläret nedan så återkommer vi så snart som möjligt.",
+      "form": {
+        "name": {
+          "label": "Namn",
+          "placeholder": "Ditt namn",
+          "error": "Namnet måste innehålla minst 2 tecken"
+        },
+        "email": {
+          "label": "E-post",
+          "placeholder": "din@epost.se",
+          "error": "Ogiltig e-postadress"
+        },
+        "message": {
+          "label": "Meddelande",
+          "placeholder": "Berätta hur vi kan hjälpa...",
+          "error": "Meddelandet måste innehålla minst 10 tecken"
+        },
+        "submit": "Skicka meddelande",
+        "submitting": "Skickar..."
+      },
+      "success": {
+        "title": "Tack!",
+        "message1": "Ditt meddelande har skickats.",
+        "message2": "Vi återkommer till dig..."
+      },
+      "toast": {
+        "success": "Ditt meddelande har skickats.",
+        "error": "Det gick inte att skicka meddelandet! Försök igen senare.",
+        "spam": "Ett fel uppstod. Försök igen senare."
+      }
+    },
+    "account": {
+      "meta": {
+        "title": "Kontoinställningar",
+        "description": "Hantera dina kontoinställningar och preferenser."
+      },
+      "defaultSettings": {
+        "title": "Standardinställningar",
+        "description": "Konfigurera dina standardinställningar för nya prenumerationer",
+        "timezone": {
+          "label": "Tidszon",
+          "success": "Tidszonen har uppdaterats.",
+          "error": "Det gick inte att uppdatera tidszonen!"
+        },
+        "currency": {
+          "label": "Valuta",
+          "success": "Valutan har uppdaterats.",
+          "error": "Det gick inte att uppdatera valutan!"
+        }
+      },
+      "notifications": {
+        "success": "Notifieringsinställningar har sparats.",
+        "error": "Det gick inte att spara notifieringsinställningarna!",
+        "saveButton": "Spara ändringar",
+        "saveButtonTitle": "Spara notifieringsinställningar"
+      },
+      "profile": {
+        "success": "Ditt namn har uppdaterats.",
+        "error": "Det gick inte att uppdatera ditt namn!",
+        "namePlaceholder": "Ange ditt namn",
+        "addNamePrompt": "Lägg till ditt namn",
+        "memberSince": "Medlem sedan {date}"
+      },
+      "categories": {
+        "title": "Kategorier",
+        "description": "Hantera dina kategorier",
+        "default": {
+          "load": "Läs in standardkategorier",
+          "success": "Standardkategorier har lästs in.",
+          "error": "Det gick inte att skapa standardkategorier!"
+        },
+        "save": {
+          "success": "Kategorin har sparats.",
+          "error": "Det gick inte att spara kategorin!"
+        },
+        "addButtonTitle": "Lägg till ny kategori",
+        "selectColor": "Välj färg",
+        "namePlaceholder": "Kategorinamn",
+        "delete": {
+          "title": "Ta bort kategori",
+          "description": "Är du säker på att du vill ta bort den här kategorin? Åtgärden kan inte ångras.",
+          "success": "Kategorin har tagits bort.",
+          "error": "Det gick inte att ta bort kategorin!"
+        },
+        "invalid": "Ogiltiga kategoriuppgifter",
+        "edit": "Redigera kategori"
+      },
+      "paymentMethods": {
+        "title": "Betalningsmetoder",
+        "description": "Hantera dina betalningsmetoder",
+        "add": "Lägg till ny betalningsmetod",
+        "edit": "Redigera betalningsmetod",
+        "invalid": "Ogiltiga uppgifter för betalningsmetod",
+        "placeholder": "Namn på betalningsmetod",
+        "load": {
+          "title": "Läs in standardbetalningsmetoder",
+          "success": "Standardbetalningsmetoder har lästs in.",
+          "error": "Det gick inte att skapa standardbetalningsmetoder!"
+        },
+        "save": {
+          "success": "Betalningsmetoden har sparats.",
+          "error": "Det gick inte att spara betalningsmetoden!"
+        },
+        "delete": {
+          "title": "Ta bort betalningsmetod",
+          "description": "Är du säker på att du vill ta bort den här betalningsmetoden? Åtgärden kan inte ångras.",
+          "success": "Betalningsmetoden har tagits bort.",
+          "error": "Det gick inte att ta bort betalningsmetoden!"
+        }
+      },
+      "subscriptionStatus": {
+        "title": "Prenumerationsstatus",
+        "description": "Din prenumerationsstatus",
+        "trial": {
+          "active": "Din provperiod slutar <date></date>.",
+          "notification": {
+            "multipleDays": "Vi meddelar dig <highlight>1 dag innan</highlight> din provperiod slutar.",
+            "lastDay": "Vi meddelar dig <highlight>när</highlight> din provperiod slutar."
+          },
+          "ended": "Din provperiod har upphört!",
+          "subscribe": "Redo att fortsätta med oss?"
+        },
+        "subscription": {
+          "active": {
+            "scheduled": {
+              "pause": "Din prenumeration är <status>pausad</status> och upphör <date></date>.",
+              "cancel": "Din prenumeration är <status>avslutad</status> och upphör <date></date>."
+            },
+            "nextPayment": "Din nästa betalning sker <date></date>.",
+            "notification": "Vi meddelar dig innan din prenumeration upphör."
+          },
+          "paused": {
+            "message": "Din prenumeration är för tillfället pausad.",
+            "button": "Återuppta prenumeration"
+          },
+          "cancelled": {
+            "message": "Din prenumeration har avslutats.",
+            "button": "Reaktivera prenumeration"
+          },
+          "pastDue": {
+            "message": "Din betalning är försenad. Uppdatera din betalningsmetod."
+          },
+          "cancel": {
+            "button": "Avsluta prenumeration",
+            "dialog": {
+              "title": "Är du säker på att du vill avsluta?",
+              "description": "Den här åtgärden avslutar din prenumeration i slutet av den aktuella faktureringsperioden. Du behåller åtkomsten till dess."
+            },
+            "confirmButton": "Bekräfta avslut"
+          }
+        },
+        "fullAccess": {
+          "message": "Grattis! Du har full åtkomst till alla funktioner."
+        },
+        "blocked": {
+          "message": "Konstigt! Du är blockerad från att använda vår tjänst."
+        }
+      },
+      "externalServices": {
+        "title": "Externa tjänster",
+        "description": "Konfigurera integreringar med externa tjänster",
+        "testNotification": {
+          "title": "{siteName} testnotifiering",
+          "message": "Det här är ett testmeddelande för {service} från {siteName}. Din {service}-integrering är korrekt konfigurerad."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Ta emot notifieringar via ntfy.",
+          "toast": {
+            "disable": {
+              "success": "ntfy-integreringen har inaktiverats.",
+              "error": "Det gick inte att inaktivera ntfy-integreringen!"
+            },
+            "save": {
+              "success": "ntfy-konfigurationen har sparats.",
+              "error": "Det gick inte att spara ntfy-konfigurationen!"
+            },
+            "test": {
+              "success": "Testnotifiering via ntfy har skickats.",
+              "error": "Det gick inte att skicka testnotifiering via ntfy!"
+            },
+            "notEnabled": "ntfy-integreringen är inte aktiverad.",
+            "invalidParams": "Ogiltiga parametrar! Kan inte spara ntfy-konfigurationen.",
+            "testInvalidParams": "Ogiltiga parametrar! Kan inte skicka testnotifiering."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "Server-URL",
+              "placeholder": "ntfy.sh eller egen URL"
+            },
+            "topic": {
+              "label": "Ämnesnamn"
+            },
+            "token": {
+              "label": "Åtkomsttoken (valfritt)",
+              "placeholder": "Åtkomsttoken"
+            }
+          },
+          "buttons": {
+            "save": "Spara ntfy",
+            "test": "Testa ntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "Ta emot notifieringar via webhook.",
+          "toast": {
+            "disable": {
+              "success": "Webhook-integreringen har inaktiverats.",
+              "error": "Det gick inte att inaktivera webhook-integreringen!"
+            },
+            "save": {
+              "success": "Webhook-konfigurationen har sparats.",
+              "error": "Det gick inte att spara webhook-konfigurationen!"
+            },
+            "test": {
+              "success": "Testnotifiering via webhook har skickats.",
+              "error": "Det gick inte att skicka testnotifiering via webhook!"
+            },
+            "notEnabled": "Webhook-integreringen är inte aktiverad.",
+            "invalidParams": "Ogiltiga parametrar! Kan inte spara webhook-konfigurationen.",
+            "testInvalidParams": "Ogiltiga parametrar! Kan inte skicka testnotifiering."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Webhook-server-URL"
+            }
+          },
+          "buttons": {
+            "save": "Spara webhook",
+            "test": "Testa webhook"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Ta emot notifieringar via Discord.",
+          "toast": {
+            "disable": {
+              "success": "Discord-integreringen har inaktiverats.",
+              "error": "Det gick inte att inaktivera Discord-integreringen!"
+            },
+            "save": {
+              "success": "Discord-konfigurationen har sparats.",
+              "error": "Det gick inte att spara Discord-konfigurationen!"
+            },
+            "test": {
+              "success": "Testnotifiering via Discord har skickats.",
+              "error": "Det gick inte att skicka testnotifiering via Discord!"
+            },
+            "notEnabled": "Discord-integreringen är inte aktiverad.",
+            "invalidParams": "Ogiltiga parametrar! Kan inte spara Discord-konfigurationen.",
+            "testInvalidParams": "Ogiltiga parametrar! Kan inte skicka testnotifiering."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Discord-server-URL"
+            }
+          },
+          "buttons": {
+            "save": "Spara Discord",
+            "test": "Testa Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Ta emot notifieringar via Slack.",
+          "toast": {
+            "disable": {
+              "success": "Slack-integreringen har inaktiverats.",
+              "error": "Det gick inte att inaktivera Slack-integreringen!"
+            },
+            "save": {
+              "success": "Slack-konfigurationen har sparats.",
+              "error": "Det gick inte att spara Slack-konfigurationen!"
+            },
+            "test": {
+              "success": "Testnotifiering via Slack har skickats.",
+              "error": "Det gick inte att skicka testnotifiering via Slack!"
+            },
+            "notEnabled": "Slack-integreringen är inte aktiverad.",
+            "invalidParams": "Ogiltiga parametrar! Kan inte spara Slack-konfigurationen.",
+            "testInvalidParams": "Ogiltiga parametrar! Kan inte skicka testnotifiering."
+          },
+          "fields": {
+            "url": {
+              "label": "Server-URL",
+              "placeholder": "Slack-server-URL"
+            }
+          },
+          "buttons": {
+            "save": "Spara Slack",
+            "test": "Testa Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Dataexport",
+        "description": "Ladda ner en kopia av dina prenumerationer, kategorier, betalningsmetoder och inställningar",
+        "button": "Exportera data",
+        "toast": {
+          "success": "Data har exporterats.",
+          "error": "Det gick inte att exportera data!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "Ny prenumeration",
+        "edit": "Redigera {name}",
+        "unauthorized": "Obehörig"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Logga in"
+      },
+      "description": "Logga in med din e-postadress för att komma åt ditt konto eller skapa ett nytt automatiskt",
+      "form": {
+        "emailPlaceholder": "m@exempel.se",
+        "loginButton": "Logga in",
+        "loginWithProvider": "Logga in med {provider}"
+      },
+      "otp": {
+        "title": "Kolla din inkorg",
+        "description": "Vi har skickat en länk till din e-postadress för inloggning.",
+        "instructions": "Ange den 6-siffriga koden som skickats till din e-post",
+        "divider": "eller",
+        "resend": {
+          "prompt": "Fick du inget e-postmeddelande?",
+          "button": "Klicka för att skicka igen",
+          "timer": "Du kan skicka igen om {seconds, plural, one {# sekund} other {# sekunder}}"
+        }
+      },
+      "toast": {
+        "success": "Välkommen! Du har loggat in.",
+        "error": {
+          "accessDenied": "Tyvärr men du får inte logga in!",
+          "generic": "Konstigt! Vi kunde inte logga in dig. Det kan bero på din e-postadress, eller så gick något fel på vår sida.",
+          "invalidCode": "Koden ser fel ut. Dubbelkolla de 6 siffrorna och försök igen.",
+          "somethingWrong": "Något gick fel. Be om en ny kod och försök igen.",
+          "workspaceAccess": "Tyvärr, du har inte åtkomst till den här arbetsytan."
+        }
+      }
+    },
+    "pricing": {
+      "title": "Enkel, transparent prissättning",
+      "description": "Spåra och hantera alla dina prenumerationer med kraftfulla funktioner till ett överkomligt pris"
+    },
+    "privacy": {
+      "lastUpdated": "Senast uppdaterad 17 januari 2025",
+      "introduction": {
+        "title": "Introduktion",
+        "paragraph1": "Vi är angelägna om att skydda din integritet och säkerställa säkerheten för dina personliga uppgifter.",
+        "paragraph2": "Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar dina data när du använder vår tjänst för prenumerations- och utgiftshantering."
+      },
+      "informationWeCollect": {
+        "title": "Information vi samlar in",
+        "description": "Vi samlar endast in den information som krävs för att tillhandahålla våra tjänster:",
+        "items": {
+          "account": "Kontoinformation",
+          "subscription": "Prenumerations- och utgiftshanteringsdata",
+          "expense": "Utgiftsspårningsinformation"
+        }
+      },
+      "howWeUse": {
+        "title": "Hur vi använder din information",
+        "description": "Din information används endast för:",
+        "items": {
+          "providing": "Att tillhandahålla och underhålla våra tjänster",
+          "managing": "Att hantera ditt konto och dina prenumerationer",
+          "sending": "Att skicka viktiga tjänsteuppdateringar",
+          "improving": "Att förbättra våra tjänster genom anonym användningsanalys"
+        }
+      },
+      "paymentProcessing": {
+        "title": "Betalningshantering",
+        "description": "Vi använder <paddle>Paddle.com</paddle> som vårt betalningssystem. När du gör en betalning samlas dina betalningsuppgifter in och bearbetas direkt av Paddle. Vi lagrar inte dina betalningsuppgifter på våra servrar. Information om hur Paddle behandlar dina data finns i <privacy>Paddles integritetspolicy</privacy>."
+      },
+      "dataProtection": {
+        "title": "Dataskydd",
+        "description": "Vi tillämpar robusta säkerhetsåtgärder för att skydda din personliga information. Vi delar aldrig dina data med tredje part och har strikta dataskyddsprotokoll för att förhindra obehörig åtkomst, utlämning eller missbruk av din information."
+      },
+      "analytics": {
+        "title": "Analys",
+        "description": "Vi använder ett anpassat analysverktyg för att förbättra våra tjänster. Verktyget samlar in anonym användningsdata för att hjälpa oss förstå hur användare interagerar med vår plattform."
+      },
+      "yourRights": {
+        "title": "Dina rättigheter",
+        "description": "Du har rätt att:",
+        "items": {
+          "access": "Få tillgång till dina personuppgifter",
+          "correct": "Begära rättelser av dina uppgifter",
+          "delete": "Begära radering av dina uppgifter",
+          "optOut": "Avstå från icke-nödvändig datainsamling"
+        }
+      },
+      "contactUs": {
+        "description": "Om du har frågor om vår integritetspolicy eller hur vi hanterar dina uppgifter, kontakta oss via <link>kontaktformuläret</link>."
+      },
+      "updates": {
+        "title": "Uppdateringar av policyn",
+        "description": "Vi kan komma att uppdatera denna integritetspolicy med jämna mellanrum. Vi meddelar dig om ändringar genom att publicera den nya integritetspolicyn på denna sida och uppdatera ikraftträdandedatumet."
+      }
+    },
+    "refundPolicy": {
+      "lastUpdated": "Senast uppdaterad 17 januari 2025",
+      "introduction": "Dåliga återbetalningspolicys är förargande. Det känns som att företaget bara försöker lura dig. Vi vill aldrig att våra kunder ska känna så, därför är vår återbetalningspolicy enkel: om du av någon anledning är missnöjd, <link>kontakta oss</link> bara och berätta vad som är fel, så arbetar vi med dig för att göra dig nöjd.",
+      "fullRefunds": {
+        "title": "Exempel på fullständiga återbetalningar",
+        "items": {
+          "charged": "Om vi just dragit nästa månads avgift men du menade att avsluta, återbetalar vi gärna den extra avgiften"
+        }
+      },
+      "partialRefunds": {
+        "title": "Exempel på partiella återbetalningar",
+        "items": {
+          "week": "Om du debiterats för en månads tjänst men bara använde den i en vecka, återbetalar vi skillnaden",
+          "year": "Om du debiterats för en års tjänst men bara använde den i en månad, återbetalar vi skillnaden",
+          "weekDuplicate": "Om du debiterats för en månads tjänst men bara använde den i en vecka, återbetalar vi skillnaden"
+        }
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "Prenumerationsrapport"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "Obehörig",
+        "view": "Visa {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Senast uppdaterad 17 januari 2025",
+      "welcome": "Välkommen till webbplatsen {siteName} (\"webbplatsen\"). Genom att komma åt eller använda webbplatsen godkänner du att följa och vara bunden av följande villkor (\"användarvillkor\").",
+      "overview": {
+        "title": "Översikt",
+        "paragraph1": "{siteName} erbjuder denna webbplats, inklusive all information, verktyg och tjänster som är tillgängliga från den, till dig som användare under förutsättning att du accepterar alla här angivna villkor, bestämmelser, policys och meddelanden.",
+        "paragraph2": "Läs dessa användarvillkor noggrant innan du får åtkomst till eller använder webbplatsen. Genom att få åtkomst till eller använda någon del av webbplatsen godkänner du att vara bunden av dessa villkor. Om du inte godkänner alla villkor i detta avtal får du inte få åtkomst till webbplatsen eller använda några tjänster.",
+        "paragraph3": "Alla nya funktioner eller verktyg som läggs till webbplatsen omfattas också av användarvillkoren. Du kan granska den senaste versionen av villkoren när som helst på denna sida. Webbplatsen förbehåller sig rätten att uppdatera, ändra eller ersätta vilken del av villkoren som helst genom att publicera uppdateringar och/eller ändringar. Din fortsatta användning av eller åtkomst till webbplatsen efter publicering av ändringar utgör acceptans av dessa ändringar."
+      },
+      "websiteTerms": {
+        "title": "Villkor för webbplatsen",
+        "paragraph1": "Genom att godkänna dessa användarvillkor bekräftar du att du är minst myndig ålder i din delstat eller provins, eller att du är myndig och har gett ditt samtycke till att dina minderåriga beroende får använda denna webbplats.",
+        "paragraph2": "Användningen av våra tjänster måste följa alla tillämpliga lagar och förordningar. Särskilt:",
+        "items": {
+          "unlawful": "Du godkänner att inte använda våra produkter för olagliga eller obehöriga ändamål",
+          "comply": "Du måste följa alla lagar i din jurisdiktion, inklusive upphovsrätts- och immateriella rättigheter",
+          "malicious": "Du får inte överföra skadlig kod, virus eller annat skadligt innehåll"
+        },
+        "paragraph3": "Observera att varje överträdelse av dessa användarvillkor leder till omedelbar avslutning av din åtkomst till våra tjänster."
+      },
+      "payment": {
+        "title": "Betalning",
+        "paragraph1": "Om du köper en prenumeration på webbplatsen godkänner du att betala tillämpliga avgifter enligt vad som anges under köpprocessen.",
+        "paragraph2": "Vi använder <paddle>Paddle.com</paddle> som vår betaltjänstleverantör. Genom att göra ett köp godkänner du även Paddles <terms>användarvillkor</terms>. Paddle behandlar alla betalningar och hanterar relaterade kundtjänstfrågor.",
+        "paragraph3": "Webbplatsen behandlar återbetalningar enligt vår <refund>återbetalningspolicy</refund>."
+      },
+      "cookies": {
+        "title": "Användning av kakor",
+        "description": "Webbplatsen använder kakor och liknande tekniker (t.ex. lokal lagring) för att spåra din användning av webbplatsen och för marknadsföringsändamål. Genom att använda webbplatsen samtycker du till användning av kakor i enlighet med vår <privacy>integritetspolicy</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Immaterialrätt",
+        "description": "Allt innehåll på webbplatsen, inklusive men inte begränsat till text, grafik, logotyper, bilder, videor och kursinnehåll, tillhör webbplatsen eller dess licensgivare och skyddas av immaterialrättslig lagstiftning. Du får inte reproducera, ändra, distribuera eller på annat sätt använda innehåll utan vårt skriftliga medgivande i förväg."
+      },
+      "disclaimer": {
+        "title": "Ansvarsfriskrivning",
+        "description": "Informationen och innehållet på webbplatsen tillhandahålls endast i informationssyfte och är inte avsedda som professionell rådgivning. Webbplatsen gör inga representationer eller garantier av något slag, uttryckliga eller underförstådda, om riktigheten, tillförlitligheten, fullständigheten eller lämpligheten i informationen och innehållet. Du använder webbplatsen på egen risk."
+      },
+      "limitationOfLiability": {
+        "title": "Ansvarsbegränsning",
+        "description": "{siteName} ska inte hållas ansvarigt för någon indirekt, tillfällig, särskild eller följande skada som kan uppstå vid din användning av webbplatsen, oavsett om sådana skador uppstår från avtal, delikt, försumlighet, strikt ansvar eller någon annan rättslig teori. Maximalt belopp webbplatsen kan hållas ansvarigt för i någon hänvisning relaterad till webbplatsen begränsas till de totala prenumerationsavgifter du betalat under de senaste 12 månaderna."
+      },
+      "changes": {
+        "title": "Ändringar av användarvillkoren",
+        "description": "Webbplatsen kan uppdatera eller ändra dessa användarvillkor från tid till annan, och alla ändringar träder i kraft efter publicering på webbplatsen. Din fortsatta användning av webbplatsen efter sådana ändringar utgör ditt godkännande av de reviderade användarvillkoren."
+      },
+      "indemnification": {
+        "title": "Skadeslöshet",
+        "description": "Du godkänner att hålla {siteName}, dess dotterbolag, ledamöter, styrelseledamöter, anställda, agenter och licensgivare skadeslösa från och mot alla anspråk, ansvar, skador, förluster och kostnader, inklusive men inte begränsat till rimliga advokatarvoden, som uppstår i samband med din användning av webbplatsen, din överträdelse av dessa användarvillkor eller din överträdelse av någon annan parts rättigheter."
+      },
+      "modifications": {
+        "title": "Ändringar av tjänsten och priser",
+        "paragraph1": "Priser för våra tjänster kan ändras utan föregående meddelande. Webbplatsen förbehåller sig rätten när som helst att ändra eller avbryta tjänsten (eller någon del eller innehåll därav) utan föregående meddelande.",
+        "paragraph2": "Webbplatsen ska inte hållas ansvarig mot dig eller mot någon tredje part för någon ändring, prisändring, avstängning eller avveckling av tjänsten."
+      },
+      "governingLaw": {
+        "title": "Tillämplig lag och jurisdiktion",
+        "description": "Dessa användarvillkor ska regleras och tolkas i enlighet med lagarna i den jurisdiktion där {siteName} har sitt huvudkontor, utan hänsyn till principer om lagkonflikter. Du godkänner att underkasta dig exklusiv jurisdiktion för domstolarna i den jurisdiktionen för alla tvister som uppstår från eller i samband med dessa användarvillkor eller din användning av webbplatsen."
+      },
+      "entireAgreement": {
+        "title": "Hela avtalet",
+        "description": "Dessa användarvillkor utgör hela avtalet mellan dig och {siteName} avseende din användning av webbplatsen och ersätter alla tidigare och samtidiga avtal och överenskommelser, muntliga eller skriftliga, avseende samma sakförhållanden."
+      },
+      "severability": {
+        "title": "Delbarhet",
+        "description": "Om någon bestämmelse i dessa användarvillkor visar sig vara ogiltig, olaglig eller ogenomförbar, ska de återstående bestämmelserna fortsätta att gälla i full kraft."
+      },
+      "waiver": {
+        "title": "Frånvigan",
+        "description": "Underlåtenhet av {siteName} att tillämpa någon rätt eller bestämmelse i dessa användarvillkor ska inte utgöra ett frånvigan av den rätten eller bestämmelsen."
+      },
+      "contactUs": {
+        "description": "Om du har frågor eller funderingar om dessa användarvillkor, kontakta oss via <link>kontaktformuläret</link> på webbplatsen."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "{siteName} testnotifiering",
+          "message": "Det här är en testnotifiering från {siteName}. Om du ser detta betyder det att push-notifieringar fungerar korrekt!"
+        }
+      },
+      "email": {
+        "header": "Betalningspåminnelse",
+        "footer": "Det här är ett vänligt påminnelsemeddelande från {siteName}.",
+        "thanks": "Tack",
+        "madeBy": "Skapat med ♥ av {siteLink}"
+      },
+      "bell": {
+        "title": "Notifieringar",
+        "unreadTitle": "Olästa notifieringar",
+        "clearAll": "Rensa alla",
+        "removeNotification": "Ta bort notifiering",
+        "noNotifications": "Inga nya notifieringar"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Håll dig uppdaterad",
+          "description": "Få retliga påminnelser om dina prenumerationsbetalningar och förfallodatum. Vi meddelar dig innan betalningar förfaller och när prenumerationer är på väg att upphöra.",
+          "maybeLater": "Kanske senare",
+          "enable": "Aktivera notifieringar",
+          "enabling": "Aktiverar..."
+        },
+        "toast": {
+          "success": "Du kommer nu att få prenumerationspåminnelser.",
+          "error": "Det gick inte att aktivera notifieringar. Försök igen.",
+          "permissionRequired": {
+            "title": "Behörighet krävs",
+            "description": "Tillåt notifieringar för att få påminnelser."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "Namnet måste innehålla minst 2 tecken.",
+        "paymentDate": "Det är inte ett giltigt datum!",
+        "color": "Ogiltig hex-färg"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Dagligen} other {Var # dag}}",
+        "WEEKS": "{count, plural, =1 {Veckovis} other {Var # vecka}}",
+        "MONTHS": "{count, plural, =1 {Månadsvis} other {Varje # månader}}",
+        "YEARS": "{count, plural, =1 {Årsvis} other {Varje # år}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Kategorier",
+            "selected": "{count, plural, =0 {Välj kategorier} one {# kategori vald} other {# kategorier valda}}",
+            "search": "Sök kategori...",
+            "create": "Skapa ny kategori \"{value}\""
+          },
+          "currency": {
+            "label": "Valuta",
+            "placeholder": "Välj valuta",
+            "search": "Sök valuta...",
+            "noResults": "Inga resultat hittades!"
+          },
+          "cycle": {
+            "label": "Faktureringscykel",
+            "placeholder": "Välj faktureringscykel",
+            "options": {
+              "daily": "Dagligen",
+              "weekly": "Veckovis",
+              "monthly": "Månadsvis",
+              "yearly": "Årsvis",
+              "custom": "Anpassad"
+            },
+            "units": {
+              "days": "{count, plural, one {Dag} other {Dagar}}",
+              "weeks": "{count, plural, one {Vecka} other {Veckor}}",
+              "months": "{count, plural, one {Månad} other {Månader}}",
+              "years": "{count, plural, one {År} other {År}}"
+            },
+            "unitPlaceholder": "Enhet"
+          },
+          "name": {
+            "label": "Namn",
+            "placeholder": "Prenumerationsnamn"
+          },
+          "notes": {
+            "label": "Anteckningar",
+            "placeholder": "Lägg till anteckningar..."
+          },
+          "notifications": {
+            "title": "Notifieringar",
+            "description": "Konfigurera standardnotifieringar för dina prenumerationer",
+            "via": "Via",
+            "whenToNotify": "När notifiera",
+            "whenPlaceholder": "Välj när notifiera",
+            "unitPlaceholder": "Enhet",
+            "addNotification": "Lägg till notifiering",
+            "deleteDialog": {
+              "title": "Bekräfta borttagning",
+              "description": "Är du säker på att du vill ta bort denna notifieringsmall?"
+            },
+            "status": {
+              "denied": "Push-notifieringar är blockerade på den här enheten. Aktivera dem i webbläsarens inställningar.",
+              "default": "Push-notifieringar är inte aktiverade på den här enheten. <link>Vill du aktivera det?</link>",
+              "grantedNotConfigured": "Push-notifieringsbehörighet har beviljats men är inte korrekt konfigurerad. <link>Vill du aktivera det?</link>",
+              "grantedConfigured": "Push-notifieringar är aktiverade för den här enheten. Vill du skicka en <link>test-push-notifiering</link>?"
+            },
+            "toast": {
+              "success": "Push-notifiering har skickats! Kolla din(e) enhet(er).",
+              "error": "Det gick inte att skicka test-push-notifiering! Se till att notifieringar är aktiverade och korrekt konfigurerade."
+            },
+            "timeOptions": {
+              "instant": "På betalningsdatumet",
+              "15minutes": "15 minuter innan",
+              "1hour": "1 timme innan",
+              "2hours": "2 timmar innan",
+              "1day": "1 dag innan",
+              "2days": "2 dagar innan",
+              "1week": "1 vecka innan",
+              "custom": "Anpassad"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minut} other {Minuter}}",
+              "hours": "{count, plural, one {Timme} other {Timmar}}",
+              "days": "{count, plural, one {Dag} other {Dagar}}",
+              "weeks": "{count, plural, one {Vecka} other {Veckor}}"
+            },
+            "types": {
+              "push": {
+                "label": "Push-notifieringar",
+                "ariaLabel": "Växla push"
+              },
+              "email": {
+                "label": "E-postnotifieringar",
+                "ariaLabel": "Växla e-post"
+              },
+              "webhook": {
+                "label": "Webhook-notifieringar",
+                "ariaLabel": "Växla webhook"
+              },
+              "ntfy": {
+                "label": "ntfy-notifieringar",
+                "ariaLabel": "Växla ntfy"
+              },
+              "discord": {
+                "label": "Discord-notifieringar",
+                "ariaLabel": "Växla Discord"
+              },
+              "slack": {
+                "label": "Slack-notifieringar",
+                "ariaLabel": "Växla Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Nästa betalningsdatum"
+          },
+          "paymentMethod": {
+            "label": "Betalningsmetod",
+            "placeholder": "Välj betalningsmetod",
+            "search": "Sök betalningsmetod...",
+            "create": "Skapa ny betalningsmetod \"{value}\""
+          },
+          "price": {
+            "label": "Pris"
+          },
+          "timezone": {
+            "label": "Tidszon",
+            "placeholder": "Välj tidszon",
+            "search": "Sök tidszon...",
+            "noResults": "Inga resultat hittades!"
+          },
+          "untilDate": {
+            "label": "Giltig till",
+            "description": "Lämna tomt för en obestämd prenumeration"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logotyp",
+            "description": "Välj en fördefinierad ikon eller ange en URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "{timezone} tidszon",
+        "paymentDate": {
+          "past": "Skulle ha betalats <date></date>.",
+          "future": "Betalt <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Betalt du detta? <action>Markera som betald</action> eller se <options>andra alternativ</options>.",
+          "customPrice": {
+            "title": "Betalt ett annat belopp?",
+            "description": "Använd detta om du betalade mer eller mindre än vanligt",
+            "prompt": "Ange det belopp du betalade:"
+          },
+          "noPrice": {
+            "title": "Markera bara som betald!",
+            "description": "Använd detta för att hoppa över denna betalning utan att registrera ett belopp",
+            "prompt": "Markera som betald utan att spåra beloppet?",
+            "warning": "Detta registrerar inte ett betalningsbelopp."
+          },
+          "toast": {
+            "success": "Prenumeration markerad som betald!",
+            "error": "Fel vid markering av prenumeration som betald",
+            "custom": {
+              "success": "Prenumeration markerad som betald med anpassat pris!",
+              "error": "Fel vid markering av prenumeration som betald med anpassat pris"
+            },
+            "noPrice": {
+              "success": "Prenumeration markerad som betald utan betalning!",
+              "error": "Fel vid markering av prenumeration som betald utan betalning"
+            },
+            "failed": "Misslyckades med att uppdatera!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "Du kommer att meddelas <date></date> via {channels}.",
+          "willBeNotifiedSoon": "Du kommer snart att meddelas via {channels}.",
+          "willBeRemindedAt": "Du kommer att påminnas <date></date> via {channels} igen.",
+          "willBeRemindedSoon": "Du kommer snart att påminnas via {channels} igen.",
+          "wontBeNotified": "Du kommer inte att meddelas.",
+          "types": {
+            "push": "notifiering",
+            "email": "e-post",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "Grattis! Du har betalt allt.",
+          "remaining": "Du betalar detta <trigger>{count, plural, =1 {# gång till} other {# gånger till}}</trigger>.",
+          "until": "Till {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "Detta betalas via {methods}."
+        },
+        "pastPayments": {
+          "count": "Du har hittills gjort <highlight>{count, plural, one {# betalning} other {# betalningar}}</highlight>."
+        },
+        "actions": {
+          "inactive": "Denna prenumeration är inte aktiv.",
+          "edit": "Redigera {name}-prenumeration",
+          "link": "Länk till {url}",
+          "notificationEnabled": "{type} är aktiverade",
+          "notificationDisabled": "{type} är inaktiverade"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Skapa prenumeration",
+          "update": "Uppdatera prenumeration"
+        },
+        "sections": {
+          "details": "Prenumerationsdetaljer",
+          "advanced": "Avancerade inställningar"
+        },
+        "deleteDialog": {
+          "title": "Ta bort prenumeration",
+          "description": "Är du säker på att du vill ta bort denna prenumeration? Åtgärden kan inte ångras."
+        },
+        "toast": {
+          "create": {
+            "error": "Intressant, kan inte skapa prenumeration!",
+            "success": "Prenumerationen har skapats!"
+          },
+          "delete": {
+            "success": "Prenumerationen har tagits bort!",
+            "error": "Det gick inte att ta bort prenumerationen!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "Ny prenumeration",
+        "noSubscription": "Inga prenumerationer hittades"
+      }
+    },
+    "filters": {
+      "title": "Prenumerationsfilter",
+      "description": "Använd filter och hitta de prenumerationer du behöver",
+      "buttons": {
+        "filter": "Filtrera prenumerationer",
+        "reset": "Återställ filter"
+      },
+      "selectAll": "Markera alla",
+      "selectNone": "Avmarkera alla",
+      "status": {
+        "title": "Status",
+        "active": {
+          "title": "Aktiva",
+          "description": "Filtrera efter aktiva prenumerationer"
+        },
+        "inactive": {
+          "title": "Inaktiva",
+          "description": "Filtrera efter inaktiva prenumerationer"
+        }
+      },
+      "paymentDate": {
+        "title": "Betalningsdatum",
+        "all": {
+          "title": "Alla",
+          "description": "Inaktivera alla betalningsdatumfilter"
+        },
+        "thisMonth": {
+          "title": "Denna månad",
+          "description": "Filtrera efter denna månad"
+        },
+        "next30Days": {
+          "title": "Kommande 30 dagar",
+          "description": "Filtrera efter kommande 30 dagar"
+        }
+      },
+      "currencies": {
+        "title": "Valutor",
+        "all": {
+          "description": "Markera alla valutor"
+        },
+        "clear": {
+          "description": "Rensa alla valutor"
+        },
+        "filter": "Filtrera efter {currency}"
+      },
+      "categories": {
+        "title": "Kategorier",
+        "uncategorized": "Okategoriserade",
+        "all": {
+          "description": "Markera alla kategorier"
+        },
+        "clear": {
+          "description": "Rensa alla kategorier"
+        },
+        "filterBy": "Filtrera efter {category}"
+      },
+      "paymentMethods": {
+        "title": "Betalningsmetoder",
+        "unspecified": "Ospecificerade",
+        "all": {
+          "description": "Markera alla betalningsmetoder"
+        },
+        "clear": {
+          "description": "Rensa alla betalningsmetoder"
+        },
+        "filterBy": "Filtrera efter {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} betalas {count, plural, one {# gång} other {# gånger}}"
+      },
+      "overview": {
+        "title": "Översikt",
+        "total": "<count></count> totalt prenumerationer",
+        "active": "<count></count> aktiva prenumerationer",
+        "inactive": "<count></count> inaktiva prenumerationer"
+      },
+      "costAverages": {
+        "title": "Kostnadsmedelvärden",
+        "description": "Månads- och årsvisa kostnadsmedelvärden för prenumerationer",
+        "monthly": "Månadsmedelvärde",
+        "yearly": "Årsmedelvärde"
+      },
+      "monthlyCost": {
+        "title": "Månadskostnadsöversikt",
+        "description": "Spåra dina månatliga prenumerationskostnader"
+      },
+      "yearlyCost": {
+        "title": "Årskostnadsöversikt",
+        "description": "Spåra dina årliga prenumerationskostnader"
+      },
+      "upcomingPayments": {
+        "title": "Kommande betalningar",
+        "description": "Spåra dina kommande betalningar",
+        "noPayments": "Inga kommande betalningar inom en månad.",
+        "nextMonth": "Nästa månad"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Denna månad",
+          "description": "Till månadens slut"
+        },
+        "nextMonth": {
+          "title": "Nästa månad",
+          "description": "Endast kommande månad"
+        },
+        "next30Days": {
+          "title": "Kommande 30 dagar",
+          "description": "Rullande period"
+        },
+        "thisYear": {
+          "title": "I år",
+          "description": "Till årets slut"
+        },
+        "nextYear": {
+          "title": "Nästa år",
+          "description": "Nästa kalenderår"
+        },
+        "next365Days": {
+          "title": "Kommande 365 dagar",
+          "description": "Rullande period"
+        }
+      },
+      "tabs": {
+        "byCategories": "Efter kategorier",
+        "byPaymentMethods": "Efter betalningsmetoder"
+      },
+      "mostExpensive": {
+        "monthly": "Dyraste månadsprenumeration",
+        "yearly": "Dyraste årsprenumeration"
+      },
+      "modal": {
+        "category": {
+          "description": "{period} betalningar i denna kategori",
+          "noSubscriptions": "Inga prenumerationer hittades i denna kategori"
+        },
+        "paymentMethod": {
+          "description": "{period} betalningar via denna betalningsmetod",
+          "noSubscriptions": "Inga prenumerationer hittades via denna betalningsmetod"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Länk",
+        "linkTitle": "Prenumerationslänk",
+        "editTitle": "Redigera prenumeration"
+      },
+      "overview": {
+        "title": "Översikt",
+        "description": "Nyckeltal för denna prenumeration",
+        "disabled": "Denna prenumeration är för närvarande inaktiverad. Du kan aktivera den igen när som helst.",
+        "unpaid": {
+          "hasUnpaid": "Åh nej! Du har <count>{count, plural, one {# obetald betalning} other {# obetalda betalningar}}</count> för denna prenumeration, totalt <total>{total}</total>.",
+          "allPaid": "Bra jobbat! Denna prenumeration är helt betald och uppdaterad."
+        },
+        "nextPayment": {
+          "scheduled": "Din nästa betalning på <price>{price}</price> förfaller <date>{date}</date>, vilket är <distance>{distance}</distance>.",
+          "none": "Grattis! Det finns inga framtida betalningar schemalagda för denna prenumeration."
+        },
+        "endDate": {
+          "hasEndDate": "Denna prenumeration upphör <date>{date}</date>.",
+          "ongoing": "Detta är en pågående prenumeration utan specificerat slutdatum."
+        },
+        "remainingPayments": {
+          "withEndDate": "Denna prenumeration kräver <count>{count, plural, one {# betalning} other {# betalningar}}</count>, totalt <total>{total}</total>.",
+          "thisYear": "Denna prenumeration kräver <count>{count, plural, one {# betalning} other {# betalningar}}</count> i år, totalt <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "Denna prenumeration betalas via <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "Du har hittills gjort <countTag>{count, plural, one {# betalning} other {# betalningar}}</countTag> för denna prenumeration, totalt <totalTag>{total}</totalTag>.",
+          "yearStats": " Under det senaste året gjorde du <countTag>{count, plural, one {# betalning} other {# betalningar}}</countTag>, totalt <totalTag>{total}</totalTag>.",
+          "none": "Detta är en prenumeration utan betalningshistorik ännu."
+        },
+        "notifications": {
+          "title": "Du kommer att få notifieringar:",
+          "none": "Inga notifieringar är inställda för denna prenumeration.",
+          "item": "<timing></timing> via <channels></channels>.",
+          "itemNoType": "<timing></timing> men <error>ingen notifieringstyp är angiven</error>.",
+          "timing": {
+            "instant": "På betalningsdatumet",
+            "minutes": "{count, plural, one {# minut} other {# minuter}} innan betalning",
+            "hours": "{count, plural, one {# timme} other {# timmar}} innan betalning",
+            "days": "{count, plural, one {# dag} other {# dagar}} innan betalning",
+            "weeks": "{count, plural, one {# vecka} other {# veckor}} innan betalning"
+          },
+          "types": {
+            "email": "e-post",
+            "push": "push-notifiering",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Nästa notifiering sker <date>{date}</date>, vilket är <distance>{distance}</distance>, via <channels></channels>.",
+          "soon": "snart"
+        }
+      },
+      "costBreakdown": {
+        "title": "Kostnadsuppdelning",
+        "description": "Framtida utgifter för denna prenumeration",
+        "periods": {
+          "30days": "Kommande 30 dagar",
+          "3months": "Kommande 3 månader",
+          "12months": "Kommande 12 månader"
+        }
+      },
+      "notes": {
+        "title": "Anteckningar"
+      },
+      "paymentSchedule": {
+        "title": "Betalningsschema",
+        "description": "Kommande betalningsdatum under ett år",
+        "noUpcoming": "Inga kommande betalningar",
+        "more": "+ {count} fler",
+        "totalPayments": "Totalt betalningar:",
+        "total": "Totalt:"
+      },
+      "latestPayments": {
+        "title": "Senaste betalningar",
+        "description": "Senaste betalningar för denna prenumeration",
+        "none": "Inga tidigare betalningar registrerade för denna prenumeration ännu.",
+        "status": {
+          "onTime": "i tid",
+          "late": "{distance} försenad",
+          "early": "{distance} i förväg"
+        },
+        "popover": {
+          "paidStatus": "Denna prenumeration är betald <status>{status}</status>.",
+          "scheduled": "Schemalagt:",
+          "actual": "Faktiskt:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Installera som applikation",
+      "description": "För den bästa upplevelsen rekommenderar vi att du installerar appen på din startskärm!",
+      "buttons": {
+        "gotIt": "Uppfattat",
+        "maybeLater": "Kanske senare",
+        "installNow": "Installera nu"
+      },
+      "common": {
+        "addToHomeScreen": "Lägg till på startskärmen",
+        "clickIcon": "Klicka på ikonen <icon></icon>",
+        "scrollDownClick": "Scrolla ner och klicka"
+      },
+      "ios": {
+        "safari": {
+          "title": "iOS installationssteg",
+          "step3": "Tryck på \"Lägg till\" för att bekräfta"
+        },
+        "chrome": {
+          "title": "Chrome på iOS installationssteg"
+        },
+        "firefox": {
+          "title": "Firefox på iOS installationssteg",
+          "step2": "Scrolla ner och klicka på knappen <icon></icon>",
+          "step3": "Klicka sedan"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Chrome installationssteg"
+        },
+        "firefox": {
+          "title": "Firefox installationssteg"
+        }
+      },
+      "unknown": {
+        "title": "Installationssteg",
+        "step1": "Leta efter ett alternativ som \"Lägg till på startskärmen\" eller \"Installera app\" i webbläsarens meny",
+        "step2": "Alternativet finns vanligtvis i huvudmenyn (ofta representerad av tre punkter eller linjer)",
+        "step3": "Följ webbläsarens specifika installationsinstruktioner"
+      }
+    },
+    "cookieConsent": {
+      "title": "Kakinställningar",
+      "description": "Välj vilka kakor du vill acceptera. Nödvändiga kakor kan inte inaktiveras eftersom de krävs för att webbplatsen ska fungera.",
+      "essential": {
+        "title": "Nödvändiga kakor",
+        "description": "Krävs för att webbplatsen ska fungera (autentisering, säkerhet)."
+      },
+      "functional": {
+        "title": "Funktionella kakor",
+        "description": "Förbättra din upplevelse (tema, språkpreferenser)."
+      },
+      "analytics": {
+        "title": "Analyskakor",
+        "description": "Hjälper oss förstå hur besökare interagerar med vår webbplats."
+      },
+      "buttons": {
+        "savePreferences": "Spara preferenser",
+        "acceptAll": "Acceptera alla"
+      }
+    },
+    "modeToggle": {
+      "toggleTheme": "Växla tema",
+      "dark": "Mörkt",
+      "light": "Ljust",
+      "system": "System"
+    },
+    "pricingTable": {
+      "enjoy": {
+        "title": "Enjoy",
+        "description": "Perfekt för en bekymmersfri upplevelse",
+        "period": "+skatt/månad",
+        "features": {
+          "unlimited": "Obegränsade prenumerationer",
+          "notifications": "E-post- och push-notifieringar",
+          "reports": "Rapporter och insikter",
+          "support": "Premiumsupport",
+          "firstMonth": "Första månaden gratis",
+          "priority": "Prioriterade funktionsförfrågningar"
+        },
+        "button": "Kom igång"
+      },
+      "selfHosted": {
+        "title": "Självhostad",
+        "description": "Perfekt för självhostare",
+        "price": "Gratis",
+        "period": "för alltid",
+        "features": {
+          "infrastructure": "Din infrastruktur",
+          "sourceCode": "Åtkomst till källkod",
+          "community": "Communitysupport"
+        },
+        "button": "Visa på GitHub"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Sök..."
+    },
+    "subscriptionGuard": {
+      "title": "Prenumeration krävs",
+      "description": {
+        "trialExpired": "Din provperiod har upphört.",
+        "cancelled": "Din prenumeration har avslutats.",
+        "pastDue": "Din betalning är försenad.",
+        "paused": "Din prenumeration har pausats.",
+        "default": "Du behöver en aktiv prenumeration för att få åtkomst till denna funktion."
+      },
+      "message": "Besök din kontosida för att hantera din prenumeration och fortsätta använda alla funktioner.",
+      "button": "Gå till kontoinställningar"
+    }
+  }
+}

@@ -1,0 +1,1287 @@
+{
+  "common": {
+    "add": "Adăugare",
+    "save": "Salvare",
+    "cancel": "Anulare",
+    "edit": "Editare",
+    "delete": "Ștergere",
+    "confirm": "Confirmare",
+    "view": "Vizualizare",
+    "close": "Închidere",
+    "contact": "Contactați-ne",
+    "signIn": "Conectare",
+    "pricing": "Prețuri",
+    "refundPolicy": "Politica de rambursare",
+    "termsOfService": "Termenii serviciului",
+    "privacyPolicy": "Politica de confidențialitate"
+  },
+  "notifications": {
+    "trial": {
+      "reminder": {
+        "title": "Memento perioadă de probă {siteName}",
+        "message": "Perioada dumneavoastră de probă {siteName} se apropie de final. Abonați-vă acum pentru a continua să utilizați toate funcțiile."
+      },
+      "expired": {
+        "title": "Perioada de probă {siteName} a expirat",
+        "message": "Perioada dumneavoastră de probă {siteName} a expirat. Abonați-vă acum pentru a continua să utilizați toate funcțiile."
+      }
+    },
+    "subscription": {
+      "reminder": {
+        "title": "Memento de plată {siteName}",
+        "message": "Un memento că abonamentul dumneavoastră {siteName} se apropie de sfârșit."
+      },
+      "payment": {
+        "title": {
+          "due": "Plată scadentă pentru {name}",
+          "reminder": "Memento de plată pentru {name}",
+          "upcoming": "Plată viitoare pentru {name}"
+        },
+        "message": {
+          "due": "Plata abonamentului dumneavoastră {name} ({price}) este scadentă acum!",
+          "reminder": "Plata abonamentului dumneavoastră {name} ({price}) este întârziată!",
+          "upcoming": "Plata abonamentului dumneavoastră {name} ({price}) este {dueText}!"
+        },
+        "markAsPaid": "Marchează ca plătit",
+        "dismiss": "Ignoră"
+      }
+    },
+    "externalServices": {
+      "header": "Memento abonament {siteName}",
+      "footer": "Trimis de {siteName}",
+      "visitDashboard": "Vizitează panoul de control",
+      "paymentQuestion": "Plata efectuată?",
+      "viewDetails": "Vezi detaliile"
+    }
+  },
+  "header": {
+    "signOut": "Deconectare",
+    "subscriptions": "Abonamente",
+    "reports": "Rapoarte",
+    "settings": "Setări",
+    "account": "Cont"
+  },
+  "footer": {
+    "madeBy": "Creat cu ♥ de <author>{name}</author>.",
+    "github": "Github",
+    "menu": "Meniu"
+  },
+  "languages": {
+    "selectLanguage": "Selectați limba",
+    "invalid": "Limbă invalidă",
+    "failed": "Nu s-a putut schimba limba",
+    "notAvailableTitle": "Selectarea limbii indisponibilă",
+    "notAvailableMessage": "Preferințele de limbă nu pot fi modificate deoarece cookie-urile funcționale sunt dezactivate și nu sunteți conectat. Pentru a schimba limba, trebuie să:",
+    "enableCookies": "Activați cookie-urile funcționale"
+  },
+  "home": {
+    "visitor": {
+      "hero": {
+        "badge": "Doriți să preluați controlul cheltuielilor?",
+        "title": "Gestionarea inteligentă a abonamentelor, ușor de realizat",
+        "subtitle": "{appName} vă ajută să urmăriți abonamentele, să monitorizați cheltuielile recurente și să primiți memento-uri de plată într-un panou de control puternic și ușor de citit.",
+        "tagline": "Primiți notificări și nu mai ratați niciodată o plată.",
+        "imageAlt": "Imagine principală"
+      },
+      "features": {
+        "title": "Funcții puternice",
+        "subtitle": "Tot ce vă trebuie pentru a vă gestiona abonamentele eficient",
+        "billingCycles": {
+          "title": "Cicli de facturare flexibili",
+          "description": "Suport pentru intervale de facturare lunare, anuale și personalizate"
+        },
+        "notifications": {
+          "title": "Notificări inteligente",
+          "description": "Primiți memento-uri la timp pentru plăți și sfârșitul perioadelor de probă"
+        },
+        "reports": {
+          "title": "Rapoarte și informații",
+          "description": "Urmăriți cheltuielile cu rapoarte și informații detaliate"
+        },
+        "currencies": {
+          "title": "Valute multiple",
+          "description": "Suport pentru mai multe valute cu urmărire a costurilor în timp real"
+        },
+        "timezone": {
+          "title": "Suport fus orar",
+          "description": "Urmăriți abonamentele în fusuri orare diferite cu conversie automată a datelor"
+        },
+        "categories": {
+          "title": "Gestionarea categoriilor",
+          "description": "Organizați abonamentele cu categorii personalizate și coduri de culoare"
+        }
+      },
+      "howItWorks": {
+        "title": "Cum funcționează Wapy",
+        "subtitle": "Începeți în câteva minute",
+        "step1": {
+          "title": "Înregistrare și autentificare",
+          "description": "Creați un cont sau autentificați-vă pentru a începe să vă urmăriți cheltuielile"
+        },
+        "step2": {
+          "title": "Configurați notificările",
+          "description": "Personalizați alertele pentru plăți viitoare și datele de final ale perioadelor de probă prin e-mail, push și webhooks"
+        },
+        "step3": {
+          "title": "Urmăriți și optimizați",
+          "description": "Monitorizați tiparele de cheltuieli și primiți informații pentru a reduce costurile inutile cu abonamentele"
+        }
+      }
+    }
+  },
+  "pages": {
+    "notFound": {
+      "meta": {
+        "title": "Pagina nu a fost găsită",
+        "description": "Pagina pe care o căutați nu există."
+      },
+      "title": "404",
+      "backToHome": "Înapoi la pagina principală"
+    },
+    "contact": {
+      "description": "Aveți o întrebare sau doriți să luați legătura? Completați formularul de mai jos și vă vom răspunde cât mai curând posibil.",
+      "form": {
+        "name": {
+          "label": "Nume",
+          "placeholder": "Numele dumneavoastră",
+          "error": "Numele trebuie să aibă cel puțin 2 caractere"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "nume@email.com",
+          "error": "Adresă de e-mail invalidă"
+        },
+        "message": {
+          "label": "Mesaj",
+          "placeholder": "Spuneți-ne cum vă putem ajuta...",
+          "error": "Mesajul trebuie să aibă cel puțin 10 caractere"
+        },
+        "submit": "Trimite mesajul",
+        "submitting": "Se trimite..."
+      },
+      "success": {
+        "title": "Vă mulțumim!",
+        "message1": "Mesajul dumneavoastră a fost trimis cu succes.",
+        "message2": "Vă vom răspunde..."
+      },
+      "toast": {
+        "success": "Mesajul dumneavoastră a fost trimis cu succes.",
+        "error": "Nu s-a putut trimite mesajul! Încercați din nou mai târziu.",
+        "spam": "A apărut o eroare. Încercați din nou mai târziu."
+      }
+    },
+    "account": {
+      "meta": {
+        "title": "Setări cont",
+        "description": "Gestionați setările și preferințele contului."
+      },
+      "defaultSettings": {
+        "title": "Setări implicite",
+        "description": "Configurați setările implicite pentru abonamentele noi",
+        "timezone": {
+          "label": "Fus orar",
+          "success": "Fusul orar a fost actualizat cu succes.",
+          "error": "Nu s-a putut actualiza fusul orar!"
+        },
+        "currency": {
+          "label": "Valută",
+          "success": "Valuta a fost actualizată cu succes.",
+          "error": "Nu s-a putut actualiza valuta!"
+        }
+      },
+      "notifications": {
+        "success": "Preferințele de notificare au fost salvate.",
+        "error": "Nu s-au putut salva preferințele de notificare!",
+        "saveButton": "Salvează modificările",
+        "saveButtonTitle": "Salvează preferințele de notificare"
+      },
+      "profile": {
+        "success": "Numele dumneavoastră a fost actualizat cu succes.",
+        "error": "Nu s-a putut actualiza numele!",
+        "namePlaceholder": "Introduceți numele",
+        "addNamePrompt": "Adăugați numele",
+        "memberSince": "Membru din {date}"
+      },
+      "categories": {
+        "title": "Categorii",
+        "description": "Gestionați categoriile",
+        "default": {
+          "load": "Încarcă categoriile implicite",
+          "success": "Categoriile implicite au fost încărcate cu succes.",
+          "error": "Nu s-au putut crea categoriile implicite!"
+        },
+        "save": {
+          "success": "Categoria a fost salvată cu succes.",
+          "error": "Nu s-a putut salva categoria!"
+        },
+        "addButtonTitle": "Adaugă o categorie nouă",
+        "selectColor": "Selectați culoarea",
+        "namePlaceholder": "Numele categoriei",
+        "delete": {
+          "title": "Șterge categoria",
+          "description": "Sunteți sigur că doriți să ștergeți această categorie? Această acțiune nu poate fi anulată.",
+          "success": "Categoria a fost ștearsă cu succes.",
+          "error": "Nu s-a putut șterge categoria!"
+        },
+        "invalid": "Date de categorie invalide",
+        "edit": "Editare categorie"
+      },
+      "paymentMethods": {
+        "title": "Metode de plată",
+        "description": "Gestionați metodele de plată",
+        "add": "Adaugă o metodă de plată nouă",
+        "edit": "Editare metodă de plată",
+        "invalid": "Date de metodă de plată invalide",
+        "placeholder": "Numele metodei de plată",
+        "load": {
+          "title": "Încarcă metodele de plată implicite",
+          "success": "Metodele de plată implicite au fost încărcate cu succes.",
+          "error": "Nu s-au putut crea metodele de plată implicite!"
+        },
+        "save": {
+          "success": "Metoda de plată a fost salvată cu succes.",
+          "error": "Nu s-a putut salva metoda de plată!"
+        },
+        "delete": {
+          "title": "Șterge metoda de plată",
+          "description": "Sunteți sigur că doriți să ștergeți această metodă de plată? Această acțiune nu poate fi anulată.",
+          "success": "Metoda de plată a fost ștearsă cu succes.",
+          "error": "Nu s-a putut șterge metoda de plată!"
+        }
+      },
+      "subscriptionStatus": {
+        "title": "Starea abonamentului",
+        "description": "Starea abonamentului dumneavoastră",
+        "trial": {
+          "active": "Perioada dumneavoastră de probă se încheie <date></date>.",
+          "notification": {
+            "multipleDays": "Vă vom notifica <highlight>când 1 zi înainte</highlight> să se încheie perioada de probă.",
+            "lastDay": "Vă vom notifica <highlight>când</highlight> se încheie perioada de probă."
+          },
+          "ended": "Perioada dumneavoastră de probă s-a încheiat!",
+          "subscribe": "Gata să continuați cu noi?"
+        },
+        "subscription": {
+          "active": {
+            "scheduled": {
+              "pause": "Abonamentul dumneavoastră este <status>pauzat</status> și se va opri <date></date>.",
+              "cancel": "Abonamentul dumneavoastră este <status>anulat</status> și se va opri <date></date>."
+            },
+            "nextPayment": "Următoarea plată este <date></date>.",
+            "notification": "Vă vom notifica înainte ca abonamentul să se încheie."
+          },
+          "paused": {
+            "message": "Abonamentul dumneavoastră este în prezent pauzat.",
+            "button": "Reia abonamentul"
+          },
+          "cancelled": {
+            "message": "Abonamentul dumneavoastră a fost anulat.",
+            "button": "Reactivare abonament"
+          },
+          "pastDue": {
+            "message": "Plata este întârziată. Vă rugăm actualizați metoda de plată."
+          },
+          "cancel": {
+            "button": "Anulează abonamentul",
+            "dialog": {
+              "title": "Sunteți sigur că doriți să anulați?",
+              "description": "Această acțiune va anula abonamentul la sfârșitul perioadei de facturare curente. Veți avea acces continuu până atunci."
+            },
+            "confirmButton": "Confirmă anularea"
+          }
+        },
+        "fullAccess": {
+          "message": "Felicitări! Aveți acces complet la toate funcțiile."
+        },
+        "blocked": {
+          "message": "Ciudat! Vi s-a blocat accesul la serviciul nostru."
+        }
+      },
+      "externalServices": {
+        "title": "Servicii externe",
+        "description": "Configurați integrările cu servicii externe",
+        "testNotification": {
+          "title": "Notificare de test {siteName}",
+          "message": "Acesta este un mesaj de test {service} de la {siteName}. Integrarea dumneavoastră {service} este configurată corect."
+        },
+        "ntfy": {
+          "title": "ntfy",
+          "description": "Primiți notificări prin ntfy.",
+          "toast": {
+            "disable": {
+              "success": "Integrarea ntfy a fost dezactivată.",
+              "error": "Nu s-a putut dezactiva integrarea ntfy!"
+            },
+            "save": {
+              "success": "Configurația ntfy a fost salvată cu succes.",
+              "error": "Nu s-a putut salva configurația ntfy!"
+            },
+            "test": {
+              "success": "Notificarea de test ntfy a fost trimisă.",
+              "error": "Nu s-a putut trimite notificarea de test ntfy!"
+            },
+            "notEnabled": "Integrarea ntfy nu este activată.",
+            "invalidParams": "Parametri invalizi! Nu se poate salva configurația ntfy.",
+            "testInvalidParams": "Parametri invalizi! Nu se poate trimite notificarea de test."
+          },
+          "fields": {
+            "serverUrl": {
+              "label": "URL server",
+              "placeholder": "ntfy.sh sau URL self-hosted"
+            },
+            "topic": {
+              "label": "Numele subiectului"
+            },
+            "token": {
+              "label": "Token de acces (opțional)",
+              "placeholder": "Token de acces"
+            }
+          },
+          "buttons": {
+            "save": "Salvează ntfy",
+            "test": "Testează ntfy"
+          }
+        },
+        "webhook": {
+          "title": "Webhook",
+          "description": "Primiți notificări prin webhook.",
+          "toast": {
+            "disable": {
+              "success": "Integrarea webhook a fost dezactivată.",
+              "error": "Nu s-a putut dezactiva integrarea webhook!"
+            },
+            "save": {
+              "success": "Configurația webhook a fost salvată cu succes.",
+              "error": "Nu s-a putut salva configurația webhook!"
+            },
+            "test": {
+              "success": "Notificarea de test webhook a fost trimisă.",
+              "error": "Nu s-a putut trimite notificarea de test webhook!"
+            },
+            "notEnabled": "Integrarea webhook nu este activată.",
+            "invalidParams": "Parametri invalizi! Nu se poate salva configurația webhook.",
+            "testInvalidParams": "Parametri invalizi! Nu se poate trimite notificarea de test."
+          },
+          "fields": {
+            "url": {
+              "label": "URL server",
+              "placeholder": "URL server webhook"
+            }
+          },
+          "buttons": {
+            "save": "Salvează webhook",
+            "test": "Testează webhook"
+          }
+        },
+        "discord": {
+          "title": "Discord",
+          "description": "Primiți notificări prin Discord.",
+          "toast": {
+            "disable": {
+              "success": "Integrarea Discord a fost dezactivată.",
+              "error": "Nu s-a putut dezactiva integrarea Discord!"
+            },
+            "save": {
+              "success": "Configurația Discord a fost salvată cu succes.",
+              "error": "Nu s-a putut salva configurația Discord!"
+            },
+            "test": {
+              "success": "Notificarea de test Discord a fost trimisă.",
+              "error": "Nu s-a putut trimite notificarea de test Discord!"
+            },
+            "notEnabled": "Integrarea Discord nu este activată.",
+            "invalidParams": "Parametri invalizi! Nu se poate salva configurația Discord.",
+            "testInvalidParams": "Parametri invalizi! Nu se poate trimite notificarea de test."
+          },
+          "fields": {
+            "url": {
+              "label": "URL server",
+              "placeholder": "URL server Discord"
+            }
+          },
+          "buttons": {
+            "save": "Salvează Discord",
+            "test": "Testează Discord"
+          }
+        },
+        "slack": {
+          "title": "Slack",
+          "description": "Primiți notificări prin Slack.",
+          "toast": {
+            "disable": {
+              "success": "Integrarea Slack a fost dezactivată.",
+              "error": "Nu s-a putut dezactiva integrarea Slack!"
+            },
+            "save": {
+              "success": "Configurația Slack a fost salvată cu succes.",
+              "error": "Nu s-a putut salva configurația Slack!"
+            },
+            "test": {
+              "success": "Notificarea de test Slack a fost trimisă.",
+              "error": "Nu s-a putut trimite notificarea de test Slack!"
+            },
+            "notEnabled": "Integrarea Slack nu este activată.",
+            "invalidParams": "Parametri invalizi! Nu se poate salva configurația Slack.",
+            "testInvalidParams": "Parametri invalizi! Nu se poate trimite notificarea de test."
+          },
+          "fields": {
+            "url": {
+              "label": "URL server",
+              "placeholder": "URL server Slack"
+            }
+          },
+          "buttons": {
+            "save": "Salvează Slack",
+            "test": "Testează Slack"
+          }
+        }
+      },
+      "dataExport": {
+        "title": "Export de date",
+        "description": "Descărcați o copie a abonamentelor, categoriilor, metodelor de plată și setărilor",
+        "button": "Exportă datele",
+        "toast": {
+          "success": "Datele au fost exportate cu succes.",
+          "error": "Nu s-au putut exporta datele!"
+        }
+      }
+    },
+    "edit": {
+      "meta": {
+        "new": "Abonament nou",
+        "edit": "Editare {name}",
+        "unauthorized": "Neautorizat"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Autentificare"
+      },
+      "description": "Autentificați-vă cu e-mailul pentru a vă accesa contul sau pentru a crea unul nou automat",
+      "form": {
+        "emailPlaceholder": "m@exemplu.com",
+        "loginButton": "Autentificare",
+        "loginWithProvider": "Autentificare cu {provider}"
+      },
+      "otp": {
+        "title": "Verificați-vă inbox-ul",
+        "description": "Am trimis un link la e-mailul dumneavoastră pentru autentificare.",
+        "instructions": "Introduceți codul din 6 cifre trimis la e-mailul dumneavoastră",
+        "divider": "sau",
+        "resend": {
+          "prompt": "Nu ați primit e-mailul?",
+          "button": "Faceți clic pentru a retrimite",
+          "timer": "Puteți retrimite în {seconds, plural, one {# secundă} few {# secunde} other {# secunde}}"
+        }
+      },
+      "toast": {
+        "success": "Bun venit! V-ați autentificat cu succes.",
+        "error": {
+          "accessDenied": "Ne pare rău, dar nu sunteți autorizat să vă autentificați!",
+          "generic": "Ciudat! Nu v-am putut autentifica. Ar putea fi e-mailul dumneavoastră sau ceva nu a funcționat la noi.",
+          "invalidCode": "Codul pare incorect. Verificați cele 6 cifre și încercați din nou.",
+          "somethingWrong": "Ceva nu a funcționat. Vă rugăm solicitați un cod nou și încercați din nou.",
+          "workspaceAccess": "Ne pare rău, nu aveți acces la acest spațiu de lucru."
+        }
+      }
+    },
+    "pricing": {
+      "title": "Prețuri simple și transparente",
+      "description": "Urmăriți și gestionați toate abonamentele dumneavoastră cu funcții puternice la un preț accesibil"
+    },
+    "privacy": {
+      "lastUpdated": "Ultima actualizare 17 ianuarie 2025",
+      "introduction": {
+        "title": "Introducere",
+        "paragraph1": "Ne angajăm să vă protejăm confidențialitatea și să asigurăm securitatea informațiilor dumneavoastră personale.",
+        "paragraph2": "Această Politică de confidențialitate explică modul în care colectăm, folosim și protejăm datele dumneavoastră când folosiți serviciul nostru de gestionare a abonamentelor și cheltuielilor."
+      },
+      "informationWeCollect": {
+        "title": "Informațiile pe care le colectăm",
+        "description": "Colectăm doar informațiile necesare pentru a vă furniza serviciile noastre:",
+        "items": {
+          "account": "Informații despre cont",
+          "subscription": "Date despre abonamente și gestionarea cheltuielilor",
+          "expense": "Informații despre urmărirea cheltuielilor"
+        }
+      },
+      "howWeUse": {
+        "title": "Cum folosim informațiile dumneavoastră",
+        "description": "Informațiile dumneavoastră sunt folosite exclusiv pentru:",
+        "items": {
+          "providing": "Furnizarea și întreținerea serviciilor noastre",
+          "managing": "Gestionarea contului și a abonamentelor dumneavoastră",
+          "sending": "Trimiterea actualizărilor importante ale serviciului",
+          "improving": "Îmbunătățirea serviciilor prin analiza anonimă a utilizării"
+        }
+      },
+      "paymentProcessing": {
+        "title": "Procesarea plăților",
+        "description": "Folosim <paddle>Paddle.com</paddle> ca sistem de procesare a plăților. Când efectuați o plată, informațiile dumneavoastră de plată sunt colectate și procesate direct de Paddle. Nu stocăm detaliile plăților dumneavoastră pe serverele noastre. Pentru informații despre cum Paddle procesează datele dumneavoastră, consultați <privacy>Politica de confidențialitate a Paddle</privacy>."
+      },
+      "dataProtection": {
+        "title": "Protecția datelor",
+        "description": "Implementăm măsuri de securitate robuste pentru a proteja informațiile dumneavoastră personale. Nu partajăm niciodată datele cu terți și menținem protocoale stricte de protecție a datelor pentru a preveni accesul neautorizat, divulgarea sau utilizarea greșită a informațiilor dumneavoastră."
+      },
+      "analytics": {
+        "title": "Analitică",
+        "description": "Folosim un instrument de analitică personalizat pentru a ne îmbunătăți serviciile. Acest instrument colectează date anonime de utilizare pentru a ne ajuta să înțelegem cum interacționează utilizatorii cu platforma noastră."
+      },
+      "yourRights": {
+        "title": "Drepturile dumneavoastră",
+        "description": "Aveți dreptul să:",
+        "items": {
+          "access": "Accesați datele dumneavoastră personale",
+          "correct": "Solicitați corectarea datelor",
+          "delete": "Solicitați ștergerea datelor",
+          "optOut": "Refuzați colectarea de date nesensibile"
+        }
+      },
+      "contactUs": {
+        "description": "Dacă aveți întrebări despre Politica de confidențialitate sau despre modul în care gestionăm datele dumneavoastră, contactați-ne prin <link>formularul de contact</link>."
+      },
+      "updates": {
+        "title": "Actualizări ale acestei politici",
+        "description": "Putem actualiza această Politică de confidențialitate din când în când. Vă vom notifica cu privire la orice modificări prin publicarea noii Politici de confidențialitate pe această pagină și actualizarea datei de intrare în vigoare."
+      }
+    },
+    "refundPolicy": {
+      "lastUpdated": "Ultima actualizare 17 ianuarie 2025",
+      "introduction": "Politile de rambursare proaste sunt exasperante. Aveți senzația că firma încearcă doar să vă păcălească. Nu vrem niciodată ca clienții noștri să se simtă astfel, de aceea politica noastră de rambursare este simplă: dacă sunteți nemulțumiți din orice motiv, doar <link>contactați-ne</link> și spuneți-ne ce se întâmplă, și vom colabora cu dumneavoastră pentru a vă asigura satisfacția.",
+      "fullRefunds": {
+        "title": "Exemple de rambursări complete",
+        "items": {
+          "charged": "Dacă v-a fost debitată tocmai factura pentru luna următoare dar doriți să anulați, vom rambursa cu plăcere suma suplimentară"
+        }
+      },
+      "partialRefunds": {
+        "title": "Exemple de rambursări parțiale",
+        "items": {
+          "week": "Dacă vi s-a facturat o lună de serviciu dar ați folosit-o doar o săptămână, vom rambursa diferența",
+          "year": "Dacă vi s-a facturat un an de serviciu dar ați folosit doar o lună, vom rambursa diferența",
+          "weekDuplicate": "Dacă vi s-a facturat o lună de serviciu dar ați folosit-o doar o săptămână, vom rambursa diferența"
+        }
+      }
+    },
+    "reports": {
+      "meta": {
+        "title": "Raport abonamente"
+      }
+    },
+    "view": {
+      "meta": {
+        "unauthorized": "Neautorizat",
+        "view": "Vizualizează {name}"
+      }
+    },
+    "termsOfService": {
+      "lastUpdated": "Ultima actualizare 17 ianuarie 2025",
+      "welcome": "Bun venit pe site-ul {siteName} (\"Site-ul\"). Accesând sau utilizând Site-ul, sunteți de acord să respectați și să vă angajați la următorii termeni și condiții (\"Termenii serviciului\").",
+      "overview": {
+        "title": "Prezentare generală",
+        "paragraph1": "{siteName} oferă acest Site, inclusiv toate informațiile, instrumentele și serviciile disponibile de pe acest Site, dumneavoastră, utilizatorului, condiționat de acceptarea tuturor termenilor, condițiilor, politicilor și notificărilor menționate aici.",
+        "paragraph2": "Citiți cu atenție acești Termeni ai serviciului înainte de a accesa sau a utiliza Site-ul. Accesând sau utilizând orice parte a Site-ului, sunteți de acord să vă angajați la acești Termeni. Dacă nu sunteți de acord cu toți termenii și condițiile acestui acord, nu puteți accesa Site-ul sau utiliza serviciile.",
+        "paragraph3": "Orice funcții sau instrumente noi adăugate pe Site vor fi, de asemenea, supuse Termenilor serviciului. Puteți consulta cea mai recentă versiune a Termenilor oricând pe această pagină. Site-ul își rezervă dreptul de a actualiza, modifica sau înlocui orice parte a acestor Termeni prin publicarea actualizărilor și/sau modificărilor. Utilizarea continuă sau accesul la Site după publicarea oricăror modificări constituie acceptarea acestor modificări."
+      },
+      "websiteTerms": {
+        "title": "Termenii site-ului",
+        "paragraph1": "Prin acceptarea acestor Termeni ai serviciului, reprezentați că aveți cel puțin vârsta majoratului în statul sau provincia de reședință, sau că aveți vârsta majoratului și ne-ați dat consimțământul să permiteți minorilor dumneavoastră aflați în întreținere să utilizeze acest site.",
+        "paragraph2": "Utilizarea serviciilor noastre trebuie să respecte toate legile și reglementările aplicabile. Specific:",
+        "items": {
+          "unlawful": "Sunteți de acord să nu folosiți produsele noastre în scopuri ilegale sau neautorizate",
+          "comply": "Trebuie să respectați toate legile din jurisdicția dumneavoastră, inclusiv legile privind drepturile de autor și proprietatea intelectuală",
+          "malicious": "Nu puteți transmite cod rău-intenționat, viruși sau alt conținut dăunător"
+        },
+        "paragraph3": "Rețineți că orice încălcare a acestor Termeni ai serviciului va duce la încetarea imediată a accesului dumneavoastră la Serviciile noastre."
+      },
+      "payment": {
+        "title": "Plată",
+        "paragraph1": "Dacă achiziționați un abonament pe Site, sunteți de acord să plătiți taxele aplicabile indicate în timpul procesului de plată.",
+        "paragraph2": "Folosim <paddle>Paddle.com</paddle> ca furnizor al serviciului de plăți. Efectuând o achiziție, sunteți de acord și cu <terms>Termenii serviciului</terms> ai Paddle. Paddle procesează toate plățile și gestionează întrebările aferente serviciului pentru clienți.",
+        "paragraph3": "Site-ul procesează rambursările conform <refund>politicii noastre de rambursare</refund>."
+      },
+      "cookies": {
+        "title": "Utilizarea cookie-urilor",
+        "description": "Site-ul folosește cookie-uri și tehnologii similare (cum ar fi stocarea locală) pentru a urmări utilizarea Site-ului și în scopuri de marketing. Prin utilizarea Site-ului, sunteți de acord cu utilizarea cookie-urilor în conformitate cu <privacy>Politica noastră de confidențialitate</privacy>."
+      },
+      "intellectualProperty": {
+        "title": "Proprietate intelectuală",
+        "description": "Tot conținutul de pe Site, inclusiv dar nu limitat la texte, grafică, logo-uri, imagini, videoclipuri și conținut de curs, este proprietatea Site-ului sau a licențiatorilor săi și este protejat de legile privind proprietatea intelectuală. Nu puteți reproduce, modifica, distribui sau folosi în alt mod orice conținut fără consimțământul nostru scris prealabil."
+      },
+      "disclaimer": {
+        "title": "Declinarea răspunderii",
+        "description": "Informațiile și conținutul de pe Site sunt furnizate exclusiv în scop informativ și nu sunt destinate ca sfaturi profesionale. Site-ul nu face nicio declarație sau garanție de niciun fel, expresă sau implicită, cu privire la acuratețea, fiabilitatea, completitudinea sau potrivirea informațiilor și conținutului. Utilizați Site-ul pe propriul risc."
+      },
+      "limitationOfLiability": {
+        "title": "Limitarea răspunderii",
+        "description": "{siteName} nu va fi făcut responsabil pentru daune indirecte, incidentale, speciale sau consecutive care pot apărea din utilizarea Site-ului, indiferent dacă astfel de daune rezultă din contract, fapt ilicit, neglijență, responsabilitate strictă sau orice altă teorie juridică. Suma maximă pentru care Site-ul poate fi tras la răspundere în orice pretenție legată de Site este limitată la totalul taxelor de abonament plătite în ultimele 12 luni."
+      },
+      "changes": {
+        "title": "Modificări ale Termenilor serviciului",
+        "description": "Site-ul poate actualiza sau modifica acești Termeni ai serviciului din când în când, iar orice modificări devin eficiente la publicarea pe Site. Utilizarea continuă a Site-ului după astfel de modificări constituie acceptarea Termenilor revizuiți ai serviciului."
+      },
+      "indemnification": {
+        "title": "Despăgubire",
+        "description": "Sunteți de acord să despăgubiți și să protejați {siteName}, afiliații, funcționarii, directorii, angajații, agenții și licențiatorii săi de orice pretenții, obligații, daune, pierderi și cheltuieli, inclusiv fără limitare onorariile rezonabile ale avocaților, care rezultă din sau în legătură cu utilizarea Site-ului, încălcarea acestor Termeni ai serviciului sau încălcarea drepturilor altor persoane."
+      },
+      "modifications": {
+        "title": "Modificări ale serviciului și prețurilor",
+        "paragraph1": "Prețurile serviciilor noastre se pot modifica fără notificare prealabilă. Site-ul își rezervă dreptul de a modifica sau întrerupe Serviciul (sau orice parte sau conținut al acestuia) oricând, fără notificare.",
+        "paragraph2": "Site-ul nu va fi răspunzător față de dumneavoastră sau față de orice terț pentru orice modificare, schimbare de preț, suspendare sau întrerupere a Serviciului."
+      },
+      "governingLaw": {
+        "title": "Legea aplicabilă și jurisdicția",
+        "description": "Acești Termeni ai serviciului vor fi guvernați și interpretați în conformitate cu legile jurisdicției unde {siteName} are sediul, fără a da efect unor principii de conflict de legi. Sunteți de acord să vă supuneți jurisdicției exclusive a instanțelor din acea jurisdicție pentru orice dispute care rezultă din sau sunt legate de acești Termeni ai serviciului sau utilizarea Site-ului."
+      },
+      "entireAgreement": {
+        "title": "Întreaga înțelegere",
+        "description": "Acești Termeni ai serviciului constituie întreaga înțelegere dintre dumneavoastră și {siteName} cu privire la utilizarea Site-ului și înlocuiesc toate acordurile și înțelegerile anterioare și simultane, orale sau scrise, referitoare la același obiect."
+      },
+      "severability": {
+        "title": "Separabilitate",
+        "description": "Dacă orice prevedere din acești Termeni ai serviciului se dovedește invalidă, ilegală sau inaplicabilă, prevederile rămase vor continua să aibă efect complet."
+      },
+      "waiver": {
+        "title": "Renunțare",
+        "description": "Eșecul {siteName} de a aplica vreun drept sau prevedere din acești Termeni ai serviciului nu va constitui o renunțare la acel drept sau prevedere."
+      },
+      "contactUs": {
+        "description": "Dacă aveți întrebări sau nelămuriri cu privire la acești Termeni ai serviciului, contactați-ne prin <link>formularul de contact</link> de pe Site."
+      }
+    }
+  },
+  "components": {
+    "notifications": {
+      "push": {
+        "test": {
+          "title": "Notificare de test {siteName}",
+          "message": "Aceasta este o notificare de test de la {siteName}. Dacă vedeți acest lucru, înseamnă că notificările push funcționează corect!"
+        }
+      },
+      "email": {
+        "header": "Memento de plată",
+        "footer": "Acesta este un e-mail de memento prietenos de la {siteName}.",
+        "thanks": "Vă mulțumim",
+        "madeBy": "Creat cu ♥ de {siteLink}"
+      },
+      "bell": {
+        "title": "Notificări",
+        "unreadTitle": "Notificări necitite",
+        "clearAll": "Șterge tot",
+        "removeNotification": "Șterge notificarea",
+        "noNotifications": "Nicio notificare nouă"
+      },
+      "toggle": {
+        "modal": {
+          "title": "Fiți la curent",
+          "description": "Primiți memento-uri la timp despre plățile abonamentelor și datele scadente. Vă vom notifica înainte de scadența plăților și când abonamentele sunt pe cale să expire.",
+          "maybeLater": "Poate mai târziu",
+          "enable": "Activează notificările",
+          "enabling": "Se activează..."
+        },
+        "toast": {
+          "success": "Veți primi acum memento-uri despre abonamente.",
+          "error": "Nu s-au putut activa notificările. Încercați din nou.",
+          "permissionRequired": {
+            "title": "Permisiune necesară",
+            "description": "Vă rugăm permiteți notificările pentru a primi memento-uri."
+          }
+        }
+      }
+    },
+    "subscriptions": {
+      "validation": {
+        "name": "Numele trebuie să aibă cel puțin 2 caractere.",
+        "paymentDate": "Aceasta nu este o dată validă!",
+        "color": "Culoare hex invalidă"
+      },
+      "cycles": {
+        "DAYS": "{count, plural, =1 {Zilnic} other {La fiecare # zile}}",
+        "WEEKS": "{count, plural, =1 {Săptămânal} other {La fiecare # săptămâni}}",
+        "MONTHS": "{count, plural, =1 {Lunar} other {La fiecare # luni}}",
+        "YEARS": "{count, plural, =1 {Anual} other {La fiecare # ani}}"
+      },
+      "form": {
+        "fields": {
+          "category": {
+            "label": "Categorii",
+            "selected": "{count, plural, =0 {Selectați categoriile} one {# categorie selectată} few {# categorii selectate} other {# categorii selectate}}",
+            "search": "Caută categoria...",
+            "create": "Creează o categorie nouă \"{value}\""
+          },
+          "currency": {
+            "label": "Valută",
+            "placeholder": "Selectați valuta",
+            "search": "Caută valuta...",
+            "noResults": "Nu s-au găsit rezultate!"
+          },
+          "cycle": {
+            "label": "Ciclu de facturare",
+            "placeholder": "Selectați ciclul de facturare",
+            "options": {
+              "daily": "Zilnic",
+              "weekly": "Săptămânal",
+              "monthly": "Lunar",
+              "yearly": "Anual",
+              "custom": "Personalizat"
+            },
+            "units": {
+              "days": "{count, plural, one {Zi} few {Zile} other {Zile}}",
+              "weeks": "{count, plural, one {Săptămână} few {Săptămâni} other {Săptămâni}}",
+              "months": "{count, plural, one {Lună} few {Luni} other {Luni}}",
+              "years": "{count, plural, one {An} few {Ani} other {Ani}}"
+            },
+            "unitPlaceholder": "Unitate"
+          },
+          "name": {
+            "label": "Nume",
+            "placeholder": "Numele abonamentului"
+          },
+          "notes": {
+            "label": "Note",
+            "placeholder": "Adăugați note..."
+          },
+          "notifications": {
+            "title": "Notificări",
+            "description": "Configurați notificările implicite pentru abonamentele dumneavoastră",
+            "via": "Prin",
+            "whenToNotify": "Când să notifice",
+            "whenPlaceholder": "Selectați când să notifice",
+            "unitPlaceholder": "Unitate",
+            "addNotification": "Adaugă notificare",
+            "deleteDialog": {
+              "title": "Confirmă ștergerea",
+              "description": "Sunteți sigur că doriți să eliminați acest șablon de notificare?"
+            },
+            "status": {
+              "denied": "Notificările push sunt blocate pe acest dispozitiv. Activați-le în setările browserului.",
+              "default": "Notificările push nu sunt activate pe acest dispozitiv. <link>Doriți să le activați?</link>",
+              "grantedNotConfigured": "Permisiunea pentru notificări push a fost acordată dar nu este corect configurată. <link>Doriți să o activați?</link>",
+              "grantedConfigured": "Notificările push sunt activate pentru acest dispozitiv. Doriți să trimiteți o <link>notificare push de test</link>?"
+            },
+            "toast": {
+              "success": "Notificarea push a fost trimisă! Verificați dispozitivul(e).",
+              "error": "Nu s-a putut trimite notificarea push de test! Asigurați-vă că notificările sunt activate și configurate corect."
+            },
+            "timeOptions": {
+              "instant": "La data plății",
+              "15minutes": "15 minute înainte",
+              "1hour": "1 oră înainte",
+              "2hours": "2 ore înainte",
+              "1day": "1 zi înainte",
+              "2days": "2 zile înainte",
+              "1week": "1 săptămână înainte",
+              "custom": "Personalizat"
+            },
+            "units": {
+              "minutes": "{count, plural, one {Minut} few {Minute} other {Minute}}",
+              "hours": "{count, plural, one {Oră} few {Ore} other {Ore}}",
+              "days": "{count, plural, one {Zi} few {Zile} other {Zile}}",
+              "weeks": "{count, plural, one {Săptămână} few {Săptămâni} other {Săptămâni}}"
+            },
+            "types": {
+              "push": {
+                "label": "Notificări push",
+                "ariaLabel": "Comută push"
+              },
+              "email": {
+                "label": "Notificări e-mail",
+                "ariaLabel": "Comută e-mail"
+              },
+              "webhook": {
+                "label": "Notificări webhook",
+                "ariaLabel": "Comută webhook"
+              },
+              "ntfy": {
+                "label": "Notificări ntfy",
+                "ariaLabel": "Comută ntfy"
+              },
+              "discord": {
+                "label": "Notificări Discord",
+                "ariaLabel": "Comută Discord"
+              },
+              "slack": {
+                "label": "Notificări Slack",
+                "ariaLabel": "Comută Slack"
+              }
+            }
+          },
+          "paymentDate": {
+            "label": "Data următoarei plăți"
+          },
+          "paymentMethod": {
+            "label": "Metodă de plată",
+            "placeholder": "Selectați metoda de plată",
+            "search": "Caută metoda de plată...",
+            "create": "Creează o metodă de plată nouă \"{value}\""
+          },
+          "price": {
+            "label": "Preț"
+          },
+          "timezone": {
+            "label": "Fus orar",
+            "placeholder": "Selectați fusul orar",
+            "search": "Caută fusul orar...",
+            "noResults": "Nu s-au găsit rezultate!"
+          },
+          "untilDate": {
+            "label": "Valabil până la",
+            "description": "Lăsați gol pentru un abonament pe termen nelimitat"
+          },
+          "url": {
+            "label": "URL"
+          },
+          "logo": {
+            "label": "Logo",
+            "description": "Selectați o pictogramă predefinită sau introduceți un URL"
+          }
+        }
+      },
+      "card": {
+        "timezone": "Fus orar {timezone}",
+        "paymentDate": {
+          "past": "Ar fi trebuit plătit <date></date>.",
+          "future": "Va fi plătit <date></date>."
+        },
+        "markAsPaid": {
+          "question": "Ați plătit acest lucru? <action>Marchează ca plătit</action> sau vedeți <options>alte opțiuni</options>.",
+          "customPrice": {
+            "title": "Ați plătit o sumă diferită?",
+            "description": "Folosiți asta dacă ați plătit mai mult sau mai puțin decât de obicei",
+            "prompt": "Introduceți suma plătită:"
+          },
+          "noPrice": {
+            "title": "Doar marchează ca plătit!",
+            "description": "Folosiți asta pentru a sări peste această plată fără a înregistra o sumă",
+            "prompt": "Marchează ca plătit fără a urmări suma?",
+            "warning": "Nu se va înregistra nicio sumă de plată."
+          },
+          "toast": {
+            "success": "Abonament marcat ca plătit!",
+            "error": "Eroare la marcarea abonamentului ca plătit",
+            "custom": {
+              "success": "Abonament marcat ca plătit cu preț personalizat!",
+              "error": "Eroare la marcarea abonamentului ca plătit cu preț personalizat"
+            },
+            "noPrice": {
+              "success": "Abonament marcat ca plătit fără plată!",
+              "error": "Eroare la marcarea abonamentului ca plătit fără plată"
+            },
+            "failed": "Actualizarea a eșuat!"
+          }
+        },
+        "notifications": {
+          "willBeNotifiedAt": "Veți fi notificat <date></date> prin {channels}.",
+          "willBeNotifiedSoon": "Veți fi notificat în curând prin {channels}.",
+          "willBeRemindedAt": "Veți fi reamintit <date></date> prin {channels} din nou.",
+          "willBeRemindedSoon": "Veți fi reamintit în curând prin {channels} din nou.",
+          "wontBeNotified": "Nu veți fi notificat.",
+          "types": {
+            "push": "notificare",
+            "email": "e-mail",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "paymentCount": {
+          "congratulations": "Felicitări! Ați plătit tot.",
+          "remaining": "Veți plăti aceasta <trigger>{count, plural, =1 {încă # dată} few {încă # ori} other {încă # ori}}</trigger>.",
+          "until": "Până la {date}"
+        },
+        "paymentMethods": {
+          "paidVia": "Aceasta va fi plătită prin {methods}."
+        },
+        "pastPayments": {
+          "count": "Până acum ați efectuat <highlight>{count, plural, one {# plată} few {# plăți} other {# plăți}}</highlight>."
+        },
+        "actions": {
+          "inactive": "Acest abonament nu este activ.",
+          "edit": "Editare abonament {name}",
+          "link": "Link către {url}",
+          "notificationEnabled": "{type} sunt activate",
+          "notificationDisabled": "{type} sunt dezactivate"
+        }
+      },
+      "edit": {
+        "title": {
+          "create": "Creare abonament",
+          "update": "Actualizare abonament"
+        },
+        "sections": {
+          "details": "Detalii abonament",
+          "advanced": "Setări avansate"
+        },
+        "deleteDialog": {
+          "title": "Ștergere abonament",
+          "description": "Sunteți sigur că doriți să ștergeți acest abonament? Această acțiune nu poate fi anulată."
+        },
+        "toast": {
+          "create": {
+            "error": "Interesant, nu se poate crea abonamentul!",
+            "success": "Abonament creat cu succes!"
+          },
+          "delete": {
+            "success": "Abonament șters cu succes!",
+            "error": "Nu s-a putut șterge abonamentul!"
+          }
+        }
+      },
+      "list": {
+        "newSubscription": "Abonament nou",
+        "noSubscription": "Nu s-au găsit abonamente"
+      }
+    },
+    "filters": {
+      "title": "Filtre abonamente",
+      "description": "Aplicați filtrele și găsiți abonamentele de care aveți nevoie",
+      "buttons": {
+        "filter": "Filtrează abonamentele",
+        "reset": "Resetează filtrele"
+      },
+      "selectAll": "Selectează tot",
+      "selectNone": "Deselectează tot",
+      "status": {
+        "title": "Stare",
+        "active": {
+          "title": "Activ",
+          "description": "Filtrare după abonamente active"
+        },
+        "inactive": {
+          "title": "Inactiv",
+          "description": "Filtrare după abonamente inactive"
+        }
+      },
+      "paymentDate": {
+        "title": "Data plății",
+        "all": {
+          "title": "Toate",
+          "description": "Dezactivează toate filtrele de date de plată"
+        },
+        "thisMonth": {
+          "title": "Luna aceasta",
+          "description": "Filtrare după luna curentă"
+        },
+        "next30Days": {
+          "title": "Următoarele 30 de zile",
+          "description": "Filtrare după următoarele 30 de zile"
+        }
+      },
+      "currencies": {
+        "title": "Valute",
+        "all": {
+          "description": "Selectează toate valutele"
+        },
+        "clear": {
+          "description": "Șterge toate valutele"
+        },
+        "filter": "Filtrare după {currency}"
+      },
+      "categories": {
+        "title": "Categorii",
+        "uncategorized": "Fără categorie",
+        "all": {
+          "description": "Selectează toate categoriile"
+        },
+        "clear": {
+          "description": "Șterge toate categoriile"
+        },
+        "filterBy": "Filtrare după {category}"
+      },
+      "paymentMethods": {
+        "title": "Metode de plată",
+        "unspecified": "Nespecificat",
+        "all": {
+          "description": "Selectează toate metodele de plată"
+        },
+        "clear": {
+          "description": "Șterge toate metodele de plată"
+        },
+        "filterBy": "Filtrare după {method}"
+      }
+    },
+    "reports": {
+      "subscription": {
+        "willBePaid": "{price} va fi plătit {count, plural, one {# dată} few {# ori} other {# ori}}"
+      },
+      "overview": {
+        "title": "Prezentare generală",
+        "total": "<count></count> abonamente în total",
+        "active": "<count></count> abonamente active",
+        "inactive": "<count></count> abonamente inactive"
+      },
+      "costAverages": {
+        "title": "Medii de cost",
+        "description": "Mediile lunare și anuale ale costurilor abonamentelor",
+        "monthly": "Medie lunară",
+        "yearly": "Medie anuală"
+      },
+      "monthlyCost": {
+        "title": "Privire de ansamblu asupra costurilor lunare",
+        "description": "Urmăriți costurile lunare ale abonamentelor"
+      },
+      "yearlyCost": {
+        "title": "Privire de ansamblu asupra costurilor anuale",
+        "description": "Urmăriți costurile anuale ale abonamentelor"
+      },
+      "upcomingPayments": {
+        "title": "Plăți viitoare",
+        "description": "Urmăriți plățile viitoare",
+        "noPayments": "Nicio plată viitoare într-o lună.",
+        "nextMonth": "Luna următoare"
+      },
+      "periods": {
+        "thisMonth": {
+          "title": "Luna aceasta",
+          "description": "Până la sfârșitul lunii"
+        },
+        "nextMonth": {
+          "title": "Luna următoare",
+          "description": "Doar luna viitoare"
+        },
+        "next30Days": {
+          "title": "Următoarele 30 de zile",
+          "description": "Perioadă glisantă"
+        },
+        "thisYear": {
+          "title": "Anul acesta",
+          "description": "Până la sfârșitul anului"
+        },
+        "nextYear": {
+          "title": "Anul următor",
+          "description": "Următorul an calendaristic"
+        },
+        "next365Days": {
+          "title": "Următoarele 365 de zile",
+          "description": "Perioadă glisantă"
+        }
+      },
+      "tabs": {
+        "byCategories": "După categorii",
+        "byPaymentMethods": "După metode de plată"
+      },
+      "mostExpensive": {
+        "monthly": "Cel mai scump abonament lunar",
+        "yearly": "Cel mai scump abonament anual"
+      },
+      "modal": {
+        "category": {
+          "description": "Plăți {period} în această categorie",
+          "noSubscriptions": "Nu s-au găsit abonamente în această categorie"
+        },
+        "paymentMethod": {
+          "description": "Plăți {period} prin această metodă de plată",
+          "noSubscriptions": "Nu s-au găsit abonamente prin această metodă de plată"
+        }
+      }
+    },
+    "view": {
+      "buttons": {
+        "link": "Link",
+        "linkTitle": "Link abonament",
+        "editTitle": "Editare abonament"
+      },
+      "overview": {
+        "title": "Prezentare generală",
+        "description": "Indicatori-cheie pentru acest abonament",
+        "disabled": "Acest abonament este în prezent dezactivat. Îl puteți activa oricând.",
+        "unpaid": {
+          "hasUnpaid": "O, nu! Aveți <count>{count, plural, one {# plată neefectuată} few {# plăți neefectuate} other {# plăți neefectuate}}</count> pentru acest abonament, însumând <total>{total}</total>.",
+          "allPaid": "Bună treabă! Acest abonament este complet plătit până la zi."
+        },
+        "nextPayment": {
+          "scheduled": "Următoarea plată de <price>{price}</price> scade la <date>{date}</date>, adică <distance>{distance}</distance>.",
+          "none": "Felicitări! Nu există plăți viitoare programate pentru acest abonament."
+        },
+        "endDate": {
+          "hasEndDate": "Acest abonament se va încheia la <date>{date}</date>.",
+          "ongoing": "Acesta este un abonament în desfășurare, fără o dată de încheiere specificată."
+        },
+        "remainingPayments": {
+          "withEndDate": "Acest abonament va necesita <count>{count, plural, one {# plată} few {# plăți} other {# plăți}}</count>, însumând <total>{total}</total>.",
+          "thisYear": "Acest abonament va necesita <count>{count, plural, one {# plată} few {# plăți} other {# plăți}}</count> în acest an, însumând <total>{total}</total>."
+        },
+        "paymentMethods": {
+          "text": "Acest abonament va fi plătit prin <methods></methods>."
+        },
+        "pastPayments": {
+          "hasPast": "Până acum ați efectuat <countTag>{count, plural, one {# plată} few {# plăți} other {# plăți}}</countTag> pentru acest abonament, însumând <totalTag>{total}</totalTag>.",
+          "yearStats": " În ultimul an, ați efectuat <countTag>{count, plural, one {# plată} few {# plăți} other {# plăți}}</countTag>, însumând <totalTag>{total}</totalTag>.",
+          "none": "Acesta este un abonament fără istoric de plăți deocamdată."
+        },
+        "notifications": {
+          "title": "Veți primi notificări:",
+          "none": "Nu sunt configurate notificări pentru acest abonament.",
+          "item": "<timing></timing> prin <channels></channels>.",
+          "itemNoType": "<timing></timing>, dar <error>nu este setat niciun tip de notificare</error>.",
+          "timing": {
+            "instant": "La data plății",
+            "minutes": "{count, plural, one {# minut} few {# minute} other {# minute}} înainte de plată",
+            "hours": "{count, plural, one {# oră} few {# ore} other {# ore}} înainte de plată",
+            "days": "{count, plural, one {# zi} few {# zile} other {# zile}} înainte de plată",
+            "weeks": "{count, plural, one {# săptămână} few {# săptămâni} other {# săptămâni}} înainte de plată"
+          },
+          "types": {
+            "email": "e-mail",
+            "push": "notificare push",
+            "webhook": "webhook",
+            "ntfy": "ntfy",
+            "discord": "discord",
+            "slack": "slack"
+          }
+        },
+        "nextNotification": {
+          "text": "Următoarea notificare va fi la <date>{date}</date>, adică <distance>{distance}</distance>, prin <channels></channels>.",
+          "soon": "în curând"
+        }
+      },
+      "costBreakdown": {
+        "title": "Defalcarea costurilor",
+        "description": "Cheltuieli viitoare pentru acest abonament",
+        "periods": {
+          "30days": "Următoarele 30 de zile",
+          "3months": "Următoarele 3 luni",
+          "12months": "Următoarele 12 luni"
+        }
+      },
+      "notes": {
+        "title": "Note"
+      },
+      "paymentSchedule": {
+        "title": "Program de plăți",
+        "description": "Datele plăților viitoare într-un an",
+        "noUpcoming": "Nicio plată viitoare",
+        "more": "+ încă {count}",
+        "totalPayments": "Plăți totale:",
+        "total": "Total:"
+      },
+      "latestPayments": {
+        "title": "Ultimele plăți",
+        "description": "Plățile cele mai recente pentru acest abonament",
+        "none": "Nu au fost înregistrate plăți pentru acest abonament deocamdată.",
+        "status": {
+          "onTime": "la timp",
+          "late": "întârziat cu {distance}",
+          "early": "devansat cu {distance}"
+        },
+        "popover": {
+          "paidStatus": "Acest abonament este plătit <status>{status}</status>.",
+          "scheduled": "Programat:",
+          "actual": "Efectiv:"
+        }
+      }
+    },
+    "addToHomeScreen": {
+      "title": "Instalați ca aplicație",
+      "description": "Pentru cea mai bună experiență, recomandăm instalarea aplicației pe ecranul de start!",
+      "buttons": {
+        "gotIt": "Am înțeles",
+        "maybeLater": "Poate mai târziu",
+        "installNow": "Instalează acum"
+      },
+      "common": {
+        "addToHomeScreen": "Adaugă la ecranul de start",
+        "clickIcon": "Faceți clic pe pictograma <icon></icon>",
+        "scrollDownClick": "Derulați în jos și faceți clic"
+      },
+      "ios": {
+        "safari": {
+          "title": "Pași de instalare iOS",
+          "step3": "Atingeți \"Adaugă\" pentru a confirma"
+        },
+        "chrome": {
+          "title": "Pași de instalare Chrome pe iOS"
+        },
+        "firefox": {
+          "title": "Pași de instalare Firefox pe iOS",
+          "step2": "Derulați în jos și faceți clic pe butonul <icon></icon>",
+          "step3": "Apoi faceți clic"
+        }
+      },
+      "android": {
+        "chrome": {
+          "title": "Pași de instalare Chrome"
+        },
+        "firefox": {
+          "title": "Pași de instalare Firefox"
+        }
+      },
+      "unknown": {
+        "title": "Pași de instalare",
+        "step1": "Căutați o opțiune precum \"Adaugă la ecranul de start\" sau \"Instalează aplicația\" în meniul browserului",
+        "step2": "Opțiunea se găsește de obicei în meniul principal (adesea reprezentat prin trei puncte sau linii)",
+        "step3": "Urmați instrucțiunile specifice de instalare ale browserului dumneavoastră"
+      }
+    },
+    "cookieConsent": {
+      "title": "Preferințe cookie",
+      "description": "Vă rugăm selectați ce cookie-uri doriți să acceptați. Cookie-urile esențiale nu pot fi dezactivate, deoarece sunt necesare pentru funcționarea site-ului.",
+      "essential": {
+        "title": "Cookie-uri esențiale",
+        "description": "Necesare pentru funcționarea site-ului (autentificare, securitate)."
+      },
+      "functional": {
+        "title": "Cookie-uri funcționale",
+        "description": "Îmbunătățesc experiența (temă, preferințe de limbă)."
+      },
+      "analytics": {
+        "title": "Cookie-uri de analiză",
+        "description": "Ne ajută să înțelegem cum interacționează vizitatorii cu site-ul nostru."
+      },
+      "buttons": {
+        "savePreferences": "Salvează preferințele",
+        "acceptAll": "Acceptă tot"
+      }
+    },
+    "modeToggle": {
+      "toggleTheme": "Comută tema",
+      "dark": "Întunecat",
+      "light": "Luminos",
+      "system": "Sistem"
+    },
+    "pricingTable": {
+      "enjoy": {
+        "title": "Enjoy",
+        "description": "Perfect pentru o experiență fără bătăi de cap",
+        "period": "+taxă/lună",
+        "features": {
+          "unlimited": "Abonamente nelimitate",
+          "notifications": "Notificări e-mail și push",
+          "reports": "Rapoarte și informații",
+          "support": "Suport premium",
+          "firstMonth": "Prima lună gratuită",
+          "priority": "Cerințe de funcții prioritare"
+        },
+        "button": "Începeți"
+      },
+      "selfHosted": {
+        "title": "Self-hosted",
+        "description": "Perfect pentru cei care își găzduiesc singuri serviciul",
+        "price": "Gratuit",
+        "period": "pe veci",
+        "features": {
+          "infrastructure": "Infrastructura dumneavoastră",
+          "sourceCode": "Acces la codul sursă",
+          "community": "Suport din comunitate"
+        },
+        "button": "Vedeți pe GitHub"
+      }
+    },
+    "searchBar": {
+      "placeholder": "Căutare..."
+    },
+    "subscriptionGuard": {
+      "title": "Abonament necesar",
+      "description": {
+        "trialExpired": "Perioada dumneavoastră de probă a expirat.",
+        "cancelled": "Abonamentul dumneavoastră a fost anulat.",
+        "pastDue": "Plata dumneavoastră este întârziată.",
+        "paused": "Abonamentul dumneavoastră a fost pauzat.",
+        "default": "Aveți nevoie de un abonament activ pentru a accesa această funcție."
+      },
+      "message": "Vă rugăm vizitați pagina contului pentru a gestiona abonamentul și a continua să utilizați toate funcțiile.",
+      "button": "Mergeți la setările contului"
+    }
+  }
+}

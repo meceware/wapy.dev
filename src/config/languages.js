@@ -52,6 +52,51 @@ const SupportedLanguages = {
       </svg>
     ),
   },
+  'ro': {
+    name: 'Romanian',
+    nativeName: 'Română',
+    flag: (props) => (
+      <svg viewBox='0 0 513 342' {...props}>
+        <path fill='#002b7f' d='M0 0h171v342H0z'/>
+        <path fill='#fcd116' d='M171 0h171v342H171z'/>
+        <path fill='#ce1126' d='M342 0h171v342H342z'/>
+      </svg>
+    ),
+  },
+  'ru': {
+    name: 'Russian',
+    nativeName: 'Русский',
+    flag: (props) => (
+      <svg viewBox='0 0 513 342' {...props}>
+        <path fill='#FFF' d='M0 0h513v114H0z'/>
+        <path fill='#0039a6' d='M0 114h513v114H0z'/>
+        <path fill='#d52b1e' d='M0 228h513v114H0z'/>
+      </svg>
+    ),
+  },
+  'km': {
+    name: 'Cambodian (Khmer)',
+    nativeName: 'ភាសាខ្មែរ',
+    flag: (props) => (
+      <svg viewBox='0 0 513 342' {...props}>
+        <path fill='#D80027' d='M0 0h513v342H0z'/>
+        <g fill='#0052B4'>
+          <path d='M0 0h513v114H0zM0 228h513v114H0z'/>
+        </g>
+        <path fill='#FFF' d='M303.5 196.6v-17.8h-11.9v-23.7l-11.9-11.9-11.8 11.9v-23.8L256 119.5l-11.9 11.8v23.8l-11.8-11.9-11.9 11.9v23.7h-11.9v17.8h-11.9v17.8h118.8v-17.8z'/>
+      </svg>
+    ),
+  },
+  'uk': {
+    name: 'Ukrainian',
+    nativeName: 'Українська',
+    flag: (props) => (
+      <svg viewBox='0 0 513 342' {...props}>
+        <path fill='#FFDA44' d='M0 0h513v171H0z'/>
+        <path fill='#338AF3' d='M0 171h513v171H0z'/>
+      </svg>
+    ),
+  },
   'es': {
     name: 'Spanish',
     nativeName: 'Español',

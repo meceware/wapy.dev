@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 import Link from 'next/link';
-import { useTranslations, useFormatter } from 'next-intl';
+import { useTranslations, useFormatter, useLocale } from 'next-intl';
 import {
   addMonths,
   differenceInDays,
@@ -40,6 +40,7 @@ import {
 
 export function SubscriptionView({ subscription, externalServices }) {
   const t = useTranslations('components.view');
+  const locale = useLocale();
   const tCycle = useTranslations('components.subscriptions.cycles');
   const tCommon = useTranslations('common');
   const formatter = useFormatter();
@@ -113,7 +114,7 @@ export function SubscriptionView({ subscription, externalServices }) {
     <div className='w-full max-w-3xl flex flex-col gap-6'>
       <div className='flex flex-col items-center gap-4 w-full'>
         <div className='relative mt-2'>
-          <div className={cn('size-6 rounded-full absolute top-0 right-0 ring-2 ring-background',
+          <div className={cn('size-6 rounded-full absolute top-0 end-0 ring-2 ring-background',
             {'bg-green-500': subscription.enabled},
             {'bg-red-500': !subscription.enabled}
           )} />
@@ -129,7 +130,7 @@ export function SubscriptionView({ subscription, externalServices }) {
             {subscription.name}
           </h1>
           <p className='text-lg wrap-break-word font-medium tabular-nums'>
-            {formatPrice(subscription.price, subscription.currency)}{' / '}{tCycle(subscription.cycle.time, { count: subscription.cycle.every })}
+            {formatPrice(subscription.price, subscription.currency, locale)}{' / '}{tCycle(subscription.cycle.time, { count: subscription.cycle.every })}
           </p>
         </div>
 
@@ -175,7 +176,7 @@ export function SubscriptionView({ subscription, externalServices }) {
         </CardHeader>
         <CardContent className='flex flex-col gap-3'>
           {!subscription.enabled && (
-            <div className='flex items-center gap-2 p-4 rounded-lg border-l-4 border-l-red-500 bg-red-500/10'>
+            <div className='flex items-center gap-2 p-4 rounded-lg border-s-4 border-s-red-500 bg-red-500/10'>
               <p className='text-sm'>
                 {t('overview.disabled')}
               </p>
@@ -184,15 +185,15 @@ export function SubscriptionView({ subscription, externalServices }) {
 
           {subscription.enabled && (
             <>
-              <div className={cn('flex items-center gap-2 p-4 rounded-lg border-l-4', {
-                'border-l-red-500 bg-red-500/10': stats.unpaidPayments.count,
-                'border-l-green-500 bg-green-500/10': !stats.unpaidPayments.count
+              <div className={cn('flex items-center gap-2 p-4 rounded-lg border-s-4', {
+                'border-s-red-500 bg-red-500/10': stats.unpaidPayments.count,
+                'border-s-green-500 bg-green-500/10': !stats.unpaidPayments.count
               })}>
                 <p className='text-sm'>
                   {stats.unpaidPayments.count ? (
                     t.rich('overview.unpaid.hasUnpaid', {
                       count: () => <span className='font-semibold'>{stats.unpaidPayments.count}</span>,
-                      total: () => <span className='font-semibold tabular-nums'>{formatPrice(stats.unpaidPayments.total, subscription.currency)}</span>
+                      total: () => <span className='font-semibold tabular-nums'>{formatPrice(stats.unpaidPayments.total, subscription.currency, locale)}</span>
                     })
                   ) : (
                     t('overview.unpaid.allPaid')
@@ -200,11 +201,11 @@ export function SubscriptionView({ subscription, externalServices }) {
                 </p>
               </div>
 
-              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-s-4 border-s-muted-foreground'>
                 <p className='text-sm'>
                   {stats.nextPaymentDate ? (
                     t.rich('overview.nextPayment.scheduled', {
-                      price: () => <span className='font-semibold tabular-nums'>{formatPrice(subscription.price, subscription.currency)}</span>,
+                      price: () => <span className='font-semibold tabular-nums'>{formatPrice(subscription.price, subscription.currency, locale)}</span>,
                       date: () => <span className='font-semibold'>{formatter.dateTime(stats.nextPaymentDate, {
                         day: '2-digit',
                         month: 'long',
@@ -220,7 +221,7 @@ export function SubscriptionView({ subscription, externalServices }) {
                 </p>
               </div>
 
-              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-s-4 border-s-muted-foreground'>
                 <p className='text-sm'>
                   {subscription?.untilDate ? (
                     t.rich('overview.endDate.hasEndDate', {
@@ -236,24 +237,24 @@ export function SubscriptionView({ subscription, externalServices }) {
                 </p>
               </div>
 
-              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-s-4 border-s-muted-foreground'>
                 <p className='text-sm'>
                   {subscription?.untilDate ? (
                     t.rich('overview.remainingPayments.withEndDate', {
                       count: () => <span className='font-semibold'>{stats.remainingPayments}</span>,
-                      total: () => <span className='font-semibold tabular-nums'>{formatPrice(stats.remainingPayments * subscription.price, subscription.currency)}</span>
+                      total: () => <span className='font-semibold tabular-nums'>{formatPrice(stats.remainingPayments * subscription.price, subscription.currency, locale)}</span>
                     })
                   ) : (
                     t.rich('overview.remainingPayments.thisYear', {
                       count: () => <span className='font-semibold'>{stats.payments.length}</span>,
-                      total: () => <span className='font-semibold tabular-nums'>{formatPrice(stats.totalCost, subscription.currency)}</span>
+                      total: () => <span className='font-semibold tabular-nums'>{formatPrice(stats.totalCost, subscription.currency, locale)}</span>
                     })
                   )}
                 </p>
               </div>
 
               {(subscription?.paymentMethods?.length || 0) > 0 && (
-                <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-s-4 border-s-muted-foreground'>
                   <div className='block text-sm'>
                     {t.rich('overview.paymentMethods.text', {
                       methods: () => {
@@ -270,13 +271,13 @@ export function SubscriptionView({ subscription, externalServices }) {
                 </div>
               )}
 
-              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-s-4 border-s-muted-foreground'>
                 <p className='text-sm'>
                   {(subscription?.pastPayments?.totalCount || 0) > 0 ? (
                     <>
                       {t.rich('overview.pastPayments.hasPast', {
                         count: subscription.pastPayments.totalCount,
-                        total: subscription.pastPayments.total.map(c => formatPrice(c.sum, c.currency)).join(' + '),
+                        total: subscription.pastPayments.total.map(c => formatPrice(c.sum, c.currency, locale)).join(' + '),
                         // 3. Define the tag renderers for the style
                         countTag: (chunks) => <span className='font-semibold'>{chunks}</span>,
                         totalTag: (chunks) => <span className='font-semibold tabular-nums'>{chunks}</span>
@@ -284,7 +285,7 @@ export function SubscriptionView({ subscription, externalServices }) {
                       {(subscription.pastPayments.yearCount || 0) > 0 && (
                         t.rich('overview.pastPayments.yearStats', {
                           count: subscription.pastPayments.yearCount,
-                          total: subscription.pastPayments.year.map(c => formatPrice(c.sum, c.currency)).join(' + '),
+                          total: subscription.pastPayments.year.map(c => formatPrice(c.sum, c.currency, locale)).join(' + '),
                           // 3. Define the tag renderers for the style
                           countTag: (chunks) => <span className='font-semibold'>{chunks}</span>,
                           totalTag: (chunks) => <span className='font-semibold tabular-nums'>{chunks}</span>
@@ -297,7 +298,7 @@ export function SubscriptionView({ subscription, externalServices }) {
                 </p>
               </div>
 
-              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+              <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-s-4 border-s-muted-foreground'>
                 {subscription?.notifications?.length > 0 ? (
                   <div className='text-sm flex flex-col gap-1'>
                     {t('overview.notifications.title')}
@@ -352,7 +353,7 @@ export function SubscriptionView({ subscription, externalServices }) {
               </div>
 
               {subscription?.nextNotificationTime && (
-                <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-l-4 border-l-muted-foreground'>
+                <div className='flex items-center gap-2 px-4 py-2 rounded-lg border-s-4 border-s-muted-foreground'>
                   <p className='text-sm'>
                     {t.rich('overview.nextNotification.text', {
                       date: () => <span className='font-semibold'>{formatter.dateTime(subscription.nextNotificationTime, {
@@ -400,7 +401,7 @@ export function SubscriptionView({ subscription, externalServices }) {
                   <span className='text-sm font-medium'>{period}</span>
                 </div>
                 <span className='text-lg font-semibold tabular-nums'>
-                  {formatPrice(cost, subscription.currency)}
+                  {formatPrice(cost, subscription.currency, locale)}
                 </span>
               </div>
             ))}
@@ -449,7 +450,7 @@ export function SubscriptionView({ subscription, externalServices }) {
                       })}
                     </span>
                     <span className='font-medium tabular-nums break-all'>
-                      {formatPrice(payment.price, subscription.currency)}
+                      {formatPrice(payment.price, subscription.currency, locale)}
                     </span>
                   </div>
                 </div>
@@ -469,7 +470,7 @@ export function SubscriptionView({ subscription, externalServices }) {
           </div>
           <div className='flex items-center gap-1 text-base font-medium'>
             <span className='text-sm text-muted-foreground'>{t('paymentSchedule.total')}</span>
-            <span className='tabular-nums'>{formatPrice(stats.totalCost, subscription.currency)}</span>
+            <span className='tabular-nums'>{formatPrice(stats.totalCost, subscription.currency, locale)}</span>
           </div>
         </CardFooter>
       </Card>
@@ -565,7 +566,7 @@ export function SubscriptionView({ subscription, externalServices }) {
                         </PopoverContent>
                       </Popover>
                       <span className='font-medium tabular-nums break-all'>
-                        {formatPrice(payment.price, payment.currency)}
+                        {formatPrice(payment.price, payment.currency, locale)}
                       </span>
                     </div>
                   </div>
@@ -587,7 +588,7 @@ export function SubscriptionView({ subscription, externalServices }) {
           <div className='flex items-center gap-1 text-base font-medium'>
             <span className='text-sm text-muted-foreground'>{t('paymentSchedule.total')}</span>
             <span className='tabular-nums'>
-              {subscription.pastPayments.total.map(c => `${formatPrice(c.sum, c.currency)}`).join(' + ')}
+              {subscription.pastPayments.total.map(c => `${formatPrice(c.sum, c.currency, locale)}`).join(' + ')}
             </span>
           </div>
         </CardFooter>

@@ -124,7 +124,7 @@ export const NotificationStatusManager = () => {
                 className='p-0 h-auto inline-flex cursor-pointer'
               >
                 {chunks}
-                {testing && <Icons.spinner className='animate-spin ml-1' />}
+                {testing && <Icons.spinner className='animate-spin ms-1' />}
               </Button>
             )
           })}
@@ -425,7 +425,7 @@ export const NotificationsFieldManager = ({ field, externalServices, isLoading =
             disabled={isLoading}
             type='button'
           >
-            <Icons.add className='mr-2 size-4' />
+            <Icons.add className='me-2 size-4' />
             {t('addNotification')}
           </Button>
           {children}

@@ -47,7 +47,7 @@ export const TermsOfService = () => {
             <p>
               {t('websiteTerms.paragraph2')}
             </p>
-            <ul className='list-disc pl-8'>
+            <ul className='list-disc ps-8'>
               <li>{t('websiteTerms.items.unlawful')}</li>
               <li>{t('websiteTerms.items.comply')}</li>
               <li>{t('websiteTerms.items.malicious')}</li>

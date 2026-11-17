@@ -30,9 +30,9 @@ const SearchBar = ( { value, onChange } ) => {
   return (
     <div className='relative w-full'>
       <Input ref={ inputRef } type='search' value={ search } onChange={ onSearchChange } placeholder={t('placeholder')}
-        className='h-10 pr-12 [&::-webkit-search-cancel-button]:hidden'
+        className='h-10 pe-12 [&::-webkit-search-cancel-button]:hidden'
       />
-      <div className='absolute right-1.5 top-0 flex h-full items-center'>
+      <div className='absolute end-1.5 top-0 flex h-full items-center'>
         <kbd className='pointer-events-none flex select-none gap-1 rounded border px-1.5 py-1 font-mono text-xs font-medium'>
           <span className='text-xs'>⌘</span>K
         </kbd>

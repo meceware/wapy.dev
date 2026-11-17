@@ -163,7 +163,7 @@ export const FilterPanel = ({
                     pressed={enabledFilter}
                     onPressedChange={() => setEnabledFilter(!enabledFilter)}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-s-4 data-[state=on]:border-s-green-500'
                     title={t('status.active.description')}
                   >
                     <div className='size-3 rounded-full bg-green-500' />
@@ -173,7 +173,7 @@ export const FilterPanel = ({
                     pressed={disabledFilter}
                     onPressedChange={() => setDisabledFilter(!disabledFilter)}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-s-4 data-[state=on]:border-s-green-500'
                     title={t('status.inactive.description')}
                   >
                     <div className='size-3 rounded-full bg-red-500' />
@@ -194,7 +194,7 @@ export const FilterPanel = ({
                       setNext30DaysFilter(false);
                     }}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-s-4 data-[state=on]:border-s-green-500'
                     title={t('paymentDate.all.description')}
                   >
                     {t('paymentDate.all.title')}
@@ -206,7 +206,7 @@ export const FilterPanel = ({
                       setNext30DaysFilter(false);
                     }}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-s-4 data-[state=on]:border-s-green-500'
                     title={t('paymentDate.thisMonth.description')}
                   >
                     {t('paymentDate.thisMonth.title')}
@@ -218,7 +218,7 @@ export const FilterPanel = ({
                       setThisMonthFilter(false);
                     }}
                     variant='outline'
-                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                    className='gap-2 px-4 py-2 h-auto cursor-pointer border-s-4 data-[state=on]:border-s-green-500'
                     title={t('paymentDate.next30Days.description')}
                   >
                     {t('paymentDate.next30Days.title')}
@@ -261,7 +261,7 @@ export const FilterPanel = ({
                           pressed={selectedCurrencies[currency]}
                           onPressedChange={() => toggleCurrency(currency)}
                           variant='outline'
-                          className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                          className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-s-4 data-[state=on]:border-s-green-500'
                           title={t('currencies.filter', { currency: DefaultCurrencies[currency].name })}
                         >
                           <span>
@@ -310,7 +310,7 @@ export const FilterPanel = ({
                         pressed={selectedCategories[category].status}
                         onPressedChange={() => toggleCategory(category)}
                         variant='outline'
-                        className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                        className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-s-4 data-[state=on]:border-s-green-500'
                         title={t('categories.filterBy', { category: getCategoryName(category) })}
                       >
                         <span className='size-2 rounded-full' style={{
@@ -355,7 +355,7 @@ export const FilterPanel = ({
                         pressed={selectedPaymentMethods[paymentMethod].status}
                         onPressedChange={() => togglePaymentMethod(paymentMethod)}
                         variant='outline'
-                        className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-l-4 data-[state=on]:border-l-green-500'
+                        className='text-xs gap-2 px-2 py-1 h-auto cursor-pointer border-s-4 data-[state=on]:border-s-green-500'
                         title={t('paymentMethods.filterBy', { method: getPaymentMethodName(paymentMethod) })}
                       >
                         <LogoIcon icon={selectedPaymentMethods[paymentMethod].icon ? JSON.parse(selectedPaymentMethods[paymentMethod].icon) : false} placeholder className='size-4' />

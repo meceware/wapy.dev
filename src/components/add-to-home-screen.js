@@ -21,7 +21,7 @@ const AddToIosSafari = () => {
   return (
     <>
       <div className='text-sm font-semibold'>{t('title')}</div>
-      <ol className='list-disc pl-4 text-muted-foreground text-sm space-y-1'>
+      <ol className='list-disc ps-4 text-muted-foreground text-sm space-y-1'>
         <li>
           {tCommon.rich('clickIcon', {
             icon: () => <Icons.share className='size-4 inline' />
@@ -49,7 +49,7 @@ const AddToIosChrome = () => {
   return (
     <>
       <div className='text-sm font-semibold'>{t('title')}</div>
-      <ol className='list-disc pl-4 text-muted-foreground text-sm space-y-1'>
+      <ol className='list-disc ps-4 text-muted-foreground text-sm space-y-1'>
         <li>
           {tCommon.rich('clickIcon', {
             icon: () => <Icons.share className='size-4 inline' />
@@ -74,7 +74,7 @@ const AddToChrome = () => {
   return (
     <>
       <div className='text-sm font-semibold'>{t('title')}</div>
-      <ol className='list-disc pl-4 text-muted-foreground text-sm space-y-1'>
+      <ol className='list-disc ps-4 text-muted-foreground text-sm space-y-1'>
         <li>
           {tCommon.rich('clickIcon', {
             icon: () => <Icons.ellipsisVertical className='size-4 inline' />
@@ -99,7 +99,7 @@ const AddToIosFirefox = () => {
   return (
     <>
       <div className='text-sm font-semibold'>{t('title')}</div>
-      <ol className='list-disc pl-4 text-muted-foreground text-sm space-y-1'>
+      <ol className='list-disc ps-4 text-muted-foreground text-sm space-y-1'>
         <li>
           {tCommon.rich('clickIcon', {
             icon: () => <Icons.menu className='size-4 inline' />
@@ -129,7 +129,7 @@ const AddToFirefox = () => {
   return (
     <>
       <div className='text-sm font-semibold'>{t('title')}</div>
-      <ol className='list-disc pl-4 text-muted-foreground text-sm space-y-1'>
+      <ol className='list-disc ps-4 text-muted-foreground text-sm space-y-1'>
         <li>
           {tCommon.rich('clickIcon', {
             icon: () => <Icons.ellipsisVertical className='size-4 inline' />
@@ -153,7 +153,7 @@ const AddToUnknown = () => {
   return (
     <>
       <div className='text-sm font-semibold'>{t('title')}</div>
-      <ol className='list-disc pl-4 text-muted-foreground text-sm space-y-1'>
+      <ol className='list-disc ps-4 text-muted-foreground text-sm space-y-1'>
         <li>{t('step1')}</li>
         <li>{t('step2')}</li>
         <li>{t('step3')}</li>

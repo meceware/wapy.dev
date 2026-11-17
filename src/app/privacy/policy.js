@@ -34,7 +34,7 @@ export const PrivacyPolicy = () => {
             <p>
               {t('informationWeCollect.description')}
             </p>
-            <ul className='list-disc pl-8'>
+            <ul className='list-disc ps-8'>
               <li>{t('informationWeCollect.items.account')}</li>
               <li>{t('informationWeCollect.items.subscription')}</li>
               <li>{t('informationWeCollect.items.expense')}</li>
@@ -46,7 +46,7 @@ export const PrivacyPolicy = () => {
             <p>
               {t('howWeUse.description')}
             </p>
-            <ul className='list-disc pl-8'>
+            <ul className='list-disc ps-8'>
               <li>{t('howWeUse.items.providing')}</li>
               <li>{t('howWeUse.items.managing')}</li>
               <li>{t('howWeUse.items.sending')}</li>
@@ -101,7 +101,7 @@ export const PrivacyPolicy = () => {
             <p>
               {t('yourRights.description')}
             </p>
-            <ul className='list-disc pl-8'>
+            <ul className='list-disc ps-8'>
               <li>{t('yourRights.items.access')}</li>
               <li>{t('yourRights.items.correct')}</li>
               <li>{t('yourRights.items.delete')}</li>

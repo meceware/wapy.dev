@@ -70,9 +70,9 @@
     "selectLanguage": "Dil seçin",
     "invalid": "Geçersiz dil",
     "failed": "Dil değiştirilemedi",
-    "notAvailableTitle": "Dil Seçimi Kullanılamıyor",
-    "notAvailableMessage": "Fonksiyonel çerezler devre dışı olduğu ve giriş yapmadığınız için dil tercihleri değiştirilemiyor. Dili değiştirmek için şunlardan birini yapmanız gerekiyor:",
-    "enableCookies": "Fonksiyonel çerezleri etkinleştirin"
+    "notAvailableTitle": "Language Selection Unavailable",
+    "notAvailableMessage": "Language preferences cannot be changed because functional cookies are disabled and you're not signed in. To change the language, you need to either:",
+    "enableCookies": "Enable functional cookies"
   },
   "home": {
     "visitor": {
@@ -131,7 +131,7 @@
   },
   "pages": {
     "notFound": {
-      "meta" : {
+      "meta": {
         "title": "Sayfa Bulunamadı",
         "description": "Aradığınız sayfa mevcut değil."
       },
@@ -171,7 +171,7 @@
       }
     },
     "account": {
-      "meta" : {
+      "meta": {
         "title": "Hesap Ayarları",
         "description": "Hesap ayarlarınızı ve tercihlerinizi yönetin."
       },

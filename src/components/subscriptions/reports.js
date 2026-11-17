@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, Fragment, useState } from 'react';
-import { useTranslations, useFormatter } from 'next-intl';
+import { useTranslations, useFormatter, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { compareAsc } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
@@ -65,7 +65,7 @@ const SubscriptionCard = ({ subscription, currency, withDate = true, withPayment
               <Link href={`/view/${subscription.id}`}>{subscription.name}</Link>
             </div>
             <div className='block sm:hidden text-sm font-medium shrink-0 tabular-nums overflow-hidden text-ellipsis'>
-              {formatPrice(subscription.amount, currency)}
+              {formatPrice(subscription.amount, currency, locale)}
             </div>
             {withDate && (
               <div className='flex items-center gap-1 text-xs text-muted-foreground'>
@@ -83,13 +83,13 @@ const SubscriptionCard = ({ subscription, currency, withDate = true, withPayment
               <div className='flex items-center gap-1 text-xs text-muted-foreground'>
                 <Icons.wallet className='size-3.5 inline shrink-0' />
                 <span className='overflow-hidden text-ellipsis'>
-                  {t('willBePaid', { price: formatPrice(subscription?.price, currency), count: subscription?.paymentsCount })}
+                  {t('willBePaid', { price: formatPrice(subscription?.price, currency, locale), count: subscription?.paymentsCount })}
                 </span>
               </div>
             )}
           </div>
           <div className='hidden sm:block text-sm font-medium shrink-0 tabular-nums overflow-hidden text-ellipsis'>
-            {formatPrice(subscription.amount, currency)}
+            {formatPrice(subscription.amount, currency, locale)}
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ const OverviewRow = ({ title, description, costs = {total: {}}, categories }) =>
               Object.entries(costs.total).map(([currency, cost], index) => (
                 <PricePrinter
                   key={`${title}-${currency}`}
-                  cost={formatPrice(cost, currency)}
+                  cost={formatPrice(cost, currency, locale)}
                   isPlus={index < Object.entries(costs.total).length - 1}
                 />
               ))
@@ -160,7 +160,7 @@ const OverviewRow = ({ title, description, costs = {total: {}}, categories }) =>
                     {Object.entries(currencies).map(([curr, amt], idx, arr) => (
                       <Fragment key={curr}>
                         <span className='tabular-nums'>
-                          {formatPrice(amt, curr)}
+                          {formatPrice(amt, curr, locale)}
                         </span>
                         {idx < arr.length - 1 && (
                           <span className='text-muted-foreground'> + </span>
@@ -254,7 +254,7 @@ const OverviewRowPaymentMethod = ({ title, description, costs = {total: {}}, pay
               Object.entries(costs.total).map(([currency, cost], index) => (
                 <PricePrinter
                   key={`${title}-${currency}`}
-                  cost={formatPrice(cost, currency)}
+                  cost={formatPrice(cost, currency, locale)}
                   isPlus={index < Object.entries(costs.total).length - 1}
                 />
               ))
@@ -280,7 +280,7 @@ const OverviewRowPaymentMethod = ({ title, description, costs = {total: {}}, pay
                     {Object.entries(currencies).map(([curr, amt], idx, arr) => (
                       <Fragment key={curr}>
                         <span className='tabular-nums'>
-                          {formatPrice(amt, curr)}
+                          {formatPrice(amt, curr, locale)}
                         </span>
                         {idx < arr.length - 1 && (
                           <span className='text-muted-foreground'> + </span>
@@ -400,6 +400,7 @@ const UpcomingPayments = ({ upcoming }) => {
 
 export function SubscriptionReports({ subscriptions }) {
   const t = useTranslations('components.reports');
+  const locale = useLocale();
   const tFilters = useTranslations('components.filters');
   const stats = useMemo(() => {
     const activeSubscriptions = subscriptions.filter(sub => sub.enabled);
@@ -645,7 +646,7 @@ export function SubscriptionReports({ subscriptions }) {
               {Object.entries(stats.costs.inOneYear?.total || {}).map(([currency, cost], index) => (
                 <PricePrinter
                   key={`monthly-avg-${currency}`}
-                  cost={formatPrice(cost / 12, currency)}
+                  cost={formatPrice(cost / 12, currency, locale)}
                   isPlus={index < Object.entries(stats.costs.inOneYear.total).length - 1}
                 />
               ))}
@@ -657,7 +658,7 @@ export function SubscriptionReports({ subscriptions }) {
               {Object.entries(stats.costs.inOneYear?.total || {}).map(([currency, cost], index) => (
                 <PricePrinter
                   key={`yearly-avg-${currency}`}
-                  cost={formatPrice(cost, currency)}
+                  cost={formatPrice(cost, currency, locale)}
                   isPlus={index < Object.entries(stats.costs.inOneYear.total).length - 1}
                 />
               ))}

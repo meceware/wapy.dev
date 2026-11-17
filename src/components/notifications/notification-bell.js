@@ -66,7 +66,7 @@ export function NotificationBell() {
           <Bell className='h-5 w-5' />
           {unreadCount > 0 && (
             <span
-              className='absolute top-0 right-0 size-4 rounded-full bg-red-500 text-white flex items-center justify-center'
+              className='absolute top-0 end-0 size-4 rounded-full bg-red-500 text-white flex items-center justify-center'
               style={{
                 fontSize: '0.6rem',
                 lineHeight: '1rem',

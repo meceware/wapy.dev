@@ -1513,17 +1513,17 @@ const ExternalServiceNtfy = ( {ntfy, onUpdate} ) => {
           <div className='flex flex-col sm:flex-row gap-4 w-full'>
             <Button onClick={handleSave} disabled={ntfyLoading} className='w-full sm:w-auto'>
               {ntfyLoading ? (
-                <Icons.spinner className='mr-2 animate-spin' />
+                <Icons.spinner className='me-2 animate-spin' />
               ) : (
-                <Icons.save className='mr-2' />
+                <Icons.save className='me-2' />
               )}
               {t('buttons.save')}
             </Button>
             <Button onClick={handleTest} variant='secondary' disabled={ntfyLoading} className='w-full text-left sm:w-auto'>
               {ntfyLoading ? (
-                <Icons.spinner className='mr-2 animate-spin' />
+                <Icons.spinner className='me-2 animate-spin' />
               ) : (
-                <Icons.send className='mr-2' />
+                <Icons.send className='me-2' />
               )}
               {t('buttons.test')}
             </Button>
@@ -1663,17 +1663,17 @@ const ExternalServiceWebhook = ( {webhook, onUpdate} ) => {
           <div className='flex flex-col sm:flex-row gap-4 w-full'>
             <Button onClick={handleSave} disabled={webhookLoading} className='w-full sm:w-auto'>
               {webhookLoading ? (
-                <Icons.spinner className='mr-2 animate-spin' />
+                <Icons.spinner className='me-2 animate-spin' />
               ) : (
-                <Icons.save className='mr-2' />
+                <Icons.save className='me-2' />
               )}
               {t('buttons.save')}
             </Button>
             <Button onClick={handleTest} variant='secondary' disabled={webhookLoading} className='w-full text-left sm:w-auto'>
               {webhookLoading ? (
-                <Icons.spinner className='mr-2 animate-spin' />
+                <Icons.spinner className='me-2 animate-spin' />
               ) : (
-                <Icons.send className='mr-2' />
+                <Icons.send className='me-2' />
               )}
               {t('buttons.test')}
             </Button>
@@ -1813,17 +1813,17 @@ const ExternalServiceDiscord = ( {discord, onUpdate} ) => {
           <div className='flex flex-col sm:flex-row gap-4 w-full'>
             <Button onClick={handleSave} disabled={discordLoading} className='w-full sm:w-auto'>
               {discordLoading ? (
-                <Icons.spinner className='mr-2 animate-spin' />
+                <Icons.spinner className='me-2 animate-spin' />
               ) : (
-                <Icons.save className='mr-2' />
+                <Icons.save className='me-2' />
               )}
               {t('buttons.save')}
             </Button>
             <Button onClick={handleTest} variant='secondary' disabled={discordLoading} className='w-full text-left sm:w-auto'>
               {discordLoading ? (
-                <Icons.spinner className='mr-2 animate-spin' />
+                <Icons.spinner className='me-2 animate-spin' />
               ) : (
-                <Icons.send className='mr-2' />
+                <Icons.send className='me-2' />
               )}
               {t('buttons.test')}
             </Button>
@@ -1963,17 +1963,17 @@ const ExternalServiceSlack = ( {slack, onUpdate} ) => {
           <div className='flex flex-col sm:flex-row gap-4 w-full'>
             <Button onClick={handleSave} disabled={slackLoading} className='w-full sm:w-auto'>
               {slackLoading ? (
-                <Icons.spinner className='mr-2 animate-spin' />
+                <Icons.spinner className='me-2 animate-spin' />
               ) : (
-                <Icons.save className='mr-2' />
+                <Icons.save className='me-2' />
               )}
               {t('buttons.save')}
             </Button>
             <Button onClick={handleTest} variant='secondary' disabled={slackLoading} className='w-full text-left sm:w-auto'>
               {slackLoading ? (
-                <Icons.spinner className='mr-2 animate-spin' />
+                <Icons.spinner className='me-2 animate-spin' />
               ) : (
-                <Icons.send className='mr-2' />
+                <Icons.send className='me-2' />
               )}
               {t('buttons.test')}
             </Button>
@@ -2080,9 +2080,9 @@ const ExportActions = () => {
           title={t('button')}
         >
           {loading ? (
-            <Icons.spinner className='mr-2 size-4 animate-spin' />
+            <Icons.spinner className='me-2 size-4 animate-spin' />
           ) : (
-            <Icons.download className='mr-2 size-4' />
+            <Icons.download className='me-2 size-4' />
           )}
           {t('button')}
         </Button>

@@ -11,7 +11,9 @@
     "contact": "Liên hệ",
     "signIn": "Đăng nhập",
     "termsOfService": "Điều khoản dịch vụ",
-    "privacyPolicy": "Chính sách bảo mật"
+    "privacyPolicy": "Chính sách bảo mật",
+    "pricing": "Pricing",
+    "refundPolicy": "Refund Policy"
   },
   "notifications": {
     "subscription": {
@@ -40,6 +42,16 @@
       "visitDashboard": "Mở bảng điều khiển",
       "paymentQuestion": "Đã thanh toán xong?",
       "viewDetails": "Xem chi tiết"
+    },
+    "trial": {
+      "reminder": {
+        "title": "{siteName} Trial Reminder",
+        "message": "Your {siteName} trial period is ending soon. Subscribe now to keep enjoying all features."
+      },
+      "expired": {
+        "title": "{siteName} Trial Expired",
+        "message": "Your {siteName} trial period is expired. Subscribe now to keep enjoying all features."
+      }
     }
   },
   "header": {
@@ -68,7 +80,8 @@
         "badge": "Miễn phí sử dụng. Một người tự vận hành.",
         "title": "Theo dõi mọi gói đăng ký. Không bỏ lỡ khoản nào.",
         "subtitle": "{appName} gom mọi khoản phí định kỳ vào một bảng điều khiển dễ đọc và nhắc bạn trước khi đến hạn.",
-        "tagline": "Miễn phí. Không cần thẻ, không dùng thử, không chèo kéo."
+        "tagline": "Miễn phí. Không cần thẻ, không dùng thử, không chèo kéo.",
+        "imageAlt": "Hero"
       },
       "features": {
         "title": "Nó làm được gì",
@@ -115,22 +128,7 @@
         }
       },
       "free": {
-        "eyebrow": "Miễn phí",
-        "title": "Miễn phí, không kèm điều kiện",
-        "description": "Phần mềm là mã nguồn mở. Bản này được vận hành cho những người không thể tự dựng.",
-        "price": "€0",
-        "period": "mãi mãi",
-        "features": {
-          "unlimited": "Không giới hạn gói đăng ký",
-          "notifications": "Nhắc nhở qua email, push, webhook, ntfy, Discord và Slack",
-          "reports": "Báo cáo và thông tin chi tiêu",
-          "export": "Xuất dữ liệu bất cứ lúc nào",
-          "noAds": "Không quảng cáo, không theo dõi, không cần thông tin thanh toán",
-          "bestEffort": "Nỗ lực tối đa, không cam kết thời gian hoạt động"
-        },
-        "button": "Đăng nhập",
-        "selfHostButton": "Tự dựng",
-        "selfHostNote": "Thích máy chủ riêng? Cùng phần mềm này chạy được bằng Docker trong khoảng mười phút."
+        "features": {}
       }
     }
   },
@@ -369,6 +367,54 @@
           "success": "Đã xuất dữ liệu.",
           "error": "Xuất dữ liệu thất bại!"
         }
+      },
+      "subscriptionStatus": {
+        "title": "Subscription Status",
+        "description": "Your subscription status",
+        "trial": {
+          "active": "Your trial period ends <date></date>.",
+          "notification": {
+            "multipleDays": "We will notify you <highlight>1 day before</highlight> your trial ends.",
+            "lastDay": "We will notify you <highlight>when</highlight> your trial ends."
+          },
+          "ended": "Your trial period has ended!",
+          "subscribe": "Ready to continue with us?"
+        },
+        "subscription": {
+          "active": {
+            "scheduled": {
+              "pause": "Your subscription is <status>paused</status> and will stop <date></date>.",
+              "cancel": "Your subscription is <status>cancelled</status> and will stop <date></date>."
+            },
+            "nextPayment": "Your next payment is <date></date>.",
+            "notification": "We will notify you before your subscription ends."
+          },
+          "paused": {
+            "message": "Your subscription is currently paused.",
+            "button": "Resume Subscription"
+          },
+          "cancelled": {
+            "message": "Your subscription has been cancelled.",
+            "button": "Reactivate Subscription"
+          },
+          "pastDue": {
+            "message": "Your payment is past due. Please update your payment method."
+          },
+          "cancel": {
+            "button": "Cancel Subscription",
+            "dialog": {
+              "title": "Are you sure you want to cancel?",
+              "description": "This action will cancel your subscription at the end of the current billing period. You will continue to have access until then."
+            },
+            "confirmButton": "Confirm Cancellation"
+          }
+        },
+        "fullAccess": {
+          "message": "Congratulations! You have full access to all features."
+        },
+        "blocked": {
+          "message": "Weird! You are blocked from using our service."
+        }
       }
     },
     "edit": {
@@ -406,8 +452,7 @@
           "generic": "Lạ thật! Chúng tôi không thể đăng nhập cho bạn. Có thể do email, hoặc lỗi từ phía chúng tôi.",
           "invalidCode": "Mã có vẻ không đúng. Kiểm tra lại 6 chữ số và thử lại.",
           "somethingWrong": "Đã có lỗi xảy ra. Hãy yêu cầu mã mới và thử lại.",
-          "workspaceAccess": "Xin lỗi, bạn không có quyền truy cập không gian làm việc này.",
-          "rateLimited": "Quá nhiều yêu cầu. Chờ một phút rồi thử lại."
+          "workspaceAccess": "Xin lỗi, bạn không có quyền truy cập không gian làm việc này."
         }
       }
     },
@@ -462,9 +507,10 @@
         "title": "Cập nhật chính sách này",
         "description": "Trang này thay đổi khi phần mềm hoặc bản triển khai thay đổi. Ngày ở đầu trang là phiên bản hiện tại."
       },
-      "operator": {
-        "title": "Ai vận hành",
-        "description": "sub.idler.me do một người vận hành trên hạ tầng tự dựng như một dịch vụ cộng đồng, không phải công ty. Không xử lý thanh toán và không quảng cáo."
+      "operator": {},
+      "paymentProcessing": {
+        "title": "Payment Processing",
+        "description": "We use <paddle>Paddle.com</paddle> as our payment processing system. When you make a payment, your payment information is collected and processed directly by Paddle. We do not store your payment details on our servers. For information about how Paddle processes your data, please refer to <privacy>Paddle's Privacy Policy</privacy>."
       }
     },
     "reports": {
@@ -546,23 +592,68 @@
       "contactUs": {
         "description": "Nếu bạn có câu hỏi hoặc lo ngại về các Điều khoản dịch vụ này, hãy liên hệ người vận hành qua Matrix ở <link>trang liên hệ</link>."
       },
-      "freeService": {
-        "title": "Dịch vụ miễn phí, không thu phí",
-        "paragraph1": "sub.idler.me là miễn phí. Không có gói, không dùng thử, không có ô nhập thẻ, không hoàn tiền, vì không có tiền trao đổi.",
-        "paragraph2": "Phần mềm là mã nguồn mở theo giấy phép MIT kèm Commons Clause. Bạn có thể tự dựng. Bản này tồn tại cho những người không thể hoặc không muốn tự vận hành.",
-        "paragraph3": "Dịch vụ được cung cấp nguyên trạng và với nỗ lực tối đa. Không cam kết thời gian hoạt động và không bảo đảm dữ liệu sống sót qua sự cố. Hãy xuất dữ liệu định kỳ và tự giữ bản sao lưu."
+      "freeService": {},
+      "payment": {
+        "title": "Payment",
+        "paragraph1": "If you purchase a subscription to the Site, you agree to pay the applicable fees as indicated during the checkout process.",
+        "paragraph2": "We use <paddle>Paddle.com</paddle> as our payment service provider. By making a purchase, you also agree to Paddle's <terms>Terms of Service</terms>. Paddle processes all payments and handles the related customer service inquiries.",
+        "paragraph3": "Site process refunds according to our <refund>refund policy</refund>."
       }
     },
     "contact": {
-      "title": "Liên hệ",
       "description": "Cách nhanh nhất để liên hệ người vận hành là Matrix. Các kênh khác đang được bổ sung.",
-      "matrix": {
-        "label": "Nhắn qua Matrix",
-        "handle": "@nghialele:goon.li"
+      "matrix": {},
+      "moreChannels": {},
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "error": "Name must be at least 2 characters"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your@email.com",
+          "error": "Invalid email address"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us how we can help...",
+          "error": "Message must be at least 10 characters"
+        },
+        "submit": "Send Message",
+        "submitting": "Sending..."
       },
-      "moreChannels": {
-        "title": "Kênh khác",
-        "note": "Sắp có."
+      "success": {
+        "title": "Thank You!",
+        "message1": "Your message has been sent successfully.",
+        "message2": "We'll get back to you..."
+      },
+      "toast": {
+        "success": "Your message has been sent successfully.",
+        "error": "Failed to send message! Please try again later.",
+        "spam": "An error occurred. Please try again later."
+      }
+    },
+    "pricing": {
+      "title": "Simple, transparent pricing",
+      "description": "Track and manage all your subscriptions with powerful features at an affordable price"
+    },
+    "refundPolicy": {
+      "lastUpdated": "Last updated January 17, 2025",
+      "introduction": "Bad refund policies are infuriating. You feel like the company is just trying to rip you off. We never want our customers to feel that way, so our refund policy is simple: If you're ever unhappy for any reason, just <link>contact us</link> and tell us what's up, and we'll work with you to make sure you're happy.",
+      "fullRefunds": {
+        "title": "Examples of full refunds",
+        "items": {
+          "charged": "If you were just charged for your next month of service but you meant to cancel, we're happy to refund that extra charge"
+        }
+      },
+      "partialRefunds": {
+        "title": "Examples of partial refunds",
+        "items": {
+          "week": "If you were charged for a month of service but you only used it for a week, we'll refund the difference",
+          "year": "If you were charged for a year of service but you only used it for a month, we'll refund the difference",
+          "weekDuplicate": "If you were charged for a month of service but you only used it for a week, we'll refund the difference"
+        }
       }
     }
   },
@@ -1144,10 +1235,60 @@
       "buttons": {
         "savePreferences": "Lưu tùy chọn",
         "acceptAll": "Chấp nhận tất cả"
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "Help us understand how visitors interact with our website."
       }
     },
     "searchBar": {
       "placeholder": "Tìm kiếm..."
+    },
+    "modeToggle": {
+      "toggleTheme": "Toggle theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    },
+    "pricingTable": {
+      "enjoy": {
+        "title": "Enjoy",
+        "description": "Perfect for a hassle-free experience",
+        "period": "+tax/month",
+        "features": {
+          "unlimited": "Unlimited Subscriptions",
+          "notifications": "Email & Push Notifications",
+          "reports": "Reports & Insights",
+          "support": "Premium Support",
+          "firstMonth": "First Month Free",
+          "priority": "Priority Feature Requests"
+        },
+        "button": "Get Started"
+      },
+      "selfHosted": {
+        "title": "Self Hosted",
+        "description": "Perfect for self-hosters",
+        "price": "Free",
+        "period": "forever",
+        "features": {
+          "infrastructure": "Your Infrastructure",
+          "sourceCode": "Source Code Access",
+          "community": "Community Support"
+        },
+        "button": "View on GitHub"
+      }
+    },
+    "subscriptionGuard": {
+      "title": "Subscription Required",
+      "description": {
+        "trialExpired": "Your trial period has expired.",
+        "cancelled": "Your subscription has been cancelled.",
+        "pastDue": "Your payment is past due.",
+        "paused": "Your subscription has been paused.",
+        "default": "You need an active subscription to access this feature."
+      },
+      "message": "Please visit your account page to manage your subscription and continue using all features.",
+      "button": "Go to Account Settings"
     }
   }
 }

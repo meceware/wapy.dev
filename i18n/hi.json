@@ -11,7 +11,9 @@
     "contact": "संपर्क करें",
     "signIn": "साइन इन",
     "termsOfService": "सेवा की शर्तें",
-    "privacyPolicy": "गोपनीयता नीति"
+    "privacyPolicy": "गोपनीयता नीति",
+    "pricing": "Pricing",
+    "refundPolicy": "Refund Policy"
   },
   "notifications": {
     "subscription": {
@@ -40,6 +42,16 @@
       "visitDashboard": "डैशबोर्ड पर जाएँ",
       "paymentQuestion": "भुगतान पूरा हो गया?",
       "viewDetails": "विवरण देखें"
+    },
+    "trial": {
+      "reminder": {
+        "title": "{siteName} Trial Reminder",
+        "message": "Your {siteName} trial period is ending soon. Subscribe now to keep enjoying all features."
+      },
+      "expired": {
+        "title": "{siteName} Trial Expired",
+        "message": "Your {siteName} trial period is expired. Subscribe now to keep enjoying all features."
+      }
     }
   },
   "header": {
@@ -57,7 +69,10 @@
   "languages": {
     "selectLanguage": "भाषा चुनें",
     "invalid": "अमान्य भाषा",
-    "failed": "भाषा बदलने में विफल"
+    "failed": "भाषा बदलने में विफल",
+    "notAvailableTitle": "Language Selection Unavailable",
+    "notAvailableMessage": "Language preferences cannot be changed because functional cookies are disabled and you're not signed in. To change the language, you need to either:",
+    "enableCookies": "Enable functional cookies"
   },
   "home": {
     "visitor": {
@@ -65,7 +80,8 @@
         "badge": "निःशुल्क उपयोग. एक व्यक्ति द्वारा होस्ट किया गया.",
         "title": "हर सदस्यता ट्रैक करें. कोई भुगतान न चूकें.",
         "subtitle": "{appName} आवर्ती शुल्कों को एक स्पष्ट डैशबोर्ड में दिखाता है और उनसे पहले आपको याद दिलाता है।",
-        "tagline": "निःशुल्क उपयोग। कोई कार्ड नहीं, कोई ट्रायल नहीं, कोई अतिरिक्त बिक्री नहीं।"
+        "tagline": "निःशुल्क उपयोग। कोई कार्ड नहीं, कोई ट्रायल नहीं, कोई अतिरिक्त बिक्री नहीं।",
+        "imageAlt": "Hero"
       },
       "features": {
         "title": "यह क्या करता है",
@@ -112,22 +128,7 @@
         }
       },
       "free": {
-        "eyebrow": "निःशुल्क",
-        "title": "निःशुल्क, बिना किसी शर्त के",
-        "description": "यह सॉफ़्टवेयर ओपन सोर्स है। यह इंस्टेंस उन लोगों के लिए होस्ट किया गया है जो अपना सर्वर नहीं चला सकते।",
-        "price": "€0",
-        "period": "हमेशा के लिए",
-        "features": {
-          "unlimited": "असीमित सदस्यताएँ",
-          "notifications": "ईमेल, पुश, वेबहुक, ntfy, Discord, और Slack अनुस्मारक",
-          "reports": "रिपोर्ट और खर्च की जानकारी",
-          "export": "अपना डेटा कभी भी निर्यात करें",
-          "noAds": "कोई विज्ञापन, ट्रैकिंग या भुगतान विवरण नहीं",
-          "bestEffort": "पूरी कोशिश, अपटाइम की कोई गारंटी नहीं"
-        },
-        "button": "साइन इन",
-        "selfHostButton": "स्वयं होस्ट करें",
-        "selfHostNote": "अपना सर्वर पसंद है? यही सॉफ़्टवेयर Docker के साथ लगभग दस मिनट में चलता है।"
+        "features": {}
       }
     }
   },
@@ -366,6 +367,54 @@
           "success": "Data exported सफलतापूर्वक.",
           "error": "विफल को export डेटा!"
         }
+      },
+      "subscriptionStatus": {
+        "title": "Subscription Status",
+        "description": "Your subscription status",
+        "trial": {
+          "active": "Your trial period ends <date></date>.",
+          "notification": {
+            "multipleDays": "We will notify you <highlight>1 day before</highlight> your trial ends.",
+            "lastDay": "We will notify you <highlight>when</highlight> your trial ends."
+          },
+          "ended": "Your trial period has ended!",
+          "subscribe": "Ready to continue with us?"
+        },
+        "subscription": {
+          "active": {
+            "scheduled": {
+              "pause": "Your subscription is <status>paused</status> and will stop <date></date>.",
+              "cancel": "Your subscription is <status>cancelled</status> and will stop <date></date>."
+            },
+            "nextPayment": "Your next payment is <date></date>.",
+            "notification": "We will notify you before your subscription ends."
+          },
+          "paused": {
+            "message": "Your subscription is currently paused.",
+            "button": "Resume Subscription"
+          },
+          "cancelled": {
+            "message": "Your subscription has been cancelled.",
+            "button": "Reactivate Subscription"
+          },
+          "pastDue": {
+            "message": "Your payment is past due. Please update your payment method."
+          },
+          "cancel": {
+            "button": "Cancel Subscription",
+            "dialog": {
+              "title": "Are you sure you want to cancel?",
+              "description": "This action will cancel your subscription at the end of the current billing period. You will continue to have access until then."
+            },
+            "confirmButton": "Confirm Cancellation"
+          }
+        },
+        "fullAccess": {
+          "message": "Congratulations! You have full access to all features."
+        },
+        "blocked": {
+          "message": "Weird! You are blocked from using our service."
+        }
       }
     },
     "edit": {
@@ -403,8 +452,7 @@
           "generic": "Weird! We couldn't sign आप में. It might be आपकी ईमेल, या something went wrong पर our end.",
           "invalidCode": "यह code looks incorrect. Double-check यह 6 digits और try again.",
           "somethingWrong": "Something went wrong. Please request a नई code और try again.",
-          "workspaceAccess": "Sorry, आप do नहीं have access को यह workspace.",
-          "rateLimited": "Too many requests. Wait a मिनट और try again."
+          "workspaceAccess": "Sorry, आप do नहीं have access को यह workspace."
         }
       }
     },
@@ -459,9 +507,10 @@
         "title": "Updates को यह Policy",
         "description": "यह page changes when यह software या यह deployment changes. यह तिथि पर यह top है यह current version."
       },
-      "operator": {
-        "title": "इसे कौन चलाता है",
-        "description": "sub.idler.me है operated by एक person पर स्वयं होस्ट किया गया infrastructure as a community service, नहीं a company. There है कोई नहीं भुगतान processing और कोई नहीं advertising."
+      "operator": {},
+      "paymentProcessing": {
+        "title": "Payment Processing",
+        "description": "We use <paddle>Paddle.com</paddle> as our payment processing system. When you make a payment, your payment information is collected and processed directly by Paddle. We do not store your payment details on our servers. For information about how Paddle processes your data, please refer to <privacy>Paddle's Privacy Policy</privacy>."
       }
     },
     "reports": {
@@ -543,23 +592,68 @@
       "contactUs": {
         "description": "If आप have any questions या concerns about these सेवा की शर्तें, reach यह operator पर Matrix से यह <link>contact page</link>."
       },
-      "freeService": {
-        "title": "निःशुल्क Service, कोई नहीं Billing",
-        "paragraph1": "sub.idler.me है निःशुल्क उपयोग. There हैं कोई नहीं plans, कोई नहीं trials, कोई नहीं card fields, और कोई नहीं refunds, because कोई नहीं money changes hands.",
-        "paragraph2": "यह software है open स्रोत under यह MIT license के साथ a Commons Clause. आप may self-host it. यह instance exists के लिए people who cannot या would rather नहीं run their own.",
-        "paragraph3": "यह service है provided as है और best effort. There है कोई नहीं uptime promise और कोई नहीं guarantee that डेटा survives a failure. Export आपकी डेटा regularly और keep आपकी own backups."
+      "freeService": {},
+      "payment": {
+        "title": "Payment",
+        "paragraph1": "If you purchase a subscription to the Site, you agree to pay the applicable fees as indicated during the checkout process.",
+        "paragraph2": "We use <paddle>Paddle.com</paddle> as our payment service provider. By making a purchase, you also agree to Paddle's <terms>Terms of Service</terms>. Paddle processes all payments and handles the related customer service inquiries.",
+        "paragraph3": "Site process refunds according to our <refund>refund policy</refund>."
       }
     },
     "contact": {
-      "title": "Contact",
       "description": "यह fastest way को reach यह operator है Matrix. और channels हैं पर यह way.",
-      "matrix": {
-        "label": "Message पर Matrix",
-        "handle": "@nghialele:goon.li"
+      "matrix": {},
+      "moreChannels": {},
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "error": "Name must be at least 2 characters"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your@email.com",
+          "error": "Invalid email address"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us how we can help...",
+          "error": "Message must be at least 10 characters"
+        },
+        "submit": "Send Message",
+        "submitting": "Sending..."
       },
-      "moreChannels": {
-        "title": "और channels",
-        "note": "Coming जल्द."
+      "success": {
+        "title": "Thank You!",
+        "message1": "Your message has been sent successfully.",
+        "message2": "We'll get back to you..."
+      },
+      "toast": {
+        "success": "Your message has been sent successfully.",
+        "error": "Failed to send message! Please try again later.",
+        "spam": "An error occurred. Please try again later."
+      }
+    },
+    "pricing": {
+      "title": "Simple, transparent pricing",
+      "description": "Track and manage all your subscriptions with powerful features at an affordable price"
+    },
+    "refundPolicy": {
+      "lastUpdated": "Last updated January 17, 2025",
+      "introduction": "Bad refund policies are infuriating. You feel like the company is just trying to rip you off. We never want our customers to feel that way, so our refund policy is simple: If you're ever unhappy for any reason, just <link>contact us</link> and tell us what's up, and we'll work with you to make sure you're happy.",
+      "fullRefunds": {
+        "title": "Examples of full refunds",
+        "items": {
+          "charged": "If you were just charged for your next month of service but you meant to cancel, we're happy to refund that extra charge"
+        }
+      },
+      "partialRefunds": {
+        "title": "Examples of partial refunds",
+        "items": {
+          "week": "If you were charged for a month of service but you only used it for a week, we'll refund the difference",
+          "year": "If you were charged for a year of service but you only used it for a month, we'll refund the difference",
+          "weekDuplicate": "If you were charged for a month of service but you only used it for a week, we'll refund the difference"
+        }
       }
     }
   },
@@ -1129,6 +1223,72 @@
     },
     "searchBar": {
       "placeholder": "खोजें..."
+    },
+    "cookieConsent": {
+      "title": "Cookie Preferences",
+      "description": "Please select which cookies you want to accept. Essential cookies cannot be disabled as they are required for the website to function.",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "Required for the website to function (authentication, security)."
+      },
+      "functional": {
+        "title": "Functional Cookies",
+        "description": "Enhance your experience (theme, language preferences)."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "Help us understand how visitors interact with our website."
+      },
+      "buttons": {
+        "savePreferences": "Save Preferences",
+        "acceptAll": "Accept All"
+      }
+    },
+    "modeToggle": {
+      "toggleTheme": "Toggle theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    },
+    "pricingTable": {
+      "enjoy": {
+        "title": "Enjoy",
+        "description": "Perfect for a hassle-free experience",
+        "period": "+tax/month",
+        "features": {
+          "unlimited": "Unlimited Subscriptions",
+          "notifications": "Email & Push Notifications",
+          "reports": "Reports & Insights",
+          "support": "Premium Support",
+          "firstMonth": "First Month Free",
+          "priority": "Priority Feature Requests"
+        },
+        "button": "Get Started"
+      },
+      "selfHosted": {
+        "title": "Self Hosted",
+        "description": "Perfect for self-hosters",
+        "price": "Free",
+        "period": "forever",
+        "features": {
+          "infrastructure": "Your Infrastructure",
+          "sourceCode": "Source Code Access",
+          "community": "Community Support"
+        },
+        "button": "View on GitHub"
+      }
+    },
+    "subscriptionGuard": {
+      "title": "Subscription Required",
+      "description": {
+        "trialExpired": "Your trial period has expired.",
+        "cancelled": "Your subscription has been cancelled.",
+        "pastDue": "Your payment is past due.",
+        "paused": "Your subscription has been paused.",
+        "default": "You need an active subscription to access this feature."
+      },
+      "message": "Please visit your account page to manage your subscription and continue using all features.",
+      "button": "Go to Account Settings"
     }
   }
 }

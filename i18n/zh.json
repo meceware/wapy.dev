@@ -11,7 +11,9 @@
     "contact": "联系我们",
     "signIn": "登录",
     "termsOfService": "服务条款",
-    "privacyPolicy": "隐私政策"
+    "privacyPolicy": "隐私政策",
+    "pricing": "Pricing",
+    "refundPolicy": "Refund Policy"
   },
   "notifications": {
     "subscription": {
@@ -40,6 +42,16 @@
       "visitDashboard": "访问控制面板",
       "paymentQuestion": "付款完成了吗？",
       "viewDetails": "查看详情"
+    },
+    "trial": {
+      "reminder": {
+        "title": "{siteName} Trial Reminder",
+        "message": "Your {siteName} trial period is ending soon. Subscribe now to keep enjoying all features."
+      },
+      "expired": {
+        "title": "{siteName} Trial Expired",
+        "message": "Your {siteName} trial period is expired. Subscribe now to keep enjoying all features."
+      }
     }
   },
   "header": {
@@ -57,7 +69,10 @@
   "languages": {
     "selectLanguage": "选择语言",
     "invalid": "语言无效",
-    "failed": "更改语言失败"
+    "failed": "更改语言失败",
+    "notAvailableTitle": "Language Selection Unavailable",
+    "notAvailableMessage": "Language preferences cannot be changed because functional cookies are disabled and you're not signed in. To change the language, you need to either:",
+    "enableCookies": "Enable functional cookies"
   },
   "home": {
     "visitor": {
@@ -65,7 +80,8 @@
         "badge": "免费使用，由个人托管。",
         "title": "追踪每项订阅，不错过任何付款。",
         "subtitle": "{appName} 将周期性费用集中在清晰的控制面板中，并在扣款前提醒您。",
-        "tagline": "免费使用，无需银行卡、无试用，也不推销升级。"
+        "tagline": "免费使用，无需银行卡、无试用，也不推销升级。",
+        "imageAlt": "Hero"
       },
       "features": {
         "title": "功能介绍",
@@ -112,22 +128,7 @@
         }
       },
       "free": {
-        "eyebrow": "免费",
-        "title": "免费，没有附加条件",
-        "description": "软件是开源的。此实例为无法自行运行的人提供托管。",
-        "price": "€0",
-        "period": "永久",
-        "features": {
-          "unlimited": "无限订阅",
-          "notifications": "电子邮件、推送、Webhook、ntfy、Discord 和 Slack 提醒",
-          "reports": "报告和支出洞察",
-          "export": "随时导出数据",
-          "noAds": "无广告、无追踪、无需付款信息",
-          "bestEffort": "尽力提供服务，不承诺正常运行时间"
-        },
-        "button": "登录",
-        "selfHostButton": "自行托管",
-        "selfHostNote": "更喜欢自己的服务器？使用 Docker 约十分钟即可运行同一软件。"
+        "features": {}
       }
     }
   },
@@ -366,6 +367,54 @@
           "success": "数据导出成功。",
           "error": "导出数据失败！"
         }
+      },
+      "subscriptionStatus": {
+        "title": "Subscription Status",
+        "description": "Your subscription status",
+        "trial": {
+          "active": "Your trial period ends <date></date>.",
+          "notification": {
+            "multipleDays": "We will notify you <highlight>1 day before</highlight> your trial ends.",
+            "lastDay": "We will notify you <highlight>when</highlight> your trial ends."
+          },
+          "ended": "Your trial period has ended!",
+          "subscribe": "Ready to continue with us?"
+        },
+        "subscription": {
+          "active": {
+            "scheduled": {
+              "pause": "Your subscription is <status>paused</status> and will stop <date></date>.",
+              "cancel": "Your subscription is <status>cancelled</status> and will stop <date></date>."
+            },
+            "nextPayment": "Your next payment is <date></date>.",
+            "notification": "We will notify you before your subscription ends."
+          },
+          "paused": {
+            "message": "Your subscription is currently paused.",
+            "button": "Resume Subscription"
+          },
+          "cancelled": {
+            "message": "Your subscription has been cancelled.",
+            "button": "Reactivate Subscription"
+          },
+          "pastDue": {
+            "message": "Your payment is past due. Please update your payment method."
+          },
+          "cancel": {
+            "button": "Cancel Subscription",
+            "dialog": {
+              "title": "Are you sure you want to cancel?",
+              "description": "This action will cancel your subscription at the end of the current billing period. You will continue to have access until then."
+            },
+            "confirmButton": "Confirm Cancellation"
+          }
+        },
+        "fullAccess": {
+          "message": "Congratulations! You have full access to all features."
+        },
+        "blocked": {
+          "message": "Weird! You are blocked from using our service."
+        }
       }
     },
     "edit": {
@@ -403,8 +452,7 @@
           "generic": "Weird！ We couldn't sign 您 in。 It might be 您r 电子邮件， 或 something went wrong on our end。",
           "invalidCode": "验证码似乎不正确，请核对 6 位数字后重试。",
           "somethingWrong": "出了点问题，请申请新的验证码后重试。",
-          "workspaceAccess": "抱歉，您无权访问此工作区。",
-          "rateLimited": "请求过于频繁，请稍等一分钟后重试。"
+          "workspaceAccess": "抱歉，您无权访问此工作区。"
         }
       }
     },
@@ -459,9 +507,10 @@
         "title": "Up日期s 至 本Policy",
         "description": "本page changes when software 或 deployment changes。 The 日期 at top 是current version。"
       },
-      "operator": {
-        "title": "运营者",
-        "description": "sub。idler。me 是operated by one person on 自行托管 infrastructure as a community service， 不a company。 There 是no 付款 processing 和no advertising。"
+      "operator": {},
+      "paymentProcessing": {
+        "title": "Payment Processing",
+        "description": "We use <paddle>Paddle.com</paddle> as our payment processing system. When you make a payment, your payment information is collected and processed directly by Paddle. We do not store your payment details on our servers. For information about how Paddle processes your data, please refer to <privacy>Paddle's Privacy Policy</privacy>."
       }
     },
     "reports": {
@@ -543,23 +592,68 @@
       "contactUs": {
         "description": "If 您 have any questions 或 concerns about these 服务条款， reach operat或 on Matrix from <link>contact page</link>。"
       },
-      "freeService": {
-        "title": "免费 Service， 没有Billing",
-        "paragraph1": "sub。idler。me 是free 至 use。 There 是no plans， no trials， no card fields， 和no refunds， because no money changes hands。",
-        "paragraph2": "The software 是open source under MIT license 使用 a Commons Clause。 You may self-host it。 本instance exists f或 people who can不或 would rather 不run their own。",
-        "paragraph3": "The service 是provided as 是和best eff或t。 There 是no up次 promise 和no guarantee that data survives a failure。 Exp或t 您r data regularly 和keep 您r own backups。"
+      "freeService": {},
+      "payment": {
+        "title": "Payment",
+        "paragraph1": "If you purchase a subscription to the Site, you agree to pay the applicable fees as indicated during the checkout process.",
+        "paragraph2": "We use <paddle>Paddle.com</paddle> as our payment service provider. By making a purchase, you also agree to Paddle's <terms>Terms of Service</terms>. Paddle processes all payments and handles the related customer service inquiries.",
+        "paragraph3": "Site process refunds according to our <refund>refund policy</refund>."
       }
     },
     "contact": {
-      "title": "联系",
       "description": "The fastest way 至 reach operat或 是Matrix。 M或e channels 是on way。",
-      "matrix": {
-        "label": "Message on Matrix",
-        "handle": "@nghialele：goon。li"
+      "matrix": {},
+      "moreChannels": {},
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "error": "Name must be at least 2 characters"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your@email.com",
+          "error": "Invalid email address"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us how we can help...",
+          "error": "Message must be at least 10 characters"
+        },
+        "submit": "Send Message",
+        "submitting": "Sending..."
       },
-      "moreChannels": {
-        "title": "M或e channels",
-        "note": "即将推出。"
+      "success": {
+        "title": "Thank You!",
+        "message1": "Your message has been sent successfully.",
+        "message2": "We'll get back to you..."
+      },
+      "toast": {
+        "success": "Your message has been sent successfully.",
+        "error": "Failed to send message! Please try again later.",
+        "spam": "An error occurred. Please try again later."
+      }
+    },
+    "pricing": {
+      "title": "Simple, transparent pricing",
+      "description": "Track and manage all your subscriptions with powerful features at an affordable price"
+    },
+    "refundPolicy": {
+      "lastUpdated": "Last updated January 17, 2025",
+      "introduction": "Bad refund policies are infuriating. You feel like the company is just trying to rip you off. We never want our customers to feel that way, so our refund policy is simple: If you're ever unhappy for any reason, just <link>contact us</link> and tell us what's up, and we'll work with you to make sure you're happy.",
+      "fullRefunds": {
+        "title": "Examples of full refunds",
+        "items": {
+          "charged": "If you were just charged for your next month of service but you meant to cancel, we're happy to refund that extra charge"
+        }
+      },
+      "partialRefunds": {
+        "title": "Examples of partial refunds",
+        "items": {
+          "week": "If you were charged for a month of service but you only used it for a week, we'll refund the difference",
+          "year": "If you were charged for a year of service but you only used it for a month, we'll refund the difference",
+          "weekDuplicate": "If you were charged for a month of service but you only used it for a week, we'll refund the difference"
+        }
       }
     }
   },
@@ -1129,6 +1223,72 @@
     },
     "searchBar": {
       "placeholder": "搜索。。。"
+    },
+    "cookieConsent": {
+      "title": "Cookie Preferences",
+      "description": "Please select which cookies you want to accept. Essential cookies cannot be disabled as they are required for the website to function.",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "Required for the website to function (authentication, security)."
+      },
+      "functional": {
+        "title": "Functional Cookies",
+        "description": "Enhance your experience (theme, language preferences)."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "Help us understand how visitors interact with our website."
+      },
+      "buttons": {
+        "savePreferences": "Save Preferences",
+        "acceptAll": "Accept All"
+      }
+    },
+    "modeToggle": {
+      "toggleTheme": "Toggle theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    },
+    "pricingTable": {
+      "enjoy": {
+        "title": "Enjoy",
+        "description": "Perfect for a hassle-free experience",
+        "period": "+tax/month",
+        "features": {
+          "unlimited": "Unlimited Subscriptions",
+          "notifications": "Email & Push Notifications",
+          "reports": "Reports & Insights",
+          "support": "Premium Support",
+          "firstMonth": "First Month Free",
+          "priority": "Priority Feature Requests"
+        },
+        "button": "Get Started"
+      },
+      "selfHosted": {
+        "title": "Self Hosted",
+        "description": "Perfect for self-hosters",
+        "price": "Free",
+        "period": "forever",
+        "features": {
+          "infrastructure": "Your Infrastructure",
+          "sourceCode": "Source Code Access",
+          "community": "Community Support"
+        },
+        "button": "View on GitHub"
+      }
+    },
+    "subscriptionGuard": {
+      "title": "Subscription Required",
+      "description": {
+        "trialExpired": "Your trial period has expired.",
+        "cancelled": "Your subscription has been cancelled.",
+        "pastDue": "Your payment is past due.",
+        "paused": "Your subscription has been paused.",
+        "default": "You need an active subscription to access this feature."
+      },
+      "message": "Please visit your account page to manage your subscription and continue using all features.",
+      "button": "Go to Account Settings"
     }
   }
 }

@@ -11,7 +11,9 @@
     "contact": "ติดต่อเรา",
     "signIn": "เข้าสู่ระบบ",
     "termsOfService": "ข้อกำหนดการใช้งาน",
-    "privacyPolicy": "นโยบายความเป็นส่วนตัว"
+    "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+    "pricing": "Pricing",
+    "refundPolicy": "Refund Policy"
   },
   "notifications": {
     "subscription": {
@@ -40,6 +42,16 @@
       "visitDashboard": "ไปที่แดชบอร์ด",
       "paymentQuestion": "ชำระเงินเรียบร้อยแล้วหรือยัง",
       "viewDetails": "ดูรายละเอียด"
+    },
+    "trial": {
+      "reminder": {
+        "title": "{siteName} Trial Reminder",
+        "message": "Your {siteName} trial period is ending soon. Subscribe now to keep enjoying all features."
+      },
+      "expired": {
+        "title": "{siteName} Trial Expired",
+        "message": "Your {siteName} trial period is expired. Subscribe now to keep enjoying all features."
+      }
     }
   },
   "header": {
@@ -57,7 +69,10 @@
   "languages": {
     "selectLanguage": "เลือกภาษา",
     "invalid": "ภาษาไม่ถูกต้อง",
-    "failed": "เปลี่ยนภาษาไม่สำเร็จ"
+    "failed": "เปลี่ยนภาษาไม่สำเร็จ",
+    "notAvailableTitle": "Language Selection Unavailable",
+    "notAvailableMessage": "Language preferences cannot be changed because functional cookies are disabled and you're not signed in. To change the language, you need to either:",
+    "enableCookies": "Enable functional cookies"
   },
   "home": {
     "visitor": {
@@ -65,7 +80,8 @@
         "badge": "ฟรี ไปยัง use. Hosted by one person.",
         "title": "Track ทุก การสมัครสมาชิก. Miss ไม่ การชำระเงิน.",
         "subtitle": "รายละเอียด {appName} keeps recurring charges in one readable dashboard and reminds you before they hit.",
-        "tagline": "ฟรี ไปยัง use. ไม่ card, ไม่ ทดลองใช้, ไม่ upsell."
+        "tagline": "ฟรี ไปยัง use. ไม่ card, ไม่ ทดลองใช้, ไม่ upsell.",
+        "imageAlt": "Hero"
       },
       "features": {
         "title": "สิ่งที่ทำได้",
@@ -112,22 +128,7 @@
         }
       },
       "free": {
-        "eyebrow": "ฟรี",
-        "title": "ฟรี, พร้อม ไม่ catch",
-        "description": "software คือ open แหล่งที่มา. นี้ instance คือ hosted สำหรับ people who ไม่สามารถ run their own.",
-        "price": "€0",
-        "period": "ตลอดไป",
-        "features": {
-          "unlimited": "Unlimited การสมัครสมาชิก",
-          "notifications": "อีเมล, push, เว็บฮุก, ntfy, Discหรือd, และ Slack reminders",
-          "reports": "รายงาน และ spending insights",
-          "export": "ส่งออกข้อมูลได้ทุกเมื่อ",
-          "noAds": "ไม่ ads, ไม่ tracking, ไม่ การชำระเงิน รายละเอียด",
-          "bestEffort": "Best efสำหรับt, ไม่ uptime promise"
-        },
-        "button": "เข้าสู่ระบบ",
-        "selfHostButton": "โฮสต์เอง",
-        "selfHostNote": "Prefer ของคุณ own server? same software runs พร้อม Docker ใน เกี่ยวกับ ten minutes."
+        "features": {}
       }
     }
   },
@@ -366,6 +367,54 @@
           "success": "ข้อมูล expหรือted สำเร็จ.",
           "error": "ไม่สามารถ expหรือt ข้อมูล!"
         }
+      },
+      "subscriptionStatus": {
+        "title": "Subscription Status",
+        "description": "Your subscription status",
+        "trial": {
+          "active": "Your trial period ends <date></date>.",
+          "notification": {
+            "multipleDays": "We will notify you <highlight>1 day before</highlight> your trial ends.",
+            "lastDay": "We will notify you <highlight>when</highlight> your trial ends."
+          },
+          "ended": "Your trial period has ended!",
+          "subscribe": "Ready to continue with us?"
+        },
+        "subscription": {
+          "active": {
+            "scheduled": {
+              "pause": "Your subscription is <status>paused</status> and will stop <date></date>.",
+              "cancel": "Your subscription is <status>cancelled</status> and will stop <date></date>."
+            },
+            "nextPayment": "Your next payment is <date></date>.",
+            "notification": "We will notify you before your subscription ends."
+          },
+          "paused": {
+            "message": "Your subscription is currently paused.",
+            "button": "Resume Subscription"
+          },
+          "cancelled": {
+            "message": "Your subscription has been cancelled.",
+            "button": "Reactivate Subscription"
+          },
+          "pastDue": {
+            "message": "Your payment is past due. Please update your payment method."
+          },
+          "cancel": {
+            "button": "Cancel Subscription",
+            "dialog": {
+              "title": "Are you sure you want to cancel?",
+              "description": "This action will cancel your subscription at the end of the current billing period. You will continue to have access until then."
+            },
+            "confirmButton": "Confirm Cancellation"
+          }
+        },
+        "fullAccess": {
+          "message": "Congratulations! You have full access to all features."
+        },
+        "blocked": {
+          "message": "Weird! You are blocked from using our service."
+        }
       }
     },
     "edit": {
@@ -403,8 +452,7 @@
           "generic": "เข้าสู่ระบบไม่สำเร็จ อาจเกิดจากอีเมลของคุณหรือข้อผิดพลาดทางระบบ",
           "invalidCode": "รหัสไม่ถูกต้อง โปรดตรวจสอบรหัส 6 หลักแล้วลองอีกครั้ง",
           "somethingWrong": "เกิดข้อผิดพลาด โปรดขอรหัสใหม่แล้วลองอีกครั้ง",
-          "workspaceAccess": "ขออภัย คุณไม่มีสิทธิ์เข้าถึงพื้นที่ทำงานนี้",
-          "rateLimited": "มีคำขอมากเกินไป โปรดรอสักครู่แล้วลองอีกครั้ง"
+          "workspaceAccess": "ขออภัย คุณไม่มีสิทธิ์เข้าถึงพื้นที่ทำงานนี้"
         }
       }
     },
@@ -459,9 +507,10 @@
         "title": "Updates ไปยัง นี้ Policy",
         "description": "นี้ page changes when software หรือ deployment changes. วันที่ at top คือ ปัจจุบัน version."
       },
-      "operator": {
-        "title": "Who Runs นี้",
-        "description": "sub.idler.me คือ operated by one person ใน self-hosted infrastructure as a community บริการ, ไม่ a company. There คือ ไม่ การชำระเงิน processing และ ไม่ advertising."
+      "operator": {},
+      "paymentProcessing": {
+        "title": "Payment Processing",
+        "description": "We use <paddle>Paddle.com</paddle> as our payment processing system. When you make a payment, your payment information is collected and processed directly by Paddle. We do not store your payment details on our servers. For information about how Paddle processes your data, please refer to <privacy>Paddle's Privacy Policy</privacy>."
       }
     },
     "reports": {
@@ -543,23 +592,68 @@
       "contactUs": {
         "description": "If คุณ have any questions หรือ concerns เกี่ยวกับ these ข้อกำหนดการใช้งาน, reach operatหรือ ใน Matrix จาก <link>contact page</link>."
       },
-      "freeService": {
-        "title": "ฟรี บริการ, ไม่ Billing",
-        "paragraph1": "sub.idler.me คือ ฟรี ไปยัง use. There เป็น ไม่ plans, ไม่ trials, ไม่ card fields, และ ไม่ refunds, because ไม่ money changes hands.",
-        "paragraph2": "software คือ open แหล่งที่มา under MIT license พร้อม a Commons Clause. คุณ may self-host it. นี้ instance exists สำหรับ people who ไม่สามารถ หรือ would rather ไม่ run their own.",
-        "paragraph3": "บริการ คือ provided as คือ และ best efสำหรับt. There คือ ไม่ uptime promise และ ไม่ guarantee that ข้อมูล survives a failure. Expหรือt ของคุณ ข้อมูล regularly และ keep ของคุณ own backups."
+      "freeService": {},
+      "payment": {
+        "title": "Payment",
+        "paragraph1": "If you purchase a subscription to the Site, you agree to pay the applicable fees as indicated during the checkout process.",
+        "paragraph2": "We use <paddle>Paddle.com</paddle> as our payment service provider. By making a purchase, you also agree to Paddle's <terms>Terms of Service</terms>. Paddle processes all payments and handles the related customer service inquiries.",
+        "paragraph3": "Site process refunds according to our <refund>refund policy</refund>."
       }
     },
     "contact": {
-      "title": "รายละเอียด Contact",
       "description": "fastest way ไปยัง reach operatหรือ คือ Matrix. Mหรือe channels เป็น ใน way.",
-      "matrix": {
-        "label": "Message ใน Matrix",
-        "handle": "@nghialele:goon.li"
+      "matrix": {},
+      "moreChannels": {},
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "error": "Name must be at least 2 characters"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your@email.com",
+          "error": "Invalid email address"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us how we can help...",
+          "error": "Message must be at least 10 characters"
+        },
+        "submit": "Send Message",
+        "submitting": "Sending..."
       },
-      "moreChannels": {
-        "title": "Mหรือe channels",
-        "note": "Coming เร็ว ๆ นี้."
+      "success": {
+        "title": "Thank You!",
+        "message1": "Your message has been sent successfully.",
+        "message2": "We'll get back to you..."
+      },
+      "toast": {
+        "success": "Your message has been sent successfully.",
+        "error": "Failed to send message! Please try again later.",
+        "spam": "An error occurred. Please try again later."
+      }
+    },
+    "pricing": {
+      "title": "Simple, transparent pricing",
+      "description": "Track and manage all your subscriptions with powerful features at an affordable price"
+    },
+    "refundPolicy": {
+      "lastUpdated": "Last updated January 17, 2025",
+      "introduction": "Bad refund policies are infuriating. You feel like the company is just trying to rip you off. We never want our customers to feel that way, so our refund policy is simple: If you're ever unhappy for any reason, just <link>contact us</link> and tell us what's up, and we'll work with you to make sure you're happy.",
+      "fullRefunds": {
+        "title": "Examples of full refunds",
+        "items": {
+          "charged": "If you were just charged for your next month of service but you meant to cancel, we're happy to refund that extra charge"
+        }
+      },
+      "partialRefunds": {
+        "title": "Examples of partial refunds",
+        "items": {
+          "week": "If you were charged for a month of service but you only used it for a week, we'll refund the difference",
+          "year": "If you were charged for a year of service but you only used it for a month, we'll refund the difference",
+          "weekDuplicate": "If you were charged for a month of service but you only used it for a week, we'll refund the difference"
+        }
       }
     }
   },
@@ -1129,6 +1223,72 @@
     },
     "searchBar": {
       "placeholder": "ค้นหา..."
+    },
+    "cookieConsent": {
+      "title": "Cookie Preferences",
+      "description": "Please select which cookies you want to accept. Essential cookies cannot be disabled as they are required for the website to function.",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "Required for the website to function (authentication, security)."
+      },
+      "functional": {
+        "title": "Functional Cookies",
+        "description": "Enhance your experience (theme, language preferences)."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "Help us understand how visitors interact with our website."
+      },
+      "buttons": {
+        "savePreferences": "Save Preferences",
+        "acceptAll": "Accept All"
+      }
+    },
+    "modeToggle": {
+      "toggleTheme": "Toggle theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    },
+    "pricingTable": {
+      "enjoy": {
+        "title": "Enjoy",
+        "description": "Perfect for a hassle-free experience",
+        "period": "+tax/month",
+        "features": {
+          "unlimited": "Unlimited Subscriptions",
+          "notifications": "Email & Push Notifications",
+          "reports": "Reports & Insights",
+          "support": "Premium Support",
+          "firstMonth": "First Month Free",
+          "priority": "Priority Feature Requests"
+        },
+        "button": "Get Started"
+      },
+      "selfHosted": {
+        "title": "Self Hosted",
+        "description": "Perfect for self-hosters",
+        "price": "Free",
+        "period": "forever",
+        "features": {
+          "infrastructure": "Your Infrastructure",
+          "sourceCode": "Source Code Access",
+          "community": "Community Support"
+        },
+        "button": "View on GitHub"
+      }
+    },
+    "subscriptionGuard": {
+      "title": "Subscription Required",
+      "description": {
+        "trialExpired": "Your trial period has expired.",
+        "cancelled": "Your subscription has been cancelled.",
+        "pastDue": "Your payment is past due.",
+        "paused": "Your subscription has been paused.",
+        "default": "You need an active subscription to access this feature."
+      },
+      "message": "Please visit your account page to manage your subscription and continue using all features.",
+      "button": "Go to Account Settings"
     }
   }
 }

@@ -11,7 +11,9 @@
     "contact": "Contate-nos",
     "signIn": "Entrar",
     "termsOfService": "Termos de Serviço",
-    "privacyPolicy": "política de Privacidade"
+    "privacyPolicy": "política de Privacidade",
+    "pricing": "Pricing",
+    "refundPolicy": "Refund Policy"
   },
   "notifications": {
     "subscription": {
@@ -40,6 +42,16 @@
       "visitDashboard": "Visite o painel",
       "paymentQuestion": "Terminou o pagamento?",
       "viewDetails": "Ver detalhes"
+    },
+    "trial": {
+      "reminder": {
+        "title": "{siteName} Trial Reminder",
+        "message": "Your {siteName} trial period is ending soon. Subscribe now to keep enjoying all features."
+      },
+      "expired": {
+        "title": "{siteName} Trial Expired",
+        "message": "Your {siteName} trial period is expired. Subscribe now to keep enjoying all features."
+      }
     }
   },
   "header": {
@@ -57,7 +69,10 @@
   "languages": {
     "selectLanguage": "Selecione o idioma",
     "invalid": "Idioma inválido",
-    "failed": "Falha ao alterar o idioma"
+    "failed": "Falha ao alterar o idioma",
+    "notAvailableTitle": "Language Selection Unavailable",
+    "notAvailableMessage": "Language preferences cannot be changed because functional cookies are disabled and you're not signed in. To change the language, you need to either:",
+    "enableCookies": "Enable functional cookies"
   },
   "home": {
     "visitor": {
@@ -65,7 +80,8 @@
         "badge": "Grátis para usar. Hospedado por uma pessoa.",
         "title": "Acompanhe cada assinatura. Não perca nenhum pagamento.",
         "subtitle": "{appName}mantém cobranças recorrentes em um painel legível e lembra você antes que elas cheguem.",
-        "tagline": "Grátis para usar. Sem cartão, sem teste, sem upsell."
+        "tagline": "Grátis para usar. Sem cartão, sem teste, sem upsell.",
+        "imageAlt": "Hero"
       },
       "features": {
         "title": "O que isso faz",
@@ -112,22 +128,7 @@
         }
       },
       "free": {
-        "eyebrow": "Livre",
-        "title": "Grátis, sem pegadinhas",
-        "description": "O software é de código aberto. Esta instância está hospedada para pessoas que não podem administrar a sua própria.",
-        "price": "0€",
-        "period": "para sempre",
-        "features": {
-          "unlimited": "Assinaturas ilimitadas",
-          "notifications": "Lembretes por e-mail, push, webhook, ntfy, Discord e Slack",
-          "reports": "Relatórios e insights de gastos",
-          "export": "Exporte seus dados a qualquer momento",
-          "noAds": "Sem anúncios, sem rastreamento, sem detalhes de pagamento",
-          "bestEffort": "Melhor esforço, sem promessa de tempo de atividade"
-        },
-        "button": "Entrar",
-        "selfHostButton": "Auto-hospedar",
-        "selfHostNote": "Prefere seu próprio servidor? O mesmo software é executado com o Docker em cerca de dez minutos."
+        "features": {}
       }
     }
   },
@@ -366,6 +367,54 @@
           "success": "Data exported successfully.",
           "error": "Failed to export data!"
         }
+      },
+      "subscriptionStatus": {
+        "title": "Subscription Status",
+        "description": "Your subscription status",
+        "trial": {
+          "active": "Your trial period ends <date></date>.",
+          "notification": {
+            "multipleDays": "We will notify you <highlight>1 day before</highlight> your trial ends.",
+            "lastDay": "We will notify you <highlight>when</highlight> your trial ends."
+          },
+          "ended": "Your trial period has ended!",
+          "subscribe": "Ready to continue with us?"
+        },
+        "subscription": {
+          "active": {
+            "scheduled": {
+              "pause": "Your subscription is <status>paused</status> and will stop <date></date>.",
+              "cancel": "Your subscription is <status>cancelled</status> and will stop <date></date>."
+            },
+            "nextPayment": "Your next payment is <date></date>.",
+            "notification": "We will notify you before your subscription ends."
+          },
+          "paused": {
+            "message": "Your subscription is currently paused.",
+            "button": "Resume Subscription"
+          },
+          "cancelled": {
+            "message": "Your subscription has been cancelled.",
+            "button": "Reactivate Subscription"
+          },
+          "pastDue": {
+            "message": "Your payment is past due. Please update your payment method."
+          },
+          "cancel": {
+            "button": "Cancel Subscription",
+            "dialog": {
+              "title": "Are you sure you want to cancel?",
+              "description": "This action will cancel your subscription at the end of the current billing period. You will continue to have access until then."
+            },
+            "confirmButton": "Confirm Cancellation"
+          }
+        },
+        "fullAccess": {
+          "message": "Congratulations! You have full access to all features."
+        },
+        "blocked": {
+          "message": "Weird! You are blocked from using our service."
+        }
       }
     },
     "edit": {
@@ -403,8 +452,7 @@
           "generic": "Weird! We couldn't sign you in. It might be your email, or something went wrong on our end.",
           "invalidCode": "O código parece incorreto. Confira os 6 dígitos e tente novamente.",
           "somethingWrong": "Something went wrong. Please request a new code and try again.",
-          "workspaceAccess": "Sorry, you do not have access to this workspace.",
-          "rateLimited": "Too many requests. Wait a minute and try again."
+          "workspaceAccess": "Sorry, you do not have access to this workspace."
         }
       }
     },
@@ -459,9 +507,10 @@
         "title": "Updates to This Policy",
         "description": "This page changes when the software or the deployment changes. The date at the top is the current version."
       },
-      "operator": {
-        "title": "Who Runs This",
-        "description": "sub.idler.me is operated by one person on self-hosted infrastructure as a community service, not a company. There is no payment processing and no advertising."
+      "operator": {},
+      "paymentProcessing": {
+        "title": "Payment Processing",
+        "description": "We use <paddle>Paddle.com</paddle> as our payment processing system. When you make a payment, your payment information is collected and processed directly by Paddle. We do not store your payment details on our servers. For information about how Paddle processes your data, please refer to <privacy>Paddle's Privacy Policy</privacy>."
       }
     },
     "reports": {
@@ -543,23 +592,68 @@
       "contactUs": {
         "description": "If you have any questions or concerns about these Terms of Service, reach the operator on Matrix from the <link>contact page</link>."
       },
-      "freeService": {
-        "title": "Free Service, No Billing",
-        "paragraph1": "sub.idler.me is free to use. There are no plans, no trials, no card fields, and no refunds, because no money changes hands.",
-        "paragraph2": "The software is open source under the MIT license with a Commons Clause. You may self-host it. This instance exists for people who cannot or would rather not run their own.",
-        "paragraph3": "The service is provided as is and best effort. There is no uptime promise and no guarantee that data survives a failure. Export your data regularly and keep your own backups."
+      "freeService": {},
+      "payment": {
+        "title": "Payment",
+        "paragraph1": "If you purchase a subscription to the Site, you agree to pay the applicable fees as indicated during the checkout process.",
+        "paragraph2": "We use <paddle>Paddle.com</paddle> as our payment service provider. By making a purchase, you also agree to Paddle's <terms>Terms of Service</terms>. Paddle processes all payments and handles the related customer service inquiries.",
+        "paragraph3": "Site process refunds according to our <refund>refund policy</refund>."
       }
     },
     "contact": {
-      "title": "Contact",
       "description": "A forma mais rápida de contatar o responsável é pelo Matrix. Outros canais estão a caminho.",
-      "matrix": {
-        "label": "Message on Matrix",
-        "handle": "@nghialele:goon.li"
+      "matrix": {},
+      "moreChannels": {},
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "error": "Name must be at least 2 characters"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your@email.com",
+          "error": "Invalid email address"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us how we can help...",
+          "error": "Message must be at least 10 characters"
+        },
+        "submit": "Send Message",
+        "submitting": "Sending..."
       },
-      "moreChannels": {
-        "title": "More channels",
-        "note": "Coming soon."
+      "success": {
+        "title": "Thank You!",
+        "message1": "Your message has been sent successfully.",
+        "message2": "We'll get back to you..."
+      },
+      "toast": {
+        "success": "Your message has been sent successfully.",
+        "error": "Failed to send message! Please try again later.",
+        "spam": "An error occurred. Please try again later."
+      }
+    },
+    "pricing": {
+      "title": "Simple, transparent pricing",
+      "description": "Track and manage all your subscriptions with powerful features at an affordable price"
+    },
+    "refundPolicy": {
+      "lastUpdated": "Last updated January 17, 2025",
+      "introduction": "Bad refund policies are infuriating. You feel like the company is just trying to rip you off. We never want our customers to feel that way, so our refund policy is simple: If you're ever unhappy for any reason, just <link>contact us</link> and tell us what's up, and we'll work with you to make sure you're happy.",
+      "fullRefunds": {
+        "title": "Examples of full refunds",
+        "items": {
+          "charged": "If you were just charged for your next month of service but you meant to cancel, we're happy to refund that extra charge"
+        }
+      },
+      "partialRefunds": {
+        "title": "Examples of partial refunds",
+        "items": {
+          "week": "If you were charged for a month of service but you only used it for a week, we'll refund the difference",
+          "year": "If you were charged for a year of service but you only used it for a month, we'll refund the difference",
+          "weekDuplicate": "If you were charged for a month of service but you only used it for a week, we'll refund the difference"
+        }
       }
     }
   },
@@ -1129,6 +1223,72 @@
     },
     "searchBar": {
       "placeholder": "Search..."
+    },
+    "cookieConsent": {
+      "title": "Cookie Preferences",
+      "description": "Please select which cookies you want to accept. Essential cookies cannot be disabled as they are required for the website to function.",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "Required for the website to function (authentication, security)."
+      },
+      "functional": {
+        "title": "Functional Cookies",
+        "description": "Enhance your experience (theme, language preferences)."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "Help us understand how visitors interact with our website."
+      },
+      "buttons": {
+        "savePreferences": "Save Preferences",
+        "acceptAll": "Accept All"
+      }
+    },
+    "modeToggle": {
+      "toggleTheme": "Toggle theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    },
+    "pricingTable": {
+      "enjoy": {
+        "title": "Enjoy",
+        "description": "Perfect for a hassle-free experience",
+        "period": "+tax/month",
+        "features": {
+          "unlimited": "Unlimited Subscriptions",
+          "notifications": "Email & Push Notifications",
+          "reports": "Reports & Insights",
+          "support": "Premium Support",
+          "firstMonth": "First Month Free",
+          "priority": "Priority Feature Requests"
+        },
+        "button": "Get Started"
+      },
+      "selfHosted": {
+        "title": "Self Hosted",
+        "description": "Perfect for self-hosters",
+        "price": "Free",
+        "period": "forever",
+        "features": {
+          "infrastructure": "Your Infrastructure",
+          "sourceCode": "Source Code Access",
+          "community": "Community Support"
+        },
+        "button": "View on GitHub"
+      }
+    },
+    "subscriptionGuard": {
+      "title": "Subscription Required",
+      "description": {
+        "trialExpired": "Your trial period has expired.",
+        "cancelled": "Your subscription has been cancelled.",
+        "pastDue": "Your payment is past due.",
+        "paused": "Your subscription has been paused.",
+        "default": "You need an active subscription to access this feature."
+      },
+      "message": "Please visit your account page to manage your subscription and continue using all features.",
+      "button": "Go to Account Settings"
     }
   }
 }
